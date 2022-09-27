@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+body{
+  background: #232333;
+  color: #cbcbe2;
+}
+
+footer{
+  color: #cbcbe2;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 100px;
+}
+
+.btnDcto{
+  background-color: #9BCB3B;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-weight: 700;
+  border: #9BCB3B solid 2px;
+  color: #191924;
+  font-size: 16px;
+}
+
+.correoUsuario{
+  font-size: 16px;
+}
+
+.celulcar{
+  border: none;
+  background: transparent;
+  border-bottom: solid #cbcbe2 1px;
+  color: #cbcbe2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.celulcar::placeholder{
+  color: #cbcbe2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+.botonIrAPagar{
+  background: #9BCB3B;
+    color: #232333;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 7px 10px;
+    text-decoration: none;
+    width: 100%;    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    display: block;
+    border: #9BCB3B solid 2px;
+    border-radius: 7px;
+}
+
+.botonIrAPagar:hover{
+    background-color: #232333;
+    color: #9BCB3B;
+    border: solid #9BCB3B 1px;
+}
+
+
+.container {
+  max-width: 960px;
+}
+
+.DatosContainer{
+  margin-top: 20px;
+}
+
+.separadorContainer{
+  margin-top: 40px;
+}
+
+.contratos{
+  color: #cbcbe2;
+}
+
+.fondoLista{
+  background-color: #191924;
+  color: #cbcbe2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fondoLista1{
+  background-color: #191924;
+  color: #cbcbe2;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.fondoLista2{
+  background-color: #191924;
+  color: #cbcbe2;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+
+.text-verde{
+  color: #9BCB3B;
+}
+
+
+.contratos:hover{
+  color: #9BCB3B;
+}
+
+.payU{
+  margin-top: 15px;
+  text-align: left;
+}
+
+.img-payU{
+  margin-top: -10px;
+}
