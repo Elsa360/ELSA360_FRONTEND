@@ -292,6 +292,57 @@
 
 
 
+.botones-abdominal{
+  text-align: center;
+}
+
+
+.abdominal{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.botones-completa{
+  text-align: center;
+}
+
+.completa{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+.preguntasPsico{
+  color: #9BCB3B;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-psico1{
+  text-align: right;
+}
+
+
+
+
+@media screen and (max-width:1200px){
+  .btn-psico1{
+    text-align: center;
+  }
+}
+
+
+
 
 
 
