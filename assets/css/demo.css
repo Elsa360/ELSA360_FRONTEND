@@ -292,12 +292,86 @@
 
 
 
+.botones-abdominal{
+  text-align: center;
+}
+
+
+.abdominal{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.botones-completa{
+  text-align: center;
+}
+
+.completa{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
 
 
 
 
 
 
+
+
+.preguntasPsico{
+  color: #9BCB3B;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-psico1{
+  text-align: right;
+}
+
+.textTestPsico{
+  text-align: justify;
+}
+
+
+
+@media screen and (max-width:1200px){
+  .btn-psico1{
+    text-align: center;
+  }
+}
+
+
+
+
+.promedioSemBorg{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.TextDatoBorg{
+  font-size: 10px;
+}
+
+
+.datoBorg{
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+.tituloPagina{
+  text-align: center;
+}
+
+
+.promBorg{
+  text-align: right;
+  margin-bottom: 20px;
+}
 
 
 
