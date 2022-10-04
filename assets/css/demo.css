@@ -332,6 +332,9 @@
   text-align: right;
 }
 
+.textTestPsico{
+  text-align: justify;
+}
 
 
 
@@ -344,11 +347,31 @@
 
 
 
+.promedioSemBorg{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.TextDatoBorg{
+  font-size: 10px;
+}
 
 
+.datoBorg{
+  font-size: 25px;
+  font-weight: 700;
+}
 
 
+.tituloPagina{
+  text-align: center;
+}
 
+
+.promBorg{
+  text-align: right;
+  margin-bottom: 20px;
+}
 
 
 

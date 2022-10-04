@@ -246,7 +246,7 @@
 
                         <div class="col-sm-6">
                           <div class="slidecontainer">
-                            <h4 class="form-label">¿Cuál es tu peso deseado?</h4>
+                            <h4 class="form-label">¿Cuál es tu peso deseado? <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalPesoSaludable"><i class='bx bx-info-circle'></i></button></h4>
                             <input type="range" min="" max="" value="" class="slider" id="pesoDeseado" step="0.1">
                           </div>            
 
@@ -724,7 +724,7 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
                           </button>
-                          <button class="btn btn-success btn-submit btn-next" style="font-weight: 600;">Enviar datos</button>
+                          <button type="button" class="btn btn-success btn-submit btn-next" style="font-weight: 600;">Enviar datos</button>
                         </div>
                       </div>
                     </div>
@@ -736,6 +736,75 @@
               <!--/ Property Listing Wizard -->
             </div>
             <!-- / Content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-lg-4 col-md-6">
+              <div class="mt-3">
+                <!-- Button trigger modal -->
+                
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalPesoSaludable" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalCenterTitle">Rango de peso saludable</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+
+                      <div class="modal-body text-center">
+                        <div class="row">
+                          <div class="col mb-3">
+                            <p>
+                              Según investigaciones, debes mantener tu IMC entre 18,5 y 24,5 para que tener un peso saludable sin entrar en sobrepeso o estar baj@ de peso.  <br>
+                              
+                             Si multiplicas estos números por tu estatura al cuadrado, obtendrás los límites inferior y superior de tu peso saludable. <br><br>
+
+                             <span class="concepto"> Peso <small>(Kg)</small> = IMC x Estatura<sup>2</sup> <small>(mts)</small> </span> <br><br>
+
+                             En ELSA creemos que es conveniente tener un rango de seguridad para no llegar al límite de ninguno de los dos lados, por eso, sugerimos manejar los límites de tu peso saludable entre un  
+                             <span class="concepto">IMC de 19,5 y 23,9</span> 
+                            </p>
+
+                            
+
+
+
+                          </div>
+                        </div>
+                        
+                      </div>
+ 
+ 
+ 
+ 
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 

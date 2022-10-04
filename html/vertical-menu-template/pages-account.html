@@ -191,29 +191,29 @@
             </li>
 
             <!-- Pedagogia -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="pages-pedagogia.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-book"></i>
                 <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
               </a>
-            </li>
+            </li> -->
 
             <!-- Rutas -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="pages-Rutas.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-directions"></i>
                 <div data-i18n="Rutas">Rutas</div>
               </a>
-            </li>
+            </li> -->
 
 
             <!-- Eventos -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="pages-Eventos&Fondos.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
                 <div data-i18n="Eventos y fondos">Eventos y fondos</div>
               </a>
-            </li>
+            </li> -->
 
 
             <!-- Divisor -->
@@ -223,7 +223,7 @@
 
 
             <!-- Perfil -->
-            <li class="menu-item  active">
+            <li class="menu-item active">
               <a href="pages-account.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Perfil">Perfil</div>
@@ -240,9 +240,24 @@
             </li>
 
 
+               
+
+
+            <!-- Help -->
+            <!-- <li class="menu-item">
+              <a href="pages-help-center-landing.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-support"></i>
+                <div data-i18n="Ayuda">Ayuda</div>
+              </a>
+            </li> -->
+
+
+            <!-- Divisor -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
+
             <!-- Contacto -->
             <li class="menu-item">
-              <a href="contactanos.html" class="menu-link">
+              <a href="pages-contactanos.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-contact"></i>
                 <div data-i18n="Contacto">Contacto</div>
               </a>
@@ -255,24 +270,12 @@
                 <i class="menu-icon tf-icons bx bx-help-circle"></i>
                 <div data-i18n="FAQ">FAQ</div>
               </a>
-            </li>    
-
-
-            <!-- Help -->
-            <li class="menu-item">
-              <a href="pages-help-center-landing.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Ayuda">Ayuda</div>
-              </a>
-            </li>
-
-
-            <!-- Divisor -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
+            </li> 
+            
 
             <!-- Terminos y condiciones-->
             <li class="menu-item">
-              <a href="pages-Terminos .html" class="menu-link">
+              <a href="pages-Terminos.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-info-circle"></i>
                 <div data-i18n="Términos y condiciones">Términos y condiciones</div>
               </a>
@@ -833,12 +836,12 @@
 
 
 
-                    <li>
+                    <!-- <li>
                       <a class="dropdown-item" href="pages-help-center-landing.html">
                         <i class="bx bx-support me-2"></i>
                         <span class="align-middle">Ayuda</span>
                       </a>
-                    </li>
+                    </li> -->
 
 
 
@@ -950,11 +953,11 @@
                         ><i class="bx bx-detail me-1"></i> Planes</a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" href="pages-account-notifications.html"
                         ><i class="bx bx-bell me-1"></i> Notificaciones</a
                       >
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a class="nav-link" href="pages-account-connections.html"
                         ><i class="bx bx-transfer-alt me-1"></i> Conexiones</a
@@ -964,7 +967,7 @@
 
 
 
-                  <div class="card mb-4">
+                  <div class="card mb-6">
                     <h5 class="card-header">Detalles del perfil</h5>
 
 
@@ -1275,11 +1278,6 @@
                                   
                               </div>
                               </div>
-                                
-
-
-
-
 
 
 
@@ -1295,14 +1293,69 @@
                     </div>
 
 
-
-
-
-
-
                     <!-- /Account -->
                   </div>
-                  <div class="card">
+
+
+
+
+
+
+
+
+
+                  <div class="card accordion-item mb-5 mt-4">
+                    <h1 class="accordion-header" id="headingOne">
+                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionOne" aria-expanded="flase" aria-controls="accordionOne"> 
+                        <span class="badge bg-label-warning" style="font-size: 14px; margin-left: 5px;">Desactivar cuenta</span> 
+                      </button>
+                    </h1>
+
+                    <div id="accordionOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="mb-3 col-12 mb-0">
+                          <div class="alert alert-warning">
+                            <h6 class="alert-heading fw-bold mb-3">Estas segur@ de querer desactivar tu cuenta?</h6>
+                            <p class="mb-0">Una vez que desactives tu cuenta , no hay vuelta a tras. Debes estar segur@.</p>
+                          </div>
+                        </div>
+  
+  
+                        <form id="formAccountDeactivation" onsubmit="return false">
+                          <div class="form-check mb-3">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="accountActivation"
+                              id="accountActivation"
+                            />
+                            <label class="form-check-label" for="accountActivation"
+                              >Confirmo que quiero desactivar mi cuenta</label
+                            >
+                          </div>
+                          <button type="submit" class="btn btn-danger deactivate-account">Desactivar tu cuenta</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <!-- <div class="card">
                     <h5 class="card-header">Desactivar cuenta</h5>
 
                     <div class="card-body">
@@ -1331,7 +1384,7 @@
 
 
                     </div>
-                  </div>
+                  </div> -->
 
 
 
