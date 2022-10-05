@@ -55,7 +55,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body onload="usuarioVerificado()">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -298,7 +298,7 @@
 
                         <div class="col-sm-6">
                           <label class="form-label" for="plEmail">Fecha de nacimiento</label>
-                          <input type="date" class="form-control" name="FechaNacimiento"> 
+                          <input type="date" class="form-control" name="FechaNacimiento" id="fechaNacimiento"> 
                         </div>
 
                         <div class="col-sm-6">
@@ -724,7 +724,7 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
                           </button>
-                          <button type="button" class="btn btn-success btn-submit btn-next" style="font-weight: 600;">Enviar datos</button>
+                          <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos" onclick="registrarPerfilUsuario()" />
                         </div>
                       </div>
                     </div>
@@ -897,6 +897,7 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="../../JS/calculosPsicologia.js"></script>
     <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
     <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
     <script src="../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>

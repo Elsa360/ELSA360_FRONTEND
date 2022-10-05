@@ -84,13 +84,13 @@
               <h4 class="mb-2">Inicia tu sesión de entreno</h4>
               <!-- <p class="mb-4">Please sign-in to your account and start the adventure</p> -->
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
+                    id="emailLogin"
                     name="email-username"
                     placeholder="Ingresa tu email"
                     autofocus
@@ -108,7 +108,7 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      id="password"
+                      id="passwordLogin"
                       class="form-control"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -125,7 +125,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-success d-grid w-100" style="color: #2b2c40; font-weight: 600;" type="submit">Iniciar sesión</button>
+                  <input class="btn btn-success d-grid w-100" style="color: #2b2c40; font-weight: 600;" type="button" value="Iniciar sesión" onclick="loginUser()" />
                 </div>
               </form>
 
@@ -172,6 +172,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../JS/calculosPsicologia.js"></script>
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
