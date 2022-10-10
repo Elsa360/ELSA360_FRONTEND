@@ -1,198 +1,549 @@
 function registro() {
     try {
-        var nombreCompleto = document.getElementById("singUpNombreCompleto").value;
-        var email = document.getElementById("singUpEmail").value;
-        var password = document.getElementById("singUpContra").value;
-        var confirmPassword = document.getElementById("singUpConfirmContra").value;
-        if (password === confirmPassword) {
-            console.log("Nombre: ", nombreCompleto);
-            console.log("Email: ", email);
-            console.log("Password: ", password);
-            console.log("REGISTRO EXITOSO...");
-            enviarEmailVerificacion();
+        if (document.getElementById("terms-conditions").checked === true) {
+            // fetch('https://www.elsa360.com/usuario/crear', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //         emailUsuario: document.getElementById("email").value,
+            //         nombreUsuario: document.getElementById("username").value,
+            //         passwordUsuario: document.getElementById("password").value,
+            //         idRol: 4,
+            //         PC: '00.00.00.00'
+            //     }),
+            //     headers: {
+            //         'Content-type': 'application/json; charset=UTF-8',
+            //     },
+            // })
+            //     .then((response) => response.json())
+            //     .then((json) => console.log(json));
+
+            // fetch('https://www.elsa360.com/email/verificacion', {
+            //     method: 'GET',
+            //     body: JSON.stringify({
+            //         emailUsuario: document.getElementById("email").value,
+            //     }),
+            //     headers: {
+            //         'Content-type': 'application/json; charset=UTF-8',
+            //     },
+            // })
+            //     .then((response) => response.json())
+            //     .then((json) => console.log(json));
+            window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
         } else {
-            console.log("Contraseñas no coincide");
+            console.log("")
         }
     } catch (e) {
-        console.log(e);
+        console.log(e, 'Funcion -> Registro Usuario');
     }
 }
-function registrarPefilUsuario() {
+function verificacionEmailUsaurio() {
     try {
-        var genero = document.getElementById("generoUsuario").value;
-        var edad = document.getElementById("edadUsuario").value;
-        var estatura = document.getElementById("estaturaUsuario").value;
-        var pesoActual = document.getElementById("pesoUsuario").value;
-        var pesoDeseado = document.getElementById("pesoDeseadoUsuario").value;
-        var nivelDeportivo = document.getElementById("nivelDeportivoUsuario").value;
-        var objetico = document.getElementById("porqueLoHaceUsuario").value;
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var nombreUsuario = urlParams.get('usuario');
+        document.getElementById("mensajeVerificacion").innerHTML = "Hola " + nombreUsuario + ", te hemos enviado un link al correo electronico con el que te registraste."
+    } catch (e) {
+        console.log(e, 'Funcion -> Verificar Email del Usuario')
+    }
+}
+function usuarioVerificado() {
+    try {
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var emailVerificado = urlParams.get('emailVerificado');
+        console.log('Email:', emailVerificado)
+        // fetch('https://www.elsa360.com/usuario/verificar', {
+        //     method: 'PATCH',
+        //     body: JSON.stringify({
+        //         email: emailVerificado,
+        //     }),
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     },
+        // })
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
+    } catch (e) {
+        console.log(e, 'Funcion -> Usuario Verificado')
+    }
+}
+function registrarPerfilUsuario() {
+    try {
+        var sexoUsuario;
+        if (document.getElementById("sexoHombre").checked === true) {
+            sexoUsuario = 1;
+        }
+        if (document.getElementById("sexoMujer").checked === true) {
+            sexoUsuario = 2;
+        }
+        var pesoActual = parseFloat(document.getElementById("pesoUsuario").value);
+        var estaturaUsuario = parseFloat(document.getElementById("estaturaUsuario").value);
+        var pesoDeseado = parseFloat(document.getElementById("pesoDeseado").value);
+        var fechaNacUsuario = document.getElementById("fechaNacimiento").value;
+        var edadUsuario = calcularEdad(fechaNacUsuario);
         var tipoDieta = document.getElementById("tipoDietaUsuario").value;
         var tipoCuerpo = document.getElementById("tipoCuerpoUsuario").value;
+        var porque;
+        if (document.getElementById("rendimiento").checked === true) {
+            porque = 1;
+        }
+        if (document.getElementById("salud").checked === true) {
+            porque = 2;
+        }
+        if (document.getElementById("entretenimiento").checked === true) {
+            porque = 3;
+        }
+        var nivelDeportivo = document.getElementById("nivel").value;
+        var escalaNivelDeportivo = document.getElementById("escala").value;
+        var potenciometroUser = false;
+        var pulsometroUser = false;
+        var cadenciometroUser = false;
+        var velocimetroUser = false;
+        if (document.getElementById("potenciometro").checked === true) {
+            potenciometroUser = true;
+        }
+        if (document.getElementById("pulsometro").checked === true) {
+            pulsometroUser = true;
+        }
+        if (document.getElementById("cadenciometro").checked === true) {
+            cadenciometroUser = true;
+        }
+        if (document.getElementById("velocimetro").checked === true) {
+            velocimetroUser = true;
+        }
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var emailVerificado = urlParams.get('emailVerificado');
+        fetch('https://localhost:7155/usuario/idUserVerificado', {
+            method: 'GET',
+            body: JSON.stringify({
+                email: emailVerificado,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idUser) => console.log(idUser));
 
-        console.log(genero);
-        console.log(edad);
-        console.log(estatura);
-        console.log(pesoActual);
-        console.log(pesoDeseado);
-        console.log(nivelDeportivo);
-        console.log(objetico);
-        console.log(tipoDieta);
-        console.log(tipoCuerpo);
-        // window.location.href = "datosTrial.html";
+        fetch('https://www.elsa360.com/perfil/crear', {
+            method: 'POST',
+            body: JSON.stringify({
+                sexo: sexoUsuario,
+                peso: pesoActual,
+                estatura: estaturaUsuario,
+                pesoObjetivo: pesoDeseado,
+                fechaNacimiento: fechaNacUsuario,
+                fkTipoDieta: tipoDieta,
+                fkTipoCuerpo: tipoCuerpo,
+                fkNivelDeportivo: nivelDeportivo,
+                fkEscalaDeportiva: escalaNivelDeportivo,
+                potenciometro: potenciometroUser,
+                pulsometro: pulsometroUser,
+                pulsometro: pulsometroUser,
+                velocimetro: velocimetroUser,
+                cadenciometro: cadenciometroUser,
+                fkPorque: porque,
+                fkUsuario: idUser,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+
+        // console.log("Sexo:", sexo);
+        // console.log('Peso Actual:', pesoActual);
+        // console.log('Estatura:', estatura);
+        // console.log('Peso Deseado:', pesoDeseado);
+        // console.log('Edad', edad);
+        // console.log('Dieta:', tipoDieta);
+        // console.log('Cuerpo:', tipoCuerpo);
+        // console.log('Motivo:', porque);
+        // console.log('Nivel:', nivelDeportivo);
+        // console.log('Escala:', escalaNivelDeportivo);
+        // console.log('Potenciometro:', potenciometro);
+        // console.log('Pulsometro:', pulsometro);
+        // console.log('Cadenciometro:', cadenciometro);
+        // console.log('Velocimetro:', velocimetro);
+
+
+        // location.href = "../../html/vertical-menu-template/free-data.html";
     }
     catch (e) {
-        console.log(e, "Error registro de perfil")
+        console.log(e, 'Funcion -> Regsitro de Perfil')
     }
 
 }
-function enviarEmailVerificacion() {
-    Email.send({
-        Host: "smtp.gmail.com",
-        Username: "lebab1990@gmail.com.com",
-        Password: "Martin.Elias90101075302",
-        To: 'lebab_10@hotmail.com',
-        From: "lebab1990@gmail.com.com",
-        Subject: "Envio de email usando javascript",
-        Body: "Cuerpo del correo",
-    })
-        .then(function () {
-            alert("Email enviado exitosamente")
-        });
+function calcularEdad(fecha) {
+    try {
+        const fechaNacimiento = fecha;
+        //Datos Fecha Actual    
+        const fechaActual = new Date();
+        const anoActual = parseInt(fechaActual.getFullYear());
+        const mesActual = parseInt(fechaActual.getMonth()) + 1;
+        const diaActual = parseInt(fechaActual.getDate());
+        //Datos Fecha Nacimiento
+        const anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
+        const mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
+        const diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
+        let edad = anoActual - anoNacimiento;
+        if (mesActual < mesNacimiento) {
+            edad--;
+        } else if (mesActual === mesNacimiento) {
+            if (diaActual < diaNacimiento) {
+                edad--;
+            }
+        }
+        // console.log(edad);
+        return parseInt(edad);
+    } catch (e) {
+        console.log(e, "Error al calcular la edad");
+    }
 }
-function loginUser() {
-    var email = document.getElementById("email").value;
-    var pass = document.getElementById("password").value;
-    console.log(email);
-    console.log(pass);
-    window.location.href = "panel.html";
+function loginUsuario() {
+    try {
+        fetch('https://www.elsa360.com/usuario/loginUser', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: document.getElementById("emailLogin").value,
+                passwordUser: document.getElementById("passwordLogin").value
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((consulta) => {
+                if (consulta === 1) {
+                    fetch('https://www.elsa360.com/usuario/login', {
+                        method: 'PATCH',
+                        body: JSON.stringify({
+                            email: document.getElementById("emailLogin").value,
+                            passwordUser: document.getElementById("passwordLogin").value,
+                            loginUser: 1
+                        }),
+                        headers: {
+                            'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
+                        .then((response) => response.json())
+                        .then((json) => console.log(json));
+                    window.location.href = "dashboard.html?email" + emailUsuario;
+                }
+
+            });
+
+    } catch (e) {
+        console.log(e, 'Funcion -> Login Usuario');
+    }
+
 }
+
+
+
 
 function entrevistaInicialDia1() {
-    //BORGH
-    var borgh = parseInt(document.getElementById("borghDia1").value);
-    // Pregunta 1
-    var p1 = parseInt(document.getElementById("pregunta1Psico").value);
-    // Pregunta 2
-    var p2 = parseInt(document.getElementById("pregunta2Psico").value);
-    // Pregunta 3
-    var p3 = parseInt(document.getElementById("pregunta3Psico").value);
-    // Pregunta 4
-    var p4 = parseInt(document.getElementById("pregunta4Psico").value);
-    // Preguntas 5
-    var p5a = parseInt(document.getElementById("pregunta5aPsico").value);
-    var p5b = parseInt(document.getElementById("pregunta5bPsico").value);
-    var p5c = parseInt(document.getElementById("pregunta5cPsico").value);
-    //Preguntas 6
-    var p6a = parseInt(document.getElementById("pregunta6aPsico").value);
-    var p6b = parseInt(document.getElementById("pregunta6bPsico").value);
-    var p6c = parseInt(document.getElementById("pregunta6cPsico").value);
-    // Preguntas 7
-    var p7a = parseInt(document.getElementById("pregunta7aPsico").value);
-    var p7b = parseInt(document.getElementById("pregunta7bPsico").value);
-    var p7c = parseInt(document.getElementById("pregunta7cPsico").value);
-    var sumatoria = p1 + p2 + p3 + p4 + (p5a + p5b + p5c) + (p6a + p6b + p6c) + (p7a + p7b + p7c);
-    console.log(borgh);
-    console.log(sumatoria);
+    try {
+        // Pregunta 1
+        var p1 = parseInt(document.getElementById("pregunta1Psico").value);
+        // Pregunta 2
+        var p2 = parseInt(document.getElementById("pregunta2Psico").value);
+        // Pregunta 3
+        var p3 = parseInt(document.getElementById("pregunta3Psico").value);
+        // Pregunta 4
+        var p4 = parseInt(document.getElementById("pregunta4Psico").value);
+        // Preguntas 5
+        var p5a = parseInt(document.getElementById("pregunta5APsico").value);
+        var p5b = parseInt(document.getElementById("pregunta5BPsico").value);
+        var p5c = parseInt(document.getElementById("pregunta5CPsico").value);
+        //Preguntas 6
+        var p6a = parseInt(document.getElementById("pregunta6APsico").value);
+        var p6b = parseInt(document.getElementById("pregunta6BPsico").value);
+        var p6c = parseInt(document.getElementById("pregunta6CPsico").value);
+        // Preguntas 7
+        var p7a = parseInt(document.getElementById("pregunta7APsico").value);
+        var p7b = parseInt(document.getElementById("pregunta7BPsico").value);
+        var p7c = parseInt(document.getElementById("pregunta7CPsico").value);
+        var sumatoria = p1 + p2 + p3 + p4 + (p5a + p5b + p5c) + (p6a + p6b + p6c) + (p7a + p7b + p7c);
+
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'entrevista inicial',
+                        subtituloTest: 'parte 1',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+
+    } catch (e) {
+        console.log(e, 'Funcion -> Entrevista Inicial Dia 1');
+    }
+
 }
 function entrevistaInicialDia2() {
-    //BORGH
-    var borgh = parseInt(document.getElementById("borghDia2").value);
-    // Pregunta 8
-    var p8 = document.getElementById("pregunta8Psico").value;
-    // Pregunta 9
-    var p9 = document.getElementById("pregunta9Psico").value;
-    // Pregunta 10
-    var p10 = parseInt(document.getElementById("pregunta10Psico").value);
-    // Pregunta 11
-    var p11 = parseInt(document.getElementById("pregunta11Psico").value);
-    // Preguntas 12
-    var p12a = parseInt(document.getElementById("pregunta12aPsico").value);
-    var p12b = parseInt(document.getElementById("pregunta12bPsico").value);
-    var p12c = parseInt(document.getElementById("pregunta12cPsico").value);
-    //Preguntas 13
-    var p13a = document.getElementById("pregunta13aPsico").value;
-    var p13b = document.getElementById("pregunta13bPsico").value;
-    // Preguntas 14
-    var p14aD = document.getElementById("pregunta14adPsico").value;
-    var p14bD = document.getElementById("pregunta14bdPsico").value;
-    var p14cD = document.getElementById("pregunta14cdPsico").value;
+    try {
+        // Pregunta 8
+        var p8 = document.getElementById("pregunta8Psico").value;
+        // Pregunta 9
+        var p9 = document.getElementById("pregunta9Psico").value;
+        // Pregunta 10
+        var p10 = parseInt(document.getElementById("pregunta10Psico").value);
+        // Pregunta 11
+        var p11 = parseInt(document.getElementById("pregunta11Psico").value);
+        // Preguntas 12
+        var p12a = parseInt(document.getElementById("pregunta12APsico").value);
+        var p12b = parseInt(document.getElementById("pregunta12BPsico").value);
+        var p12c = parseInt(document.getElementById("pregunta12CPsico").value);
+        //Preguntas 13
+        var p13a = document.getElementById("pregunta13APsico").value;
+        var p13b = document.getElementById("pregunta13BPsico").value;
+        // Preguntas 14
+        var p14aD = document.getElementById("pregunta14APsico").value;
+        var p14bD = document.getElementById("pregunta14BPsico").value;
+        var p14cD = document.getElementById("pregunta14CPsico").value;
 
-    var p14aF = document.getElementById("pregunta14afPsico").value;
-    var p14bF = document.getElementById("pregunta14bfPsico").value;
-    var p14cF = document.getElementById("pregunta14cfPsico").value;
+        var p14aF = document.getElementById("pregunta14DPsico").value;
+        var p14bF = document.getElementById("pregunta14EPsico").value;
+        var p14cF = document.getElementById("pregunta14FPsico").value;
 
-    console.log(borgh);
-    var sumatoria = p10 + p11 + (p12a + p12b + p12c);
-    console.log(sumatoria);
-    console.log(p8);
-    console.log(p9);
-    console.log(p13a);
-    console.log(p13b);
-    console.log(p14aD);
-    console.log(p14bD);
-    console.log(p14cD);
-    console.log(p14aF);
-    console.log(p14bF);
-    console.log(p14cF);
+        var sumatoria = p10 + p11 + (p12a + p12b + p12c);
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'entrevista inicial',
+                        subtituloTest: 'parte 2',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+    } catch (e) {
+        console.log(e, 'Funcion -> Entrevista Inicial Parte 2')
+    }
 }
 function listaEstresores() {
-    //BORGH
-    var borgh = parseInt(document.getElementById("borghDia3").value);
-    var estresor1 = document.getElementById("primerEstresor").value;
-    var estresor2 = document.getElementById("segundoEstresor").value;
-    var estresor3 = document.getElementById("tercerEstresor").value;
-    var estresor4 = document.getElementById("cuartoEstresor").value;
-    var estresor5 = document.getElementById("quintoEstresor").value;
+    try {
+        var estresor1 = document.getElementById("pregunta15APsico").value;
+        var estresor2 = document.getElementById("pregunta15BPsico").value;
+        var estresor3 = document.getElementById("pregunta15CPsico").value;
+        var estresor4 = document.getElementById("pregunta15DPsico").value;
+        var estresor5 = document.getElementById("pregunta15EPsico").value;
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'Lista de Estresores',
+                        subtituloTest: 'Lista de Estresores',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+    } catch (e) {
+        console.log(e, 'Funcion -> Lista de Estresores');
+    }
 
-    console.log(borgh);
-    console.log(estresor1);
-    console.log(estresor2);
-    console.log(estresor3);
-    console.log(estresor4);
-    console.log(estresor5);
+
 }
 function objetivosRealizacion() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia4").value);
-    var obj1 = document.getElementById("objetivo1").value;
-    var obj2 = document.getElementById("objetivo2").value;
-    var obj3 = document.getElementById("objetivo3").value;
-    console.log(borgh);
-    console.log(obj1);
-    console.log(obj2);
-    console.log(obj3);
+    try {
+        var obj1 = document.getElementById("pregunta16APsico").value;
+        var obj2 = document.getElementById("pregunta16BPsico").value;
+        var obj3 = document.getElementById("pregunta16CPsico").value;
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'Objetivos de realizacion',
+                        subtituloTest: 'Lista de Estresores',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+    } catch (e) {
+        console.log(e, 'Funcion -> Objetivos de realizacion');
+    }
 }
 function necesidadAceptacion() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia5").value);
-    // Pregunta 1
-    var p1 = parseInt(document.getElementById("pregunta1").value);
-    var p2 = parseInt(document.getElementById("pregunta2").value);
-    var p3 = parseInt(document.getElementById("pregunta3").value);
-    var p4 = parseInt(document.getElementById("pregunta4").value);
-    var p5 = parseInt(document.getElementById("pregunta5").value);
-    var p6 = parseInt(document.getElementById("pregunta6").value);
-    var p7 = parseInt(document.getElementById("pregunta7").value);
-    var resultadoTest = p1 + p2 + p3 + p4 + p5 + p6 + p7
-    document.getElementById("resultadoTest").innerHTML = resultadoTest;
-    console.log(borgh);
-    console.log(resultadoTest);
+    try {
+        var p1 = parseInt(document.getElementById("pregunta17Psico").value);
+        var p2 = parseInt(document.getElementById("pregunta18Psico").value);
+        var p3 = parseInt(document.getElementById("pregunta19Psico").value);
+        var p4 = parseInt(document.getElementById("pregunta20Psico").value);
+        var p5 = parseInt(document.getElementById("pregunta21Psico").value);
+        var p6 = parseInt(document.getElementById("pregunta22Psico").value);
+        var p7 = parseInt(document.getElementById("pregunta23Psico").value);
+        var sumatoria = p1 + p2 + p3 + p4 + p5 + p6 + p7
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'Test de creencias irracionales',
+                        subtituloTest: 'Necesidad de aceptacion',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+
+    } catch (e) {
+        console.log(e, 'Funcion -> Necesidad de aceptacion');
+    }
+
 }
 function altasAutoexpectativas() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia6").value);
-    var p1 = parseInt(document.getElementById("pregunta1").value);
-    var p2 = parseInt(document.getElementById("pregunta2").value);
-    var p3 = parseInt(document.getElementById("pregunta3").value);
-    var p4 = parseInt(document.getElementById("pregunta4").value);
-    var p5 = parseInt(document.getElementById("pregunta5").value);
-    var resultado = p1 + p2 + p3 + p4 + p5;
-    document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
+    try {
+        var p1 = parseInt(document.getElementById("pregunta24Psico").value);
+        var p2 = parseInt(document.getElementById("pregunta25Psico").value);
+        var p3 = parseInt(document.getElementById("pregunta26Psico").value);
+        var p4 = parseInt(document.getElementById("pregunta27Psico").value);
+        var p5 = parseInt(document.getElementById("pregunta28Psico").value);
+        var sumatoria = p1 + p2 + p3 + p4 + p5;
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var email = urlParams.get('email');
+        fetch('https://www.elsa360.com/perfil/idPerfil', {
+            method: 'GET',
+            body: JSON.stringify({
+                emailUsuario: email,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((idPerfil) => {
+                fetch('url', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nombreTest: 'Test de creencias irracionales',
+                        subtituloTest: 'Altas autoexpectativas',
+                        resultadoTest: sumatoria,
+                        conclusionesTest: "",
+                        fkPerfilUsuarioTest: idPerfil,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            });
+        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
+    } catch (e) {
+        console.log(e, 'Funcion -> Altas autoexpectativas')
+    }
 }
+
+
 function culpabilizacion() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia7").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -201,11 +552,8 @@ function culpabilizacion() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function intoleranciaFrustracion() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia8").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -214,11 +562,8 @@ function intoleranciaFrustracion() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function preocupacionAnsiedad() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia9").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -226,11 +571,8 @@ function preocupacionAnsiedad() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var resultado = p1 + p2 + p3 + p4 + p5;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function irresponsabilidadEmocional() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia10").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -240,21 +582,15 @@ function irresponsabilidadEmocional() {
     var p7 = parseInt(document.getElementById("pregunta7").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6 + p7;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function evitacionProblemas() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia11").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
     var resultado = p1 + p2 + p3;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function dependencia() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia12").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -263,11 +599,8 @@ function dependencia() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function indefension() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia13").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -280,8 +613,6 @@ function indefension() {
     console.log(borgh);
 }
 function perfeccionismo() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia14").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -289,11 +620,8 @@ function perfeccionismo() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var resultado = p1 + p2 + p3 + p4 + p5;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function cualidadesDebilidadesTecFis() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia15").value);
     //Cualidades Tecnicas
     var ct1 = document.getElementById("cualidadTec1").value;
     var rct1 = parseInt(document.getElementById("respuestaCualidadTec1").value);
@@ -314,7 +642,7 @@ function cualidadesDebilidadesTecFis() {
     var rdf1 = parseInt(document.getElementById("respuestaDebilidadFis1").value);
     var df2 = document.getElementById("debilidadFis2").value;
     var rdf2 = parseInt(document.getElementById("respuestaDebilidadFis2").value);
-    console.log(borgh);
+
     console.log(ct1 + ":" + rct1);
     console.log(ct2 + ":" + rct2);
     console.log(dt1 + ":" + rd1);
@@ -326,8 +654,6 @@ function cualidadesDebilidadesTecFis() {
 
 }
 function cualidadesDebilidadesPsicoPerso() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia16").value);
     //Cualidades Psicologicas
     var ct1 = document.getElementById("cualidadPsico1").value;
     var rct1 = parseInt(document.getElementById("respuestaCualidadPsico1").value);
@@ -348,7 +674,7 @@ function cualidadesDebilidadesPsicoPerso() {
     var rdf1 = parseInt(document.getElementById("respuestaDebilidadPer1").value);
     var df2 = document.getElementById("debilidadPer2").value;
     var rdf2 = parseInt(document.getElementById("respuestaDebilidadPer2").value);
-    console.log(borgh);
+
     console.log(ct1 + ":" + rct1);
     console.log(ct2 + ":" + rct2);
     console.log(dt1 + ":" + rd1);
@@ -360,8 +686,6 @@ function cualidadesDebilidadesPsicoPerso() {
 
 }
 function autoconfianza() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia17").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -370,11 +694,9 @@ function autoconfianza() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
+
 }
 function afrontamientoNeg() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia18").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -383,11 +705,8 @@ function afrontamientoNeg() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function controlAtencional() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia19").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -396,11 +715,8 @@ function controlAtencional() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function controlVisuoImaginativo() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia20").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -409,11 +725,8 @@ function controlVisuoImaginativo() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function nivelMotivacional() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia21").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -422,11 +735,8 @@ function nivelMotivacional() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function afrontamientoPos() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia22").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -435,11 +745,8 @@ function afrontamientoPos() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function controlActitudinal() {
-    // Borgh
-    var borgh = parseInt(document.getElementById("borghDia23").value);
     var p1 = parseInt(document.getElementById("pregunta1").value);
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
@@ -448,7 +755,6 @@ function controlActitudinal() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function hamilton() {
     var p1 = parseInt(document.getElementById("pregunta1").value);
@@ -468,6 +774,12 @@ function hamilton() {
     var resultado = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9 + p10 + p11 + p12 + p13 + p14;
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
+
+
+
+
+
+
 (function caloriasPorciones() {
     var datos = [];
     var todosInput = document.querySelectorAll('.NumeroPorciones');
@@ -727,7 +1039,6 @@ function buscarCuponDescuento() {
         console.log(e, "Error Busqueda Cupon Descuento")
     }
 }
-
 function enviarDatosCheckoutTrimestral() {
     try {
         location.href = "checkout.html?valor=128000&membresia=Trimestral";
@@ -735,7 +1046,6 @@ function enviarDatosCheckoutTrimestral() {
         console.log(e, "Error");
     }
 }
-
 function enviarDatosCheckoutSemestral() {
     try {
         location.href = "checkout.html?valor=212000&membresia=Semestral";
@@ -744,7 +1054,6 @@ function enviarDatosCheckoutSemestral() {
         console.log(e, "Error");
     }
 }
-
 function enviarDatosCheckoutAnual() {
     try {
         location.href = "checkout.html?valor=296000&membresia=Anual";
@@ -753,7 +1062,6 @@ function enviarDatosCheckoutAnual() {
         console.log(e, "Error");
     }
 }
-
 function llenadoWebCheckout() {
     try {
         const valores = window.location.search;
@@ -819,32 +1127,10 @@ function cambiarContrasena() {
         }
     } catch (e) { console.log(e, "Error en cambio de contraseña") }
 }
-function calcularEdad() {
-    try {
-        const fechaNacimiento = document.getElementById("fechaNacimiento").value;
-        //Datos Fecha Actual    
-        const fechaActual = new Date();
-        const anoActual = parseInt(fechaActual.getFullYear());
-        const mesActual = parseInt(fechaActual.getMonth()) + 1;
-        const diaActual = parseInt(fechaActual.getDate());
-        //Datos Fecha Nacimiento
-        const anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
-        const mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
-        const diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
-        let edad = anoActual - anoNacimiento;
-        if (mesActual < mesNacimiento) {
-            edad--;
-        } else if (mesActual === mesNacimiento) {
-            if (diaActual < diaNacimiento) {
-                edad--;
-            }
-        }
-        // console.log(edad);
-        return parseInt(edad);
-    } catch (e) {
-        console.log(e, "Error al calcular la edad");
-    }
-}
+
+
+
+
 function calcularIMC() {
     try {
         peso = document.getElementById("peso").value;
@@ -1019,6 +1305,9 @@ function rangoGET() {
         console.log(min);
     } catch (e) { console.log(e, "Error al calcular el RANGO_GET") }
 }
+
+
+
 function calcularDiferenciaDias() {
     try {
         const fechaIncioEntreno = "2022-09-15";
@@ -1109,7 +1398,7 @@ function dividirEnteroDecimal() {
                     hrDomingo = 0
                 }
                 totalHoras = hrLunes + hrMartes + hrMiercoles + hrJueves + hrViernes + hrSabado + hrDomingo;
-               
+
                 document.getElementById("horasEntrenamiento").innerHTML = totalHoras;
                 enviarDisponibilidad()
             });
@@ -1118,8 +1407,6 @@ function dividirEnteroDecimal() {
         console.log(e, "Error al calcular las horas disponibles semanales")
     }
 })();
-
-
 function enviarDisponibilidad() {
     try {
         var totalDias = 0;
@@ -1157,39 +1444,3 @@ function enviarDisponibilidad() {
     }
 };
 
-
-// (function() {
-//     try{
-//     var handleNivel = document.getElementById("nivel");
-//     handleNivel.onchange = function () {
-//         var handleEscala = document.getElementById("escala");
-//         var vectorNivel = {
-//             'Principiante': ['I', 'II', 'III'],
-//             'Intermedio': ['I', 'II', 'III'],
-//             'Avanzado': ['I', 'II', 'III']
-//         };
-//         var vectorNivel_2 = {
-//             'Principiante': ['1', '2', '3'],
-//             'Intermedio': ['4', '5', '6'],
-//             'Avanzado': ['7', '8', '9']
-//         };
-//         var url = {
-//             'Principiante': ["https://www.youtube.com/user/Google"],
-//             'Intermedio': ["https://www.espn.com.co/"],
-//             'Avanzado': ["https://disneylatino.com/"]
-//         };
-//         var strEscala = handleNivel.options[handleNivel.selectedIndex].text;
-//         var strEscalas = vectorNivel[strEscala]
-//         var strValorEscalas = vectorNivel_2[strEscala]
-//         handleEscala.innerHTML = "";
-//         document.getElementById("urlImagen").href = url[strEscala];
-//         for (var i = 0; i < strEscalas.length; i++) {
-//             var el = document.createElement("option");
-//             el.textContent = strEscalas[i];
-//             el.value = strValorEscalas[i];
-//             handleEscala.appendChild(el);
-//         }
-//     }}catch(e){
-//         console.log(e, "Error al cambiar URL y Escalas de Nivel Deportivo");
-//     }
-// })();

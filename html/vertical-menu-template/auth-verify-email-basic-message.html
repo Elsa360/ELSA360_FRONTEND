@@ -50,7 +50,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body onload="verificacionEmailUsaurio()">
     <!-- Content -->
 
     <div class="authentication-wrapper authentication-basic px-4">
@@ -74,8 +74,8 @@
 
 
             <h3 class="mb-2">Verifica tu email</h3>
-            <p class="text-start">
-              Hola Manuel Peralta, te hemos enviado un link para que confirmes tu cuenta y puedas empezar a sacarle el mayor provecho a tu entreno en ELSA.
+            <p class="text-start" id="mensajeVerificacion">
+              
             </p>                        
           </div>
         </div>
@@ -87,6 +87,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../JS/calculosPsicologia.js"></script>
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
