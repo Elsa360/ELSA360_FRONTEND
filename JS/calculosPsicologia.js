@@ -1,12 +1,277 @@
 function traerAlimentosRegulares() {
-    fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
+    // fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
+    fetch('https://localhost:7155/alimentoRegular/listar')
         .then((response) => response.json())
         .then((alimentosRegulares) => {
-            for (alimento of alimentosRegulares) {
-                console.log(alimento);
-              }
-        });
+            // Energeticos
+            let tablaCereales = document.getElementById('tablaCereales');
+            let cuerpoCereales = document.createElement('tbody');
 
+            let tablaTuberculos = document.getElementById('tablaTuberculos');
+            let cuerpoTuberculos = document.createElement('tbody');
+
+            let tablaPlatanos = document.getElementById('tablaPlatanos');
+            let cuerpoPlatanos = document.createElement('tbody');
+
+            let tablaRaices = document.getElementById('tablaRaices');
+            let cuerpoRaices = document.createElement('tbody');
+
+            let tablaLeguminosas = document.getElementById('tablaLeguminosas');
+            let cuerpoLeguminosas = document.createElement('tbody');
+
+            // Proteicos
+            let tablaCarnesPollo = document.getElementById('tablaCarnesPollo');
+            let cuerpoCarnesPollo = document.createElement('tbody');
+
+            // Lacteos
+            let tablaLecheDerivados = document.getElementById('tablaLecheDerivados');
+            let cuerpoLecheDerivados = document.createElement('tbody');
+
+            let tablaLecheBajosGrasa = document.getElementById('tablaLecheBajosGrasa');
+            let cuerpoLecheBajosGrasa = document.createElement('tbody');
+
+            // Frutas y Verduras
+            let tablaFrutas = document.getElementById('tablaFrutas');
+            let cuerpoFrutas = document.createElement('tbody');
+
+            let tablaVerduras = document.getElementById('tablaVerduras');
+            let cuerpoVerduras = document.createElement('tbody');
+
+            // Grasas Saludables
+            let tablaFrutosSecos = document.getElementById('tablaFrutosSecos');
+            let cuerpoFrutosSecos = document.createElement('tbody');
+
+            let tablaGrasasPoli = document.getElementById('tablaGrasasPoli');
+            let cuerpoGrasasPoli = document.createElement('tbody');
+
+            let tablaGrasasMono = document.getElementById('tablaGrasasMono');
+            let cuerpoGrasasMono = document.createElement('tbody');
+
+            // Otros
+            let tablaGrasasSatu = document.getElementById('tablaGrasasSatu');
+            let cuerpoGrasasSatu = document.createElement('tbody');
+
+            let tablaAzucaresSimples = document.getElementById('tablaAzucaresSimples');
+            let cuerpoAzucaresSimples = document.createElement('tbody');
+
+            let tablaDulces = document.getElementById('tablaDulces');
+            let cuerpoDulces = document.createElement('tbody');
+
+            let tablaMiscelaneos = document.getElementById('tablaMiscelaneos');
+            let cuerpoMiscelaneos = document.createElement('tbody');
+
+            let tablaPreparados = document.getElementById('tablaPreparados');
+            let cuerpoPreparados = document.createElement('tbody');
+
+            let tablaEspecias = document.getElementById('tablaEspecias');
+            let cuerpoEspecias = document.createElement('tbody');
+
+            let tablaBebidadasAlcoho = document.getElementById('tablaBebidadasAlcoho');
+            let cuerpoBebidadasAlcoho = document.createElement('tbody');
+
+            alimentosRegulares.forEach(alimento => {
+                // console.log(alimento.fkIdSubgrupoAlimenticio);
+
+                let fila = document.createElement('tr');
+                let tdImage = document.createElement('td');
+                let tdNombre = document.createElement('td');
+                let tdPesoCocido = document.createElement('td');
+                let tdPesoCrudo = document.createElement('td');
+                let tdCalorias = document.createElement('td');
+                let spanPesoCocido = document.createElement("span");;
+                let spanPesoCrudo = document.createElement("span");;
+                let spanPesoCalorias = document.createElement("span");;
+                let tdPorcion = document.createElement("td");
+                let inputPorcion = document.createElement("input");
+                let imgAlimento = document.createElement("img");
+
+                tdImage.style = "width: 30px; text-align: center;";
+                imgAlimento.style = "margin-right: 10px;";
+                imgAlimento.src = "../../assets/img/alimentosReg/" + alimento.idAlimento + ".png";
+                tdImage.appendChild(imgAlimento);
+                fila.appendChild(tdImage);
+
+                tdNombre.innerText = alimento.nombreAlimento;
+                tdNombre.id = alimento.idAlimento;
+                tdNombre.style = "font-size:18px; text-align: left;";
+                fila.appendChild(tdNombre);
+
+                spanPesoCocido.innerText = alimento.pesoCocinado;
+                tdPesoCocido.style = "font-size:18px; text-align: center;";
+                spanPesoCocido.className = "badge bg-label-warning";
+                tdPesoCocido.appendChild(spanPesoCocido);
+                fila.appendChild(tdPesoCocido);
+
+                spanPesoCrudo.innerText = alimento.pesoCrudo;
+                tdPesoCrudo.style = "font-size:18px; text-align: center;";
+                spanPesoCrudo.className = "badge bg-label-info";
+                tdPesoCrudo.appendChild(spanPesoCrudo);
+                fila.appendChild(tdPesoCrudo);
+
+                spanPesoCalorias.innerText = alimento.calorias;
+                tdCalorias.style = "font-size:18px; text-align: center;";
+                spanPesoCalorias.className = "badge bg-label-success";
+                tdCalorias.appendChild(spanPesoCalorias);
+                fila.appendChild(tdCalorias);
+
+                tdPorcion.style = "font-size:18px; text-align: center;";
+                inputPorcion.type = "number";
+                inputPorcion.className = "form-control"
+                inputPorcion.id = alimento.idAlimento;
+                inputPorcion.min = 0;
+                inputPorcion.max = 6;
+                inputPorcion.step = "0.5";
+                inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                tdPorcion.appendChild(inputPorcion);
+                fila.appendChild(tdPorcion);
+                if (alimento.fkIdSubgrupoAlimenticio === 1) {
+                    cuerpoCereales.className = "table-border-bottom-0";
+                    cuerpoCereales.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 2) {
+                    cuerpoTuberculos.className = "table-border-bottom-0";
+                    cuerpoTuberculos.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 3) {
+                    cuerpoPlatanos.className = "table-border-bottom-0";
+                    cuerpoPlatanos.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 4) {
+                    cuerpoRaices.className = "table-border-bottom-0";
+                    cuerpoRaices.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 5) {
+                    cuerpoLeguminosas.className = "table-border-bottom-0";
+                    cuerpoLeguminosas.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 7) {
+                    cuerpoCarnesPollo.className = "table-border-bottom-0";
+                    cuerpoCarnesPollo.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 8) {
+                    cuerpoLecheDerivados.className = "table-border-bottom-0";
+                    cuerpoLecheDerivados.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 9) {
+                    cuerpoLecheBajosGrasa.className = "table-border-bottom-0";
+                    cuerpoLecheBajosGrasa.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 10) {
+                    cuerpoVerduras.className = "table-border-bottom-0";
+                    cuerpoVerduras.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 11) {
+                    cuerpoFrutas.className = "table-border-bottom-0";
+                    cuerpoFrutas.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 12) {
+                    cuerpoFrutosSecos.className = "table-border-bottom-0";
+                    cuerpoFrutosSecos.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 13) {
+                    cuerpoGrasasPoli.className = "table-border-bottom-0";
+                    cuerpoGrasasPoli.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 14) {
+                    cuerpoGrasasMono.className = "table-border-bottom-0";
+                    cuerpoGrasasMono.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 20) {
+                    cuerpoGrasasSatu.className = "table-border-bottom-0";
+                    cuerpoGrasasSatu.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 21) {
+                    cuerpoAzucaresSimples.className = "table-border-bottom-0";
+                    cuerpoAzucaresSimples.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 22) {
+                    cuerpoDulces.className = "table-border-bottom-0";
+                    cuerpoDulces.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 23) {
+                    cuerpoMiscelaneos.className = "table-border-bottom-0";
+                    cuerpoMiscelaneos.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 24) {
+                    cuerpoPreparados.className = "table-border-bottom-0";
+                    cuerpoPreparados.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 25) {
+                    cuerpoEspecias.className = "table-border-bottom-0";
+                    cuerpoEspecias.appendChild(fila);
+                }
+                if (alimento.fkIdSubgrupoAlimenticio === 26) {
+                    cuerpoBebidadasAlcoho.className = "table-border-bottom-0";
+                    cuerpoBebidadasAlcoho.appendChild(fila);
+                }
+                // if (alimento.fkIdSubgrupoAlimenticio === 27) {
+                //     cuerpoSuplementos.className = "table-border-bottom-0";
+                //     cuerpoSuplementos.appendChild(fila);
+                // }
+            }
+            );
+            tablaCereales.className = "table";
+            tablaCereales.appendChild(cuerpoCereales);
+
+            tablaTuberculos.className = "table";
+            tablaTuberculos.appendChild(cuerpoTuberculos);
+
+            tablaPlatanos.className = "table";
+            tablaPlatanos.appendChild(cuerpoPlatanos);
+
+            tablaRaices.className = "table";
+            tablaRaices.appendChild(cuerpoRaices);
+
+            tablaLeguminosas.className = "table";
+            tablaLeguminosas.appendChild(cuerpoLeguminosas);
+
+            tablaCarnesPollo.className = "table";
+            tablaCarnesPollo.appendChild(cuerpoCarnesPollo);
+
+            tablaLecheDerivados.className = "table";
+            tablaLecheDerivados.appendChild(cuerpoLecheDerivados);
+
+            tablaLecheBajosGrasa.className = "table";
+            tablaLecheBajosGrasa.appendChild(cuerpoLecheBajosGrasa);
+
+            tablaFrutas.className = "table";
+            tablaFrutas.appendChild(cuerpoFrutas);
+
+            tablaVerduras.className = "table";
+            tablaVerduras.appendChild(cuerpoVerduras);
+
+            tablaFrutosSecos.className = "table";
+            tablaFrutosSecos.appendChild(cuerpoFrutosSecos);
+
+            tablaGrasasPoli.className = "table";
+            tablaGrasasPoli.appendChild(cuerpoGrasasPoli);
+
+            tablaGrasasMono.className = "table";
+            tablaGrasasMono.appendChild(cuerpoGrasasMono);
+
+            tablaGrasasSatu.className = "table";
+            tablaGrasasSatu.appendChild(cuerpoGrasasSatu);
+
+            tablaAzucaresSimples.className = "table";
+            tablaAzucaresSimples.appendChild(cuerpoAzucaresSimples);
+
+            tablaDulces.className = "table";
+            tablaDulces.appendChild(cuerpoDulces);
+
+            tablaMiscelaneos.className = "table";
+            tablaMiscelaneos.appendChild(cuerpoMiscelaneos);
+
+            tablaPreparados.className = "table";
+            tablaPreparados.appendChild(cuerpoPreparados);
+
+            tablaEspecias.className = "table";
+            tablaEspecias.appendChild(cuerpoEspecias);
+
+            tablaBebidadasAlcoho.className = "table";
+            tablaBebidadasAlcoho.appendChild(cuerpoBebidadasAlcoho);
+
+            
+        });
 }
 
 function registro() {
