@@ -1,34 +1,37 @@
+function traerAlimentosRegulares() {
+    fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
+        .then((response) => response.json())
+        .then((alimentosRegulares) => {
+            for (alimento of alimentosRegulares) {
+                console.log(alimento);
+              }
+        });
+
+}
+
 function registro() {
     try {
         if (document.getElementById("terms-conditions").checked === true) {
-            // fetch('https://www.elsa360.com/usuario/crear', {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //         emailUsuario: document.getElementById("email").value,
-            //         nombreUsuario: document.getElementById("username").value,
-            //         passwordUsuario: document.getElementById("password").value,
-            //         idRol: 4,
-            //         PC: '00.00.00.00'
-            //     }),
-            //     headers: {
-            //         'Content-type': 'application/json; charset=UTF-8',
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then((json) => console.log(json));
+            let nombreUsuario = document.getElementById("username").value
+            let emailUsuario = document.getElementById("email").value
+            let passwordUsuario = document.getElementById("password").value
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json; charset=UTF-8");
 
-            // fetch('https://www.elsa360.com/email/verificacion', {
-            //     method: 'GET',
-            //     body: JSON.stringify({
-            //         emailUsuario: document.getElementById("email").value,
-            //     }),
-            //     headers: {
-            //         'Content-type': 'application/json; charset=UTF-8',
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then((json) => console.log(json));
-            window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
+            var raw = "{\r\n    \"email\": \"" + emailUsuario + "\",\r\n    \"passwordUser\": \"" + passwordUsuario + "\",\r\n    \"" + nombreUsuario + "\": \"Manuel Peralta\",\r\n    \"fkIdRol\": 1,\r\n    \"ipPc\": \"00.00.00.00\"\r\n  }";
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("http://www.apielsa.somee.com/usuario/crear", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            // window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
         } else {
             console.log("")
         }
