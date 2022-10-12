@@ -570,67 +570,6 @@ function traerAlimentosVegetarianos() {
 
         });
 }
-function registro() {
-    try {
-        if (document.getElementById("terms-conditions").checked === true) {
-            let nombreUsuario = document.getElementById("username").value
-            let emailUsuario = document.getElementById("email").value
-            let passwordUsuario = document.getElementById("password").value
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json; charset=UTF-8");
-
-            var raw = "{\r\n    \"email\": \"" + emailUsuario + "\",\r\n    \"passwordUser\": \"" + passwordUsuario + "\",\r\n    \"" + nombreUsuario + "\": \"Manuel Peralta\",\r\n    \"fkIdRol\": 1,\r\n    \"ipPc\": \"00.00.00.00\"\r\n  }";
-
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-
-            fetch("http://www.apielsa.somee.com/usuario/crear", requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
-            // window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
-        } else {
-            console.log("")
-        }
-    } catch (e) {
-        console.log(e, 'Funcion -> Registro Usuario');
-    }
-}
-function verificacionEmailUsaurio() {
-    try {
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var nombreUsuario = urlParams.get('usuario');
-        document.getElementById("mensajeVerificacion").innerHTML = "Hola " + nombreUsuario + ", te hemos enviado un link al correo electronico con el que te registraste."
-    } catch (e) {
-        console.log(e, 'Funcion -> Verificar Email del Usuario')
-    }
-}
-function usuarioVerificado() {
-    try {
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var emailVerificado = urlParams.get('emailVerificado');
-        console.log('Email:', emailVerificado)
-        // fetch('https://www.elsa360.com/usuario/verificar', {
-        //     method: 'PATCH',
-        //     body: JSON.stringify({
-        //         email: emailVerificado,
-        //     }),
-        //     headers: {
-        //         'Content-type': 'application/json; charset=UTF-8',
-        //     },
-        // })
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-    } catch (e) {
-        console.log(e, 'Funcion -> Usuario Verificado')
-    }
-}
 function registrarPerfilUsuario() {
     try {
         var sexoUsuario;
@@ -766,44 +705,7 @@ function calcularEdad(fecha) {
         console.log(e, "Error al calcular la edad");
     }
 }
-function loginUsuario() {
-    try {
-        fetch('https://www.elsa360.com/usuario/loginUser', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: document.getElementById("emailLogin").value,
-                passwordUser: document.getElementById("passwordLogin").value
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((consulta) => {
-                if (consulta === 1) {
-                    fetch('https://www.elsa360.com/usuario/login', {
-                        method: 'PATCH',
-                        body: JSON.stringify({
-                            email: document.getElementById("emailLogin").value,
-                            passwordUser: document.getElementById("passwordLogin").value,
-                            loginUser: 1
-                        }),
-                        headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
-                        },
-                    })
-                        .then((response) => response.json())
-                        .then((json) => console.log(json));
-                    window.location.href = "dashboard.html?email" + emailUsuario;
-                }
 
-            });
-
-    } catch (e) {
-        console.log(e, 'Funcion -> Login Usuario');
-    }
-
-}
 
 
 
