@@ -570,6 +570,315 @@ function traerAlimentosVegetarianos() {
 
         });
 }
+function traerAlimRegSelecc() {
+    try {
+        // Energeticos
+        let tablaEnergeticos = document.getElementById('tablaEnergeticos');
+        let cuerpoEnergeticos = document.createElement('tbody');
+        // Proteicos
+        let tablaProteicos = document.getElementById('tablaProteicos');
+        let cuerpoProteicos = document.createElement('tbody');
+        // Lacteos
+        let tablaLacteos = document.getElementById('tablaLacteos');
+        let cuerpoLacteos = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaFrutyVeg = document.getElementById('tablaFrutyVeg');
+        let cuerpoFrutyVeg = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaGrasasSalud = document.getElementById('tablaGrasasSalud');
+        let cuerpoGrasasSalud = document.createElement('tbody');
+        // Otros
+        let tablaOtrosSelecc = document.getElementById('tablaOtrosSelecc');
+        let cuerpoOtrosSelecc = document.createElement('tbody');
+        //Endpoint
+        fetch('https://localhost:7155/alimentoRegularSeleccionado/listar')
+            .then((response) => response.json())
+            .then((alimRegSelecc) => {
+                alimRegSelecc.forEach(alimento => {
+                    console.log(alimento);
+                    let fila = document.createElement('tr');
+                    let tdImage = document.createElement('td');
+                    let imgAlimento = document.createElement("img");
+                    let tdNombre = document.createElement('td');
+                    let tdGrupoAlim = document.createElement('td');
+                    let tdMomentoComida = document.createElement('td');
+                    let tdPorcion = document.createElement("td");
+                    let inputPorcion = document.createElement("input");
+
+
+                    tdImage.style = "width: 30px; text-align: center;";
+                    imgAlimento.style = "margin-right: 10px;";
+                    imgAlimento.src = "../../assets/img/alimentosReg/" + alimento.fkIdAlimentoRegularSlcnn + ".png";
+                    tdImage.appendChild(imgAlimento);
+                    fila.appendChild(tdImage);
+
+                    tdNombre.innerText = alimento.nombreAlimento;
+                    tdNombre.id = alimento.idAlimento;
+                    tdNombre.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdNombre);
+
+                    tdGrupoAlim.innerText = alimento.grupoAlimenticio;
+                    tdGrupoAlim.id = alimento.idGrupoAlimenticio;
+                    tdGrupoAlim.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdGrupoAlim);
+
+                    tdMomentoComida.innerText = alimento.momentoComida;
+                    tdMomentoComida.id = alimento.fkIdMomentoComidaSlccn;
+                    tdMomentoComida.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdMomentoComida);
+
+                    tdPorcion.style = "font-size:18px; text-align: center;";
+                    inputPorcion.type = "number";
+                    inputPorcion.className = "form-control"
+                    inputPorcion.id = alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.min = 0;
+                    inputPorcion.max = 6;
+                    inputPorcion.step = "0.5";
+                    inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                    tdPorcion.appendChild(inputPorcion);
+                    fila.appendChild(tdPorcion);
+
+                    if (alimento.idGrupoAlimenticio === 1) {
+                        cuerpoEnergeticos.className = "table-border-bottom-0";
+                        cuerpoEnergeticos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 2) {
+                        cuerpoProteicos.className = "table-border-bottom-0";
+                        cuerpoProteicos.appendChild(fila);
+                    }
+                    else if ((alimento.idGrupoAlimenticio === 3) || (alimento.idGrupoAlimenticio === 4)) {
+                        cuerpoLacteos.className = "table-border-bottom-0";
+                        cuerpoLacteos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 5) {
+                        cuerpoFrutyVeg.className = "table-border-bottom-0";
+                        cuerpoFrutyVeg.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 6) {
+                        cuerpoGrasasSalud.className = "table-border-bottom-0";
+                        cuerpoGrasasSalud.appendChild(fila);
+                    }
+                    else {
+                        cuerpoOtrosSelecc.className = "table-border-bottom-0";
+                        cuerpoOtrosSelecc.appendChild(fila);
+                    }
+                });
+                tablaEnergeticos.className = "table";
+                tablaEnergeticos.appendChild(cuerpoEnergeticos);
+
+                tablaProteicos.className = "table";
+                tablaProteicos.appendChild(cuerpoProteicos);
+
+                tablaLacteos.className = "table";
+                tablaLacteos.appendChild(cuerpoLacteos);
+
+                tablaFrutyVeg.className = "table";
+                tablaFrutyVeg.appendChild(cuerpoFrutyVeg);
+
+                tablaGrasasSalud.className = "table";
+                tablaGrasasSalud.appendChild(cuerpoGrasasSalud);
+
+                tablaOtrosSelecc.className = "table";
+                tablaOtrosSelecc.appendChild(cuerpoOtrosSelecc);
+
+            });
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+function traerAlimVegSelecc() {
+    try {
+        // Energeticos
+        let tablaEnergeticos = document.getElementById('tablaEnergeticosVeg');
+        let cuerpoEnergeticos = document.createElement('tbody');
+        // Proteicos vegetarianos
+        let tablaProteicos = document.getElementById('tablaProteicosVeg');
+        let cuerpoProteicos = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaFrutyVeg = document.getElementById('tablaFrutyVerdVeg');
+        let cuerpoFrutyVeg = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaGrasasSalud = document.getElementById('tablaGrasasSaludVeg');
+        let cuerpoGrasasSalud = document.createElement('tbody');
+        // Otros
+        let tablaOtrosSelecc = document.getElementById('tablaOtrosSeleccVeg');
+        let cuerpoOtrosSelecc = document.createElement('tbody');
+        //Endpoint
+        fetch('https://localhost:7155/alimentoVegetarianoSeleccionado/listar')
+            .then((response) => response.json())
+            .then((alimRegSelecc) => {
+                alimRegSelecc.forEach(alimento => {
+                    console.log(alimento);
+                    let fila = document.createElement('tr');
+                    let tdImage = document.createElement('td');
+                    let imgAlimento = document.createElement("img");
+                    let tdNombre = document.createElement('td');
+                    let tdGrupoAlim = document.createElement('td');
+                    let tdMomentoComida = document.createElement('td');
+                    let tdPorcion = document.createElement("td");
+                    let inputPorcion = document.createElement("input");
+
+
+                    tdImage.style = "width: 30px; text-align: center;";
+                    imgAlimento.style = "margin-right: 10px;";
+                    imgAlimento.src = "../../assets/img/alimentosVeg/" + alimento.fkIdAlimentoVegetSlcnn + ".png";
+                    tdImage.appendChild(imgAlimento);
+                    fila.appendChild(tdImage);
+
+                    tdNombre.innerText = alimento.nombreAlimento;
+                    tdNombre.id = alimento.idAlimento;
+                    tdNombre.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdNombre);
+
+                    tdGrupoAlim.innerText = alimento.grupoAlimenticio;
+                    tdGrupoAlim.id = alimento.idGrupoAlimenticio;
+                    tdGrupoAlim.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdGrupoAlim);
+
+                    tdMomentoComida.innerText = alimento.momentoComida;
+                    tdMomentoComida.id = alimento.fkIdMomentoComidaSlccn;
+                    tdMomentoComida.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdMomentoComida);
+
+                    tdPorcion.style = "font-size:18px; text-align: center;";
+                    inputPorcion.type = "number";
+                    inputPorcion.className = "form-control"
+                    inputPorcion.id = alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.min = 0;
+                    inputPorcion.max = 6;
+                    inputPorcion.step = "0.5";
+                    inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                    tdPorcion.appendChild(inputPorcion);
+                    fila.appendChild(tdPorcion);
+
+                    if (alimento.idGrupoAlimenticio === 1) {
+                        cuerpoEnergeticos.className = "table-border-bottom-0";
+                        cuerpoEnergeticos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 2) {
+                        cuerpoProteicos.className = "table-border-bottom-0";
+                        cuerpoProteicos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 5) {
+                        cuerpoFrutyVeg.className = "table-border-bottom-0";
+                        cuerpoFrutyVeg.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 6) {
+                        cuerpoGrasasSalud.className = "table-border-bottom-0";
+                        cuerpoGrasasSalud.appendChild(fila);
+                    }
+                    else {
+                        cuerpoOtrosSelecc.className = "table-border-bottom-0";
+                        cuerpoOtrosSelecc.appendChild(fila);
+                    }
+                });
+                tablaEnergeticos.className = "table";
+                tablaEnergeticos.appendChild(cuerpoEnergeticos);
+
+                tablaProteicos.className = "table";
+                tablaProteicos.appendChild(cuerpoProteicos);
+
+                tablaFrutyVeg.className = "table";
+                tablaFrutyVeg.appendChild(cuerpoFrutyVeg);
+
+                tablaGrasasSalud.className = "table";
+                tablaGrasasSalud.appendChild(cuerpoGrasasSalud);
+
+                tablaOtrosSelecc.className = "table";
+                tablaOtrosSelecc.appendChild(cuerpoOtrosSelecc);
+
+            });
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function traerEjerciciosFisicos() {
+    try {
+        //Mensaje Inicial
+        let MensajeInicial = document.createElement("p");
+        let divMensajeInicial = document.getElementById("mensajeInicial")
+        MensajeInicial.innerText = "Mensaje Incial"
+        MensajeInicial.className = "mb-2";
+        divMensajeInicial.appendChild(MensajeInicial);
+
+        //Mensaje Final
+        let MensajeFinal = document.createElement("p");
+        let divMensajeFinal = document.getElementById("mensajeFinal")
+        MensajeFinal.innerText = "Mensaje Final"
+        MensajeFinal.className = "mb-2";
+        divMensajeFinal.appendChild(MensajeFinal);
+
+        //Tarjeta del Ejercicio
+        //Nombre Tarjeta
+        let contenedorNombre = document.createElement("div")
+        let contenedorH5 = document.createElement("h5")
+        let nombre = document.createElement("span")
+        nombre.innerText = "Saltos de Tijera";
+        nombre.className = "badge rounded-pill bg-label-success";
+        contenedorH5.appendChild(nombre);
+        contenedorH5.className = "card-title mb-0";
+        contenedorNombre.appendChild(contenedorH5)
+
+        //Cuerpo Tarjeta
+        let video = document.createElement("iframe")
+        video.width="560";
+        video.height="315";
+        video.src="https://www.youtube.com/embed/iSSAk4XCsRA";
+        video.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    
+        let contenedorVideo = document.createElement("div")
+        contenedorVideo.className="video-responsive";
+        contenedorVideo.appendChild(video);
+
+        let contenedorBtnAcordeon = document.createElement("div")
+        contenedorBtnAcordeon.className="card accordion-item mb-3";
+
+        let contenedorPrincipalTabla = document.createElement("div")
+        contenedorPrincipalTabla.className="card";
+
+        let cuerpoTarjeta = document.createElement("div")
+        cuerpoTarjeta.className="card-body";
+        cuerpoTarjeta.appendChild(contenedorPrincipalTabla);
+        cuerpoTarjeta.appendChild(contenedorBtnAcordeon);
+        cuerpoTarjeta.appendChild(contenedorVideo);
+
+        //Principal
+        let contenedorPrincipal = document.createElement("div")
+        contenedorPrincipal.className = "timeline-event card p-0";
+        contenedorPrincipal.appendChild(contenedorNombre);
+        contenedorPrincipal.appendChild(cuerpoTarjeta);
+
+        //Items
+        let ItemEjercicio = document.createElement("span")
+        ItemEjercicio.innerText = "1";
+        ItemEjercicio.className = "timeline-indicator timeline-indicator-primary";
+
+        //Lista
+        let liEjercicio = document.createElement("li")
+        liEjercicio.appendChild(ItemEjercicio);
+        liEjercicio.appendChild(contenedorPrincipal);
+        liEjercicio.className = "timeline-item mb-md-4 mb-5";
+
+        //Item a la lista
+        let listado = document.getElementById("listado");
+        listado.appendChild(liEjercicio);
+
+
+
+
+
+
+
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
 function registro() {
     try {
         if (document.getElementById("terms-conditions").checked === true) {
