@@ -1,34 +1,25 @@
 class Requests{
-    constructor(){
-        this.baseUrl = "http://www.apielsa.somee.com"
-    }
+    static baseUrl = "http://www.apielsa.somee.com"
 
-    static get(url){
-        return fetch(this.baseUrl+url)
+    static get(url,data={}){
+        return fetch(this.baseUrl+url+"?"+ $.param(data))
     }
 
     static async post(url, data={}, headers={}){
         let r = await fetch(this.baseUrl+url,{
             method: 'POST',
-            mode: 'no-cors',
+            // mode: 'no-cors',
+            redirect: 'follow',
             headers: headers,
             body: JSON.stringify(data)
         })
-
         return r.json()
     }
 
     static async patch(url, data={}){
-        let r = await fetch(this.baseUrl+url,{
-            method: 'PATCH',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+        return await fetch(this.baseUrl+url+"?"+ $.param(data),{
+            method: 'PATCH'
         })
-
-        return r.json()
     }
 
     static async put(url, data={}){
@@ -44,5 +35,3 @@ class Requests{
         return r.json()
     }
 }
-
-export {Requests}
