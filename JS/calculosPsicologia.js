@@ -794,56 +794,212 @@ function traerAlimVegSelecc() {
         console.log(e);
     }
 }
-
-function traerEjerciciosFisicos() {
+function traerRutinas() {
     try {
+
+        //Imagen y mensaje de la rutina de estiramiento o ejercicio
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var tipoRutina = urlParams.get('rutina');
+        var tipo = urlParams.get('tipo');
+        console.log(tipoRutina)
+        console.log(tipo)
+        let img;
+        let tituloRutina;
+        if (tipoRutina === 'fullbody' && tipo === 'estiramiento') {
+            tituloRutina = "Estiramiento de cuerpo completo"
+            img = 'FullBodyStretch';
+        }
+        if (tipoRutina === 'postentreno' && tipo === 'estiramiento') {
+            tituloRutina = "Estiramiento para entrenar"
+            img = 'stretchTrain';
+        }
+        if (tipoRutina === 'fullbody' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina de cuerpo completo"
+            img = 'fullbodyRoutine';
+        }
+        if (tipoRutina === 'treninferior' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina para el tren inferior"
+            img = 'lowerBody';
+        }
+        if (tipoRutina === 'trensuperior' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina para el tren superior"
+            img = 'upperBody';
+        }
+        if (tipoRutina === 'core' && tipo === 'entrenamiento') {
+            tituloRutina = "Fortalecimiento de CORE"
+            img = 'core';
+        }
+        document.getElementById("nombreRutina").innerText = tituloRutina;
+        document.getElementById("imagenFondo").setAttribute("src", "../../assets/img/pages/" + img + ".jpg")
+
+        //Traer datos de la DB
+        fetch("http://localhost:7155/rutinaEjercicioFisico/traer?nivel=1&escala=1&rutina=fullbody")
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+
         //Mensaje Inicial
+        let tituloMensaje = document.createElement("span");
+        tituloMensaje.innerText = "Preparate para iniciar";
+        tituloMensaje.className = "badge rounded-pill bg-label-success";
+        let h5Mensaje = document.createElement("h5");
+        h5Mensaje.className = "card-title mb-0";
+        h5Mensaje.appendChild(tituloMensaje);
+        let divTituloInicial = document.createElement("div");
+        divTituloInicial.className = "card-header d-flex justify-content-between align-items-center flex-wrap";
+        divTituloInicial.appendChild(h5Mensaje);
+
+
         let MensajeInicial = document.createElement("p");
-        let divMensajeInicial = document.getElementById("mensajeInicial")
-        MensajeInicial.innerText = "Mensaje Incial"
+        MensajeInicial.innerText = "Mensaje Incial";
         MensajeInicial.className = "mb-2";
+        let divMensajeInicial = document.createElement("div");
+        divMensajeInicial.className = "card-body"
         divMensajeInicial.appendChild(MensajeInicial);
 
+        let contendorMensajeInicial = document.createElement("div");
+        contendorMensajeInicial.className = "timeline-event card p-0";
+        contendorMensajeInicial.appendChild(divTituloInicial);
+        contendorMensajeInicial.appendChild(divMensajeInicial);
+
+        let liMensajeInicial = document.createElement("li");
+        liMensajeInicial.className = "timeline-item mb-md-4 mb-5";
+        liMensajeInicial.appendChild(contendorMensajeInicial);
+
         //Mensaje Final
-        let MensajeFinal = document.createElement("p");
-        let divMensajeFinal = document.getElementById("mensajeFinal")
-        MensajeFinal.innerText = "Mensaje Final"
-        MensajeFinal.className = "mb-2";
-        divMensajeFinal.appendChild(MensajeFinal);
+        let tituloFinal = document.createElement("span");
+        tituloFinal.innerText = "Paso final";
+        tituloFinal.className = "badge rounded-pill bg-label-success";
+        let h5TituloFinal = document.createElement("h5");
+        h5TituloFinal.className = "card-header";
+        h5TituloFinal.appendChild(tituloFinal);
+
+        let mensajeFinal = document.createElement("p");
+        mensajeFinal.innerText = "mensajeFinal";
+        mensajeFinal.className = "mb-2";
+        let contenedorMensajeFinal = document.createElement("div");
+        contenedorMensajeFinal.className = "card-body";
+        contenedorMensajeFinal.appendChild(mensajeFinal);
+
+        let contendorFinal = document.createElement("div");
+        contendorFinal.className = "timeline-event card p-0";
+        contendorFinal.appendChild(h5TituloFinal);
+        contendorFinal.appendChild(contenedorMensajeFinal);
+
+        let liContenedorMensajeFinal = document.createElement("li");
+        liContenedorMensajeFinal.className = "timeline-item mb-md-4 mb-5";
+        liContenedorMensajeFinal.appendChild(contendorFinal);
+
+
+
 
         //Tarjeta del Ejercicio
         //Nombre Tarjeta
-        let contenedorNombre = document.createElement("div")
-        let contenedorH5 = document.createElement("h5")
-        let nombre = document.createElement("span")
+        let nombre = document.createElement("span");
         nombre.innerText = "Saltos de Tijera";
         nombre.className = "badge rounded-pill bg-label-success";
-        contenedorH5.appendChild(nombre);
+        let contenedorH5 = document.createElement("h5");
         contenedorH5.className = "card-title mb-0";
-        contenedorNombre.appendChild(contenedorH5)
+        contenedorH5.appendChild(nombre);
+        let contenedorNombre = document.createElement("div");
+        contenedorNombre.className = "card-header d-flex justify-content-between align-items-center flex-wrap";
+        contenedorNombre.appendChild(contenedorH5);
 
         //Cuerpo Tarjeta
-        let video = document.createElement("iframe")
-        video.width="560";
-        video.height="315";
-        video.src="https://www.youtube.com/embed/iSSAk4XCsRA";
-        video.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    
-        let contenedorVideo = document.createElement("div")
-        contenedorVideo.className="video-responsive";
+        //Contenedor Video
+        let video = document.createElement("iframe");
+        video.width = "560";
+        video.height = "315";
+        video.src = "https://www.youtube.com/embed/iSSAk4XCsRA";
+        video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+
+        let contenedorVideo = document.createElement("div");
+        contenedorVideo.className = "video-responsive";
         contenedorVideo.appendChild(video);
 
-        let contenedorBtnAcordeon = document.createElement("div")
-        contenedorBtnAcordeon.className="card accordion-item mb-3";
+        //Contenedor Acordeon 
+        let buttonAcordeon = document.createElement("button");
+        buttonAcordeon.className = "accordion-button";
+        buttonAcordeon.style = "color: #9BCB3B;";
+        buttonAcordeon.setAttribute("data-bs-target", "#accordionOne");
+        buttonAcordeon.setAttribute("data-bs-toggle", "collapse");
+        buttonAcordeon.setAttribute("aria-expanded", "true")
+        buttonAcordeon.setAttribute("aria-controls", "accordionOne");
+        buttonAcordeon.innerText = "Descripción ejercicio";
 
-        let contenedorPrincipalTabla = document.createElement("div")
-        contenedorPrincipalTabla.className="card";
+        let contendorButton = document.createElement("h2");
+        contendorButton.className = "accordion-header";
+        contendorButton.id = "headingOne";
+        contendorButton.appendChild(buttonAcordeon);
 
-        let cuerpoTarjeta = document.createElement("div")
-        cuerpoTarjeta.className="card-body";
-        cuerpoTarjeta.appendChild(contenedorPrincipalTabla);
-        cuerpoTarjeta.appendChild(contenedorBtnAcordeon);
+        let descripcion = document.createElement("div");
+        descripcion.innerText = "Descripcion del ejercicio";
+        descripcion.className = "accordion-body";
+        let contenedorDescripcion = document.createElement("div");
+        contenedorDescripcion.className = "accordion-collapse collapse";
+        contenedorDescripcion.id = "accordionOne";
+        contenedorDescripcion.appendChild(descripcion);
+
+        let contenedorBtnAcordeon = document.createElement("div");
+        contenedorBtnAcordeon.className = "card accordion-item mb-3";
+        contenedorBtnAcordeon.appendChild(contendorButton);
+        contenedorBtnAcordeon.appendChild(contenedorDescripcion);
+
+        //Contenedor Tabla
+        //Encabezado
+        let thSeries = document.createElement("th");
+        thSeries.innerText = "SERIES";
+        let thRepeticion = document.createElement("th");
+        thRepeticion.innerText = "REPETICIONES";
+        let thDescanso = document.createElement("th");
+        thDescanso.innerText = "RIR";
+        let filaEncabezado = document.createElement("tr");
+        filaEncabezado.appendChild(thSeries);
+        filaEncabezado.appendChild(thRepeticion);
+        filaEncabezado.appendChild(thDescanso);
+        let theadTabla = document.createElement("thead");
+        theadTabla.className = "table-light";
+        theadTabla.appendChild(filaEncabezado);
+
+        //Cuerpo
+        let tdSeries = document.createElement("td");
+        tdSeries.innerText = "4";
+        let tdRepeticion = document.createElement("td");
+        tdRepeticion.innerText = "5";
+        let tdDescanso = document.createElement("td");
+        tdDescanso.innerText = "2";
+        let filaCuerpo = document.createElement("tr");
+        filaCuerpo.appendChild(tdSeries);
+        filaCuerpo.appendChild(tdRepeticion);
+        filaCuerpo.appendChild(tdDescanso);
+        let bodyTabla = document.createElement("tbody");
+        bodyTabla.className = "table-border-bottom-0";
+        bodyTabla.appendChild(filaCuerpo);
+
+        //Agregar datos a la tabla
+        let tabla = document.createElement("table");
+        tabla.className = "table ta-sm text-center";
+        tabla.appendChild(theadTabla);
+        tabla.appendChild(bodyTabla);
+
+        let contendorTabla = document.createElement("div");
+        contendorTabla.className = "table-responsive text-nowrap";
+        contendorTabla.appendChild(tabla);
+
+        //Agregar datos contendor principal de la tabla
+        let contenedorPrincipalTabla = document.createElement("div");
+        contenedorPrincipalTabla.className = "card";
+        contenedorPrincipalTabla.appendChild(contendorTabla);
+
+        //Agregar contenedores al cuerpo de la tarjeta
+        let cuerpoTarjeta = document.createElement("div");
+        cuerpoTarjeta.className = "card-body";
         cuerpoTarjeta.appendChild(contenedorVideo);
+        cuerpoTarjeta.appendChild(contenedorBtnAcordeon);
+        cuerpoTarjeta.appendChild(contenedorPrincipalTabla);
+
 
         //Principal
         let contenedorPrincipal = document.createElement("div")
@@ -864,14 +1020,9 @@ function traerEjerciciosFisicos() {
 
         //Item a la lista
         let listado = document.getElementById("listado");
+        listado.appendChild(liMensajeInicial);
         listado.appendChild(liEjercicio);
-
-
-
-
-
-
-
+        listado.appendChild(liContenedorMensajeFinal);
 
     } catch (e) {
         console.log(e);
