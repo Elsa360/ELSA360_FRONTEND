@@ -927,7 +927,7 @@
 
             <!--  -------------------------------------------------------- -->
             <div class="row">
-              <div class="col-md-2 mb-4">
+              <div class="col-md-2 mb-3">
                 <div class="input-group input-group-merge">
                   <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
                   <input type="text" class="form-control" placeholder="Buscar alimento" aria-label="Search..."
@@ -935,7 +935,7 @@
                 </div>
               </div>
 
-              <div class="col-md-2 mb-4">
+              <div class="col-md-2 mb-3">
                 <select id="filtroMomentoDelDia" class="select2 form-select form-select-md" data-allow-clear="true">
                   <option value="-1" disabled="" selected="">Momento del día</option>
                   <option value="1">Desayuno</option>
@@ -948,7 +948,7 @@
               </div>
 
 
-              <div class="col-md-2 mb-4">
+              <div class="col-md-2 mb-3">
                 <select id="filtroGrupoAlimenticio" class=" select2 form-select form-select-md" data-allow-clear="true">
                   <option value="-1" disabled="" selected="">Grupo alimenticio</option>
                   <option value="1">Energéticos</option>
@@ -961,12 +961,13 @@
               </div>
 
 
-              <div class="col-md-2 mb-6">
-                <input type="button" value="Lista Completa" class="btn btn-label-success" style="width:100%">
+              <div class="col-md-2 mb-3">
+                <a href="tables-general-foods.html"><input class="btn btn-label-success mb-4" style="width:100%" type="button" value="Lista completa"></a> 
               </div>
-              <div class="col-md-2 mb-6">
+
+              <!-- <div class="col-md-2 mb-6">
                 <input type="button" value="Elegir alimentos" class="btn btn-success" style="width:100%">
-              </div>
+              </div> -->
             </div>
 
 
@@ -1008,81 +1009,62 @@
 
 
 
-            <div class="row">
-              <div class="col-md-6 mb-0">
+          
 
-                <div class="elegidoNutricion ">
-                  <h4>Calorias</h4>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="elegidoNutricion1">
+                  <h5>Calorías completadas</h5>
 
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                      aria-valuemax="100">
-                      25%
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                      <label for="">75%</label>
                     </div>
-                  </div>
+                  </div>                                       
 
-
-                  <div class="slidecontainer2">
-
-                    <table class="tablaLimites">
-                      <tr>
-                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">2750</span></td>
-
-                        <td></td>
-
-                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">688</span></td>
-                      </tr>
-                      <tr>
-                        <td class="valorLimiteInf"><span class="badge bg-label-warning">Requeridas</span></td>
-
-                        <td></td>
-
-                        <td class="valorLimiteSup"><span class="badge bg-label-warning">Completadas</span></td>
-                      </tr>
-                    </table>
-                  </div>
                 </div>
+                                                   
+
               </div>
 
 
-
-
-
-
-
-              <div class="col-md-6 mb-0">
-
-                <div class="elegidoNutricion ">
-                  <h4>Porciones</h4>
-
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100">
-                      50%
-                    </div>
-                  </div>
-
+              <div class="col-md-4 mb-3">
+                <div class="elegidoNutricion1">                     
 
                   <div class="slidecontainer2">
 
                     <table class="tablaLimites">
                       <tr>
-                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">3</span></td>
+                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h4 style="margin-bottom: 5px;">688</h4></span></td>
 
                         <td></td>
-
-                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">1.5</span></td>
+                        
+                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h4 style="margin-bottom: 5px;">2750</h4></span></td>
                       </tr>
                       <tr>
-                        <td class="valorLimiteInf"><span class="badge bg-label-info">Requeridas</span></td>
+                        <td class="valorLimiteSup"><span class="badge bg-label-warning">Completadas</span></td>
 
-                        <td></td>
+                        <td>de</td>
 
-                        <td class="valorLimiteSup"><span class="badge bg-label-info">Completadas</span></td>
+                        <td class="valorLimiteInf"><span class="badge bg-label-warning">Requeridas</span></td>
                       </tr>
                     </table>
                   </div>
+
                 </div>
+                
+
               </div>
             </div>
 
@@ -1146,33 +1128,86 @@
             <div class="col-md mb-4 mb-md-2">
               <div class="accordion mt-3" id="accordionWithIcon">
 
-                <div class="card accordion-item">
+                <div class="card accordion-item mb-4">
                   <h2 class="accordion-header d-flex align-items-center">
 
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionWithIcon-1" aria-expanded="false">
 
                       <img src="../../assets/img/icons/unicons/Sin título-1.png" alt=""
-                        style="width: 15px; margin-right: 10px;">
-                      Energéticos
+                        style="width: 18px; margin-right: 10px;">
+                        <span class="concepto" style="font-size: 20px;">Energéticos</span>
                     </button>
-
                   </h2>
+
+
 
                   <div id="accordionWithIcon-1" class="accordion-collapse collapse">
                     <div class="accordion-body">
 
-                      <table class="table" id="tablaEnergeticos">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre Alimento</th>
-                            <th>Grupo</th>
-                            <th>Momento</th>
-                            <th>N° porciones</th>
-                          </tr>
-                        </thead>
-                      </table>
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5>Porciones de alimentos energéticos que has elegido</h5>
+                      </div>
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Energéticos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>                     
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                             
+                            <div class="slidecontainer2">                      
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>                                     
+
+                        </div>
+                      </div>
+
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table" id="tablaEnergeticos">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Alimento</th>
+                              <th>Grupo</th>
+                              <th>Momento</th>
+                              <th>N° porciones</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
 
                     </div>
                   </div>
@@ -1180,220 +1215,646 @@
 
 
 
-                <div class="accordion-item card">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="accordion-item card mb-4">
                   <h2 class="accordion-header d-flex align-items-center">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionWithIcon-2" aria-expanded="false">
                       <img src="../../assets/img/icons/unicons/proteicos.png" alt=""
-                        style="width: 18px; margin-right: 10px;">
-                      Proteícos </button>
+                        style="width: 20px; margin-right: 10px;">
+                        <span class="concepto" style="font-size: 20px;">Proteícos</span> 
+                      </button>
                   </h2>
+
+
+
+
+
+
                   <div id="accordionWithIcon-2" class="accordion-collapse collapse">
                     <div class="accordion-body">
+
+
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5>Porciones de alimentos proteícos que has elegido</h5>
+                      </div>
+
+
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Proteícos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>                                       
+          
+                          </div>
+                                                             
+
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+                    
+                    <div class="table-responsive text-nowrap">  
                       <table class="table" id="tablaProteicos">
                         <thead>
                           <tr>
                             <th></th>
-                            <th>Nombre Alimento</th>
+                            <th>Alimento</th>
                             <th>Grupo</th>
                             <th>Momento</th>
                             <th>N° porciones</th>
                           </tr>
                         </thead>
                       </table>
+                    </div>  
+
+
+
                     </div>
                   </div>
                 </div>
 
 
 
-                <div class="accordion-item card">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="accordion-item card mb-4">
                   <h2 class="accordion-header d-flex align-items-center">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionWithIcon-3" aria-expanded="false">
                       <img src="../../assets/img/icons/unicons/milk.png" alt=""
-                        style="width: 12px; margin-right: 10px;">
-                      Lácteos
+                        style="width: 15px; margin-right: 10px;">
+                        <span class="concepto" style="font-size: 20px;">Lácteos</span>
                     </button>
                   </h2>
+
+
+
+
+
                   <div id="accordionWithIcon-3" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                      <table class="table" id="tablaLacteos">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre Alimento</th>
-                            <th>Grupo</th>
-                            <th>Momento</th>
-                            <th>N° porciones</th>
-                          </tr>
-                        </thead>
-                      </table>
+
+
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5>Porciones de alimentos lácteos que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Lácteos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table" id="tablaLacteos">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Alimento</th>
+                              <th>Grupo</th>
+                              <th>Momento</th>
+                              <th>N° porciones</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+
                     </div>
                   </div>
                 </div>
 
-                <div class="accordion-item card">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="accordion-item card mb-4">
                   <h2 class="accordion-header d-flex align-items-center">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionWithIcon-4" aria-expanded="false">
                       <!-- <i class="fa-solid fa-carrot" style="margin-right:10px"></i> -->
                       <img src="../../assets/img/icons/unicons/grapes.png" alt=""
-                        style="width: 18px; margin-right: 10px;">
-                      Frutas y verduras
+                        style="width: 20px; margin-right: 10px;">
+                        <span class="concepto" style="font-size: 20px;">Frutas y verduras</span>
                     </button>
                   </h2>
+
+
+
                   <div id="accordionWithIcon-4" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                      <table class="table" id="tablaFrutyVeg">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre Alimento</th>
-                            <th>Grupo</th>
-                            <th>Momento</th>
-                            <th>N° porciones</th>
-                          </tr>
-                        </thead>
-                       </table>
+
+
+
+
+
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5>Porciones de frutas y verduras que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Frutas y verduras completadas</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table" id="tablaFrutyVeg">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Alimento</th>
+                              <th>Grupo</th>
+                              <th>Momento</th>
+                              <th>N° porciones</th>
+                            </tr>
+                          </thead>
+                        </table>
+                       </div>
+
+
+
+
                     </div>
                   </div>
                 </div>
 
 
 
-                <div class="accordion-item card">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="accordion-item card mb-4">
                   <h2 class="accordion-header d-flex align-items-center">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionWithIcon-5" aria-expanded="false">
                       <!-- <i class="fa-solid fa-bottle-droplet" style="margin-right:10px;"></i> -->
                       <img src="../../assets/img/icons/unicons/avocado.png" alt=""
-                        style="width: 13px; margin-right: 10px;">
-                      Grasas Saludables
+                        style="width: 16px; margin-right: 10px;">
+                        <span class="concepto" style="font-size: 20px;">Grasas Saludables</span>
                     </button>
                   </h2>
+
+
                   <div id="accordionWithIcon-5" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                      <table class="table" id="tablaGrasasSalud">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre Alimento</th>
-                            <th>Grupo</th>
-                            <th>Momento</th>
-                            <th>N° porciones</th>
-                          </tr>
-                        </thead>
-                      </table>
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h6>Porciones de grasas saludables que has elegido</h6>
+                      </div>        
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Grasas saludables completadas</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table" id="tablaGrasasSalud">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Alimento</th>
+                              <th>Grupo</th>
+                              <th>Momento</th>
+                              <th>N° porciones</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+
+
                     </div>
                   </div>
                 </div>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="accordion-item card">
-                  <h2 class="accordion-header d-flex align-items-center">
-                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                      data-bs-target="#accordionWithIcon-6" aria-expanded="false">
-                      <!-- <i class="fa-solid fa-burger" style="margin-right:10px;"></i> -->
-                      <img src="../../assets/img/icons/unicons/burger.png" alt=""
-                        style="width: 19px; margin-right: 10px;">
-                      Otros
+                  <h2 class="accordion-header d-flex align-items-center" >
+                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-6" aria-expanded="false">
+                      <img src="../../assets/img/icons/unicons/burger.png" alt="" style="width: 21px; margin-right: 10px;">
+                      <span class="concepto" style="font-size: 20px;">Otros</span> 
                     </button>
                   </h2>
                   <div id="accordionWithIcon-6" class="accordion-collapse collapse">
                     <div class="accordion-body">
-                      <table class="table" id="tablaOtrosSelecc">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nombre Alimento</th>
-                            <th>Grupo</th>
-                            <th>Momento</th>
-                            <th>N° porciones</th>
-                          </tr>
-                        </thead>
-                      </table>
+
+
+
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5>Porciones de otros alimentos que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Otros alimentos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+                      <div class="table-responsive text-nowrap">
+                        <table class="table" id="tablaOtrosSelecc">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Alimento</th>
+                              <th>Grupo</th>
+                              <th>Momento</th>
+                              <th>N° porciones</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+
+
+
                     </div>
                   </div>
                 </div>
                 </form>
               </div>
             </div>
-
-
-
-
-            <!-- Basic Bootstrap Table -->
-            <!-- <div class="card">
-                <h5 class="card-header">Energéticos</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Nombre Alimento</th>
-                        <th>Grupo</th>
-                        <th>Momento</th>
-                        <th>Foto</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td>Albert Cook</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        
-                      </tr>
-                      
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div> -->
-            <!--/ Basic Bootstrap Table -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
