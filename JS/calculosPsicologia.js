@@ -570,6 +570,528 @@ function traerAlimentosVegetarianos() {
 
         });
 }
+
+function traerAlimRegSelecc() {
+    try {
+        // Energeticos
+        let tablaEnergeticos = document.getElementById('tablaEnergeticos');
+        let cuerpoEnergeticos = document.createElement('tbody');
+        // Proteicos
+        let tablaProteicos = document.getElementById('tablaProteicos');
+        let cuerpoProteicos = document.createElement('tbody');
+        // Lacteos
+        let tablaLacteos = document.getElementById('tablaLacteos');
+        let cuerpoLacteos = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaFrutyVeg = document.getElementById('tablaFrutyVeg');
+        let cuerpoFrutyVeg = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaGrasasSalud = document.getElementById('tablaGrasasSalud');
+        let cuerpoGrasasSalud = document.createElement('tbody');
+        // Otros
+        let tablaOtrosSelecc = document.getElementById('tablaOtrosSelecc');
+        let cuerpoOtrosSelecc = document.createElement('tbody');
+        //Endpoint
+        fetch('https://localhost:7155/alimentoRegularSeleccionado/listar')
+            .then((response) => response.json())
+            .then((alimRegSelecc) => {
+                alimRegSelecc.forEach(alimento => {
+                    console.log(alimento);
+                    let fila = document.createElement('tr');
+                    let tdImage = document.createElement('td');
+                    let imgAlimento = document.createElement("img");
+                    let tdNombre = document.createElement('td');
+                    let tdGrupoAlim = document.createElement('td');
+                    let tdMomentoComida = document.createElement('td');
+                    let tdPorcion = document.createElement("td");
+                    let inputPorcion = document.createElement("input");
+
+
+                    tdImage.style = "width: 30px; text-align: center;";
+                    imgAlimento.style = "margin-right: 10px;";
+                    imgAlimento.src = "../../assets/img/alimentosReg/" + alimento.fkIdAlimentoRegularSlcnn + ".png";
+                    tdImage.appendChild(imgAlimento);
+                    fila.appendChild(tdImage);
+
+                    tdNombre.innerText = alimento.nombreAlimento;
+                    tdNombre.id = alimento.idAlimento;
+                    tdNombre.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdNombre);
+
+                    tdGrupoAlim.innerText = alimento.grupoAlimenticio;
+                    tdGrupoAlim.id = alimento.idGrupoAlimenticio;
+                    tdGrupoAlim.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdGrupoAlim);
+
+                    tdMomentoComida.innerText = alimento.momentoComida;
+                    tdMomentoComida.id = alimento.fkIdMomentoComidaSlccn;
+                    tdMomentoComida.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdMomentoComida);
+
+                    tdPorcion.style = "font-size:18px; text-align: center;";
+                    inputPorcion.type = "number";
+                    inputPorcion.className = "form-control"
+                    inputPorcion.id = alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.min = 0;
+                    inputPorcion.max = 6;
+                    inputPorcion.step = "0.5";
+                    inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                    tdPorcion.appendChild(inputPorcion);
+                    fila.appendChild(tdPorcion);
+
+                    if (alimento.idGrupoAlimenticio === 1) {
+                        cuerpoEnergeticos.className = "table-border-bottom-0";
+                        cuerpoEnergeticos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 2) {
+                        cuerpoProteicos.className = "table-border-bottom-0";
+                        cuerpoProteicos.appendChild(fila);
+                    }
+                    else if ((alimento.idGrupoAlimenticio === 3) || (alimento.idGrupoAlimenticio === 4)) {
+                        cuerpoLacteos.className = "table-border-bottom-0";
+                        cuerpoLacteos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 5) {
+                        cuerpoFrutyVeg.className = "table-border-bottom-0";
+                        cuerpoFrutyVeg.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 6) {
+                        cuerpoGrasasSalud.className = "table-border-bottom-0";
+                        cuerpoGrasasSalud.appendChild(fila);
+                    }
+                    else {
+                        cuerpoOtrosSelecc.className = "table-border-bottom-0";
+                        cuerpoOtrosSelecc.appendChild(fila);
+                    }
+                });
+                tablaEnergeticos.className = "table";
+                tablaEnergeticos.appendChild(cuerpoEnergeticos);
+
+                tablaProteicos.className = "table";
+                tablaProteicos.appendChild(cuerpoProteicos);
+
+                tablaLacteos.className = "table";
+                tablaLacteos.appendChild(cuerpoLacteos);
+
+                tablaFrutyVeg.className = "table";
+                tablaFrutyVeg.appendChild(cuerpoFrutyVeg);
+
+                tablaGrasasSalud.className = "table";
+                tablaGrasasSalud.appendChild(cuerpoGrasasSalud);
+
+                tablaOtrosSelecc.className = "table";
+                tablaOtrosSelecc.appendChild(cuerpoOtrosSelecc);
+
+            });
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+function traerAlimVegSelecc() {
+    try {
+        // Energeticos
+        let tablaEnergeticos = document.getElementById('tablaEnergeticosVeg');
+        let cuerpoEnergeticos = document.createElement('tbody');
+        // Proteicos vegetarianos
+        let tablaProteicos = document.getElementById('tablaProteicosVeg');
+        let cuerpoProteicos = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaFrutyVeg = document.getElementById('tablaFrutyVerdVeg');
+        let cuerpoFrutyVeg = document.createElement('tbody');
+        // Frutas y Verduras
+        let tablaGrasasSalud = document.getElementById('tablaGrasasSaludVeg');
+        let cuerpoGrasasSalud = document.createElement('tbody');
+        // Otros
+        let tablaOtrosSelecc = document.getElementById('tablaOtrosSeleccVeg');
+        let cuerpoOtrosSelecc = document.createElement('tbody');
+        //Endpoint
+        fetch('https://localhost:7155/alimentoVegetarianoSeleccionado/listar')
+            .then((response) => response.json())
+            .then((alimRegSelecc) => {
+                alimRegSelecc.forEach(alimento => {
+                    console.log(alimento);
+                    let fila = document.createElement('tr');
+                    let tdImage = document.createElement('td');
+                    let imgAlimento = document.createElement("img");
+                    let tdNombre = document.createElement('td');
+                    let tdGrupoAlim = document.createElement('td');
+                    let tdMomentoComida = document.createElement('td');
+                    let tdPorcion = document.createElement("td");
+                    let inputPorcion = document.createElement("input");
+
+
+                    tdImage.style = "width: 30px; text-align: center;";
+                    imgAlimento.style = "margin-right: 10px;";
+                    imgAlimento.src = "../../assets/img/alimentosVeg/" + alimento.fkIdAlimentoVegetSlcnn + ".png";
+                    tdImage.appendChild(imgAlimento);
+                    fila.appendChild(tdImage);
+
+                    tdNombre.innerText = alimento.nombreAlimento;
+                    tdNombre.id = alimento.idAlimento;
+                    tdNombre.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdNombre);
+
+                    tdGrupoAlim.innerText = alimento.grupoAlimenticio;
+                    tdGrupoAlim.id = alimento.idGrupoAlimenticio;
+                    tdGrupoAlim.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdGrupoAlim);
+
+                    tdMomentoComida.innerText = alimento.momentoComida;
+                    tdMomentoComida.id = alimento.fkIdMomentoComidaSlccn;
+                    tdMomentoComida.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdMomentoComida);
+
+                    tdPorcion.style = "font-size:18px; text-align: center;";
+                    inputPorcion.type = "number";
+                    inputPorcion.className = "form-control"
+                    inputPorcion.id = alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.min = 0;
+                    inputPorcion.max = 6;
+                    inputPorcion.step = "0.5";
+                    inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                    tdPorcion.appendChild(inputPorcion);
+                    fila.appendChild(tdPorcion);
+
+                    if (alimento.idGrupoAlimenticio === 1) {
+                        cuerpoEnergeticos.className = "table-border-bottom-0";
+                        cuerpoEnergeticos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 2) {
+                        cuerpoProteicos.className = "table-border-bottom-0";
+                        cuerpoProteicos.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 5) {
+                        cuerpoFrutyVeg.className = "table-border-bottom-0";
+                        cuerpoFrutyVeg.appendChild(fila);
+                    }
+                    else if (alimento.idGrupoAlimenticio === 6) {
+                        cuerpoGrasasSalud.className = "table-border-bottom-0";
+                        cuerpoGrasasSalud.appendChild(fila);
+                    }
+                    else {
+                        cuerpoOtrosSelecc.className = "table-border-bottom-0";
+                        cuerpoOtrosSelecc.appendChild(fila);
+                    }
+                });
+                tablaEnergeticos.className = "table";
+                tablaEnergeticos.appendChild(cuerpoEnergeticos);
+
+                tablaProteicos.className = "table";
+                tablaProteicos.appendChild(cuerpoProteicos);
+
+                tablaFrutyVeg.className = "table";
+                tablaFrutyVeg.appendChild(cuerpoFrutyVeg);
+
+                tablaGrasasSalud.className = "table";
+                tablaGrasasSalud.appendChild(cuerpoGrasasSalud);
+
+                tablaOtrosSelecc.className = "table";
+                tablaOtrosSelecc.appendChild(cuerpoOtrosSelecc);
+
+            });
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+function traerRutinas() {
+    try {
+
+        //Imagen y mensaje de la rutina de estiramiento o ejercicio
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var tipoRutina = urlParams.get('rutina');
+        var tipo = urlParams.get('tipo');
+        console.log(tipoRutina)
+        console.log(tipo)
+        let img;
+        let tituloRutina;
+        if (tipoRutina === 'fullbody' && tipo === 'estiramiento') {
+            tituloRutina = "Estiramiento de cuerpo completo"
+            img = 'FullBodyStretch';
+        }
+        if (tipoRutina === 'postentreno' && tipo === 'estiramiento') {
+            tituloRutina = "Estiramiento para entrenar"
+            img = 'stretchTrain';
+        }
+        if (tipoRutina === 'fullbody' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina de cuerpo completo"
+            img = 'fullbodyRoutine';
+        }
+        if (tipoRutina === 'treninferior' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina para el tren inferior"
+            img = 'lowerBody';
+        }
+        if (tipoRutina === 'trensuperior' && tipo === 'entrenamiento') {
+            tituloRutina = "Rutina para el tren superior"
+            img = 'upperBody';
+        }
+        if (tipoRutina === 'core' && tipo === 'entrenamiento') {
+            tituloRutina = "Fortalecimiento de CORE"
+            img = 'core';
+        }
+        document.getElementById("nombreRutina").innerText = tituloRutina;
+        document.getElementById("imagenFondo").setAttribute("src", "../../assets/img/pages/" + img + ".jpg")
+
+        //Traer datos de la DB
+        fetch("http://localhost:7155/rutinaEjercicioFisico/traer?nivel=1&escala=1&rutina=fullbody")
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+
+        //Mensaje Inicial
+        let tituloMensaje = document.createElement("span");
+        tituloMensaje.innerText = "Preparate para iniciar";
+        tituloMensaje.className = "badge rounded-pill bg-label-success";
+        let h5Mensaje = document.createElement("h5");
+        h5Mensaje.className = "card-title mb-0";
+        h5Mensaje.appendChild(tituloMensaje);
+        let divTituloInicial = document.createElement("div");
+        divTituloInicial.className = "card-header d-flex justify-content-between align-items-center flex-wrap";
+        divTituloInicial.appendChild(h5Mensaje);
+
+
+        let MensajeInicial = document.createElement("p");
+        MensajeInicial.innerText = "Mensaje Incial";
+        MensajeInicial.className = "mb-2";
+        let divMensajeInicial = document.createElement("div");
+        divMensajeInicial.className = "card-body"
+        divMensajeInicial.appendChild(MensajeInicial);
+
+        let contendorMensajeInicial = document.createElement("div");
+        contendorMensajeInicial.className = "timeline-event card p-0";
+        contendorMensajeInicial.appendChild(divTituloInicial);
+        contendorMensajeInicial.appendChild(divMensajeInicial);
+
+        let liMensajeInicial = document.createElement("li");
+        liMensajeInicial.className = "timeline-item mb-md-4 mb-5";
+        liMensajeInicial.appendChild(contendorMensajeInicial);
+
+        //Mensaje Final
+        let tituloFinal = document.createElement("span");
+        tituloFinal.innerText = "Paso final";
+        tituloFinal.className = "badge rounded-pill bg-label-success";
+        let h5TituloFinal = document.createElement("h5");
+        h5TituloFinal.className = "card-header";
+        h5TituloFinal.appendChild(tituloFinal);
+
+        let mensajeFinal = document.createElement("p");
+        mensajeFinal.innerText = "mensajeFinal";
+        mensajeFinal.className = "mb-2";
+        let contenedorMensajeFinal = document.createElement("div");
+        contenedorMensajeFinal.className = "card-body";
+        contenedorMensajeFinal.appendChild(mensajeFinal);
+
+        let contendorFinal = document.createElement("div");
+        contendorFinal.className = "timeline-event card p-0";
+        contendorFinal.appendChild(h5TituloFinal);
+        contendorFinal.appendChild(contenedorMensajeFinal);
+
+        let liContenedorMensajeFinal = document.createElement("li");
+        liContenedorMensajeFinal.className = "timeline-item mb-md-4 mb-5";
+        liContenedorMensajeFinal.appendChild(contendorFinal);
+
+
+
+
+        //Tarjeta del Ejercicio
+        //Nombre Tarjeta
+        let nombre = document.createElement("span");
+        nombre.innerText = "Saltos de Tijera";
+        nombre.className = "badge rounded-pill bg-label-success";
+        let contenedorH5 = document.createElement("h5");
+        contenedorH5.className = "card-title mb-0";
+        contenedorH5.appendChild(nombre);
+        let contenedorNombre = document.createElement("div");
+        contenedorNombre.className = "card-header d-flex justify-content-between align-items-center flex-wrap";
+        contenedorNombre.appendChild(contenedorH5);
+
+        //Cuerpo Tarjeta
+        //Contenedor Video
+        let video = document.createElement("iframe");
+        video.width = "560";
+        video.height = "315";
+        video.src = "https://www.youtube.com/embed/iSSAk4XCsRA";
+        video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+
+        let contenedorVideo = document.createElement("div");
+        contenedorVideo.className = "video-responsive";
+        contenedorVideo.appendChild(video);
+
+        //Contenedor Acordeon 
+        let buttonAcordeon = document.createElement("button");
+        buttonAcordeon.className = "accordion-button";
+        buttonAcordeon.style = "color: #9BCB3B;";
+        buttonAcordeon.setAttribute("data-bs-target", "#accordionOne");
+        buttonAcordeon.setAttribute("data-bs-toggle", "collapse");
+        buttonAcordeon.setAttribute("aria-expanded", "true")
+        buttonAcordeon.setAttribute("aria-controls", "accordionOne");
+        buttonAcordeon.innerText = "Descripción ejercicio";
+
+        let contendorButton = document.createElement("h2");
+        contendorButton.className = "accordion-header";
+        contendorButton.id = "headingOne";
+        contendorButton.appendChild(buttonAcordeon);
+
+        let descripcion = document.createElement("div");
+        descripcion.innerText = "Descripcion del ejercicio";
+        descripcion.className = "accordion-body";
+        let contenedorDescripcion = document.createElement("div");
+        contenedorDescripcion.className = "accordion-collapse collapse";
+        contenedorDescripcion.id = "accordionOne";
+        contenedorDescripcion.appendChild(descripcion);
+
+        let contenedorBtnAcordeon = document.createElement("div");
+        contenedorBtnAcordeon.className = "card accordion-item mb-3";
+        contenedorBtnAcordeon.appendChild(contendorButton);
+        contenedorBtnAcordeon.appendChild(contenedorDescripcion);
+
+        //Contenedor Tabla
+        //Encabezado
+        let thSeries = document.createElement("th");
+        thSeries.innerText = "SERIES";
+        let thRepeticion = document.createElement("th");
+        thRepeticion.innerText = "REPETICIONES";
+        let thDescanso = document.createElement("th");
+        thDescanso.innerText = "RIR";
+        let filaEncabezado = document.createElement("tr");
+        filaEncabezado.appendChild(thSeries);
+        filaEncabezado.appendChild(thRepeticion);
+        filaEncabezado.appendChild(thDescanso);
+        let theadTabla = document.createElement("thead");
+        theadTabla.className = "table-light";
+        theadTabla.appendChild(filaEncabezado);
+
+        //Cuerpo
+        let tdSeries = document.createElement("td");
+        tdSeries.innerText = "4";
+        let tdRepeticion = document.createElement("td");
+        tdRepeticion.innerText = "5";
+        let tdDescanso = document.createElement("td");
+        tdDescanso.innerText = "2";
+        let filaCuerpo = document.createElement("tr");
+        filaCuerpo.appendChild(tdSeries);
+        filaCuerpo.appendChild(tdRepeticion);
+        filaCuerpo.appendChild(tdDescanso);
+        let bodyTabla = document.createElement("tbody");
+        bodyTabla.className = "table-border-bottom-0";
+        bodyTabla.appendChild(filaCuerpo);
+
+        //Agregar datos a la tabla
+        let tabla = document.createElement("table");
+        tabla.className = "table ta-sm text-center";
+        tabla.appendChild(theadTabla);
+        tabla.appendChild(bodyTabla);
+
+        let contendorTabla = document.createElement("div");
+        contendorTabla.className = "table-responsive text-nowrap";
+        contendorTabla.appendChild(tabla);
+
+        //Agregar datos contendor principal de la tabla
+        let contenedorPrincipalTabla = document.createElement("div");
+        contenedorPrincipalTabla.className = "card";
+        contenedorPrincipalTabla.appendChild(contendorTabla);
+
+        //Agregar contenedores al cuerpo de la tarjeta
+        let cuerpoTarjeta = document.createElement("div");
+        cuerpoTarjeta.className = "card-body";
+        cuerpoTarjeta.appendChild(contenedorVideo);
+        cuerpoTarjeta.appendChild(contenedorBtnAcordeon);
+        cuerpoTarjeta.appendChild(contenedorPrincipalTabla);
+
+
+        //Principal
+        let contenedorPrincipal = document.createElement("div")
+        contenedorPrincipal.className = "timeline-event card p-0";
+        contenedorPrincipal.appendChild(contenedorNombre);
+        contenedorPrincipal.appendChild(cuerpoTarjeta);
+
+        //Items
+        let ItemEjercicio = document.createElement("span")
+        ItemEjercicio.innerText = "1";
+        ItemEjercicio.className = "timeline-indicator timeline-indicator-primary";
+
+        //Lista
+        let liEjercicio = document.createElement("li")
+        liEjercicio.appendChild(ItemEjercicio);
+        liEjercicio.appendChild(contenedorPrincipal);
+        liEjercicio.className = "timeline-item mb-md-4 mb-5";
+
+        //Item a la lista
+        let listado = document.getElementById("listado");
+        listado.appendChild(liMensajeInicial);
+        listado.appendChild(liEjercicio);
+        listado.appendChild(liContenedorMensajeFinal);
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
+function registro() {
+    try {
+        if (document.getElementById("terms-conditions").checked === true) {
+            let nombreUsuario = document.getElementById("username").value
+            let emailUsuario = document.getElementById("email").value
+            let passwordUsuario = document.getElementById("password").value
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json; charset=UTF-8");
+
+            var raw = "{\r\n    \"email\": \"" + emailUsuario + "\",\r\n    \"passwordUser\": \"" + passwordUsuario + "\",\r\n    \"" + nombreUsuario + "\": \"Manuel Peralta\",\r\n    \"fkIdRol\": 1,\r\n    \"ipPc\": \"00.00.00.00\"\r\n  }";
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("http://www.apielsa.somee.com/usuario/crear", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            // window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
+        } else {
+            console.log("")
+        }
+    } catch (e) {
+        console.log(e, 'Funcion -> Registro Usuario');
+    }
+}
+function verificacionEmailUsaurio() {
+    try {
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var nombreUsuario = urlParams.get('usuario');
+        document.getElementById("mensajeVerificacion").innerHTML = "Hola " + nombreUsuario + ", te hemos enviado un link al correo electronico con el que te registraste."
+    } catch (e) {
+        console.log(e, 'Funcion -> Verificar Email del Usuario')
+    }
+}
+function usuarioVerificado() {
+    try {
+        const valores = window.location.search;
+        const urlParams = new URLSearchParams(valores);
+        var emailVerificado = urlParams.get('emailVerificado');
+        console.log('Email:', emailVerificado)
+        // fetch('https://www.elsa360.com/usuario/verificar', {
+        //     method: 'PATCH',
+        //     body: JSON.stringify({
+        //         email: emailVerificado,
+        //     }),
+        //     headers: {
+        //         'Content-type': 'application/json; charset=UTF-8',
+        //     },
+        // })
+        //     .then((response) => response.json())
+        //     .then((json) => console.log(json));
+    } catch (e) {
+        console.log(e, 'Funcion -> Usuario Verificado')
+    }
+}
 function registrarPerfilUsuario() {
     try {
         var sexoUsuario;

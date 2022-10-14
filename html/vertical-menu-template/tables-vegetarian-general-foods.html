@@ -38,6 +38,11 @@
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/bs-stepper/bs-stepper.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
+
 
   <!-- Page CSS -->
 
@@ -922,9 +927,7 @@
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan nutricional /</span>Tabla de alimentos
-              vegetarianos
-            </h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan nutricional / </span> Tabla de alimentos vegetarianos</h4>
 
             <!--  -------------------------------------------------------- -->
             <div class="row">
@@ -936,24 +939,15 @@
                 </div>
               </div>
 
-              <div class="col-md-2 mb-4">
-                <select id="filtroMomentoDelDia" class="select2 form-select form-select-md" data-allow-clear="true">
-                  <option value="-1" disabled="" selected="">Momento del día</option>
-                  <option value="1">Desayuno</option>
-                  <option value="2">Snack 1</option>
-                  <option value="3">Almuerzo</option>
-                  <option value="4">Snack 2</option>
-                  <option value="5">Cena</option>
-                  <option value="6">Snack 3</option>
-                </select>
-              </div>
+              
 
 
               <div class="col-md-2 mb-4">
-                <select id="filtroGrupoAlimenticio" class=" select2 form-select form-select-md" data-allow-clear="true">
-                  <option value="-1" disabled="" selected="">Grupo alimenticio</option>
+                <select id="filtroGrupoAlimenticio" class="select2 form-select form-select-md" data-allow-clear="true" placeholder="Grupo alimenticio">
+                  <option value="-1">Grupo alimenticio</option>
                   <option value="1">Energéticos</option>
-                  <option value="2">Proteícos vegetarianos</option>
+                  <option value="2">Proteícos</option>
+                  <option value="3">Lacteos</option>
                   <option value="5">Frutas y verduras</option>
                   <option value="6">Grasas saludables</option>
                   <option value="8">Otros</option>
@@ -961,10 +955,23 @@
               </div>
 
 
-              <div class="col-md-2 mb-6">
-                <form action="">
-                  <input type="button" value="Elegir alimentos" class="btn btn-success" style="width:100%">
-              </div>
+              <div class="col-md-2 mb-4">
+                <a href="tables-vegetarian-selected-foods.html"><input class="btn btn-label-success" style="width:100%" type="button" value="Alimentos favoritos"></a> 
+              </div>  
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div id="defaultFormControlHelp" class="form-text">
+              <h6>Elige las porciones de los alimentos vegetarianos que más te gustan hasta que completes tu requerimiento de cada grupo alimenticio</h6>
             </div>
 
 
@@ -1006,1500 +1013,47 @@
 
 
             <div class="row">
-              <div class="col-md-6 mb-0">
-
-                <div class="elegidoNutricion ">
-                  <h4>Calorias</h4>
-
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                      aria-valuemax="100">
-                      25%
-                    </div>
-                  </div>
-
-
-                  <div class="slidecontainer2">
-
-                    <table class="tablaLimites">
-                      <tr>
-                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">2750</span></td>
-
-                        <td></td>
-
-                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">688</span></td>
-                      </tr>
-                      <tr>
-                        <td class="valorLimiteInf"><span class="badge bg-label-warning">Requeridas</span></td>
-
-                        <td></td>
-
-                        <td class="valorLimiteSup"><span class="badge bg-label-warning">Completadas</span></td>
-                      </tr>
-                    </table>
-                  </div>
-
-                </div>
-
-                <div id="defaultFormControlHelp" class="form-text">
-                  We'll never share your details with anyone else. <h6>Seleccionadas / Requeridas</h6>
-                </div>
-
-
-
-              </div>
-
-
-
-
-
-
-
-              <div class="col-md-6 mb-0">
-
-                <div class="elegidoNutricion ">
-                  <h4>Porciones</h4>
+              <div class="col-md-4 mb-3">
+                <div class="elegidoNutricion1">
+                  <h5>Calorías completadas</h5>
 
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                       <label for="">75%</label>
                     </div>
-                  </div>
+                  </div>                                       
 
+                </div>
+                                                   
+
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <div class="elegidoNutricion1">                     
 
                   <div class="slidecontainer2">
 
                     <table class="tablaLimites">
                       <tr>
-                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">3</span></td>
+                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h4 style="margin-bottom: 5px;">688</h4></span></td>
 
                         <td></td>
-
-                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">1.5</span></td>
+                        
+                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h4 style="margin-bottom: 5px;">2750</h4></span></td>
                       </tr>
                       <tr>
-                        <td class="valorLimiteInf"><span class="badge bg-label-info">Requeridas</span></td>
+                        <td class="valorLimiteSup"><span class="badge bg-label-warning">Completadas</span></td>
 
-                        <td></td>
+                        <td>de</td>
 
-                        <td class="valorLimiteSup"><span class="badge bg-label-info">Completadas</span></td>
+                        <td class="valorLimiteInf"><span class="badge bg-label-warning">Requeridas</span></td>
                       </tr>
                     </table>
                   </div>
 
                 </div>
-
-                <div id="defaultFormControlHelp" class="form-text">
-                  We'll never share your details with anyone else. <h6>Seleccionadas / Requeridas</h6>
-                </div>
-
-
-
-              </div>
-
-
-
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="nav-align-top mb-4" style="margin-top: 20px;">
-
-              <ul class="nav nav-tabs nav-fill" role="tablist">
-
-                <li class="nav-item">
-                  <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-energeticos" aria-controls="navs-justified-home"
-                    aria-selected="true" style="font-weight:500;">
-                    <img src="../../assets/img/icons/unicons/Sin título-1.png" alt=""
-                      style="width: 15px; margin-right: 10px;">
-                    Energéticos
-                  </button>
-                </li>
-
-
-
-                <li class="nav-item">
-                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-proteicos" aria-controls="navs-justified-profile"
-                    aria-selected="false">
-                    <img src="../../assets/img/icons/unicons/vegan-symbol.png" alt=""
-                      style="width: 18px; margin-right: 10px;">
-                    Proteícos vegetarianos
-                  </button>
-                </li>
-
-
-
-                <!-- <li class="nav-item">
-                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-lacteos" aria-controls="navs-justified-messages"
-                    aria-selected="false">
-                    <img src="../../assets/img/icons/unicons/milk.png" alt="" style="width: 12px; margin-right: 10px;">
-                    Lácteos
-                  </button>
-                </li> -->
-
-
-
-                <li class="nav-item">
-                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-fruver" aria-controls="navs-justified-home" aria-selected="true">
-                    <img src="../../assets/img/icons/unicons/grapes.png" alt=""
-                      style="width: 18px; margin-right: 10px;">
-                    Frutas y verduras
-                  </button>
-                </li>
-
-
-
-                <li class="nav-item">
-                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-grasas" aria-controls="navs-justified-profile"
-                    aria-selected="false">
-                    <img src="../../assets/img/icons/unicons/avocado.png" alt=""
-                      style="width: 13px; margin-right: 10px;">
-                    Grasas Saludables
-                  </button>
-                </li>
-
-
-
-                <li class="nav-item">
-                  <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                    data-bs-target="#navs-justified-otros" aria-controls="navs-justified-messages"
-                    aria-selected="false">
-                    <img src="../../assets/img/icons/unicons/burger.png" alt=""
-                      style="width: 19px; margin-right: 10px;">
-                    Otros
-                  </button>
-                </li>
-
-
-
-              </ul>
-
-
-
-
-
-
-
-
-
-
-              <div class="tab-content">
-
-
-                <div class="tab-pane fade show active" id="navs-justified-energeticos" role="tabpanel">
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionCereales" aria-expanded="false" style="background-color: #191924; ">
-
-                        <img src="../../assets/img/icons/unicons/Cereales.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Cereales
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionCereales" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaCerealesVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionTuberculos" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/tuberculos.png" alt=""
-                          style="width: 20px; margin-right: 8px;">
-                        Tubérculos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionTuberculos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaTuberculosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionPlatanos" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/platanos.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Plátanos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionPlatanos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaPlatanosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionRaices" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/raiz.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Raíces
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionRaices" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaRaicesVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionLeguminosas" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/harina.png" alt=""
-                          style="width: 18px; margin-right: 10px;">
-                        Alimentos vegetarianos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionLeguminosas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaAlimentosVege">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="tab-pane fade" id="navs-justified-proteicos" role="tabpanel">
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionCarnes" aria-expanded="false" style="background-color: #191924;">
-
-                        <img src="../../assets/img/icons/unicons/tofu.png" alt=""
-                          style="width: 22px; margin-right: 10px;">
-                        Proteícos veganos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionCarnes" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaVeganos">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionLacteosRegulares" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/leguminosas.png" alt=""
-                          style="width: 18px; margin-right: 10px; ">
-                        Leguminosas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionLacteosRegulares" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaVegLeguminosas">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionLacteosBajos" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/kumis.png" alt=""
-                          style="width: 10px; margin-right: 10px;">
-                        Leche y derivados lácteos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionLacteosBajos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaLecheDerivadosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionLacteosRegulares" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/queso.png" alt=""
-                          style="width: 18px; margin-right: 10px; ">
-                        Leche y derivados lácteos bajos en grasa
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionLacteosRegulares" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaLecheBajosGrasaVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionLacteosBajos" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/huevos.png" alt=""
-                          style="width: 20px; margin-right: 10px;">
-                        Huevos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionLacteosBajos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaHuevos">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="tab-pane fade" id="navs-justified-fruver" role="tabpanel">
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionVerduras" aria-expanded="false" style="background-color: #191924; ">
-
-                        <img src="../../assets/img/icons/unicons/zanahoria.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Verduras
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionVerduras" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaVerdurasVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionFrutas" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/sandia.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Frutas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionFrutas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaFrutasVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="tab-pane fade" id="navs-justified-grasas" role="tabpanel">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionFrutosSecos" aria-expanded="false"
-                        style="background-color: #191924; ">
-
-                        <img src="../../assets/img/icons/unicons/nuez.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Frutos secos y semillas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionFrutosSecos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaFrutosSecosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionPoliinsaturadas" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/aceite.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Grasas poliinsaturadas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionPoliinsaturadas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaGrasasPoliVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionMonoinsaturadas" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/avocado.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Grasas monoinsaturadas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionMonoinsaturadas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaGrasasMonoVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="tab-pane fade" id="navs-justified-otros" role="tabpanel">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionSaturadas" aria-expanded="false" style="background-color: #191924; ">
-
-                        <img src="../../assets/img/icons/unicons/bacon.png" alt=""
-                          style="width: 15px; margin-right: 10px;">
-                        Grasas saturadas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionSaturadas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaGrasasSatuVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionSimples" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/miel.png" alt=""
-                          style="width: 20px; margin-right: 10px;">
-                        Azúcares simples
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionSimples" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaAzucaresSimplesVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionDulces" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/helado.png" alt=""
-                          style="width: 12px; margin-right: 10px;">
-                        Dulces y postres
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionDulces" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaDulcesVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionMiscelaneos" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/ketchup.png" alt=""
-                          style="width: 12px; margin-right: 10px;">
-                        Misceláneos
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionMiscelaneos" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaMiscelaneosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionPreparados" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/hotdog.png" alt=""
-                          style="width: 20px; margin-right: 10px;">
-                        Alimentos preparados
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionPreparados" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaPreparadosVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionEspecias" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/sal.png" alt=""
-                          style="width: 12px; margin-right: 10px;">
-                        Especias
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionEspecias" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaEspeciasVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
-
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#accordionAlcoholicas" aria-expanded="false"
-                        style="background-color: #191924; margin-top: 15px;">
-
-                        <img src="../../assets/img/icons/unicons/cerveza.png" alt=""
-                          style="width: 10px; margin-right: 10px;">
-                        Bebidas alcohólicas
-                      </button>
-
-                    </h2>
-
-                    <div id="accordionAlcoholicas" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-
-                        <div class="table-responsive text-nowrap">
-                          <table class="table" id="tablaBebidadasAlcohoVeg">
-                            <thead>
-                              <tr>
-                                <th style="width: 60px; text-align: center;"></th>
-                                <th style="text-align: left;">Nombre Alimento</th>
-                                <th style="text-align: center;">Peso cocido <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Peso crudo <span
-                                    style="text-transform:lowercase">(gr)</span> </th>
-                                <th style="text-align: center;">Calorias <span
-                                    style="text-transform:lowercase">(Cal)</span></th>
-                                <th style="text-align: center;">N° porciones</th>
-                              </tr>
-                            </thead>
-                          </table>
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
 
               </div>
             </div>
@@ -2608,347 +1162,1763 @@
 
 
 
+            <!-- Default Wizard -->
+            <div class="col-12 mb-4">
 
+              <div class="bs-stepper wizard-numbered mt-2">
 
+                <div class="bs-stepper-header">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <div class="col-md mb-4 mb-md-2">
-                <div class="accordion mt-3" id="accordionWithIcon">
                   
-                  <div class="card accordion-item">
-                    <h2 class="accordion-header d-flex align-items-center">
+                  <div class="step" data-target="#energeticFoods">
+                    <button type="button" class="step-trigger">
                       
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-1" aria-expanded="false">
-                        
-                        <img src="../../assets/img/icons/unicons/Sin título-1.png" alt="" style="width: 15px; margin-right: 10px;">
-                         Energéticos
-                      </button>                
-
-                    </h2>
-
-                    <div id="accordionWithIcon-1" class="accordion-collapse collapse">
-                      <div class="accordion-body">                        
-
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Arroz</strong>
-                              </td>
-                              <td>Energéticos</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
-
-                      </div>
-                    </div>
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/Sin título-1.png" alt="" style="width: 15px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Energéticos</span>
+                      </span>
+                    </button>
                   </div>
 
-                  <div class="accordion-item card">
-                    <h2 class="accordion-header d-flex align-items-center">
-                      <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-2" aria-expanded="false">
-                        <img src="../../assets/img/icons/unicons/proteicos.png" alt="" style="width: 18px; margin-right: 10px;">
-                        Proteícos </button>
-                    </h2>
-                    <div id="accordionWithIcon-2" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Pechuga de pollo</strong>
-                              </td>
-                              <td>Proteícos</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
 
-                      </div>
-                    </div>
+                  <div class="line">
+                    <i class="bx bx-chevron-right"></i>
                   </div>
 
-                  <div class="accordion-item card">
-                    <h2 class="accordion-header d-flex align-items-center">
-                      <button
-                        type="button"
-                        class="accordion-button collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordionWithIcon-3"
-                        aria-expanded="false"
-                      >
-                      <img src="../../assets/img/icons/unicons/milk.png" alt="" style="width: 12px; margin-right: 10px;">
-                        Lácteos
-                      </button>
-                    </h2>
-                    <div id="accordionWithIcon-3" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Queso parmesano</strong>
-                              </td>
-                              <td>Lácteos</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+
+                  <div class="step" data-target="#proteinFoods">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/vegan-symbol.png" alt="" style="width: 18px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Proteícos vegetarianos</span>
+                      </span>
+                    </button>
                   </div>
 
-                  <div class="accordion-item card">
-                    <h2 class="accordion-header d-flex align-items-center">
-                      <button
-                        type="button"
-                        class="accordion-button collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordionWithIcon-4"
-                        aria-expanded="false">
-                        <img src="../../assets/img/icons/unicons/grapes.png" alt="" style="width: 18px; margin-right: 10px;">
-                        Frutas y verduras
-                      </button>
-                    </h2>
-                    <div id="accordionWithIcon-4" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Banano</strong>
-                              </td>
-                              <td>Frutas y verduras</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+
+                  <!-- <div class="line">
+                    <i class="bx bx-chevron-right"></i>
                   </div>
 
-                  <div class="accordion-item card">
-                    <h2 class="accordion-header d-flex align-items-center">
-                      <button
-                        type="button"
-                        class="accordion-button collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordionWithIcon-5"
-                        aria-expanded="false"
-                      >
-                      <img src="../../assets/img/icons/unicons/avocado.png" alt="" style="width: 13px; margin-right: 10px;">
-                        Grasas Saludables
-                      </button>
-                    </h2>
-                    <div id="accordionWithIcon-5" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Aguacate</strong>
-                              </td>
-                              <td>Grasas saludables</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+
+                  <div class="step" data-target="#dairyFoods">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/milk.png" alt="" style="width: 12px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Lácteos</span>
+                      </span>
+                    </button>
+                  </div> -->
+
+
+                  <div class="line">
+                    <i class="bx bx-chevron-right"></i>
                   </div>
 
-                  <div class="accordion-item card">
-                    <h2 class="accordion-header d-flex align-items-center">
-                      <button
-                        type="button"
-                        class="accordion-button collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#accordionWithIcon-6"
-                        aria-expanded="false">
-                        <img src="../../assets/img/icons/unicons/burger.png" alt="" style="width: 19px; margin-right: 10px;">
-                        Otros
-                      </button>
-                    </h2>
-                    <div id="accordionWithIcon-6" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Nombre Alimento</th>
-                              <th>Grupo</th>
-                              <th>Momento</th>
-                              <th>N° porciones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="table-border-bottom-0">
-                            <tr>
-                              <td>
-                                <img src="../../assets/img/avatars/1.jpg" width="30px" alt="" style="margin-right: 10px;">
-                                <strong>Mayonesa</strong>
-                              </td>
-                              <td>Otros</td>
-                              <td>Almuerzo</td>
-                              <td>                                
-                                <input type="number" class="form-control" id="defaultFormControlInput" min="0" max="6" step="0.5" placeholder="" aria-describedby="defaultFormControlHelp" style="width: 100px;"/>
-                                
-                              </td>                              
-                            </tr>                                 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+
+                  <div class="step" data-target="#fruvegFoods">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/grapes.png" alt="" style="width: 18px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Frutas y verduras</span>
+                      </span>
+                    </button>
                   </div>
 
-        
+
+                  <div class="line">
+                    <i class="bx bx-chevron-right"></i>
+                  </div>
+
+
+                  <div class="step" data-target="#fatFoods">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/avocado.png" alt="" style="width: 13px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Grasas saludables</span>
+                      </span>
+                    </button>
+                  </div>
+
+
+                  <div class="line">
+                    <i class="bx bx-chevron-right"></i>
+                  </div>
+
+
+                  <div class="step" data-target="#otherFoods">
+                    <button type="button" class="step-trigger">
+                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/burger.png" alt="" style="width: 19px;"></span>
+                      <span class="bs-stepper-label mt-1">
+                        <span class="bs-stepper-title">Otros</span>
+                      </span>
+                    </button>
+                  </div>
                 </div>
-              </div> -->
-            </form>
 
 
 
 
-            <!-- Basic Bootstrap Table -->
-            <!-- <div class="card">
-                <h5 class="card-header">Energéticos</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Nombre Alimento</th>
-                        <th>Grupo</th>
-                        <th>Momento</th>
-                        <th>Foto</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td>Albert Cook</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="bs-stepper-content">
+                  <form onSubmit="return false">
+
+
+                    <!-- Account Details -->
+                    <div id="energeticFoods" class="content">
+
+
+
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5 class="text-center">Porciones de alimentos energéticos que has elegido</h5>
+                      </div>
+
+                      
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Energéticos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>                     
+                          </div>
+                        </div>
                         
-                      </tr>
+                        
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                             
+                            <div class="slidecontainer2">                      
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>                                     
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
                       
+
+
+
+
+
+
+
+
+
+                      <div class="row">
+                        
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionCereales" aria-expanded="false" style="background-color: #191924; ">
+      
+                              <img src="../../assets/img/icons/unicons/Cereales.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Cereales
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionCereales" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaCerealesVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>           
+
+
+
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionTuberculos" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/tuberculos.png" alt=""
+                                style="width: 20px; margin-right: 8px;">
+                              Tubérculos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionTuberculos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaTuberculosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionPlatanos" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/platanos.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Plátanos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionPlatanos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaPlatanosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>         
+
+
+
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionRaices" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/raiz.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Raíces
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionRaices" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaRaicesVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+      
+      
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-4">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionLeguminosas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/harina.png" alt=""
+                                style="width: 18px; margin-right: 10px;">
+                              Alimentos vegetarianos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionLeguminosas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaAlimentosVege">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-between">
+
+                          <button class="btn btn-label-secondary btn-prev" disabled>
+                            <!-- <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> -->
+                            <span class="align-middle d-sm-inline-block d-none"></span>
+                          </button>
+
+                          <button class="btn btn-primary btn-next">
+                            <span class="align-middle d-sm-inline-block d-none me-sm-1">Siguiente</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+
+                        </div>
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    
+                    <!-- ProteicosFood -->
+                    <div id="proteinFoods" class="content">
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5 class="text-center">Porciones de alimentos proteícos que has elegido</h5>
+                      </div>
+
                       
-                    </tbody>
-                  </table>
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Proteícos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>                                       
+          
+                          </div>
+                                                             
+
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+                      <div class="row">
+
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionCarnes" aria-expanded="false" style="background-color: #191924;">
+      
+                              <img src="../../assets/img/icons/unicons/tofu.png" alt=""
+                                style="width: 22px; margin-right: 10px;">
+                              Proteícos veganos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionCarnes" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaVeganos">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionLeguminosas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/leguminosas.png" alt=""
+                                style="width: 18px; margin-right: 10px; ">
+                              Leguminosas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionLeguminosas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaVegLeguminosas">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionLacteosRegulares" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/kumis.png" alt=""
+                                style="width: 10px; margin-right: 10px;">
+                              Leche y derivados lácteos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionLacteosRegulares" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaLecheDerivadosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionLacteosBajos" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/queso.png" alt=""
+                                style="width: 18px; margin-right: 10px; ">
+                              Leche y derivados lácteos bajos en grasa
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionLacteosBajos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaLecheBajosGrasaVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card accordion-item mb-4">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionHuevos" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/huevos.png" alt=""
+                                style="width: 20px; margin-right: 10px;">
+                              Huevos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionHuevos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaHuevos">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-12 d-flex justify-content-between">
+                          <button class="btn btn-primary btn-prev">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="align-middle d-sm-inline-block d-none">Anterior</span>
+                          </button>
+                          <button class="btn btn-primary btn-next">
+                            <span class="align-middle d-sm-inline-block d-none me-sm-1">Siguiente</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+                        </div>
+
+
+
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="fruvegFoods" class="content">
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5 class="text-center">Porciones de frutas y verduras que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Frutas y verduras completadas</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionVerduras" aria-expanded="false" style="background-color: #191924; ">
+      
+                              <img src="../../assets/img/icons/unicons/zanahoria.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Verduras
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionVerduras" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaVerdurasVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+      
+      
+      
+                        <div class="card accordion-item mb-4">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionFrutas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/sandia.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Frutas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionFrutas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaFrutasVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="col-12 d-flex justify-content-between">
+                          <button class="btn btn-primary btn-prev">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="align-middle d-sm-inline-block d-none">Anterior</span>
+                          </button>
+                          <button class="btn btn-primary btn-next">
+                            <span class="align-middle d-sm-inline-block d-none me-sm-1">Siguiente</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+                        </div>
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="fatFoods" class="content">
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5 class="text-center">Porciones de grasas saludables que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Grasas saludables completadas</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+                      <div class="row">
+
+
+
+
+
+
+                        
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionFrutosSecos" aria-expanded="false"
+                              style="background-color: #191924; ">
+      
+                              <img src="../../assets/img/icons/unicons/nuez.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Frutos secos y semillas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionFrutosSecos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaFrutosSecosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionPoliinsaturadas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/aceite.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Grasas poliinsaturadas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionPoliinsaturadas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaGrasasPoliVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+      
+      
+                        <div class="card accordion-item mb-4">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionMonoinsaturadas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/avocado.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Grasas monoinsaturadas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionMonoinsaturadas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaGrasasMonoVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+                        <div class="col-12 d-flex justify-content-between">
+                          <button class="btn btn-primary btn-prev">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="align-middle d-sm-inline-block d-none">Anterior</span>
+                          </button>
+                          <button class="btn btn-primary btn-next">
+                            <span class="align-middle d-sm-inline-block d-none me-sm-1">Siguiente</span>
+                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                          </button>
+                        </div>
+
+
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="otherFoods" class="content">
+                      <div id="defaultFormControlHelp" class="form-text">
+                        <h5 class="text-center">Porciones de otros alimentos que has elegido</h5>
+                      </div>             
+
+
+
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">
+                            <h6>Otros alimentos completados</h6>
+          
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <label for="">75%</label>
+                              </div>
+                            </div>             
+                          </div>  
+                        </div>
+
+
+                        <div class="col-md-4 mb-3">
+                          <div class="elegidoNutricion">                     
+          
+                            <div class="slidecontainer2">
+          
+                              <table class="tablaLimites">
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
+          
+                                  <td></td>
+          
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
+                                </tr>
+                                <tr>
+                                  <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
+          
+                                  <td>de</td>
+          
+                                  <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
+                                </tr>
+                              </table>
+                            </div>
+          
+                          </div>
+                          
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+                      <div class="row">
+
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionSaturadas" aria-expanded="false" style="background-color: #191924; ">
+      
+                              <img src="../../assets/img/icons/unicons/bacon.png" alt=""
+                                style="width: 15px; margin-right: 10px;">
+                              Grasas saturadas
+                            </button>
+      
+                          </h2>
+
+
+
+      
+                          <div id="accordionSaturadas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaGrasasSatuVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionSimples" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/miel.png" alt=""
+                                style="width: 20px; margin-right: 10px;">
+                              Azúcares simples
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionSimples" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaAzucaresSimplesVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionDulces" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/helado.png" alt=""
+                                style="width: 12px; margin-right: 10px;">
+                              Dulces y postres
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionDulces" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaDulcesVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionMiscelaneos" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/ketchup.png" alt=""
+                                style="width: 12px; margin-right: 10px;">
+                              Misceláneos
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionMiscelaneos" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaMiscelaneosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionPreparados" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/hotdog.png" alt=""
+                                style="width: 20px; margin-right: 10px;">
+                              Alimentos preparados
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionPreparados" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaPreparadosVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-1">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionEspecias" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/sal.png" alt=""
+                                style="width: 12px; margin-right: 10px;">
+                              Especias
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionEspecias" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaEspeciasVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                        <div class="card accordion-item mb-4">
+                          <h2 class="accordion-header d-flex align-items-center">
+      
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
+                              data-bs-target="#accordionAlcoholicas" aria-expanded="false"
+                              style="background-color: #191924; margin-top: 15px;">
+      
+                              <img src="../../assets/img/icons/unicons/cerveza.png" alt=""
+                                style="width: 10px; margin-right: 10px;">
+                              Bebidas alcohólicas
+                            </button>
+      
+                          </h2>
+      
+                          <div id="accordionAlcoholicas" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+      
+                              <div class="table-responsive text-nowrap">
+                                <table class="table" id="tablaBebidadasAlcohoVeg">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 60px; text-align: center;"></th>
+                                      <th style="text-align: left;">Nombre Alimento</th>
+                                      <th style="text-align: center;">Peso cocido <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Peso crudo <span
+                                          style="text-transform:lowercase">(gr)</span> </th>
+                                      <th style="text-align: center;">Calorias <span
+                                          style="text-transform:lowercase">(Cal)</span></th>
+                                      <th style="text-align: center;">N° porciones</th>
+                                    </tr>
+                                  </thead>
+                                </table>
+                              </div>
+      
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-12 d-flex justify-content-between">
+                          <button class="btn btn-primary btn-prev">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="align-middle d-sm-inline-block d-none">Anterior</span>
+                          </button>
+                          <input type="button" class="btn btn-primary btn-next" value="Guardar" onclick="">
+                        </div>
+
+
+                        
+
+
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+                  </form>
                 </div>
-              </div> -->
-            <!--/ Basic Bootstrap Table -->
+              </div>
+            </div>
+            <!-- /Default Wizard -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3017,11 +2987,19 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+    <script src="../../assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script src="../../assets/vendor/libs/select2/select2.js"></script>
+    <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+    <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+    <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
 
     <!-- Main JS -->
     <script src="../../assets/js/main.js"></script>
 
     <!-- Page JS -->
+    <script src="../../assets/js/form-wizard-numbered.js"></script>
+    <script src="../../assets/js/form-wizard-validation.js"></script>
 
 </body>
 
