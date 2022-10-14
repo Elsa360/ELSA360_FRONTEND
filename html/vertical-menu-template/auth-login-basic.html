@@ -50,6 +50,9 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../JS/middleware.js">
+      validateLogin()
+    </script>
   </head>
 
   <body>
@@ -125,7 +128,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <input class="btn btn-success d-grid w-100" style="color: #2b2c40; font-weight: 600;" type="button" value="Iniciar sesión" onclick="loginUser()" />
+                  <input class="btn btn-success d-grid w-100" style="color: #2b2c40; font-weight: 600;" type="button" value="Iniciar sesión" onclick="loginUsuario()" />
                 </div>
               </form>
 
@@ -172,7 +175,6 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../JS/calculosPsicologia.js"></script>
     <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
@@ -195,5 +197,8 @@
 
     <!-- Page JS -->
     <script src="../../assets/js/pages-auth.js"></script>
+    <script src="../../JS/classes.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
+    <script src="../../JS/User/index.js"></script>
   </body>
 </html>

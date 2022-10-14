@@ -570,6 +570,7 @@ function traerAlimentosVegetarianos() {
 
         });
 }
+
 function traerAlimRegSelecc() {
     try {
         // Energeticos
@@ -1226,44 +1227,7 @@ function calcularEdad(fecha) {
         console.log(e, "Error al calcular la edad");
     }
 }
-function loginUsuario() {
-    try {
-        fetch('https://www.elsa360.com/usuario/loginUser', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: document.getElementById("emailLogin").value,
-                passwordUser: document.getElementById("passwordLogin").value
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((consulta) => {
-                if (consulta === 1) {
-                    fetch('https://www.elsa360.com/usuario/login', {
-                        method: 'PATCH',
-                        body: JSON.stringify({
-                            email: document.getElementById("emailLogin").value,
-                            passwordUser: document.getElementById("passwordLogin").value,
-                            loginUser: 1
-                        }),
-                        headers: {
-                            'Content-type': 'application/json; charset=UTF-8',
-                        },
-                    })
-                        .then((response) => response.json())
-                        .then((json) => console.log(json));
-                    window.location.href = "dashboard.html?email" + emailUsuario;
-                }
 
-            });
-
-    } catch (e) {
-        console.log(e, 'Funcion -> Login Usuario');
-    }
-
-}
 
 
 
