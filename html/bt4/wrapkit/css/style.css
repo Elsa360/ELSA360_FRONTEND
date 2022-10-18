@@ -1092,6 +1092,7 @@ Buttons
     background: #191924;
     color: #9BCB3B;
     font-weight: 700;
+    border: solid 1px #9BCB3B;
      
   }
 
@@ -1104,7 +1105,8 @@ Buttons
   background: #191924;
   color: #9BCB3B;
   font-weight: 700;  
-  border: 0px; }
+  border: solid 1px #9BCB3B;
+ }
 
   .btn-info-gradiant:hover {
     background: #9BCB3B;
