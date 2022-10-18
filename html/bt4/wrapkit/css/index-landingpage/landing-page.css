@@ -137,7 +137,8 @@ Static slide 10
 Static slide 3
 *******************/
 .static-slider3 {
-  padding: 10% 0; }
+  padding: 5% 0; }
+
   .static-slider3 h1 {
     font-weight: 300;
     line-height: 50px; }
@@ -271,7 +272,7 @@ Feature 4
 Feature 20
 *******************/
 .wrap-feature-20 {
-  margin-top: 60px; }
+  margin-top: 30px; }
   .wrap-feature-20 [class*=col-lg-6] .card {
     overflow: hidden; }
   .wrap-feature-20 .linking {
