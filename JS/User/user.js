@@ -21,6 +21,7 @@ async function registrarme() {
                                 }),
                                 headers: {
                                     'Content-type': 'application/json; charset=UTF-8',
+                                    'Access-Control-Allow-Origin': '*'
                                 },
                             })
                                 .then((response) => response.json())
@@ -71,13 +72,15 @@ async function verificarUsuario(email, nombreUsuario) {
     }
 }
 async function validarCuenta() {
-    try {
-        const emailUsuario = window.location.search;
-        const urlParams = new URLSearchParams(emailUsuario);
-        let emailValidado = urlParams.get("emailVerificado");
-        let url = "https://localhost:7155/usuario/verificar?correoElectronico=" + emailValidado + "";
-        // let url = "https://localhost:7155/usuario/verificar";
-        fetch(url, {
+
+    const emailUsuario = window.location.search;
+    const urlParams = new URLSearchParams(emailUsuario);
+    let emailValidado = urlParams.get("emailVerificado");
+    let url = "https://localhost:7155/usuario/verificar?correoElectronico=" + emailValidado.toLocaleLowerCase() + "";
+    // console.log(url);
+    // try {
+
+        await fetch(url, {
             method: 'PUT',
             body: JSON.stringify({
                 email: emailValidado,
@@ -89,33 +92,29 @@ async function validarCuenta() {
             .then((response) => response.json())
             .then((json) => {
                 alert("Cuenta verificada");
-                // location.href = "auth-perfil.html?emailUser=" + emailValidado.toString() + "";
             });
-    } catch (e) {
-        console.log(e);
-    }
-}
-async function idUsuario() {
-    try {
-        const emailUsuario = window.location.search;
-        const urlParams = new URLSearchParams(emailUsuario);
-        let emailUser = urlParams.get("emailVerificado");
-        let url = "https://localhost:7155/usuario/idUser?email=" + emailUser + ""
-        await fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                respuesta.forEach(usuario => {
-                    idUser = usuario.idUsuario;
-                });
-                perfilar(parseInt(idUser));
-            });
+    // } catch (e) {
+    //     console.log(e);
+    // }
 
-    } catch (e) {
-        console.log(e);
-    }
+    // try {
+    //     let url = "https://localhost:7155/usuario/idUsuario?email=" + emailValidado + ""
+    //     await fetch(url)
+    //         .then(response => response.json())
+    //         .then(respuesta => {
+    //             respuesta.forEach(usuario => {
+    //                 idUser = usuario.idUsuario;
+    //             });
+    //             sessionStorage.setItem("idUsuario", idUser);
+    //         });
+    // } catch (e) {
+    //     console.log(e);
+    // }
 }
-async function perfilar(idUser) {
+
+async function perfilar() {
     try {
+        let idUsuario = parseInt(window.sessionStorage.getItem("idUsuario"));
         let sexo;
         if (document.getElementById("sexoMujer").checked === true) {
             sexo = document.getElementById("sexoMujer").value;
@@ -178,7 +177,7 @@ async function perfilar(idUser) {
                 velocimetro: velocimetro,
                 cadenciometro: cadenciometro,
                 fkPorque: porque,
-                fkUsuario: idUser
+                fkUsuario: idUsuario
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -209,8 +208,8 @@ async function login() {
                     console.log(loggin);
                     if (parseInt(loggin) === 1) {
                         sessionStorage.setItem('login', loggin);
-                        setTimeout(10);
-                        location.href = "dashboard.html";
+                        // setTimeout(10);
+                        // location.href = "dashboard.html";
                     } else {
                         alert('Usuario o contraseña errada');
                     }
@@ -268,16 +267,16 @@ async function changePassword() {
     }
 }
 
-async function saveSportsGoal(){
+async function saveSportsGoal() {
     try {
         console.log("Guardando Objetivo Deportivo");
     } catch (error) {
         console.log(error);
     }
 }
-async function updateWeight(){
+async function updateWeight() {
     try {
-        
+
     } catch (error) {
         console.log("Peso actualizado")
     }

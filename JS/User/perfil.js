@@ -25,7 +25,6 @@ function calcularEdad(fecha) {
     }
 }
 
-
 function registrarPerfilUsuario() {
     try {
         var sexoUsuario;
