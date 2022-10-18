@@ -10,14 +10,14 @@ function validateLogin(){
 
 
 function loadavatar(){
-  if (localStorage.avataruri == undefined) {
-    
+  if ((localStorage.avataruri == undefined)||(localStorage.avataruri == "0")) {
+
   } else {
     $("#uploadedAvatar").attr("src",localStorage.avataruri);
     $("#NavbarAvatar").attr("src",localStorage.avataruri) ;
     $("#TooltipAvatar").attr("src",localStorage.avataruri) ;
 
-  } 
+  }
 }
 
 
@@ -30,4 +30,3 @@ $( document ).ready(function() {
   loadavatar();
 
 });
- 

@@ -138,7 +138,7 @@ function traerRutinas() {
                     contenedorVideo.className = "video-responsive";
                     contenedorVideo.appendChild(video);
 
-                    //Contenedor Acordeon 
+                    //Contenedor Acordeon
                     let buttonAcordeon = document.createElement("button");
                     buttonAcordeon.className = "accordion-button";
                     buttonAcordeon.style = "color: #9BCB3B;";
@@ -1060,7 +1060,7 @@ function controlVisuoImaginativo() {
                   .then()
             }
         })
-    
+
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function nivelMotivacional() {
@@ -1659,7 +1659,7 @@ function cetMomento() { }
 function calcularDiferenciaDias() {
     try {
         const fechaIncioEntreno = "2022-09-15";
-        //Datos Fecha Actual    
+        //Datos Fecha Actual
         const fechaActual = new Date();
         const anoActual = parseInt(fechaActual.getFullYear());
         const mesActual = parseInt(fechaActual.getMonth()) + 1;
@@ -1753,7 +1753,7 @@ function dividirEnteroDecimal() {
                     hrDomingo = 0
                 }
                 totalHoras = hrLunes + hrMartes + hrMiercoles + hrJueves + hrViernes + hrSabado + hrDomingo;
-                
+
                 document.getElementById("horasEntrenamiento1").innerHTML = totalHoras;
                 document.getElementById("horasEntrenamiento").innerHTML = totalHoras;
                 enviarDisponibilidad()
@@ -1802,41 +1802,60 @@ function enviarDisponibilidad() {
 };
 
 function confirmarDisponibilidad(){
-    try {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json; charset=UTF-8");
-        const user = JSON.parse(window.sessionStorage.getItem("user"))
-        let isVerified = user.email_verified
-        if(isVerified){
-            Requests.get("/usuario/idUser", {
-                email:user.email
-            }).
-            then((response) => response.json())
-            .then(data=>{
-                if(data.length == 0){
-                    alert("Usuario no existe")
-                }
-                Requests.post("/disponibilidad/crear",{
-                    fkIdPerfilUsuarioDS: data[0].idUsuario,
-                    lunes: parseInt(document.getElementById("dia1").value) || 0,
-                    martes: parseInt(document.getElementById("dia2").value) || 0,
-                    miercoles: parseInt(document.getElementById("dia3").value) || 0,
-                    jueves: parseInt(document.getElementById("dia4").value) || 0,
-                    viernes: parseInt(document.getElementById("dia5").value) || 0,
-                    sabado: parseInt(document.getElementById("dia6").value) || 0,
-                    domingo: parseInt(document.getElementById("dia7").value) || 0,
-                    totalHorasSemana: document.getElementById("horasEntrenamiento1").value,
-                    totalDiasSemana: document.getElementById("DisponibilidadDias1").value,
-                },
-                myHeaders
-            )
-                .then((response) => response.json())
-                .then((json) => console.log(json));
-            })
-        
-        }
-        
-    } catch (e) {
-        console.log(e, "Error enviar dias disponibles")
+
+  let url = apiServer + "disponibilidad/crear";
+  let user = parseInt(localStorage.getItem("perfilamiento"));
+  let dia1 = parseInt(document.getElementById("dia1").value || 0);
+  let dia2 = parseInt(document.getElementById("dia2").value || 0);
+  let dia3 = parseInt(document.getElementById("dia3").value || 0);
+  let dia4 = parseInt(document.getElementById("dia4").value || 0);
+  let dia5 = parseInt(document.getElementById("dia5").value || 0);
+  let dia6 = parseInt(document.getElementById("dia6").value || 0);
+  let dia7 = parseInt(document.getElementById("dia7").value || 0);
+  let thoras = dia1 + dia2 + dia3 + dia4 + dia5 + dia6 + dia7;
+  let tdias = 0;
+  if (dia1 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia2 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia3 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia4 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia5 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia6 > 0) {
+      tdias = tdias + 1;
+  }
+  if (dia7 > 0) {
+      tdias = tdias + 1;
+  }
+  fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+          fkIdPerfilUsuarioDS: user,
+          lunes: parseInt(document.getElementById("dia1").value) || 0,
+          martes: parseInt(document.getElementById("dia2").value) || 0,
+          miercoles: parseInt(document.getElementById("dia3").value) || 0,
+          jueves: parseInt(document.getElementById("dia4").value) || 0,
+          viernes: parseInt(document.getElementById("dia5").value) || 0,
+          sabado: parseInt(document.getElementById("dia6").value) || 0,
+          domingo: parseInt(document.getElementById("dia7").value) || 0,
+          totalHorasSemana: thoras,
+          totalDiasSemana: tdias,
+      }),
+      headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+      },
+  })
+      .then((response) => response.json())
+      .then((respuesta) => {
+          console.log(respuesta);
+          window.location.href = "/";
+      });
     }
-}
