@@ -1,7 +1,7 @@
 let auth = null
 createAuth0Client({
-    domain: '',
-    client_id: ''
+    domain: 'elsa360.us.auth0.com',
+    client_id: 'rYJuHduwZNTWCu6FTd2ZahaJx61grXWf'
   }).then(auth0 => {
     auth = auth0
   });
@@ -9,6 +9,7 @@ createAuth0Client({
 
 function loginUsuario() {
     try {
+        debugger
         auth.loginWithRedirect({
             redirect_uri: window.location.origin + '/html/vertical-menu-template/dashboard.html'
          }).then(token => {
