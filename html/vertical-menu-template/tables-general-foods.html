@@ -956,8 +956,9 @@
 
 
               <div class="col-md-2 mb-4">
-                <a href="tables-selected-foods.html"><input class="btn btn-label-success" style="width:100%" type="button" value="Alimentos favoritos"></a> 
-              </div>              
+                <a href="tables-selected-foods.html"><input class="btn btn-label-success" style="width:100%"
+                    type="button" value="Alimentos favoritos"></a>
+              </div>
               <div class="col-md-2 mb-4">
                 <a href="tables-selected-foods.html"><input class="btn btn-label-success" style="width:100%"
                     type="button" value="Alimentos favoritos"></a>
@@ -1288,13 +1289,13 @@
                               <table class="tablaLimites">
                                 <tr>
                                   <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                      <h5 style="margin-bottom: 5px;">3</h5>
+                                      <h5 style="margin-bottom: 5px;" id="porcionesElegidas"></h5>
                                     </span></td>
 
                                   <td></td>
 
                                   <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                      <h5 style="margin-bottom: 5px;">6</h5>
+                                      <h5 style="margin-bottom: 5px;" id="porcionesRequeridas"></h5>
                                     </span></td>
                                 </tr>
                                 <tr>
@@ -2816,7 +2817,8 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none">Anterior</span>
                           </button>
-                          <input type="button" class="btn btn-primary btn-next" value="Guardar" onclick="guardarAlimentos()">
+                          <input type="button" class="btn btn-primary btn-next" value="Guardar"
+                            onclick="guardarAlimentosRegulares()">
                         </div>
 
 
@@ -3045,8 +3047,7 @@
       <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
-    <script src="../../JS/planNutricional.js ">
-
+    <script src="../../JS/planNutricional.js " type="text/javascript">
     </script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

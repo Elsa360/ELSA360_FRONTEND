@@ -278,7 +278,7 @@ function traerAlimentosVegetarianos() {
     fetch('https://localhost:7155/alimentoVegetariano/listar')
         .then((response) => response.json())
         .then((listaAlimentosVegetarianos) => {
-            console.log("Promesas");
+            // console.log("Promesas");
             // Energeticos
             let tablaCerealesVeg = document.getElementById('tablaCerealesVeg');
             let cuerpoCerealesVeg = document.createElement('tbody');
@@ -354,7 +354,7 @@ function traerAlimentosVegetarianos() {
             let cuerpoBebidadasAlcohoVeg = document.createElement('tbody');
 
             listaAlimentosVegetarianos.forEach(alimento => {
-                console.log(alimento);
+                // console.log(alimento);
                 let fila = document.createElement('tr');
                 let tdImage = document.createElement('td');
                 let tdNombre = document.createElement('td');
@@ -400,7 +400,7 @@ function traerAlimentosVegetarianos() {
                 tdPorcion.style = "font-size:18px; text-align: center;";
                 inputPorcion.type = "number";
                 inputPorcion.className = "form-control"
-                inputPorcion.id = alimento.idAlimento;
+                inputPorcion.id = 'veg_' + alimento.idAlimento;
                 inputPorcion.min = 0;
                 inputPorcion.max = 12;
                 inputPorcion.step = "1";
@@ -756,7 +756,7 @@ function traerAlimVegSelecc() {
                         cuerpoEnergeticos.className = "table-border-bottom-0";
                         cuerpoEnergeticos.appendChild(fila);
                     }
-                    else if (alimento.idGrupoAlimenticio === 2) {
+                    else if (alimento.idGrupoAlimenticio === 2 || alimento.idGrupoAlimenticio === 7) {
                         cuerpoProteicos.className = "table-border-bottom-0";
                         cuerpoProteicos.appendChild(fila);
                     }
@@ -794,22 +794,55 @@ function traerAlimVegSelecc() {
         console.log(e);
     }
 }
-function guardarAlimentos() {
+function guardarAlimentosRegulares() {
+    try {
+        const foodSelections = document.querySelectorAll("input[type=number]");
+        console.log(foodSelections);
+        for (let i = 0, food; food = foodSelections[i++];) {
+            if (food.value !== "") {
+                let idAli = food.id;
+                console.log('IdInput:', idAli);
+                console.log('IdAlimentos:', idAli.slice(4))
+                console.log('Porciones:', document.getElementById(idAli).value);
+                fetch('https://localhost:7155/alimentoRegularSeleccionado/crear', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        fkIdMomentoComidaSlccn: 1,
+                        fkIdPerfilUsuarioSlccn: 1,
+                        fkIdAlimentoRegularSlcnn: parseInt(idAli.slice(4)),
+                        porciones: parseInt(document.getElementById(idAli).value),
+                        ipPc: "00.00.00.00",
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            }
+        }
+        location.href = window.location.origin + '/html/vertical-menu-template/tables-selected-foods.html'
+    } catch (error) {
+        console.log(error);
+    }
+}
+function guardarAlimentosVegetarianos() {
     const foodSelections = document.querySelectorAll("input[type=number]");
+    console.log(foodSelections);
     for (let i = 0, food; food = foodSelections[i++];) {
         if (food.value !== "") {
             let idAli = food.id;
             console.log('IdInput:', idAli);
             console.log('IdAlimentos:', idAli.slice(4))
             console.log('Porciones:', document.getElementById(idAli).value);
-            fetch('https://localhost:7155/alimentoRegularSeleccionado/crear', {
+            fetch('https://localhost:7155/alimentoVegetarianoSeleccionado/crear', {
                 method: 'POST',
                 body: JSON.stringify({
                     fkIdMomentoComidaSlccn: 1,
                     fkIdPerfilUsuarioSlccn: 1,
-                    fkIdAlimentoRegularSlcnn: idAli.slice(4),
+                    fkIdAlimentoVegetSlcnn: parseInt(idAli.slice(4)),
                     porciones: parseInt(document.getElementById(idAli).value),
-                    ipPc: '00.00.00.00',
+                    ipPc: "00.00.00.00",
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -819,40 +852,15 @@ function guardarAlimentos() {
                 .then((json) => console.log(json));
         }
     }
-    // location.href = window.location.origin + '/index.html'
+    // location.href = window.location.origin + '/html/vertical-menu-template/tables-vegetarian-selected-foods.html'
 
 }
-(function mostarPorciones() {
-    var datos = [];
-    const porciones = document.querySelectorAll("input[type=number]");
-    porciones.forEach(element => {
-        element.addEventListener('change', function (e) {
-            datos = document.getElementsByTagName("td");
-            var totalCalorias = 0;
-            var totalporciones = 0;
-            for (var i = 1; i <= datos.length; i++) {
-                try {
-                    var idcalorias = "cal" + i.toString();
-                    var idporciones = "porcion" + i.toString();
-                    calorias = document.getElementById(idcalorias).innerHTML;
-                    numPorcion = document.getElementById(idporciones).value;
-                    numPorcion = numPorcion.replace(',', '.');
-                    numPorcion = parseFloat(numPorcion);
-                    // console.log(typeof (numPorcion));
-                    if (isNaN(numPorcion) !== true) {
-                        total = parseFloat(calorias) * parseFloat(numPorcion);
-                        totalporciones = totalporciones + parseFloat(numPorcion);
-                        totalCalorias = totalCalorias + total;
-                        // console.log(totalCalorias);
-                    }
-
-                } catch {
-                    // console.log("");
-                }
-            }
-            document.getElementById("totalCaloriasElegidas").innerHTML = totalCalorias.toFixed(2);
-            document.getElementById("totalPorciones").innerHTML = totalporciones.toFixed(2);
-
+(function porciones() {
+    let inputs = document.querySelectorAll("form-control");
+    inputs.forEach(porcion => {
+        porcion.addEventListener('change', function (e) {
+            console.log(inputs)
         });
     });
 })
+
