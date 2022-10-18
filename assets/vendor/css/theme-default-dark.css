@@ -99,7 +99,7 @@
 }
 
 .text-primary {
-  color: #696cff !important;
+  color: #9bCb3b !important;
 }
 
 .text-body[href]:hover {
@@ -107,7 +107,7 @@
 }
 
 .bg-primary {
-  background-color: #696cff !important;
+  background-color: #9bCb3b !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus {

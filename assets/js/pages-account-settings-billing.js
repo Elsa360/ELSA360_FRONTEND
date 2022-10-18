@@ -54,17 +54,17 @@ document.addEventListener('DOMContentLoaded', function (e) {
           companyName: {
             validators: {
               notEmpty: {
-                message: 'Please enter company name'
+                message: 'Ingresa el nombre de tu Club o equipo deportivo'
               }
             }
           },
           billingEmail: {
             validators: {
               notEmpty: {
-                message: 'Please enter billing email'
+                message: 'Ingresa un corrreo para enviar tu factura'
               },
               emailAddress: {
-                message: 'Please enter valid email address'
+                message: 'Por favor ingresa un email valido'
               }
             }
           }
@@ -125,12 +125,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
     if (cancelSubscription) {
       cancelSubscription.onclick = function () {
         Swal.fire({
-          text: 'Are you sure you would like to cancel your subscription?',
+          text: 'Estas segur@ de querer cancelar tu suscripción a ELSA?',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonText: 'Yes',
+          confirmButtonText: 'Si',
           customClass: {
-            confirmButton: 'btn btn-primary me-2',
+            confirmButton: 'btn btn-warning me-2',
             cancelButton: 'btn btn-label-secondary'
           },
           buttonsStyling: false
@@ -138,16 +138,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
           if (result.value) {
             Swal.fire({
               icon: 'success',
-              title: 'Unsubscribed!',
-              text: 'Your subscription cancelled successfully.',
+              title: '¡Membresía cancelada!',
+              text: 'Tu membresía se ha cancelado exitosamente',
               customClass: {
                 confirmButton: 'btn btn-success'
               }
             });
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire({
-              title: 'Cancelled',
-              text: 'Unsubscription Cancelled!!',
+              title: '¡Cancelado!',
+              text: 'Se suspendió la cancelación de tu membresía',
               icon: 'error',
               customClass: {
                 confirmButton: 'btn btn-success'
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     if (mobileNumber) {
       new Cleave(mobileNumber, {
         phone: true,
-        phoneRegionCode: 'US'
+        phoneRegionCode: 'CO'
       });
     }
 
