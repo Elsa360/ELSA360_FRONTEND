@@ -12,6 +12,8 @@ function hhmmss(h, m, s) {
     }
 }
 async function guardarDatosEntrenamiento() {
+
+
     $("#spinnerGeneral").show();
     var server = getServer();
     let duracion = 0;
@@ -140,6 +142,7 @@ async function guardarDatosEntrenamiento() {
             .then(response => response.json())
             .then(respuesta => {
                 console.log(respuesta);
+                location.href = "dashboard.html";
             });
 
     } catch (e) {
