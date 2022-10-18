@@ -13,6 +13,8 @@ async function registrarme() {
                         if (document.getElementById("terms-conditions").checked) {
                             try {
                                 let url = apiServer + "usuario/crear";
+                                console.log("url");
+                                console.log(url);
                                 console.log("2:" + server.REMOTE_ADDR);
                                 let bodyString = JSON.stringify({
                                     email: emailUser.trim(),
@@ -35,6 +37,7 @@ async function registrarme() {
                                         console.log("Respuesta:", respuesta)
                                         if (respuesta === 0) {
                                             let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                                            console.log(url)
                                             fetch(url)
                                                 .then(response => response.json())
                                                 .then(respuesta => {
@@ -88,7 +91,7 @@ async function registrarme() {
             } else {
                 $("#spinnerGeneral").hide();
                 $("#modalGeneral #modalCenterTitle").html("Error");
-                $("#modalGeneral #modalMensaje").html("Ingresa un nombre de usuario");
+                $("#modalGeneral #modalMensaje").html("Ingrese su  nombre");
                 $("#modalGeneral").modal("show");
             }
         } else {
@@ -160,7 +163,7 @@ async function validarCuenta() {
                     // $("#spinnerGeneral").hide();
                     // $("#modalGeneral #modalCenterTitle").html("Error");
                     // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
-                    // $("#modalGeneral").modal("show");    
+                    // $("#modalGeneral").modal("show");
                 }
             });
     } catch (e) {
