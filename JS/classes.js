@@ -6,6 +6,7 @@ class Requests{
     }
 
     static async post(url, data={}, headers={}){
+        console.log(data)
         let r = await fetch(this.baseUrl+url,{
             method: 'POST',
             // mode: 'no-cors',

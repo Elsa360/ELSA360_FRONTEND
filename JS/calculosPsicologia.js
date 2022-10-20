@@ -1030,208 +1030,6 @@ function traerRutinas() {
     }
 }
 
-
-function registro() {
-    try {
-        if (document.getElementById("terms-conditions").checked === true) {
-            let nombreUsuario = document.getElementById("username").value
-            let emailUsuario = document.getElementById("email").value
-            let passwordUsuario = document.getElementById("password").value
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json; charset=UTF-8");
-
-            var raw = "{\r\n    \"email\": \"" + emailUsuario + "\",\r\n    \"passwordUser\": \"" + passwordUsuario + "\",\r\n    \"" + nombreUsuario + "\": \"Manuel Peralta\",\r\n    \"fkIdRol\": 1,\r\n    \"ipPc\": \"00.00.00.00\"\r\n  }";
-
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-
-            fetch("http://www.apielsa.somee.com/usuario/crear", requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
-            // window.location.href = "auth-verify-email-basic-message.html?usuario=" + document.getElementById("username").value;
-        } else {
-            console.log("")
-        }
-    } catch (e) {
-        console.log(e, 'Funcion -> Registro Usuario');
-    }
-}
-function verificacionEmailUsaurio() {
-    try {
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var nombreUsuario = urlParams.get('usuario');
-        document.getElementById("mensajeVerificacion").innerHTML = "Hola " + nombreUsuario + ", te hemos enviado un link al correo electronico con el que te registraste."
-    } catch (e) {
-        console.log(e, 'Funcion -> Verificar Email del Usuario')
-    }
-}
-function usuarioVerificado() {
-    try {
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var emailVerificado = urlParams.get('emailVerificado');
-        console.log('Email:', emailVerificado)
-        // fetch('https://www.elsa360.com/usuario/verificar', {
-        //     method: 'PATCH',
-        //     body: JSON.stringify({
-        //         email: emailVerificado,
-        //     }),
-        //     headers: {
-        //         'Content-type': 'application/json; charset=UTF-8',
-        //     },
-        // })
-        //     .then((response) => response.json())
-        //     .then((json) => console.log(json));
-    } catch (e) {
-        console.log(e, 'Funcion -> Usuario Verificado')
-    }
-}
-function registrarPerfilUsuario() {
-    try {
-        var sexoUsuario;
-        if (document.getElementById("sexoHombre").checked === true) {
-            sexoUsuario = 1;
-        }
-        if (document.getElementById("sexoMujer").checked === true) {
-            sexoUsuario = 2;
-        }
-        var pesoActual = parseFloat(document.getElementById("pesoUsuario").value);
-        var estaturaUsuario = parseFloat(document.getElementById("estaturaUsuario").value);
-        var pesoDeseado = parseFloat(document.getElementById("pesoDeseado").value);
-        var fechaNacUsuario = document.getElementById("fechaNacimiento").value;
-        var edadUsuario = calcularEdad(fechaNacUsuario);
-        var tipoDieta = document.getElementById("tipoDietaUsuario").value;
-        var tipoCuerpo = document.getElementById("tipoCuerpoUsuario").value;
-        var porque;
-        if (document.getElementById("rendimiento").checked === true) {
-            porque = 1;
-        }
-        if (document.getElementById("salud").checked === true) {
-            porque = 2;
-        }
-        if (document.getElementById("entretenimiento").checked === true) {
-            porque = 3;
-        }
-        var nivelDeportivo = document.getElementById("nivel").value;
-        var escalaNivelDeportivo = document.getElementById("escala").value;
-        var potenciometroUser = false;
-        var pulsometroUser = false;
-        var cadenciometroUser = false;
-        var velocimetroUser = false;
-        if (document.getElementById("potenciometro").checked === true) {
-            potenciometroUser = true;
-        }
-        if (document.getElementById("pulsometro").checked === true) {
-            pulsometroUser = true;
-        }
-        if (document.getElementById("cadenciometro").checked === true) {
-            cadenciometroUser = true;
-        }
-        if (document.getElementById("velocimetro").checked === true) {
-            velocimetroUser = true;
-        }
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var emailVerificado = urlParams.get('emailVerificado');
-        fetch('https://localhost:7155/usuario/idUserVerificado', {
-            method: 'GET',
-            body: JSON.stringify({
-                email: emailVerificado,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((idUser) => console.log(idUser));
-
-        fetch('https://www.elsa360.com/perfil/crear', {
-            method: 'POST',
-            body: JSON.stringify({
-                sexo: sexoUsuario,
-                peso: pesoActual,
-                estatura: estaturaUsuario,
-                pesoObjetivo: pesoDeseado,
-                fechaNacimiento: fechaNacUsuario,
-                fkTipoDieta: tipoDieta,
-                fkTipoCuerpo: tipoCuerpo,
-                fkNivelDeportivo: nivelDeportivo,
-                fkEscalaDeportiva: escalaNivelDeportivo,
-                potenciometro: potenciometroUser,
-                pulsometro: pulsometroUser,
-                pulsometro: pulsometroUser,
-                velocimetro: velocimetroUser,
-                cadenciometro: cadenciometroUser,
-                fkPorque: porque,
-                fkUsuario: idUser,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
-        // console.log("Sexo:", sexo);
-        // console.log('Peso Actual:', pesoActual);
-        // console.log('Estatura:', estatura);
-        // console.log('Peso Deseado:', pesoDeseado);
-        // console.log('Edad', edad);
-        // console.log('Dieta:', tipoDieta);
-        // console.log('Cuerpo:', tipoCuerpo);
-        // console.log('Motivo:', porque);
-        // console.log('Nivel:', nivelDeportivo);
-        // console.log('Escala:', escalaNivelDeportivo);
-        // console.log('Potenciometro:', potenciometro);
-        // console.log('Pulsometro:', pulsometro);
-        // console.log('Cadenciometro:', cadenciometro);
-        // console.log('Velocimetro:', velocimetro);
-
-
-        // location.href = "../../html/vertical-menu-template/free-data.html";
-    }
-    catch (e) {
-        console.log(e, 'Funcion -> Regsitro de Perfil')
-    }
-
-}
-function calcularEdad(fecha) {
-    try {
-        const fechaNacimiento = fecha;
-        //Datos Fecha Actual    
-        const fechaActual = new Date();
-        const anoActual = parseInt(fechaActual.getFullYear());
-        const mesActual = parseInt(fechaActual.getMonth()) + 1;
-        const diaActual = parseInt(fechaActual.getDate());
-        //Datos Fecha Nacimiento
-        const anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
-        const mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
-        const diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
-        let edad = anoActual - anoNacimiento;
-        if (mesActual < mesNacimiento) {
-            edad--;
-        } else if (mesActual === mesNacimiento) {
-            if (diaActual < diaNacimiento) {
-                edad--;
-            }
-        }
-        // console.log(edad);
-        return parseInt(edad);
-    } catch (e) {
-        console.log(e, "Error al calcular la edad");
-    }
-}
-
-
-
-
-
 function entrevistaInicialDia1() {
     try {
         // Pregunta 1
@@ -1763,11 +1561,6 @@ function hamilton() {
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 
-
-
-
-
-
 (function caloriasPorciones() {
     var datos = [];
     var todosInput = document.querySelectorAll('.NumeroPorciones');
@@ -2082,43 +1875,6 @@ function llenadoWebCheckout() {
     }
 
 }
-function restablecerContrasena() {
-    try {
-        let contraNueva = document.getElementById("nuevaContra").value;
-        let confirNueva = document.getElementById("confirNuevaContra").value;
-        if (contraNueva === confirNueva) {
-            console.log("Contraseña restablecida con exito");
-        } else {
-            console.log("Las contraseñas no conciden");
-        }
-    } catch (e) {
-        console.log(e, "Error en Restablecer Contraseña")
-    }
-}
-function cambiarContrasena() {
-    try {
-        const actual = "Leonardo.901010"
-        let contraActual = document.getElementById("contraActual").value;
-        let contraNueva = document.getElementById("nuevaContraCambio").value;
-        let confirNueva = document.getElementById("confirNuevaContraCambio").value;
-        console.log(contraActual);
-        console.log(contraNueva);
-        console.log(confirNueva);
-        if (actual === contraActual) {
-            if (contraNueva === confirNueva) {
-                console.log("Contraseña restablecida con exito");
-            } else {
-                console.log("Contraseñas no coinciden");
-            }
-        } else {
-            console.log("Contraseña actual errada");
-        }
-    } catch (e) { console.log(e, "Error en cambio de contraseña") }
-}
-
-
-
-
 function calcularIMC() {
     try {
         peso = document.getElementById("peso").value;
@@ -2293,9 +2049,6 @@ function rangoGET() {
         console.log(min);
     } catch (e) { console.log(e, "Error al calcular el RANGO_GET") }
 }
-
-
-
 function calcularDiferenciaDias() {
     try {
         const fechaIncioEntreno = "2022-09-15";
@@ -2351,6 +2104,13 @@ function dividirEnteroDecimal() {
 }
 (function () {
     try {
+        var hoy = new Date().getDay()
+        for(let i=0;i<hoy;i++){
+            if((i+1)!=hoy){
+                var e = document.getElementById("dia"+(i+1))
+                e.hidden = true
+            }
+        }
         var totalHoras = 0;
         var datos = [];
         var regLunes = false;
@@ -2386,7 +2146,8 @@ function dividirEnteroDecimal() {
                     hrDomingo = 0
                 }
                 totalHoras = hrLunes + hrMartes + hrMiercoles + hrJueves + hrViernes + hrSabado + hrDomingo;
-
+                
+                document.getElementById("horasEntrenamiento1").innerHTML = totalHoras;
                 document.getElementById("horasEntrenamiento").innerHTML = totalHoras;
                 enviarDisponibilidad()
             });
@@ -2427,8 +2188,30 @@ function enviarDisponibilidad() {
             totalDias++;
         }
         document.getElementById("DisponibilidadDias").innerHTML = totalDias;
+        document.getElementById("DisponibilidadDias1").innerHTML = totalDias;
     } catch (e) {
         console.log(e, "Error enviar dias disponibles")
     }
 };
 
+function confirmarDisponibilidad(){
+    try {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json; charset=UTF-8");
+
+        Requests.post("/disponibilidad/crear",{
+            fkIdPerfilUsuarioDS: 1,
+            lunes: parseInt(document.getElementById("dia1").value) || 0,
+            martes: parseInt(document.getElementById("dia2").value) || 0,
+            miercoles: parseInt(document.getElementById("dia3").value) || 0,
+            jueves: parseInt(document.getElementById("dia4").value) || 0,
+            viernes: parseInt(document.getElementById("dia5").value) || 0,
+            sabado: parseInt(document.getElementById("dia6").value) || 0,
+            domingo: parseInt(document.getElementById("dia7").value) || 0,
+            totalHorasSemana: document.getElementById("horasEntrenamiento1").value,
+            totalDiasSemana: document.getElementById("DisponibilidadDias1").value,
+        },myHeaders)
+    } catch (e) {
+        console.log(e, "Error enviar dias disponibles")
+    }
+}
