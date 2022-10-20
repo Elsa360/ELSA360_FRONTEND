@@ -616,7 +616,7 @@ function traerAlimRegSelecc() {
                     let imgAlimento = document.createElement("img");
                     let tdNombre = document.createElement('td');
                     let tdGrupoAlim = document.createElement('td');
-                    let tdMomentoComida = document.createElement('td');
+                    let tdCaloria = document.createElement('td');
                     let tdPorcion = document.createElement("td");
                     let inputPorcion = document.createElement("input");
 
@@ -637,16 +637,15 @@ function traerAlimRegSelecc() {
                     tdGrupoAlim.style = "font-size:18px; text-align: left;";
                     fila.appendChild(tdGrupoAlim);
 
-                    //Cambio del momento por las calorias del alimento
-                    tdMomentoComida.innerText = alimento.caloriasAlimento;
-                    tdMomentoComida.id = alimento.fkIdMomentoComidaSlccn;
-                    tdMomentoComida.style = "font-size:18px; text-align: left;";
-                    fila.appendChild(tdMomentoComida);
+                    tdCaloria.innerText = alimento.caloriasAlimento;
+                    tdCaloria.id = 'calSel_' + alimento.fkIdAlimentoRegularSlcnn;
+                    tdCaloria.style = "font-size:18px; text-align: left;";
+                    fila.appendChild(tdCaloria);
 
                     tdPorcion.style = "font-size:18px; text-align: center;";
                     inputPorcion.type = "number";
                     inputPorcion.className = "form-control"
-                    inputPorcion.id = alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.id = 'regSel_' + alimento.fkIdAlimentoRegularSlcnn;
                     inputPorcion.min = 0;
                     inputPorcion.max = 6;
                     inputPorcion.step = "0.5";
@@ -889,32 +888,51 @@ function alimentosLocalStorage() {
 }
 function seleccionarAlimentosRegulares() {
     const inpust = document.querySelectorAll("input[type=number]");
-    let energeticos;
-    let proteicos;
-    let lacteos;
-    let frutyverd;
-    let grasasSalud;
-    let otro;
-
     inpust.forEach(input => {
         input.addEventListener('change', function (e) {
             let totalCalorias = 0;
-
-            //Total de input energeticos
-            cereales = document.querySelectorAll("#tablaCereales input[type=number]");
-            tuberculos = document.querySelectorAll("#tablaTuberculos input[type=number]");
-            platanos = document.querySelectorAll("#tablaPlatanos input[type=number]");
-            raices = document.querySelectorAll("#tablaRaices input[type=number]");
-            leguminosas = document.querySelectorAll("#tablaLeguminosas input[type=number]");
-
-            energeticos = cereales.length + tuberculos.length + platanos.length + raices.length + leguminosas.length;
-
+            // --------------------------------------------------------------------------------------------------------------------------
             //Contador de porciones energeticos
             let totalporcionesEnergeticos = 0;
-
             //ID para mostrar los datos en las barras y su porcentaje
             let porcionesEnergReque = parseInt(document.getElementById("porcionesRequeridasEnergeticos").innerHTML);
             let porcentajeEnergetico = 0;
+
+            // --------------------------------------------------------------------------------------------------------------------------
+            //Total de input energeticos favoritos
+            let energSelecc = document.querySelectorAll("#tablaEnergeticos input[type=number]");
+            //Lectura de Energeticos Favoritos
+            for (let i = 1; i <= energSelecc; i++) {
+                try {
+                    let idcalorias = "calSel_" + i.toString();
+                    let idporciones = "regSel_" + i.toString();
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    numPorciones = parseInt(document.getElementById(idporciones).value);
+                    if (isNaN(numPorciones) !== true) {
+                        let totalCalEnergSelcc = parseFloat(calorias) * numPorciones;
+                        totalCalorias = totalCalorias + totalCalEnergSelcc;
+                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
+                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesEnergReque;
+                    }
+                    if (totalporcionesEnergeticos === porcionesEnergReque) {
+                        for (let j = 1; j <= energSelecc; j++) {
+                            document.getElementById("regSel_" + j).disabled = true;
+                        }
+                    }
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            // --------------------------------------------------------------------------------------------------------------------------
+            //Total de input energeticos
+            let cereales = document.querySelectorAll("#tablaCereales input[type=number]");
+            let tuberculos = document.querySelectorAll("#tablaTuberculos input[type=number]");
+            let platanos = document.querySelectorAll("#tablaPlatanos input[type=number]");
+            let raices = document.querySelectorAll("#tablaRaices input[type=number]");
+            let leguminosas = document.querySelectorAll("#tablaLeguminosas input[type=number]");
+
+            let energeticos = cereales.length + tuberculos.length + platanos.length + raices.length + leguminosas.length;
 
             //Lectura de Energeticos
             for (let i = 1; i <= energeticos; i++) {

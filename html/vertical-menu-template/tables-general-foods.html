@@ -1071,14 +1071,9 @@
 
                 <div class="bs-stepper-header">
                   <div class="step" data-target="#favoriteFoods">
-<<<<<<< HEAD
                     <button type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/favorito.png" alt=""
                           style="width: 18px;"></span>
-=======
-                    <button type="button" class="step-trigger" style="padding-right: 0px;">
-                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/favorito.png" alt="" style="width: 18px;"></span>
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                       <span class="bs-stepper-label mt-1">
                         <span class="bs-stepper-title">Favoritos</span>
                       </span>
@@ -1092,14 +1087,9 @@
 
 
                   <div class="step" data-target="#energeticFoods">
-<<<<<<< HEAD
                     <button type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/Sin título-1.png" alt=""
                           style="width: 15px;"></span>
-=======
-                    <button type="button" class="step-trigger" style="padding-right: 0px; padding-left: 5px;">
-                      <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/Sin título-1.png" alt="" style="width: 15px;"></span>
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                       <span class="bs-stepper-label mt-1">
                         <span class="bs-stepper-title">Energéticos</span>
                       </span>
@@ -1273,7 +1263,7 @@
 
 
 
-
+                    <!-- Tabla de Energeticos Favaoritos o Seleccionados -------------------------------------------------->
 
 
                     <div id="favoriteFoods" class="content">
@@ -1281,8 +1271,6 @@
                         <h5 class="text-center">Mis alimentos favoritos</h5>
                       </div>
 
-
-                      <!-- Tabla de alimentos favaoritos o seleccionados -------------------------------------------------->
                       <div class="row">
 
                         <div class="card accordion-item mb-4">
@@ -1315,9 +1303,9 @@
                                     <h6>Energéticos completados</h6>
 
                                     <div class="progress">
-                                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                        <label for="">75%</label>
+                                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100" id="barraEnergeticosSeleccionados">
+                                        <label id="lblEnergeticsSeleccionados">0%</label>
                                       </div>
                                     </div>
                                   </div>
@@ -1329,13 +1317,13 @@
                                       <table class="tablaLimites">
                                         <tr>
                                           <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                              <h5 style="margin-bottom: 5px;">3</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesElegEnergSelecc">3</h5>
                                             </span></td>
 
                                           <td></td>
 
                                           <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                              <h5 style="margin-bottom: 5px;">6</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesReqEnergSelecc">6</h5>
                                             </span></td>
                                         </tr>
                                         <tr>
@@ -1371,136 +1359,6 @@
                               </div>
 
                             </div>
-<<<<<<< HEAD
-=======
-                        </div>
-                      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      <div class="accordion-item card mb-4">
-                        <h2 class="accordion-header d-flex align-items-center">
-
-                          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                            data-bs-target="#accordionProteicosFav" aria-expanded="false"
-                            style="background-color: #191924;">
-
-                            <img src="../../assets/img/icons/unicons/proteicos.png" alt=""
-                              style="width: 15px; margin-right: 10px;">
-                            Proteícos
-                          </button>
-
-                        </h2>
-      
-      
-      
-      
-      
-      
-                        <div id="accordionProteicosFav" class="accordion-collapse collapse">
-                          <div class="accordion-body">
-      
-      
-      
-      
-                            <div id="defaultFormControlHelp" class="form-text">
-                              <h5>Porciones de alimentos proteícos que has elegido</h5>
-                            </div>
-      
-      
-      
-      
-      
-                            <div class="row">
-                              <div class="col-md-4 mb-3">
-                                <div class="elegidoNutricion">
-                                  <h6>Proteícos completados</h6>
-                
-                                  <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
-                                      aria-valuemax="100">
-                                      <label for="">75%</label>
-                                    </div>
-                                  </div>                                       
-                
-                                </div>
-                                                                   
-      
-                              </div>
-      
-      
-                              <div class="col-md-4 mb-3">
-                                <div class="elegidoNutricion">                     
-                
-                                  <div class="slidecontainer2">
-                
-                                    <table class="tablaLimites">
-                                      <tr>
-                                        <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
-                
-                                        <td></td>
-                
-                                        <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
-                                      </tr>
-                                      <tr>
-                                        <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
-                
-                                        <td>de</td>
-                
-                                        <td class="valorLimiteSup"><span class="badge bg-label-info">Requeridas</span></td>
-                                      </tr>
-                                    </table>
-                                  </div>
-                
-                                </div>
-                                
-      
-                              </div>
-                            </div>
-      
-      
-      
-      
-      
-      
-      
-                          
-                          <div class="table-responsive text-nowrap">  
-                            <table class="table" id="tablaProteicos">
-                              <thead>
-                                <tr>
-                                  <th></th>
-                                  <th>Alimento</th>
-                                  <th>Grupo</th>
-                                  <th>Calorías</th>
-                                  <th>N° porciones</th>
-                                </tr>
-                              </thead>
-                            </table>
-                          </div>  
-      
-      
-      
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                           </div>
                         </div>
 
@@ -1524,7 +1382,7 @@
 
 
 
-
+                        <!-- Tabla de Proteicos Favaoritos o Seleccionados -------------------------------------------------->
                         <div class="accordion-item card mb-4">
                           <h2 class="accordion-header d-flex align-items-center">
 
@@ -1564,9 +1422,9 @@
                                     <h6>Proteícos completados</h6>
 
                                     <div class="progress">
-                                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                        <label for="">75%</label>
+                                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100" id="barraProteicosSeleccionados">
+                                        <label id="lblProteicosSeleccionados">0%</label>
                                       </div>
                                     </div>
 
@@ -1584,13 +1442,13 @@
                                       <table class="tablaLimites">
                                         <tr>
                                           <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                              <h5 style="margin-bottom: 5px;">3</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesElegProteSelecc">0</h5>
                                             </span></td>
 
                                           <td></td>
 
                                           <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                              <h5 style="margin-bottom: 5px;">6</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesRequeProteSelecc">6</h5>
                                             </span></td>
                                         </tr>
                                         <tr>
@@ -1604,10 +1462,7 @@
                                         </tr>
                                       </table>
                                     </div>
-
                                   </div>
-
-
                                 </div>
                               </div>
 
@@ -1625,39 +1480,20 @@
                                       <th></th>
                                       <th>Alimento</th>
                                       <th>Grupo</th>
-                                      <th>Momento</th>
+                                      <th>Calorías</th>
                                       <th>N° porciones</th>
                                     </tr>
                                   </thead>
                                 </table>
                               </div>
-
-
-
                             </div>
-<<<<<<< HEAD
-=======
-      
-      
-                            <div class="table-responsive text-nowrap">
-                              <table class="table" id="tablaLacteos">
-                                <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>Alimento</th>
-                                    <th>Grupo</th>
-                                    <th>Calorías</th>
-                                    <th>N° porciones</th>
-                                  </tr>
-                                </thead>
-                              </table>
-                            </div>
-      
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                           </div>
                         </div>
 
 
+
+
+                        <!-- Tabla de Lacteos Favaoritos o Seleccionados -------------------------------------------------->
                         <div class="accordion-item card mb-4">
                           <h2 class="accordion-header d-flex align-items-center">
 
@@ -1694,9 +1530,9 @@
                                     <h6>Lácteos completados</h6>
 
                                     <div class="progress">
-                                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                        <label for="">75%</label>
+                                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100" id="barraLacteosSeleccionados">
+                                        <label id="lblLacteosSeleccionados">0%</label>
                                       </div>
                                     </div>
                                   </div>
@@ -1711,13 +1547,13 @@
                                       <table class="tablaLimites">
                                         <tr>
                                           <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                              <h5 style="margin-bottom: 5px;">3</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesElegLactSelecc">0</h5>
                                             </span></td>
 
                                           <td></td>
 
                                           <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                              <h5 style="margin-bottom: 5px;">6</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesRequeLactSelecc">6</h5>
                                             </span></td>
                                         </tr>
                                         <tr>
@@ -1746,7 +1582,7 @@
                                       <th></th>
                                       <th>Alimento</th>
                                       <th>Grupo</th>
-                                      <th>Momento</th>
+                                      <th>Calorías</th>
                                       <th>N° porciones</th>
                                     </tr>
                                   </thead>
@@ -1754,35 +1590,6 @@
                               </div>
 
                             </div>
-<<<<<<< HEAD
-=======
-      
-      
-      
-      
-      
-      
-      
-      
-      
-                            <div class="table-responsive text-nowrap">
-                              <table class="table" id="tablaFrutyVeg">
-                                <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>Alimento</th>
-                                    <th>Grupo</th>
-                                    <th>Calorías</th>
-                                    <th>N° porciones</th>
-                                  </tr>
-                                </thead>
-                              </table>
-                             </div>
-      
-      
-      
-      
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                           </div>
                         </div>
 
@@ -1820,7 +1627,7 @@
 
 
 
-
+                        <!-- Tabla de Frutas y verduras Favaoritas o Seleccionadas -------------------------------------------------->
 
 
                         <div class="accordion-item card mb-4">
@@ -1860,9 +1667,9 @@
                                     <h6>Frutas y verduras completadas</h6>
 
                                     <div class="progress">
-                                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                        <label for="">75%</label>
+                                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100" id="barraFrutasVerdSelecc">
+                                        <label id="lblFrutasVerdSelecc">0%</label>
                                       </div>
                                     </div>
                                   </div>
@@ -1877,13 +1684,13 @@
                                       <table class="tablaLimites">
                                         <tr>
                                           <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                              <h5 style="margin-bottom: 5px;">3</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesFrutasVerdElegSelecc">0</h5>
                                             </span></td>
 
                                           <td></td>
 
                                           <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                              <h5 style="margin-bottom: 5px;">6</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesFrutasVerdRequeSelecc">6</h5>
                                             </span></td>
                                         </tr>
                                         <tr>
@@ -1904,14 +1711,6 @@
                                 </div>
                               </div>
 
-
-
-
-
-
-
-
-
                               <div class="table-responsive text-nowrap">
                                 <table class="table" id="tablaFrutyVeg">
                                   <thead>
@@ -1919,37 +1718,13 @@
                                       <th></th>
                                       <th>Alimento</th>
                                       <th>Grupo</th>
-                                      <th>Momento</th>
+                                      <th>Calorías</th>
                                       <th>N° porciones</th>
                                     </tr>
                                   </thead>
                                 </table>
                               </div>
-
-
-
-
                             </div>
-<<<<<<< HEAD
-=======
-      
-      
-                            <div class="table-responsive text-nowrap">
-                              <table class="table" id="tablaGrasasSalud">
-                                <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>Alimento</th>
-                                    <th>Grupo</th>
-                                    <th>Calorías</th>
-                                    <th>N° porciones</th>
-                                  </tr>
-                                </thead>
-                              </table>
-                            </div>
-      
-      
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                           </div>
                         </div>
 
@@ -1977,7 +1752,7 @@
 
 
 
-
+                        <!-- Tabla de Grasas Saludables Favaoritas o Seleccionadas -------------------------------------------------->
 
                         <div class="accordion-item card mb-4">
                           <h2 class="accordion-header d-flex align-items-center">
@@ -2008,11 +1783,10 @@
                                   <div class="elegidoNutricion">
                                     <h6>Grasas saludables completadas</h6>
 
-<<<<<<< HEAD
                                     <div class="progress">
-                                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                        aria-valuemin="0" aria-valuemax="100">
-                                        <label for="">75%</label>
+                                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100" id="barraGrasasSeleccionadas">
+                                        <label id="lblGrasasSeleccionadas">0%</label>
                                       </div>
                                     </div>
                                   </div>
@@ -2027,13 +1801,13 @@
                                       <table class="tablaLimites">
                                         <tr>
                                           <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                              <h5 style="margin-bottom: 5px;">3</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesElegGrasaSelecc">0</h5>
                                             </span></td>
 
                                           <td></td>
 
                                           <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                              <h5 style="margin-bottom: 5px;">6</h5>
+                                              <h5 style="margin-bottom: 5px;" id="porcionesRequeGrasaSelecc">6</h5>
                                             </span></td>
                                         </tr>
                                         <tr>
@@ -2062,7 +1836,7 @@
                                       <th></th>
                                       <th>Alimento</th>
                                       <th>Grupo</th>
-                                      <th>Momento</th>
+                                      <th>Calorías</th>
                                       <th>N° porciones</th>
                                     </tr>
                                   </thead>
@@ -2105,7 +1879,7 @@
 
 
 
-
+                        <!-- Tabla de Otros Alimentos Favaoritas o Seleccionadas -------------------------------------------------->
                         <div class="accordion-item card mb-3">
                           <h2 class="accordion-header d-flex align-items-center">
 
@@ -2126,12 +1900,12 @@
                             <div class="accordion-body">
 
 
-                              <div id="defaultFormControlHelp" class="form-text">
+                              <!-- <div id="defaultFormControlHelp" class="form-text">
                                 <h5>Porciones de otros alimentos que has elegido</h5>
-                              </div>
+                              </div> -->
 
 
-
+                              <!-- 
                               <div class="row">
                                 <div class="col-md-4 mb-3">
                                   <div class="elegidoNutricion">
@@ -2144,10 +1918,10 @@
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                </div> -->
 
 
-                                <div class="col-md-4 mb-3">
+                              <!-- <div class="col-md-4 mb-3">
                                   <div class="elegidoNutricion">
 
                                     <div class="slidecontainer2">
@@ -2180,7 +1954,7 @@
 
 
                                 </div>
-                              </div>
+                              </div> -->
 
 
 
@@ -2196,7 +1970,7 @@
                                       <th></th>
                                       <th>Alimento</th>
                                       <th>Grupo</th>
-                                      <th>Momento</th>
+                                      <th>Calorías</th>
                                       <th>N° porciones</th>
                                     </tr>
                                   </thead>
@@ -2206,59 +1980,6 @@
 
 
                             </div>
-=======
-                          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                            data-bs-target="#accordionOtrosFav" aria-expanded="false"
-                            style="background-color: #191924;">
-
-                            <img src="../../assets/img/icons/unicons/burger.png" alt=""
-                              style="width: 15px; margin-right: 10px;">
-                             Otros
-                          </button>
-
-                        </h2>
-
-
-
-                        <div id="accordionOtrosFav" class="accordion-collapse collapse">
-                          <div class="accordion-body">    
-      
-      
-                            <div id="defaultFormControlHelp" class="form-text">
-                              <h5 class="text-center mb-0">Otros alimentos</h5>
-                              <p class="text-center" style="color: #cbcbe2; font-weight: 100">*Estos alimentos no son del todo saludable, por eso no tienes unas porciones recomendadas. <br>
-                                 De igual forma, si deseas, puedes agregarlos a tu dieta, siempre y cuando no sea costumbre o pesaran en tu rendimiento. 
-                              </p>
-                            </div>             
-      
-      
-      
-                            
-      
-      
-      
-      
-      
-      
-      
-      
-                            <div class="table-responsive text-nowrap">
-                              <table class="table" id="tablaOtrosSelecc">
-                                <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>Alimento</th>
-                                    <th>Grupo</th>
-                                    <th>Calorías</th>
-                                    <th>N° porciones</th>
-                                  </tr>
-                                </thead>
-                              </table>
-                            </div>
-      
-      
-      
->>>>>>> fbdb423edd1c217a53b7fc01751af10996e0a0cd
                           </div>
                         </div>
 
@@ -3525,14 +3246,16 @@
                     <div id="otherFoods" class="content">
                       <div id="defaultFormControlHelp" class="form-text">
                         <h5 class="text-center mb-0">Otros alimentos</h5>
-                        <p class="text-center" style="color: #cbcbe2; font-weight: 100">*Estos alimentos no son del todo saludable, por eso no tienes unas porciones recomendadas. <br>
-                           De igual forma, si deseas, puedes agregarlos a tu dieta, siempre y cuando no sea costumbre o pesaran en tu rendimiento. 
+                        <p class="text-center" style="color: #cbcbe2; font-weight: 100">*Estos alimentos no son del todo
+                          saludable, por eso no tienes unas porciones recomendadas. <br>
+                          De igual forma, si deseas, puedes agregarlos a tu dieta, siempre y cuando no sea costumbre o
+                          pesaran en tu rendimiento.
                         </p>
                       </div>
 
 
 
-                      
+
 
 
 
