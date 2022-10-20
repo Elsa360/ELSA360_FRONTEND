@@ -956,13 +956,14 @@
 
 
               <div class="col-md-2 mb-4">
+                <!-- href="tables-selected-foods.html" -->
+                <a><input class="btn btn-label-success" style="width:100%"
+                    type="button" value="Alimentos favoritos"/></a>
+              </div>
+              <!-- <div class="col-md-2 mb-4">
                 <a href="tables-selected-foods.html"><input class="btn btn-label-success" style="width:100%"
                     type="button" value="Alimentos favoritos"></a>
-              </div>
-              <div class="col-md-2 mb-4">
-                <a href="tables-selected-foods.html"><input class="btn btn-label-success" style="width:100%"
-                    type="button" value="Alimentos favoritos"></a>
-              </div>
+              </div> -->
             </div>
 
 
@@ -992,9 +993,9 @@
                   <h5>Calorías completadas</h5>
 
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100">
-                      <label for="">75%</label>
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0"
+                      aria-valuemax="100" id="barraCalorias">
+                      <label id="lblBarraCalorias">0%</label>
                     </div>
                   </div>
 
@@ -1012,13 +1013,13 @@
                     <table class="tablaLimites">
                       <tr>
                         <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                            <h4 style="margin-bottom: 5px;">688</h4>
+                            <h4 style="margin-bottom: 5px;" id="caloriasSeleccionadas">0</h4>
                           </span></td>
 
                         <td></td>
 
                         <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                            <h4 style="margin-bottom: 5px;">2750</h4>
+                            <h4 style="margin-bottom: 5px;" id="caloriasRequeridas">2750</h4>
                           </span></td>
                       </tr>
                       <tr>
@@ -1081,7 +1082,7 @@
 
 
                   <div class="step" data-target="#energeticFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
 
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/Sin título-1.png" alt=""
                           style="width: 15px;"></span>
@@ -1098,7 +1099,7 @@
 
 
                   <div class="step" data-target="#proteinFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/proteicos.png" alt=""
                           style="width: 18px;"></span>
                       <span class="bs-stepper-label mt-1">
@@ -1114,7 +1115,7 @@
 
 
                   <div class="step" data-target="#dairyFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/milk.png" alt=""
                           style="width: 12px;"></span>
                       <span class="bs-stepper-label mt-1">
@@ -1130,7 +1131,7 @@
 
 
                   <div class="step" data-target="#fruvegFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/grapes.png" alt=""
                           style="width: 18px;"></span>
                       <span class="bs-stepper-label mt-1">
@@ -1146,7 +1147,7 @@
 
 
                   <div class="step" data-target="#fatFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/avocado.png" alt=""
                           style="width: 13px;"></span>
                       <span class="bs-stepper-label mt-1">
@@ -1162,7 +1163,7 @@
 
 
                   <div class="step" data-target="#otherFoods">
-                    <button type="button" class="step-trigger">
+                    <input type="button" class="step-trigger">
                       <span class="bs-stepper-circle"><img src="../../assets/img/icons/unicons/burger.png" alt=""
                           style="width: 19px;"></span>
                       <span class="bs-stepper-label mt-1">
@@ -1274,9 +1275,9 @@
                             <h6>Energéticos completados</h6>
 
                             <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="50"
-                                aria-valuemin="0" aria-valuemax="100">
-                                <label for="">75%</label>
+                              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" id="barraEnergeticos">
+                                <label id="lblBarraPorcionEneregeticos">0%</label>
                               </div>
                             </div>
                           </div>
@@ -1288,14 +1289,14 @@
                             <div class="slidecontainer2">
                               <table class="tablaLimites">
                                 <tr>
-                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas">
-                                      <h5 style="margin-bottom: 5px;" id="porcionesElegidas"></h5>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel">
+                                      <h5 style="margin-bottom: 5px;" id="porcionesElegidasEnergeticos">0</h5>
                                     </span></td>
 
                                   <td></td>
 
                                   <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas">
-                                      <h5 style="margin-bottom: 5px;" id="porcionesRequeridas"></h5>
+                                      <h5 style="margin-bottom: 5px;" id="porcionesRequeridasEnergeticos">15</h5>
                                     </span></td>
                                 </tr>
                                 <tr>

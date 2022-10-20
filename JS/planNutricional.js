@@ -73,17 +73,24 @@ function traerAlimentosRegulares() {
                 // console.log(alimento.fkIdSubgrupoAlimenticio);
 
                 let fila = document.createElement('tr');
+
                 let tdImage = document.createElement('td');
+                let imgAlimento = document.createElement("img");
+
                 let tdNombre = document.createElement('td');
+
                 let tdPesoCocido = document.createElement('td');
+                let spanPesoCocido = document.createElement("span");
+
                 let tdPesoCrudo = document.createElement('td');
+                let spanPesoCrudo = document.createElement("span");
+
                 let tdCalorias = document.createElement('td');
-                let spanPesoCocido = document.createElement("span");;
-                let spanPesoCrudo = document.createElement("span");;
-                let spanPesoCalorias = document.createElement("span");;
+                let spanPesoCalorias = document.createElement("span");
+
                 let tdPorcion = document.createElement("td");
                 let inputPorcion = document.createElement("input");
-                let imgAlimento = document.createElement("img");
+
 
                 tdImage.style = "width: 30px; text-align: center;";
                 imgAlimento.style = "margin-right: 10px;";
@@ -97,33 +104,36 @@ function traerAlimentosRegulares() {
                 fila.appendChild(tdNombre);
 
                 spanPesoCocido.innerText = alimento.pesoCocinado;
-                tdPesoCocido.style = "font-size:18px; text-align: center;";
                 spanPesoCocido.className = "badge bg-label-warning";
+                tdPesoCocido.style = "font-size:18px; text-align: center;";
                 tdPesoCocido.appendChild(spanPesoCocido);
                 fila.appendChild(tdPesoCocido);
 
                 spanPesoCrudo.innerText = alimento.pesoCrudo;
-                tdPesoCrudo.style = "font-size:18px; text-align: center;";
                 spanPesoCrudo.className = "badge bg-label-info";
+                tdPesoCrudo.style = "font-size:18px; text-align: center;";
                 tdPesoCrudo.appendChild(spanPesoCrudo);
                 fila.appendChild(tdPesoCrudo);
 
                 spanPesoCalorias.innerText = alimento.calorias;
-                tdCalorias.style = "font-size:18px; text-align: center;";
+                spanPesoCalorias.id = 'cal_' + (alimento.idAlimento);
                 spanPesoCalorias.className = "badge bg-label-success";
+                tdCalorias.style = "font-size:18px; text-align: center;";
                 tdCalorias.appendChild(spanPesoCalorias);
                 fila.appendChild(tdCalorias);
 
-                tdPorcion.style = "font-size:18px; text-align: center;";
+
                 inputPorcion.type = "number";
                 inputPorcion.className = "form-control"
-                inputPorcion.id = 'reg_' + alimento.idAlimento;
+                inputPorcion.id = 'reg_' + (alimento.idAlimento);
                 inputPorcion.min = 0;
                 inputPorcion.max = 12;
                 inputPorcion.step = "1";
                 inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
+                tdPorcion.style = "font-size:18px; text-align: center;";
                 tdPorcion.appendChild(inputPorcion);
                 fila.appendChild(tdPorcion);
+
                 if (alimento.fkIdSubgrupoAlimenticio === 1) {
                     cuerpoCereales.className = "table-border-bottom-0";
                     cuerpoCereales.appendChild(fila);
@@ -270,6 +280,7 @@ function traerAlimentosRegulares() {
             tablaBebidadasAlcoho.className = "table";
             tablaBebidadasAlcoho.appendChild(cuerpoBebidadasAlcoho);
 
+            totalInputs();
 
         });
 }
@@ -824,7 +835,7 @@ function guardarAlimentosRegulares() {
                     .then((json) => console.log(json));
             }
         }
-        location.href = window.location.origin + '/html/vertical-menu-template/tables-selected-foods.html'
+        // location.href = window.location.origin + '/html/vertical-menu-template/tables-selected-foods.html'
     } catch (error) {
         console.log(error);
     }
@@ -861,6 +872,108 @@ function guardarAlimentosVegetarianos() {
         console.log(error);
     }
 
+
+}
+function alimentosLocalStorage() {
+    const foodSelections = document.querySelectorAll("input[type=number]");
+    console.log(foodSelections);
+    for (let i = 0, food; food = foodSelections[i++];) {
+        if (food.value !== "") {
+            let idAli = food.id;
+            localStorage.setItem("idAlimento_" + i + "", parseInt(idAli.slice(4)));
+            localStorage.setItem("Porciones_" + i + "", parseInt(document.getElementById(idAli).value));
+        }
+    }
+}
+function totalInputs() {
+    const inpust = document.querySelectorAll("input[type=number]");
+    // console.log(inpust);
+    let energeticos;
+    let totalCalorias = 0;
+    inpust.forEach(input => {
+        input.addEventListener('change', function (e) {
+            //Energeticos
+            cereales = document.querySelectorAll("#tablaCereales input[type=number]");
+            tuberculos = document.querySelectorAll("#tablaTuberculos input[type=number]");
+            platanos = document.querySelectorAll("#tablaPlatanos input[type=number]");
+            raices = document.querySelectorAll("#tablaRaices input[type=number]");
+            leguminosas = document.querySelectorAll("#tablaLeguminosas input[type=number]");
+            energeticos = cereales.length + tuberculos.length + platanos.length + raices.length + leguminosas.length;
+
+            //Proteicos
+            carnePollo = document.querySelectorAll("#tablaCereales input[type=number]");
+            proteicos = carnePollo.length + energeticos;
+
+            //Total porciones
+            let totalporcionesEnergeticos = 0;
+            let totalporcionesProteicos = 0;
+
+            //Barras
+            let porcionesRequeridas = parseInt(document.getElementById("porcionesRequeridasEnergeticos").innerHTML);
+            let barraEnerg = porcionesRequeridas;
+            let porcentajeEnegetico = 0;
+            console.log(barraEnerg);
+            //Lectura de Energeticos
+            for (let i = 1; i <= energeticos; i++) {
+                try {
+                    let idcalorias = "cal_" + i.toString();
+                    let idporciones = "reg_" + i.toString();
+                    calorias = document.getElementById(idcalorias).innerHTML;
+                    calorias = parseFloat(calorias.replace(',', '.'));
+                    numPorciones = parseInt(document.getElementById(idporciones).value);
+                    if (isNaN(numPorciones) !== true) {
+                        total = parseFloat(calorias) * numPorciones;
+                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
+                        totalCalorias = totalCalorias + total;
+                        porcentajeEnegetico = totalporcionesEnergeticos / barraEnerg
+                    }
+                    console.log(totalporcionesEnergeticos,porcionesRequeridas);
+                    if (totalporcionesEnergeticos === porcionesRequeridas) {
+                        console.log("Entro a la condicion");
+                        for (let j = 1; j <= energeticos; j++) {
+                            console.log("Entro al for");
+                            document.getElementById("reg_"+j).disabled = true;
+                        }
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            //Total Porciones Energeticos
+            document.getElementById("porcionesElegidasEnergeticos").innerText = totalporcionesEnergeticos;
+            document.getElementById("barraEnergeticos").style = "width: " + ((porcentajeEnegetico * 100).toFixed(2)) + "%"
+            document.getElementById("lblBarraPorcionEneregeticos").innerHTML = ((porcentajeEnegetico * 100).toFixed()) + "%"
+
+            //Lectura de Proteicos
+            // for (let i = energeticos; i <= proteicos; i++) {
+            //     try {
+            //         let idcalorias = "cal_" + i.toString();
+            //         let idporciones = "reg_" + i.toString();
+            //         calorias = document.getElementById(idcalorias).innerHTML;
+            //         calorias = parseFloat(calorias.replace(',', '.'));
+            //         numPorciones = parseInt(document.getElementById(idporciones).value);
+            //         if (isNaN(numPorciones) !== true) {
+            //             total = parseFloat(calorias) * numPorciones;
+            //             totalporcionesProteicos = totalporcionesProteicos + parseFloat(numPorciones);
+            //             totalCalorias = totalCalorias + total;
+            //         }
+            //     } catch (error) {
+            //         console.log(error)
+            //     }
+            // }
+
+
+
+
+            //Total Porciones Proteicos
+            // document.getElementById("porcionesElegidas").innerText = totalporcionesEnergeticos;
+
+
+
+            //Total Calorias
+            document.getElementById("caloriasSeleccionadas").innerText = total.toFixed(2);
+        })
+    })
 
 }
 function alimentos_pdf() {
@@ -944,5 +1057,7 @@ function alimentos_pdf() {
         console.log(error);
     }
 }
+
+
 
 
