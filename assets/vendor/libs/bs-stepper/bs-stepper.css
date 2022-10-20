@@ -205,7 +205,7 @@
 }
 .bs-stepper .bs-stepper-header .step .step-trigger {
   padding: 0 1rem;
-  flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
 }
 .bs-stepper .bs-stepper-header .step .step-trigger .bs-stepper-label {
   margin: 0;

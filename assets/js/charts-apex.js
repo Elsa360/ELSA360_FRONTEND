@@ -39,6 +39,10 @@
     }
   };
 
+
+
+
+
   // Heat chart data generator
   function generateDataHeat(count, yrange) {
     let i = 0;
@@ -55,6 +59,14 @@
     }
     return series;
   }
+
+
+
+
+
+
+
+
 
   // Line Area Chart
   // --------------------------------------------------------------------
@@ -157,6 +169,11 @@
     const areaChart = new ApexCharts(areaChartEl, areaChartConfig);
     areaChart.render();
   }
+
+
+
+
+  
 
   // Bar Chart
   // --------------------------------------------------------------------
