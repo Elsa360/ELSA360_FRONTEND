@@ -137,7 +137,8 @@ Static slide 10
 Static slide 3
 *******************/
 .static-slider3 {
-  padding: 10% 0; }
+  padding: 5% 0; }
+
   .static-slider3 h1 {
     font-weight: 300;
     line-height: 50px; }
@@ -271,7 +272,7 @@ Feature 4
 Feature 20
 *******************/
 .wrap-feature-20 {
-  margin-top: 60px; }
+  margin-top: 30px; }
   .wrap-feature-20 [class*=col-lg-6] .card {
     overflow: hidden; }
   .wrap-feature-20 .linking {
@@ -425,3 +426,232 @@ Responsive
     .btn-wsp:hover{
         background: #20ba5a;
     }
+
+
+
+
+.featuresTitulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* MODAL BORG */
+
+.container-modalBorg{
+  opacity: 0;
+  visibility: hidden;        
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;    
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBorg{
+  width: 570px;
+  background-color: #232333;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.modal-closeBorg{
+  transform: translateY(-200%);
+}
+
+.closeContainerBorg{
+  background-color: #9BCB3B;
+  right: 5px;
+  padding: 15px 10px;
+}
+
+.closeModalBorg{
+  position: absolute;
+  font-weight: 800;
+  cursor: pointer;   
+  top: 5px;
+  right: 15px; 
+}
+
+.modalBorg h2{
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.BorgDescripcionContainer{
+  width: 100%;
+}
+
+.BorgDescripcion{
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+
+
+/* END MODAL BORG */
+
+
+
+
+
+
+
+
+/* MODAL CALENDAR */
+
+.container-modalCalendar{
+  opacity: 0;
+  visibility: hidden;        
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;    
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalCalendar{
+  width: 570px;
+  background-color: #232333;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.modal-closeCalendar{
+  transform: translateY(-200%);
+}
+
+.closeContainerCalendar{
+  background-color: #9BCB3B;
+  right: 5px;
+  padding: 15px 10px;
+}
+
+.closeModalCalendar{
+  position: absolute;
+  font-weight: 800;
+  cursor: pointer;   
+  top: 5px;
+  right: 15px; 
+}
+
+.modalCalendar h2{
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.CalendarDescripcionContainer{
+  width: 100%;
+}
+
+.CalendarDescripcion{
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+
+
+/* END MODAL CALENDAR */
+
+
+
+
+
+
+/* MODAL LIFE */
+
+.container-modalLife{
+  opacity: 0;
+  visibility: hidden;        
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;    
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalLife{
+  width: 570px;
+  background-color: #232333;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.modal-closeLife{
+  transform: translateY(-200%);
+}
+
+.closeContainerLife{
+  background-color: #9BCB3B;
+  right: 5px;
+  padding: 15px 10px;
+}
+
+.closeModalLife{
+  position: absolute;
+  font-weight: 800;
+  cursor: pointer;   
+  top: 5px;
+  right: 15px; 
+}
+
+.modalLife h2{
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.LifeDescripcionContainer{
+  width: 100%;
+}
+
+.LifeDescripcion{
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+
+
+/* END MODAL LIFE */
