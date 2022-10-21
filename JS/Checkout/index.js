@@ -79,8 +79,12 @@ function llenadoWebCheckout() {
         let membresiaURL = urlParams.get('membresia');
         let iva = precioBase * 0.19;
         let totalPagar = precioBase + iva;
-        let nombreCompleto = "Leonardo Barona";
-        let email = "lebab1990@gmail.com";
+        const user = JSON.parse(window.sessionStorage.getItem('user'))
+        if(user === null){
+            location.href = "auth-login-basic.html"
+        }
+        let nombreCompleto = user.name;
+        let email = user.email;
 
         // Datos del Front
         document.getElementById("tiempoMembresia").innerText = membresiaURL

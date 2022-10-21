@@ -72,7 +72,15 @@ function registrarPerfilUsuario() {
         }
         const valores = window.location.search;
         const urlParams = new URLSearchParams(valores);
-        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        let user = JSON.parse(window.sessionStorage.getItem("user"))
+        if(user === null){
+            const valores = window.location.search;
+            const urlParams = new URLSearchParams(valores);
+            user = {
+                email:urlParams.get('email'),
+                email_verified: urlParams.get('verified')
+            }
+        }
         let isVerified = user.email_verified
         if(isVerified){
             Requests.get("/usuario/idUser", {
@@ -82,33 +90,28 @@ function registrarPerfilUsuario() {
             .then(data=>{
                 if(data.length == 0){
                     alert("Usuario no existe")
+                }else{
+                    window.sessionStorage.setItem("perfil", JSON.stringify({
+                        sexo: sexoUsuario,
+                        peso: pesoActual,
+                        estatura: estaturaUsuario,
+                        pesoObjetivo: pesoDeseado,
+                        fechaNacimiento: fechaNacUsuario,
+                        fkTipoDieta: tipoDieta,
+                        fkTipoCuerpo: tipoCuerpo,
+                        fkNivelDeportivo: parseInt(nivelDeportivo),
+                        fkEscalaDeportiva: parseInt(escalaNivelDeportivo),
+                        potenciometro: potenciometroUser,
+                        pulsometro: pulsometroUser,
+                        pulsometro: pulsometroUser,
+                        velocimetro: velocimetroUser,
+                        cadenciometro: cadenciometroUser,
+                        fkPorque: porque,
+                        fkUsuario: data[0].idUsuario,
+                    }))
+                    location.href = "free-data.html"
                 }
-                Requests.post('/perfil/crear', {
-                    sexo: sexoUsuario,
-                    peso: pesoActual,
-                    estatura: estaturaUsuario,
-                    pesoObjetivo: pesoDeseado,
-                    fechaNacimiento: fechaNacUsuario,
-                    fkTipoDieta: tipoDieta,
-                    fkTipoCuerpo: tipoCuerpo,
-                    fkNivelDeportivo: parseInt(nivelDeportivo),
-                    fkEscalaDeportiva: parseInt(escalaNivelDeportivo),
-                    potenciometro: potenciometroUser,
-                    pulsometro: pulsometroUser,
-                    pulsometro: pulsometroUser,
-                    velocimetro: velocimetroUser,
-                    cadenciometro: cadenciometroUser,
-                    fkPorque: porque,
-                    fkUsuario: data[0].idUsuario,
-                },
-                {
-                    'Content-type': 'application/json; charset=UTF-8',
-                }
-            )
-                .then((response) => response.json())
-                .then((json) => console.log(json));
             })
-        
         }
     }
     catch (e) {
@@ -116,3 +119,29 @@ function registrarPerfilUsuario() {
     }
 
 }
+
+
+// Requests.post('/perfil/crear', {
+//     sexo: sexoUsuario,
+//     peso: pesoActual,
+//     estatura: estaturaUsuario,
+//     pesoObjetivo: pesoDeseado,
+//     fechaNacimiento: fechaNacUsuario,
+//     fkTipoDieta: tipoDieta,
+//     fkTipoCuerpo: tipoCuerpo,
+//     fkNivelDeportivo: parseInt(nivelDeportivo),
+//     fkEscalaDeportiva: parseInt(escalaNivelDeportivo),
+//     potenciometro: potenciometroUser,
+//     pulsometro: pulsometroUser,
+//     pulsometro: pulsometroUser,
+//     velocimetro: velocimetroUser,
+//     cadenciometro: cadenciometroUser,
+//     fkPorque: porque,
+//     fkUsuario: data[0].idUsuario,
+// },
+// {
+//     'Content-type': 'application/json; charset=UTF-8',
+// }
+// )
+// .then((response) => response.json())
+// .then((json) => console.log(json));
