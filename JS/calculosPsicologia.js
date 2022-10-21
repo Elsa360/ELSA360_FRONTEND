@@ -253,37 +253,6 @@ function traerRutinas() {
     }
 }
 
-function calcularEdad(fecha) {
-    try {
-        const fechaNacimiento = fecha;
-        //Datos Fecha Actual    
-        const fechaActual = new Date();
-        const anoActual = parseInt(fechaActual.getFullYear());
-        const mesActual = parseInt(fechaActual.getMonth()) + 1;
-        const diaActual = parseInt(fechaActual.getDate());
-        //Datos Fecha Nacimiento
-        const anoNacimiento = parseInt(String(fechaNacimiento).substring(0, 4));
-        const mesNacimiento = parseInt(String(fechaNacimiento).substring(5, 7));
-        const diaNacimiento = parseInt(String(fechaNacimiento).substring(8, 10));
-        let edad = anoActual - anoNacimiento;
-        if (mesActual < mesNacimiento) {
-            edad--;
-        } else if (mesActual === mesNacimiento) {
-            if (diaActual < diaNacimiento) {
-                edad--;
-            }
-        }
-        // console.log(edad);
-        return parseInt(edad);
-    } catch (e) {
-        console.log(e, "Error al calcular la edad");
-    }
-}
-
-
-
-
-
 function entrevistaInicialDia1() {
     try {
         // Pregunta 1
@@ -815,11 +784,6 @@ function hamilton() {
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 
-
-
-
-
-
 (function caloriasPorciones() {
     var datos = [];
     var todosInput = document.querySelectorAll('.NumeroPorciones');
@@ -971,7 +935,81 @@ function foodFats() {
     var grupo = parseInt(urlParams.get('grupo'));
     location.href = "completeFoodListFats.html?momentoComida=" + idMomento.toString() + "&grupo=" + grupo.toString();
 }
+function guardarAlimentosSeleccionados(grupo) {
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    var idMomento = parseInt(urlParams.get('momentoComida'));
+    var elements = document.querySelectorAll("#FormFavoritos input[type=number]")
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.value !== "") {
+            var idAli = element.id;
+            var idAlimento = parseInt(idAli.slice(7));
+            var momento = parseInt(idMomento);
+            var grupoAlime = parseInt(grupo);
+            if (idAlimento >= 162) {
+                grupoAlime = 8;
+            }
+            var numPorciones = element.value;
+            var idUsuario = 1;
+            console.log("Momento: ", momento);
+            console.log("Alimento: ", idAlimento);
+            console.log("Grupo: ", grupoAlime);
+            console.log("Porciones: ", numPorciones);
+            console.log("Usuario: ", idUsuario);
+            console.log("");
 
+
+        }
+    }
+}
+function crearTabla() {
+    try {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(respuesta => respuesta.json())
+            .then(json => {
+                let tablaEnergeticos = document.getElementById('energeticosSeleccionados');
+                let cuerpoTablaEnergeticos = document.createElement('tbody');
+                json.forEach(a => {
+                    let fila = document.createElement('tr');
+
+                    let celda = document.createElement('td');
+                    celda.innerText = a.id;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.name;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.username;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.email;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.address.city;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.address.zipcode;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.phone;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.website;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.phone;
+                    fila.appendChild(celda);
+                    celda = document.createElement('td');
+                    celda.innerText = a.company.name;
+                    fila.appendChild(celda);
+                    cuerpoTablaEnergeticos.appendChild(fila)
+                });
+                tablaEnergeticos.appendChild(cuerpoTablaEnergeticos);
+            })
+    } catch (e) {
+        console.log(e, "Error CargarAlimentos")
+    }
+}
 
 function calcularIMC() {
     try {
@@ -1265,6 +1303,13 @@ function dividirEnteroDecimal() {
 }
 (function () {
     try {
+        var hoy = new Date().getDay()
+        for(let i=0;i<hoy;i++){
+            if((i+1)!=hoy){
+                var e = document.getElementById("dia"+(i+1))
+                e.hidden = true
+            }
+        }
         var totalHoras = 0;
         var datos = [];
         var regLunes = false;
@@ -1300,7 +1345,8 @@ function dividirEnteroDecimal() {
                     hrDomingo = 0
                 }
                 totalHoras = hrLunes + hrMartes + hrMiercoles + hrJueves + hrViernes + hrSabado + hrDomingo;
-
+                
+                document.getElementById("horasEntrenamiento1").innerHTML = totalHoras;
                 document.getElementById("horasEntrenamiento").innerHTML = totalHoras;
                 enviarDisponibilidad()
             });
@@ -1341,8 +1387,48 @@ function enviarDisponibilidad() {
             totalDias++;
         }
         document.getElementById("DisponibilidadDias").innerHTML = totalDias;
+        document.getElementById("DisponibilidadDias1").innerHTML = totalDias;
     } catch (e) {
         console.log(e, "Error enviar dias disponibles")
     }
 };
 
+function confirmarDisponibilidad(){
+    try {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json; charset=UTF-8");
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        let isVerified = user.email_verified
+        if(isVerified){
+            Requests.get("/usuario/idUser", {
+                email:user.email
+            }).
+            then((response) => response.json())
+            .then(data=>{
+                if(data.length == 0){
+                    alert("Usuario no existe")
+                }
+                Requests.post("/disponibilidad/crear",{
+                    fkIdPerfilUsuarioDS: data[0].idUsuario,
+                    lunes: parseInt(document.getElementById("dia1").value) || 0,
+                    martes: parseInt(document.getElementById("dia2").value) || 0,
+                    miercoles: parseInt(document.getElementById("dia3").value) || 0,
+                    jueves: parseInt(document.getElementById("dia4").value) || 0,
+                    viernes: parseInt(document.getElementById("dia5").value) || 0,
+                    sabado: parseInt(document.getElementById("dia6").value) || 0,
+                    domingo: parseInt(document.getElementById("dia7").value) || 0,
+                    totalHorasSemana: document.getElementById("horasEntrenamiento1").value,
+                    totalDiasSemana: document.getElementById("DisponibilidadDias1").value,
+                },
+                myHeaders
+            )
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+            })
+        
+        }
+        
+    } catch (e) {
+        console.log(e, "Error enviar dias disponibles")
+    }
+}

@@ -1,21 +1,28 @@
-let auth = null
-createAuth0Client({
-    domain: 'elsa360.us.auth0.com',
-    client_id: 'rYJuHduwZNTWCu6FTd2ZahaJx61grXWf'
-  }).then(auth0 => {
-    auth = auth0
-  });
+let auth0 = null;
+const fetchAuthConfig = () => fetch("/auth_config.json");
 
+const configureClient = async () => {
+    const response = await fetchAuthConfig();
+    const config = await response.json();
+  
+    auth0 = await createAuth0Client({
+      domain: config.domain,
+      client_id: config.client_id
+    });
+  };
+  window.onload = async () => {
+    await configureClient();
+  }
 
 function loginUsuario() {
     try {
-        debugger
-        auth.loginWithRedirect({
-            redirect_uri: window.location.origin + '/html/vertical-menu-template/dashboard.html'
+        auth0.loginWithRedirect({
+            redirect_uri: window.location.
+                origin + '/html/vertical-menu-template/dashboard.html'
          }).then(token => {
             //logged in. you can get the user profile like this:
-            auth.getUser().then(user => {
-              console.log(user);
+            auth0.getUser().then(user => {
+              window.sessionStorage.setItem("prueba",user);
             });
         })
 
@@ -27,10 +34,45 @@ function loginUsuario() {
 
 function logout(){
     try{
-        auth.logout({
+        auth0.logout({
             returnTo: window.location.origin
         });
     }catch (e) {
         console.log(e, 'Funcion -> Logout')
     }
 }
+
+const requireAuth = async (fn, targetUrl) => {
+    const isAuthenticated = await auth0.isAuthenticated();
+  
+    if (isAuthenticated) {
+      return fn();
+    }
+  
+    return window.location.origin;
+  };
+
+window.onload = async () => {
+    await configureClient()
+    const isAuthenticated = await auth0.isAuthenticated();
+  
+    if (isAuthenticated) {
+      // show the gated content
+      return;
+    }
+  
+    // NEW - check for the code and state parameters
+    const query = window.location.search;
+    if (query.includes("code=") && query.includes("state=")) {
+  
+      // Process the login state
+      await auth0.handleRedirectCallback();
+      auth0.getUser().then(user => {
+        window.sessionStorage.setItem("user",JSON.stringify(user));
+      });
+
+  
+      // Use replaceState to redirect the user away and remove the querystring parameters
+    //   window.history.replaceState({}, document.title, "/");
+    }
+  };

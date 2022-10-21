@@ -55,7 +55,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body onload="usuarioVerificado()">
+  <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -724,7 +724,7 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
                           </button>
-                          <input type="button" class="btn btn-success btn-submit btn-next" style="font-weight: 600;" value="Enviar datos"/>
+                          <input type="button" class="btn btn-success btn-submit btn-next" style="font-weight: 600;" value="Enviar datos" onclick="registrarPerfilUsuario()"/>
                         </div>
                       </div>
                     </div>
@@ -897,7 +897,6 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../JS/calculosPsicologia.js"></script>
     <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
     <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
     <script src="../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
@@ -914,5 +913,7 @@
     <!-- Page JS -->
 
     <script src="../../assets/js/wizard-ex-property-listing.js"></script>
+    <script src="../../JS/classes.js"></script>
+    <script src="../../JS/User/perfil.js"></script>
   </body>
 </html>
