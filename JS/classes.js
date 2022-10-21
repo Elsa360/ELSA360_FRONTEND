@@ -2,6 +2,9 @@ class Requests{
     static baseUrl = "http://www.apielsa.somee.com"
 
     static get(url,data={}){
+        if(data == {}){
+            return fetch(this.baseUrl+url)
+        }
         return fetch(this.baseUrl+url+"?"+ $.param(data))
     }
 

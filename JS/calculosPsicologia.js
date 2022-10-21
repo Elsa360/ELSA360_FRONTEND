@@ -1787,94 +1787,7 @@ function crearTabla() {
         console.log(e, "Error CargarAlimentos")
     }
 }
-function buscarCuponDescuento() {
-    try {
-        let validacion = true;
-        if (validacion === true) {
-            const valores = window.location.search;
-            const urlParams = new URLSearchParams(valores);
-            let precioBase = parseFloat(urlParams.get('valor'));
-            let codigoDescuento = document.getElementById("codigoDescuento").value;
-            let descuento = 0.05;
-            let valorDescuento = precioBase * descuento
-            let subtotal = precioBase - valorDescuento;
-            let iva = subtotal * 0.19;
-            let totalPagar = subtotal + iva;
-            document.getElementById("valorBaseMembresia").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(precioBase));;
-            document.getElementById("subTotalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(subtotal));
-            document.getElementById("iva").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(iva));
-            document.getElementById("totalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(totalPagar));
 
-            document.getElementById("codigoDescn").innerText = codigoDescuento;
-            document.getElementById("valorDesc").innerText = "- $ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(valorDescuento));
-
-            document.getElementById("baseCheckout").value = subtotal;
-            document.getElementById("ivaCheckout").value = iva;
-            document.getElementById("totalPagarCheckout").value = totalPagar;
-            document.getElementById("firmaCheckout").value = "nuevaFirma";
-            document.getElementById("numeroFactura").value = "numeroFactura";
-            document.getElementById("codigoDescuento").value = "";
-        }
-    }
-    catch (e) {
-        console.log(e, "Error Busqueda Cupon Descuento")
-    }
-}
-function enviarDatosCheckoutTrimestral() {
-    try {
-        location.href = "checkout.html?valor=128000&membresia=Trimestral";
-    } catch (e) {
-        console.log(e, "Error");
-    }
-}
-function enviarDatosCheckoutSemestral() {
-    try {
-        location.href = "checkout.html?valor=212000&membresia=Semestral";
-
-    } catch (e) {
-        console.log(e, "Error");
-    }
-}
-function enviarDatosCheckoutAnual() {
-    try {
-        location.href = "checkout.html?valor=296000&membresia=Anual";
-
-    } catch (e) {
-        console.log(e, "Error");
-    }
-}
-function llenadoWebCheckout() {
-    try {
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        let precioBase = parseFloat(urlParams.get('valor'));
-        let membresiaURL = urlParams.get('membresia');
-        let iva = precioBase * 0.19;
-        let totalPagar = precioBase + iva;
-        let nombreCompleto = "Leonardo Barona";
-        let email = "lebab1990@gmail.com";
-
-        // Datos del Front
-        document.getElementById("tiempoMembresia").innerText = membresiaURL
-        document.getElementById("valorBaseMembresia").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(precioBase));;
-        document.getElementById("subTotalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(precioBase));
-        document.getElementById("iva").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(iva));
-        document.getElementById("totalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(totalPagar));
-        document.getElementById("nombreUsuario").innerText = nombreCompleto
-        document.getElementById("emailUsuarioCheckout").innerText = email
-
-        // Datos del Webcheckout
-        document.getElementById("baseCheckout").value = precioBase;
-        document.getElementById("ivaCheckout").value = iva;
-        document.getElementById("totalPagarCheckout").value = totalPagar;
-        document.getElementById("buyUsuarioCheckout").value = email;
-        document.getElementById("firmaCheckout").value = "firma";
-        document.getElementById("numeroFactura").value = "numeroFactura";
-    } catch (e) {
-        console.log(e);
-    }
-
-}
 function calcularIMC() {
     try {
         peso = document.getElementById("peso").value;
@@ -2198,19 +2111,37 @@ function confirmarDisponibilidad(){
     try {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json; charset=UTF-8");
-
-        Requests.post("/disponibilidad/crear",{
-            fkIdPerfilUsuarioDS: 1,
-            lunes: parseInt(document.getElementById("dia1").value) || 0,
-            martes: parseInt(document.getElementById("dia2").value) || 0,
-            miercoles: parseInt(document.getElementById("dia3").value) || 0,
-            jueves: parseInt(document.getElementById("dia4").value) || 0,
-            viernes: parseInt(document.getElementById("dia5").value) || 0,
-            sabado: parseInt(document.getElementById("dia6").value) || 0,
-            domingo: parseInt(document.getElementById("dia7").value) || 0,
-            totalHorasSemana: document.getElementById("horasEntrenamiento1").value,
-            totalDiasSemana: document.getElementById("DisponibilidadDias1").value,
-        },myHeaders)
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        let isVerified = user.email_verified
+        if(isVerified){
+            Requests.get("/usuario/idUser", {
+                email:user.email
+            }).
+            then((response) => response.json())
+            .then(data=>{
+                if(data.length == 0){
+                    alert("Usuario no existe")
+                }
+                Requests.post("/disponibilidad/crear",{
+                    fkIdPerfilUsuarioDS: data[0].idUsuario,
+                    lunes: parseInt(document.getElementById("dia1").value) || 0,
+                    martes: parseInt(document.getElementById("dia2").value) || 0,
+                    miercoles: parseInt(document.getElementById("dia3").value) || 0,
+                    jueves: parseInt(document.getElementById("dia4").value) || 0,
+                    viernes: parseInt(document.getElementById("dia5").value) || 0,
+                    sabado: parseInt(document.getElementById("dia6").value) || 0,
+                    domingo: parseInt(document.getElementById("dia7").value) || 0,
+                    totalHorasSemana: document.getElementById("horasEntrenamiento1").value,
+                    totalDiasSemana: document.getElementById("DisponibilidadDias1").value,
+                },
+                myHeaders
+            )
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+            })
+        
+        }
+        
     } catch (e) {
         console.log(e, "Error enviar dias disponibles")
     }
