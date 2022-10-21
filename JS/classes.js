@@ -2,10 +2,14 @@ class Requests{
     static baseUrl = "http://www.apielsa.somee.com"
 
     static get(url,data={}){
+        if(data == {}){
+            return fetch(this.baseUrl+url)
+        }
         return fetch(this.baseUrl+url+"?"+ $.param(data))
     }
 
     static async post(url, data={}, headers={}){
+        console.log(data)
         let r = await fetch(this.baseUrl+url,{
             method: 'POST',
             // mode: 'no-cors',

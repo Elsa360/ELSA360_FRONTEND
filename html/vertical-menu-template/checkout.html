@@ -42,22 +42,22 @@
           <li class="list-group-item fondoLista1 d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Membresía</h6>
-              <small class="my-0">Trimestral</small>
+              <small class="my-0" id="tiempoMembresia">Trimestral</small>
             </div>
-            <span class="my-0">$128.000</span>
+            <span class="my-0" id="valorBaseMembresia">$128.000</span>
           </li>
                         
           <li class="list-group-item fondoLista d-flex justify-content-between ">
-            <div class="text-verde">
+            <div class="text-verde" id="divDescuento">
               <h6 class="my-0">Descuento</h6>
-              <small>ELSAEX10</small>
+              <small id="codigoDescn">ELSAEX10</small>
             </div>
-            <span class="text-verde">−$12.800</span>
+            <span class="text-verde" id="valorDescuento">−$12.800</span>
           </li>
 
           <li class="list-group-item fondoLista d-flex justify-content-between">
             <span>Sub-Total (COP)</span>
-            <strong>$115.200</strong>
+            <strong id="subTotalPagar">$115.200</strong>
           </li>
 
           <li class="list-group-item fondoLista d-flex justify-content-between lh-sm">
@@ -65,13 +65,13 @@
               <h6 class="my-0">IVA</h6>
               <small class="my-0">19%</small>
             </div>
-            <span class="my-0">$21.888</span>
+            <span class="my-0" id="iva">$21.888</span>
           </li>
           
           
           <li class="list-group-item fondoLista2 d-flex justify-content-between">
             <span>Total (COP)</span>
-            <strong>$137.088</strong>
+            <strong id="totalPagar">$137.088</strong>
           </li>
         </ul>    
 
@@ -83,8 +83,8 @@
 
         <form class="card p-2 fondoLista">
           <div class="input-group ">
-            <input type="text" class="form-control" placeholder="Ingresa tu código">
-            <button type="submit" class="btnDcto">Aplicar</button>
+            <input type="text" class="form-control" id="codigoDescuento" placeholder="Ingresa tu código">
+            <button type="button" class="btnDcto" onclick="buscarCuponDescuento()">Aplicar</button>
           </div>
         </form>
       </div>
@@ -106,17 +106,23 @@
 
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Nombre</label>
-              <h4 class="correoUsuario">Manuel Peralta</h4>
-              
+              <h4 class="correoUsuario" id="nombreUsuario">Manuel Peralta</h4>
+              <!-- <input type="text" class="form-control" id="firstName" placeholder="" value="" required> -->
+              <!-- <div class="invalid-feedback">
+                Valid first name is required.
+              </div> -->
             </div>
 
             
 
             <div class="col-sm-6">
               <label for="email" class="form-label">Correo electrónico <span class="text-muted"></span></label>
-              <h4 class="correoUsuario">manuelperalta@elsa360.com</h4>
-              
-            </div>        
+              <h4 class="correoUsuario" id="emailUsuarioCheckout">manuelperalta@elsa360.com</h4>
+              <!-- <input type="email" class="form-control" id="email" placeholder="">
+              <div class="invalid-feedback">
+                Ingresa un correo valido.
+              </div> -->
+            </div>
 
             
 
@@ -130,9 +136,10 @@
             <hr class="my-4">
           </div>           
 
-          <button class="botonIrAPagar" type="submit">Ir a pagar</button>
+          <!-- <button class="botonIrAPagar" type="submit">Ir a pagar</button> -->
         </form>
 
+        <div class="cho-container"></div>
 
 
         <div class="mercadoPago">
@@ -164,10 +171,10 @@
     </ul>
   </footer>
 </div>
-
-
+<script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
-
-      <script src="JS/checkout.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="../../JS/classes.js"></script>
+      <script src="../../JS/Checkout/index.js"></script>
   </body>
 </html>
