@@ -1,4 +1,5 @@
 function traerAlimentosRegulares() {
+    traerAlimRegSelecc();
     // fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
     fetch('https://localhost:7155/alimentoRegular/listar')
         .then((response) => response.json())
@@ -281,9 +282,10 @@ function traerAlimentosRegulares() {
             tablaBebidadasAlcoho.appendChild(cuerpoBebidadasAlcoho);
 
             seleccionarAlimentosRegulares();
+            seleccionarAlimentosRegularesSeleccionados();
 
         });
-    traerAlimRegSelecc();
+
 }
 function traerAlimentosVegetarianos() {
     try {
@@ -610,7 +612,7 @@ function traerAlimRegSelecc() {
             .then((response) => response.json())
             .then((alimRegSelecc) => {
                 alimRegSelecc.forEach(alimento => {
-                    // console.log(alimento);
+                    // console.log(alimento)
                     let fila = document.createElement('tr');
                     let tdImage = document.createElement('td');
                     let imgAlimento = document.createElement("img");
@@ -638,17 +640,17 @@ function traerAlimRegSelecc() {
                     fila.appendChild(tdGrupoAlim);
 
                     tdCaloria.innerText = alimento.caloriasAlimento;
-                    tdCaloria.id = 'calSel_' + alimento.fkIdAlimentoRegularSlcnn;
+                    tdCaloria.id = 'calSel_' + alimento.idAlimentoSeleccionado;
                     tdCaloria.style = "font-size:18px; text-align: left;";
                     fila.appendChild(tdCaloria);
 
                     tdPorcion.style = "font-size:18px; text-align: center;";
                     inputPorcion.type = "number";
                     inputPorcion.className = "form-control"
-                    inputPorcion.id = 'regSel_' + alimento.fkIdAlimentoRegularSlcnn;
+                    inputPorcion.id = 'regSel_' + alimento.idAlimentoSeleccionado;
                     inputPorcion.min = 0;
-                    inputPorcion.max = 6;
-                    inputPorcion.step = "0.5";
+                    inputPorcion.max = 12;
+                    inputPorcion.step = "1";
                     inputPorcion.style = "width: 100px; margin-left: auto; margin-right: auto;";
                     tdPorcion.appendChild(inputPorcion);
                     fila.appendChild(tdPorcion);
@@ -886,36 +888,38 @@ function alimentosLocalStorage() {
         }
     }
 }
-function seleccionarAlimentosRegulares() {
-    const inpust = document.querySelectorAll("input[type=number]");
-    inpust.forEach(input => {
-        input.addEventListener('change', function (e) {
-            let totalCalorias = 0;
-            // --------------------------------------------------------------------------------------------------------------------------
-            //Contador de porciones energeticos
-            let totalporcionesEnergeticos = 0;
-            //ID para mostrar los datos en las barras y su porcentaje
-            let porcionesEnergReque = parseInt(document.getElementById("porcionesRequeridasEnergeticos").innerHTML);
-            let porcentajeEnergetico = 0;
 
-            // --------------------------------------------------------------------------------------------------------------------------
-            //Total de input energeticos favoritos
-            let energSelecc = document.querySelectorAll("#tablaEnergeticos input[type=number]");
-            //Lectura de Energeticos Favoritos
-            for (let i = 1; i <= energSelecc; i++) {
+
+var totalCalorias = 0;
+var totalporcionesEnergeticos = 0;
+var porcentajeEnergetico = 0;
+const porcionesRequeridasEnergeticos = 15;
+
+function seleccionarAlimentosRegularesSeleccionados() {
+
+    document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
+    document.getElementById("porcionesReqEnergSelecc").innerHTML = porcionesRequeridasEnergeticos;
+
+    const inpustEnergySelection = document.querySelectorAll("#tablaEnergeticos input[type=number]");
+
+    inpustEnergySelection.forEach(inputSelect => {
+        inputSelect.addEventListener('change', function (e) {
+            let ttlPrcnEnrgSlccnd = 0;
+            for (let i = 1; i <= inpustEnergySelection.length; i++) {
                 try {
                     let idcalorias = "calSel_" + i.toString();
                     let idporciones = "regSel_" + i.toString();
                     let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
                     numPorciones = parseInt(document.getElementById(idporciones).value);
                     if (isNaN(numPorciones) !== true) {
-                        let totalCalEnergSelcc = parseFloat(calorias) * numPorciones;
-                        totalCalorias = totalCalorias + totalCalEnergSelcc;
-                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
-                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesEnergReque;
+                        totalCalEnerg = parseFloat(calorias) * numPorciones;
+                        totalCalorias = totalCalorias + totalCalEnerg;
+                        ttlPrcnEnrgSlccnd = ttlPrcnEnrgSlccnd + numPorciones;
+                        totalporcionesEnergeticos = ttlPrcnEnrgSlccnd;
+                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesRequeridasEnergeticos;
                     }
-                    if (totalporcionesEnergeticos === porcionesEnergReque) {
-                        for (let j = 1; j <= energSelecc; j++) {
+                    if ((totalporcionesEnergeticos == porcionesRequeridasEnergeticos)) {
+                        for (let j = 1; j <= energeticos; j++) {
                             document.getElementById("regSel_" + j).disabled = true;
                         }
                     }
@@ -924,6 +928,42 @@ function seleccionarAlimentosRegulares() {
                     console.log(error)
                 }
             }
+            //Total Porciones Energeticos
+            document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
+            document.getElementById("porcionesElegidasEnergeticos").innerHTML = totalporcionesEnergeticos;
+
+            document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+            document.getElementById("barraEnergeticos").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+
+            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
+            document.getElementById("lblBarraPorcionEneregeticos").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
+
+
+
+
+
+            // --------------------------------------------------------------------------------------------------------------------------
+            //Total Calorias CET vs GET
+            document.getElementById("caloriasSeleccionadas").innerHTML = totalCalorias.toFixed(2);
+            caloriasReq = parseInt(document.getElementById("caloriasRequeridas").innerHTML);
+            let caloriasTotales = totalCalorias / caloriasReq;
+
+            document.getElementById("barraCalorias").style = "width: " + ((caloriasTotales * 100).toFixed(2)) + "%"
+            document.getElementById("lblBarraCalorias").innerHTML = ((caloriasTotales * 100).toFixed()) + "%"
+        });
+    });
+}
+
+
+function seleccionarAlimentosRegulares() {
+    const inpust = document.querySelectorAll("input[type=number]");
+    inpust.forEach(input => {
+        input.addEventListener('change', function (e) {
+
+            document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
+            document.getElementById("porcionesReqEnergSelecc").innerHTML = porcionesRequeridasEnergeticos;
+            let ttlPrcnEnrg = 0;
+            porcentajeEnergetico = 0;
             // --------------------------------------------------------------------------------------------------------------------------
             //Total de input energeticos
             let cereales = document.querySelectorAll("#tablaCereales input[type=number]");
@@ -932,22 +972,23 @@ function seleccionarAlimentosRegulares() {
             let raices = document.querySelectorAll("#tablaRaices input[type=number]");
             let leguminosas = document.querySelectorAll("#tablaLeguminosas input[type=number]");
 
-            let energeticos = cereales.length + tuberculos.length + platanos.length + raices.length + leguminosas.length;
+            const energeticos = cereales.length + tuberculos.length + platanos.length + raices.length + leguminosas.length;
 
             //Lectura de Energeticos
             for (let i = 1; i <= energeticos; i++) {
                 try {
                     let idcalorias = "cal_" + i.toString();
                     let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
                     numPorciones = parseInt(document.getElementById(idporciones).value);
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
                         totalCalorias = totalCalorias + totalCalEnerg;
-                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
-                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesEnergReque;
+                        ttlPrcnEnrg = ttlPrcnEnrg + numPorciones;
+                        totalporcionesEnergeticos = ttlPrcnEnrg;
+                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesRequeridasEnergeticos;
                     }
-                    if (totalporcionesEnergeticos === porcionesEnergReque) {
+                    if ((totalporcionesEnergeticos == porcionesRequeridasEnergeticos)) {
                         for (let j = 1; j <= energeticos; j++) {
                             document.getElementById("reg_" + j).disabled = true;
                         }
@@ -958,8 +999,13 @@ function seleccionarAlimentosRegulares() {
                 }
             }
             //Total Porciones Energeticos
-            document.getElementById("porcionesElegidasEnergeticos").innerText = totalporcionesEnergeticos;
+            document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
+            document.getElementById("porcionesElegidasEnergeticos").innerHTML = totalporcionesEnergeticos;
+
+            document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
             document.getElementById("barraEnergeticos").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+
+            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
             document.getElementById("lblBarraPorcionEneregeticos").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
 
             // --------------------------------------------------------------------------------------------------------------------------
@@ -980,7 +1026,7 @@ function seleccionarAlimentosRegulares() {
                 try {
                     let idcalorias = "cal_" + i.toString();
                     let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
                     numPorciones = parseInt(document.getElementById(idporciones).value);
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
@@ -998,7 +1044,7 @@ function seleccionarAlimentosRegulares() {
                 }
             }
             //Total Porciones Proteicos
-            document.getElementById("porcionesElegidasProteicos").innerText = totalporcionesProteicos;
+            document.getElementById("porcionesElegidasProteicos").innerHTML = totalporcionesProteicos;
             document.getElementById("barraProteicos").style = "width: " + ((porcentajeProteicos * 100).toFixed(2)) + "%"
             document.getElementById("lblBarraPorcionesProteicos").innerHTML = ((porcentajeProteicos * 100).toFixed()) + "%"
             // --------------------------------------------------------------------------------------------------------------------------
@@ -1021,7 +1067,7 @@ function seleccionarAlimentosRegulares() {
                 try {
                     let idcalorias = "cal_" + i.toString();
                     let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
                     numPorciones = parseInt(document.getElementById(idporciones).value);
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
@@ -1039,7 +1085,7 @@ function seleccionarAlimentosRegulares() {
                 }
             }
             //Total Porciones Lacteos
-            document.getElementById("porcionesElegidasLacteos").innerText = totalporcionesLacteos;
+            document.getElementById("porcionesElegidasLacteos").innerHTML = totalporcionesLacteos;
             document.getElementById("barraLacteos").style = "width: " + ((porcentajeLacteos * 100).toFixed(2)) + "%"
             document.getElementById("lblBarraPorcionesLacteos").innerHTML = ((porcentajeLacteos * 100).toFixed()) + "%"
             // --------------------------------------------------------------------------------------------------------------------------
@@ -1059,28 +1105,28 @@ function seleccionarAlimentosRegulares() {
 
             //Lectura de Frutas y Verduras
             for (let i = lacteos + 1; i <= frutasVerduras; i++) {
-                try {
-                    let idcalorias = "cal_" + i.toString();
-                    let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
-                    numPorciones = parseInt(document.getElementById(idporciones).value);
-                    if (isNaN(numPorciones) !== true) {
-                        totalCalEnerg = parseFloat(calorias) * numPorciones;
-                        totalCalorias = totalCalorias + totalCalEnerg;
-                        totalporcionesFrutasVerduras = totalporcionesFrutasVerduras + numPorciones;
-                        porcentajeFrutasVerduras = totalporcionesFrutasVerduras / porcionesFrutVerdReque;
-                    }
-                    if (totalporcionesFrutasVerduras === porcionesFrutVerdReque) {
-                        for (let j = lacteos + 1; j <= frutasVerduras; j++) {
-                            document.getElementById("reg_" + j).disabled = true;
-                        }
-                    }
-                } catch (error) {
-                    console.log(error)
+                // try {
+                let idcalorias = "cal_" + i.toString();
+                let idporciones = "reg_" + i.toString();
+                let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                numPorciones = parseInt(document.getElementById(idporciones).value);
+                if (isNaN(numPorciones) !== true) {
+                    totalCalEnerg = parseFloat(calorias) * numPorciones;
+                    totalCalorias = totalCalorias + totalCalEnerg;
+                    totalporcionesFrutasVerduras = totalporcionesFrutasVerduras + numPorciones;
+                    porcentajeFrutasVerduras = totalporcionesFrutasVerduras / porcionesFrutVerdReque;
                 }
+                if (totalporcionesFrutasVerduras === porcionesFrutVerdReque) {
+                    for (let j = lacteos + 1; j <= frutasVerduras; j++) {
+                        document.getElementById("reg_" + j).disabled = true;
+                    }
+                }
+                // } catch (error) {
+                //     console.log(error)
+                // }
             }
             //Total Porciones Frutas y Verduras
-            document.getElementById("porcionesElegidasFrutasVerduras").innerText = totalporcionesFrutasVerduras;
+            document.getElementById("porcionesElegidasFrutasVerduras").innerHTML = totalporcionesFrutasVerduras;
             document.getElementById("barraFrutasVerduras").style = "width: " + ((porcentajeFrutasVerduras * 100).toFixed(2)) + "%"
             document.getElementById("lblBarraPorcionesFrutasVerduras").innerHTML = ((porcentajeFrutasVerduras * 100).toFixed()) + "%"
             // --------------------------------------------------------------------------------------------------------------------------
@@ -1104,7 +1150,7 @@ function seleccionarAlimentosRegulares() {
                 try {
                     let idcalorias = "cal_" + i.toString();
                     let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
                     numPorciones = parseInt(document.getElementById(idporciones).value);
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
@@ -1122,12 +1168,10 @@ function seleccionarAlimentosRegulares() {
                 }
             }
             //Total Porciones Grasas Saludables
-            document.getElementById("porcionesElegidasGrasaSaludables").innerText = totalporcionesGrasaSaludables;
+            document.getElementById("porcionesElegidasGrasaSaludables").innerHTML = totalporcionesGrasaSaludables;
             document.getElementById("barraGrasaSaludables").style = "width: " + ((porcentajeGrasaSaludables * 100).toFixed(2)) + "%"
             document.getElementById("lblBarraPorcionesGrasaSaludables").innerHTML = ((porcentajeGrasaSaludables * 100).toFixed()) + "%"
             // --------------------------------------------------------------------------------------------------------------------------
-
-
 
             //Total de input Otros Alimentos
             grasaSaturadas = document.querySelectorAll("#tablaGrasasSatu input[type=number]");
@@ -1140,41 +1184,39 @@ function seleccionarAlimentosRegulares() {
             otros = grasaSaturadas.length + azucaresSimples.length + dulces.length + miscelaneos.length + preparados.length + especies.length + bebidasAlcoh.length + grasaSaludables;
 
             //Contador de porciones de otros alimentos
-            let totalporcionesOtros = 0;
+            // let totalporcionesOtros = 0;
 
             //ID para mostrar los datos en las barras y su porcentaje
-            let porcentajeOtros = 0;
+            // let porcentajeOtros = 0;
 
             //Lectura de Otros Alimentos
             for (let i = grasaSaludables + 1; i <= otros; i++) {
-                try {
-                    let idcalorias = "cal_" + i.toString();
-                    let idporciones = "reg_" + i.toString();
-                    calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
-                    numPorciones = parseInt(document.getElementById(idporciones).value);
-                    if (isNaN(numPorciones) !== true) {
-                        totalCalotros = parseFloat(calorias) * numPorciones;
-                        totalCalorias = totalCalorias + totalCalotros;
-                        // totalporcionesGrasaSaludables = totalporcionesGrasaSaludables + numPorciones;
-                        // porcentajeGrasaSaludables = totalporcionesGrasaSaludables / porcionesGrasaSaludReque;
-                    }
-                    caloriasReq = parseInt(document.getElementById("caloriasRequeridas").innerHTML);
-                    console.log('Req', caloriasReq);
-                    console.log('Sel', totalCalorias);
-                    if (totalCalorias > caloriasReq) {
-                        for (let j = grasaSaludables + 1; j <= otros; j++) {
-                            document.getElementById("reg_" + j).disabled = true;
-                        }
-                    }
-                } catch (error) {
-                    console.log(error)
+                // try {
+                let idcalorias = "cal_" + i.toString();
+                let idporciones = "reg_" + i.toString();
+                calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                numPorciones = parseInt(document.getElementById(idporciones).value);
+                if (isNaN(numPorciones) !== true) {
+                    totalCalotros = parseFloat(calorias) * numPorciones;
+                    totalCalorias = totalCalorias + totalCalotros;
+                    // totalporcionesGrasaSaludables = totalporcionesGrasaSaludables + numPorciones;
+                    // porcentajeGrasaSaludables = totalporcionesGrasaSaludables / porcionesGrasaSaludReque;
                 }
+                caloriasReq = parseInt(document.getElementById("caloriasRequeridas").innerHTML);
+                // console.log('Req', caloriasReq);
+                // console.log('Sel', totalCalorias);
+                if (totalCalorias > caloriasReq) {
+                    for (let j = grasaSaludables + 1; j <= otros; j++) {
+                        document.getElementById("reg_" + j).disabled = true;
+                    }
+                }
+                // } catch (error) {
+                //     console.log(error)
+                // }
             }
-
-
             // --------------------------------------------------------------------------------------------------------------------------
             //Total Calorias CET vs GET
-            document.getElementById("caloriasSeleccionadas").innerText = totalCalorias.toFixed(2);
+            document.getElementById("caloriasSeleccionadas").innerHTML = totalCalorias.toFixed(2);
             caloriasReq = parseInt(document.getElementById("caloriasRequeridas").innerHTML);
             let caloriasTotales = totalCalorias / caloriasReq;
 
@@ -1265,6 +1307,10 @@ function alimentos_pdf() {
         console.log(error);
     }
 }
+
+window.onload = async () => {
+    traerAlimentosRegulares();
+};
 
 
 
