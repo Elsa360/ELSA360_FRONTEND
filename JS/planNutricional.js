@@ -282,7 +282,8 @@ function traerAlimentosRegulares() {
             tablaBebidadasAlcoho.appendChild(cuerpoBebidadasAlcoho);
 
             seleccionarAlimentosRegulares();
-            seleccionarAlimentosRegularesSeleccionados();
+            FoodsEnergyRegularSelection();
+            FoodsProteinRegularSelection()
 
         });
 
@@ -630,7 +631,7 @@ function traerAlimRegSelecc() {
                     fila.appendChild(tdImage);
 
                     tdNombre.innerText = alimento.nombreAlimento;
-                    tdNombre.id = alimento.idAlimento;
+                    tdNombre.id = alimento.fkIdAlimentoRegularSlcnn;
                     tdNombre.style = "font-size:18px; text-align: left;";
                     fila.appendChild(tdNombre);
 
@@ -640,14 +641,14 @@ function traerAlimRegSelecc() {
                     fila.appendChild(tdGrupoAlim);
 
                     tdCaloria.innerText = alimento.caloriasAlimento;
-                    tdCaloria.id = 'calSel_' + alimento.idAlimentoSeleccionado;
+                    tdCaloria.id = 'calSel_' + alimento.fkIdAlimentoRegularSlcnn;
                     tdCaloria.style = "font-size:18px; text-align: left;";
                     fila.appendChild(tdCaloria);
 
                     tdPorcion.style = "font-size:18px; text-align: center;";
                     inputPorcion.type = "number";
                     inputPorcion.className = "form-control"
-                    inputPorcion.id = 'regSel_' + alimento.idAlimentoSeleccionado;
+                    inputPorcion.id = 'regSel_' + alimento.fkIdAlimentoRegularSlcnn;
                     inputPorcion.min = 0;
                     inputPorcion.max = 12;
                     inputPorcion.step = "1";
@@ -890,21 +891,51 @@ function alimentosLocalStorage() {
 }
 
 
-var totalCalorias = 0;
-var totalporcionesEnergeticos = 0;
-var porcentajeEnergetico = 0;
+
+
+
+
+localStorage.clear;
 const porcionesRequeridasEnergeticos = 15;
+document.getElementById("porcionesReqEnergSelecc").innerText = porcionesRequeridasEnergeticos;
+const porcionesRequeridasProteicos = 15;
+document.getElementById("porcionesRequeProteSelecc").innerText = porcionesRequeridasProteicos;
+const porcionesRequeridasLacteos = 15;
+document.getElementById("porcionesRequeLactSelecc").innerText = porcionesRequeridasLacteos;
+const porcionesRequeridasFrutasVerduras = 15;
+document.getElementById("porcionesFrutasVerdRequeSelecc").innerText = porcionesRequeridasFrutasVerduras;
+const porcionesRequeridasGrasasSaludables = 15;
+document.getElementById("porcionesRequeGrasaSelecc").innerText = porcionesRequeridasGrasasSaludables;
 
-function seleccionarAlimentosRegularesSeleccionados() {
+var totalCalorias = 0;
 
-    document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
-    document.getElementById("porcionesReqEnergSelecc").innerHTML = porcionesRequeridasEnergeticos;
+var totalporcionesEnergeticos;
+var porcentajeEnergetico;
 
+var totalporcionesProteicos;
+var porcentajeProteicos;
+
+var totalporcionesLacteos;
+var porcentajeLacteos;
+
+function FoodsEnergyRegularSelection() {
     const inpustEnergySelection = document.querySelectorAll("#tablaEnergeticos input[type=number]");
+    const inpustDairySelection = document.querySelectorAll("#tablaLacteos input[type=number]");
+    const inpustFruitsAndVegetablesSelection = document.querySelectorAll("#tablaFrutyVeg input[type=number]");
+    const inpustFatsSelection = document.querySelectorAll("#tablaGrasasSalud input[type=number]");
+    const inpustOtherFoodsSelection = document.querySelectorAll("#tablaOtrosSelecc input[type=number]");
+
+    console.log('Energeticos:', inpustEnergySelection.length);
+    console.log('Lacteos: ', inpustDairySelection.length);
+    console.log('Frutas: ', inpustFruitsAndVegetablesSelection.length);
+    console.log('Grasas: ', inpustFatsSelection.length);
+    console.log('Otros: ', inpustOtherFoodsSelection.length);
 
     inpustEnergySelection.forEach(inputSelect => {
         inputSelect.addEventListener('change', function (e) {
-            let ttlPrcnEnrgSlccnd = 0;
+            totalCalorias = 0;
+            totalporcionesEnergeticos = 0
+            porcentajeEnergetico = 0;
             for (let i = 1; i <= inpustEnergySelection.length; i++) {
                 try {
                     let idcalorias = "calSel_" + i.toString();
@@ -914,12 +945,11 @@ function seleccionarAlimentosRegularesSeleccionados() {
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
                         totalCalorias = totalCalorias + totalCalEnerg;
-                        ttlPrcnEnrgSlccnd = ttlPrcnEnrgSlccnd + numPorciones;
-                        totalporcionesEnergeticos = ttlPrcnEnrgSlccnd;
+                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
                         porcentajeEnergetico = totalporcionesEnergeticos / porcionesRequeridasEnergeticos;
                     }
                     if ((totalporcionesEnergeticos == porcionesRequeridasEnergeticos)) {
-                        for (let j = 1; j <= energeticos; j++) {
+                        for (let j = 1; j <= inpustEnergySelection.length; j++) {
                             document.getElementById("regSel_" + j).disabled = true;
                         }
                     }
@@ -928,15 +958,17 @@ function seleccionarAlimentosRegularesSeleccionados() {
                     console.log(error)
                 }
             }
-            //Total Porciones Energeticos
+            //Total Porciones Energeticos Seleccionados
+            localStorage.clear;
+            localStorage.setItem('prcnsAlmntsRglrsSlccnds', totalporcionesEnergeticos);
+            localStorage.setItem('clrsAlmntsRglrsSlccnds', totalCalorias);
+
             document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
-            document.getElementById("porcionesElegidasEnergeticos").innerHTML = totalporcionesEnergeticos;
-
             document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
-            document.getElementById("barraEnergeticos").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%";
 
-            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
-            document.getElementById("lblBarraPorcionEneregeticos").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
+            // --------------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -953,16 +985,61 @@ function seleccionarAlimentosRegularesSeleccionados() {
         });
     });
 }
+function FoodsProteinRegularSelection() {
+    const inpustProteinSelection = document.querySelectorAll("#tablaProteicos input[type=number]");
+    console.log('Proteicos: ', inpustProteinSelection.length);
+    inpustProteinSelection.forEach(inputSelect => {
+        inputSelect.addEventListener('change', function (e) {
+            totalInputsSeletcFoods = parseInt(document.querySelectorAll("input[type=number]").length);
+            for (let i = 1; i <= totalInputsSeletcFoods; i++) {
+                try {
+                    let idcalorias = "calSel_" + i.toString();
+                    let idporciones = "regSel_" + i.toString();
+                    let calorias = parseFloat(document.getElementById(idcalorias).innerHTML);
+                    numPorciones = parseInt(document.getElementById(idporciones).value);
+                    if (isNaN(numPorciones) !== true) {
+                        totalCalEnerg = parseFloat(calorias) * numPorciones;
+                        totalCalorias = totalCalorias + totalCalEnerg;
+                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
+                        porcentajeEnergetico = totalporcionesEnergeticos / porcionesRequeridasEnergeticos;
+                    }
+                    if ((totalporcionesEnergeticos == porcionesRequeridasEnergeticos)) {
+                        for (let j = 1; j <= inpustEnergySelection.length; j++) {
+                            document.getElementById("regSel_" + j).disabled = true;
+                        }
+                    }
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            console.log
+            //Total Porciones Proteicos Seleccionados
+            localStorage.clear;
+            localStorage.setItem('prcnsAlmntsRglrsSlccnds', totalporcionesEnergeticos);
+            localStorage.setItem('clrsAlmntsRglrsSlccnds', totalCalorias);
+
+            document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
+            document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%";
+
+            // --------------------------------------------------------------------------------------------------------------------------
+
+        });
+    });
+}
+
+
+
 
 
 function seleccionarAlimentosRegulares() {
+    document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
     const inpust = document.querySelectorAll("input[type=number]");
     inpust.forEach(input => {
         input.addEventListener('change', function (e) {
-
-            document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
-            document.getElementById("porcionesReqEnergSelecc").innerHTML = porcionesRequeridasEnergeticos;
-            let ttlPrcnEnrg = 0;
+            totalCalorias = 0;
+            totalporcionesEnergeticos = 0;
             porcentajeEnergetico = 0;
             // --------------------------------------------------------------------------------------------------------------------------
             //Total de input energeticos
@@ -984,8 +1061,7 @@ function seleccionarAlimentosRegulares() {
                     if (isNaN(numPorciones) !== true) {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
                         totalCalorias = totalCalorias + totalCalEnerg;
-                        ttlPrcnEnrg = ttlPrcnEnrg + numPorciones;
-                        totalporcionesEnergeticos = ttlPrcnEnrg;
+                        totalporcionesEnergeticos = totalporcionesEnergeticos + numPorciones;
                         porcentajeEnergetico = totalporcionesEnergeticos / porcionesRequeridasEnergeticos;
                     }
                     if ((totalporcionesEnergeticos == porcionesRequeridasEnergeticos)) {
@@ -999,26 +1075,23 @@ function seleccionarAlimentosRegulares() {
                 }
             }
             //Total Porciones Energeticos
-            document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
+            // document.getElementById("porcionesElegEnergSelecc").innerHTML = totalporcionesEnergeticos;
             document.getElementById("porcionesElegidasEnergeticos").innerHTML = totalporcionesEnergeticos;
 
-            document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
+            // document.getElementById("barraEnergeticosSeleccionados").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
             document.getElementById("barraEnergeticos").style = "width: " + ((porcentajeEnergetico * 100).toFixed(2)) + "%"
 
-            document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
+            // document.getElementById("lblEnergeticsSeleccionados").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
             document.getElementById("lblBarraPorcionEneregeticos").innerHTML = ((porcentajeEnergetico * 100).toFixed()) + "%"
-
             // --------------------------------------------------------------------------------------------------------------------------
 
+
+
+
             //Total de input Proteicos
-            carnePollo = document.querySelectorAll("#tablaCarnesPollo input[type=number]");
+            const carnePollo = document.querySelectorAll("#tablaCarnesPollo input[type=number]");
             proteicos = carnePollo.length + energeticos;
-
-            //Contador de porciones proteicos
             let totalporcionesProteicos = 0;
-
-            //ID para mostrar los datos en las barras y su porcentaje
-            let porcionesProteReque = parseInt(document.getElementById("porcionesRequeridasProteicos").innerHTML);
             let porcentajeProteicos = 0;
 
             //Lectura de Proteicos
@@ -1032,9 +1105,9 @@ function seleccionarAlimentosRegulares() {
                         totalCalEnerg = parseFloat(calorias) * numPorciones;
                         totalCalorias = totalCalorias + totalCalEnerg;
                         totalporcionesProteicos = totalporcionesProteicos + numPorciones;
-                        porcentajeProteicos = totalporcionesProteicos / porcionesProteReque;
+                        porcentajeProteicos = totalporcionesProteicos / porcionesRequeridasProteicos;
                     }
-                    if (totalporcionesProteicos === porcionesProteReque) {
+                    if (totalporcionesProteicos === porcionesRequeridasProteicos) {
                         for (let j = energeticos + 1; j <= proteicos; j++) {
                             document.getElementById("reg_" + j).disabled = true;
                         }
