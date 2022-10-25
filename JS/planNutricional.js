@@ -1,5 +1,5 @@
 function traerAlimentosRegulares() {
-    traerAlimRegSelecc();
+    // traerAlimRegSelecc();
     // fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
     fetch('https://localhost:7155/alimentoRegular/listar')
         .then((response) => response.json())
@@ -281,9 +281,9 @@ function traerAlimentosRegulares() {
             tablaBebidadasAlcoho.className = "table";
             tablaBebidadasAlcoho.appendChild(cuerpoBebidadasAlcoho);
 
-            seleccionarAlimentosRegulares();
-            FoodsEnergyRegularSelection();
-            FoodsProteinRegularSelection()
+            // seleccionarAlimentosRegulares();
+            // FoodsEnergyRegularSelection();
+            // FoodsProteinRegularSelection()
 
         });
 
@@ -895,17 +895,17 @@ function alimentosLocalStorage() {
 
 
 
-localStorage.clear;
-const porcionesRequeridasEnergeticos = 15;
-document.getElementById("porcionesReqEnergSelecc").innerText = porcionesRequeridasEnergeticos;
-const porcionesRequeridasProteicos = 15;
-document.getElementById("porcionesRequeProteSelecc").innerText = porcionesRequeridasProteicos;
-const porcionesRequeridasLacteos = 15;
-document.getElementById("porcionesRequeLactSelecc").innerText = porcionesRequeridasLacteos;
-const porcionesRequeridasFrutasVerduras = 15;
-document.getElementById("porcionesFrutasVerdRequeSelecc").innerText = porcionesRequeridasFrutasVerduras;
-const porcionesRequeridasGrasasSaludables = 15;
-document.getElementById("porcionesRequeGrasaSelecc").innerText = porcionesRequeridasGrasasSaludables;
+// localStorage.clear;
+// const porcionesRequeridasEnergeticos = 15;
+// document.getElementById("porcionesReqEnergSelecc").innerText = porcionesRequeridasEnergeticos;
+// const porcionesRequeridasProteicos = 15;
+// document.getElementById("porcionesRequeProteSelecc").innerText = porcionesRequeridasProteicos;
+// const porcionesRequeridasLacteos = 15;
+// document.getElementById("porcionesRequeLactSelecc").innerText = porcionesRequeridasLacteos;
+// const porcionesRequeridasFrutasVerduras = 15;
+// document.getElementById("porcionesFrutasVerdRequeSelecc").innerText = porcionesRequeridasFrutasVerduras;
+// const porcionesRequeridasGrasasSaludables = 15;
+// document.getElementById("porcionesRequeGrasaSelecc").innerText = porcionesRequeridasGrasasSaludables;
 
 var totalCalorias = 0;
 
@@ -1028,11 +1028,6 @@ function FoodsProteinRegularSelection() {
         });
     });
 }
-
-
-
-
-
 function seleccionarAlimentosRegulares() {
     document.getElementById("porcionesRequeridasEnergeticos").innerHTML = porcionesRequeridasEnergeticos;
     const inpust = document.querySelectorAll("input[type=number]");
