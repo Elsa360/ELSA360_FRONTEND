@@ -40,6 +40,33 @@ function buscarCuponDescuento() {
                     document.getElementById("subTotalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(subtotal));
                     document.getElementById("iva").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(iva));
                     document.getElementById("totalPagar").innerText = "$ " + (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'COP' }).format(totalPagar));
+
+                    fetch("https://xybrx7ovc2.execute-api.us-west-1.amazonaws.com/1/",{
+                        method: 'POST',
+                        // mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                          },
+                        body: JSON.stringify({
+                            title: membresiaURL + "|" + email,
+                            quantity: 1,
+                            unit_price: totalPagar
+                        })
+                    })
+                    .then(r=> r.json())
+                    .then(json=>{
+                        mp.checkout({
+                            preference: {
+                              id: json.body.id
+                            },
+                            render: {
+                              container: '.cho-container',
+                              label: 'Pagar',
+                            }  
+                        });
+                    })
+
                 }
             })
         }
@@ -74,23 +101,33 @@ function llenadoWebCheckout() {
         document.getElementById("emailUsuarioCheckout").innerText = email
         document.getElementById("divDescuento").hidden = true
         document.getElementById("valorDescuento").hidden = true
-
-        // Datos del Webcheckout
-        // document.getElementById("baseCheckout").value = precioBase;
-        // document.getElementById("ivaCheckout").value = iva;
-        // document.getElementById("totalPagarCheckout").value = totalPagar;
-        // document.getElementById("buyUsuarioCheckout").value = email;
-        // document.getElementById("firmaCheckout").value = "firma";
-        // document.getElementById("numeroFactura").value = "numeroFactura";
-        mp.checkout({
-            preference: {
-              id: '2c9380848383e02f0183f09d6b204835'
-            },
-            render: {
-              container: '.cho-container',
-              label: 'Pagar',
-            }
-          });
+        
+        fetch("https://xybrx7ovc2.execute-api.us-west-1.amazonaws.com/1/",{
+            method: 'POST',
+            // mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
+            body: JSON.stringify({
+                title: membresiaURL + "|" + email,
+                quantity: 1,
+                unit_price: totalPagar
+            })
+        })
+        .then(r=> r.json())
+        .then(json=>{
+            mp.checkout({
+                preference: {
+                  id: json.body.id
+                },
+                render: {
+                  container: '.cho-container',
+                  label: 'Pagar',
+                }  
+            });
+        })
+        
     } catch (e) {
         console.log(e);
     }
