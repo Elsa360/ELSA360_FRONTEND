@@ -277,38 +277,39 @@ function entrevistaInicialDia1() {
         var p7c = parseInt(document.getElementById("pregunta7CPsico").value);
         var sumatoria = p1 + p2 + p3 + p4 + (p5a + p5b + p5c) + (p6a + p6b + p6c) + (p7a + p7b + p7c);
 
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        debugger
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/entrevistaInicial_1/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5a,
+                    "pregunta_6": p5b,
+                    "pregunta_7": p5c,
+                    "pregunta_8": p6a,
+                    "pregunta_9": p6b,
+                    "pregunta_10": p6c,
+                    "pregunta_11": p7a,
+                    "pregunta_12": p7b,
+                    "pregunta_13": p7c,
+                    "resultadoTest": sumatoria,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'entrevista inicial',
-                        subtituloTest: 'parte 1',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
-        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
-
+        location.href = "app-planPsicologico.html"
     } catch (e) {
         console.log(e, 'Funcion -> Entrevista Inicial Dia 1');
     }
