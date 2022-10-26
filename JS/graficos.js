@@ -566,7 +566,7 @@ var option = {
 
 
 
-// grafico brush1
+// grafico LineasStacked1
 var options12 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -644,7 +644,7 @@ var options12 = {
 
   var chart1 = new ApexCharts(document.querySelector("#chart1"), options12);
   chart1.render();
-
+//FIN grafico LineasStacked1
   
 
 
@@ -652,7 +652,7 @@ var options12 = {
 
   
   
-  
+// grafico LineasStacked2
   var optionsLine2 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -730,7 +730,7 @@ var options12 = {
 
   var chartLine2 = new ApexCharts(document.querySelector("#chartLine2"), optionsLine2);
   chartLine2.render();
-
+//FIN grafico LineasStacked2
 
 
 
@@ -741,7 +741,7 @@ var options12 = {
   
   
   
-  
+// grafico LineasStacked3  
   var optionsArea = {
     series: [{
     name:"horas",    
@@ -820,11 +820,11 @@ var options12 = {
 
   var chartArea = new ApexCharts(document.querySelector("#chartArea"), optionsArea);
   chartArea.render();
+//FIN grafico LineasStacked3
 
 
 
-
-
+// grafico LineasStacked4
   var optionsArea10 = {
     series: [{
     name:"horas",    
@@ -903,7 +903,7 @@ var options12 = {
 
   var chartArea10 = new ApexCharts(document.querySelector("#chartArea10"), optionsArea10);
   chartArea10.render();
-  //   fin grafico brush1
+  //FIN grafico LineasStacked4
 
 
 
@@ -976,7 +976,7 @@ var options12 = {
 
 
 
-  // grafico brush2
+  // grafico LineasStacked5
 var options120 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -1054,7 +1054,7 @@ var options120 = {
 
   var chart2 = new ApexCharts(document.querySelector("#chart2"), options120);
   chart2.render();
-
+//FIN grafico LineasStacked5
   
 
 
@@ -1062,7 +1062,7 @@ var options120 = {
 
   
   
-  
+  // grafico LineasStacked6
   var optionsLine20 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -1140,7 +1140,7 @@ var options120 = {
 
   var chartLine3 = new ApexCharts(document.querySelector("#chartLine3"), optionsLine20);
   chartLine3.render();
-
+//FIN grafico LineasStacked6
 
 
 
@@ -1151,7 +1151,7 @@ var options120 = {
   
   
   
-  
+  // grafico LineasStacked7
   var optionsArea0 = {
     series: [{
     name:"horas",    
@@ -1230,11 +1230,11 @@ var options120 = {
 
   var chartArea1 = new ApexCharts(document.querySelector("#chartArea1"), optionsArea0);
   chartArea1.render();
+//FIN grafico LineasStacked7
 
 
 
-
-
+// grafico LineasStacked8
   var optionsArea100 = {
     series: [{
     name:"horas",    
@@ -1313,7 +1313,7 @@ var options120 = {
 
   var chartArea2 = new ApexCharts(document.querySelector("#chartArea2"), optionsArea100);
   chartArea2.render();
-  //   fin grafico brush2
+  //FIN grafico LineasStacked8
 
 
 
@@ -1375,7 +1375,7 @@ var options120 = {
 
 
 
-  // grafico brush3
+// grafico LineasStacked9
 var options1201 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -1453,7 +1453,7 @@ var options1201 = {
 
   var chartLine4 = new ApexCharts(document.querySelector("#chartLine4"), options1201);
   chartLine4.render();
-
+//FIN grafico LineasStacked9
   
 
 
@@ -1461,7 +1461,7 @@ var options1201 = {
 
   
   
-  
+// grafico LineasStacked10  
   var optionsLine201 = {
     series: [{
     data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -1539,7 +1539,7 @@ var options1201 = {
 
   var chartArea3 = new ApexCharts(document.querySelector("#chartArea3"), optionsLine201);
   chartArea3.render();
-
+//FIN grafico LineasStacked10
 
 
 
@@ -1550,7 +1550,7 @@ var options1201 = {
   
   
   
-  
+// grafico LineasStacked11  
   var optionsArea01 = {
     series: [{
     name:"horas",    
@@ -1630,11 +1630,11 @@ var options1201 = {
 
   var chartArea4 = new ApexCharts(document.querySelector("#chartArea4"), optionsArea01);
   chartArea4.render();
+//FIN grafico LineasStacked11
 
 
 
-
-
+// grafico LineasStacked12
   var optionsArea1001 = {
     series: [{
     name:"horas",    
@@ -1713,7 +1713,7 @@ var options1201 = {
 
   var chart3 = new ApexCharts(document.querySelector("#chart3"), optionsArea1001);
   chart3.render();
-  //   fin grafico 
+  //FIN grafico LineasStacked12
 
 
 
@@ -1820,14 +1820,13 @@ var options1201 = {
   }
   },
   legend:{
-    markers:{
-      fillColors: ['#d2e8a8', '#b5d86f', '#9bcb3b','#6c8f26','#56731e','#415616']
-    },
     show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: false
+
     }
   },
   tooltip: {
@@ -4317,6 +4316,7 @@ var options1201 = {
 
 // grafico varias barras
   var optionszonaPorEntreno1 = {
+    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     series: [{
     name: 'Zona 1',
     data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
@@ -4355,15 +4355,14 @@ var options1201 = {
     width: 1.5,
     colors: ['transparent']
   },
-  legend:{
-    markers:{
-      fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
-    },
+  legend:{    
     show:true,
+    fontWeight: 700,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   grid:{
@@ -4410,18 +4409,16 @@ var options1201 = {
       style: {
         color:'#cbcbe2'
       }
-    },
-    
+    },    
     labels:{      
       style:{
       colors:['#cbcbe2']
     }
     }
-  },
-  
+  },  
   fill: {
     opacity: 1,
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
+    
   },
   tooltip: {
     y: {
@@ -4448,6 +4445,7 @@ var options1201 = {
 
   // grafico varias barras
   var optionszonaPorEntreno2 = {
+    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     series: [{
     name: 'Zona 1',
     data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
@@ -4486,15 +4484,14 @@ var options1201 = {
     width: 1.5,
     colors: ['transparent']
   },
-  legend:{
-    markers:{
-      fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
-    },
+  legend:{    
     show:true,
+    fontWeight: 700,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   grid:{
@@ -4552,7 +4549,7 @@ var options1201 = {
   
   fill: {
     opacity: 1,
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
+    
   },
   tooltip: {
     y: {
@@ -4578,6 +4575,7 @@ var options1201 = {
 
   // grafico varias barras
   var optionszonaPorEntreno3 = {
+    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     series: [{
     name: 'Zona 1',
     data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
@@ -4616,15 +4614,14 @@ var options1201 = {
     width: 1.5,
     colors: ['transparent']
   },
-  legend:{
-    markers:{
-      fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
-    },
+  legend:{    
     show:true,
+    fontWeight: 700,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   grid:{
@@ -4682,7 +4679,7 @@ var options1201 = {
   
   fill: {
     opacity: 1,
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
+    
   },
   tooltip: {
     y: {
@@ -5993,16 +5990,14 @@ var options1201 = {
   },
   legend: {
     tooltipHoverFormatter: function(val, opts) {
-      return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-    },
-    markers:{
-      fillColors: ['#9BCB3B','#ffab00','#ff3e1d']
+      return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
     },
     show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   markers: {
@@ -6143,16 +6138,14 @@ var options1201 = {
   },
   legend: {
     tooltipHoverFormatter: function(val, opts) {
-      return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-    },
-    markers:{
-      fillColors: ['rgb(102, 16, 242)','#ffab00','#ff3e1d']
+      return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
     },
     show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   markers: {
@@ -6293,16 +6286,14 @@ var options1201 = {
   },
   legend: {
     tooltipHoverFormatter: function(val, opts) {
-      return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-    },
-    markers:{
-      fillColors: ['#03c3ec','#ffab00','#ff3e1d']
+      return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
     },
     show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   markers: {
@@ -6441,16 +6432,14 @@ var options1201 = {
   },
   legend: {
     tooltipHoverFormatter: function(val, opts) {
-      return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-    },
-    markers:{
-      fillColors: ['#9BCB3B','#ffab00']
+      return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
     },
     show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#fff'
+      colors: '#fff',
+      useSeriesColors: true
     }
   },
   xaxis: {
@@ -6542,16 +6531,14 @@ var options1201 = {
     },
     legend: {
       tooltipHoverFormatter: function(val, opts) {
-        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-      },
-      markers:{
-        fillColors: ['#9BCB3B','#ff3e1d']
+        return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
       },
       show:true,
       position: 'bottom', 
       horizontalAlign: 'center',
       labels:{
-        colors: '#fff'
+        colors: '#fff',
+        useSeriesColors: true
       }
     },
     xaxis: {
@@ -6642,16 +6629,14 @@ var options1201 = {
     },
     legend: {
       tooltipHoverFormatter: function(val, opts) {
-        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-      },
-      markers:{
-        fillColors: ['#9BCB3B','rgb(102, 16, 242)']
+        return val + ': ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
       },
       show:true,
       position: 'bottom', 
       horizontalAlign: 'center',
       labels:{
-        colors: '#fff'
+        colors: '#fff',
+        useSeriesColors: true
       }
     },
     xaxis: {
@@ -8648,20 +8633,21 @@ ColumnGra3.render();
 
 //StackedcolumnGrafico
 var optionsStackedColumn1 = {
+  colors:['#9BCB3B','rgb(75, 192, 192)','rgb(255, 171, 0)','#ff3e1d','#007bff'],
   series: [{
-  name: 'PRODUCT A',
+  name: 'Resistencia',
   data: [44, 55, 41, 67, 22, 43]
 }, {
-  name: 'PRODUCT B',
+  name: 'Agilidad',
   data: [13, 23, 20, 8, 13, 27]
 }, {
-  name: 'PRODUCT C',
+  name: 'Fuerza',
   data: [11, 17, 15, 15, 21, 14]
 }, {
-  name: 'PRODUCT D',
+  name: 'Potencia',
   data: [21, 7, 25, 13, 22, 8]
 },{
-  name: 'PRODUCT E',
+  name: 'Velocidad',
   data: [21, 7, 25, 13, 22, 10]
 }],
   chart: {
@@ -8669,10 +8655,10 @@ var optionsStackedColumn1 = {
   height: 250,
   stacked: true,
   toolbar: {
-    show: true
+    show: false
   },
   zoom: {
-    enabled: true
+    enabled: false 
   }
 },
 responsive: [{
@@ -8762,21 +8748,18 @@ yaxis: {
   }
   }
 },
-legend: {
-  markers:{
-    fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
-  },
+legend: {  
   show:true,
-    position: 'bottom', 
-    horizontalAlign: 'center',
-    labels:{
-      colors: '#cbcbe2'
-    },
-  position: 'bottom'
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
 },
 fill: {
   opacity: 1,
-  colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2']
+  
 }
 };
 
@@ -8795,21 +8778,22 @@ StackedColumn1.render();
 
 //StackedcolumnGrafico
 var optionsStackedColumn2 = {
+  colors:['#9BCB3B','rgb(75, 192, 192)','rgb(255, 171, 0)','#ff3e1d','#007bff'],
   series: [{
-  name: 'PRODUCT A',
-  data: [44, 55, 41, 67, 22, 43]
+  name: 'Resistencia',
+  data: [43, 56, 43, 68, 25, 44]
 }, {
-  name: 'PRODUCT B',
-  data: [13, 23, 20, 8, 13, 27]
+  name: 'Agilidad',
+  data: [14, 24, 21, 9, 14, 28]
 }, {
-  name: 'PRODUCT C',
-  data: [11, 17, 15, 15, 21, 14]
+  name: 'Fuerza',
+  data: [12, 18, 16, 17, 22, 15]
 }, {
-  name: 'PRODUCT D',
-  data: [21, 7, 25, 13, 22, 8]
+  name: 'Potencia',
+  data: [22, 8, 26, 14, 23, 9]
 },{
-  name: 'PRODUCT E',
-  data: [21, 7, 25, 13, 22, 10]
+  name: 'Velocidad',
+  data: [23, 8, 26, 14, 23, 12]
 }],
   chart: {
   type: 'bar',
@@ -8909,21 +8893,18 @@ yaxis: {
   }
   }
 },
-legend: {
-  markers:{
-    fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#6610f2']
-  },
+legend: {  
   show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#cbcbe2'
+      colors: '#cbcbe2',
+      useSeriesColors:true
     },
   position: 'bottom'
 },
 fill: {
   opacity: 1,
-  colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#6610f2']
 }
 };
 
@@ -8946,21 +8927,22 @@ StackedColumn2.render();
 
 //StackedcolumnGrafico
 var optionsStackedColumn3 = {
+  colors:['#9BCB3B','rgb(75, 192, 192)','rgb(255, 171, 0)','#ff3e1d','#007bff'],
   series: [{
-  name: 'PRODUCT A',
-  data: [44, 55, 41, 67, 22, 43]
+  name: 'Resistencia',
+  data: [45, 58, 44, 69, 27, 45]
 }, {
-  name: 'PRODUCT B',
-  data: [13, 23, 20, 8, 13, 27]
+  name: 'Agilidad',
+  data: [15, 25, 22, 10, 15, 29]
 }, {
-  name: 'PRODUCT C',
-  data: [11, 17, 15, 15, 21, 14]
+  name: 'Fuerza',
+  data: [13, 19, 17, 18, 23, 16]
 }, {
-  name: 'PRODUCT D',
-  data: [21, 7, 25, 13, 22, 8]
+  name: 'Potencia',
+  data: [25, 9, 28, 17, 25, 10]
 },{
-  name: 'PRODUCT E',
-  data: [21, 7, 25, 13, 22, 10]
+  name: 'Velocidad',
+  data: [25, 10, 28, 18, 25, 11]
 }],
   chart: {
   type: 'bar',
@@ -9061,20 +9043,17 @@ yaxis: {
   }
 },
 legend: {
-  markers:{
-    fillColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','rgb(3, 195, 236)']
-  },
   show:true,
     position: 'bottom', 
     horizontalAlign: 'center',
     labels:{
-      colors: '#cbcbe2'
+      colors: '#cbcbe2',
+      useSeriesColors: true
     },
   position: 'bottom'
 },
 fill: {
   opacity: 1,
-  colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','rgb(3, 195, 236)']
 }
 };
 
@@ -9186,7 +9165,7 @@ xaxis: {
     style: {
       fontSize: '13px',
       fontWeight: 700,
-      colors:['#cbcbe2','#cbcbe2']
+      colors:['#9bcb3b','#9bcb3b']
     },
     groups: [
       { title: '2019', cols: 4 },
@@ -9353,7 +9332,7 @@ xaxis: {
     style: {
       fontSize: '13px',
       fontWeight: 700,
-      colors:['#cbcbe2','#cbcbe2']
+      colors:['rgb(255, 171, 0)','rgb(255, 171, 0)']
     },
     groups: [
       { title: '2019', cols: 4 },
@@ -9522,7 +9501,7 @@ xaxis: {
     style: {
       fontSize: '13px',
       fontWeight: 700,
-      colors:['#cbcbe2','#cbcbe2']
+      colors:['#ff3e1d','#ff3e1d']
     },
     groups: [
       { title: '2019', cols: 4 },
@@ -9725,7 +9704,7 @@ plotOptions: {
     columnWidth: '50%'
   }
 },
-colors: ['#9BCB3B'],
+colors: ['#9BCB3B', '#fff'],
 dataLabels: {
   enabled: false
 },
@@ -9735,12 +9714,10 @@ legend: {
   horizontalAlign: 'center',
   showForSingleSeries: true,
   labels:{
-    colors: '#cbcbe2'
+    colors: '#cbcbe2',
+    useSeriesColors: true
   },
-  customLegendItems: ['Actual', 'Expected'],
-  markers: {
-    fillColors: ['#9BCB3B', '#fff']
-  }
+  customLegendItems: ['Actual', 'Expected'],  
 },
 grid:{
   show: true,
@@ -9967,7 +9944,7 @@ plotOptions: {
     columnWidth: '50%'
   }
 },
-colors: ['rgb(255, 171, 0)'],
+colors: ['rgb(255, 171, 0)', '#fff'],
 dataLabels: {
   enabled: false
 },
@@ -9977,12 +9954,11 @@ legend: {
   horizontalAlign: 'center',
   showForSingleSeries: true,
   labels:{
-    colors: '#cbcbe2'
+    colors: '#cbcbe2',
+    useSeriesColors: true
   },
   customLegendItems: ['Actual', 'Expected'],
-  markers: {
-    fillColors: ['rgb(255, 171, 0)', '#fff']
-  }
+  
 },
 grid:{
   show: true,
@@ -10206,7 +10182,7 @@ plotOptions: {
     columnWidth: '50%'
   }
 },
-colors: ['#ff3e1d'],
+colors: ['#ff3e1d', '#fff'],
 dataLabels: {
   enabled: false
 },
@@ -10216,12 +10192,10 @@ legend: {
   horizontalAlign: 'center',
   showForSingleSeries: true,
   labels:{
-    colors: '#cbcbe2'
+    colors: '#cbcbe2',
+    useSeriesColors: true
   },
-  customLegendItems: ['Actual', 'Expected'],
-  markers: {
-    fillColors: ['#ff3e1d', '#fff']
-  }
+  customLegendItems: ['Actual', 'Expected']  
 },
 grid:{
   show: true,
@@ -10334,19 +10308,13 @@ var optionsLineAdwordsGra1 = {
     zoom: {
       enabled: false
     },
-    dropShadow: {
-      enabled: true,
-      top: 3,
-      left: 2,
-      blur: 4,
-      opacity: 1,
-    }
+    
   },
   stroke: {
     curve: 'smooth',
     width: 2
   },
-  //colors: ["#3F51B5", '#2196F3'],
+  colors: ['#9BCB3B', 'rgb(255, 171, 0)','#ff3e1d'],
   series: [{
       name: "Music",
       data: [1, 15, 26, 20, 33, 27]
@@ -10435,7 +10403,8 @@ var optionsLineAdwordsGra1 = {
     }  
   },
   legend: {
-    position: 'top',
+    show: false,
+    position: 'bottom',
     horizontalAlign: 'right',
     offsetY: -20
   }
@@ -10444,3 +10413,1529 @@ var optionsLineAdwordsGra1 = {
 var AdwordsGra1 = new ApexCharts(document.querySelector('#AdwordsGra1'), optionsLineAdwordsGra1);
 AdwordsGra1.render();
 //Fin tresLineasGrafico
+
+
+
+
+
+
+
+
+
+
+
+
+// tresLineasGrafico
+var optionsLineAdwordsGra2 = {
+  chart: {
+    height: 250,
+    type: 'line',
+    zoom: {
+      enabled: false
+    },
+    
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 2
+  },
+  colors: ['#9BCB3B', '#007bff','#4bc0c0'],
+  series: [{
+      name: "Music",
+      data: [1, 15, 26, 20, 33, 27]
+    },
+    {
+      name: "Photos",
+      data: [3, 33, 21, 42, 19, 32]
+    },
+    {
+      name: "Files",
+      data: [0, 39, 52, 11, 29, 43]
+    }
+  ],
+  title: {
+    
+  },
+  subtitle: {
+    
+  },
+  markers: {
+    size: 6,
+    strokeWidth: 0,
+    hover: {
+      size: 9
+    }
+  },
+  grid:{
+    show: true,
+    borderColor: '#191924',
+    strokeDashArray: 0,
+    position: 'back',
+    xaxis: {
+        lines: {
+            show: false
+        }
+    },   
+    yaxis: {
+        lines: {
+            show: true
+        }
+    },  
+    row: {
+        colors: undefined,
+        opacity: 0.1
+    },  
+    column: {
+        colors: undefined,
+        opacity: 0.5
+    },  
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }  
+  },
+  labels: ['01/15/2002', '01/16/2002', '01/17/2002', '01/18/2002', '01/19/2002', '01/20/2002'],
+  xaxis: {
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  },
+  yaxis: {
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      show: true,
+      style:{
+        colors:['#cbcbe2']
+      },
+    }  
+  },
+  legend: {
+    show: false,
+    position: 'bottom',
+    horizontalAlign: 'right',
+    offsetY: -20
+  }
+}
+
+var AdwordsGra2 = new ApexCharts(document.querySelector('#AdwordsGra2'), optionsLineAdwordsGra2);
+AdwordsGra2.render();
+//Fin tresLineasGrafico
+
+
+
+
+
+
+
+
+
+
+
+// tresLineasGrafico
+var optionsLineAdwordsGra3 = {
+  chart: {
+    height: 250,
+    type: 'line',
+    zoom: {
+      enabled: false
+    },    
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 2
+  },
+  colors: ['#9BCB3B', '#6610f2','#ffab00'],
+  series: [{
+      name: "Music",
+      data: [1, 15, 26, 20, 33, 27]
+    },
+    {
+      name: "Photos",
+      data: [3, 33, 21, 42, 19, 32]
+    },
+    {
+      name: "Files",
+      data: [0, 39, 52, 11, 29, 43]
+    }
+  ],
+  title: {
+    
+  },
+  subtitle: {
+    
+  },
+  markers: {
+    size: 6,
+    strokeWidth: 0,
+    hover: {
+      size: 9
+    }
+  },
+  grid:{
+    show: true,
+    borderColor: '#191924',
+    strokeDashArray: 0,
+    position: 'back',
+    xaxis: {
+        lines: {
+            show: false
+        }
+    },   
+    yaxis: {
+        lines: {
+            show: true
+        }
+    },  
+    row: {
+        colors: undefined,
+        opacity: 0.1
+    },  
+    column: {
+        colors: undefined,
+        opacity: 0.5
+    },  
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }  
+  },
+  labels: ['01/15/2002', '01/16/2002', '01/17/2002', '01/18/2002', '01/19/2002', '01/20/2002'],
+  xaxis: {
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  },
+  yaxis: {
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      show: true,
+      style:{
+        colors:['#cbcbe2']
+      },
+    }  
+  },
+  legend: {
+    show: false,
+    position: 'bottom',
+    horizontalAlign: 'right',
+    offsetY: -20
+  }
+}
+
+var AdwordsGra3 = new ApexCharts(document.querySelector('#AdwordsGra3'), optionsLineAdwordsGra3);
+AdwordsGra3.render();
+//Fin tresLineasGrafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ScatterPointGra
+var optionsScatterPointGra1 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+    name: 'Resistencia',
+    data: [[1354143600000,30.09],
+    [1354230000000,30.61],
+    [1354489200000,30.70],
+    [1354575600000,31.30],
+    [1354662000000,31.40]]
+  },
+  {
+    name: 'Agilidad',
+    data: [[1354143600000,31.09],
+    [1354230000000,31.61],
+    [1354489200000,31.70],
+    [1354575600000,32.30],
+    [1354662000000,32.40]]
+  },
+  {
+    name: 'Fuerza',
+    data: [[1354143600000,32.09],
+    [1354230000000,32.61],
+    [1354489200000,32.70],
+    [1354575600000,33.30],
+    [1354662000000,33.40]]
+  },
+  {
+    name: 'Potencia',
+    data: [[1354143600000,33.09],
+    [1354230000000,24.61],
+    [1354489200000,24.70],
+    [1354575600000,24.30],
+    [1354662000000,24.40]]
+  },
+  {
+    name: 'Velocidad',
+    data: [[1354143600000,34.09],
+    [1354230000000,34.61],
+    [1354489200000,34.70],
+    [1354575600000,35.30],
+    [1354662000000,35.40]]
+  },
+],
+  chart: {
+  height: 250,
+  type: 'scatter',
+  zoom: {
+    type: 'xy'
+  }
+},
+dataLabels: {
+  enabled: false
+},
+grid: {
+  show: true,
+    borderColor: '#191924',
+  xaxis: {
+    lines: {
+      show: true
+    }
+  },
+  yaxis: {
+    lines: {
+      show: true
+    }
+  },
+  padding: {
+    top: 0,
+    right: 20,
+    bottom: 0,
+    left: 20
+}  
+},
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  max: 70,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var ScatterPointGra1 = new ApexCharts(document.querySelector("#ScatterPointGra1"), optionsScatterPointGra1);
+ScatterPointGra1.render();
+// FIN ScatterPointGra
+
+
+
+
+
+
+
+
+
+// ScatterPointGra
+var optionsScatterPointGra2 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+    name: 'Resistencia',
+    data: [[1354143600000,30.09],
+    [1354230000000,30.61],
+    [1354489200000,30.70],
+    [1354575600000,31.30],
+    [1354662000000,31.40]]
+  },
+  {
+    name: 'Agilidad',
+    data: [[1354143600000,31.09],
+    [1354230000000,31.61],
+    [1354489200000,31.70],
+    [1354575600000,32.30],
+    [1354662000000,32.40]]
+  },
+  {
+    name: 'Fuerza',
+    data: [[1354143600000,32.09],
+    [1354230000000,32.61],
+    [1354489200000,32.70],
+    [1354575600000,33.30],
+    [1354662000000,33.40]]
+  },
+  {
+    name: 'Potencia',
+    data: [[1354143600000,33.09],
+    [1354230000000,24.61],
+    [1354489200000,24.70],
+    [1354575600000,24.30],
+    [1354662000000,24.40]]
+  },
+  {
+    name: 'Velocidad',
+    data: [[1354143600000,34.09],
+    [1354230000000,34.61],
+    [1354489200000,34.70],
+    [1354575600000,35.30],
+    [1354662000000,35.40]]
+  },
+],
+  chart: {
+  height: 250,
+  type: 'scatter',
+  zoom: {
+    type: 'xy'
+  }
+},
+dataLabels: {
+  enabled: false
+},
+grid: {
+  show: true,
+    borderColor: '#191924',
+  xaxis: {
+    lines: {
+      show: true
+    }
+  },
+  yaxis: {
+    lines: {
+      show: true
+    }
+  },
+  padding: {
+    top: 0,
+    right: 20,
+    bottom: 0,
+    left: 20
+}  
+},
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  max: 70,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var ScatterPointGra2 = new ApexCharts(document.querySelector("#ScatterPointGra2"), optionsScatterPointGra2);
+ScatterPointGra2.render();
+// FIN ScatterPointGra
+
+
+
+
+
+
+
+
+
+// ScatterPointGra
+var optionsScatterPointGra3 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+    name: 'Resistencia',
+    data: [[1354143600000,30.09],
+    [1354230000000,30.61],
+    [1354489200000,30.70],
+    [1354575600000,31.30],
+    [1354662000000,31.40]]
+  },
+  {
+    name: 'Agilidad',
+    data: [[1354143600000,31.09],
+    [1354230000000,31.61],
+    [1354489200000,31.70],
+    [1354575600000,32.30],
+    [1354662000000,32.40]]
+  },
+  {
+    name: 'Fuerza',
+    data: [[1354143600000,32.09],
+    [1354230000000,32.61],
+    [1354489200000,32.70],
+    [1354575600000,33.30],
+    [1354662000000,33.40]]
+  },
+  {
+    name: 'Potencia',
+    data: [[1354143600000,33.09],
+    [1354230000000,24.61],
+    [1354489200000,24.70],
+    [1354575600000,24.30],
+    [1354662000000,24.40]]
+  },
+  {
+    name: 'Velocidad',
+    data: [[1354143600000,34.09],
+    [1354230000000,34.61],
+    [1354489200000,34.70],
+    [1354575600000,35.30],
+    [1354662000000,35.40]]
+  },
+],
+  chart: {
+  height: 250,
+  type: 'scatter',
+  zoom: {
+    type: 'xy'
+  }
+},
+dataLabels: {
+  enabled: false
+},
+grid: {
+  show: true,
+    borderColor: '#191924',
+  xaxis: {
+    lines: {
+      show: true
+    }
+  },
+  yaxis: {
+    lines: {
+      show: true
+    }
+  },
+  padding: {
+    top: 0,
+    right: 20,
+    bottom: 0,
+    left: 20
+}  
+},
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  max: 70,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var ScatterPointGra3 = new ApexCharts(document.querySelector("#ScatterPointGra3"), optionsScatterPointGra3);
+ScatterPointGra3.render();
+// FIN ScatterPointGra
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BUBBLE Grafico   
+var optionsbublleGra1 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,51,43],
+  [1346796000000,52,26],
+  [1346882400000,52,79],
+  [1346968800000,52,46],
+  [1347228000000,52,13],
+  [1347314400000,52,43],
+  [1347400800000,52,42],
+  [1347487200000,52,81],
+  [1347573600000,53,34],
+  [1347832800000,53,41],
+  [1347919200000,52,57],
+  [1348005600000,53,12],
+  [1348092000000,54,53],
+  [1348178400000,53,83],
+  [1348437600000,53,41],
+  [1348524000000,52,90],
+  [1348610400000,52,53],
+  [1348696800000,52,80],
+  [1348783200000,52,44],
+  [1349042400000,52,62],
+  [1349128800000,52,57],
+  [1349215200000,52,60],
+  [1349301600000,52,68],
+  [1349388000000,52,47],]
+},
+{
+  name: 'Agilidad',
+  data: [[1346364000000,10,27],
+  [1346709600000,3,10],
+  [1346796000000,2,26],
+  [1346882400000,2,79],
+  [1346968800000,2,46],
+  [1347228000000,2,13],
+  [1347314400000,2,43],
+  [1347400800000,5,2],
+  [1347487200000,2,81],
+  [1347573600000,3,34],
+  [1347832800000,3,41],
+  [1347919200000,2,57],
+  [1348005600000,3,12],
+  [1348092000000,4,53],
+  [1348178400000,3,83],
+  [1348437600000,3,41],
+  [1348524000000,2,90],
+  [1348610400000,2,53],
+  [1348696800000,2,80],
+  [1348783200000,2,44],
+  [1349042400000,2,62],
+  [1349128800000,2,57],
+  [1349215200000,2,60],
+  [1349301600000,2,68],
+  [1349388000000,2,47],]
+},
+{
+  name: 'Fuerza',
+  data: [[1346364000000,31.27],
+  [1346709600000,41,43],
+  [1346796000000,42,26],
+  [1346882400000,42,79],
+  [1346968800000,42,46],
+  [1347228000000,42,13],
+  [1347314400000,42,43],
+  [1347400800000,42,42],
+  [1347487200000,42,81],
+  [1347573600000,43,34],
+  [1347832800000,43,41],
+  [1347919200000,42,57],
+  [1348005600000,43,12],
+  [1348092000000,44,53],
+  [1348178400000,43,83],
+  [1348437600000,43,41],
+  [1348524000000,42,90],
+  [1348610400000,42,53],
+  [1348696800000,42,80],
+  [1348783200000,42,44],
+  [1349042400000,42,62],
+  [1349128800000,42,57],
+  [1349215200000,42,60],
+  [1349301600000,42,68],
+  [1349388000000,42,47],]
+},
+{
+  name: 'Potencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,21,43],
+  [1346796000000,22,26],
+  [1346882400000,22,79],
+  [1346968800000,22,46],
+  [1347228000000,22,13],
+  [1347314400000,22,43],
+  [1347400800000,22,42],
+  [1347487200000,22,81],
+  [1347573600000,23,34],
+  [1347832800000,23,41],
+  [1347919200000,22,57],
+  [1348005600000,23,12],
+  [1348092000000,24,53],
+  [1348178400000,23,83],
+  [1348437600000,23,41],
+  [1348524000000,22,90],
+  [1348610400000,22,53],
+  [1348696800000,22,80],
+  [1348783200000,22,44],
+  [1349042400000,22,62],
+  [1349128800000,22,57],
+  [1349215200000,22,60],
+  [1349301600000,22,68],
+  [1349388000000,22,47],]
+},
+{
+  name: 'Velocidad',
+  data: [[1346364000000,31.27],
+  [1346709600000,11,43],
+  [1346796000000,12,26],
+  [1346882400000,12,79],
+  [1346968800000,12,46],
+  [1347228000000,12,13],
+  [1347314400000,12,43],
+  [1347400800000,12,42],
+  [1347487200000,12,81],
+  [1347573600000,13,34],
+  [1347832800000,13,41],
+  [1347919200000,12,57],
+  [1348005600000,13,12],
+  [1348092000000,14,53],
+  [1348178400000,13,83],
+  [1348437600000,13,41],
+  [1348524000000,12,90],
+  [1348610400000,12,53],
+  [1348696800000,12,80],
+  [1348783200000,12,44],
+  [1349042400000,12,62],
+  [1349128800000,12,57],
+  [1349215200000,12,60],
+  [1349301600000,12,68],
+  [1349388000000,12,47],]
+}],
+  chart: {
+    height: 350,
+    type: 'bubble',
+},
+dataLabels: {
+    enabled: false
+},
+fill: {
+    opacity: 0.8
+},
+title: {
+    text: 'Simple Bubble Chart',
+    align: 'left',
+    offsetX: 10,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  500,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+    tickAmount: 12, 
+    type: 'datetime',
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+},
+yaxis: {
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      show: true,
+      style:{
+        colors:['#cbcbe2']
+      },
+    }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var bublleGra1 = new ApexCharts(document.querySelector("#bublleGra1"), optionsbublleGra1);
+bublleGra1.render();
+// FIN BUBBLE Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BUBBLE Grafico   
+var optionsbublleGra2 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,51,43],
+  [1346796000000,52,26],
+  [1346882400000,52,79],
+  [1346968800000,52,46],
+  [1347228000000,52,13],
+  [1347314400000,52,43],
+  [1347400800000,52,42],
+  [1347487200000,52,81],
+  [1347573600000,53,34],
+  [1347832800000,53,41],
+  [1347919200000,52,57],
+  [1348005600000,53,12],
+  [1348092000000,54,53],
+  [1348178400000,53,83],
+  [1348437600000,53,41],
+  [1348524000000,52,90],
+  [1348610400000,52,53],
+  [1348696800000,52,80],
+  [1348783200000,52,44],
+  [1349042400000,52,62],
+  [1349128800000,52,57],
+  [1349215200000,52,60],
+  [1349301600000,52,68],
+  [1349388000000,52,47],]
+},
+{
+  name: 'Agilidad',
+  data: [[1346364000000,10,27],
+  [1346709600000,3,10],
+  [1346796000000,2,26],
+  [1346882400000,2,79],
+  [1346968800000,2,46],
+  [1347228000000,2,13],
+  [1347314400000,2,43],
+  [1347400800000,5,2],
+  [1347487200000,2,81],
+  [1347573600000,3,34],
+  [1347832800000,3,41],
+  [1347919200000,2,57],
+  [1348005600000,3,12],
+  [1348092000000,4,53],
+  [1348178400000,3,83],
+  [1348437600000,3,41],
+  [1348524000000,2,90],
+  [1348610400000,2,53],
+  [1348696800000,2,80],
+  [1348783200000,2,44],
+  [1349042400000,2,62],
+  [1349128800000,2,57],
+  [1349215200000,2,60],
+  [1349301600000,2,68],
+  [1349388000000,2,47],]
+},
+{
+  name: 'Fuerza',
+  data: [[1346364000000,31.27],
+  [1346709600000,41,43],
+  [1346796000000,42,26],
+  [1346882400000,42,79],
+  [1346968800000,42,46],
+  [1347228000000,42,13],
+  [1347314400000,42,43],
+  [1347400800000,42,42],
+  [1347487200000,42,81],
+  [1347573600000,43,34],
+  [1347832800000,43,41],
+  [1347919200000,42,57],
+  [1348005600000,43,12],
+  [1348092000000,44,53],
+  [1348178400000,43,83],
+  [1348437600000,43,41],
+  [1348524000000,42,90],
+  [1348610400000,42,53],
+  [1348696800000,42,80],
+  [1348783200000,42,44],
+  [1349042400000,42,62],
+  [1349128800000,42,57],
+  [1349215200000,42,60],
+  [1349301600000,42,68],
+  [1349388000000,42,47],]
+},
+{
+  name: 'Potencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,21,43],
+  [1346796000000,22,26],
+  [1346882400000,22,79],
+  [1346968800000,22,46],
+  [1347228000000,22,13],
+  [1347314400000,22,43],
+  [1347400800000,22,42],
+  [1347487200000,22,81],
+  [1347573600000,23,34],
+  [1347832800000,23,41],
+  [1347919200000,22,57],
+  [1348005600000,23,12],
+  [1348092000000,24,53],
+  [1348178400000,23,83],
+  [1348437600000,23,41],
+  [1348524000000,22,90],
+  [1348610400000,22,53],
+  [1348696800000,22,80],
+  [1348783200000,22,44],
+  [1349042400000,22,62],
+  [1349128800000,22,57],
+  [1349215200000,22,60],
+  [1349301600000,22,68],
+  [1349388000000,22,47],]
+},
+{
+  name: 'Velocidad',
+  data: [[1346364000000,31.27],
+  [1346709600000,11,43],
+  [1346796000000,12,26],
+  [1346882400000,12,79],
+  [1346968800000,12,46],
+  [1347228000000,12,13],
+  [1347314400000,12,43],
+  [1347400800000,12,42],
+  [1347487200000,12,81],
+  [1347573600000,13,34],
+  [1347832800000,13,41],
+  [1347919200000,12,57],
+  [1348005600000,13,12],
+  [1348092000000,14,53],
+  [1348178400000,13,83],
+  [1348437600000,13,41],
+  [1348524000000,12,90],
+  [1348610400000,12,53],
+  [1348696800000,12,80],
+  [1348783200000,12,44],
+  [1349042400000,12,62],
+  [1349128800000,12,57],
+  [1349215200000,12,60],
+  [1349301600000,12,68],
+  [1349388000000,12,47],]
+}],
+  chart: {
+    height: 350,
+    type: 'bubble',
+},
+dataLabels: {
+    enabled: false
+},
+fill: {
+    opacity: 0.8
+},
+title: {
+    text: 'Simple Bubble Chart',
+    align: 'left',
+    offsetX: 10,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  500,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+    tickAmount: 12, 
+    type: 'datetime',
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+},
+yaxis: {
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      show: true,
+      style:{
+        colors:['#cbcbe2']
+      },
+    }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var bublleGra2 = new ApexCharts(document.querySelector("#bublleGra2"), optionsbublleGra2);
+bublleGra2.render();
+// FIN BUBBLE Grafico
+
+
+
+
+
+
+
+
+
+// BUBBLE Grafico   
+var optionsbublleGra3 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,51,43],
+  [1346796000000,52,26],
+  [1346882400000,52,79],
+  [1346968800000,52,46],
+  [1347228000000,52,13],
+  [1347314400000,52,43],
+  [1347400800000,52,42],
+  [1347487200000,52,81],
+  [1347573600000,53,34],
+  [1347832800000,53,41],
+  [1347919200000,52,57],
+  [1348005600000,53,12],
+  [1348092000000,54,53],
+  [1348178400000,53,83],
+  [1348437600000,53,41],
+  [1348524000000,52,90],
+  [1348610400000,52,53],
+  [1348696800000,52,80],
+  [1348783200000,52,44],
+  [1349042400000,52,62],
+  [1349128800000,52,57],
+  [1349215200000,52,60],
+  [1349301600000,52,68],
+  [1349388000000,52,47],]
+},
+{
+  name: 'Agilidad',
+  data: [[1346364000000,10,27],
+  [1346709600000,3,10],
+  [1346796000000,2,26],
+  [1346882400000,2,79],
+  [1346968800000,2,46],
+  [1347228000000,2,13],
+  [1347314400000,2,43],
+  [1347400800000,5,2],
+  [1347487200000,2,81],
+  [1347573600000,3,34],
+  [1347832800000,3,41],
+  [1347919200000,2,57],
+  [1348005600000,3,12],
+  [1348092000000,4,53],
+  [1348178400000,3,83],
+  [1348437600000,3,41],
+  [1348524000000,2,90],
+  [1348610400000,2,53],
+  [1348696800000,2,80],
+  [1348783200000,2,44],
+  [1349042400000,2,62],
+  [1349128800000,2,57],
+  [1349215200000,2,60],
+  [1349301600000,2,68],
+  [1349388000000,2,47],]
+},
+{
+  name: 'Fuerza',
+  data: [[1346364000000,31.27],
+  [1346709600000,41,43],
+  [1346796000000,42,26],
+  [1346882400000,42,79],
+  [1346968800000,42,46],
+  [1347228000000,42,13],
+  [1347314400000,42,43],
+  [1347400800000,42,42],
+  [1347487200000,42,81],
+  [1347573600000,43,34],
+  [1347832800000,43,41],
+  [1347919200000,42,57],
+  [1348005600000,43,12],
+  [1348092000000,44,53],
+  [1348178400000,43,83],
+  [1348437600000,43,41],
+  [1348524000000,42,90],
+  [1348610400000,42,53],
+  [1348696800000,42,80],
+  [1348783200000,42,44],
+  [1349042400000,42,62],
+  [1349128800000,42,57],
+  [1349215200000,42,60],
+  [1349301600000,42,68],
+  [1349388000000,42,47],]
+},
+{
+  name: 'Potencia',
+  data: [[1346364000000,31.27],
+  [1346709600000,21,43],
+  [1346796000000,22,26],
+  [1346882400000,22,79],
+  [1346968800000,22,46],
+  [1347228000000,22,13],
+  [1347314400000,22,43],
+  [1347400800000,22,42],
+  [1347487200000,22,81],
+  [1347573600000,23,34],
+  [1347832800000,23,41],
+  [1347919200000,22,57],
+  [1348005600000,23,12],
+  [1348092000000,24,53],
+  [1348178400000,23,83],
+  [1348437600000,23,41],
+  [1348524000000,22,90],
+  [1348610400000,22,53],
+  [1348696800000,22,80],
+  [1348783200000,22,44],
+  [1349042400000,22,62],
+  [1349128800000,22,57],
+  [1349215200000,22,60],
+  [1349301600000,22,68],
+  [1349388000000,22,47],]
+},
+{
+  name: 'Velocidad',
+  data: [[1346364000000,31.27],
+  [1346709600000,11,43],
+  [1346796000000,12,26],
+  [1346882400000,12,79],
+  [1346968800000,12,46],
+  [1347228000000,12,13],
+  [1347314400000,12,43],
+  [1347400800000,12,42],
+  [1347487200000,12,81],
+  [1347573600000,13,34],
+  [1347832800000,13,41],
+  [1347919200000,12,57],
+  [1348005600000,13,12],
+  [1348092000000,14,53],
+  [1348178400000,13,83],
+  [1348437600000,13,41],
+  [1348524000000,12,90],
+  [1348610400000,12,53],
+  [1348696800000,12,80],
+  [1348783200000,12,44],
+  [1349042400000,12,62],
+  [1349128800000,12,57],
+  [1349215200000,12,60],
+  [1349301600000,12,68],
+  [1349388000000,12,47],]
+}],
+  chart: {
+    height: 350,
+    type: 'bubble',
+},
+dataLabels: {
+    enabled: false
+},
+fill: {
+    opacity: 0.8
+},
+title: {
+    text: 'Simple Bubble Chart',
+    align: 'left',
+    offsetX: 10,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  500,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+    tickAmount: 12, 
+    type: 'datetime',
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+},
+yaxis: {
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      show: true,
+      style:{
+        colors:['#cbcbe2']
+      },
+    }
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  offsetY: 7,
+  labels:{
+    colors: '#cbcbe2',
+    useSeriesColors: true
+  }
+}
+};
+
+var bublleGra3 = new ApexCharts(document.querySelector("#bublleGra3"), optionsbublleGra3);
+bublleGra3.render();
+// FIN BUBBLE Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BARRAS HORIZONTALES
+var optionshoriBarGra1 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [44, 55, 41, 37, 22, 43, 21]
+}, {
+  name: 'Agilidad',
+  data: [53, 32, 33, 52, 13, 43, 32]
+}, {
+  name: 'Fuerza',
+  data: [12, 17, 11, 9, 15, 11, 20]
+}, {
+  name: 'Potencia',
+  data: [9, 7, 5, 8, 6, 9, 4]
+}, {
+  name: 'Velocidad',
+  data: [25, 12, 19, 32, 25, 24, 10]
+}],
+  chart: {
+  type: 'bar',
+  height: 350,
+  stacked: true,
+},
+plotOptions: {
+  bar: {
+    borderRadius: 5,
+    horizontal: true,
+    dataLabels: {
+      total: {
+        enabled: true,
+        offsetX: 0,
+        style: {
+          fontSize: '13px',
+          fontWeight: 900,
+          color: '#cbcbe2'
+        }
+      }
+    }
+  },
+},
+dataLabels: {
+  enabled: true,
+  style: {
+    fontSize: '11px',
+    fontWeight:'100',
+    colors: ["#ffffff"]
+  }
+},
+stroke: {
+  width: 1,
+  colors: ['transparent'],
+  
+},
+title: {
+  text: 'Fiction Books Sales',
+  align: 'left',
+    offsetX: 10,
+    offsetY: 0,
+    floating: false,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  '600',
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+  categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+yaxis: {
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  
+},
+tooltip: {
+  y: {
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+fill: {
+  opacity: 1
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  labels: {
+    colors: '#cbcbe2',
+    useSeriesColors: true
+},
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var horiBarGra1 = new ApexCharts(document.querySelector("#horiBarGra1"), optionshoriBarGra1);
+horiBarGra1.render();
+// FIN BARRAS HORIZONTALES
