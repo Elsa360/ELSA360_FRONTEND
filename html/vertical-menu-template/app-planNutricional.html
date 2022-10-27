@@ -983,12 +983,12 @@
                           <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                             <div class="card-title">
                               <h5 class="text-nowrap mb-2">Diferencia de pesos </h5>
-                              <span class="badge bg-label-warning rounded-pill">+ 4 Kg</span>
+                              <span class="badge bg-label-warning rounded-pill" id="diferenciaPeso"></span>
                               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalDifPesos"
                                 style="padding: 0;"><i class='bx bx-info-circle'></i></button> </p>
                             </div>
                             <div class="mt-sm-auto">
-                              <small class="text-success text-nowrap fw-semibold"><i class="bx bx-chevron-up"></i>
+                              <small class="text-success text-nowrap fw-semibold" id="mensajeRS"><i class="bx bx-chevron-up"></i>
                                 Superavit</small>
                               <h3 class="mb-0" id="getTotaldelDia"></h3>
                             </div>
@@ -1067,7 +1067,7 @@
                       </div>
                       <span class="fw-semibold d-block mb-1">Desayuno</span>
                       <h6 id="DashBoardCETMomentOne" class="card-title mb-2">CET</h6>
-                      <h6 id="DashBoardGETMomentOne" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentOne" class="card-title mb-2"></h6>
                     </div>
                   </div>
                 </div>
@@ -1092,7 +1092,7 @@
                     </div>
                     <span class="fw-semibold d-block mb-1">Snack 1</span>
                     <h6 id="DashBoardCETMomentTwo" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentTwo" class="card-title mb-2">GET</h6>
+                    <h6 id="DashBoardGETMomentTwo" class="card-title mb-2"></h6>
                   </div>
                 </div>
               </div>
@@ -1120,7 +1120,7 @@
                     </div>
                     <span class="fw-semibold d-block mb-1">Almuerzo</span>
                     <h6 id="DashBoardCETMomentThree" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentThree" class="card-title mb-2">GET</h6>
+                    <h6 id="DashBoardGETMomentThree" class="card-title mb-2"></h6>
                   </div>
                 </div>
               </div>
@@ -1147,7 +1147,7 @@
                     </div>
                     <span class="fw-semibold d-block mb-1">Snack 2</span>
                     <h6 id="DashBoardCETMomentFour" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentFour" class="card-title mb-2">GET</h6>
+                    <h6 id="DashBoardGETMomentFour" class="card-title mb-2"></h6>
                   </div>
                 </div>
               </div>
@@ -1173,7 +1173,7 @@
                     </div>
                     <span class="fw-semibold d-block mb-1">Cena</span>
                     <h6 id="DashBoardCETMomentFive" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentFive" class="card-title mb-2">GET</h6>
+                    <h6 id="DashBoardGETMomentFive" class="card-title mb-2"></h6>
                   </div>
                 </div>
               </div>
@@ -1197,9 +1197,9 @@
                         </div>
                       </div> -->
                     </div>
-                    <span class="fw-semibold d-block mb-1">Refrigerio Noct</span>
-                    <h6 id="DashBoardCETMomentFive" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentFive" class="card-title mb-2">GET</h6>
+                    <span class="fw-semibold d-block mb-1">Refr. Noct</span>
+                    <h6 id="DashBoardCETMomentSix" class="card-title mb-2">CET</h6>
+                    <h6 id="DashBoardGETMomentSix" class="card-title mb-2"></h6>
                   </div>
                 </div>
               </div>
@@ -1304,9 +1304,9 @@
                           <p class="card-text">Requerimiento de calorias </p>
 
                           <div class="d-flex align-items-end mb-0">
-                            <h4 class="card-title mb-0 me-2">2750 Cal</h4>
+                            <h4 class="card-title mb-0 me-2" id="calSinActFisc">2750 Cal</h4>
                           </div>
-                          <small>*Sin ningún tipo de actividad física</small>
+                          <small>*Sin actividad física</small>
                           <h6 class="mt-4 mb-0"><span class="badge bg-label-warning"
                               style="font-size: 13px; font-weight: 600;">Diarias</span></h6>
 
