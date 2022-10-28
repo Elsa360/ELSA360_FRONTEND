@@ -1,4 +1,36 @@
+let fechaIncioEntreno = "2022-01-01";
+let fechaObjetivoDeport = "2022-06-30"
+function calcularDiferenciaDias(fechaIncioEntreno, fechaObjetivoDeport) {
+    try {
+        let fechaInicial = new Date(fechaIncioEntreno).getTime();
+        let fechaFinal = new Date(fechaObjetivoDeport).getTime();
+        let diff = fechaFinal - fechaInicial;
+        dias = (diff / (1000 * 60 * 60 * 24));
+        console.log("Semanas: ", (dias / 7).toFixed(0));
+        console.log((dias / 7).toFixed(0));
+        return dias;
+    } catch (e) {
+        console.log(e);
+    }
+}
+// numSemanas = calcularDiferenciaDias(fechaIncioEntreno, fechaObjetivoDeport);
+// numDias = (7 + numSemanas).toString();
+// console.log(numDias.toString());
+// calcularFecha(fechaIncioEntreno, 'sumar', numDias);
+function calcularFecha(fecha, operacion, dias) {
+    var date = fecha.split("-"),
+        hoy = new Date(date[0], date[1], date[2]),
+        dias = parseInt(dias),
+        calculado = new Date(),
+        dateResul = operacion == "sumar" ? hoy.getDate() + dias : hoy.getDate() - dias;
+    calculado.setDate(dateResul);
+    console.log(fecha);
+    console.log(calculado.getFullYear() + "-" + (calculado.getMonth() + 1) + "-" + calculado.getDate());
+}
+
+//Funcion para traer los resultados de un objetivo deportivo
 function cyclingTrainingResult(idPerfilUser, evento) {
+    calcularDiferenciaDias();
     // fetch("https://localhost:7155/resultados/perfil?idPerfil="+idPerfilUser+"&evento="+evento+"")
     fetch("https://localhost:7155/resultados/listar")
         .then((response) => response.json())
@@ -86,18 +118,20 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             let TSSAccumulatedMouth = 0;
             let TSSPromMacro = 0;
             let TSSAccumulatedMacro = 0;
-            let TSSPromTotal = 0;
-            let TSSAccumulatedTotal = 0;
+            let tssPlanteadoTotal = 0;
+            let tssRealTotal = 0;
 
             let IFPromWeek = 0;
             let IFPromMonth = 0;
             let IFPromMacro = 0;
-            let IFPromTotal = 0;
+            let IFPlanteadoTotal = 0;
+            let IFRealTotal = 0;
 
             let NPPromWeek = 0;
             let NPPromMonth = 0;
             let NPPromMacro = 0;
-            let NPPromTotal = 0;
+            let NPPlanteadoTotal = 0;
+            let NPRealTotal = 0;
 
             let workPromWeek = 0;
             let workAccumulatedWeek = 0;
@@ -105,123 +139,289 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             let workAccumulatedMouth = 0;
             let workPromMacro = 0;
             let workAccumulatedMacro = 0;
-            let workPromTotal = 0;
-            let workAccumulatedTotal = 0;
+            let workPlanteadoTotal = 0;
+            let workRealTotal = 0;
 
-            let timeZoneOnePromWeek = 0;
-            let timeZoneOneAccumulatedWeek = 0;
-            let timeZoneOnePromMouth = 0;
-            let timeZoneOneAccumulatedMouth = 0;
-            let timeZoneOnePromMacro = 0;
-            let timeZoneOneAccumulatedMacro = 0;
-            let timeZoneOnePromTotal = 0;
-            let timeZoneOneAccumulatedTotal = 0;
 
-            let timeZoneTwoPromWeek = 0;
-            let timeZoneTwoAccumulatedWeek = 0;
-            let timeZoneTwoPromMouth = 0;
-            let timeZoneTwoAccumulatedMouth = 0;
-            let timeZoneTwoPromMacro = 0;
-            let timeZoneTwoAccumulatedMacro = 0;
-            let timeZoneTwoPromTotal = 0;
-            let timeZoneTwoAccumulatedTotal = 0;
+            // Frecuencia Cardiaca - Tiempo en Zonas
+            let fcTimeZoneOnePromWeek = 0;
+            let fcTimeZoneOneAccumulatedWeek = 0;
+            let fcTimeZoneOnePromMouth = 0;
+            let fcTimeZoneOneAccumulatedMouth = 0;
+            let fcTimeZoneOnePromMacro = 0;
+            let fcTimeZoneOneAccumulatedMacro = 0;
+            let fcTimeZoneOnePromTotal = 0;
+            let fcTimeZoneOneAccumulatedTotal = 0;
 
-            let timeZoneThreePromWeek = 0;
-            let timeZoneThreeAccumulatedWeek = 0;
-            let timeZoneThreePromMouth = 0;
-            let timeZoneThreeAccumulatedMouth = 0;
-            let timeZoneThreePromMacro = 0;
-            let timeZoneThreeAccumulatedMacro = 0;
-            let timeZoneThreePromTotal = 0;
-            let timeZoneThreeAccumulatedTotal = 0;
+            let fcTimeZoneTwoPromWeek = 0;
+            let fcTimeZoneTwoAccumulatedWeek = 0;
+            let fcTimeZoneTwoPromMouth = 0;
+            let fcTimeZoneTwoAccumulatedMouth = 0;
+            let fcTimeZoneTwoPromMacro = 0;
+            let fcTimeZoneTwoAccumulatedMacro = 0;
+            let fcTimeZoneTwoPromTotal = 0;
+            let fcTimeZoneTwoAccumulatedTotal = 0;
 
-            let timeZoneFourPromWeek = 0;
-            let timeZoneFourAccumulatedWeek = 0;
-            let timeZoneFourPromMouth = 0;
-            let timeZoneFourAccumulatedMouth = 0;
-            let timeZoneFourPromMacro = 0;
-            let timeZoneFourAccumulatedMacro = 0;
-            let timeZoneFourPromTotal = 0;
-            let timeZoneFourAccumulatedTotal = 0;
+            let fcTimeZoneThreePromWeek = 0;
+            let fcTimeZoneThreeAccumulatedWeek = 0;
+            let fcTimeZoneThreePromMouth = 0;
+            let fcTimeZoneThreeAccumulatedMouth = 0;
+            let fcTimeZoneThreePromMacro = 0;
+            let fcTimeZoneThreeAccumulatedMacro = 0;
+            let fcTimeZoneThreePromTotal = 0;
+            let fcTimeZoneThreeAccumulatedTotal = 0;
 
-            let timeZoneFivePromWeek = 0;
-            let timeZoneFiveAccumulatedWeek = 0;
-            let timeZoneFivePromMouth = 0;
-            let timeZoneFiveAccumulatedMouth = 0;
-            let timeZoneFivePromMacro = 0;
-            let timeZoneFiveAccumulatedMacro = 0;
-            let timeZoneFivePromTotal = 0;
-            let timeZoneFiveAccumulatedTotal = 0;
+            let fcTimeZoneFourPromWeek = 0;
+            let fcTimeZoneFourAccumulatedWeek = 0;
+            let fcTimeZoneFourPromMouth = 0;
+            let fcTimeZoneFourAccumulatedMouth = 0;
+            let fcTimeZoneFourPromMacro = 0;
+            let fcTimeZoneFourAccumulatedMacro = 0;
+            let fcTimeZoneFourPromTotal = 0;
+            let fcTimeZoneFourAccumulatedTotal = 0;
 
-            let timeZoneSixPromWeek = 0;
-            let timeZoneSixAccumulatedWeek = 0;
-            let timeZoneSixPromMouth = 0;
-            let timeZoneSixAccumulatedMouth = 0;
-            let timeZoneSixPromMacro = 0;
-            let timeZoneSixAccumulatedMacro = 0;
-            let timeZoneSixPromTotal = 0;
-            let timeZoneSixAccumulatedTotal = 0;
-            console.log("Tamaño del Arreglo:",resultadosEntrenamiento.length);
-            // for(let entrenamiento=0;entrenamiento<=(resultadosEntrenamiento.length);entrenamiento++){
+            let fcTimeZoneFivePromWeek = 0;
+            let fcTimeZoneFiveAccumulatedWeek = 0;
+            let fcTimeZoneFivePromMouth = 0;
+            let fcTimeZoneFiveAccumulatedMouth = 0;
+            let fcTimeZoneFivePromMacro = 0;
+            let fcTimeZoneFiveAccumulatedMacro = 0;
+            let fcTimeZoneFivePromTotal = 0;
+            let fcTimeZoneFiveAccumulatedTotal = 0;
+
+            let fcTimeZoneSixPromWeek = 0;
+            let fcTimeZoneSixAccumulatedWeek = 0;
+            let fcTimeZoneSixPromMouth = 0;
+            let fcTimeZoneSixAccumulatedMouth = 0;
+            let fcTimeZoneSixPromMacro = 0;
+            let fcTimeZoneSixAccumulatedMacro = 0;
+            let fcTimeZoneSixPromTotal = 0;
+            let fcTimeZoneSixAccumulatedTotal = 0;
+
+            // Potencia - Tiempo en Zonas
+            let pwTimeZoneOnePromWeek = 0;
+            let pwTimeZoneOneAccumulatedWeek = 0;
+            let pwTimeZoneOnePromMouth = 0;
+            let pwTimeZoneOneAccumulatedMouth = 0;
+            let pwTimeZoneOnePromMacro = 0;
+            let pwTimeZoneOneAccumulatedMacro = 0;
+            let pwTimeZoneOnePromTotal = 0;
+            let pwTimeZoneOneAccumulatedTotal = 0;
+
+            let pwTimeZoneTwoPromWeek = 0;
+            let pwTimeZoneTwoAccumulatedWeek = 0;
+            let pwTimeZoneTwoPromMouth = 0;
+            let pwTimeZoneTwoAccumulatedMouth = 0;
+            let pwTimeZoneTwoPromMacro = 0;
+            let pwTimeZoneTwoAccumulatedMacro = 0;
+            let pwTimeZoneTwoPromTotal = 0;
+            let pwTimeZoneTwoAccumulatedTotal = 0;
+
+            let pwTimeZoneThreePromWeek = 0;
+            let pwTimeZoneThreeAccumulatedWeek = 0;
+            let pwTimeZoneThreePromMouth = 0;
+            let pwTimeZoneThreeAccumulatedMouth = 0;
+            let pwTimeZoneThreePromMacro = 0;
+            let pwTimeZoneThreeAccumulatedMacro = 0;
+            let pwTimeZoneThreePromTotal = 0;
+            let pwTimeZoneThreeAccumulatedTotal = 0;
+
+            let pwTimeZoneFourPromWeek = 0;
+            let pwTimeZoneFourAccumulatedWeek = 0;
+            let pwTimeZoneFourPromMouth = 0;
+            let pwTimeZoneFourAccumulatedMouth = 0;
+            let pwTimeZoneFourPromMacro = 0;
+            let pwTimeZoneFourAccumulatedMacro = 0;
+            let pwTimeZoneFourPromTotal = 0;
+            let pwTimeZoneFourAccumulatedTotal = 0;
+
+            let pwTimeZoneFivePromWeek = 0;
+            let pwTimeZoneFiveAccumulatedWeek = 0;
+            let pwTimeZoneFivePromMouth = 0;
+            let pwTimeZoneFiveAccumulatedMouth = 0;
+            let pwTimeZoneFivePromMacro = 0;
+            let pwTimeZoneFiveAccumulatedMacro = 0;
+            let pwTimeZoneFivePromTotal = 0;
+            let pwTimeZoneFiveAccumulatedTotal = 0;
+
+            let pwTimeZoneSixPromWeek = 0;
+            let pwTimeZoneSixAccumulatedWeek = 0;
+            let pwTimeZoneSixPromMouth = 0;
+            let pwTimeZoneSixAccumulatedMouth = 0;
+            let pwTimeZoneSixPromMacro = 0;
+            let pwTimeZoneSixAccumulatedMacro = 0;
+            let pwTimeZoneSixPromTotal = 0;
+            let pwTimeZoneSixAccumulatedTotal = 0;
+
+            // Velocidad - Tiempo en Zonas
+            let spTimeZoneOnePromWeek = 0;
+            let spTimeZoneOneAccumulatedWeek = 0;
+            let spTimeZoneOnePromMouth = 0;
+            let spTimeZoneOneAccumulatedMouth = 0;
+            let spTimeZoneOnePromMacro = 0;
+            let spTimeZoneOneAccumulatedMacro = 0;
+            let spTimeZoneOnePromTotal = 0;
+            let spTimeZoneOneAccumulatedTotal = 0;
+
+            let spTimeZoneTwoPromWeek = 0;
+            let spTimeZoneTwoAccumulatedWeek = 0;
+            let spTimeZoneTwoPromMouth = 0;
+            let spTimeZoneTwoAccumulatedMouth = 0;
+            let spTimeZoneTwoPromMacro = 0;
+            let spTimeZoneTwoAccumulatedMacro = 0;
+            let spTimeZoneTwoPromTotal = 0;
+            let spTimeZoneTwoAccumulatedTotal = 0;
+
+            let spTimeZoneThreePromWeek = 0;
+            let spTimeZoneThreeAccumulatedWeek = 0;
+            let spTimeZoneThreePromMouth = 0;
+            let spTimeZoneThreeAccumulatedMouth = 0;
+            let spTimeZoneThreePromMacro = 0;
+            let spTimeZoneThreeAccumulatedMacro = 0;
+            let spTimeZoneThreePromTotal = 0;
+            let spTimeZoneThreeAccumulatedTotal = 0;
+
+            let spTimeZoneFourPromWeek = 0;
+            let spTimeZoneFourAccumulatedWeek = 0;
+            let spTimeZoneFourPromMouth = 0;
+            let spTimeZoneFourAccumulatedMouth = 0;
+            let spTimeZoneFourPromMacro = 0;
+            let spTimeZoneFourAccumulatedMacro = 0;
+            let spTimeZoneFourPromTotal = 0;
+            let spTimeZoneFourAccumulatedTotal = 0;
+
+            let spTimeZoneFivePromWeek = 0;
+            let spTimeZoneFiveAccumulatedWeek = 0;
+            let spTimeZoneFivePromMouth = 0;
+            let spTimeZoneFiveAccumulatedMouth = 0;
+            let spTimeZoneFivePromMacro = 0;
+            let spTimeZoneFiveAccumulatedMacro = 0;
+            let spTimeZoneFivePromTotal = 0;
+            let spTimeZoneFiveAccumulatedTotal = 0;
+
+            let spTimeZoneSixPromWeek = 0;
+            let spTimeZoneSixAccumulatedWeek = 0;
+            let spTimeZoneSixPromMouth = 0;
+            let spTimeZoneSixAccumulatedMouth = 0;
+            let spTimeZoneSixPromMacro = 0;
+            let spTimeZoneSixAccumulatedMacro = 0;
+            let spTimeZoneSixPromTotal = 0;
+            let spTimeZoneSixAccumulatedTotal = 0;
+
+            console.log("Tamaño del Arreglo:", resultadosEntrenamiento.length);
+            let data = resultadosEntrenamiento.length;
             resultadosEntrenamiento.forEach(entrenamiento => {
-                console.log('Competencia:', entrenamiento.nombreCompetencia)
-                console.log('Evento:', entrenamiento.evento)
-                console.log('Duracion:', entrenamiento.duracionEntrenamiento)
+                console.log('Competencia:', entrenamiento)
 
-                console.log('Potencia Max:', entrenamiento.potenciaMax)
-                console.log('Potencia Promedio:', entrenamiento.potenciaPromedio)
-                console.log('Potencia Zona 1:', entrenamiento.potenciaZona1)
-                console.log('Potencia Zona 2:', entrenamiento.potenciaZona2)
-                console.log('Potencia Zona 3:', entrenamiento.potenciaZona3)
-                console.log('Potencia Zona 4:', entrenamiento.potenciaZona4)
-                console.log('Potencia Zona 5:', entrenamiento.potenciaZona5)
-                console.log('Potencia Zona 6:', entrenamiento.potenciaZona6)
-
-                console.log('FC Max:', entrenamiento.fcMax)
-                console.log('FC Promedio:', entrenamiento.fcPromedio)
-                console.log('FC Zona 1', entrenamiento.fcZona1)
-                console.log('FC Zona 2', entrenamiento.fcZona2)
-                console.log('FC Zona 3', entrenamiento.fcZona3)
-                console.log('FC Zona 4', entrenamiento.fcZona4)
-                console.log('FC Zona 5', entrenamiento.fcZona5)
-                console.log('FC Zona 6', entrenamiento.fcZona6)
-
-                console.log("Velocidad  Max:", entrenamiento.velocidadMax)
-                console.log("Velocidad Promedio:", entrenamiento.velocidadPromedio)
-                console.log("Velocidad Zona 1:", entrenamiento.velocidadZona1)
-                console.log("Velocidad Zona 2:", entrenamiento.velocidadZona2)
-                console.log("Velocidad Zona 3:", entrenamiento.velocidadZona3)
-                console.log("Velocidad Zona 4:", entrenamiento.velocidadZona4)
-                console.log("Velocidad Zona 5:", entrenamiento.velocidadZona5)
-                console.log("Velocidad Zona 6:", entrenamiento.velocidadZona6)
-
-                console.log("Desnivel Positivo Acumulado:", entrenamiento.desnivelPositivoAcumu)
-                console.log("Distancia Recorrida:", entrenamiento.distanciaRecorrida)
-
-                console.log("Cadencia Max:", entrenamiento.cadenciaMax)
-                console.log("Cadencia Promedio:", entrenamiento.cadenciaPromedio)
-
-                console.log("IF Max:", entrenamiento.ifMax)
-                console.log("IF Promedio:", entrenamiento.ifPromedio)
-                console.log("Trabajo Max:", entrenamiento.trabajoMax)
-                console.log("Trabajo promedio:", entrenamiento.trabajoPromedio)
-                console.log("TSS Promedio:", entrenamiento.tssPromedio)
-                console.log("TSS Max:", entrenamiento.tssmAx)
-
-                console.log("NP:", entrenamiento.np)
-
-                timeAccumulatedTotal=timeAccumulatedTotal+parseFloat(entrenamiento.duracionEntrenamiento);
-                distanceAccumulatedTotal=distanceAccumulatedTotal+parseFloat(entrenamiento.distanciaRecorrida);
-                elevationAccumulatedTotal=elevationAccumulatedTotal+parseFloat(entrenamiento.desnivelPositivoAcumu);
-                RPEAccumulatedTotal=RPEAccumulatedTotal+parseFloat(entrenamiento.desnivelPositivoAcumu);
+                timeAccumulatedTotal = timeAccumulatedTotal + parseFloat(entrenamiento.duracionEntrenamiento);
+                distanceAccumulatedTotal = distanceAccumulatedTotal + parseFloat(entrenamiento.distanciaRecorrida);
+                elevationAccumulatedTotal = elevationAccumulatedTotal + parseFloat(entrenamiento.desnivelPositivoAcumu);
+                RPEAccumulatedTotal = RPEAccumulatedTotal + parseFloat(entrenamiento.desnivelPositivoAcumu);
+                fcMaxTotal = fcMaxTotal + parseFloat(entrenamiento.fcMax);
+                fcPromTotal = fcPromTotal + parseFloat(entrenamiento.fcPromedio);
+                powerMaxTotal = powerMaxTotal + parseFloat(entrenamiento.potenciaMax);
+                powerPromTotal = powerPromTotal + parseFloat(entrenamiento.potenciaPromedio);
+                speedMaxTotal = speedMaxTotal + parseFloat(entrenamiento.velocidadMax);
+                speedPromTotal = speedPromTotal + parseFloat(entrenamiento.velocidadPromedio);
+                cadenceMaxTotal = cadenceMaxTotal + parseFloat(entrenamiento.cadenciaMax);
+                cadencePromTotal = cadencePromTotal + parseFloat(entrenamiento.cadenciaPromedio);
+                tssPlanteadoTotal = tssPlanteadoTotal + parseFloat(entrenamiento.tssPlanteado);
+                tssRealTotal = tssRealTotal + parseFloat(entrenamiento.tssReal);
+                IFPlanteadoTotal = IFPlanteadoTotal + parseFloat(entrenamiento.ifPlanteado);
+                IFRealTotal = IFRealTotal + parseFloat(entrenamiento.ifReal);
+                NPRealTotal = NPRealTotal + parseFloat(entrenamiento.npReal);
+                workPlanteadoTotal = workPlanteadoTotal + parseFloat(entrenamiento.trabajoPlanteado);
+                workRealTotal = workRealTotal + parseFloat(entrenamiento.trabajoReal);
+                //Timepo en Zonas FC
+                fcTimeZoneOneAccumulatedTotal = fcTimeZoneOneAccumulatedTotal + parseFloat(entrenamiento.fcZona1);
+                fcTimeZoneTwoAccumulatedTotal = fcTimeZoneTwoAccumulatedTotal + parseFloat(entrenamiento.fcZona2);
+                fcTimeZoneThreeAccumulatedTotal = fcTimeZoneThreeAccumulatedTotal + parseFloat(entrenamiento.fcZona3);
+                fcTimeZoneFourAccumulatedTotal = fcTimeZoneFourAccumulatedTotal + parseFloat(entrenamiento.fcZona4);
+                fcTimeZoneFiveAccumulatedTotal = fcTimeZoneFiveAccumulatedTotal + parseFloat(entrenamiento.fcZona5);
+                fcTimeZoneSixAccumulatedTotal = fcTimeZoneSixAccumulatedTotal + parseFloat(entrenamiento.fcZona6);
+                //Timepo en Zonas Potencia
+                pwTimeZoneOneAccumulatedTotal = pwTimeZoneOneAccumulatedTotal + parseFloat(entrenamiento.potenciaZona1);
+                pwTimeZoneTwoAccumulatedTotal = pwTimeZoneTwoAccumulatedTotal + parseFloat(entrenamiento.potenciaZona2);
+                pwTimeZoneThreeAccumulatedTotal = pwTimeZoneThreeAccumulatedTotal + parseFloat(entrenamiento.potenciaZona3);
+                pwTimeZoneFourAccumulatedTotal = pwTimeZoneFourAccumulatedTotal + parseFloat(entrenamiento.potenciaZona4);
+                pwTimeZoneFiveAccumulatedTotal = pwTimeZoneFiveAccumulatedTotal + parseFloat(entrenamiento.potenciaZona5);
+                pwTimeZoneSixAccumulatedTotal = pwTimeZoneSixAccumulatedTotal + parseFloat(entrenamiento.potenciaZona6);
+                //Timepo en Zonas Velocidad
+                spTimeZoneOneAccumulatedTotal = spTimeZoneOneAccumulatedTotal + parseFloat(entrenamiento.velocidadZona1);
+                spTimeZoneTwoAccumulatedTotal = spTimeZoneTwoAccumulatedTotal + parseFloat(entrenamiento.velocidadZona2);
+                spTimeZoneThreeAccumulatedTotal = spTimeZoneThreeAccumulatedTotal + parseFloat(entrenamiento.velocidadZona3);
+                spTimeZoneFourAccumulatedTotal = spTimeZoneFourAccumulatedTotal + parseFloat(entrenamiento.velocidadZona4);
+                spTimeZoneFiveAccumulatedTotal = spTimeZoneFiveAccumulatedTotal + parseFloat(entrenamiento.velocidadZona5);
+                spTimeZoneSixAccumulatedTotal = spTimeZoneSixAccumulatedTotal + parseFloat(entrenamiento.velocidadZona6);
 
 
-            // };
             });
-            console.log('Time Total:',timeAccumulatedTotal);
-            console.log('Distancia Total:',distanceAccumulatedTotal);
-            console.log('Elevacion Total:',elevationAccumulatedTotal);
-            console.log('RPE Total:',RPEAccumulatedTotal);
+            console.log('Tiempo Total:', timeAccumulatedTotal);
+            console.log('Tiempo Promedio Total:', timeAccumulatedTotal / data);
+            console.log('Distancia Total:', distanceAccumulatedTotal);
+            console.log('Distancia Promedio Total:', distanceAccumulatedTotal / data);
+            console.log('Elevacion Total:', elevationAccumulatedTotal);
+            console.log('Elevacion Promedio Total:', elevationAccumulatedTotal / data);
+            console.log('RPE Total:', RPEAccumulatedTotal);
+            console.log('RPE Promedio Total:', RPEAccumulatedTotal / data);
+            console.log('FCMax Promedio Total:', fcMaxTotal / data);
+            console.log('FCPromedio Promedio Total:', fcPromTotal / data);
+            console.log('PotenciaMax Promedio Total:', powerMaxTotal / data);
+            console.log('PotenciaPromed Promedio Total:', powerPromTotal / data);
+            console.log('VelocidadMax Promedio Total:', speedMaxTotal / data);
+            console.log('VelocidadPromed Promedio Total:', speedPromTotal / data);
+            console.log('CadenciaMax Promedio Total:', cadenceMaxTotal / data);
+            console.log('CadenciaPromed Promedio Total:', cadencePromTotal / data);
+            console.log('TSS Planteado Total:', tssPlanteadoTotal);
+            console.log('TSS Planteado Promedio Total:', tssPlanteadoTotal / data);
+            console.log('TSS Real Total:', tssRealTotal);
+            console.log('TSS Real Promedio Total:', tssRealTotal / data);
+            console.log('IF Planteado Total:', IFPlanteadoTotal / data);
+            console.log('IF Real Total:', IFRealTotal / data);
+            console.log('NP Real Total:', NPRealTotal / data);
+            console.log('Trabajo Planteado Total:', workPlanteadoTotal);
+            console.log('Trabajo Planteado Promedio Total:', workPlanteadoTotal / data);
+            console.log('Trabajo Real Total:', workRealTotal);
+            console.log('Trabajo Real Promedio Total:', workRealTotal / data);
+            //Tiempos en Zonas FC
+            console.log('FC/ Tiempo Zona1 Total:', fcTimeZoneOneAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona1 Total:', fcTimeZoneOneAccumulatedTotal / data);
+            console.log('FC/ Tiempo Zona2 Total:', fcTimeZoneTwoAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona2 Total:', fcTimeZoneTwoAccumulatedTotal / data);
+            console.log('FC/ Tiempo Zona3 Total:', fcTimeZoneThreeAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona3 Total:', fcTimeZoneThreeAccumulatedTotal / data);
+            console.log('FC/ Tiempo Zona4 Total:', fcTimeZoneFourAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona4 Total:', fcTimeZoneFourAccumulatedTotal / data);
+            console.log('FC/ Tiempo Zona5 Total:', fcTimeZoneFiveAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona5 Total:', fcTimeZoneFiveAccumulatedTotal / data);
+            console.log('FC/ Tiempo Zona6 Total:', fcTimeZoneSixAccumulatedTotal);
+            console.log('FC/ Tiempo Promedio Zona6 Total:', fcTimeZoneSixAccumulatedTotal / data);
+            //Tiempos en Zonas Potencia
+            console.log('PW/ Tiempo Zona1 Total:', pwTimeZoneOneAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona1 Total:', pwTimeZoneOneAccumulatedTotal / data);
+            console.log('PW/ Tiempo Zona2 Total:', pwTimeZoneTwoAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona2 Total:', pwTimeZoneTwoAccumulatedTotal / data);
+            console.log('PW/ Tiempo Zona3 Total:', pwTimeZoneThreeAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona3 Total:', pwTimeZoneThreeAccumulatedTotal / data);
+            console.log('PW/ Tiempo Zona4 Total:', pwTimeZoneFourAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona4 Total:', pwTimeZoneFourAccumulatedTotal / data);
+            console.log('PW/ Tiempo Zona5 Total:', pwTimeZoneFiveAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona5 Total:', pwTimeZoneFiveAccumulatedTotal / data);
+            console.log('PW/ Tiempo Zona6 Total:', pwTimeZoneSixAccumulatedTotal);
+            console.log('PW/ Tiempo Promedio Zona6 Total:', pwTimeZoneSixAccumulatedTotal / data);
+            //Tiempos en Zonas Velocidad
+            console.log('Speed/ Tiempo Zona1 Total:', spTimeZoneOneAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona1 Total:', spTimeZoneOneAccumulatedTotal / data);
+            console.log('Speed/ Tiempo Zona2 Total:', spTimeZoneTwoAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona2 Total:', spTimeZoneTwoAccumulatedTotal / data);
+            console.log('Speed/ Tiempo Zona3 Total:', spTimeZoneThreeAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona3 Total:', spTimeZoneThreeAccumulatedTotal / data);
+            console.log('Speed/ Tiempo Zona4 Total:', spTimeZoneFourAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona4 Total:', spTimeZoneFourAccumulatedTotal / data);
+            console.log('Speed/ Tiempo Zona5 Total:', spTimeZoneFiveAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona5 Total:', spTimeZoneFiveAccumulatedTotal / data);
+            console.log('Speed/ Tiempo Zona6 Total:', spTimeZoneSixAccumulatedTotal);
+            console.log('Speed/ Tiempo Promedio Zona6 Total:', spTimeZoneSixAccumulatedTotal / data);
         });
 }
-cyclingTrainingResult(1, "fondo rigoberto uran");
+cyclingTrainingResult(1, "Ut Limited");
