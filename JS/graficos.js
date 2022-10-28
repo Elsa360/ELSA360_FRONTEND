@@ -2,108 +2,89 @@
 
 
 // Grafico barras
-const ctx = document.getElementById('horas').getContext('2d');
-const horas = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Hola', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 5],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.8)',
-                'rgba(54, 162, 235, 0.8)',
-                'rgba(255, 206, 86, 0.8)',
-                'rgba(75, 192, 192, 0.8)',
-                'rgba(153, 102, 255, 0.8)',
-                'rgba(255, 159, 64, 0.8)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {        
-    }
-});
+// const ctx = document.getElementById('horas').getContext('2d');
+// const horas = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: ['Hola', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//         datasets: [{
+//             label: '# of Votes',
+//             data: [12, 19, 3, 5, 2, 5],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.8)',
+//                 'rgba(54, 162, 235, 0.8)',
+//                 'rgba(255, 206, 86, 0.8)',
+//                 'rgba(75, 192, 192, 0.8)',
+//                 'rgba(153, 102, 255, 0.8)',
+//                 'rgba(255, 159, 64, 0.8)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {        
+//     }
+// });
 // fin grafico barras
 
 
 
 
-
-
-
-
-
-
-
-const díasRestantes = new Chart(
-    document.getElementById('díasRestantes'),{
-    type: 'doughnut',
-    data: {
-        // labels: ['Red', 'Blue', 'Yellow],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(253, 172, 52)',
-              'rgb(40, 208, 148)'
-            ],
-            hoverOffset: 10
-          }]
-    },
-    options: {
+// grafico de progreso
+var option = {
+  chart: {
+    height: 200,
+    type: "radialBar"
+  },
+  
+  series: [67],
+  
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        margin: 15,
+        size: "70%"
+      },
+     
+      dataLabels: {
+        showOn: "always",
+        name: {
+          offsetY: -7,
+          show: true,
+          color: "#9BCB3B",
+          fontSize: "13px"
+        },
+        value: {
+          offsetY: 3,
+          color: "#cbcbe2",
+          fontSize: "18px",
+          show: true
+        }
+      }
     }
-});
+  },
 
-
-
-
-
-const FCMaxEntreno = new Chart(
-    document.getElementById('FCMaxEntreno'),{
-    type: 'line',
-    data: {
-    labels: ['1', '2', '3', '4', '5', '6', '7'],
-    datasets: [
-        {
-            data: [65, 59, 80, 81, 56, 55, 40],
-            label: 'My First Dataset',  
-            borderColor: 'rgb(75, 192, 192)',     
-            tension: 0.1, 
-            pointStyle: 'circle', 
-            backgroundColor: 'rgb(75, 192, 192)',   
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
-            
-            
-        },
-        {
-            data: [80, 150, 180, 270, 210, 160, 160,],
-            label: 'Europe',
-            borderColor: config.colors.danger,
-            tension: 0.3,
-            pointStyle: 'circle',
-            backgroundColor: config.colors.danger,
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
-          }
-        ]
+  fill: {
+      colors: ['#9BCB3B']
     },
-    options: {}
-});
+
+  stroke: {
+    lineCap: "round",
+  },
+  labels: ["Progress"]
+};
+
+var progreso = new ApexCharts(document.querySelector("#progreso"), option);
+
+progreso.render();
+//FIN grafico de progreso
 
 
 
@@ -111,107 +92,142 @@ const FCMaxEntreno = new Chart(
 
 
 
+// const díasRestantes = new Chart(
+//     document.getElementById('díasRestantes'),{
+//     type: 'doughnut',
+//     data: {
+//         // labels: ['Red', 'Blue', 'Yellow],
+//         datasets: [{
+//             label: 'My First Dataset',
+//             data: [300, 50, 100],
+//             backgroundColor: [
+//               'rgb(255, 99, 132)',
+//               'rgb(253, 172, 52)',
+//               'rgb(40, 208, 148)'
+//             ],
+//             hoverOffset: 10
+//           }]
+//     },
+//     options: {
+//     }
+// });
 
 
-const FCMaxSemanal = new Chart(
-    document.getElementById('FCMaxSemanal'),{
-    type: 'line',
-    data: {
-    labels: ['1', '2', '3', '4', '5', '6', '7'],
-    datasets: [
-        {
-            data: [55, 74, 40, 95, 43, 87, 40],
-            label: 'My First Dataset',  
-            borderColor: '#9BCB3B',     
-            tension: 0.1, 
-            pointStyle: 'circle', 
-            backgroundColor: '#9BCB3B',    
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
+
+
+
+// const FCMaxEntreno = new Chart(
+//     document.getElementById('FCMaxEntreno'),{
+//     type: 'line',
+//     data: {
+//     labels: ['1', '2', '3', '4', '5', '6', '7'],
+//     datasets: [
+//         {
+//             data: [65, 59, 80, 81, 56, 55, 40],
+//             label: 'My First Dataset',  
+//             borderColor: 'rgb(75, 192, 192)',     
+//             tension: 0.1, 
+//             pointStyle: 'circle', 
+//             backgroundColor: 'rgb(75, 192, 192)',   
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
             
             
-        },
-        {
-            data: [45, 117, 130, 59, 210, 132, 184,],
-            label: 'Europe',
-            borderColor: config.colors.danger,
-            tension: 0.3,
-            pointStyle: 'circle',
-            backgroundColor: config.colors.danger,
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
-          }
-        ]
-    },
-    options: {}
-});
+//         },
+//         {
+//             data: [80, 150, 180, 270, 210, 160, 160,],
+//             label: 'Europe',
+//             borderColor: config.colors.danger,
+//             tension: 0.3,
+//             pointStyle: 'circle',
+//             backgroundColor: config.colors.danger,
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
+//           }
+//         ]
+//     },
+//     options: {}
+// });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// promedio mensual de los promedios de la FCMax
-const FCMaxMensual = new Chart(
-    document.getElementById('FCMaxMensual'),{
-    type: 'line',
-    data: {
-    labels: ['1', '2', '3', '4', '5', '6', '7'],
-    datasets: [
-        {
-            data: [55, 74, 40, 95, 43, 87, 40],
-            label: 'My First Dataset',  
-            borderColor: '#9BCB3B',     
-            tension: 0.1, 
-            pointStyle: 'circle', 
-            backgroundColor: '#9BCB3B',    
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
+// const FCMaxSemanal = new Chart(
+//     document.getElementById('FCMaxSemanal'),{
+//     type: 'line',
+//     data: {
+//     labels: ['1', '2', '3', '4', '5', '6', '7'],
+//     datasets: [
+//         {
+//             data: [55, 74, 40, 95, 43, 87, 40],
+//             label: 'My First Dataset',  
+//             borderColor: '#9BCB3B',     
+//             tension: 0.1, 
+//             pointStyle: 'circle', 
+//             backgroundColor: '#9BCB3B',    
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
             
             
-        },
-        {
-            data: [45, 117, 130, 59, 210, 132, 184,],
-            label: 'Europe',
-            borderColor: config.colors.danger,
-            tension: 0.3,
-            pointStyle: 'circle',
-            backgroundColor: config.colors.danger,
-            fill: false,
-            pointRadius: 4,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 5,
-          }
-        ]
-    },
-    options: {}
-});
+//         },
+//         {
+//             data: [45, 117, 130, 59, 210, 132, 184,],
+//             label: 'Europe',
+//             borderColor: config.colors.danger,
+//             tension: 0.3,
+//             pointStyle: 'circle',
+//             backgroundColor: config.colors.danger,
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
+//           }
+//         ]
+//     },
+//     options: {}
+// });
+
+
+// const FCMaxMensual = new Chart(
+//     document.getElementById('FCMaxMensual'),{
+//     type: 'line',
+//     data: {
+//     labels: ['1', '2', '3', '4', '5', '6', '7'],
+//     datasets: [
+//         {
+//             data: [55, 74, 40, 95, 43, 87, 40],
+//             label: 'My First Dataset',  
+//             borderColor: '#9BCB3B',     
+//             tension: 0.1, 
+//             pointStyle: 'circle', 
+//             backgroundColor: '#9BCB3B',    
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
+            
+            
+//         },
+//         {
+//             data: [45, 117, 130, 59, 210, 132, 184,],
+//             label: 'Europe',
+//             borderColor: config.colors.danger,
+//             tension: 0.3,
+//             pointStyle: 'circle',
+//             backgroundColor: config.colors.danger,
+//             fill: false,
+//             pointRadius: 4,
+//             pointHoverRadius: 8,
+//             pointHoverBorderWidth: 5,
+//           }
+//         ]
+//     },
+//     options: {}
+// });
 // final promedio mensual de los promedios de la FCMax
-
-
-
-
-
-
-
-
 
 
 
@@ -261,21 +277,6 @@ const TzonasFC = new Chart(
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // tiempo en cada zona POTENCIA
 const zonasPotencia = new Chart(
     document.getElementById('zonasPotencia'),{
@@ -312,26 +313,6 @@ const zonasPotencia = new Chart(
     }}
 );
 // Final tiempo en cada zona POTENCIA
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -406,12 +387,8 @@ const elevaEntreno = new Chart(
     },
     options: {}
 });
+
 // final elevación entreno
-
-
-
-
-
 
 
 
@@ -445,12 +422,6 @@ const elevaSemanal = new Chart(
 
 
 
-
-
-
-
-
-
 // elevación mensual
 const elevaMensual = new Chart(
     document.getElementById('elevaMensual'),{
@@ -474,7 +445,6 @@ const elevaMensual = new Chart(
     },
     options: {}
 });
-
 // final elevación mensual
 
 
@@ -487,80 +457,13 @@ const elevaMensual = new Chart(
 
 
 
-
-
-
-
-
-
-// grafico de progreso
-var option = {
-    chart: {
-      height: 200,
-      type: "radialBar"
-    },
-    
-    series: [67],
-    
-    plotOptions: {
-      radialBar: {
-        hollow: {
-          margin: 15,
-          size: "70%"
-        },
-       
-        dataLabels: {
-          showOn: "always",
-          name: {
-            offsetY: -7,
-            show: true,
-            color: "#9BCB3B",
-            fontSize: "13px"
-          },
-          value: {
-            offsetY: 3,
-            color: "#cbcbe2",
-            fontSize: "18px",
-            show: true
-          }
-        }
-      }
-    },
-
-    fill: {
-        colors: ['#9BCB3B']
-      },
   
-    stroke: {
-      lineCap: "round",
-    },
-    labels: ["Progress"]
-  };
-  
-  var progreso = new ApexCharts(document.querySelector("#progreso"), option);
-  
-  progreso.render();
-//FIN grafico de progreso
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
 
 
@@ -645,8 +548,6 @@ var options12 = {
   var chart1 = new ApexCharts(document.querySelector("#chart1"), options12);
   chart1.render();
 //FIN grafico LineasStacked1
-  
-
 
 
 
@@ -734,10 +635,6 @@ var options12 = {
 
 
 
-
-
-
-
   
   
   
@@ -821,6 +718,8 @@ var options12 = {
   var chartArea = new ApexCharts(document.querySelector("#chartArea"), optionsArea);
   chartArea.render();
 //FIN grafico LineasStacked3
+
+
 
 
 
@@ -924,58 +823,6 @@ var options12 = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // grafico LineasStacked5
 var options120 = {
     series: [{
@@ -1055,7 +902,6 @@ var options120 = {
   var chart2 = new ApexCharts(document.querySelector("#chart2"), options120);
   chart2.render();
 //FIN grafico LineasStacked5
-  
 
 
 
@@ -1144,10 +990,6 @@ var options120 = {
 
 
 
-
-
-
-
   
   
   
@@ -1231,6 +1073,8 @@ var options120 = {
   var chartArea1 = new ApexCharts(document.querySelector("#chartArea1"), optionsArea0);
   chartArea1.render();
 //FIN grafico LineasStacked7
+
+
 
 
 
@@ -1329,52 +1173,6 @@ var options120 = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // grafico LineasStacked9
 var options1201 = {
     series: [{
@@ -1455,7 +1253,6 @@ var options1201 = {
   chartLine4.render();
 //FIN grafico LineasStacked9
   
-
 
 
 
@@ -1540,10 +1337,6 @@ var options1201 = {
   var chartArea3 = new ApexCharts(document.querySelector("#chartArea3"), optionsLine201);
   chartArea3.render();
 //FIN grafico LineasStacked10
-
-
-
-
 
 
 
@@ -1735,30 +1528,6 @@ var options1201 = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // grafico tipo PIE
   var opcionesPIE = {
     series: [25, 15, 44, 55, 41, 17],
@@ -1842,22 +1611,7 @@ var options1201 = {
 
   var pie = new ApexCharts(document.querySelector("#pie"), opcionesPIE);
   pie.render(); 
-
-
-
   //Fin grafico tipo PIE
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -9034,8 +8788,7 @@ yaxis: {
     style: {
       color:'#cbcbe2'
     }
-  },
-  
+  },  
   labels:{      
     style:{
     colors:['#cbcbe2']
@@ -9050,7 +8803,6 @@ legend: {
       colors: '#cbcbe2',
       useSeriesColors: true
     },
-  position: 'bottom'
 },
 fill: {
   opacity: 1,
@@ -9477,10 +9229,7 @@ xaxis: {
   labels: {
     style:{
       colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
-  },
-    // formatter: function(val) {
-    //   return "Q" + dayjs(val).quarter()
-    // }
+  },    
   },
   crosshairs: {
     fill: {
@@ -9522,7 +9271,6 @@ yaxis: {
       colors:['#cbcbe2']
     },
   }
-
 },
 title: {
     // text: 'Grouped Labels on the X-axis',
@@ -11939,3 +11687,2873 @@ grid:{
 var horiBarGra1 = new ApexCharts(document.querySelector("#horiBarGra1"), optionshoriBarGra1);
 horiBarGra1.render();
 // FIN BARRAS HORIZONTALES
+
+
+
+
+
+
+
+
+// BARRAS HORIZONTALES
+var optionshoriBarGra2 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [44, 55, 41, 37, 22, 43, 21]
+}, {
+  name: 'Agilidad',
+  data: [53, 32, 33, 52, 13, 43, 32]
+}, {
+  name: 'Fuerza',
+  data: [12, 17, 11, 9, 15, 11, 20]
+}, {
+  name: 'Potencia',
+  data: [9, 7, 5, 8, 6, 9, 4]
+}, {
+  name: 'Velocidad',
+  data: [25, 12, 19, 32, 25, 24, 10]
+}],
+  chart: {
+  type: 'bar',
+  height: 350,
+  stacked: true,
+},
+plotOptions: {
+  bar: {
+    borderRadius: 5,
+    horizontal: true,
+    dataLabels: {
+      total: {
+        enabled: true,
+        offsetX: 0,
+        style: {
+          fontSize: '13px',
+          fontWeight: 900,
+          color: '#cbcbe2'
+        }
+      }
+    }
+  },
+},
+dataLabels: {
+  enabled: true,
+  style: {
+    fontSize: '11px',
+    fontWeight:'100',
+    colors: ["#ffffff"]
+  }
+},
+stroke: {
+  width: 1,
+  colors: ['transparent'],
+  
+},
+title: {
+  text: 'Fiction Books Sales',
+  align: 'left',
+    offsetX: 10,
+    offsetY: 0,
+    floating: false,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  '600',
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+  categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+yaxis: {
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  
+},
+tooltip: {
+  y: {
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+fill: {
+  opacity: 1
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  labels: {
+    colors: '#cbcbe2',
+    useSeriesColors: true
+},
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var horiBarGra2 = new ApexCharts(document.querySelector("#horiBarGra2"), optionshoriBarGra2);
+horiBarGra2.render();
+// FIN BARRAS HORIZONTALES
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BARRAS HORIZONTALES
+var optionshoriBarGra3 = {
+  colors: ['#9BCB3B', '#4bc0c0','#ffab00','#ff3e1d','#007bff'],
+  series: [{
+  name: 'Resistencia',
+  data: [44, 55, 41, 37, 22, 43, 21]
+}, {
+  name: 'Agilidad',
+  data: [53, 32, 33, 52, 13, 43, 32]
+}, {
+  name: 'Fuerza',
+  data: [12, 17, 11, 9, 15, 11, 20]
+}, {
+  name: 'Potencia',
+  data: [9, 7, 5, 8, 6, 9, 4]
+}, {
+  name: 'Velocidad',
+  data: [25, 12, 19, 32, 25, 24, 10]
+}],
+  chart: {
+  type: 'bar',
+  height: 350,
+  stacked: true,
+},
+plotOptions: {
+  bar: {
+    borderRadius: 5,
+    horizontal: true,
+    dataLabels: {
+      total: {
+        enabled: true,
+        offsetX: 0,
+        style: {
+          fontSize: '13px',
+          fontWeight: 900,
+          color: '#cbcbe2'
+        }
+      }
+    }
+  },
+},
+dataLabels: {
+  enabled: true,
+  style: {
+    fontSize: '11px',
+    fontWeight:'100',
+    colors: ["#ffffff"]
+  }
+},
+stroke: {
+  width: 1,
+  colors: ['transparent'],
+  
+},
+title: {
+  text: 'Fiction Books Sales',
+  align: 'left',
+    offsetX: 10,
+    offsetY: 0,
+    floating: false,
+    style: {
+      fontSize:  '14px',
+      fontWeight:  '600',
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
+},
+xaxis: {
+  categories: [2008, 2009, 2010, 2011, 2012, 2013, 2014],
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+yaxis: {
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  
+},
+tooltip: {
+  y: {
+    formatter: function (val) {
+      return val + "Km"
+    }
+  }
+},
+fill: {
+  opacity: 1
+},
+legend: {
+  show: true,
+  position: 'bottom',
+  horizontalAlign: 'center',
+  labels: {
+    colors: '#cbcbe2',
+    useSeriesColors: true
+},
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var horiBarGra3 = new ApexCharts(document.querySelector("#horiBarGra3"), optionshoriBarGra3);
+horiBarGra3.render();
+// FIN BARRAS HORIZONTALES
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineLine Grafico
+var optionsmultiAxisLineLine1 = {
+  
+  chart: {
+    height: 350,
+    type: "line",
+    stacked: false,
+    toolbar:{
+      show: true
+    },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  colors: ["#9bcb3b", "#ffab00"],
+  series: [
+    {
+      name: "Series A",
+      data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+    },
+    {
+      name: "Series B",
+      data: [20, 29, 37, 36, 44, 45, 50, 58]
+    }
+  ],
+  stroke: {
+    width: [3, 3]
+  },
+  xaxis: {
+    categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  },
+  yaxis: [
+    {
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#9bcb3b"
+      },
+      tooltip: true,
+      labels: {
+        style: {
+          colors: "#9bcb3b"
+        }
+      },
+      title: {
+        text: "Series A",
+        style: {
+          color: "#9bcb3b"
+        }
+      }
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#ffab00"
+      },
+      labels: {
+        style: {
+          colors: "#ffab00"
+        }
+      },
+      title: {
+        text: "Series B",
+        style: {
+          color: "#ffab00"
+        }
+      }
+    }
+  ],
+  tooltip: {
+    enabled:true,
+    shared: true,
+    intersect: false,
+    
+  },
+  legend: {  
+    show:true,
+    offsetX: 7,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#fff',
+      useSeriesColors: true
+    }
+  },
+  grid:{
+    show: true,
+    borderColor: '#191924',
+    strokeDashArray: 0,
+    position: 'back',
+    xaxis: {
+        lines: {
+            show: false
+        }
+    },   
+    yaxis: {
+        lines: {
+            show: true
+        }
+    },  
+    row: {
+        colors: undefined,
+        opacity: 0.1
+    },  
+    column: {
+        colors: undefined,
+        opacity: 0.5
+    },  
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }  
+  }
+};
+
+var multiAxisLineLine1 = new ApexCharts(document.querySelector("#multiAxisLineLine1"), optionsmultiAxisLineLine1);
+multiAxisLineLine1.render();
+// FIN multiAxisLineLine Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineLine Grafico
+var optionsmultiAxisLineLine2 = {
+  
+  chart: {
+    height: 350,
+    type: "line",
+    stacked: false,
+    toolbar:{
+      show: true
+    },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  colors: ["#9bcb3b", "#ff3e1d"],
+  series: [
+    {
+      name: "Series A",
+      data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+    },
+    {
+      name: "Series B",
+      data: [20, 29, 37, 36, 44, 45, 50, 58]
+    }
+  ],
+  stroke: {
+    width: [3, 3]
+  },
+  xaxis: {
+    categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  },
+  yaxis: [
+    {
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#9bcb3b"
+      },
+      tooltip: true,
+      labels: {
+        style: {
+          colors: "#9bcb3b"
+        }
+      },
+      title: {
+        text: "Series A",
+        style: {
+          color: "#9bcb3b"
+        }
+      }
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#ff3e1d"
+      },
+      labels: {
+        style: {
+          colors: "#ff3e1d"
+        }
+      },
+      title: {
+        text: "Series B",
+        style: {
+          color: "#ff3e1d"
+        }
+      }
+    }
+  ],
+  tooltip: {
+    enabled:true,
+    shared: true,
+    intersect: false,
+    
+  },
+  legend: {  
+    show:true,
+    offsetX: 7,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#fff',
+      useSeriesColors: true
+    }
+  },
+  grid:{
+    show: true,
+    borderColor: '#191924',
+    strokeDashArray: 0,
+    position: 'back',
+    xaxis: {
+        lines: {
+            show: false
+        }
+    },   
+    yaxis: {
+        lines: {
+            show: true
+        }
+    },  
+    row: {
+        colors: undefined,
+        opacity: 0.1
+    },  
+    column: {
+        colors: undefined,
+        opacity: 0.5
+    },  
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }  
+  }
+};
+
+var multiAxisLineLine2 = new ApexCharts(document.querySelector("#multiAxisLineLine2"), optionsmultiAxisLineLine2);
+multiAxisLineLine2.render();
+// FIN multiAxisLineLine Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineLine Grafico
+var optionsmultiAxisLineLine3 = {
+  
+  chart: {
+    height: 350,
+    type: "line",
+    stacked: false,
+    toolbar:{
+      show: true
+    },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  colors: ["#9bcb3b", "#007bff"],
+  series: [
+    {
+      name: "Series A",
+      data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+    },
+    {
+      name: "Series B",
+      data: [20, 29, 37, 36, 44, 45, 50, 58]
+    }
+  ],
+  stroke: {
+    width: [3, 3]
+  },
+  xaxis: {
+    categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+    labels:{
+      style:{
+        colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+    }
+    },
+    axisBorder: {
+      show: false
+    },
+    axisTicks: {
+      show: false
+    },
+    tooltip: {
+      enabled: false
+    }
+  },
+  yaxis: [
+    {
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#9bcb3b"
+      },
+      tooltip: true,
+      labels: {
+        style: {
+          colors: "#9bcb3b"
+        }
+      },
+      title: {
+        text: "Series A",
+        style: {
+          color: "#9bcb3b"
+        }
+      }
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: "#007bff"
+      },
+      labels: {
+        style: {
+          colors: "#007bff"
+        }
+      },
+      title: {
+        text: "Series B",
+        style: {
+          color: "#007bff"
+        }
+      }
+    }
+  ],
+  tooltip: {
+    enabled:true,
+    shared: true,
+    intersect: false,
+    
+  },
+  legend: {  
+    show:true,
+    offsetX: 7,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#fff',
+      useSeriesColors: true
+    }
+  },
+  grid:{
+    show: true,
+    borderColor: '#191924',
+    strokeDashArray: 0,
+    position: 'back',
+    xaxis: {
+        lines: {
+            show: false
+        }
+    },   
+    yaxis: {
+        lines: {
+            show: true
+        }
+    },  
+    row: {
+        colors: undefined,
+        opacity: 0.1
+    },  
+    column: {
+        colors: undefined,
+        opacity: 0.5
+    },  
+    padding: {
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    }  
+  }
+};
+
+var multiAxisLineLine3 = new ApexCharts(document.querySelector("#multiAxisLineLine3"), optionsmultiAxisLineLine3);
+multiAxisLineLine3.render();
+// FIN multiAxisLineLine Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineArea Grafico
+var optionsmultiAxisLineArea1 = {
+  colors: ["#9bcb3b", "#ffab00"],
+  series: [{
+  name: 'Series A',
+  type: 'area',
+  data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
+}, {
+  name: 'Series B',
+  type: 'line',
+  data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 43]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+},
+stroke: {
+  curve: 'smooth',
+  width: [3, 3]
+},
+fill: {
+  type:'solid',
+  opacity: [0.35, 1],
+},
+labels: ['Dec 01', 'Dec 02','Dec 03','Dec 04','Dec 05','Dec 06','Dec 07','Dec 08','Dec 09 ','Dec 10','Dec 11'],
+markers: {
+  size: 0
+},
+xaxis: {
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#9bcb3b"
+    },
+    tooltip: true,
+    labels: {
+      style: {
+        colors: "#9bcb3b"
+      }
+    },
+    title: {
+      text: "Series A",
+      style: {
+        color: "#9bcb3b"
+      }
+    }
+  },
+  {
+    opposite: true,
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#ffab00",
+    },
+    labels: {
+      style: {
+        colors: "#ffab00"
+      }
+    },
+    title: {
+      text: "Series B",
+      style: {
+        color: "#ffab00"
+      }
+    }
+  },
+],
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if(typeof y !== "undefined") {
+        return  y.toFixed(0) + " points";
+      }
+      return y;
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineArea1 = new ApexCharts(document.querySelector("#multiAxisLineArea1"), optionsmultiAxisLineArea1);
+multiAxisLineArea1.render();
+// FIN multiAxisLineArea Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineArea Grafico
+var optionsmultiAxisLineArea2 = {
+  colors: ["#9bcb3b", "#ff3e1d"],
+  series: [{
+  name: 'Series A',
+  type: 'area',
+  data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
+}, {
+  name: 'Series B',
+  type: 'line',
+  data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 43]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+},
+stroke: {
+  curve: 'smooth',
+  width: [3, 3]
+},
+fill: {
+  type:'solid',
+  opacity: [0.35, 1],
+},
+labels: ['Dec 01', 'Dec 02','Dec 03','Dec 04','Dec 05','Dec 06','Dec 07','Dec 08','Dec 09 ','Dec 10','Dec 11'],
+markers: {
+  size: 0
+},
+xaxis: {
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#9bcb3b"
+    },
+    tooltip: true,
+    labels: {
+      style: {
+        colors: "#9bcb3b"
+      }
+    },
+    title: {
+      text: "Series A",
+      style: {
+        color: "#9bcb3b"
+      }
+    }
+  },
+  {
+    opposite: true,
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#ff3e1d",
+    },
+    labels: {
+      style: {
+        colors: "#ff3e1d"
+      }
+    },
+    title: {
+      text: "Series B",
+      style: {
+        color: "#ff3e1d"
+      }
+    }
+  },
+],
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if(typeof y !== "undefined") {
+        return  y.toFixed(0) + " points";
+      }
+      return y;
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineArea2 = new ApexCharts(document.querySelector("#multiAxisLineArea2"), optionsmultiAxisLineArea2);
+multiAxisLineArea2.render();
+// FIN multiAxisLineArea Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineArea Grafico
+var optionsmultiAxisLineArea3 = {
+  colors: ["#9bcb3b", "#007bff"],
+  series: [{
+  name: 'Series A',
+  type: 'area',
+  data: [44, 55, 31, 47, 31, 43, 26, 41, 31, 47, 33]
+}, {
+  name: 'Series B',
+  type: 'line',
+  data: [55, 69, 45, 61, 43, 54, 37, 52, 44, 61, 43]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+},
+stroke: {
+  curve: 'smooth',
+  width: [3, 3]
+},
+fill: {
+  type:'solid',
+  opacity: [0.35, 1],
+},
+labels: ['Dec 01', 'Dec 02','Dec 03','Dec 04','Dec 05','Dec 06','Dec 07','Dec 08','Dec 09 ','Dec 10','Dec 11'],
+markers: {
+  size: 0
+},
+xaxis: {
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#9bcb3b"
+    },
+    tooltip: true,
+    labels: {
+      style: {
+        colors: "#9bcb3b"
+      }
+    },
+    title: {
+      text: "Series A",
+      style: {
+        color: "#9bcb3b"
+      }
+    }
+  },
+  {
+    opposite: true,
+    axisTicks: {
+      show: true
+    },
+    axisBorder: {
+      show: true,
+      color: "#007bff",
+    },
+    labels: {
+      style: {
+        colors: "#007bff"
+      }
+    },
+    title: {
+      text: "Series B",
+      style: {
+        color: "#007bff"
+      }
+    }
+  },
+],
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if(typeof y !== "undefined") {
+        return  y.toFixed(0) + " points";
+      }
+      return y;
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineArea3 = new ApexCharts(document.querySelector("#multiAxisLineArea3"), optionsmultiAxisLineArea3);
+multiAxisLineArea3.render();
+// FIN multiAxisLineArea Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiAxisLineAreaBar Grafico
+var optionsmultiAxisLineAreaBar1 = {
+  colors: ["#9bcb3b", "#ffab00","#007bff"],
+  series: [{
+  name: 'TEAM A',
+  type: 'column',
+  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+}, {
+  name: 'TEAM B',
+  type: 'area',
+  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+}, {
+  name: 'TEAM C',
+  type: 'line',
+  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+},
+stroke: {
+  width: [0, 2, 4],
+  curve: 'smooth'
+},
+plotOptions: {
+  bar: {
+    columnWidth: '50%',
+    borderRadius: 8
+  }
+},
+fill: {
+  opacity: [0.85, 0.25, 1],
+  gradient: {
+    inverseColors: false,
+    shade: 'light',
+    type: "vertical",
+    opacityFrom: 0.85,
+    opacityTo: 0.55,
+    stops: [0, 100, 100, 100]
+  }
+},
+labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+  '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+],
+markers: {
+  size: 0
+},
+xaxis: {
+  type: 'datetime',
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },    
+  },  
+},
+yaxis: {
+  title: {
+    text: 'Points',
+    style:{
+      color: '#cbcbe2'
+    }
+  },
+  min: 0,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if (typeof y !== "undefined") {
+        return y.toFixed(0) + " points";
+      }
+      return y;
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineAreaBar1 = new ApexCharts(document.querySelector("#multiAxisLineAreaBar1"), optionsmultiAxisLineAreaBar1);
+multiAxisLineAreaBar1.render();
+// FIN multiAxisLineAreaBar Grafico
+
+
+
+
+
+// multiAxisLineAreaBar Grafico
+var optionsmultiAxisLineAreaBar2 = {
+  colors: ["#9bcb3b", "#ff3e1d","#007bff"],
+  series: [{
+  name: 'TEAM A',
+  type: 'column',
+  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+}, {
+  name: 'TEAM B',
+  type: 'area',
+  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+}, {
+  name: 'TEAM C',
+  type: 'line',
+  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+},
+stroke: {
+  width: [0, 2, 4],
+  curve: 'smooth'
+},
+plotOptions: {
+  bar: {
+    columnWidth: '50%',
+    borderRadius: 8
+  }
+},
+fill: {
+  opacity: [0.85, 0.25, 1],
+  gradient: {
+    inverseColors: false,
+    shade: 'light',
+    type: "vertical",
+    opacityFrom: 0.85,
+    opacityTo: 0.55,
+    stops: [0, 100, 100, 100]
+  }
+},
+labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+  '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+],
+markers: {
+  size: 0
+},
+xaxis: {
+  type: 'datetime',
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },    
+  },  
+},
+yaxis: {
+  title: {
+    text: 'Points',
+    style:{
+      color: '#cbcbe2'
+    }
+  },
+  min: 0,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if (typeof y !== "undefined") {
+        return y.toFixed(0) + " points";
+      }
+      return y;
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineAreaBar2 = new ApexCharts(document.querySelector("#multiAxisLineAreaBar2"), optionsmultiAxisLineAreaBar2);
+multiAxisLineAreaBar2.render();
+// FIN multiAxisLineAreaBar Grafico
+
+
+
+
+// multiAxisLineAreaBar Grafico
+var optionsmultiAxisLineAreaBar3 = {
+  colors: ["#9bcb3b", "#6610f2","#ffab00"],
+  series: [{
+  name: 'TEAM A',
+  type: 'column',
+  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+}, {
+  name: 'TEAM B',
+  type: 'area',
+  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+}, {
+  name: 'TEAM C',
+  type: 'line',
+  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+},
+stroke: {
+  width: [0, 2, 4],
+  curve: 'smooth'
+},
+plotOptions: {
+  bar: {
+    columnWidth: '50%',
+    borderRadius: 8
+  }
+},
+
+fill: {
+  opacity: [0.85, 0.25, 1],
+  gradient: {
+    inverseColors: false,
+    shade: 'light',
+    type: "vertical",
+    opacityFrom: 0.85,
+    opacityTo: 0.55,
+    stops: [0, 100, 100, 100]
+  }
+},
+labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+  '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+],
+markers: {
+  size: 0
+},
+xaxis: {
+  type: 'datetime',
+  labels: {
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  },    
+  },  
+},
+yaxis: {
+  title: {
+    text: 'Points',
+    style:{
+      color: '#cbcbe2'
+    }
+  },
+  min: 0,
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: true,
+    style:{
+      colors:['#cbcbe2']
+    },
+  }
+},
+tooltip: {
+  shared: true,
+  intersect: false,
+  y: {
+    formatter: function (y) {
+      if (typeof y !== "undefined") {
+        return y.toFixed(0) + " points";
+      }
+      return y;
+
+    }
+  }
+},
+legend: {  
+  show:true,
+  offsetX: 7,
+  position: 'bottom', 
+  horizontalAlign: 'center',
+  labels:{
+    colors: '#fff',
+    useSeriesColors: true
+  }
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+}
+};
+
+var multiAxisLineAreaBar3 = new ApexCharts(document.querySelector("#multiAxisLineAreaBar3"), optionsmultiAxisLineAreaBar3);
+multiAxisLineAreaBar3.render();
+// FIN multiAxisLineAreaBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBarBar Grafico
+var optionsmultiYAxisLineBarBar1 = {
+  colors: ["#9bcb3b", "#007bff","#ffab00"],
+  series: [{
+  name: 'Income',
+  type: 'column',
+  data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+}, {
+  name: 'Cashflow',
+  type: 'column',
+  data: [1.1, 3, 3.1, 4, 4.1, 4.9, 6.5, 8.5]
+}, {
+  name: 'Revenue',
+  type: 'line',
+  data: [20, 29, 37, 36, 44, 45, 50, 58]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  width: [1, 1, 3]
+},
+xaxis: {
+  categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#9bcb3b'
+    },
+    labels: {
+      style: {
+        colors: '#9bcb3b',
+      }
+    },
+    title: {
+      text: "Income (thousand crores)",
+      style: {
+        color: '#9bcb3b',
+      }
+    },
+    tooltip: {
+      enabled: true
+    }
+  },
+  {
+    seriesName: 'Income',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#007bff'
+    },
+    labels: {
+      style: {
+        colors: '#007bff',
+      }
+    },
+    title: {
+      text: "Operating Cashflow (thousand crores)",
+      style: {
+        color: '#007bff',
+      }
+    },
+  },
+  {
+    seriesName: 'Revenue',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#ffab00'
+    },
+    labels: {
+      style: {
+        colors: '#ffab00',
+      },
+    },
+    title: {
+      text: "Revenue (thousand crores)",
+      style: {
+        color: '#ffab00',
+      }
+    }
+  },
+],
+tooltip: {
+  fixed: {
+    enabled: true,
+    position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+    offsetY: 30,
+    offsetX: 60
+  },
+},
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBarBar1 = new ApexCharts(document.querySelector("#multiYAxisLineBarBar1"), optionsmultiYAxisLineBarBar1);
+multiYAxisLineBarBar1.render();
+// FIN multiYAxisLineBarBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBarBar Grafico
+var optionsmultiYAxisLineBarBar2 = {
+  colors: ["#9bcb3b", "#4bc0c0","#ffab00"],
+  series: [{
+  name: 'Income',
+  type: 'column',
+  data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+}, {
+  name: 'Cashflow',
+  type: 'column',
+  data: [1.1, 3, 3.1, 4, 4.1, 4.9, 6.5, 8.5]
+}, {
+  name: 'Revenue',
+  type: 'line',
+  data: [20, 29, 37, 36, 44, 45, 50, 58]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  width: [1, 1, 3]
+},
+xaxis: {
+  categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#9bcb3b'
+    },
+    labels: {
+      style: {
+        colors: '#9bcb3b',
+      }
+    },
+    title: {
+      text: "Income (thousand crores)",
+      style: {
+        color: '#9bcb3b',
+      }
+    },
+    tooltip: {
+      enabled: true
+    }
+  },
+  {
+    seriesName: 'Income',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#4bc0c0'
+    },
+    labels: {
+      style: {
+        colors: '#4bc0c0',
+      }
+    },
+    title: {
+      text: "Operating Cashflow (thousand crores)",
+      style: {
+        color: '#4bc0c0',
+      }
+    },
+  },
+  {
+    seriesName: 'Revenue',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#ffab00'
+    },
+    labels: {
+      style: {
+        colors: '#ffab00',
+      },
+    },
+    title: {
+      text: "Revenue (thousand crores)",
+      style: {
+        color: '#ffab00',
+      }
+    }
+  },
+],
+tooltip: {
+  fixed: {
+    enabled: true,
+    position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+    offsetY: 30,
+    offsetX: 60
+  },
+},
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBarBar2 = new ApexCharts(document.querySelector("#multiYAxisLineBarBar2"), optionsmultiYAxisLineBarBar2);
+multiYAxisLineBarBar2.render();
+// FIN multiYAxisLineBarBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBarBar Grafico
+var optionsmultiYAxisLineBarBar3 = {
+  colors: ["#9bcb3b", "#6610f2","#ffab00"],
+  series: [{
+  name: 'Income',
+  type: 'column',
+  data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+}, {
+  name: 'Cashflow',
+  type: 'column',
+  data: [1.1, 3, 3.1, 4, 4.1, 4.9, 6.5, 8.5]
+}, {
+  name: 'Revenue',
+  type: 'line',
+  data: [20, 29, 37, 36, 44, 45, 50, 58]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  stacked: false,
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  width: [1, 1, 3]
+},
+xaxis: {
+  categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [
+  {
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#9bcb3b'
+    },
+    labels: {
+      style: {
+        colors: '#9bcb3b',
+      }
+    },
+    title: {
+      text: "Income (thousand crores)",
+      style: {
+        color: '#9bcb3b',
+      }
+    },
+    tooltip: {
+      enabled: true
+    }
+  },
+  {
+    seriesName: 'Income',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#6610f2'
+    },
+    labels: {
+      style: {
+        colors: '#6610f2',
+      }
+    },
+    title: {
+      text: "Operating Cashflow (thousand crores)",
+      style: {
+        color: '#6610f2',
+      }
+    },
+  },
+  {
+    seriesName: 'Revenue',
+    opposite: true,
+    axisTicks: {
+      show: true,
+    },
+    axisBorder: {
+      show: true,
+      color: '#ffab00'
+    },
+    labels: {
+      style: {
+        colors: '#ffab00',
+      },
+    },
+    title: {
+      text: "Revenue (thousand crores)",
+      style: {
+        color: '#ffab00',
+      }
+    }
+  },
+],
+tooltip: {
+  fixed: {
+    enabled: true,
+    position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+    offsetY: 30,
+    offsetX: 60
+  },
+},
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBarBar3 = new ApexCharts(document.querySelector("#multiYAxisLineBarBar3"), optionsmultiYAxisLineBarBar3);
+multiYAxisLineBarBar3.render();
+// FIN multiYAxisLineBarBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBar Grafico
+var optionsmultiYAxisLineBar1 = {
+  colors:['#9BCB3B','#ffab00'],
+  series: [{
+  name: 'Website Blog',
+  type: 'column',
+  data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+}, {
+  name: 'Social Media',
+  type: 'line',
+  data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+stroke: {
+  width: [0, 3]
+},
+dataLabels: {
+  enabled: true,
+  enabledOnSeries: [1]
+},
+labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001', '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'],
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [{
+  title: {
+    text: 'Website Blog',
+    style: {
+      color:'#9BCB3B'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  },
+  },
+}, {
+  opposite: true,
+  title: {
+    text: 'Social Media',
+    style: {
+      color:'#ffab00'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+    }
+  }
+}],
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBar1 = new ApexCharts(document.querySelector("#multiYAxisLineBar1"), optionsmultiYAxisLineBar1);
+multiYAxisLineBar1.render();
+// FIN multiYAxisLineBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBar Grafico
+var optionsmultiYAxisLineBar2 = {
+  colors:['#9BCB3B','#ff3e1d'],
+  series: [{
+  name: 'Website Blog',
+  type: 'column',
+  data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+}, {
+  name: 'Social Media',
+  type: 'line',
+  data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+stroke: {
+  width: [0, 3]
+},
+dataLabels: {
+  enabled: true,
+  enabledOnSeries: [1]
+},
+labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001', '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'],
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [{
+  title: {
+    text: 'Website Blog',
+    style: {
+      color:'#9BCB3B'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  },
+  },
+}, {
+  opposite: true,
+  title: {
+    text: 'Social Media',
+    style: {
+      color:'#ff3e1d'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+    }
+  }
+}],
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBar2 = new ApexCharts(document.querySelector("#multiYAxisLineBar2"), optionsmultiYAxisLineBar2);
+multiYAxisLineBar2.render();
+// FIN multiYAxisLineBar Grafico
+
+
+
+
+
+
+
+
+
+
+// multiYAxisLineBar Grafico
+var optionsmultiYAxisLineBar3 = {
+  colors:['#9BCB3B','#007bff'],
+  series: [{
+  name: 'Website Blog',
+  type: 'column',
+  data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160]
+}, {
+  name: 'Social Media',
+  type: 'line',
+  data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
+}],
+  chart: {
+  height: 350,
+  type: 'line',
+  toolbar:{
+    show:true,
+    tools: {
+      download: true,
+      selection: false,
+      zoom: false,
+      zoomin: false,
+      zoomout: false,
+      pan: false,
+      reset: false | '<img src="/static/icons/reset.png" width="20">',
+      customIcons: []
+    },
+  }
+},
+stroke: {
+  width: [0, 3]
+},
+dataLabels: {
+  enabled: true,
+  enabledOnSeries: [1]
+},
+labels: ['01 Jan 2001', '02 Jan 2001', '03 Jan 2001', '04 Jan 2001', '05 Jan 2001', '06 Jan 2001', '07 Jan 2001', '08 Jan 2001', '09 Jan 2001', '10 Jan 2001', '11 Jan 2001', '12 Jan 2001'],
+xaxis: {
+  type: 'datetime',
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  }
+},
+yaxis: [{
+  title: {
+    text: 'Website Blog',
+    style: {
+      color:'#9BCB3B'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  },
+  },
+}, {
+  opposite: true,
+  title: {
+    text: 'Social Media',
+    style: {
+      color:'#007bff'
+    }
+  },  
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+    }
+  }
+}],
+legend: {
+  show:true,
+    position: 'bottom', 
+    horizontalAlign: 'center',
+    labels:{
+      colors: '#cbcbe2',
+      useSeriesColors: true
+    },
+},
+grid:{
+  show: true,
+  borderColor: '#191924',
+  strokeDashArray: 0,
+  position: 'back',
+  xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: true
+      }
+  },  
+  row: {
+      colors: undefined,
+      opacity: 0.1
+  },  
+  column: {
+      colors: undefined,
+      opacity: 0.5
+  },  
+  padding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+  }  
+},
+};
+
+var multiYAxisLineBar3 = new ApexCharts(document.querySelector("#multiYAxisLineBar3"), optionsmultiYAxisLineBar3);
+multiYAxisLineBar3.render();
+// FIN multiYAxisLineBar Grafico
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// elevacionPos Grafico   elevacionPos1
+var optionselevacionPos1 = {
+  colors: ["#9bcb3b"],
+  series: [{
+  name: "STOCK ABC",
+  data: [31, 40, 28, 51, 42, 109, 100]
+}],
+  chart: {
+  type: 'area',
+  height: 350,
+  zoom: {
+    enabled: false
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  curve: 'straight',
+  width: 2
+},
+xaxis: {
+  type: 'datetime',
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  opposite: true,
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  }
+  }
+},
+legend: {
+  horizontalAlign: 'left'
+}
+};
+
+var elevacionPos1 = new ApexCharts(document.querySelector("#elevacionPos1"), optionselevacionPos1);
+elevacionPos1.render();
+// FIN elevacionPos Grafico
+
+
+
+
+
+
+
+
+
+
+// elevacionPos Grafico   elevacionPos1
+var optionselevacionPos2 = {
+  colors: ["#ffab00"],
+  series: [{
+  name: "STOCK ABC",
+  data: [31, 40, 28, 51, 42, 109, 100]
+}],
+  chart: {
+  type: 'area',
+  height: 350,
+  zoom: {
+    enabled: false
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  curve: 'straight',
+  width: 2
+},
+xaxis: {
+  type: 'datetime',
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  opposite: true,
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  }
+  }
+},
+legend: {
+  horizontalAlign: 'left'
+}
+};
+
+var elevacionPos2 = new ApexCharts(document.querySelector("#elevacionPos2"), optionselevacionPos2);
+elevacionPos2.render();
+// FIN elevacionPos Grafico
+
+
+
+
+
+
+
+
+
+
+// elevacionPos Grafico   elevacionPos1
+var optionselevacionPos3 = {
+  colors: ["#ff3e1d"],
+  series: [{
+  name: "STOCK ABC",
+  data: [31, 40, 28, 51, 42, 109, 100]
+}],
+  chart: {
+  type: 'area',
+  height: 350,
+  zoom: {
+    enabled: false
+  }
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  curve: 'straight',
+  width: 2
+},
+xaxis: {
+  type: 'datetime',
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"],
+  labels:{
+    style:{
+      colors:['#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+  }
+  },
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  tooltip: {
+    enabled: false
+  }
+},
+yaxis: {
+  opposite: true,
+  labels:{      
+    style:{
+    colors:['#cbcbe2']
+  }
+  }
+},
+legend: {
+  horizontalAlign: 'left'
+}
+};
+
+var elevacionPos3 = new ApexCharts(document.querySelector("#elevacionPos3"), optionselevacionPos3);
+elevacionPos3.render();
+// FIN elevacionPos Grafico
