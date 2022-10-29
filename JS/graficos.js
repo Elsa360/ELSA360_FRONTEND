@@ -1952,8 +1952,7 @@ var options1201 = {
     type: 'area',
     brush:{
       target: 'Chartbrush1',
-      enabled: true,
-      
+      enabled: true,      
     },
     selection: {
       enabled: true,
