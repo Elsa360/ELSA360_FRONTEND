@@ -122,11 +122,12 @@ footer{
   color: #9BCB3B;
 }
 
-.payU{
-  margin-top: 15px;
+.mercadoPago{
+  margin-top: 20px;
   text-align: left;
+  display: flex;
 }
 
 .img-payU{
-  margin-top: -10px;
+  margin-left: 15px;
 }

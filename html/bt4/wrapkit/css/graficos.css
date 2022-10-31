@@ -1,5 +1,4 @@
-.chart-container {
-    position: relative;
-    margin: auto;
-    height: 6vh;
-  }
+.apexcharts-tooltip {
+  background: #000;
+  color: #000;
+}

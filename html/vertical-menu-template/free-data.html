@@ -36,7 +36,9 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="../../assets/vendor/css/pages/page-pricing.css" />
@@ -113,7 +115,7 @@
 
 
 
-                      <div class="col-lg-8 mb-4 order-0">
+                      <div class="col-lg-6 mb-4 order-0">
                         <div class="card">
                           <div class="d-flex align-items-end row">
                             <div class="col-sm-7">
@@ -143,11 +145,11 @@
                       </div>
       
       
-                      <div class="col-lg-4 col-md-4 order-1">
+                      <div class="col-lg-6 col-md-4 order-1">
                         <div class="row">
                           <div class="col-12 mb-4">
                             <div class="card">
-                              <div class="card-body">
+                              <div class="card-body" style="padding: 12px;">
                                 <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
                                   <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                                     <div class="card-title">
@@ -162,7 +164,7 @@
                                       <h3 class="mb-0">700 Cal</h3>
                                     </div>
                                   </div>
-                                  <div id="profileReportChart"></div>
+                                  <div class="mb-0" id="lograrPesoObjetivo"></div>
                                 </div>
                               </div>
                             </div>
@@ -172,6 +174,61 @@
 
                       
                     </div>
+
+
+
+                    <script>
+                      // meses para lograr peso objetivo
+                        var opciones = {                          
+                            series: [{                                                            
+                              name: "Kilos",
+                              data: [70.2, 71, 71.9, 73, 73.6, 74],                                                                                         
+                            }],
+                            chart: {
+                            height: 150,
+                            type: 'line',
+                            zoom: {
+                              enabled: false
+                            }
+                          },
+                          colors:['#9BCB3B'],
+                          dataLabels: {
+                            enabled: true,
+                          },
+                          stroke: {
+                            curve: 'straight',
+                            colors:['#9BCB3B']                            
+                          },
+                          title: {
+                          },
+                          grid: {                 
+                            show:false                            
+                          },                          
+                          xaxis: {      
+                            categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                            labels:{
+                              style:{
+                              colors:['#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B']
+                            }
+                            }
+                                                                                     
+                          },
+                          yaxis: {
+                            show: false,                           
+                            labels:{
+                              style:{
+                              colors:['#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B','#9BCB3B']
+                            }
+                            }
+                                                                                     
+                          },
+                          
+                          };
+                        
+                          var lograrPesoObjetivo = new ApexCharts(document.querySelector("#lograrPesoObjetivo"), opciones);
+                          lograrPesoObjetivo.render();
+                        // fianl meses para lograr peso objetivo
+                    </script>
 
 
 
@@ -893,6 +950,7 @@
 
     <!-- Main JS -->
     <script src="../../assets/js/main.js"></script>
+    <script src="../../JS/graficos.js"></script>
 
     <!-- Page JS -->
     <script src="../../assets//js/pages-pricing.js"></script>

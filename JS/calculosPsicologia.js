@@ -1184,6 +1184,9 @@ function hamilton() {
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 
+
+
+
 (function caloriasPorciones() {
     var datos = [];
     var todosInput = document.querySelectorAll('.NumeroPorciones');
@@ -1410,6 +1413,11 @@ function crearTabla() {
         console.log(e, "Error CargarAlimentos")
     }
 }
+
+
+
+
+
 
 function calcularIMC() {
     try {
