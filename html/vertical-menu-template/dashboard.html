@@ -1593,7 +1593,7 @@
                             <div class="col-md-8 fechasCompetencias" style="margin-top: 40px; margin-bottom:25px">
                               <h4> <span class="concepto">¿Cual es tu objetivo?</span> </h4>  
                                                      
-                                <button type="button" class="btn btn-label-info fechaCompetencia1" style="font-weight: 500; font-size:17px">Solo entrenar</button>
+                                <button type="button"  onclick="showSave()" class="btn btn-label-info fechaCompetencia1" style="font-weight: 500; font-size:17px">Solo entrenar</button>
 
                                 ó
                               
@@ -1608,7 +1608,8 @@
 
                                   <div class="accordion-item card">
                                     <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconOne">
-                                      <button type="button" class="      collapsed btn btn-label-primary fechaCompetencia2" data-bs-toggle="collapse" data-bs-target="#accordionIcon-1" aria-controls="accordionIcon-1" style="font-weight:500; font-size:17px;">
+                                      <button type="button" 
+                                      class="      collapsed btn btn-label-primary fechaCompetencia2" data-bs-toggle="collapse" data-bs-target="#accordionIcon-1" aria-controls="accordionIcon-1" style="font-weight:500; font-size:17px;">
                                         Un Fondo / Competencia
                                       </button>
                                     </h2>
@@ -1734,7 +1735,7 @@
 
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventLocation">¿Qué tiempo quieres lograr? <i class='bx bx-stopwatch'></i></label>
-                                            <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="h : m : s"/>
+                                            <input type="text" class="form-control" id="eventGoal1" name="eventLocation" placeholder="h : m : s"/>
                                           </div>
 
 
@@ -1742,7 +1743,7 @@
 
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventLocation">¿Qúe distancia esperas recorrer? <i class='bx bx-trip'></i></label>
-                                            <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="Km"/>
+                                            <input type="text" class="form-control" id="eventGoal2" name="eventLocation" placeholder="Km"/>
                                           </div>
 
 
@@ -1750,7 +1751,7 @@
 
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventLocation">¿En qué puesto quieres terminar? <i class="fa-solid fa-ranking-star"></i></label>
-                                            <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="1° / 2° / Top 5"/>
+                                            <input type="text" class="form-control" id="eventGoal3" name="eventLocation" placeholder="1° / 2° / Top 5"/>
                                           </div>
 
 
@@ -1766,7 +1767,7 @@
 
                                           <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4">
                                             <div class="fechaComp">
-                                              <button type="submit" class="btn btn-label-success btn-add-event me-sm-3 me-1">Definir fecha de prueba</button>                                                                    
+                                              <button type="button" class="btn btn-label-success btn-add-event me-sm-3 me-1" onclick="guardarEntrenoPersonalizado()">Definir fecha de prueba</button>                                                                    
                                             </div>               
 
                                           </div>
@@ -1822,7 +1823,11 @@
 
                           <div class="col-md-8 fechasCompetencias">
                             
-                            <button type="reset" class="btn btn-primary me-sm-3 me-1 mt-3 btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close" style="width: 100%;">
+                            <button type="button"
+                            onclick="guardarEntreno()"
+                            hidden
+                            class="btn btn-primary me-sm-3 me-1 mt-3 btn-reset mt-3" 
+                            data-bs-dismiss="modal" aria-label="Close" style="width: 100%;" id="buttonSaveDate">
                               Definir fechas
                             </button>
                           </div>
