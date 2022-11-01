@@ -352,7 +352,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Sexo</span>
-                            <h5 class="card-title mb-2"> <span class="badge bg-label-success">Hombre</span> </h5>                            
+                            <h5 class="card-title mb-2"> <span class="badge bg-label-success" id="sexo">Hombre</span> </h5>                            
                           </div>
                         </div>
                       </div>
@@ -367,7 +367,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Fecha nacimiento</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">25/10/1989</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="fechaNacimiento">25/10/1989</span></h5>
                           </div>
                         </div>
                       </div>
@@ -387,7 +387,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Estatura</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">183 cms</span></h5>                            
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="estatura">183 cms</span></h5>                            
                           </div>
                         </div>
                       </div>
@@ -403,7 +403,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Tipo de cuerpo</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">Ectomorfo</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="tipoCuerpo">Ectomorfo</span></h5>
                             
                           </div>
                         </div>
@@ -419,7 +419,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Tipo de dieta</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">Regular</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="tipoDieta">Regular</span></h5>
                             
                           </div>
                         </div>
@@ -454,7 +454,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Peso actual</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">70 Kg</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoActual">70 Kg</span></h5>
                             
                           </div>
                         </div>
@@ -470,7 +470,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Peso deseado</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">74 Kg</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal">74 Kg</span></h5>
                             
                           </div>
                         </div>
@@ -487,7 +487,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Diferencia de pesos</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">+ 4 Kg</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="diferenciaPeso">+ 4 Kg</span></h5>
                             
                           </div>
                         </div>
@@ -504,7 +504,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">¿Por qué montas?</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">Rendimiento</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pqMonta">Rendimiento</span></h5>
                             
                           </div>
                         </div>
@@ -520,7 +520,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Nivel deportivo</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">Intermedio</span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="nivelDeportivo">Intermedio</span></h5>
                             
                           </div>
                         </div>
@@ -536,7 +536,7 @@
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Sub-nivel deportivo</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success"> II </span></h5>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="subNivelDeportivo"> II </span></h5>
                             
                           </div>
                         </div>
@@ -552,7 +552,7 @@
                             <div class="demo-inline-spacing text-center">
                               
                               <a href="auth-perfil.html" class="btn btn-secondary">Volver a perfilarme</a>      
-                              <a href="pages-pricing.html" class="btn btn-success">Continuar</a>
+                              <a href="#" class="btn btn-success" onclick="guardarPerilUsuario()">Continuar</a>
 
                             </div>
                           <!-- </div>
@@ -955,6 +955,7 @@
     <!-- Page JS -->
     <script src="../../assets//js/pages-pricing.js"></script>
     <script src="../../assets/js/dashboards-analytics.js"></script>
-    <script src="../../js/calculosPsicologia.js"></script>
+    <script src="../../JS/classes.js"></script>
+    <script src="../../JS/User/freeData.js"></script>
   </body>
 </html>

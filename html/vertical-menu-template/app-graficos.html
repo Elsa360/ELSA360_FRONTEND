@@ -13,7 +13,7 @@
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="robots" content="noindex">
-  <title> Datos de tu entreno - ELSA360</title>
+  <title> Graficos de tu entreno - ELSA360</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
@@ -42,6 +42,8 @@
   <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
 
   <!-- Page CSS -->
+  <link rel="stylesheet" href="../bt4/wrapkit/css/graficos.css">
+
 
   <!-- Helpers -->
   <script src="../../assets/vendor/js/helpers.js"></script>
@@ -51,6 +53,25 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+
+
+  <!-- ejemplo para compartir bloques de codigo -->
+  <!-- <script>
+    $(function(){
+      $("#menu").load("menu.html"); 
+      $("#footer").load("footer.html"); 
+      $("#navbar").load("navbar.html"); 
+      $("#header").load("header.html"); 
+    });
+  </script>
+  <div id="header"></div> -->
+
+
 </head>
 
 <body>
@@ -115,15 +136,15 @@
 
 
           <!-- Calendario -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="app-calendar.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-calendar"></i>
               <div data-i18n="Calendario">Calendario</div>
             </a>
-          </li>
+          </li> -->
 
           <!-- Graficas -->
-          <li class="menu-item">
+          <li class="menu-item  active">
             <a href="app-graphics.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
               <div data-i18n="Gráficas">Gráficas</div>
@@ -138,7 +159,7 @@
 
 
           <!-- Ciclismo -->
-          <li class="menu-item active">
+          <li class="menu-item">
             <a href="app-planDeportivo.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-cycling"></i>
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
@@ -266,12 +287,12 @@
 
 
           <!-- FAQ -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="pages-faq.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-help-circle"></i>
               <div data-i18n="FAQ">FAQ</div>
             </a>
-          </li>
+          </li> -->
 
 
           <!-- Terminos y condiciones-->
@@ -421,10 +442,11 @@
 
                       <div class="dropdown-shortcuts-item col">
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                          <i class="bx bx-calendar fs-4"></i>
+                          <!-- <i class="bx bx-calendar fs-4"></i> -->
+                          <i class="bx bx-comment-detail"></i>
                         </span>
-                        <a href="app-calendar.html" class="stretched-link">Calendario</a>
-                        <small class="text-muted mb-0">Plan deportivo</small>
+                        <a href="pages-recomendaciones.html" class="stretched-link">Recomendaciones</a>
+                        <small class="text-muted mb-0">Mejora tus hábitos</small>
                       </div>
                     </div>
 
@@ -846,18 +868,18 @@
 
 
 
-                  <li>
+                  <!-- <li>
                     <a class="dropdown-item" href="pages-faq.html">
                       <i class="bx bx-help-circle me-2"></i>
                       <span class="align-middle">FAQ</span>
                     </a>
-                  </li>
+                  </li> -->
 
 
                   <!-- Divisor -->
-                  <li>
+                  <!-- <li>
                     <div class="dropdown-divider"></div>
-                  </li>
+                  </li> -->
 
 
                   <li>
@@ -953,8 +975,11 @@
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan deportivo /</span> Datos de tu entreno
-            </h4>
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan deportivo /</span> gráficos</h4>
+
+
+
+
 
 
 
@@ -964,238 +989,484 @@
 
 
             <div class="row">
-              <div class="col-md-4">
-                <div class="nav-align-top mb-3">
-                  <div class="tab-content">
-
-                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
-                      
-
-                        <h5 class="mb-4 concepto">Fecha: <small class="text-muted">12/10/2022</small></h5>
-
-                        <div class="row g-3">
-
-                          <h5 class="mb-1 concepto">Duración del entreno <small class="text-muted">(hh:mm:ss)</small>
-                          </h5>
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="HorasEntreno" class="form-control" placeholder="hh" min="0"
-                              max="" />
-                          </div>
-
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="MinutosEntreno" class="form-control" placeholder="mm" min="0"
-                              max="60" />
-                          </div>
-
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="SegundosEntreno" class="form-control" placeholder="ss" min="0"
-                              max="60" />
-                          </div>
 
 
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos tus entrenos</button>
+              </div>
+              
+              
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
+              </div>
 
-                          <h5 class="mb-1 concepto">Distancia recorrida <small class="text-muted">(Km)</small> </h5>
-                          <div class="col-md-6" style="margin-top: 5px;">
-                            <input type="number" id="DistanciaEntreno" class="form-control" placeholder="Km recorridos"
-                              step="0.1" min="0" />
-                          </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+              </div>
 
 
-                          <h5 class="mb-1 concepto">Desnivel positivo acumulado <small class="text-muted">(mts)</small>
-                          </h5>
-                          <div class="col-md-6" style="margin-top: 2px;">
-                            <input type="number" id="DesnivelEntreno" class="form-control"
-                              placeholder="Desnivel acumulado" min="0" />
-                          </div>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+              </div>          
+
+              
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+              </div>
+
+              
+            </div>
 
 
 
 
-                          <h5 class="mb-1 concepto">Percepción del esfuerzo <small class="text-muted">(RPE)</small>
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalRPE"
-                              style="padding: 0;"><i class='bx bx-info-circle'></i></button>
-                          </h5>
 
-                          <div class="col-md-6 mb-2" style="margin-top: 2px;">
-                            <select class="form-select" id="PercepcionEsfuerzoEntreno"
-                              aria-label="Default select example">
-                              <option selected>¿Qué tal el entreno?</option>
-                              <option value="1">Muy suave</option>
-                              <option value="2">Suave</option>
-                              <option value="3">Moderado</option>
-                              <option value="4">Fuerte</option>
-                              <option value="5">Muy fuerte</option>
-                            </select>
-                          </div>
 
-                        </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Cards with unicons & charts -->
+            <div class="row">
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 26px; padding-top: 26px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-2">
+                        <img src="../../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                      </div>                      
                     </div>
-
+                    <span class="d-block mb-1">Sesiones totales:</span>
+                    <h6 class="card-title text-success mb-2">34</h6>
+                    <small class="text-success fw-semibold"></small>
                   </div>
                 </div>
               </div>
 
-
-
-
-
-
-
-
-              <div class="col-md-4">
-                <div class="nav-align-top mb-3">
-                  <div class="tab-content">
-
-                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
-
-                      <div class="row g-3 pt-4">
-
-                        <h5 class="mb-1 concepto">Frecuencia cardíaca <small class="text-muted">(PPM)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="ppm-planteado" class="form-control" placeholder="FC Promedio"
-                            min="10" max="250" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="ppm-real" class="form-control" placeholder="FC Máxima"
-                            min="10" max="250" />
-                        </div>
-
-
-
-
-
-
-                        <h5 class="mb-1 concepto">Potencia <small class="text-muted">(Watts)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
-
-                          <input type="number" id="potencia-planteado" class="form-control" placeholder="Promedio"
-                            min="0" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="potencia-real" class="form-control" placeholder="Máxima"
-                            min="0" />
-                        </div>
-
-
-
-
-
-
-                        <h5 class="mb-1 concepto">Velocidad <small class="text-muted">(Km/h)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="number" id="velocidad-planteado" class="form-control" placeholder="Promedio"
-                            step="0.1" min="0" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="velocidad-real" class="form-control" placeholder="Máxima"
-                            step="0.1" min="0" />
-                        </div>
-
-
-
-
-
-
-                        <h5 class="mb-1 concepto">Cadencia <small class="text-muted">(RPM)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="number" id="cadencia-planteado" class="form-control" placeholder="Promedio"
-                            min="0" />
-                        </div>
-
-                        <div class="col-md-6 mb-3" style="margin-top: 5px;">
-                          <input type="number" id="cadencia-real" class="form-control" placeholder="Máxima"
-                            min="0" />
-                        </div>
-
-                      </div>
-
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/cube-secondary.png" alt="cube" class="rounded" />
+                      </div>                      
                     </div>
-
+                    <span class="d-block mb-0">Duración total:</span>
+                    <h6 class="card-title mb-1" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">81 : 26 : 17 </h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">2 : 45 : 21 </h6>
                   </div>
                 </div>
               </div>
 
-
-
-
-
-
-
-
-
-              <div class="col-md-4">
-                <div class="nav-align-top mb-3">
-                  <div class="tab-content">
-
-                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
-
-
-                      <div class="row g-3 pt-4">
-
-                        <h5 class="mb-1 concepto">TSS <small class="text-muted">(Factor de estres)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="text" id="tss-planteado" class="form-control" placeholder="Planteado" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="text" id="tss-real" class="form-control" placeholder="Real" />
-                        </div>
-
-
-
-
-                        <h5 class="mb-1 concepto">IF <small class="text-muted">(Factor de intensidad)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="if-planteado" class="form-control" placeholder="Planteado"
-                            step="0.1" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="if-real" class="form-control" placeholder="Real"
-                            step="0.1" />
-                        </div>
-
-
-
-
-
-
-
-                        <h5 class="mb-1 concepto">np <small class="text-muted">(Potencia normalizada)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="text" id="np-planteado" class="form-control" 
-                            placeholder="Planteada" />
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="np-real" class="form-control" placeholder="Real" />
-                        </div>
-
-
-
-
-
-
-
-                        <h5 class="mb-1 concepto">Trabajo <small class="text-muted">(KJ)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="text" id="trabajo-planteado" class="form-control" placeholder="Planteado" />
-                        </div>
-
-                        <div class="col-md-6 mb-3" style="margin-top: 5px;">
-                          <input type="number" id="trabajo-real" class="form-control" placeholder="Real"
-                            step="0.1" />
-                        </div>
-
-                      </div>
-                      
-                      
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img
+                          src="../../assets/img/icons/unicons/chart-success.png"
+                          alt="chart success"
+                          class="rounded"/>
+                      </div>                      
                     </div>
+                    <span class="d-block mb-0">Distancia total:</span>
+                    <h6 class="card-title mb-1">1,475 <small>Km</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">87.5 <small>Km</small></h6>
+                  </div>
+                </div>
+              </div>
 
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
+                      </div>                      
+                    </div>
+                    <span class="d-block mb-0">Calorías totales:</span>
+                    <h6 class="card-title mb-1">247,475 <small>Cal</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">648.5 <small>Cal</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
+                      </div>                      
+                    </div>
+                    <span class="d-block mb-0">Desnivel positivo:</span>
+                    <h6 class="card-title mb-1">47,475 <small>mts</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">1048.5 <small>mts</small></h6>
+                  </div>
+                </div>
+              </div>              
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>                      
+                    </div>
+                    <Span class="d-block mb-0">RPE total: 
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalRPE"
+                        style="padding: 0;"><i class='bx bx-info-circle'></i>
+                      </button>
+                    </Span>
+                    <h6 class="card-title mb-1">119 <small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">3.5<small></small></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-lg-12 col-12 mb-4">
+                <div class="card">
+
+                  <div class="card-header  header-elements">
+                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
+                  </div>   
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 12px;">
+                      <div class="tab-content text-center" style="padding: 2px;">
+
+                        <div class="mb-0" id="TiemDisElvEntreno1"></div>  
+                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
+                        **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
+                        <div class="mb-0" id="TiemDisElvEntreno2"></div>
+                       
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                      </div>                      
+                    </div>
+                    <span class="d-block mb-0">Factor de estres:</span>
+                    <h6 class="card-title mb-1">3,075 <small>TSS</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">92,5 <small>TSS</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/cube-secondary.png" alt="cube" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">Trabajo total:</span>
+                    <h6 class="card-title mb-1">82,475 <small>KJ</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">2048,5 <small>KJ</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img
+                          src="../../assets/img/icons/unicons/chart-success.png" alt="chart success" class="rounded"/>
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">TRIMPS:</span>
+                    <h6 class="card-title mb-1">18,050 <small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">534 <small></small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>                      
+                    </div>
+                    <span class="d-block mb-0">IF <small>(Factor de intensidad)</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">0,74 <small></small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">np <small>(Potencia normalizada)</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">296,5 <small>Watts</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">####### <small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">####<small>#####</small></h6>
+                  </div>
+                </div>
+              </div>
+              
+            </div>      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-lg-12 col-12 mb-4">
+                <div class="card">
+
+                  <div class="card-header  header-elements">
+                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
+                  </div>   
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 12px;">
+                      <div class="tab-content text-center" style="padding: 2px;">
+
+                        <div class="mb-0" id="TssIfNpEntreno1"></div>  
+                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
+                        **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
+                        <div class="mb-0" id="TssIfNpEntreno2"></div>
+                       
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>                      
+                    </div>
+                    <span class="d-block mb-0">FC basal <small>(Al despertar)</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0">74 <small>PPM</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">Horas de sueño:</span>
+                    <h6 class="card-title mb-1" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">253 : 32: 08</h6>
+
+
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <small>hh : mm : ss</small>">07 : 44 : 45</h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">Pasos:</span>
+                    <h6 class="card-title mb-1">207,475 <small></small></h6>
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0">6075 <small></small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
                   </div>
                 </div>
               </div>
@@ -1217,43 +1488,446 @@
 
 
 
-            <!-- Basic Layout -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          <div class="row mb-4">
+            <div class="col-md-4 col-lg-4 mb-md-0 mb-4">
+              <div class="card h-100">
+                <div class="card-header d-flex align-items-center justify-content-between" style="padding-bottom: 7px; padding-right: 20px; padding-left: 20px;">
+                  <h5 class="card-title m-0 me-2">Promedios totales de tu entrenamiento</h5>                  
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th style="padding-right: 3px;">Indicador</th>
+                        <th style="padding-right: 3px; padding-left: 3px; text-align: center">Máxima</th>
+                        <th style="padding-right: 3px; padding-left: 3px; text-align: center">Promedio</th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="padding-right: 3px;">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-0 text-truncate">Frecuencia cardíaca</h6>
+                              <small class="text-truncate text-muted">PPM</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">187</span></td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><small class="badge bg-label-warning rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">116</small></td>                        
+                      </tr>
+
+                      <tr>
+                        <td style="padding-right: 3px;">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-0 text-truncate">Potencia absoluta</h6>
+                              <small class="text-truncate text-muted">Watts</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">494,2</span></td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><small class="badge bg-label-warning rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">403,9</small></td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-right: 3px;">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-0 text-truncate">Potencia relativa</h6>
+                              <small class="text-truncate text-muted">Watts/Kg</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">7,06</span></td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><small class="badge bg-label-warning rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">5,77</small></td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-right: 3px;">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-0 text-truncate">Velocidad</h6>
+                              <small class="text-truncate text-muted">Km/h</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">67,7</span></td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><small class="badge bg-label-warning rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">7,4</small></td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-right: 3px;">
+                          <div class="d-flex justify-content-start align-items-center">
+                            <div class="d-flex flex-column">
+                              <h6 class="mb-0 text-truncate">Cadencia</h6>
+                              <small class="text-truncate text-muted">RPM</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">98</span></td>
+                        <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><small class="badge bg-label-warning rounded-pill text-uppercase" style="font-size: 14px; font-weight:600">67</small></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <div class="col-lg-2 col-12 mb-4">
+              <div class="card">
+                <div class="card-header header-elements" style="padding-bottom: 5px;">
+                  <div>
+                    <h5 class="card-title mb-0">Statistics</h5>
+                    <small class="text-muted">Commercial networks and enterprises</small>
+                  </div>
+                  <div class="card-header-elements ms-auto py-0" >
+                    <h5 class="fw-bold mb-0 me-3">$ 78,000</h5>
+                    <span class="badge bg-label-secondary">
+                      <i class="bx bx-up-arrow-alt bx-xs text-success"></i>
+                      <span class="align-middle">37%</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="card-body" style="text-align:center; padding-bottom: 15px;">
+                  <div id="progreso" ></div>
+                  <small >60 de 90 días de entreno</small>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="col-md-3 col-12 mb-4">
+              <div class="card">
+                <div class="card-header align-items-center justify-content-between" style="padding-bottom: 8px;">
+                  <h5 class="card-title mb-1">Tiempo de entreno por habilidad</h5>
+                  <div class="text-light small fw-semibold mb-2">h:m:s</div>                  
+                </div>
+
+                <div class="card-body">
+
+                
+                  
+                  <div class="demo-vertical-spacing">
+                    
+                    <h6 class="mb-0">Resistencia</h6>
+                    <div class="progress mt-0 mb-3">
+                      <div
+                        class="progress-bar bg-warning"
+                        role="progressbar"
+                        style="width: 25%"
+                        aria-valuenow="25"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        25%
+                      </div>
+                    </div>
+
+
+                    <h6 class="mb-0">Agilidad</h6>
+                    <div class="progress mt-0 mb-3">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 75%; background: #9BCB3B;"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        75%
+                      </div>
+                    </div>
+
+
+                    <h6 class="mb-0">Fuerza</h6>
+                    <div class="progress mt-0 mb-3">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 33%; background: #6610f2; color: #cbcbe2;"
+                        aria-valuenow="33"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        33%
+                      </div>
+                    </div>
+
+
+                    <h6 class="mb-0">Velocidad</h6>
+                    <div class="progress mt-0 mb-3">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: 45%; background: #007bff;"
+                        aria-valuenow="45"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        45%
+                      </div>
+                    </div>
+
+
+                    <h6 class="mb-0">Potencia</h6>
+                    <div class="progress mt-0 mb-2">
+                      <div
+                        class="progress-bar bg-danger"
+                        role="progressbar"
+                        style="width: 100%"
+                        aria-valuenow="100"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                        100%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+
+
+            
+          </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="row">
-              <div class="col-md-4">
-                <div class="card mb-0">
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Frecuencia cardíaca</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-1" placeholder="hh:mm:ss" />
+
+
+              <div class="col-lg-3 col-12 mb-4">
+                <div class="card">
+
+                  <div class="card-header  header-elements">
+                    <h5 class="card-title mb-0">New Product Data</h5>                    
+                  </div>   
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px;">
+                      <div class="tab-content" style="padding: 2px;">
+                        
+                          <div class="mb-0" id="DONA1"></div>                    
+
                       </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-2" placeholder="hh:mm:ss" />
+                    </div>
+                  
+                </div>
+              </div>              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="col-lg-12 col-12 mb-4">
+                <div class="card">
+
+                  <div class="card-header  header-elements" style="padding-left: 20px; padding-right: 20px; padding-top: 18px; padding-bottom: 5px;">
+                    <h5 class="card-title mb-0">Distancia recorrida <small>(Km)</small></h5>
+                    <div class="card-header-elements ms-auto py-0 d-sm-block" >
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                          <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#DistAcumYPromSem1Container" aria-controls="DistAcumYPromSem1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                            Semanal
+                          </button>
+                        </li>
+                        <li class="nav-item">
+                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#DistAcumYPromSem2Container" aria-controls="DistAcumYPromSem2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                            Mensual
+                          </button>
+                        </li>
+                        <li class="nav-item">
+                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#DistAcumYPromSem3Container" aria-controls="DistAcumYPromSem3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                            Por macrociclo
+                          </button>
+                        </li>
+                      </ul>                      
+                    </div>
+                  </div>   
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 3px;">
+                      <div class="tab-content" style="padding: 2px;">
+                        
+                        
+
+
+
+
+                        <div class="card accordion-item active">
+                          <h2 class="accordion-header" id="headingOne">
+                            <button
+                              type="button"
+                              class="accordion-button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionOne"
+                              aria-expanded="true"
+                              aria-controls="accordionOne"
+                            >
+                              Accordion Item 1
+                            </button>
+                          </h2>
+    
+                          <div
+                            id="accordionOne"
+                            class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              <div class="mb-0" id="DistAcumYPromSem1"></div>
+                            </div>
+                          </div>
+                        </div>
+    
+    
+                        
+                        <div class="card accordion-item">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button
+                              type="button"
+                              class="accordion-button collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionTwo"
+                              aria-expanded="false"
+                              aria-controls="accordionTwo"
+                            >
+                              Accordion Item 2
+                            </button>
+                          </h2>
+                          <div
+                            id="accordionTwo"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              <div class="mb-0" id="DistAcumYPromSem2"></div>
+                            </div>
+                          </div>
+                        </div>
+    
+                        
+                        <div class="card accordion-item">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button
+                              type="button"
+                              class="accordion-button collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionThree"
+                              aria-expanded="false"
+                              aria-controls="accordionThree"
+                            >
+                              Accordion Item 3
+                            </button>
+                          </h2>
+                          <div
+                            id="accordionThree"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-0" id="DistAcumYPromSem3"></div>
+
+
+
+                        <!-- <div class="tab-pane fade show active" id="DistAcumYPromSem1Container" role="tabpanel">
+                                                    
+                        </div>
+
+                        <div class="tab-pane fade" id="DistAcumYPromSem2Container" role="tabpanel">
+                          <div class="mb-0" id="DistAcumYPromSem2"></div>                                                    
+                        </div>
+
+
+                        <div class="tab-pane fade" id="DistAcumYPromSem3Container" role="tabpanel">
+                                                                         
+                        </div> -->
+
                       </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
-                  </div>
+                    </div>
+                  
                 </div>
               </div>
 
@@ -1261,90 +1935,61 @@
 
 
 
-              <div class="col-md-4">
-                <div class="card mb-0">
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Potencia</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-1" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-2" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="potencia-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
-                  </div>
-                </div>
-              </div>
 
 
 
 
 
 
-              <div class="col-md-4">
-                <div class="card mb-0">
 
 
 
 
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Velocidad</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-1" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-2" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
-                  </div>
-                </div>
-              </div>
+
+              
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
           </div>
@@ -1352,12 +1997,10 @@
 
 
 
-          <div class="col-12 text-center">
-            <button 
-            onclick="saveData()"
-            type="submit" class="btn btn-primary" style="width: 300px;">Guardar datos</button>          
-          </div>
-          
+
+
+
+
 
 
 
@@ -1421,9 +2064,7 @@
 
 
 
-
-
-
+          
 
 
 
@@ -1453,10 +2094,10 @@
     <div class="drag-target"></div>
   </div>
   <!-- / Layout wrapper -->
-  <script src="../../JS/planCiclismo.js"></script>
+
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  
   <script src="../../assets/vendor/libs/popper/popper.js"></script>
   <script src="../../assets/vendor/js/bootstrap.js"></script>
   <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -1477,9 +2118,12 @@
 
   <!-- Main JS -->
   <script src="../../assets/js/main.js"></script>
+  <!-- <script src="../../JS/graficos.js"></script> -->
+  <script src="../../JS/app-graficos.js"></script>
+
+
 
   <!-- Page JS -->
-  <script src="../../JS/classes.js"></script>
   <script src="../../assets/js/form-layouts.js"></script>
 </body>
 

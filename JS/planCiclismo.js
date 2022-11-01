@@ -550,3 +550,63 @@ function cyclingTrainingResult(idPerfilUser, evento) {
 }
 cyclingTrainingResult(1, "Ut Limited");
 // cyclingTrainingResultWeek(1, "Ut Limited", fechaIncioEntreno, fechaObjetivoDeport);
+function saveData(){
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+    Requests.get('/perfil/idPerfil',{
+        email: user.email
+    }).then(response=>response.json())
+    .then(data=>{
+        if(data.length == 0){
+            alert("Usuario no existe")
+        }else{
+            Requests.post('/planPsicologico/controlActitudinal/crear',{
+                "fkIdPerfilResultados": data[0].idPerfilUsuario,
+                "duracionEntrenamiento": hhmmss(
+                    parseInt(document.getElementById("HorasEntreno").value),
+                    parseInt(document.getElementById("MinutosEntreno").value),
+                    parseInt(document.getElementById("SegundosEntreno").value)
+                ),
+                "distanciaRecorrida": parseInt(document.getElementById("DistanciaEntreno").value),
+                "desnivelPositivoAcumu": parseInt(document.getElementById("DesnivelEntreno").value),
+                "fcMax": parseInt(document.getElementById("ppm-real").value),
+                "fcPromedio": parseInt(document.getElementById("ppm-planteado").value),
+                "potenciaMax": parseInt(document.getElementById("potencia-real").value),
+                "potenciaPromedio": parseInt(document.getElementById("potencia-planteado").value),
+                "velocidadMax": parseInt(document.getElementById("velocidad-real").value),
+                "velocidadPromedio": parseInt(document.getElementById("velocidad-planteado").value),
+                "cadenciaMax": parseInt(document.getElementById("cadencia-real").value),
+                "cadenciaPromedio": parseInt(document.getElementById("cadencia-planteado").value),
+                "tssmAx": parseInt(document.getElementById("tss-real").value),
+                "tssPromedio": parseInt(document.getElementById("tss-planteado").value),
+                "ifMax": parseInt(document.getElementById("if-real").value),
+                "ifPromedio": parseInt(document.getElementById("if-planteado").value),
+                "np": parseInt(document.getElementById("np-real").value),
+                "trabajoMax": parseInt(document.getElementById("trabajo-real").value),
+                "trabajoPromedio": parseInt(document.getElementById("trabajo-planteado").value),
+                "fcZona1": parseInt(document.getElementById("frecuencia-zona-1").value),
+                "fcZona2": parseInt(document.getElementById("frecuencia-zona-2").value),
+                "fcZona3": parseInt(document.getElementById("frecuencia-zona-3").value),
+                "fcZona4": parseInt(document.getElementById("frecuencia-zona-4").value),
+                "fcZona5": parseInt(document.getElementById("frecuencia-zona-5").value),
+                "fcZona6": parseInt(document.getElementById("frecuencia-zona-6").value),
+                "potenciaZona1": parseInt(document.getElementById("potencia-zona-1").value),
+                "potenciaZona2": parseInt(document.getElementById("potencia-zona-2").value),
+                "potenciaZona3": parseInt(document.getElementById("potencia-zona-3").value),
+                "potenciaZona4": parseInt(document.getElementById("potencia-zona-4").value),
+                "potenciaZona5": parseInt(document.getElementById("potencia-zona-5").value),
+                "potenciaZona6": parseInt(document.getElementById("potencia-zona-6").value),
+                "velocidadZona1": parseInt(document.getElementById("velocidad-zona-1").value),
+                "velocidadZona2": parseInt(document.getElementById("velocidad-zona-2").value),
+                "velocidadZona3": parseInt(document.getElementById("velocidad-zona-3").value),
+                "velocidadZona4": parseInt(document.getElementById("velocidad-zona-4").value),
+                "velocidadZona5": parseInt(document.getElementById("velocidad-zona-5").value),
+                "velocidadZona6": parseInt(document.getElementById("velocidad-zona-6").value),
+                "fechaRegistro": new Date(),
+                "estado": true
+              },{
+                "Content-Type":"application/json"
+              }).then(response=>response.json())
+              .then()
+        }
+    })
+}
