@@ -17,7 +17,6 @@ function hhmmss(h, m, s) {
 
 }
 
-
 // minutos(vrMinutos)
 function minutos(m) {
     try {
@@ -37,6 +36,35 @@ function minutos(m) {
     }
 }
 
+
+function startTrainingAndEndTraining(idPerfil) {
+    let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
+    let fi;
+    let ff;
+    fetch(url)
+        .then(response => response.json())
+        .then(respuesta => {
+            respuesta.forEach(dates => {
+                fi = dates.fechaInicialEntren;
+                // ff = dates.fechaObjetivo;
+                fims = fi.split(" ")
+                nfi = fims[0];
+                hoy = new Date(nfi).getTime();
+                ayer = new Date('2022', 9, 31).getTime()
+                diaMiliSeg = 86400000;
+                mesMiliSeg = 86400000 * 28;
+                dif = ayer + diaMiliSeg
+                mif = ayer + mesMiliSeg
+                console.log(new Date(dif).toLocaleDateString())
+                console.log(new Date(mif).toLocaleDateString())
+            });
+        });
+}
+// data = startTrainingAndEndTraining(1);
+// console.log(data)
+
+
+
 function fechaIncialEntrenamiento(idPerfil) {
     let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
     fetch(url)
@@ -46,13 +74,13 @@ function fechaIncialEntrenamiento(idPerfil) {
                 [fe] = f.fechaInicialEntren.split(" ");
                 [d, m, a] = fe.split("/")
                 newDate = a + "/" + m + "/" + d + " " + "12:00:00"
-                console.log(fe)
-                console.log(newDate)
+                // console.log(fe)
+                // console.log(newDate)
                 newDate = new Date(newDate);
-                currentlyDate= new Date();
-                if(newDate<currentlyDate){
+                currentlyDate = new Date();
+                if (newDate < currentlyDate) {
                     console.log(newDate, 'es menor a', currentlyDate)
-                }else{
+                } else {
                     console.log(newDate, 'no es menor', currentlyDate)
                 }
                 // console.log(newDate.getDate());
@@ -61,8 +89,8 @@ function fechaIncialEntrenamiento(idPerfil) {
             });
         });
 }
-data = fechaIncialEntrenamiento(1);
-console.log("Data:",data);
+// data = fechaIncialEntrenamiento(1);
+// console.log("Data:", data);
 
 
 function calcularDiferenciaDias(fechaIncioEntreno, fechaObjetivoDeport) {
@@ -396,11 +424,12 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             console.log("Tamaño del Arreglo:", resultadosEntrenamiento.length);
             let data = resultadosEntrenamiento.length;
             resultadosEntrenamiento.forEach(entrenamiento => {
-                // let [ano] = (entrenamiento.fechaRegistro).split(" ");
-                // let [anio, mes, dia] = (ano).split("/");
-                // console.log(dia+'-'+mes+'-'+anio);
-                // console.log((entrenamiento.fechaRegistro));
-
+                fie = entrenamiento.fechaEntrenamiento;
+                fe = entrenamiento.fechaEvento; 
+                console.log(entrenamiento);
+                console.log('F1:',entrenamiento.fechaEntrenamiento);
+                console.log('F2:',entrenamiento.fechaEvento);
+          
                 //======================================================================================================
                 //====  TOTALES ========================================================================================
                 //======================================================================================================
@@ -519,5 +548,5 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             console.log('Speed/ Tiempo Promedio Zona6 Total:', spTimeZoneSixAccumulatedTotal / data);
         });
 }
-// cyclingTrainingResult(1, "Ut Limited");
+cyclingTrainingResult(1, "Ut Limited");
 // cyclingTrainingResultWeek(1, "Ut Limited", fechaIncioEntreno, fechaObjetivoDeport);
