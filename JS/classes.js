@@ -9,7 +9,6 @@ class Requests{
     }
 
     static async post(url, data={}, headers={}){
-        console.log(data)
         let r = await fetch(this.baseUrl+url,{
             method: 'POST',
             // mode: 'no-cors',
@@ -21,6 +20,11 @@ class Requests{
     }
 
     static async patch(url, data={}){
+        if(data == {}){
+            return await fetch(this.baseUrl+url,{
+                method: 'PATCH'
+            })
+        }
         return await fetch(this.baseUrl+url+"?"+ $.param(data),{
             method: 'PATCH'
         })

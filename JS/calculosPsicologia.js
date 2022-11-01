@@ -277,38 +277,38 @@ function entrevistaInicialDia1() {
         var p7c = parseInt(document.getElementById("pregunta7CPsico").value);
         var sumatoria = p1 + p2 + p3 + p4 + (p5a + p5b + p5c) + (p6a + p6b + p6c) + (p7a + p7b + p7c);
 
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/entrevistaInicial_1/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5a,
+                    "pregunta_6": p5b,
+                    "pregunta_7": p5c,
+                    "pregunta_8": p6a,
+                    "pregunta_9": p6b,
+                    "pregunta_10": p6c,
+                    "pregunta_11": p7a,
+                    "pregunta_12": p7b,
+                    "pregunta_13": p7c,
+                    "resultadoTest": sumatoria,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'entrevista inicial',
-                        subtituloTest: 'parte 1',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
-        location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
-
+        location.href = "app-planPsicologico.html"
     } catch (e) {
         console.log(e, 'Funcion -> Entrevista Inicial Dia 1');
     }
@@ -341,36 +341,40 @@ function entrevistaInicialDia2() {
         var p14cF = document.getElementById("pregunta14FPsico").value;
 
         var sumatoria = p10 + p11 + (p12a + p12b + p12c);
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/entrevistaInicial_2/crear',{
+                    "pregunta_1": p8,
+                    "pregunta_2": p9,
+                    "pregunta_3": p10,
+                    "pregunta_4": p11,
+                    "pregunta_5": p12a,
+                    "pregunta_6": p12b,
+                    "pregunta_7": p12c,
+                    "respuesta_8": p13a,
+                    "respuesta_9": p13b,
+                    "respuesta_10": p14aD,
+                    "respuesta_11": p14bD,
+                    "respuesta_12": p14cD,
+                    "respuesta_13": p14aF,
+                    "respuesta_14": p14bF,
+                    "respuesta_15": p14cF,
+                    "resultadoTest": sumatoria,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'entrevista inicial',
-                        subtituloTest: 'parte 2',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
         location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
     } catch (e) {
         console.log(e, 'Funcion -> Entrevista Inicial Parte 2')
@@ -383,36 +387,28 @@ function listaEstresores() {
         var estresor3 = document.getElementById("pregunta15CPsico").value;
         var estresor4 = document.getElementById("pregunta15DPsico").value;
         var estresor5 = document.getElementById("pregunta15EPsico").value;
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/Estresores/crear',{
+                    "respuesta_1": estresor1,
+                    "respuesta_2": estresor2,
+                    "respuesta_3": estresor3,
+                    "respuesta_4": estresor4,
+                    "respuesta_5": estresor5,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'Lista de Estresores',
-                        subtituloTest: 'Lista de Estresores',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
         location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
     } catch (e) {
         console.log(e, 'Funcion -> Lista de Estresores');
@@ -425,36 +421,26 @@ function objetivosRealizacion() {
         var obj1 = document.getElementById("pregunta16APsico").value;
         var obj2 = document.getElementById("pregunta16BPsico").value;
         var obj3 = document.getElementById("pregunta16CPsico").value;
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/ObjetivosRealizacion/crear',{
+                    "respuesta_1": obj1,
+                    "respuesta_2": obj2,
+                    "respuesta_3": obj3,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'Objetivos de realizacion',
-                        subtituloTest: 'Lista de Estresores',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
         location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
     } catch (e) {
         console.log(e, 'Funcion -> Objetivos de realizacion');
@@ -470,36 +456,31 @@ function necesidadAceptacion() {
         var p6 = parseInt(document.getElementById("pregunta22Psico").value);
         var p7 = parseInt(document.getElementById("pregunta23Psico").value);
         var sumatoria = p1 + p2 + p3 + p4 + p5 + p6 + p7
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/NecesidadAceptacion/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "pregunta_7": p7,
+                    "resultadoTest": sumatoria,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'Test de creencias irracionales',
-                        subtituloTest: 'Necesidad de aceptacion',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
         location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
 
     } catch (e) {
@@ -515,36 +496,29 @@ function altasAutoexpectativas() {
         var p4 = parseInt(document.getElementById("pregunta27Psico").value);
         var p5 = parseInt(document.getElementById("pregunta28Psico").value);
         var sumatoria = p1 + p2 + p3 + p4 + p5;
-        const valores = window.location.search;
-        const urlParams = new URLSearchParams(valores);
-        var email = urlParams.get('email');
-        fetch('https://www.elsa360.com/perfil/idPerfil', {
-            method: 'GET',
-            body: JSON.stringify({
-                emailUsuario: email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
+        const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/AltasAutoexpectativas/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "resultadoTest": sumatoria,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
         })
-            .then((response) => response.json())
-            .then((idPerfil) => {
-                fetch('url', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        nombreTest: 'Test de creencias irracionales',
-                        subtituloTest: 'Altas autoexpectativas',
-                        resultadoTest: sumatoria,
-                        conclusionesTest: "",
-                        fkPerfilUsuarioTest: idPerfil,
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            });
         location.href = "html/vertical-menu-template/app-planPsicologico.html?" + email
     } catch (e) {
         console.log(e, 'Funcion -> Altas autoexpectativas')
@@ -560,7 +534,31 @@ function culpabilizacion() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
-    document.getElementById("resultadoTest").innerHTML = resultado;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/Culpabilizacion/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
+        document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function intoleranciaFrustracion() {
     var p1 = parseInt(document.getElementById("pregunta1").value);
@@ -570,6 +568,30 @@ function intoleranciaFrustracion() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/IntoleranciaFrustracion/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function preocupacionAnsiedad() {
@@ -579,6 +601,29 @@ function preocupacionAnsiedad() {
     var p4 = parseInt(document.getElementById("pregunta4").value);
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var resultado = p1 + p2 + p3 + p4 + p5;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/PreocupacionAnsiedad/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function irresponsabilidadEmocional() {
@@ -590,6 +635,31 @@ function irresponsabilidadEmocional() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var p7 = parseInt(document.getElementById("pregunta7").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6 + p7;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/IrresponsabilidadEmo/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "pregunta_7": p7,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function evitacionProblemas() {
@@ -597,6 +667,27 @@ function evitacionProblemas() {
     var p2 = parseInt(document.getElementById("pregunta2").value);
     var p3 = parseInt(document.getElementById("pregunta3").value);
     var resultado = p1 + p2 + p3;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/Indefension/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function dependencia() {
@@ -607,6 +698,30 @@ function dependencia() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/Dependencia/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function indefension() {
@@ -618,8 +733,32 @@ function indefension() {
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var p7 = parseInt(document.getElementById("pregunta7").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6 + p7;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/Indefension/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "pregunta_7": p7,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
-    console.log(borgh);
 }
 function perfeccionismo() {
     var p1 = parseInt(document.getElementById("pregunta1").value);
@@ -628,6 +767,29 @@ function perfeccionismo() {
     var p4 = parseInt(document.getElementById("pregunta4").value);
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var resultado = p1 + p2 + p3 + p4 + p5;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/autoconfianza/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function cualidadesDebilidadesTecFis() {
@@ -660,6 +822,40 @@ function cualidadesDebilidadesTecFis() {
     console.log(cf2 + ":" + rcf2);
     console.log(df1 + ":" + rdf1);
     console.log(df2 + ":" + rdf2);
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/CualiDebiTecnoFisica/crear',{
+                    "pregunta_1": rct1,
+                    "pregunta_2": rct2,
+                    "pregunta_3": rd1,
+                    "pregunta_4": rd2,
+                    "pregunta_5": rcf1,
+                    "pregunta_6": rcf2,
+                    "pregunta_7": rdf1,
+                    "pregunta_8": rdf2,
+                    "respuesta_1": ct1,
+                    "respuesta_2": ct2,
+                    "respuesta_3": dt1,
+                    "respuesta_4": dt2,
+                    "respuesta_5": cf1,
+                    "respuesta_6": cf2,
+                    "respuesta_7": df1,
+                    "respuesta_8": df2,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
 
 }
 function cualidadesDebilidadesPsicoPerso() {
@@ -692,6 +888,41 @@ function cualidadesDebilidadesPsicoPerso() {
     console.log(cf2 + ":" + rcf2);
     console.log(df1 + ":" + rdf1);
     console.log(df2 + ":" + rdf2);
+    let resultado = rct1 + rct2 + rd1 + rd2 + rcf1 + rcf2 + rdf1 + rdf2
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/CualiDebiPsicoPersonales/crear',{
+                    "pregunta_1": rct1,
+                    "pregunta_2": rct2,
+                    "pregunta_3": rd1,
+                    "pregunta_4": rd2,
+                    "pregunta_5": rcf1,
+                    "pregunta_6": rcf2,
+                    "pregunta_7": rdf1,
+                    "pregunta_8": rdf2,
+                    "respuesta_1": ct1,
+                    "respuesta_2": ct2,
+                    "respuesta_3": dt1,
+                    "respuesta_4": dt2,
+                    "respuesta_5": cf1,
+                    "respuesta_6": cf2,
+                    "respuesta_7": df1,
+                    "respuesta_8": df2,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
 
 }
 function autoconfianza() {
@@ -702,6 +933,30 @@ function autoconfianza() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/autoconfianza/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 
 }
@@ -713,6 +968,30 @@ function afrontamientoNeg() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/controlNeg/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function controlAtencional() {
@@ -723,6 +1002,30 @@ function controlAtencional() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/controlAtencional/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function controlVisuoImaginativo() {
@@ -733,6 +1036,31 @@ function controlVisuoImaginativo() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/controlVisuoImg/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
+    
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function nivelMotivacional() {
@@ -743,6 +1071,30 @@ function nivelMotivacional() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/nivelMotivacional/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function afrontamientoPos() {
@@ -753,6 +1105,30 @@ function afrontamientoPos() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+        Requests.get('/perfil/idPerfil',{
+            email: user.email
+        }).then(response=>response.json())
+        .then(data=>{
+            if(data.length == 0){
+                alert("Usuario no existe")
+            }else{
+                Requests.post('/planPsicologico/controlPositivo/crear',{
+                    "pregunta_1": p1,
+                    "pregunta_2": p2,
+                    "pregunta_3": p3,
+                    "pregunta_4": p4,
+                    "pregunta_5": p5,
+                    "pregunta_6": p6,
+                    "resultadoTest": resultado,
+                    "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                    "conclusionTest": ""
+                  },{
+                    "Content-Type":"application/json"
+                  }).then(response=>response.json())
+                  .then()
+            }
+        })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function controlActitudinal() {
@@ -763,6 +1139,30 @@ function controlActitudinal() {
     var p5 = parseInt(document.getElementById("pregunta5").value);
     var p6 = parseInt(document.getElementById("pregunta6").value);
     var resultado = p1 + p2 + p3 + p4 + p5 + p6;
+    const user = JSON.parse(window.sessionStorage.getItem("user"))
+    Requests.get('/perfil/idPerfil',{
+        email: user.email
+    }).then(response=>response.json())
+    .then(data=>{
+        if(data.length == 0){
+            alert("Usuario no existe")
+        }else{
+            Requests.post('/planPsicologico/controlActitudinal/crear',{
+                "pregunta_1": p1,
+                "pregunta_2": p2,
+                "pregunta_3": p3,
+                "pregunta_4": p4,
+                "pregunta_5": p5,
+                "pregunta_6": p6,
+                "resultadoTest": resultado,
+                "fkIdPerfilUsuario": data[0].idPerfilUsuario,
+                "conclusionTest": ""
+              },{
+                "Content-Type":"application/json"
+              }).then(response=>response.json())
+              .then()
+        }
+    })
     document.getElementById("resultadoTest").innerHTML = resultado;
 }
 function hamilton() {
