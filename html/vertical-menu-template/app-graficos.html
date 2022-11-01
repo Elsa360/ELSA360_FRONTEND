@@ -71,7 +71,7 @@
   </script>
   <div id="header"></div> -->
 
-  
+
 </head>
 
 <body>
@@ -988,6 +988,52 @@
 
 
 
+            <div class="row">
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos tus entrenos</button>
+              </div>
+              
+              
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+              </div>          
+
+              
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4">
+                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+              </div>
+
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1134,49 +1180,17 @@
                 <div class="card">
 
                   <div class="card-header  header-elements">
-                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida en cada entreno</h5>
-                    <div class="card-header-elements ms-auto py-0 d-sm-block">
-                      <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                          <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#TiemDisElvEntreno1Container" aria-controls="TiemDisElvEntreno1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Km
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#TiemDisElvEntreno2Container" aria-controls="TiemDisElvEntreno2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Hrs
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#TiemDisElvEntreno3Container" aria-controls="TiemDisElvEntreno3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Km/hr
-                          </button>
-                        </li>
-                      </ul>                      
-                    </div>
+                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
                   </div>   
 
                     <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 12px;">
-                      <div class="tab-content" style="padding: 2px;">
-                        
-                        <div class="tab-pane fade show active" id="TiemDisElvEntreno1Container" role="tabpanel">
-                          <div class="mb-0" id="TiemDisElvEntreno1"></div>  
-                          <div class="mb-0" id="TiemDisElvEntreno2"></div>                        
-                        </div>
+                      <div class="tab-content text-center" style="padding: 2px;">
 
-                        <div class="tab-pane fade" id="TiemDisElvEntreno2Container" role="tabpanel">
-                          <div class="mb-0" id="brush1"></div>    
-                          <div class="mb-0" id="brush2"></div>                                                
-                        </div>
-
-
-                        <div class="tab-pane fade" id="3Container" role="tabpanel">
-                          <div class="mb-0" id="3"></div>                                               
-                        </div>
-
+                        <div class="mb-0" id="TiemDisElvEntreno1"></div>  
+                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
+                        **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
+                        <div class="mb-0" id="TiemDisElvEntreno2"></div>
+                       
                       </div>
                     </div>
                   
@@ -1292,61 +1306,47 @@
                 </div>
               </div>
               
-            </div>
+            </div>      
 
 
 
 
 
 
-            <div class="col-lg-12 col-12 mb-4">
-              <div class="card">
 
-                <div class="card-header  header-elements" style="padding-left: 20px; padding-right: 20px; padding-top: 18px; padding-bottom: 5px;">
-                  <h5 class="card-title mb-2">Duración de tus entrenos <small>(hh:mm:ss)</small></h5>
-                  <div class="card-header-elements ms-auto py-0 d-sm-block" >
-                    <ul class="nav nav-tabs" role="tablist">
-                      <li class="nav-item">
-                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#1Container" aria-controls="1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          Semanal
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#2Container" aria-controls="2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          Mensual
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#3Container" aria-controls="3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          Por macrociclo
-                        </button>
-                      </li>
-                    </ul>                      
-                  </div>
-                </div>   
 
-                  <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 3px;">
-                    <div class="tab-content" style="padding: 2px;">
-                      
-                      <div class="tab-pane fade show active" id="1Container" role="tabpanel">
-                        <div class="mb-0" id="1"></div>                          
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-lg-12 col-12 mb-4">
+                <div class="card">
+
+                  <div class="card-header  header-elements">
+                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
+                  </div>   
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 12px;">
+                      <div class="tab-content text-center" style="padding: 2px;">
+
+                        <div class="mb-0" id="TssIfNpEntreno1"></div>  
+                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
+                        **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
+                        <div class="mb-0" id="TssIfNpEntreno2"></div>
+                       
                       </div>
-
-                      <div class="tab-pane fade" id="2Container" role="tabpanel">
-                        <div class="mb-0" id="2"></div>                                                    
-                      </div>
-
-
-                      <div class="tab-pane fade" id="3Container" role="tabpanel">
-                        <div class="mb-0" id="3"></div>                                               
-                      </div>
-
                     </div>
-                  </div>
-                
+                  
+                </div>
               </div>
             </div>
 
@@ -1776,92 +1776,7 @@
                     </div>
                   
                 </div>
-              </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-
-
-
-
-
-
-
-
-
-
-              <div class="col-lg-12 col-12 mb-4">
-                <div class="card">
-
-                  <div class="card-header  header-elements" style="padding-left: 20px; padding-right: 20px; padding-top: 18px; padding-bottom: 5px;">
-                    <h5 class="card-title mb-2">Duración de tus entrenos <small>(hh:mm:ss)</small></h5>
-                    <div class="card-header-elements ms-auto py-0 d-sm-block" >
-                      <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                          <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#DuraAcumYPromSem1Container" aria-controls="DuraAcumYPromSem1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Semanal
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#DuraAcumYPromSem2Container" aria-controls="DuraAcumYPromSem2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Mensual
-                          </button>
-                        </li>
-                        <li class="nav-item">
-                          <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                            data-bs-target="#DuraAcumYPromSem3Container" aria-controls="DuraAcumYPromSem3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                            Por macrociclo
-                          </button>
-                        </li>
-                      </ul>                      
-                    </div>
-                  </div>   
-
-                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 3px;">
-                      <div class="tab-content" style="padding: 2px;">
-                        
-                        <div class="tab-pane fade show active" id="DuraAcumYPromSem1Container" role="tabpanel">
-                          <div class="mb-0" id="DuraAcumYPromSem1"></div>                          
-                        </div>
-
-                        <div class="tab-pane fade" id="DuraAcumYPromSem2Container" role="tabpanel">
-                          <div class="mb-0" id="DuraAcumYPromSem2"></div>                                                    
-                        </div>
-
-
-                        <div class="tab-pane fade" id="DuraAcumYPromSem3Container" role="tabpanel">
-                          <div class="mb-0" id="DuraAcumYPromSem3"></div>                                               
-                        </div>
-
-                      </div>
-                    </div>
-                  
-                </div>
-              </div>
+              </div>              
 
 
 
@@ -1910,8 +1825,95 @@
                     <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 3px;">
                       <div class="tab-content" style="padding: 2px;">
                         
-                        <div class="tab-pane fade show active" id="DistAcumYPromSem1Container" role="tabpanel">
-                          <div class="mb-0" id="DistAcumYPromSem1"></div>                          
+                        
+
+
+
+
+                        <div class="card accordion-item active">
+                          <h2 class="accordion-header" id="headingOne">
+                            <button
+                              type="button"
+                              class="accordion-button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionOne"
+                              aria-expanded="true"
+                              aria-controls="accordionOne"
+                            >
+                              Accordion Item 1
+                            </button>
+                          </h2>
+    
+                          <div
+                            id="accordionOne"
+                            class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              <div class="mb-0" id="DistAcumYPromSem1"></div>
+                            </div>
+                          </div>
+                        </div>
+    
+    
+                        
+                        <div class="card accordion-item">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button
+                              type="button"
+                              class="accordion-button collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionTwo"
+                              aria-expanded="false"
+                              aria-controls="accordionTwo"
+                            >
+                              Accordion Item 2
+                            </button>
+                          </h2>
+                          <div
+                            id="accordionTwo"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              <div class="mb-0" id="DistAcumYPromSem2"></div>
+                            </div>
+                          </div>
+                        </div>
+    
+                        
+                        <div class="card accordion-item">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button
+                              type="button"
+                              class="accordion-button collapsed"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordionThree"
+                              aria-expanded="false"
+                              aria-controls="accordionThree"
+                            >
+                              Accordion Item 3
+                            </button>
+                          </h2>
+                          <div
+                            id="accordionThree"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-0" id="DistAcumYPromSem3"></div>
+
+
+
+                        <!-- <div class="tab-pane fade show active" id="DistAcumYPromSem1Container" role="tabpanel">
+                                                    
                         </div>
 
                         <div class="tab-pane fade" id="DistAcumYPromSem2Container" role="tabpanel">
@@ -1920,8 +1922,8 @@
 
 
                         <div class="tab-pane fade" id="DistAcumYPromSem3Container" role="tabpanel">
-                          <div class="mb-0" id="DistAcumYPromSem3"></div>                                               
-                        </div>
+                                                                         
+                        </div> -->
 
                       </div>
                     </div>
