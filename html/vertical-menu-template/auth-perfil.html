@@ -55,7 +55,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body onload="validarCuenta()">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -211,7 +211,7 @@
                                     <span class="custom-option-title"> Mujer </span>
                                     <!-- <small>Submit property as an Individual. Lease, Rent or Sell at the best price.</small> -->
                                   </span>
-                                  <input name="sexo" class="form-check-input" type="radio" value="mujer" id="sexoMujer" />
+                                  <input name="sexo" class="form-check-input" type="radio" value="mujer" id="sexoMujer" checked />
                                 </label>
                               </div>
                             </div>
@@ -234,13 +234,13 @@
 
                         <div class="col-sm-6">
                           <label class="form-label" for="plLastName">Peso actual</label>
-                          <input class="form-control" type="number" id="pesoUsuario" name="Peso" placeholder="¿Cuanto pesas (kg)? (Ej:72,7)" step="0.1">                          
+                          <input class="form-control" min="0" type="number" id="pesoUsuario" name="Peso" placeholder="¿Cuanto pesas (kg)? (Ej:72,7)" step="0.1">                          
                         </div>
 
 
                         <div class="col-sm-6">
                           <label class="form-label" for="plUserName">Estatura</label>
-                          <input class="form-control" type="number" id="estaturaUsuario" name="Estatura" placeholder="¿Cuánto mides (cms)? (Ej: 174)">                          
+                          <input class="form-control" min="0" type="number" id="estaturaUsuario" name="Estatura" placeholder="¿Cuánto mides (cms)? (Ej: 174)">                          
                         </div>        
 
 
@@ -305,8 +305,8 @@
                           <label class="form-label" for="plEmail">Tipo de dieta</label>
                           <select class="form-control" name="Tipo de dieta" id="tipoDietaUsuario">
                             <option value="-1" disabled selected>¿Qué dieta sigues?</option>
-                            <option value="regular">Regular</option>
-                            <option value="vegetariana">Vegetariana</option>
+                            <option value="1">Regular</option>
+                            <option value="2">Vegetariana</option>
                             <!-- <option value="vegana">Vegana</option> -->
                           </select>
                           <i></i> 
@@ -318,9 +318,9 @@
                                   <label class="form-label" for="plEmail">Tipo de cuerpo</label>
                                   <select class="form-control" name="tipoCuerpo" id="tipoCuerpoUsuario">
                                     <option value="-1" disabled selected>¿Qué tipo de cuerpo tienes?</option>
-                                    <option value="ectomorfo">Ectomorfo</option>
-                                    <option value="mesomorfo">Mesomorfo</option>
-                                    <option value="endomorfo">Endomorfo</option>
+                                    <option value="1">Ectomorfo</option>
+                                    <option value="2">Mesomorfo</option>
+                                    <option value="3">Endomorfo</option>
                                   </select>
                                   <i></i>
         
@@ -468,7 +468,7 @@
                                     <span class="custom-option-title">Mejorar rendimiento</span>
                                     <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
                                   </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="rendimiento" id="rendimiento" checked/>
+                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="1" id="rendimiento" checked/>
                                 </label>
                               
                               </div>
@@ -485,7 +485,7 @@
                                     <span class="custom-option-title">Salud</span>
                                     <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
                                   </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="salud" id="salud"/>
+                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="2" id="salud"/>
                                 </label>
                               
                               </div>
@@ -502,7 +502,7 @@
                                     <span class="custom-option-title">Entretenimiento</span>
                                     <!-- <small>Post your property for rent.<br /> Unlimited free listing.</small> -->
                                   </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="entretenimiento" id="entretenimiento"/>
+                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="3" id="entretenimiento"/>
                                 </label>
                              
                               </div>
@@ -640,7 +640,7 @@
 
 
                               <label class="switch switch-success switchDispositivo">
-                                <input value="2" id="pulsometro" type="checkbox" class="switch-input"/>
+                                <input value="1" id="pulsometro" type="checkbox" class="switch-input"/>
 
                                 <span class="switch-toggle-slider">
                                   <span class="switch-on">
@@ -660,7 +660,7 @@
 
 
                               <label class="switch switch-success switchDispositivo">
-                                <input value="3" id="cadenciometro" type="checkbox" class="switch-input"/>
+                                <input value="1" id="cadenciometro" type="checkbox" class="switch-input"/>
 
                                 <span class="switch-toggle-slider">
                                   <span class="switch-on">
@@ -679,7 +679,7 @@
 
 
                               <label class="switch switch-success switchDispositivo">
-                                <input value="4" id="velocimetro" type="checkbox" class="switch-input"/>
+                                <input value="1" id="velocimetro" type="checkbox" class="switch-input"/>
 
                                 <span class="switch-toggle-slider">
                                   <span class="switch-on">
@@ -724,7 +724,7 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
                           </button>
-                          <input type="button" class="btn btn-success btn-submit btn-next" style="font-weight: 600;" value="Enviar datos" onclick="registrarPerfilUsuario()"/>
+                          <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos" onclick="idUsuario()"/>
                         </div>
                       </div>
                     </div>
@@ -914,6 +914,6 @@
 
     <script src="../../assets/js/wizard-ex-property-listing.js"></script>
     <script src="../../JS/classes.js"></script>
-    <script src="../../JS/User/perfil.js"></script>
+    <script src="../../JS/User/user.js"></script>
   </body>
 </html>
