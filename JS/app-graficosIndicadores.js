@@ -109,7 +109,7 @@ function durElvDistEntreno(
         autoSelected: 'pan',
         show: true,
         offsetX: -40,
-        offsetY: -40,
+        offsetY: 0,
         tools: {
           download: true,
           selection: false,
@@ -120,6 +120,16 @@ function durElvDistEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+      }
+    },
+    title:{
+      text: 'FC, potencia, velocidad y cadencia de tus entrenos',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {

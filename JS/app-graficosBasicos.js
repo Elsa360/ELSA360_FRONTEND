@@ -85,7 +85,7 @@ function durElvDistEntreno(
         autoSelected: 'pan',
         show: true,
         offsetX: -40,
-        offsetY: -40,
+        offsetY: 0,
         tools: {
           download: true,
           selection: false,
@@ -96,6 +96,16 @@ function durElvDistEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+      }
+    },
+    title:{
+      text: 'Duración, distancia recorrida y desnivel positivo de tus entrenos',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {
@@ -188,16 +198,16 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           color: '#9bcb3b',
-          offsetX: 20,
+          offsetX: 10,
         },
         axisBorder: {
           show: true,
           color: '#9bcb3b',
-          offsetX: -15,
+          offsetX: -10,
         },
         labels: {
           rotate: 90,
-          offsetX: -20,
+          offsetX: -10,
           style: {
             colors: '#9bcb3b',
             fontSize:'10px'
@@ -208,19 +218,20 @@ function durElvDistEntreno(
         }
       },
       {
+        opposite: true,
         axisTicks: {
           show: true,
           color: '#b2e2f2',
-          offsetX: 20,
+          offsetX: 10,
         },
         axisBorder: {
           show: true,
           color: '#b2e2f2',
-          offsetX: -15,
+          offsetX: -10,
         },
         labels: {
           rotate: 90,
-          offsetX: -15,
+          offsetX: -10,
           style: {
             colors: '#b2e2f2',
             fontSize:'9px',
@@ -231,16 +242,16 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           color: '#007bff',
-          offsetX: 20,
+          offsetX: 2,
         },
         axisBorder: {
           show: true,
           color: '#007bff',
-          offsetX: -15,
+          offsetX: -2,
         },
         labels: {
           rotate: 90,
-          offsetX: -15,
+          offsetX: -2,
           style: {
             colors: '#007bff',
             fontSize:'9px',
