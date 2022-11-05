@@ -137,7 +137,7 @@ function TssIfNpEntreno(
       }
     },
     stroke: {
-      width: [0, 0, 0, 4, 3, 4, 3, 4, 3, 4, 3],
+      width: [0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4],
       curve: 'smooth',
       colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00", "#4bc0c0","#FF7000"],
     },
@@ -379,7 +379,6 @@ function TssIfNpEntreno(
   TssIfNpEntreno1.render();
   TssIfNpEntreno1.toggleSeries('TRIMPS')
   TssIfNpEntreno1.toggleSeries('Trabajo (KJ)')
-  TssIfNpEntreno1.toggleSeries('RPE')
   TssIfNpEntreno1.toggleSeries('Calorías')
   
   

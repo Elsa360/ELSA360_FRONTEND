@@ -87,23 +87,23 @@ if (typeof TemplateCustomizer !== 'undefined') {
     cssPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
     themesPath: assetsPath + 'vendor/css' + (rtlSupport ? '/rtl' : '') + '/',
     displayCustomizer: false,
-    // lang: 'fr',
-    // defaultTheme: 2,
-    // defaultStyle: 'light',
+    // lang: 'es',
+    defaultTheme: 1,
+    defaultStyle: 'dark',
     // defaultTextDir: 'ltr',
-    // defaultLayoutType: 'fixed',
+    defaultLayoutType: 'fixed',
     // defaultMenuCollapsed: true,
-    // defaultNavbarFixed: true,
+    defaultNavbarFixed: false,
     // defaultFooterFixed: false
-    defaultShowDropdownOnHover: true
-    // controls: [
-    //   'rtl',
-    //   'style',
-    //   'layoutType',
-    //   'showDropdownOnHover',
-    //   'layoutNavbarFixed',
-    //   'layoutFooterFixed',
-    //   'themes'
-    // ],
+    defaultShowDropdownOnHover: false,
+    controls: [
+      'rtl',
+      'style',
+      'layoutType',
+      'showDropdownOnHover',
+      'layoutNavbarFixed',
+      'layoutFooterFixed',
+      'themes'
+    ],
   });
 }
