@@ -16,40 +16,31 @@ document.addEventListener('DOMContentLoaded', function (e) {
           currentPassword: {
             validators: {
               notEmpty: {
-                message: 'Please current password'
+                message: 'Ingresa tu contraseña actual'
               },
-              stringLength: {
-                min: 8,
-                message: 'Password must be more than 8 characters'
-              }
+              
             }
           },
           newPassword: {
             validators: {
               notEmpty: {
-                message: 'Please enter new password'
+                message: 'Define tu nueva contraseña'
               },
-              stringLength: {
-                min: 8,
-                message: 'Password must be more than 8 characters'
-              }
+              
             }
           },
           confirmPassword: {
             validators: {
               notEmpty: {
-                message: 'Please confirm new password'
+                message: 'Confirma tu contraseña'
               },
               identical: {
                 compare: function () {
                   return formChangePass.querySelector('[name="newPassword"]').value;
                 },
-                message: 'The password and its confirm are not the same'
+                message: 'Las contraseñas no coinciden'
               },
-              stringLength: {
-                min: 8,
-                message: 'Password must be more than 8 characters'
-              }
+              
             }
           }
         },

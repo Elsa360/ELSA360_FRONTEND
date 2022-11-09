@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -47,7 +47,7 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
-html/vertical-menu-template/pages-account-security.html  </head>
+  </head>
 
   <body>
     <!-- Layout wrapper -->
@@ -110,12 +110,12 @@ html/vertical-menu-template/pages-account-security.html  </head>
 
 
             <!-- Calendario -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="app-calendar.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-calendar"></i>
                 <div data-i18n="Calendario">Calendario</div>
               </a>
-            </li>
+            </li> -->
 
             <!-- Graficas -->
             <li class="menu-item">
@@ -261,12 +261,12 @@ html/vertical-menu-template/pages-account-security.html  </head>
 
 
             <!-- FAQ -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="pages-faq.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-help-circle"></i>
                 <div data-i18n="FAQ">FAQ</div>
               </a>
-            </li> 
+            </li>  -->
             
 
             <!-- Terminos y condiciones-->
@@ -841,18 +841,18 @@ html/vertical-menu-template/pages-account-security.html  </head>
 
 
 
-                    <li>
+                    <!-- <li>
                       <a class="dropdown-item" href="pages-faq.html">
                         <i class="bx bx-help-circle me-2"></i>
                         <span class="align-middle">FAQ</span>
                       </a>
-                    </li>
+                    </li> -->
                     
 
                     <!-- Divisor -->
-                    <li>
+                    <!-- <li>
                       <div class="dropdown-divider"></div>
-                    </li>
+                    </li> -->
 
 
                     <li>
@@ -954,6 +954,21 @@ html/vertical-menu-template/pages-account-security.html  </head>
 
 
 
+                  <div class="row">
+                    <div class="col-md-12 col-12 mb-md-0 mb-4">
+                      <div class="alert alert-danger" role="alert">
+                        <span style="font-weight:800">¡PRÓXIMAMENTE!</span>  Estamos trabajando duro para que pronto puedas conectar tus dispositivos de tracking a tus entrenos de ELSA,
+                        y así poder darte una mejor actualización y retroalimentación de tu proceso.                       
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
 
                   <div class="row">
                     <div class="col-md-6 col-12 mb-md-0 mb-4">
@@ -968,21 +983,21 @@ html/vertical-menu-template/pages-account-security.html  </head>
                           <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
                               <img
-                                src="../../assets/img/icons/brands/google.png" alt="google" class="me-3" height="30"/>
+                                src="../../assets/img/icons/brands/StravaConnection.png" alt="Strava" class="me-3" height="55"/>
                             </div>         
 
                             <div class="flex-grow-1 row">
                               <div class="col-9 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Google</h6>
-                                <small class="text-muted">Calendario y contactos</small>
+                                <h6 class="mb-0">Strava</h6>
+                                <small class="text-muted">Ranking de tus entrenos/Tramos</small>
                               </div>
 
                               <div class="col-3 text-end">
-                                <label class="switch me-0">
-                                  <input type="checkbox" class="switch-input" checked />
+                                <label class="switch switch-success me-0">
+                                  <input type="checkbox" class="switch-input" disabled/>
                                   <span class="switch-toggle-slider">
-                                    <span class="switch-on">
-                                      <i class="bx bx-check"></i>
+                                    <span class="switch-on" >
+                                      <i class="bx bx-check" style="color: #2b2c40; font-weight: 800"></i>
                                     </span>
                                     <span class="switch-off">
                                       <i class="bx bx-x"></i>
@@ -998,49 +1013,19 @@ html/vertical-menu-template/pages-account-security.html  </head>
 
                           <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
-                              <img src="../../assets/img/icons/brands/slack.png" alt="slack" class="me-3" height="30" />
+                              <img src="../../assets/img/icons/brands/GarminConnection.png" alt="Garmin" class="me-3" height="55" />
                             </div>
                             <div class="flex-grow-1 row">
                               <div class="col-9 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Slack</h6>
-                                <small class="text-muted">Communication</small>
+                                <h6 class="mb-0">Garmin</h6>
+                                <small class="text-muted">Mide y controla tus datos y mejora tu performance</small>
                               </div>
                               <div class="col-3 text-end">
-                                <label class="switch me-0">
-                                  <input type="checkbox" class="switch-input" />
+                                <label class="switch switch-success me-0">
+                                  <input type="checkbox" class="switch-input" disabled />
                                   <span class="switch-toggle-slider">
                                     <span class="switch-on">
-                                      <i class="bx bx-check"></i>
-                                    </span>
-                                    <span class="switch-off">
-                                      <i class="bx bx-x"></i>
-                                    </span>
-                                  </span>
-                                  <span class="switch-label"></span>
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-flex mb-3">
-                            <div class="flex-shrink-0">
-                              <img
-                                src="../../assets/img/icons/brands/github.png"
-                                alt="github"
-                                class="me-3"
-                                height="30"
-                              />
-                            </div>
-                            <div class="flex-grow-1 row">
-                              <div class="col-9 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Github</h6>
-                                <small class="text-muted">Manage your Git repositories</small>
-                              </div>
-                              <div class="col-3 text-end">
-                                <label class="switch me-0">
-                                  <input type="checkbox" class="switch-input" checked />
-                                  <span class="switch-toggle-slider">
-                                    <span class="switch-on">
-                                      <i class="bx bx-check"></i>
+                                      <i class="bx bx-check" style="color: #2b2c40; font-weight: 800"></i>
                                     </span>
                                     <span class="switch-off">
                                       <i class="bx bx-x"></i>
@@ -1054,23 +1039,47 @@ html/vertical-menu-template/pages-account-security.html  </head>
                           <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
                               <img
-                                src="../../assets/img/icons/brands/mailchimp.png"
-                                alt="mailchimp"
-                                class="me-3"
-                                height="30"
+                                src="../../assets/img/icons/brands/WahooConnection.png" alt="Wahoo" class="me-3" height="55"
                               />
                             </div>
                             <div class="flex-grow-1 row">
                               <div class="col-9 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Mailchimp</h6>
-                                <small class="text-muted">Email marketing service</small>
+                                <h6 class="mb-0">Wahoo</h6>
+                                <small class="text-muted">Saca el mejor provecho al indoor y al outdoor</small>
                               </div>
                               <div class="col-3 text-end">
-                                <label class="switch me-0">
-                                  <input type="checkbox" class="switch-input" checked />
+                                <label class="switch switch-success me-0">
+                                  <input type="checkbox" class="switch-input" disabled/>
                                   <span class="switch-toggle-slider">
                                     <span class="switch-on">
-                                      <i class="bx bx-check"></i>
+                                      <i class="bx bx-check" style="color: #2b2c40; font-weight: 800"></i>
+                                    </span>
+                                    <span class="switch-off">
+                                      <i class="bx bx-x"></i>
+                                    </span>
+                                  </span>
+                                  <span class="switch-label"></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                              <img
+                                src="../../assets/img/icons/brands/PolarConnection.png" alt="Polar" class="me-3" height="55"
+                              />
+                            </div>
+                            <div class="flex-grow-1 row">
+                              <div class="col-9 mb-sm-0 mb-2">
+                                <h6 class="mb-0">Polar</h6>
+                                <small class="text-muted">Escucha lo que te dice tu cuerpo</small>
+                              </div>
+                              <div class="col-3 text-end">
+                                <label class="switch switch-success me-0">
+                                  <input type="checkbox" class="switch-input" disabled />
+                                  <span class="switch-toggle-slider">
+                                    <span class="switch-on">
+                                      <i class="bx bx-check" style="color: #2b2c40; font-weight: 800"></i>
                                     </span>
                                     <span class="switch-off">
                                       <i class="bx bx-x"></i>
@@ -1083,19 +1092,19 @@ html/vertical-menu-template/pages-account-security.html  </head>
                           </div>
                           <div class="d-flex">
                             <div class="flex-shrink-0">
-                              <img src="../../assets/img/icons/brands/asana.png" alt="asana" class="me-3" height="30" />
+                              <img src="../../assets/img/icons/brands/SuuntoConnection.png" alt="Suunto" class="me-3" height="55" />
                             </div>
                             <div class="flex-grow-1 row">
                               <div class="col-9 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Asana</h6>
-                                <small class="text-muted">Communication</small>
+                                <h6 class="mb-0">Suunto</h6>
+                                <small class="text-muted">Rueda por la experiencia, por la curiosidad</small>
                               </div>
                               <div class="col-3 text-end">
-                                <label class="switch me-0">
-                                  <input type="checkbox" class="switch-input" />
+                                <label class="switch switch-success me-0">
+                                  <input type="checkbox" class="switch-input" disabled />
                                   <span class="switch-toggle-slider">
                                     <span class="switch-on">
-                                      <i class="bx bx-check"></i>
+                                      <i class="bx bx-check" style="color: #2b2c40; font-weight: 800"></i>
                                     </span>
                                     <span class="switch-off">
                                       <i class="bx bx-x"></i>
@@ -1121,6 +1130,36 @@ html/vertical-menu-template/pages-account-security.html  </head>
                         <div class="card-body">
                           <!-- <p>Display content from social accounts on your site</p> -->
                           <!-- Social Accounts -->
+
+
+                          <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                              <img
+                                src="../../assets/img/icons/brands/instagram.png"
+                                alt="instagram"
+                                class="me-3"
+                                height="30"
+                              />
+                            </div>
+                            <div class="flex-grow-1 row">
+                              <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                <h6 class="mb-0">instagram</h6>
+                                <small class="text-muted">No tienes ninguna cuenta enlazada</small>
+                                <!-- <a href="https://www.instagram.com/elsa.360/" target="_blank">@elsa.360</a> -->
+                              </div>
+                              <div class="col-4 col-sm-5 text-end">
+                                <button type="button" class="btn btn-icon btn-label-secondary">
+                                  <i class="bx bx-link-alt"></i>
+                                </button>
+                                <!-- <button type="button" class="btn btn-icon btn-label-danger">
+                                  <i class="bx bx-trash-alt"></i>
+                                </button> -->
+                              </div>
+                            </div>
+                          </div>
+
+
+
                           <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
                               <img
@@ -1133,16 +1172,23 @@ html/vertical-menu-template/pages-account-security.html  </head>
                             <div class="flex-grow-1 row">
                               <div class="col-8 col-sm-7 mb-sm-0 mb-2">
                                 <h6 class="mb-0">Facebook</h6>
-                                <small class="text-muted">Not Connected</small>
+                                <small class="text-muted">No tienes ninguna cuenta enlazada</small>
+                                <!-- <a href="https://www.facebook.com/elsa360/" target="_blank">ELSA 360</a> -->
                               </div>
                               <div class="col-4 col-sm-5 text-end">
                                 <button type="button" class="btn btn-icon btn-label-secondary">
                                   <i class="bx bx-link-alt"></i>
                                 </button>
+                                <!-- <button type="button" class="btn btn-icon btn-label-danger">
+                                  <i class="bx bx-trash-alt"></i>
+                                </button> -->
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex mb-3">
+
+
+
+                          <!-- <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
                               <img
                                 src="../../assets/img/icons/brands/twitter.png"
@@ -1162,50 +1208,15 @@ html/vertical-menu-template/pages-account-security.html  </head>
                                 </button>
                               </div>
                             </div>
-                          </div>
-                          <div class="d-flex mb-3">
-                            <div class="flex-shrink-0">
-                              <img
-                                src="../../assets/img/icons/brands/instagram.png"
-                                alt="instagram"
-                                class="me-3"
-                                height="30"
-                              />
-                            </div>
-                            <div class="flex-grow-1 row">
-                              <div class="col-8 col-sm-7 mb-sm-0 mb-2">
-                                <h6 class="mb-0">instagram</h6>
-                                <a href="https://www.instagram.com/themeselection/" target="_blank">@ThemeSelection</a>
-                              </div>
-                              <div class="col-4 col-sm-5 text-end">
-                                <button type="button" class="btn btn-icon btn-label-danger">
-                                  <i class="bx bx-trash-alt"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-flex mb-3">
-                            <div class="flex-shrink-0">
-                              <img
-                                src="../../assets/img/icons/brands/dribbble.png"
-                                alt="dribbble"
-                                class="me-3"
-                                height="30"
-                              />
-                            </div>
-                            <div class="flex-grow-1 row">
-                              <div class="col-8 col-sm-7 mb-sm-0 mb-2">
-                                <h6 class="mb-0">Dribbble</h6>
-                                <small class="text-muted">Not Connected</small>
-                              </div>
-                              <div class="col-4 col-sm-5 text-end">
-                                <button type="button" class="btn btn-icon btn-label-secondary">
-                                  <i class="bx bx-link-alt"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="d-flex">
+                          </div> -->
+
+
+                          
+
+                          
+
+
+                          <!-- <div class="d-flex">
                             <div class="flex-shrink-0">
                               <img
                                 src="../../assets/img/icons/brands/behance.png"
@@ -1217,7 +1228,7 @@ html/vertical-menu-template/pages-account-security.html  </head>
                             <div class="flex-grow-1 row">
                               <div class="col-8 col-sm-7 mb-sm-0 mb-2">
                                 <h6 class="mb-0">Behance</h6>
-                                <small class="text-muted">Not Connected</small>
+                                <small class="text-muted">No tienes ninguna cuenta enlazada</small>
                               </div>
                               <div class="col-4 col-sm-5 text-end">
                                 <button type="button" class="btn btn-icon btn-label-secondary">
@@ -1225,7 +1236,10 @@ html/vertical-menu-template/pages-account-security.html  </head>
                                 </button>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
+
+
+
                           <!-- /Social Accounts -->
                         </div>
                       </div>

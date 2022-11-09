@@ -655,3 +655,93 @@ Responsive
 
 
 /* END MODAL LIFE */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL PROS */
+
+.container-modalPros{
+  opacity: 0;
+  visibility: hidden;        
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;    
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalPros{
+  width: 570px;
+  background-color: #232333;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.modal-closePros{
+  transform: translateY(-200%);
+}
+
+.closeContainerPros{
+  background-color: #9BCB3B;
+  right: 5px;
+  padding: 15px 10px;
+}
+
+.closeModalPros{
+  position: absolute;
+  font-weight: 800;
+  cursor: pointer;   
+  top: 5px;
+  right: 15px; 
+}
+
+.modalPros h2{
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.ProsDescripcionContainer{
+  width: 100%;
+}
+
+.ProsDescripcion{
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+
+
+/* END MODAL PROS */
