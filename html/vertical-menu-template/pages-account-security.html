@@ -959,7 +959,7 @@
                   <div class="card mb-4">
                     <h5 class="card-header">Cambiar contraseña</h5>
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form id="formAccountSettings">
                         <div class="row">
                           <div class="mb-3 col-md-6 form-password-toggle">
                             <label class="form-label" for="currentPassword">Contraseña actual</label>
@@ -1013,7 +1013,7 @@
                             </ul>
                           </div>
                           <div class="col-12 mt-1">
-                            <button type="submit" class="btn btn-success me-2">Guardar cambios</button>
+                            <button type="button" class="btn btn-success me-2" onclick="changePassword()">Guardar cambios</button>
                             <button type="reset" class="btn btn-label-secondary">Cancelar</button>
                           </div>
                         </div>
@@ -1268,5 +1268,6 @@
     <!-- Page JS -->
     <script src="../../assets/js/pages-account-settings-security.js"></script>
     <script src="../../assets/js/modal-enable-otp.js"></script>
+    <script src="../../JS/User/user.js"></script>
   </body>
 </html>

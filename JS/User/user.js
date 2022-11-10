@@ -63,7 +63,7 @@ async function verificarUsuario(email, nombreUsuario) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                setTimeout(100);
+                setTimeout(10);
                 location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
             })
     } catch (e) {
@@ -75,13 +75,13 @@ async function validarCuenta() {
         const emailUsuario = window.location.search;
         const urlParams = new URLSearchParams(emailUsuario);
         let emailValidado = urlParams.get("emailVerificado");
-        let url ="https://localhost:7155/usuario/verificar?correoElectronico="+emailValidado+"";
+        let url = "https://localhost:7155/usuario/verificar?correoElectronico=" + emailValidado + "";
         // let url = "https://localhost:7155/usuario/verificar";
         fetch(url, {
-            method: 'PATCH',
-            // body: JSON.stringify({
-            //     email: emailValidado,
-            // }),
+            method: 'PUT',
+            body: JSON.stringify({
+                email: emailValidado,
+            }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
@@ -99,12 +99,12 @@ async function idUsuario() {
     try {
         const emailUsuario = window.location.search;
         const urlParams = new URLSearchParams(emailUsuario);
-        let emailUser = urlParams.get("emailUser");
+        let emailUser = urlParams.get("emailVerificado");
         let url = "https://localhost:7155/usuario/idUser?email=" + emailUser + ""
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach( usuario => {
+                respuesta.forEach(usuario => {
                     idUser = usuario.idUsuario;
                 });
                 perfilar(parseInt(idUser));
@@ -187,20 +187,98 @@ async function perfilar(idUser) {
             .then((response) => response.json())
             .then((json) => {
                 alert("Perfilamiento exitoso"),
-                location.href = "free-data.html";
+                    location.href = "free-data.html";
 
             });
     } catch (e) {
         console.log(e);
     }
 }
-async function login(){
+async function login() {
     try {
         let emailUser = document.getElementById("emailLogin").value;
         let contraUser = document.getElementById("passwordLogin").value;
         console.log(emailUser);
         console.log(contraUser);
+        let url = "https://localhost:7155/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                respuesta.forEach(idUser => {
+                    let loggin = idUser.idUsuario;
+                    console.log(loggin);
+                    if (parseInt(loggin) === 1) {
+                        sessionStorage.setItem('login', loggin);
+                        setTimeout(10);
+                        location.href = "dashboard.html";
+                    } else {
+                        alert('Usuario o contraseña errada');
+                    }
+                });
+            });
     } catch (e) {
         console.log(e);
+    }
+}
+function logout() {
+    try {
+        sessionStorage.clear();
+        setTimeout(10);
+        location.href = "auth-login-basic.html";
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+function resetPass() {
+    try {
+        let newPassword = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm-password").value;
+        console.log(newPassword);
+        console.log(confirmPassword);
+        if (newPassword === confirmPassword) {
+            console.log(newPassword);
+            setTimeout(1000);
+            location.href = "auth-login-basic.html";
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+async function changePassword() {
+    try {
+        let email = "lebab1990@gmail.com";
+        let passwordCurrent = document.getElementById("currentPassword").value;
+        let passwordNew = document.getElementById("newPassword").value;
+        let passwordConfirm = document.getElementById("confirmPassword").value;
+        if (passwordNew === passwordConfirm) {
+            await fetch("https://localhost:7155/usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function saveSportsGoal(){
+    try {
+        console.log("Guardando Objetivo Deportivo");
+    } catch (error) {
+        console.log(error);
+    }
+}
+async function updateWeight(){
+    try {
+        
+    } catch (error) {
+        console.log("Peso actualizado")
     }
 }
