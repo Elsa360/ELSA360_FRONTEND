@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -48,77 +48,38 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#menu2").load("menu2.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
-
-
-
-
-    <nav class="navbar navbar-expand-lg bg-navbar-theme">
-      <div class="container-fluid">
-        
-        <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-ex-5"
-        >
-          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars" style="font-size: 16px;"></i></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-ex-5">
-          <div class="navbar-nav me-auto">
-            <a class="nav-item nav-link active" href="../../index.html">Inicio</a>
-            <a class="nav-item nav-link" href="pages-pricing.html">Membresías</a>            
-          </div>
-          <ul class="navbar-nav ms-lg-auto">            
-            <li class="nav-item">
-              <a href="auth-login-basic.html" class="btn btn-success" style="margin-right: 10px; margin-bottom: 5px;">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-              <a href="auth-register-basic.html" class="btn btn-success">Registrarme</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Menu -->
+    <div id="menu2"></div>
+    <!-- / Menu -->
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">
+              <h4 class="fw-bold py-3 mb-2">
                 <span class="text-muted fw-light">Documentos /</span> Términos y condiciones
               </h4>
-
-
-
-
-
 
               <div class="row">
                 <div class="col-12">
                   <div class="card tour-card">
-
 
                     <h5 class="card-header">TÉRMINOS Y CONDICIONES DE PRESTACIÓN DE SERVICIOS EN PLATAFORMA VIRTUAL ELSA 360</h5>
                     <div class="card-body">
@@ -133,18 +94,6 @@
                       <br> <br>                      
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header">TÉRMINOS Y CONDICIONES</h5>
@@ -163,7 +112,6 @@
                     </div>
 
 
-
                     <h5 class="card-header"><span class="concepto">2. VIGENCIA</span></h5> 
                     <div class="card-body">
                     <p>
@@ -171,7 +119,6 @@
                       planes ofrecidos; y se entenderá terminada siempre que ocurra alguno de los supuestos establecidos en el punto 3 del presente documento.                      
                     </p>
                     </div>
-
 
 
                     <h5 class="card-header"><span class="concepto">3. TERMINACIÓN</span></h5> 
@@ -190,7 +137,6 @@
                     </div>
 
 
-
                     <h6 class="card-header">3.2) Por el contratante</h6> 
                     <div class="card-body">
                     <p>                    
@@ -204,7 +150,6 @@
                     </div>
 
 
-
                     <h6 class="card-header">3.3) Renovación automática</h6> 
                     <div class="card-body">
                     <p>                    
@@ -212,31 +157,6 @@
                       En caso de no cancelación expresa del servicio o suscripción, EL CONTRATANTE autoriza la renovación automática del plan previamente adquirido.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">4. OBLIGACIONES GENERALES</span></h5> 
@@ -288,8 +208,6 @@
 
 
 
-
-
                     <h6 class="card-header">4.2) Obligaciones generales de FND:</h6> 
                     <div class="card-body">
                     <p>                    
@@ -303,14 +221,6 @@
 
                     </p>
                     </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -339,20 +249,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">6. FORMAS DE PAGO:</span></h5>
                     <div class="card-body">
                     <p>
@@ -360,17 +256,6 @@
                       escogido por el usuario, el mismo deberá ser cancelado por anticipado de forma íntegra.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">7. EDAD MÍNIMA PARA USO DE LA PLATAFORMA:</span></h5>
@@ -381,26 +266,6 @@
                       consentimiento pertinente para la suscripción del menor en la plataforma.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">8. PROPIEDAD INTELECTUAL E INDUSTRIAL:</span></h5>
@@ -421,27 +286,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">9. VIGENCIA DE LAS CONDICIONES DE CONTRATACIÓN:</span></h5>
                     <div class="card-body">
                     <p>
@@ -450,17 +294,6 @@
                       los dos (2) días siguientes a la notificación de las modificaciones correspondientes.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">10. AUTORIZACIÓN DE USO DE LA INFORMACIÓN PARA REDES:</span></h5>
@@ -472,22 +305,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">11. POLÍTICA DE PRIVACIDAD:</span></h5>
                     <div class="card-body">
                     <p>
@@ -495,15 +312,6 @@
                       usuario acepta permitirnos usar su información, en los términos ahí establecidos.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">12. LIMITACIÓN DE RESPONSABILIDAD:</span></h5>
@@ -527,17 +335,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">13. SERVICIOS MÓVILES:</span></h5>
                     <div class="card-body">
                     <p>
@@ -546,16 +343,6 @@
                       previa y se encuentra a cargo del usuario.
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">14. ADVERTENCIA DE SALUD:</span></h5>
@@ -568,11 +355,6 @@
                     </div>
 
 
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">15. NOTIFICACIONES ELECTRÓNICAS:</span></h5>
                     <div class="card-body">
                     <p>
@@ -582,11 +364,6 @@
                     </div>
 
 
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">16. CAMBIOS EN LOS TÉRMINOS Y CONDICIONES:</span></h5>
                     <div class="card-body">
                     <p>
@@ -594,11 +371,6 @@
                       el usuario deberá ser notificado de la modificación correspondiente y la fecha de entrada en vigor de esa modificación.
                     </p>
                     </div>
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">17. INFORMACIÓN DE USUARIO:</span></h5>
@@ -611,13 +383,6 @@
                     </div>
 
 
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">18. CONTRASEÑA:</span></h5>
                     <div class="card-body">
                     <p>
@@ -626,15 +391,6 @@
                       contenido inapropiado y en términos generales por el uso que le dé a su cuenta. 
                     </p>
                     </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -650,25 +406,12 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">20. LEGISLACIÓN APLICABLE:</span></h5>
                     <div class="card-body">
                     <p>
                       Los presentes términos y condiciones se encuentran regidos por el principio de la autonomía de la voluntad privada de las partes y por el ordenamiento jurídico colombiano. 
                     </p>
                     </div>
-
-
-
-
-
 
 
                     <h5 class="card-header"><span class="concepto">21. INVALIDEZ DE ALGUNO O ALGUNOS DE LOS TÉRMINOS Y CONDICIONES:</span></h5>
@@ -680,11 +423,6 @@
                     </div>
 
 
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">22. ACLARACIÓN DE NO DISCRIMINACIÓN EN PLATAFORMA ELSA:</span></h5>
                     <div class="card-body">
                     <p>
@@ -694,131 +432,27 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
                     <h5 class="card-header"><span class="concepto">23. ACCESO O USO DE LA PLATAFORMA:</span></h5>
                     <div class="card-body">
                     <p>
                       Al acceder o utilizar la plataforma ELSA 360 usted acepta los presentes términos y condiciones, según sea el caso. 
                     </p>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-                    
-                    
+                    </div>                 
+                                        
                   </div>
                 </div>
               </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               
             </div>
             <!-- / Content -->
 
-
-
-
-
-
-
-
-
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: 
-                  <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a>  |   Images: 
-                  <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-                </div>                
-              </div>
-            </footer>
+            <footer id="footer"></footer>
             <!-- / Footer -->
-
-
-
-
-
 
             <div class="content-backdrop fade"></div>
           </div>
-          <!-- Content wrapper -->
-        
+          <!-- Content wrapper -->        
       </div>
 
       <!-- Overlay -->
@@ -831,7 +465,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="es" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords"
-    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
@@ -52,27 +50,21 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
 </head>
 
 <body onload="alimentos_pdf()">
 
 
-
-
-
-
-
-
-
-
-
-
-
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-
-
 
       <!-- Content wrapper -->
       <div class="content-wrapper">
@@ -96,7 +88,7 @@
                     <div
                       class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
                       <div class="user-profile-info">
-                        <h4>Estos son los alimentos que escogiste para consumir en este moemnto del día</h4>
+                        <h4>Estos son los alimentos que escogiste para consumir en este momento del día</h4>
 
                       </div>
                       <!-- <a href="javascript:void(0)" class="btn btn-primary text-nowrap">
@@ -109,27 +101,6 @@
             </div>
           </div>
           <!--/ Header -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <div class="card">
             <h5 class="card-header"></h5>
@@ -161,48 +132,12 @@
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
         <!-- / Content -->
 
 
-
-
-
-
-
         <!-- Footer -->
-        <footer class="content-footer footer bg-footer-theme">
-          <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-            <div class="mb-2 mb-md-0">
-              &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por:
-              <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a> | Images:
-              <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-            </div>
-          </div>
-        </footer>
+        <footer id="footer"></footer>
         <!-- / Footer -->
 
         <div class="content-backdrop fade"></div>
@@ -221,7 +156,7 @@
   <script src="../../JS/crearPDF.js"></script>
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  
   <script src="../../assets/vendor/libs/popper/popper.js"></script>
   <script src="../../assets/vendor/js/bootstrap.js"></script>
   <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
