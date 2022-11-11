@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -50,7 +50,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body onload="verificacionEmailUsaurio()">
+  <body onload=" mensajeVerificacionUsuario()">
     <!-- Content -->
 
     <div class="authentication-wrapper authentication-basic text px-4">
@@ -75,7 +75,7 @@
 
             <h3 class="mb-2">Verifica tu email</h3>
             <p class="text-center mb-3" id="mensajeVerificacion">
-              Hemos enviado un correo a <span class="concepto">manuelperlata@gmail.com</span> con un link para que confirmes tu cuenta. 
+              Sí tu email está en nuestra base de datos, hemos enviado un correo a <span class="concepto">manuelperlata@gmail.com</span> con un link para que confirmes tu cuenta. 
             </p>  
 
 
@@ -91,18 +91,23 @@
             
               <h6 class="mb-3">Síguenos y entérate de todas las novedades del mundo ELSA</h6>
     
-              <a href="https://www.instagram.com/elsa.360/" ><button type="button" class="redesSociales">
+              <a href="https://www.instagram.com/elsa.360/" ><button type="button" class="redesSociales" style="margin-right:15px; margin-left: 15px;">
                 <i class="tf-icons bx bxl-instagram" style="font-size: 22px;"></i>
                 </button>
               </a>
     
-              <a href="https://www.facebook.com/elsa360/" ><button type="button" class="redesSociales">
+              <a href="https://www.facebook.com/elsa360/" ><button type="button" class="redesSociales" style="margin-right:15px; margin-left: 15px;">
                 <i class="tf-icons bx bxl-facebook" style="font-size: 22px;"></i>
                 </button>
               </a>
               
-              <a href="https://www.youtube.com/channel/UCh3NIh1XA2j2X-98OcNHHQg/featured" ><button type="button" class="redesSociales">
+              <a href="https://www.youtube.com/channel/UCh3NIh1XA2j2X-98OcNHHQg/featured" ><button type="button" class="redesSociales" style="margin-right:15px; margin-left: 15px;">
                 <i class="tf-icons bx bxl-youtube" style="font-size: 22px;"></i>
+                </button>
+              </a>
+
+              <a href="https://api.whatsapp.com/send?phone=573209697723" ><button type="button" class="redesSociales" style="margin-right:15px; margin-left: 15px;">
+                <i class="tf-icons bx bxl-whatsapp" style="font-size: 25px;"></i>
                 </button>
               </a>
             
@@ -135,7 +140,7 @@
 
     <!-- Main JS -->
     <script src="../../assets/js/main.js"></script>
-    <script src="../../JS/User/index.js"></script>
+    <script src="../../JS/User/user.js"></script>
     <!-- Page JS -->
   </body>
 </html>

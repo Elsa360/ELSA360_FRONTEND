@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -50,42 +50,21 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#menu2").load("menu2.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-navbar-theme">
-      <div class="container-fluid">
-        
-        <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-ex-5"
-        >
-          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars" style="font-size: 16px;"></i></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-ex-5">
-          <div class="navbar-nav me-auto">
-            <a class="nav-item nav-link active" href="../../index.html">Inicio</a>
-            <a class="nav-item nav-link" href="pages-pricing.html">Membresías</a>            
-          </div>
-          <ul class="navbar-nav ms-lg-auto">            
-            <li class="nav-item">
-              <a href="auth-login-basic.html" class="btn btn-success" style="margin-right: 10px; margin-bottom: 5px;">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-              <a href="auth-register-basic.html" class="btn btn-success">Registrarme</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-
-
+    <!-- Menu -->
+  <div id="menu2"></div>
+  <!-- / Menu -->
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -164,12 +143,7 @@
                         </button>
                       </li>                                            
                     
-                    </ul>
-
-
-
-
-                    
+                    </ul>                   
                     
                     
                     
@@ -193,12 +167,6 @@
                           Evitar el uso prolongado de pantallas y para disminuir conductas sedentarias realizar pausas activas cada 2 horas máximo                                                   
                         </p>                               
                       </div>
-
-
-
-
-
-
                       
                       <div class="tab-pane fade" id="navs-dormir-bajar" role="tabpanel">
                         <p>
@@ -206,14 +174,7 @@
                           No dormir mas de 8 horas diarias debido a que se genera una alteración del reloj biológico y los diferentes procesos metabólicos generando un ambiente obeso génico que promueve 
                           la producción y almacenamiento de grasa 
                         </p>                        
-                      </div>
-
-
-
-
-
-
-                      
+                      </div>                      
                       
                       <div class="tab-pane fade" id="navs-dormir-subir" role="tabpanel">
                         <p>
@@ -230,14 +191,6 @@
                     
                     </div>
                   </div>
-
-
-
-
-
-
-
-
                                    
                 </div>
               </div>
@@ -252,15 +205,7 @@
             
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: 
-                  <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a>  |   Images: 
-                  <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-                </div>                
-              </div>
-            </footer>
+            <footer id="footer"></footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -279,7 +224,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

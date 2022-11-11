@@ -6013,8 +6013,8 @@ a.invert-bg-dark:hover, a.invert-bg-dark:focus {
 .container-p-y:not([class^=pt-]):not([class*=" pt-"]) {
   padding-top: 1.625rem !important;
 }
-.container-p-y:not([class^=pb-]):not([class*=" pb-"]) {
-  padding-bottom: 1.625rem !important;
+.container-p-y {
+  padding-bottom: 5px !important;
 }
 
 .container-m-ny:not([class^=mt-]):not([class*=" mt-"]) {
@@ -8524,7 +8524,7 @@ select.form-select option {
 
 .fv-plugins-bootstrap5-row-invalid .input-group.has-validation .input-group-text,
 .fv-plugins-bootstrap5-row-invalid .input-group.has-validation:focus-within .input-group-text {
-  border-color: #ff3e1d;
+  border-color: none;
 }
 
 .form-floating > .form-control:focus::-moz-placeholder, .form-floating > .form-control:not(:placeholder-shown)::-moz-placeholder {

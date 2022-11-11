@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -11,6 +11,9 @@
       <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
       <meta name="robots" content="noindex">
       <title> Vericación de email - ELSA360</title>         
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +32,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body onload="mensajeVerificacionUsuario()">
+  <body>
     <!-- Content -->
     <div class="authentication-wrapper authentication-basic px-4">
       <div class="authentication-inner">
@@ -47,11 +50,11 @@
                 </a>
               </div>             
 
-            <h3 class="mb-2">Verificación de email</h3>
+            <h3 class="mb-2" style="text-align: center;">Verificación de email</h3>
             <p class="text-start" id="mensajeVerificacionUsuario">
               Haz clic en el botón de abajo para confirmar tu cuenta de ELSA.             
             </p>
-            <a class="btn btn-success w-100 my-3" style="color: #2b2c40; font-weight: 600;" href="#">Confirmar</a>            
+            <a class="btn btn-success w-100 my-3" style="color: #2b2c40; font-weight: 600;" onclick="validarCuenta()">Confirmar</a>            
           </div>
         </div>        
       </div>

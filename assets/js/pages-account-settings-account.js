@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
           firstName: {
             validators: {
               notEmpty: {
-                message: 'Please enter first name'
+                message: 'Ingresa tu nombre completo'
               }
             }
           },
           lastName: {
             validators: {
               notEmpty: {
-                message: 'Please enter last name'
+                message: 'Ingresa tus apellidos'
               }
             }
           }
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           accountActivation: {
             validators: {
               notEmpty: {
-                message: 'Please confirm you want to delete account'
+                message: 'Por favor, confirma que quieres desactivar tu cuenta de ELSA'
               }
             }
           }
@@ -99,12 +99,12 @@ document.addEventListener('DOMContentLoaded', function (e) {
       deactivateButton.onclick = function () {
         if (accountActivation.checked == true) {
           Swal.fire({
-            text: 'Are you sure you would like to deactivate your account?',
+            text: 'Estas segur@ de querer desactivar tu cuenta de ELSA?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Yes',
+            confirmButtonText: 'Si',
             customClass: {
-              confirmButton: 'btn btn-primary me-2',
+              confirmButton: 'btn btn-warning me-2',
               cancelButton: 'btn btn-label-secondary'
             },
             buttonsStyling: false
@@ -112,16 +112,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
             if (result.value) {
               Swal.fire({
                 icon: 'success',
-                title: 'Deleted!',
-                text: 'Your file has been deleted.',
+                title: 'Cuenta Desactivada!',
+                text: 'Tu cuenta ha sido desactivada exitosamente.',
                 customClass: {
                   confirmButton: 'btn btn-success'
                 }
               });
             } else if (result.dismiss === Swal.DismissReason.cancel) {
               Swal.fire({
-                title: 'Cancelled',
-                text: 'Deactivation Cancelled!!',
+                title: 'Cancelado',
+                text: 'Desactivación de cuenta cancelada!!',
                 icon: 'error',
                 customClass: {
                   confirmButton: 'btn btn-success'
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     if (phoneNumber) {
       new Cleave(phoneNumber, {
         phone: true,
-        phoneRegionCode: 'US'
+        phoneRegionCode: 'CO'
       });
     }
 

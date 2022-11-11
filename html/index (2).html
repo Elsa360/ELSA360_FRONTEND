@@ -317,14 +317,13 @@
                                         <div class="col-md-12">
                                             <div class="card-body d-flex no-block" style="padding: 0px;">
                                                 <div class="m-r-20"><img
-                                                        src="html/bt4/assets/images/features/feature13/Profe.jpg"
+                                                        src="html/bt4/assets/images/features/feature13/Pros.jpg"
                                                         width="150" class="rounded" /></div>
                                                 <div class="featuresTitulo">
                                                     <h5 class="font-medium">
                                                         Desarrollados por los mejores técnicos <br>
-                                                        <a
-                                                            href="html/vertical-menu-template/pages-profeSaldarriaga.html"><small
-                                                                style="color: #9BCB3B;">Conocer más</small></a>
+                                                        <a href="" class="CTA-ModalPros"><small
+                                                            style="color: #9BCB3B;">Conocer más</small></a>
                                                     </h5>
                                                 </div>
                                             </div>
@@ -396,6 +395,96 @@
                 <!-- ============================================================== -->
                 <!-- Feature 2  -->
                 <!-- ============================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="container-modalPros">
+                    <div class="modalPros modal-closePros">
+                        <div class="closeContainerPros">
+                            <p class="closeModalPros">X</p>
+                        </div>
+
+                        <h2>Desarrollados por los mejores técnicos</h2>
+                        <div class="ProsDescripcionContainer">
+                            <p class="ProsDescripcion">Tu plan personalizado e integral lo realizan los mejores y más experimentados profesionales de las distintas ramas 
+                                del rendimiento deportivo, como lo son los y las director@s deportiv@s (ciclismo), preparador@s físicos, nutricionistas y psicológ@s deportivos. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    let cerrarPros = document.querySelectorAll(".closeModalPros")[0];
+                    let abrirPros = document.querySelectorAll(".CTA-ModalPros")[0];
+                    let modalPros = document.querySelectorAll(".modalPros")[0];
+                    let modalCPros = document.querySelectorAll(".container-modalPros")[0];
+
+                    abrirPros.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        modalCPros.style.opacity = "1";
+                        modalCPros.style.visibility = "visible";
+                        modalPros.classList.toggle("modal-closePros");
+                    });
+
+                    cerrarPros.addEventListener("click", function () {
+                        modalPros.classList.toggle("modal-closePros");
+                        setTimeout(function () {
+                            modalCPros.style.opacity = "0";
+                            modalCPros.style.visibility = "hidden";
+                        }, 700);
+                    });
+
+                    window.addEventListener("click", function (e) {
+                        // console.log(e.target)
+                        if (e.target == modalCPros) {
+                            modalPros.classList.toggle("modal-closePros");
+                            setTimeout(function () {
+                                modalCPros.style.opacity = "0";
+                                modalCPros.style.visibility = "hidden";
+                            }, 700);
+                        }
+                    }); 
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <div class="container-modalBorg">
                     <div class="modalBorg modal-closeBorg">
