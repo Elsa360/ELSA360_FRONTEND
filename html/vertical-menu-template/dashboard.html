@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -10,8 +10,8 @@
       <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
       <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
       <meta name="robots" content="noindex">
-      <title> Dashboard - ELSA360</title>    
-    
+      <title> Dashboard - ELSA360</title>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
 
@@ -45,22 +45,9 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-    <!-- <script>
-      if(sessionStorage.getItem('user')){
-          window.location.href = "dashboard.html"
-      }else{
-          window.location.href = "auth-login-basic.html"
-      }
-    </script> -->
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
-    <script>
-      $(function(){
-        $("#menu").load("menu.html"); 
-        $("#footer").load("footer.html"); 
-        $("#navbar").load("navbar.html"); 
-      });
-    </script>
+
+
+
   </head>
 
   <body>
@@ -68,9 +55,11 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
         <div id="menu"></div>
+        </aside>
 
-        
+
         <!-- / Menu -->
 
 
@@ -86,6 +75,10 @@
 
           <div id="navbar"></div>
           <!-- / Navbar -->
+
+
+
+          <a href="../../index.php">Link de Prueba</a>
 
 
 
@@ -143,7 +136,7 @@
               <div class="row">
 
 
-                
+
                 <div class="col-lg-8 mb-4 order-0">
                   <div class="card">
                     <div class="d-flex align-items-end row">
@@ -170,7 +163,7 @@
                         </div>
                       </div>
                     </div>
-                  </div> 
+                  </div>
                 </div>
 
 
@@ -1552,9 +1545,9 @@
 
 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#InicioEntrenoModal">Inicio de entreno</button>
-            
 
-              
+
+
 
 
 
@@ -1565,115 +1558,115 @@
 
                     <!-- Modal 1-->
                     <!-- <div class="modal fade animate__animated fadeIn" id="disponibilidadSemanalModal" tabindex="-1" data-bs-backdrop="static" aria-hidden="true" >
-                      <div class="modal-dialog modal-dialog-centered" role="document">                        
+                      <div class="modal-dialog modal-dialog-centered" role="document">
 
-                          <div class="modal-content"> 
+                          <div class="modal-content">
 
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel5"></h5>                             
+                              <h5 class="modal-title" id="exampleModalLabel5"></h5>
                             </div>
 
 
 
                             <div class="modal-body">
-                              
+
                               <div class="text-center mb-4">
                                 <h3>Disponibilidad de la próxima semana</h3>
                                 <p>Número de horas que tengo para entrenar cada día de la próxima semana.</p>
                               </div>
 
                               <form id="EntrenoSemanal" class="row g-3" onsubmit="" novalidate="novalidate">
-                                <div class="col">                        
+                                <div class="col">
                                   <input type="number" id="dia1" class="form-control dias" placeholder="L" min="0" max="8"/>
                                 </div>
 
-                                <div class="col">                        
+                                <div class="col">
                                   <input type="number" id="dia2" class="form-control dias" placeholder="M" min="0" max="8" />
                                 </div>
-                                
-                                <div class="col">                         
+
+                                <div class="col">
                                   <input type="number" id="dia3" class="form-control dias" placeholder="M" min="0" max="8"/>
                                 </div>
-                                
-                                <div class="col">                        
+
+                                <div class="col">
                                   <input type="number" id="dia4" class="form-control dias" placeholder="J" min="0" max="8"/>
                                 </div>
-                                
-                                <div class="col">                        
+
+                                <div class="col">
                                   <input type="number" id="dia5" class="form-control dias" placeholder="V" min="0" max="8" />
                                 </div>
-                                
-                                <div class="col">                        
+
+                                <div class="col">
                                   <input type="number" id="dia6" class="form-control dias" placeholder="S" min="0" max="8" />
                                 </div>
-                                
-                                <div class="col">                        
+
+                                <div class="col">
                                   <input type="number" id="dia7" class="form-control dias" placeholder="D" min="0" max="8" />
                                 </div>
 
-                                <div class="text-center mb-1">                                  
+                                <div class="text-center mb-1">
                                   <p>Disponibilidad total (hrs) de la siguiente semana
                                     <br> <span id="horasEntrenamiento" class="badge bg-label-success" style="font-size: 20px;">0</span></p>
 
-                                  <p> N° de días que voy a entrenar la próxima semana 
+                                  <p> N° de días que voy a entrenar la próxima semana
                                     <br> <span id="DisponibilidadDias" class="badge bg-label-warning" style="font-size: 20px;">0</span></p>
-                                  
+
                                 </div>
 
 
                                 <div class="col-12 text-center">
-                                  
 
-                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmarDisponibilidad">Enviar disponibilidad semanal</button>                                  
-                                  
+
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmarDisponibilidad">Enviar disponibilidad semanal</button>
+
                                 </div>
                               </form>
                             </div>
-                             
+
                           </div>
-                        </div>       
+                        </div>
                     </div>             -->
 
-                          
-               
-                          
+
+
+
 
 
 
 
               <!-- modal Inicio de entreno 1 -->
               <div class="modal fade animate__animated fadeIn" data-bs-backdrop="static" id="InicioEntrenoModal" tabindex="-1" aria-hidden="true" >
-                <div class="modal-dialog modal-dialog-centered" role="document">                        
+                <div class="modal-dialog modal-dialog-centered" role="document">
 
-                    <div class="modal-content"> 
+                    <div class="modal-content">
 
-                      <div class="modal-body">                       
+                      <div class="modal-body">
 
-                        <form id="EntrenoSemanal" class="row g-3" onsubmit="" novalidate="novalidate">                          
-                            
+                        <form id="EntrenoSemanal" class="row g-3" onsubmit="" novalidate="novalidate">
+
                             <div class="col-md-8 fechaInicio">
                               <h4> <span class="concepto">¿Qué día quieres empezar tu entrenamiento?</span> </h4>
-                              
+
                               <input class="form-control" type="date" value="2021-06-18" id="fechaInicioEntreno"/>
 
-                              <p class="inicioEntrenoDisclaimer" data-bs-toggle="tooltip" data-bs-offset="0,2" data-bs-placement="bottom" data-bs-html="true" 
+                              <p class="inicioEntrenoDisclaimer" data-bs-toggle="tooltip" data-bs-offset="0,2" data-bs-placement="bottom" data-bs-html="true"
                               title="<i class='bx bx-calendar bx-xs' ></i> <span>Será más fácil llevar tu control semana a semana</span>">*Te recomendamos que inicies tu entreno el próximo lunes.</p>
-                              
+
                                 <input class="form-check-input" type="checkbox" value="" id="inicioProxLunes" checked />
                                 <label class="form-check-label" for="inicioProxLunes">Empezar el próximo lunes.</label>
-                              
+
                             </div>
 
 
 
                             <div class="col-md-8 fechasCompetencias" style="margin-top: 40px; margin-bottom:25px">
-                              <h4> <span class="concepto">¿Cual es tu objetivo?</span> </h4>  
-                                                     
+                              <h4> <span class="concepto">¿Cual es tu objetivo?</span> </h4>
+
                                 <button type="button" class="btn btn-label-info fechaCompetencia1" style="font-weight: 500; font-size:17px">Solo entrenar</button>
 
                                 ó
-                              
-                                                                                
+
+
                                 <!-- <button type="button" class="btn btn-label-primary fechaCompetencia2" style="font-weight:500; font-size:17px">Un fondo o competencia</button>                      accordion-button -->
 
 
@@ -1688,7 +1681,7 @@
                                         Un Fondo / Competencia
                                       </button>
                                     </h2>
-              
+
                                     <div id="accordionIcon-1" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
                                       <div class="accordion-body">
 
@@ -1734,7 +1727,7 @@
                                             <label class="form-label" for="eventTitle">Nombre del fondo, prueba o competencia</label>
                                             <input type="text" class="form-control" id="eventTitle" name="eventTitle" placeholder="Nombre del evento"/>
                                           </div>
-                
+
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventLabel">Categoría</label>
                                             <select class="select2 select-event-label form-select" id="eventLabel" name="eventLabel">
@@ -1745,17 +1738,17 @@
                                               <option data-label="info" value="ETC">ETC</option> -->
                                             </select>
                                           </div>
-                
+
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventStartDate">Fecha del evento</label>
                                             <input type="text" class="form-control" id="eventStartDate" name="eventStartDate" placeholder="Día del evento"/>
                                           </div>
-                
+
                                           <!-- <div class="mb-3">
                                             <label class="form-label" for="eventEndDate">Fecha final</label>
                                             <input type="text" class="form-control" id="eventEndDate" name="eventEndDate" placeholder="Día que finaliza el evento"/>
                                           </div> -->
-                                          
+
                                           <!-- <div class="mb-3">
                                             <label class="switch">
                                               <input type="checkbox" class="switch-input allDay-switch" />
@@ -1800,7 +1793,7 @@
 
 
 
-                                          
+
                                           <div class="mb-3" style="text-align: left;">
                                             <label class="form-label" for="eventLocation">Lugar</label>
                                             <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="¿Dónde es el evento?"/>
@@ -1842,13 +1835,13 @@
 
                                           <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4">
                                             <div class="fechaComp">
-                                              <button type="submit" class="btn btn-label-success btn-add-event me-sm-3 me-1">Definir fecha de prueba</button>                                                                    
-                                            </div>               
+                                              <button type="submit" class="btn btn-label-success btn-add-event me-sm-3 me-1">Definir fecha de prueba</button>
+                                            </div>
 
                                           </div>
                                         </form>
-                                        
-                                        
+
+
 
 
 
@@ -1889,15 +1882,15 @@
 
                                       </div>
                                     </div>
-                                  </div>             
-                                  
-                                </div>
-                            </div>                                  
+                                  </div>
 
-                          
+                                </div>
+                            </div>
+
+
 
                           <div class="col-md-8 fechasCompetencias">
-                            
+
                             <button type="reset" class="btn btn-primary me-sm-3 me-1 mt-3 btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close" style="width: 100%;">
                               Definir fechas
                             </button>
@@ -1905,10 +1898,10 @@
 
                         </form>
                       </div>
-                       
+
                     </div>
-                  </div>       
-              </div>  
+                  </div>
+              </div>
 
 
 
@@ -1916,7 +1909,7 @@
 
 
 
-              
+
 
 
 
@@ -1945,9 +1938,9 @@
                   <div class="modal-content">
 
 
-                    
+
                       <div class="modal-body">
-                              
+
                         <div class="text-center mb-4">
                           <h3>Disponibilidad de la próxima semana</h3>
                           <p>Número de horas que tengo para entrenar cada día de la próxima semana.</p>
@@ -1955,43 +1948,43 @@
 
                         <form id="EntrenoSemanal" class="row g-3" onsubmit="" novalidate="novalidate">
 
-                          <div class="col">                        
+                          <div class="col">
                             <input type="number" id="dia1" class="form-control dias" placeholder="L" min="0" max="8"/>
                           </div>
 
-                          <div class="col">                        
+                          <div class="col">
                             <input type="number" id="dia2" class="form-control dias" placeholder="M" min="0" max="8" />
                           </div>
-                          
-                          <div class="col">                         
+
+                          <div class="col">
                             <input type="number" id="dia3" class="form-control dias" placeholder="M" min="0" max="8"/>
                           </div>
-                          
-                          <div class="col">                        
+
+                          <div class="col">
                             <input type="number" id="dia4" class="form-control dias" placeholder="J" min="0" max="8"/>
                           </div>
-                          
-                          <div class="col">                        
+
+                          <div class="col">
                             <input type="number" id="dia5" class="form-control dias" placeholder="V" min="0" max="8" />
                           </div>
-                          
-                          <div class="col">                        
+
+                          <div class="col">
                             <input type="number" id="dia6" class="form-control dias" placeholder="S" min="0" max="8" />
                           </div>
-                          
-                          <div class="col">                        
+
+                          <div class="col">
                             <input type="number" id="dia7" class="form-control dias" placeholder="D" min="0" max="8" />
                           </div>
 
-                          <div class="text-center mb-1">                                  
+                          <div class="text-center mb-1">
                             <p>Disponibilidad total (hrs) de la siguiente semana
                               <br> <span id="horasEntrenamiento" class="badge bg-label-success" style="font-size: 20px;">0</span></p>
 
-                            <p> N° de días que voy a entrenar la próxima semana 
+                            <p> N° de días que voy a entrenar la próxima semana
                               <br> <span id="DisponibilidadDias" class="badge bg-label-warning" style="font-size: 20px;">0</span></p>
-                            
+
                           </div>
-                          
+
                         </form>
                       </div>
 
@@ -2005,7 +1998,7 @@
 
 
 
-              
+
               <!-- Modal confirmación disponibilidad semanal-->
               <div class="modal fade" id="confirmacionDisponibilidadSem" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="modalToggleLabel2" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
@@ -2013,20 +2006,20 @@
 
                     <div class="modal-body text-center">¿Quieres confirmar esta disponibilidad de tiempo para entrenar en estos días la próxima semana?</div>
 
-                    <div class="text-center mb-1">                                  
+                    <div class="text-center mb-1">
                       <p>Disponibilidad total (hrs) de la siguiente semana
                         <br> <span id="" class="badge bg-label-success" style="font-size: 20px;">0</span></p>
 
-                      <p> N° de días que voy a entrenar la próxima semana 
+                      <p> N° de días que voy a entrenar la próxima semana
                         <br> <span id="" class="badge bg-label-warning" style="font-size: 20px;">0</span></p>
-                      
+
                     </div>
 
                     <div class="modal-footer">
                       <button class="btn btn-secondary" data-bs-target="#disponibilidadSemanalModal" data-bs-toggle="modal" data-bs-dismiss="modal">Volver</button>
                       <form action="">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmarDisponibilidad">Confirmar disponibilidad</button>
-                      </form>                      
+                      </form>
                     </div>
 
                   </div>
@@ -2044,7 +2037,7 @@
 
 
 
-              
+
 
 
 
@@ -2067,12 +2060,12 @@
 
 
 
-             
-                 
 
 
 
-            
+
+
+
 
 
 
@@ -2086,9 +2079,7 @@
 
 
             <!-- Footer -->
-            <div id="footer">
-
-            </div>
+            <div id="footer"></div>
             <!-- / Footer -->
 
 
@@ -2115,6 +2106,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -2135,5 +2127,16 @@
     <!-- Page JS -->
     <script src="../../assets/js/dashboards-analytics.js"></script>
     <script src="../../js/calculosPsicologia.js"></script>
+
+<script>
+      // A $( document ).ready() block.
+      $( document ).ready(function() {
+        $("#menu").load("menu.html");
+        $("#footer").load("footer.html");
+        $("#navbar").load("navbar.html");
+
+        console.log( "ready!" );
+      });
+    </script>
   </body>
 </html>
