@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="es" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords"
-    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
@@ -55,6 +53,14 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
@@ -99,7 +105,9 @@
                           <p>Tu orden <a href="javascript:void(0)" class="concepto">#1536548131</a> ha sido procesada!</p>
                           <p>
                             Hemos enviado un correo a <a href="mailto:john.doe@example.com" class="concepto">john.doe@example.com</a> con los detalles
-                            de la confirmación de tu oredn. Si el correo no ha llegado en dos minutos, por favor, revisa tu carpeta de SPAM.
+                            de la confirmación de tu orden. <br>
+                            
+                            Si el correo no ha llegado en dos minutos, por favor, revisa tu carpeta de SPAM.
                           </p>
                           <p>
                             <span class="fw-semibold"><i class="bx bx-time-five"></i> Fecha y hora de la orden:</span> 25/05/2020
@@ -148,32 +156,38 @@
                                 <strong id="totalPagar">$137.088</strong>
                               </li>
                             </ul>  
+
+
+
+                            <!-- Footer -->
+                              <footer id="footer"></footer>                               
+                            
+                              <ul class="list-inline text-center" style="font-size: 12px;">
+                                <li class="list-inline-item"><a class="contratos text-muted" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
+                                <li class="list-inline-item"><a class="contratos text-muted" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
+                                <li class="list-inline-item"><a class="contratos text-muted" href="pages-cookies-SM.html">Cookies</a></li>
+                              </ul>
+                            <!-- / Footer -->
+
+                            
                          </div>     
-                        
-                        
+                         
                       </div>                      
                     </div>                               
               
               <!--/ Checkout Wizard -->
-
-              
+                            
             </div>
             <!-- / Content -->
 
 
 
-            <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-              <div class="mb-2 mb-md-0">
-                &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por:
-                <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a> | Images:
-                <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-              </div>
-            </div>
-          </footer>
-          <!-- / Footer -->
 
+            
+
+
+
+            
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->
@@ -190,7 +204,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

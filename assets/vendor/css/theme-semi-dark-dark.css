@@ -1131,22 +1131,20 @@ li.ui-timepicker-selected,
 }
 
 .bs-stepper .step.active .bs-stepper-circle {
-  background-color: #696cff;
-  color: #fff;
-  box-shadow: 0 0.1875rem 0.375rem 0 rgba(105, 108, 255, 0.4);
+  background-color: #9bCb3b;
+  color: #2b2c40;
 }
 .bs-stepper .step.active .bs-stepper-label {
-  color: #696cff !important;
+  color: #9bCb3b !important;
 }
 .bs-stepper .step.active .bs-stepper-icon svg {
-  fill: #696cff !important;
+  fill: #9bCb3b !important;
 }
 .bs-stepper .step.crossed .step-trigger .bs-stepper-circle {
-  background-color: rgba(105, 108, 255, 0.16) !important;
-  color: #696cff !important;
+  color: #9bCb3b !important;
 }
 .bs-stepper .step.crossed .step-trigger .bs-stepper-icon svg {
-  fill: #696cff !important;
+  fill: #9bCb3b !important;
 }
 .bs-stepper .step.crossed + .line svg {
   fill: #696cff;
