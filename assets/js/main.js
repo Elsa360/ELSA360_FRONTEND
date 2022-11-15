@@ -527,7 +527,7 @@ if (typeof $ !== 'undefined') {
               limit: 4,
               source: filterConfig(searchData.members),
               templates: {
-                header: '<h6 class="suggestions-header text-primary mb-0 mx-3 mt-3 pb-2">Members</h6>',
+                header: '<h6 class="suggestions-header text-success mb-0 mx-3 mt-3 pb-2">Deportistas</h6>',
                 suggestion: function ({ name, src, subtitle }) {
                   return (
                     '<a href="app-user-view-account.html">' +
@@ -552,8 +552,8 @@ if (typeof $ !== 'undefined') {
                 },
                 notFound:
                   '<div class="not-found px-3 py-2">' +
-                  '<h6 class="suggestions-header text-primary mb-2">Members</h6>' +
-                  '<p class="py-2 mb-0"><i class="bx bx-error-circle bx-xs me-2"></i> No Results Found</p>' +
+                  '<h6 class="suggestions-header text-danger mb-2"><strong>Members</strong></h6>' +
+                  '<p class="py-2 mb-0"><i class="bx bx-error-circle bx-xs me-2"></i> No se encontrarón resultados</p>' +
                   '</div>'
               }
             }

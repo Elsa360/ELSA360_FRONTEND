@@ -1271,7 +1271,7 @@ li.ui-timepicker-selected,
 }
 .bg-menu-theme .menu-item.open:not(.menu-item-closing) > .menu-toggle,
 .bg-menu-theme .menu-item.active > .menu-link {
-  color: #fff;
+  color: #191924;
 }
 .bg-menu-theme .menu-item.active > .menu-link:not(.menu-toggle) {
   background-color: #181823;
@@ -1340,10 +1340,10 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
   color: #696cff;
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
-  background-color: #696cff !important;
+  background-color: #9bCb3b !important;
 }
 .bg-menu-theme .menu-inner > .menu-item.active:before {
-  background: #696cff;
+  background: #9bCb3b;
 }
 .bg-menu-theme .menu-sub > .menu-item > .menu-link:before {
   background-color: #a3a4cc !important;
@@ -1354,11 +1354,11 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
 }
 
 .app-brand .layout-menu-toggle {
-  background-color: #696cff;
+  background-color: #9bCb3b;
   border: 7px solid #232333;
 }
 .app-brand .layout-menu-toggle i {
-  color: #fff;
+  color: #191924;
 }
 
 .bg-footer-theme {

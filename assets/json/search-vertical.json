@@ -685,10 +685,10 @@
   ],
   "members": [
     {
-      "name": "John Doe",
+      "name": "Manuel Peralta",
       "subtitle": "Admin",
       "src": "img/avatars/1.png",
-      "url": "app-user-view-account.html"
+      "url": "auth-login-basic.html"
     },
     {
       "name": "Micheal Clarke",
