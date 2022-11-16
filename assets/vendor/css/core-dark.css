@@ -26,7 +26,7 @@
   --bs-gray: rgba(255, 255, 255, 0.8);
   --bs-primary-rgb: 105, 108, 255;
   --bs-secondary-rgb: 133, 146, 163;
-  --bs-success-rgb: 113, 221, 55;
+  --bs-success-rgb: 155, 203, 59;
   --bs-info-rgb: 3, 195, 236;
   --bs-warning-rgb: 255, 171, 0;
   --bs-danger-rgb: 255, 62, 29;
@@ -224,11 +224,11 @@ sup {
 }
 
 a {
-  color: #696cff;
+  color: #9bcb3b;
   text-decoration: none;
 }
 a:hover {
-  color: #5f61e6;
+  color: #9bcb3b;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -2215,7 +2215,7 @@ progress {
   height: 1.53em;
 }
 .form-control::-moz-placeholder {
-  color: #7c7db6;
+  color: #b67c7c;
   opacity: 1;
 }
 .form-control::placeholder {
@@ -6365,9 +6365,9 @@ label.btn {
   font-weight: 600;
 }
 .btn-check:focus + .btn-success, .btn-success:focus, .btn-success.focus {
-  color: #fff;
-  background-color: #66c732;
-  border-color: #66c732;
+  color: #9bcb3b;
+  background-color: #191924;
+  border-color: #191924;
   transform: translateY(0);
   box-shadow: none;
 }

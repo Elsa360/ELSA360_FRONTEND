@@ -410,40 +410,38 @@ button.list-group-item-primary.active {
 }
 
 .nav .nav-link:hover, .nav .nav-link:focus {
-  color: #5f61e6;
+  color: #9bCb3b;
 }
 
 .nav-pills .nav-link.active, .nav-pills .nav-link.active:hover, .nav-pills .nav-link.active:focus {
-  background-color: #696cff;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  background-color: #9bCb3b;
+  color: #191924;
+  font-weight: 600;
 }
 
 .form-control:focus,
 .form-select:focus {
-  border-color: #696cff;
+  border-color: #9bCb3b;
 }
 
 .input-group:focus-within .form-control,
 .input-group:focus-within .input-group-text {
-  border-color: #696cff;
+  border-color: #9bCb3b;
 }
 
 .form-check-input:focus {
-  border-color: #696cff;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  border-color: #9bCb3b;
 }
 .form-check-input:disabled {
   background-color: #444564;
 }
 .form-check-input:checked, .form-check-input[type=checkbox]:indeterminate {
-  background-color: #696cff;
-  border-color: #696cff;
-  box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
+  background-color: #9bCb3b;
+  border-color: #9bCb3b;
 }
 
 .custom-option.checked {
-  border: 1px solid #696cff;
+  border: 1px solid #9bCb3b;
 }
 
 .form-switch .form-check-input:focus {
@@ -454,15 +452,15 @@ button.list-group-item-primary.active {
 }
 
 .form-control:focus ~ .form-label {
-  border-color: #696cff;
+  border-color: #9bCb3b;
 }
 .form-control:focus ~ .form-label::after {
   border-color: inherit;
 }
 
 .switch-input:checked ~ .switch-toggle-slider {
-  background: #696cff;
-  color: #fff;
+  background: #9bCb3b;
+  color: #191924;
 }
 
 .switch-input:active ~ .switch-toggle-slider {
@@ -697,20 +695,20 @@ button.list-group-item-primary.active {
 }
 
 .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label {
-  color: #696cff;
+  color: #9bCb3b;
 }
 
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-select ~ label {
-  color: #696cff;
+  color: #9bCb3b;
 }
 .form-floating > .form-control:-webkit-autofill ~ label {
-  color: #696cff;
+  color: #9bCb3b;
 }
 
 .svg-illustration svg {
-  fill: #696cff;
+  fill: #9bCb3b;
 }
 
 .jstree-default .jstree-wholerow-clicked,
@@ -720,19 +718,19 @@ button.list-group-item-primary.active {
 
 .jstree-default-dark .jstree-wholerow-hovered,
 .jstree-default-dark .jstree-wholerow-clicked {
-  background: #6a6cc9;
+  background: #9bCb3b;
 }
 
 html:not([dir=rtl]) .border-primary,
 html[dir=rtl] .border-primary {
-  border-color: #696cff !important;
+  border-color: #9bCb3b !important;
 }
 
 a {
-  color: #696cff;
+  color: #9bCb3b;
 }
 a:hover {
-  color: #787bff;
+  color: #9bCb3b;
 }
 
 .fill-primary {
