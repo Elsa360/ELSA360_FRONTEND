@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="es" class="dark-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords"
-    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
@@ -56,20 +54,14 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-
-
-
+  
 
   <!-- ejemplo para compartir bloques de codigo -->
-  <!-- <script>
+  <script>
     $(function(){
-      $("#menu").load("menu.html"); 
       $("#footer").load("footer.html"); 
-      $("#navbar").load("navbar.html"); 
-      $("#header").load("header.html"); 
     });
   </script>
-  <div id="header"></div> -->
 
 
 </head>
@@ -78,12 +70,9 @@
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
+
       <!-- Menu -->
-
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
-
-
 
         <div class="app-brand demo">
           <!--Logo-->
@@ -92,49 +81,45 @@
               <svg width="10" viewBox="0 0 25 42" version="1.1">
               </svg>
             </span>
-
+      
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
                 src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
           </a>
-
-
-
+      
+      
+      
           <!--Hamburguesa-->
           <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
           </a>
-        </div>
-
-
-
-
-
-
-        <div class="menu-inner-shadow"></div>
-
-
-
-
-
-
+        </div>      
+      
+      
+      
+      
+        <div class="menu-inner-shadow"></div>    
+      
+      
+      
+      
         <ul class="menu-inner py-1">
-
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entreno deportivo</span>
+            <span class="menu-header-text">Principal</span>
           </li>
-
-
-
+      
+      
+      
           <!-- Dashboards -->
           <li class="menu-item">
             <a href="dashboard.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Dashboards">Dashboards</div>
+              <div data-i18n="Dashboard">Dashboard</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Calendario -->
           <!-- <li class="menu-item">
             <a href="app-calendar.html" class="menu-link">
@@ -142,22 +127,22 @@
               <div data-i18n="Calendario">Calendario</div>
             </a>
           </li> -->
-
+      
           <!-- Graficas -->
-          <li class="menu-item  active">
-            <a href="app-graphics.html" class="menu-link">
+          <li class="menu-item active">
+            <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
-              <div data-i18n="Gráficas">Gráficas</div>
+              <div data-i18n="Gráficos">Gráficos</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Planes de entrenamiento</span>
+            <span class="menu-header-text">Entreno deportivo</span>
           </li>
-
-
+      
+      
           <!-- Ciclismo -->
           <li class="menu-item">
             <a href="app-planDeportivo.html" class="menu-link">
@@ -165,7 +150,7 @@
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
             </a>
           </li>
-
+      
           <!-- Nutrición -->
           <li class="menu-item">
             <a href="app-planNutricional.html" class="menu-link">
@@ -173,7 +158,7 @@
               <div data-i18n="Plan nutricional">Plan nutricional</div>
             </a>
           </li>
-
+      
           <!-- Psicología -->
           <li class="menu-item">
             <a href="app-planPsicologico.html" class="menu-link">
@@ -181,7 +166,7 @@
               <div data-i18n="Plan psicológico">Plan psicológico</div>
             </a>
           </li>
-
+      
           <!-- Control del sueño -->
           <li class="menu-item">
             <a href="app-controlSueño.htm" class="menu-link">
@@ -189,13 +174,13 @@
               <div data-i18n="Control del sueño">Control del sueño</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Recursos</span>
           </li>
-
+      
           <!-- Recomendaciones -->
           <li class="menu-item">
             <a href="pages-Recomendaciones.html" class="menu-link">
@@ -203,7 +188,7 @@
               <div data-i18n="Recomendaciones">Recomendaciones</div>
             </a>
           </li>
-
+      
           <!-- Ejercicios -->
           <li class="menu-item">
             <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
@@ -211,7 +196,7 @@
               <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
             </a>
           </li>
-
+      
           <!-- Pedagogia -->
           <!-- <li class="menu-item">
               <a href="pages-pedagogia.html" class="menu-link">
@@ -219,7 +204,7 @@
                 <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
               </a>
             </li> -->
-
+      
           <!-- Rutas -->
           <!-- <li class="menu-item">
               <a href="pages-Rutas.html" class="menu-link">
@@ -227,8 +212,8 @@
                 <div data-i18n="Rutas">Rutas</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Eventos -->
           <!-- <li class="menu-item">
               <a href="pages-Eventos&Fondos.html" class="menu-link">
@@ -236,23 +221,23 @@
                 <div data-i18n="Eventos y fondos">Eventos y fondos</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Cuenta</span>
           </li>
-
-
+      
+      
           <!-- Perfil -->
           <li class="menu-item">
             <a href="pages-account.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user"></i>
-              <div data-i18n="Perfil">Perfil</div>
+              <div data-i18n="Mi perfil">Mi perfil</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Conexión dispositivos -->
           <li class="menu-item">
             <a href="pages-account-connections.html" class="menu-link">
@@ -260,11 +245,11 @@
               <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
             </a>
           </li>
-
-
-
-
-
+      
+      
+      
+      
+      
           <!-- Help -->
           <!-- <li class="menu-item">
               <a href="pages-help-center-landing.html" class="menu-link">
@@ -272,11 +257,11 @@
                 <div data-i18n="Ayuda">Ayuda</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-
+      
           <!-- Contacto -->
           <li class="menu-item">
             <a href="pages-contactanos.html" class="menu-link">
@@ -284,8 +269,8 @@
               <div data-i18n="Contacto">Contacto</div>
             </a>
           </li>
-
-
+      
+      
           <!-- FAQ -->
           <!-- <li class="menu-item">
             <a href="pages-faq.html" class="menu-link">
@@ -293,8 +278,8 @@
               <div data-i18n="FAQ">FAQ</div>
             </a>
           </li> -->
-
-
+      
+      
           <!-- Terminos y condiciones-->
           <li class="menu-item">
             <a href="pages-Terminos.html" class="menu-link">
@@ -302,8 +287,8 @@
               <div data-i18n="Términos y condiciones">Términos y condiciones</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Privacidad -->
           <li class="menu-item">
             <a href="pages-Privacidad.html" class="menu-link">
@@ -311,8 +296,8 @@
               <div data-i18n="Política de privacidad">Política de privacidad</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Cookies -->
           <li class="menu-item">
             <a href="pages-Cookies.html" class="menu-link">
@@ -320,24 +305,16 @@
               <div data-i18n="Cookies">Cookies</div>
             </a>
           </li>
-        </ul>
+        </ul>  
       </aside>
       <!-- / Menu -->
 
 
-
-
-
-
-
-
       <!-- Layout container -->
       <div class="layout-page">
+        
         <!-- Navbar -->
-
-        <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar">
+        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -356,12 +333,6 @@
               </div>
             </div>
             <!-- /Search -->
-
-
-
-
-
-
 
 
 
@@ -456,7 +427,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-line-chart fs-4"></i>
                         </span>
-                        <a href="app-graphics.html" class="stretched-link">Gráficas</a>
+                        <a href="app-graficosBasicos.html" class="stretched-link">Gráficos</a>
                         <small class="text-muted mb-0">Informes de datos</small>
                       </div>
 
@@ -485,7 +456,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-user-plus fs-4"></i>
                         </span>
-                        <a href="app-planPsicologico" class="stretched-link">Plan psicológico</a>
+                        <a href="app-planPsicologico.html" class="stretched-link">Plan psicológico</a>
                         <small class="text-muted mb-0">Mente fuerte</small>
                       </div>
                     </div>
@@ -495,20 +466,6 @@
                 </div>
               </li>
               <!-- Quick links -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
               <!-- Notification -->
@@ -758,24 +715,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -883,7 +822,7 @@
 
 
                   <li>
-                    <a class="dropdown-item" href="auth-login-basic.html" target="_blank">
+                    <a class="dropdown-item" href="auth-login-basic.html">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Cerrar sesión</span>
                     </a>
@@ -905,71 +844,6 @@
         <!-- / Navbar -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
@@ -977,19 +851,7 @@
           <div class="container-fluid flex-grow-1 container-p-y">
             <h4 class="fw-bold py-2 mb-3"><span class="text-muted fw-light">Gráficos /</span> Indicadores semanales</h4>
 
-
-
-
-
-
-
-
-
-
-
-
             <div class="row">
-
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
                 <a href="app-graficosBasicos.html">
@@ -1000,7 +862,7 @@
               
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
                 <a href="">
-                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
+                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
                 </a>                
                 </div>
 
@@ -1026,34 +888,8 @@
 
               <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
                 <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos anuales </button>
-              </div> -->
-
-              
+              </div> -->              
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1160,32 +996,7 @@
                   </div>
                 </div>
               </div>
-
             </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-          
-        
-
-
 
 
 
@@ -1194,23 +1005,23 @@
             <div class="row">
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMBasicos.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; color: #191924;"
-                      title="<span>Duración, distancia recorrida y desnivel positivo</span>">Básicos semanales
+                <a href="app-graficosSEMBasicos.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>Duración, distancia recorrida y desnivel positivo</span>"> Básicos semanales
                   </button>  
                 </a>              
               </div>
               
               
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMIndicadores.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; color: #191924;"
-                      title="<span>FC, Potencia, Velocidad y Cadencia</span>">Indicadores semanales
+                <a href="app-graficosSEMIndicadores.html"><button type="button" class="btn btn-success active" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>FC, Potencia, Velocidad y Cadencia</span>"><i class='bx bx-check' style="font-weight: 700"></i> Indicadores semanales
                   </button>  
                 </a>              
               </div>
 
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMCargas.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; color: #191924;"
+                <a href="app-graficosSEMCargas.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
                       title="<span>TSS, IF, np, Calorías, TRIMPS, Trabajo y RPE</span>">Cargas semanales
                   </button>  
                 </a>             
@@ -1218,7 +1029,7 @@
 
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMTXZona.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; color: #191924;"
+                <a href="app-graficosSEMTXZona.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
                       title="<span>Tiempos en cada zona según tu FC y FTP</span>">Tiempos X zonas semanales
                   </button>
                 </a>
@@ -1236,52 +1047,11 @@
                 <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
                       title="<span>Horas de sueño, FC basal y N° de pasos</span>">Bienestar
                 </button>
-              </div> -->
-
-              
+              </div> -->              
             </div>
 
-
-
-            
-          
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <div class="row">
-                <div class="col-lg-12 col-12 mb-4">
+                <div class="col-lg-12 col-12 mb-1">
                   <div class="card">
   
                     <div class="card-header  header-elements">
@@ -1301,96 +1071,15 @@
                 </div>
               </div>
 
-
-
-
-
           </div>
           <!-- / Content -->
 
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-lg-10 col-md-10">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
-
-
-              <!-- Modal -->
-              <div class="modal fade" id="modalRPE" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header mb-0">
-                      <h5 class="modal-title mb-0" id="modalCenterTitle">Esacala de esfuerzo percibido (RPE)</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-
-                    <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
-                      <div class="row">
-                        <div class="col">
-                          <img src="../../assets/img/pages/RPE.png" class="mb-3" alt="" width="100%">
-                          <p style="margin-bottom: 0px;">
-                            La escala de Borg (conocida como RPE por sus siglas en inglés Rating of Perceived Exertion)
-                            es un instrumento
-                            que fue creado con el propósito de medir el esfuerzo y exigencia de cada entrenamiento, así
-                            de sencillo. <br><br>
-
-                            También conocida como la escala de Esfuerzo Percibido, mide, como su nombre lo indica, la
-                            percepción de esfuerzo,
-                            la intensidad y volumen de la actividad física que tuvo el deportista de ese entrenamiento
-                            en específico.
-                          </p>
-                        </div>
-                      </div>
-
-                    </div>
-
-
-
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-          
+         
 
 
 
           <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-              <div class="mb-2 mb-md-0">
-                &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por:
-                <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a> | Images:
-                <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-              </div>
-            </div>
-          </footer>
+          <footer id="footer"></footer>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>

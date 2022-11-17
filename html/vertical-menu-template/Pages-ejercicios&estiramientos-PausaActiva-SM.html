@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -50,38 +50,21 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#menu2").load("menu2.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-navbar-theme">
-      <div class="container-fluid">
-        
-        <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-ex-5"
-        >
-          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars" style="font-size: 16px;"></i></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-ex-5">
-          <div class="navbar-nav me-auto">
-            <a class="nav-item nav-link active" href="../../index.html">Inicio</a>
-            <a class="nav-item nav-link" href="pages-pricing.html">Membresías</a>            
-          </div>
-          <ul class="navbar-nav ms-lg-auto">            
-            <li class="nav-item">
-              <a href="auth-login-basic.html" class="btn btn-success" style="margin-right: 10px; margin-bottom: 5px;">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-              <a href="auth-register-basic.html" class="btn btn-success">Registrarme</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+     <!-- Menu -->
+  <div id="menu2"></div>
+  <!-- / Menu -->
 
 
 
@@ -133,26 +116,18 @@
 
 
 
-
-
-
-
-
-
-
-
               <div class="row overflow-hidden">
                 <div class="col-12">
                   
                   <ul class="timeline timeline-center mt-5">
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200">
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200">
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
                         <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
-                          <h5 class="card-title mb-0"><span class="badge rounded-pill bg-label-success">Preparate para iniciar</span></h5>                          
+                          <h5 class="card-title mb-0"><span class="badge rounded-pill bg-label-success">Prepárate para iniciar</span></h5>                          
                         </div>
                         <div class="card-body">
                           <p class="mb-2">
@@ -168,7 +143,7 @@
 
                     
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -190,7 +165,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -202,7 +177,7 @@
 
 
                           <p class="mb-2">
-                            Luego, flexiona tu cabeza hacia adelante tratando que tu mentón alcancé tu pecho. Permanece así por 10 segundos y luego haz el mismo movimiento hacia atras.
+                            Luego, flexiona tu cabeza hacia adelante tratando que tu mentón alcancé tu pecho. Permanece así por 10 segundos y luego haz el mismo movimiento hacia atrás.
                           </p>    
 
                         
@@ -212,7 +187,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -224,7 +199,7 @@
 
 
                           <p class="mb-2">
-                            Después, gira tu cabeza hacia un lado suavemente tratando que tu oreja toque tu hombro. Te puedes ayudar con la mano del lado al que estás 
+                            Después, gira tu cabeza hacia un lado suavemente, tratando que tu oreja toque tu hombro. Te puedes ayudar con la mano del lado al que estás 
                             inclinando tu cabeza. Mantén la posición durante 10 segundos y luego haz lo mismo hacia al otro lado.
 
                           </p>    
@@ -236,7 +211,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -248,7 +223,7 @@
 
 
                           <p class="mb-2">
-                            Todavía sentado, eleva tus piernas lo más estiradas posible, en esa posición trata que los dedos de tus pies apunten hacia tu pecho y sostén durante 10 segundos.
+                            Todavía sentado, eleva tus piernas lo más estiradas posibles, en esa posición trata que los dedos de tus pies apunten hacia tu pecho y sostén durante 10 segundos.
                           </p>    
 
                         
@@ -258,7 +233,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -270,7 +245,7 @@
 
 
                           <p class="mb-2">
-                            Ahora, de pie y con la espalda recta eleva tus brazos entrelazando los dedos lo más arriba posible y con las palmas de las manos mirando hacia el techo, 
+                            Ahora, de pie y con la espalda recta, eleva tus brazos entrelazando los dedos lo más arriba posible y con las palmas de las manos mirando hacia el techo, 
                             te empinas y mantienes esa posición 10 segundos.
                           </p>    
 
@@ -281,7 +256,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -303,7 +278,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -315,7 +290,7 @@
 
 
                           <p class="mb-2">
-                            Coloca tus manos entrelazadas detrás de tu cabeza llevando los codos hacia atrás y sostén por 10 segundos.
+                            Coloca tus manos entrelazadas detrás de tu cabeza, llevando los codos hacia atrás y sostén por 10 segundos.
                           </p>    
 
                         
@@ -325,7 +300,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -337,7 +312,7 @@
 
 
                           <p class="mb-2">
-                            Después, de pie con los pies juntos y sin doblar las rodillas, inclínate hacia adelante tratando de tocar los dedos de tus pies con los de tu mano. Sostén durante 10 segundos.
+                            Después, de pie, con los pies juntos y sin doblar las rodillas, inclínate hacia adelante tratando de tocar los dedos de tus pies con los de tu mano. Sostén durante 10 segundos.
                           </p>    
 
                         
@@ -347,7 +322,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -359,7 +334,7 @@
 
 
                           <p class="mb-2">
-                            En esa misma posición, con los pies juntos y sin doblar las rodillas inclínate hacia un lado y trata de tocar tu rodilla derecha con los dedos 
+                            En esa misma posición, con los pies juntos y sin doblar las rodillas, inclínate hacia un lado y trata de tocar tu rodilla derecha con los dedos 
                             de la mano derecha. Mantén esa posición durante 10 segundos y cambia de lado.
                           </p>    
 
@@ -370,7 +345,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -383,7 +358,7 @@
 
                           <p class="mb-2">
                             Ahora, flexiona una pierna sujetando la punta del pie con la mano y lleva el talón hacia tus glúteos. Hay que hacerlo suavemente y empujar con la cadera hacia delante. 
-                            Si te cuesta mantener el equilibrio apóyate en una pared, un poste, un árbol o algún otro elemento que esté fijo y estable. Mantén por 10 segundos y repite con la otra pierna.
+                            Si te cuesta mantener el equilibrio, apóyate en una pared, un poste, un árbol o algún otro elemento que esté fijo y estable. Mantén por 10 segundos y repite con la otra pierna.
                           </p>    
 
                         
@@ -393,7 +368,7 @@
 
 
                     <li class="timeline-item mb-md-4 mb-5">
-                      <span class="timeline-indicator timeline-indicator-primary" data-aos="zoom-in" data-aos-delay="200"> 
+                      <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200"> 
                         <i class="fa-solid fa-exclamation"></i>
                       </span>
                       <div class="timeline-event card p-0" data-aos="fade-right">
@@ -405,28 +380,14 @@
 
 
                           <p class="mb-2">
-                            Finalmente, de pie y en una posición erguida con las rodillas semiflexionadas, lleva tus manos a tu cintura y empújala hacia adelante llevando tu cabeza hacia atrás. 
+                            Finalmente, de pie y en una posición erguida con las rodillas semiflexionadas, lleva tus manos a tu cintura y empújala hacia adelante, llevando tu cabeza hacia atrás. 
                             En esa posición debes mantenerte 8 segundos.
                           </p>    
 
                         
                         </div>                        
                       </div>
-                    </li>
-                    
-                             
-                   
-                   
-                   
-                   
-                   
-                    
-                    
-                    
-                    
-
-
-                    
+                    </li>          
                     
                     <li class="timeline-item mb-md-4 mb-5">
                       <span class="timeline-indicator timeline-indicator-success" data-aos="zoom-in" data-aos-delay="200">
@@ -443,28 +404,12 @@
                 </div>
               </div>
 
-
-
               <!--/ User Profile Content -->
             </div>
-            <!-- / Content -->
-
-
-
-
-
-            
+            <!-- / Content -->            
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: 
-                  <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a>  |   Images: 
-                  <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-                </div>                
-              </div>
-            </footer>
+            <footer id="footer"></footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -483,7 +428,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

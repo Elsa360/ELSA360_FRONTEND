@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -47,6 +47,15 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#menu2").load("menu2.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
@@ -56,66 +65,26 @@
   </div>
   <!--End Boton de Whatsapp-->
 
-
-    <nav class="navbar navbar-expand-lg bg-navbar-theme">
-      <div class="container-fluid">
-        
-        <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar-ex-5"
-        >
-          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars" style="font-size: 16px;"></i></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar-ex-5">
-          <div class="navbar-nav me-auto">
-            <a class="nav-item nav-link active" href="../../index.html">Inicio</a>
-            <a class="nav-item nav-link" href="pages-pricing.html">Membresías</a>            
-          </div>
-          <ul class="navbar-nav ms-lg-auto">            
-            <li class="nav-item">
-              <a href="auth-login-basic.html" class="btn btn-success" style="margin-right: 10px; margin-bottom: 5px;">Iniciar sesión</a>
-            </li>
-            <li class="nav-item">
-              <a href="auth-register-basic.html" class="btn btn-success">Registrarme</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-
-
-
-
-
-
-
+  <!-- Menu -->
+  <div id="menu2"></div>
+  <!-- / Menu -->
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-        
-
-        
-          
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="container-xxl flex-grow-1 container-p-y mb-4">
               <div class="card overflow-hidden">
                 <!-- Pricing Plans -->
-                <div class="pricing-plans pb-sm-5 pb-2 rounded-top">
-                  <div class="container py-5">
+                <div class="pricing-plans pb-sm-3 pb-2 rounded-top">
+                  <div class="container" style="padding-bottom: 5px; padding-top: 48px;">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center">
-                      <a href="../bt4/wrapkit/index.html" class="app-brand-link gap-2">
+                      <a href="#" class="app-brand-link gap-2">
                         <span class="app-brand-logo demo" style="margin-bottom: 20px;">
                           <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">                    
                         </span>                  
@@ -209,13 +178,13 @@
                                 <span class="badge badge-center w-px-20 h-px-20 rounded-pill bg-label-success me-2"
                                   ><i class="bx bx-check bx-xs"></i
                                 ></span>
-                                2 macro-ciclos de 6 meses  <strong>ó</strong>
+                                2 macro-ciclos de 6 meses  <strong>o</strong>
                               </li>
                               <li class="mb-2">
                                 <span class="badge badge-center w-px-20 h-px-20 rounded-pill bg-label-success me-2"
                                   ><i class="bx bx-check bx-xs"></i
                                 ></span>
-                                3 macro-ciclos de 4 meses  <strong>ó</strong>
+                                3 macro-ciclos de 4 meses  <strong>o</strong>
                               </li>
                               <li class="mb-2">
                                 <span class="badge badge-center w-px-20 h-px-20 rounded-pill bg-label-success me-2"
@@ -250,31 +219,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                       <!-- Enterprise -->
                       <div class="col-lg">
                         <div class="card">
@@ -304,7 +248,7 @@
                                 <span class="badge badge-center w-px-20 h-px-20 rounded-pill bg-label-success me-2"
                                   ><i class="bx bx-check bx-xs"></i
                                 ></span>
-                                1 macro-ciclo de 6 meses <strong>ó</strong>
+                                1 macro-ciclo de 6 meses <strong>o</strong>
                               </li>
                               <li class="mb-2">
                                 <span class="badge badge-center w-px-20 h-px-20 rounded-pill bg-label-success me-2"
@@ -343,27 +287,6 @@
                 </div>
                 <!--/ Pricing Plans -->
 
-
-
-
-
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-                
                 
                 <!-- FAQS -->
                 <div class="pricing-faqs bg-alt-pricing rounded-bottom">
@@ -495,31 +418,17 @@
               </div>
             </div>
             <!--/ Pricing Free Trial -->
-
             
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: 
-                  <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a>  |   Images: 
-                  <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-                </div>                
-              </div>
-            </footer>
-            <!-- / Footer -->
-            
+            <footer id="footer"></footer>
+            <!-- / Footer -->           
 
             <div class="content-backdrop fade"></div>
           </div>
-          <!-- Content wrapper -->
-        
-        
+          <!-- Content wrapper -->               
       </div>
-
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
-
       <!-- Drag Target Area To SlideIn Menu On Small Screens -->
       <div class="drag-target"></div>
     </div>

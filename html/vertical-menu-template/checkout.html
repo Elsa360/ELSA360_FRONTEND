@@ -1,7 +1,6 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
   <head>
-    <link rel="icon" href="../../assets/img/favicon/E-de-ELSA.ico">
     <meta name="viewport" content="width=device-width,inital-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
@@ -11,6 +10,10 @@
     <meta name="robots" content="noindex">    
     <title>Checkout - ELSA360</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
+
+    
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">  
 
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -18,18 +21,25 @@
     
     <!-- Custom styles for this template -->
     <link href="../../assets/css/checkout.css" rel="stylesheet">
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
 
-
-  <body >
+  <body>
     
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../../assets/img/branding/elsa-Verde.png" alt="" width="100" >
+      <img class="d-block mx-auto mb-2" src="../../assets/img/branding/elsa-Verde.png" alt="" width="100" >
       <h2>Checkout</h2>
-      <p class="lead">Estas a un solo paso de empezar el entrenamiento que te llevará a cumplir tus objetivos.</p>
+      <p class="lead">Estás a un solo paso de empezar el entrenamiento que te llevará a cumplir tus objetivos.</p>
     </div>
 
     <div class="row g-5">
@@ -76,11 +86,6 @@
         </ul>    
 
 
-
-
-
-
-
         <form class="card p-2 fondoLista">
           <div class="input-group ">
             <input type="text" class="form-control" id="codigoDescuento" placeholder="Ingresa tu código">
@@ -88,11 +93,6 @@
           </div>
         </form>
       </div>
-
-
-
-
-
 
 
 
@@ -122,25 +122,20 @@
               <div class="invalid-feedback">
                 Ingresa un correo valido.
               </div> -->
-            </div>
-
-            
+            </div> 
 
             
           </div>
-        </div>
-
-          
+        </div>          
 
           <div class="separadorContainer">
             <hr class="my-4">
           </div>           
 
-          <!-- <button class="botonIrAPagar" type="submit">Ir a pagar</button> -->
+          <button class="botonIrAPagar" type="submit">Ir a pagar</button>
         </form>
 
         <div class="cho-container" id="cho-container"></div>
-
 
         <div class="mercadoPago">
           <h6>Paga seguro con:</h6>
@@ -150,28 +145,18 @@
     </div>
   </main>
 
-
-
-
   
 
-
-
-
-
-  
-
-  <footer >
-    <hr class="my-4">
-    <p class="mb-1">&reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: <a class="contratos" href="http://elsa360.com"> ELSA&reg; </a>  |   Images: <a class="contratos" href="http://unsplash.com"> Unsplash</a></p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a class="contratos" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
-      <li class="list-inline-item"><a class="contratos" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
-      <li class="list-inline-item"><a class="contratos" href="pages-cookies-SM.html">Cookies</a></li>
-    </ul>
+  <footer id="footer" >
   </footer>
+
+  <ul class="list-inline text-center" style="font-size: 12px;">
+    <li class="list-inline-item"><a class="contratos text-muted" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
+    <li class="list-inline-item"><a class="contratos text-muted" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
+    <li class="list-inline-item"><a class="contratos text-muted" href="pages-cookies-SM.html">Cookies</a></li>
+  </ul>
 </div>
-<script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
     <script src="JS/bootstrap.bundle.min.js"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script src="../../JS/classes.js"></script>

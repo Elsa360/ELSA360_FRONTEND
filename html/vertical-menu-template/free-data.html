@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="light-style layout-navbar-fixed layout-menu-fixed"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -55,24 +55,20 @@
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        
-
-        
-          
+      <div class="layout-container">       
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="card overflow-hidden">
+              <div class="card overflow-hidden mb-4">
                 <!-- Pricing Plans -->
                 <div class="pricing-plans  rounded-top">
-                  <div class="container py-5">
+                  <div class="container pt-5 pb-4">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center">
-                      <a href="../bt4/wrapkit/index.html" class="app-brand-link gap-2">
+                      <a href="#" class="app-brand-link gap-2">
                         <span class="app-brand-logo demo" style="margin-bottom: 20px;">
                           <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">                    
                         </span>                  
@@ -120,13 +116,13 @@
                           <div class="d-flex align-items-end row">
                             <div class="col-sm-7">
                               <div class="card-body">
-                                <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                                <h5 class="card-title text-success">Congratulations John! 🎉</h5>
                                 <p class="mb-4">
                                   You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
                                   your profile.
                                 </p>
       
-                                <a href="javascript:;" class="btn btn-sm btn-label-primary">View Badges</a>
+                                <a href="javascript:;" class="btn btn-sm btn-label-success">View Badges</a>
                               </div>
                             </div>
                             <div class="col-sm-5 text-center text-sm-left">
@@ -292,7 +288,7 @@
                           <div class="card-body">
                             <div class="d-flex justify-content-between">
                               <div class="card-info">
-                                <p class="card-text">Requerimiento de calorias </p>
+                                <p class="card-text">Requerimiento de calorías </p>
 
                                 <div class="d-flex align-items-end mb-0">
                                   <h4 class="card-title mb-0 me-2">2750 Cal</h4>                                                                    
@@ -431,17 +427,15 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/balanza.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
-                            <span class="fw-semibold d-block mb-1">Tipo de dieta</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success">Regular</span></h5>
+                            <span class="fw-semibold d-block mb-1">Peso actual</span>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoActual">70 Kg</span></h5>
                             
                           </div>
                         </div>
                       </div>
-
-
 
 
 
@@ -450,11 +444,11 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/balanza.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
-                            <span class="fw-semibold d-block mb-1">Peso actual</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoActual">70 Kg</span></h5>
+                            <span class="fw-semibold d-block mb-1">Peso deseado</span>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal">74 Kg</span></h5>
                             
                           </div>
                         </div>
@@ -466,11 +460,11 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/Superavit.Calorias.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
-                            <span class="fw-semibold d-block mb-1">Peso deseado</span>
-                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal">74 Kg</span></h5>
+                            <span class="fw-semibold d-block mb-1">Deficit o Superavit</span>
+                            <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal" style="text-transform: capitalize;">+ 700 Cal/Día</span></h5>
                             
                           </div>
                         </div>
@@ -483,7 +477,7 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/pesa.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Diferencia de pesos</span>
@@ -500,7 +494,7 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/XQ.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">¿Por qué montas?</span>
@@ -516,7 +510,7 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/Podio.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Nivel deportivo</span>
@@ -532,7 +526,7 @@
                           <div class="card-body">
                             <div class="card-title d-flex align-items-start justify-content-between">
                               <div class="avatar flex-shrink-0">
-                                <img src="../../assets/img/icons/unicons/food.png" alt="computer" class="rounded" />
+                                <img src="../../assets/img/icons/unicons/podio.png" alt="computer" class="rounded" />
                               </div>                              
                             </div>
                             <span class="fw-semibold d-block mb-1">Sub-nivel deportivo</span>
@@ -552,7 +546,7 @@
                             <div class="demo-inline-spacing text-center">
                               
                               <a href="auth-perfil.html" class="btn btn-secondary">Volver a perfilarme</a>      
-                              <a href="#" class="btn btn-success" onclick="guardarPerilUsuario()">Continuar</a>
+                              <a href="pages-pricing.html" class="btn btn-success" onclick="guardarPerilUsuario()">Continuar</a>
 
                             </div>
                           <!-- </div>
@@ -565,38 +559,6 @@
 
 
                     </div>
-
-
-
-
-
-
-
-                    
-                    
-                     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                   </div>
                 </div>
@@ -618,9 +580,7 @@
 
 
 
-            <div class="col-lg-4 col-md-6">
-              <div class="mt-3">
-                <!-- Button trigger modal -->
+            
                 
 
                 <!-- Modal -->
@@ -639,7 +599,7 @@
                             <p>
                               Es un valor derivado de tu masa (peso) y altura. <br><br>
                               
-                              Es una regla de oro utilizada por los profesionales para categorizar en términos gnerales a una persona según la siguiente tabla:
+                              Es una regla de oro utilizada por los profesionales para categorizar en términos generales a una persona según la siguiente tabla:
                             </p>
 
                             <div class="card" style="text-align: center;">                              
@@ -690,7 +650,7 @@
 
                                     <tr>
                                       <td>40,0</td>
-                                      <td><span class="badge bg-label-danger me-1">Obesidad morbida</span></td>
+                                      <td><span class="badge bg-label-danger me-1">Obesidad mórbida</span></td>
                                       <td></td>                                                                          
                                     </tr>
 
@@ -716,8 +676,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
 
 
@@ -749,9 +707,7 @@
 
 
 
-            <div class="col-lg-4 col-md-6">
-              <div class="mt-3">
-                <!-- Button trigger modal -->
+            
                 
 
                 <!-- Modal -->
@@ -797,8 +753,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              
 
 
 
@@ -827,9 +782,7 @@
 
 
 
-            <div class="col-lg-4 col-md-6">
-              <div class="mt-3">
-                <!-- Button trigger modal -->
+            
                 
 
                 <!-- Modal -->
@@ -846,7 +799,7 @@
                         <div class="row">
                           <div class="col ">
                             <p style="margin-bottom: 0px;">
-                              La diferencia de pesos está es la resta de tu peso deseado menos tu peso actual. <br> <br>                            
+                              La diferencia de pesos está en la resta de tu peso deseado menos tu peso actual. <br> <br>                            
                              
 
                              <span class="concepto"> Dif. Pesos = Peso deseado - Peso actual </span> <br><br>
@@ -868,8 +821,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              
 
 
 
@@ -904,15 +856,7 @@
 
             
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por: 
-                  <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a>  |   Images: 
-                  <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-                </div>                
-              </div>
-            </footer>
+            
             <!-- / Footer -->
             
 

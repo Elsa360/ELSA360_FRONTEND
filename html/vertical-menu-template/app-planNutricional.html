@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="es" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords"
-    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
@@ -50,16 +48,22 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
 </head>
 
 <body>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
+
       <!-- Menu -->
-
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
 
         <div class="app-brand demo">
           <!--Logo-->
@@ -68,68 +72,68 @@
               <svg width="10" viewBox="0 0 25 42" version="1.1">
               </svg>
             </span>
-
+      
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
                 src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
           </a>
-
-
-
+      
+      
+      
           <!--Hamburguesa-->
           <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
           </a>
-        </div>
-
-
-
-
-
-
-
-        <div class="menu-inner-shadow"></div>
-
+        </div>      
+      
+      
+      
+      
+        <div class="menu-inner-shadow"></div>    
+      
+      
+      
+      
         <ul class="menu-inner py-1">
-
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entreno deportivo</span>
+            <span class="menu-header-text">Principal</span>
           </li>
-
-
-
+      
+      
+      
           <!-- Dashboards -->
           <li class="menu-item">
             <a href="dashboard.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Dashboards">Dashboards</div>
+              <div data-i18n="Dashboard">Dashboard</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Calendario -->
           <!-- <li class="menu-item">
-              <a href="app-calendar.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-calendar"></i>
-                <div data-i18n="Calendario">Calendario</div>
-              </a>
-            </li> -->
-
+            <a href="app-calendar.html" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-calendar"></i>
+              <div data-i18n="Calendario">Calendario</div>
+            </a>
+          </li> -->
+      
           <!-- Graficas -->
           <li class="menu-item">
-            <a href="app-graphics.html" class="menu-link">
+            <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
-              <div data-i18n="Gráficas">Gráficas</div>
+              <div data-i18n="Gráficos">Gráficos</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Planes de entrenamiento</span>
+            <span class="menu-header-text">Entreno deportivo</span>
           </li>
-
-
+      
+      
           <!-- Ciclismo -->
           <li class="menu-item">
             <a href="app-planDeportivo.html" class="menu-link">
@@ -137,7 +141,7 @@
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
             </a>
           </li>
-
+      
           <!-- Nutrición -->
           <li class="menu-item active">
             <a href="app-planNutricional.html" class="menu-link">
@@ -145,7 +149,7 @@
               <div data-i18n="Plan nutricional">Plan nutricional</div>
             </a>
           </li>
-
+      
           <!-- Psicología -->
           <li class="menu-item">
             <a href="app-planPsicologico.html" class="menu-link">
@@ -153,7 +157,7 @@
               <div data-i18n="Plan psicológico">Plan psicológico</div>
             </a>
           </li>
-
+      
           <!-- Control del sueño -->
           <li class="menu-item">
             <a href="app-controlSueño.htm" class="menu-link">
@@ -161,13 +165,13 @@
               <div data-i18n="Control del sueño">Control del sueño</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Recursos</span>
           </li>
-
+      
           <!-- Recomendaciones -->
           <li class="menu-item">
             <a href="pages-Recomendaciones.html" class="menu-link">
@@ -175,7 +179,7 @@
               <div data-i18n="Recomendaciones">Recomendaciones</div>
             </a>
           </li>
-
+      
           <!-- Ejercicios -->
           <li class="menu-item">
             <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
@@ -183,7 +187,7 @@
               <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
             </a>
           </li>
-
+      
           <!-- Pedagogia -->
           <!-- <li class="menu-item">
               <a href="pages-pedagogia.html" class="menu-link">
@@ -191,7 +195,7 @@
                 <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
               </a>
             </li> -->
-
+      
           <!-- Rutas -->
           <!-- <li class="menu-item">
               <a href="pages-Rutas.html" class="menu-link">
@@ -199,8 +203,8 @@
                 <div data-i18n="Rutas">Rutas</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Eventos -->
           <!-- <li class="menu-item">
               <a href="pages-Eventos&Fondos.html" class="menu-link">
@@ -208,23 +212,23 @@
                 <div data-i18n="Eventos y fondos">Eventos y fondos</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Cuenta</span>
           </li>
-
-
+      
+      
           <!-- Perfil -->
           <li class="menu-item">
             <a href="pages-account.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user"></i>
-              <div data-i18n="Perfil">Perfil</div>
+              <div data-i18n="Mi perfil">Mi perfil</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Conexión dispositivos -->
           <li class="menu-item">
             <a href="pages-account-connections.html" class="menu-link">
@@ -232,11 +236,11 @@
               <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
             </a>
           </li>
-
-
-
-
-
+      
+      
+      
+      
+      
           <!-- Help -->
           <!-- <li class="menu-item">
               <a href="pages-help-center-landing.html" class="menu-link">
@@ -244,11 +248,11 @@
                 <div data-i18n="Ayuda">Ayuda</div>
               </a>
             </li> -->
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-
+      
           <!-- Contacto -->
           <li class="menu-item">
             <a href="pages-contactanos.html" class="menu-link">
@@ -256,17 +260,17 @@
               <div data-i18n="Contacto">Contacto</div>
             </a>
           </li>
-
-
+      
+      
           <!-- FAQ -->
           <!-- <li class="menu-item">
-              <a href="pages-faq.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-help-circle"></i>
-                <div data-i18n="FAQ">FAQ</div>
-              </a>
-            </li>  -->
-
-
+            <a href="pages-faq.html" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-help-circle"></i>
+              <div data-i18n="FAQ">FAQ</div>
+            </a>
+          </li> -->
+      
+      
           <!-- Terminos y condiciones-->
           <li class="menu-item">
             <a href="pages-Terminos.html" class="menu-link">
@@ -274,8 +278,8 @@
               <div data-i18n="Términos y condiciones">Términos y condiciones</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Privacidad -->
           <li class="menu-item">
             <a href="pages-Privacidad.html" class="menu-link">
@@ -283,8 +287,8 @@
               <div data-i18n="Política de privacidad">Política de privacidad</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Cookies -->
           <li class="menu-item">
             <a href="pages-Cookies.html" class="menu-link">
@@ -292,23 +296,16 @@
               <div data-i18n="Cookies">Cookies</div>
             </a>
           </li>
-        </ul>
+        </ul>  
       </aside>
       <!-- / Menu -->
 
 
-
-
-
-
-
       <!-- Layout container -->
       <div class="layout-page">
+        
         <!-- Navbar -->
-
-        <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar">
+        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -327,12 +324,6 @@
               </div>
             </div>
             <!-- /Search -->
-
-
-
-
-
-
 
 
 
@@ -413,10 +404,11 @@
 
                       <div class="dropdown-shortcuts-item col">
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                          <i class="bx bx-calendar fs-4"></i>
+                          <!-- <i class="bx bx-calendar fs-4"></i> -->
+                          <i class="bx bx-comment-detail"></i>
                         </span>
-                        <a href="app-calendar.html" class="stretched-link">Calendario</a>
-                        <small class="text-muted mb-0">Plan deportivo</small>
+                        <a href="pages-recomendaciones.html" class="stretched-link">Recomendaciones</a>
+                        <small class="text-muted mb-0">Mejora tus hábitos</small>
                       </div>
                     </div>
 
@@ -426,7 +418,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-line-chart fs-4"></i>
                         </span>
-                        <a href="app-graphics.html" class="stretched-link">Gráficas</a>
+                        <a href="app-graficosBasicos.html" class="stretched-link">Gráficos</a>
                         <small class="text-muted mb-0">Informes de datos</small>
                       </div>
 
@@ -455,7 +447,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-user-plus fs-4"></i>
                         </span>
-                        <a href="app-planPsicologico" class="stretched-link">Plan psicológico</a>
+                        <a href="app-planPsicologico.html" class="stretched-link">Plan psicológico</a>
                         <small class="text-muted mb-0">Mente fuerte</small>
                       </div>
                     </div>
@@ -465,20 +457,6 @@
                 </div>
               </li>
               <!-- Quick links -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
               <!-- Notification -->
@@ -728,24 +706,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -829,31 +789,31 @@
 
 
 
-                  <li>
-                    <a class="dropdown-item" href="pages-help-center-landing.html">
-                      <i class="bx bx-support me-2"></i>
-                      <span class="align-middle">Ayuda</span>
-                    </a>
-                  </li>
+                  <!-- <li>
+                      <a class="dropdown-item" href="pages-help-center-landing.html">
+                        <i class="bx bx-support me-2"></i>
+                        <span class="align-middle">Ayuda</span>
+                      </a>
+                    </li> -->
 
 
 
-                  <li>
+                  <!-- <li>
                     <a class="dropdown-item" href="pages-faq.html">
                       <i class="bx bx-help-circle me-2"></i>
                       <span class="align-middle">FAQ</span>
                     </a>
-                  </li>
+                  </li> -->
 
 
                   <!-- Divisor -->
-                  <li>
+                  <!-- <li>
                     <div class="dropdown-divider"></div>
-                  </li>
+                  </li> -->
 
 
                   <li>
-                    <a class="dropdown-item" href="auth-login-basic.html" target="_blank">
+                    <a class="dropdown-item" href="auth-login-basic.html">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Cerrar sesión</span>
                     </a>
@@ -864,12 +824,6 @@
               <!--/ User -->
             </ul>
           </div>
-
-
-
-
-
-
 
           <!-- Search Small Screens -->
           <div class="navbar-search-wrapper search-input-wrapper d-none">
@@ -882,70 +836,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
               <div class="col-lg-8 mb-4">
@@ -1000,34 +896,6 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1301,7 +1169,7 @@
                     <div class="card-body">
                       <div class="d-flex justify-content-between">
                         <div class="card-info">
-                          <p class="card-text">Requerimiento de calorias </p>
+                          <p class="card-text">Requerimiento de calorías </p>
 
                           <div class="d-flex align-items-end mb-0">
                             <h4 class="card-title mb-0 me-2" id="calSinActFisc">2750 Cal</h4>
@@ -1312,7 +1180,7 @@
 
                         </div>
                         <div class="card-icon">
-                          <img src="../../assets/img/icons/unicons/calorias.png" alt="" style="width: 37px;">
+                          <img src="../../assets/img/icons/unicons/caloras.png" alt="" style="width: 37px;">
                         </div>
                       </div>
                     </div>
@@ -2340,47 +2208,15 @@
           </div>
           <!-- / Content -->
 
+
+
+
           <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-              <div class="mb-2 mb-md-0">
-                &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por:
-                <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a> | Images:
-                <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-              </div>
-            </div>
-          </footer>
-
-          <!-- / Footer -->
+          <footer id="footer"></footer>
+          <!-- / Footer -->          
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-lg-4 col-md-6">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
 
 
               <!-- Modal -->
@@ -2420,48 +2256,9 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-lg-4 col-md-6">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
+          
 
 
               <!-- Modal -->
@@ -2558,41 +2355,11 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-lg-4 col-md-6">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
+         
 
 
               <!-- Modal -->
@@ -2633,36 +2400,11 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-lg-4 col-md-6">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
+          
 
 
               <!-- Modal -->
@@ -2703,47 +2445,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
           <div class="content-backdrop fade"></div>
@@ -2763,7 +2464,6 @@
 <script src="../../JS/planNutricional.js"></script>
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../../assets/vendor/libs/popper/popper.js"></script>
   <script src="../../assets/vendor/js/bootstrap.js"></script>
   <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
