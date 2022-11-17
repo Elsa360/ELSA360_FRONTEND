@@ -8,7 +8,8 @@ function caloriasSeleccionadasMomento() {
     const getComplete = urlParams.get('getCompleto');
     document.getElementById("caloriasRequeridas").innerHTML = getM;
     traerMinutaNutricional();
-    fetch("https://localhost:7155/alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + "")
+    fetch("http://www.apielsa.somee.com/alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + "")
+    // fetch("https://localhost:7155/alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + "")
         .then((response) => response.json())
         .then((calorias) => {
             let totalCalorias = 0;
@@ -27,7 +28,8 @@ function caloriasSeleccionadasMomento() {
         });
 }
 function traerAlimentosRegulares() {
-    fetch('https://localhost:7155/alimentoRegular/listar')
+    fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
+    // fetch('https://localhost:7155/alimentoRegular/listar')
         .then((response) => response.json())
         .then((alimentosRegulares) => {
             // Energeticos
@@ -339,7 +341,8 @@ function traerMinutaNutricional() {
     }
     console.log(getMinuta);
     const idDieta = 1;
-    let url = "https://localhost:7155/planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
+    let url = "http://www.apielsa.somee.com/planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
+    // let url = "https://localhost:7155/planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
     fetch(url)
         .then((response) => response.json())
         .then((minutaNutricional) => {
@@ -425,7 +428,8 @@ function traerAlimRegSelecc() {
         let tablaOtrosSelecc = document.getElementById('tablaOtrosSelecc');
         let cuerpoOtrosSelecc = document.createElement('tbody');
         //Endpoint
-        fetch('https://localhost:7155/alimentoRegularSeleccionado/listar')
+        fetch('http://www.apielsa.somee.com/alimentoRegularSeleccionado/listar')
+        // fetch('https://localhost:7155/alimentoRegularSeleccionado/listar')
             .then((response) => response.json())
             .then((alimRegSelecc) => {
                 alimRegSelecc.forEach(alimento => {
@@ -786,7 +790,7 @@ function seleccionarAlimentosRegulares() {
     });
 }
 function guardarAlimentosRegulares() {
-    try {
+    // try {
         const foodSelections = document.querySelectorAll("input[type=number]");
         console.log(foodSelections);
         for (let i = 0, food; food = foodSelections[i++];) {
@@ -795,7 +799,8 @@ function guardarAlimentosRegulares() {
                 console.log('IdInput:', idAli);
                 console.log('IdAlimentos:', idAli.slice(4))
                 console.log('Porciones:', document.getElementById(idAli).value);
-                fetch('https://localhost:7155/alimentoRegularSeleccionado/crear', {
+                fetch('http://www.apielsa.somee.com/alimentoRegularSeleccionado/crear', {
+                // fetch('https://localhost:7155/alimentoRegularSeleccionado/crear', {
                     method: 'POST',
                     body: JSON.stringify({
                         fkIdMomentoComidaSlccn: 1,
@@ -813,9 +818,9 @@ function guardarAlimentosRegulares() {
             }
         }
         setTimeout(redirigir, 3000)
-    } catch (error) {
-        console.log(error);
-    }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }
 function redirigir() {
     location.href = window.location.origin + '/html/vertical-menu-template/tables-pdf-selected-foods.html'

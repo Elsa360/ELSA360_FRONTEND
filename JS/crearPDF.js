@@ -1,5 +1,5 @@
 function alimentos_pdf() {
-    try {
+    // try {
         //Obtener fecha del sistema
         const fechaActual = new Date()
         ano = fechaActual.getFullYear();
@@ -9,11 +9,12 @@ function alimentos_pdf() {
         // console.log(mes);
         // console.log(dia);
         fecha = ano + '-' + mes + '-' + dia;
-        console.log('https://localhost:7155/alimentoRegularSeleccionado/pdf?fecha=' + fecha + '');
+        console.log(fecha);
         // Alimentos elegidos
         let tablaElegidos = document.getElementById('alimentosElegidos');
         let cuerpoTabla = document.createElement('tbody');
-        fetch('https://localhost:7155/alimentoRegularSeleccionado/pdf?fecha=' + fecha + '')
+        fetch("http://www.apielsa.somee.com/alimentoRegularSeleccionado/pdf?fecha=" + fecha + "")
+        // fetch('https://localhost:7155/alimentoRegularSeleccionado/pdf?fecha=' + fecha + '')
             .then((response) => response.json())
             .then((alimRegSelecc) => {
                 alimRegSelecc.forEach(alimento => {
@@ -74,7 +75,7 @@ function alimentos_pdf() {
                 });
                 tablaElegidos.appendChild(cuerpoTabla);
             });
-    } catch (error) {
-        console.log(error);
-    }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }

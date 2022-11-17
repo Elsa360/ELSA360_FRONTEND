@@ -58,28 +58,26 @@ function mensajeVerificacionUsuario() {
     let mensaje = " Hola " + nombre.toString().toUpperCase() + ", hemos enviado un mensaje a tu email para confirmar tu cuenta de ELSA."
     document.getElementById("mensajeVerificacion").innerHTML = mensaje;
 }
-async function verificarUsuario(email, nombreUsuario) {
-    try {
-        let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "";
-        await fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                setTimeout(10);
-                location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
-            })
-    } catch (e) {
+// async function verificarUsuario(email, nombreUsuario) {
+//     try {
+//         let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "";
+//         await fetch(url)
+//             .then(response => response.json())
+//             .then(respuesta => {
+//                 setTimeout(10);
+//                 location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
+//             })
+//     } catch (e) {
 
-    }
-}
+//     }
+// }
 async function validarCuenta() {
 
     const emailUsuario = window.location.search;
     const urlParams = new URLSearchParams(emailUsuario);
     let emailValidado = urlParams.get("emailVerificado");
     let url = "https://localhost:7155/usuario/verificar?correoElectronico=" + emailValidado.toLocaleLowerCase() + "";
-    // console.log(url);
-    // try {
-
+    try {
         await fetch(url, {
             method: 'PUT',
             body: JSON.stringify({
@@ -93,25 +91,24 @@ async function validarCuenta() {
             .then((json) => {
                 alert("Cuenta verificada");
             });
-    // } catch (e) {
-    //     console.log(e);
-    // }
+    } catch (e) {
+        console.log(e);
+    }
 
-    // try {
-    //     let url = "https://localhost:7155/usuario/idUsuario?email=" + emailValidado + ""
-    //     await fetch(url)
-    //         .then(response => response.json())
-    //         .then(respuesta => {
-    //             respuesta.forEach(usuario => {
-    //                 idUser = usuario.idUsuario;
-    //             });
-    //             sessionStorage.setItem("idUsuario", idUser);
-    //         });
-    // } catch (e) {
-    //     console.log(e);
-    // }
+    try {
+        let url = "https://localhost:7155/usuario/idUsuario?email=" + emailValidado + ""
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                respuesta.forEach(usuario => {
+                    idUser = usuario.idUsuario;
+                });
+                sessionStorage.setItem("idUsuario", idUser);
+            });
+    } catch (e) {
+        console.log(e);
+    }
 }
-
 async function perfilar() {
     try {
         let idUsuario = parseInt(window.sessionStorage.getItem("idUsuario"));
@@ -193,6 +190,10 @@ async function perfilar() {
         console.log(e);
     }
 }
+
+
+
+
 async function login() {
     try {
         let emailUser = document.getElementById("emailLogin").value;
@@ -228,7 +229,6 @@ function logout() {
         console.log(e);
     }
 }
-
 function resetPass() {
     try {
         let newPassword = document.getElementById("password").value;
@@ -266,6 +266,8 @@ async function changePassword() {
         console.log(e);
     }
 }
+
+
 
 async function saveSportsGoal() {
     try {
