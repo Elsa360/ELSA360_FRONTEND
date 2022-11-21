@@ -182,6 +182,17 @@ async function perfilar() {
         })
             .then((response) => response.json())
             .then((json) => {
+                sessionStorage.clear();
+                sessionStorage.setItem("sexoUser",sexo.toString());
+                sessionStorage.setItem("fechaNacimiento",fechaNacimiento.toString());
+                sessionStorage.setItem("estatura",estatura);
+                sessionStorage.setItem("cuerpo",tipoCuerpo);
+                sessionStorage.setItem("dieta",tipoDieta);
+                sessionStorage.setItem("pesoActual",pesoActual);
+                sessionStorage.setItem("pesoDeseado",pesoDeseado);
+                sessionStorage.setItem("porqueHace",porque);
+                sessionStorage.setItem("nivelDeportivo",nivel);
+                sessionStorage.setItem("escalaDeportiva",escala);
                 alert("Perfilamiento exitoso"),
                     location.href = "free-data.html";
 
