@@ -1145,10 +1145,10 @@ li.ui-timepicker-selected,
   fill: #9bCb3b !important;
 }
 .bs-stepper .step.crossed + .line svg {
-  fill: #696cff;
+  fill: #9bCb3b;
 }
 .bs-stepper .step.crossed + .line i {
-  color: #696cff;
+  color: #9bCb3b;
 }
 .bs-stepper.wizard-icons .step.crossed .step-trigger .bs-stepper-label {
   color: #696cff !important;

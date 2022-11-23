@@ -10,7 +10,7 @@
       <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
       <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
       <meta name="robots" content="noindex">
-      <title> Técnicas de respiración - ELSA360</title>    
+      <title> Respuestas de test psicológicos - ELSA360</title>    
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
@@ -50,13 +50,22 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+
+
+    <script>
+      $(function () {
+        $("#footer").load("footer.html");
+      });
+    </script>
   </head>
 
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-        <!-- Menu -->
+
+      <!-- Menu -->
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
         <div class="app-brand demo">
@@ -145,7 +154,7 @@
           </li>
       
           <!-- Psicología -->
-          <li class="menu-item  active">
+          <li class="menu-item active">
             <a href="app-planPsicologico.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user-plus"></i>
               <div data-i18n="Plan psicológico">Plan psicológico</div>
@@ -838,41 +847,19 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan psicológico /</span> Técnicas de respiración</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan psicológico /</span> Respuestas tests</h4>
 
               <!-- Header -->
               <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
                     <div class="user-profile-header-banner">
-                      <img src="../../assets/img/pages/respiración.jpg" alt="Banner image" class="rounded-top" />
+                      <img src="../../assets/img/pages/recomendaciones.jpg" alt="Banner image" class="rounded-top" />
                     </div>
                     <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
                       <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
@@ -887,12 +874,10 @@
                           class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4"
                         >
                           <div class="user-profile-info">
-                            <h4>Saber respirar bien es una ventaja competitiva muy grande</h4>
+                            <h4>Respuestas de cada test que has realizado</h4>
                             
                           </div>
-                          <!-- <a href="javascript:void(0)" class="btn btn-primary text-nowrap">
-                            <i class="bx bx-user-check"></i> Connected
-                          </a> -->
+                          
                         </div>
                       </div>
                     </div>
@@ -901,156 +886,251 @@
               </div>
               <!--/ Header -->
 
+              <div class="row mb-0">
+
+                <div class="card">
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-hover" >
+                      <thead>
+                        <tr>
+                          <th>Test</th>
+                          <th style="text-align: center;">Puntuación</th>
+                          <th >Conclusión</th>                          
+                        </tr>
+                      </thead>
+
+                      <tbody class="table-border-bottom-0">
 
 
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i><span class="text-success">Entrevista inicial </span> - Parte 1</td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+
+                          <td> 
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia1" style="font-size: 15px;">Ver</small>
+                            </div>                                    
+                          </td>
+                        </tr>
 
 
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i><span class="text-success">Entrevista inicial </span> - Parte 2</td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
 
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia2" style="font-size: 15px;">Ver</small>
+                            </div>  
 
+                              
+                          </td>
+                        </tr>
 
-
-
-
-
-
-              <div class="row">
-                <div class="col-xl-12 "> 
-                  <div class="nav-align-top mb-4">                            
-                    
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="navs-dormir" role="tabpanel">
-                        <p>
-                          <i class='bx bx-caret-right concepto'></i>
-                          La relajación es una de las estrategias psicológicas de intervención más utilizadas en la práctica deportiva actual, dentro de ellas se encuentran las técnicas basadas
-                           en el control de la respiración. <br><br>
-
-                          <i class='bx bx-caret-right concepto'></i>
-                          Su objetivo es facilitar el control voluntario de la respiración y automatizar ese control para que pueda ser mantenido hasta en las situaciones de mayor estrés. 
-                          Son de fácil aprendizaje y se pueden utilizar en cualquier situación para controlar la activación fisiológica. <br><br>
-
-                          <i class='bx bx-caret-right concepto'></i>
-                          Las condiciones de vida actuales y las situaciones de estrés facilitan patrones respiratorios caracterizados por un ritmo acelerado y una escasa intensidad, con una 
-                          respiración parcial y más superficial, lo que provoca menor oxigenación de los tejidos, mayor trabajo cardíaco y una mayor intoxicación del organismo, con la consecuente 
-                          fatiga física, ansiedad, depresión, etc. De aquí que un control más adecuado de la respiración es una de las estrategias más sencillas para hacer frente a las situaciones 
-                          de estrés y favorecer al organismo, modulando la activación fisiológica excesiva. <br><br>
-
-                          <i class='bx bx-caret-right concepto'></i>
-                          Debemos centrar toda la atención en el acto respiratorio que siempre debe ser por la nariz. Tanto la inspiración como la espiración serán silenciosas, lentas, continuas y 
-                          cómodas. Así es la respiración ideal.                                                   
-                        </p>                                 
-                      </div>                            
-                    
-                    </div>
-                  </div>                                  
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
-
-              <!-- User Profile Content -->
-              <div class="row">
-                <div class="col-xl-12">               
-                  <div class="nav-align-top mb-4">
-                    <ul class="nav nav-tabs nav-fill" role="tablist">
-                    
-                      <li class="nav-item">
-                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-abdominal" aria-controls="navs-justified-home" aria-selected="true">
-                          <img src="../../assets/img/icons/unicons/beath.png" alt="" width="20px"> Respiración diafragmatica o abdominal                          
-                        </button>
-                      </li>
-                    
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-completa" aria-controls="navs-justified-profile" aria-selected="false">
-                          <img src="../../assets/img/icons/unicons/beath.png" alt="" width="20px"> Respiración completa
-                        </button>
-                      </li>                                                        
-                    
-                    </ul>
-
-
-
-
-                    
-                    
-                    
-                    
-                    <div class="tab-content">
-
-                      <div class="tab-pane fade show active" id="navs-abdominal" role="tabpanel">
-                        <p>
-                          <i class='bx bx-caret-right concepto'></i>
-                          La respiración diafragmática es un tipo de respiración relajante que usa el diafragma. El diafragma es el músculo que se encuentra debajo de las costillas y arriba del estómago. 
-                          Con este tipo de respiración, el diafragma ocasiona que el estómago, en vez del pecho, suba y baje.                                                   
-                        </p>                              
                         
-                        <div class="botones-abdominal">
-                          <a href="https://www.youtube.com/watch?v=bL3SBo5ZSUU" target="_blank"><button type="button" class="btn btn-label-success abdominal">Técnica paso a paso</button></a> 
-                          <a href="https://www.youtube.com/watch?v=-P7zg5LV1sw" target="_blank"><button type="button" class="btn btn-label-success abdominal">Técnica en movimiento</button></a> 
-                          <a href="https://www.youtube.com/watch?v=x_wfU0vLDss" target="_blank"><button type="button" class="btn btn-label-success abdominal">Técnica aplicada</button></a> 
-                          <a href="https://www.youtube.com/watch?v=8VDoaUBHiN0" target="_blank"><button type="button" class="btn btn-label-success abdominal">Relajación guiada</button></a> 
-                        </div>
-                      </div>
+                        <tr>                          
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i><span class="text-success">Lista de estresores deportivos</span> </td>  
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia3" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i><span class="text-success">Objetivos de realización</span> </td>                         
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia4" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Necesidad de aceptación</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia5" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Altas autoexpectativas</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia6" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Culpabilización</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia7" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Intolerancia a la frustración</span> </td>                        
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia8" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Preocupación y ansiedad</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia9" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Irresponsabilidad emocional</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia10" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Evitación de problemas</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia11" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Dependencia</span> </td>                         
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia12" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Indefensión</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia13" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Creencias irracionales: <span class="text-success">Perfeccionismo</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia14" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Cualidades y defectos como deportista: <span class="text-success">Técnicos y físicos</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia15" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> Cualidades y defectos como deportista: <span class="text-success">Psicológicos y personales</span> </td>                       
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia16" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Autoconfianza</span> </td>
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia17" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Afrontamiento negativo</span> </td>                                                   
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia18" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Control atencional</span> </td>                                                 
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia19" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Control visuo-imaginativo</span> </td>                        
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia20" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Nivel motivacional</span> </td>                        
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia21" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Afrontamiento positivo</span> </td>                                                   
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia22" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 0%;"><i class="fab fa-angular fa-lg text-danger me-3"></i> IPED: <span class="text-success">Control actitudinal</span> </td>                                                  
+                          <td style="text-align: center;"><span class="badge bg-label-success me-1" style="font-size: 15px;">16</span></td>
+                          <td>
+                            <div class="dropdown">
+                              <small type="button" data-bs-toggle="modal" data-bs-target="#modalDia23" style="font-size: 15px;">Ver</small>
+                            </div>
+                          </td>
+                        </tr>             
+                       
+                      </tbody>
+                    </table>
 
-
-
-
-
-
-                      
-                      <div class="tab-pane fade" id="navs-completa" role="tabpanel">
-                        <p>
-                          <i class='bx bx-caret-right concepto'></i>
-                          La respiración completa es la unificación de las tres respiraciones (Abdominal o Diafragmatica, Intercostal y Clavicular) y se produce con el total llenado de los pulmones. 
-                          Hay que comenzar por una inspiración lenta intentando cubrir sus tres fases: primero, vaciar bien los pulmones con unaprofunda espiración. Luego, llenar los pulmones con el 
-                          descenso del diafragma (abdominal) para dilatar las costillas y que entre todo el aire que pueda (intercostal) y por último, levantar las clavículas (clavicular). 
-                        </p>  
-                        
-                        <div class="botones-completa">
-                          <a href="https://www.youtube.com/watch?v=RgGvHdB4gTQ" target="_blank"><button type="button" class="btn btn-label-success completa">Técnica paso a paso</button></a> 
-                          <a href="https://www.youtube.com/watch?v=Z6Em_FNqV3Y" target="_blank"><button type="button" class="btn btn-label-success completa">Técnica aplicada</button></a> 
-                          <a href="https://www.youtube.com/watch?v=V_B8KZfttOI" target="_blank"><button type="button" class="btn btn-label-success completa">Práctica respiración completa</button></a> 
-                        </div>
-                      </div>
-                      
-                      
-                                                                                 
                     
-                    
-                    </div>
                   </div>
-
-
-
-
-
-
-
-
-                                   
                 </div>
-              </div>
-              <!--/ User Profile Content -->
+                <small class="tab-content mb-0" style="padding-top: 5px; padding-bottom: 3px;">*IPED = Inventario Psicologico de Ejecución deportiva</small>  
+              </div>    
+                       
+              
             </div>
             <!-- / Content -->
-
-
-
-
-
-            
-
+        
             <!-- Footer -->
             <footer id="footer"></footer>
             <!-- / Footer -->
@@ -1070,9 +1150,443 @@
     </div>
     <!-- / Layout wrapper -->
 
+
+
+
+
+
+
+
+
+
+     <!-- ModalDia1 -->
+     <div class="modal fade" id="modalDia1" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle">Respuestas de la entrevista inicial - Parte 1</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" style="padding-bottom: 10px;">
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">1. </span> ¿Es importante para mi que los demás me aprueben? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">2. </span> ¿Te esfuerzas al máximo en entrenamientos para destacar en las pruebas? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Totalmente</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">3. </span> ¿Sales a entrenar o a una prueba convencid@ de que vas a hacerlo bien? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>                
+              </div>
+            </div>            
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">4. </span> ¿Factores externos afectan tu rendimiento (Ej: público, familiares, amigos, etc.)? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-1" ><span class="concepto">5. </span> ¿Te gusta competir contra rivales teóricamente superiores, inferiores o del mismo nivel al tuyo?</h6>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Contra rivales superiores? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Contra rivales inferiores? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Contra rivales similares? - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Algo</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-1" ><span class="concepto">6. </span> ¿Eres capaz de controlar el nerviosismo antes, durante y después de una prueba o un entrenamiento?</h6>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Antes de las pruebas? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Durante las pruebas? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Después de las pruebas? - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Algo</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-0">
+                <h6 class="text-muted mb-1" ><span class="concepto">7. </span> Si tuvieras que ponerte una nota de lo buen@ que eres en los aspectos técnicos, físicos y psicológicos ¿Cuál sería ésta?</h6>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Nota en el aspecto técnico? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Buena</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Nota en el aspecto físico? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span>Muy Buena</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Nota en el aspecto psicológico? - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span>Muy Buena</h6>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ModalDia2 -->
+    <div class="modal fade" id="modalDia2" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle">Respuestas de la entrevista inicial - Parte 2</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" style="padding-bottom: 10px;">
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">1. </span> ¿Prácticas mentalmente las habilidades técnicas o tácticas del ciclismo? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Si</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">2. </span> ¿Intentas concentrarte antes de salir a entrenar, competir o a una prueba? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Si</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">3. </span> ¿Sueles estar concentrad@ durante un entreno, prueba o competencia? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>                
+              </div>
+            </div>            
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto">4. </span> ¿Qué tal la relación que tienes con tus compañeros de entreno? - </h6>
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Excelente</h6>                
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-1" ><span class="concepto">5. </span> ¿Eres capaz de controlar tus emociones antes, durante y después de una competencia, prueba o entreno?</h6>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Antes? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Durante? - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> ¿Después? - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span> Algo</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-3">
+                <h6 class="text-muted mb-1" ><span class="concepto">6. </span>  Escribe las dos principales razones por orden de prioridad por las que prácticas ciclismo</h6>
+
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Razón #1 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Mejorar rendimiento</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Razón #2 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> La libertad que siento</h6>  
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-0">
+                <h6 class="text-muted mb-1" ><span class="concepto">7. </span> ¿Cuáles son, desde el punto de vista técnico, tus puntos fuertes?</h6>
+
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto fuerte #1 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Perfil de pedaleo</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto fuerte #2 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span>Manejo relaciones</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto fuerte #3 - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span>Ir a rueda</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col mb-0">
+                <h6 class="text-muted mb-1" ><span class="concepto">8. </span>  ¿Cuáles son, desde el punto de vista técnico, tus puntos débiles?</h6>
+
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto débil #1 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Los descensos</h6>   <br>
+                
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto débil #2 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span>Manejo de chocles</h6>   <br>
+
+                <h6 class="text-muted mb-1" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Punto débil #3 - </h6>   
+                <h6 style="display: inline-block;"><span class="concepto"> R. </span></h6>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- ModalDia3 -->
+    <div class="modal fade" id="modalDia3" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle">Respuestas de tu lista de estresores deportivos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" style="padding-bottom: 0px;">
+
+            <div class="row">
+              <div class="col mb-0">
+                <h6 class="text-muted mb-2" ><span class="concepto">1. </span> Escribe en orden las cinco principales cosas que más te causan estrés o ansiedad a la hora de la práctica del ciclismo.</h6>
+
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Estresor deportivo #1 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Bastante</h6>   <br>
+                
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Estresor deportivo #2 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Estresor deportivo #3 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Estresor deportivo #4 - </h6>   
+                <h6 class="mb-1" style="display: inline-block;"><span class="concepto"> R. </span> Poco</h6>   <br>
+
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Estresor deportivo #5 - </h6>   
+                <h6 class="mb-0" style="display: inline-block;"><span class="concepto"> R. </span> Algo</h6>
+              </div>
+            </div>               
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ModalDia4 -->
+    <div class="modal fade" id="modalDia4" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCenterTitle">Respuestas de tus objetivos de realización</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" style="padding-bottom: 0px;">
+
+            <div class="row">
+              <div class="col mb-0">
+                <h6 class="text-muted mb-2" ><span class="concepto">1. </span> Escribe en orden los tres principales objetivos de realización o ejecución tienes.</h6>
+
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Objetivo de realización #1 - </h6>   
+                <h6 class="mb-2" style="display: inline-block;"><span class="concepto"> R. </span> Realizar los ejercicios en subidas sentado el mayor tiempo posible</h6>   <br>
+                
+                <h6 class="text-muted mb-2" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Objetivo de realización #2 - </h6>   
+                <h6 class="mb-2" style="display: inline-block;"><span class="concepto"> R. </span> Realizar los ejercicios de fuerza cogido del manubrio muy levemente</h6>   <br>
+
+                <h6 class="text-muted mb-0" style="display: inline-block;"><span class="concepto"> <i class='bx bxs-right-arrow'></i> </span> Objetivo de realización #3 - </h6>   
+                <h6 class="mb-0" style="display: inline-block;"><span class="concepto"> R. </span> Realizar ejercicios de piques en subida</h6>
+              </div>
+            </div>               
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Modal Dia 5 -->
+    <div class="modal fade" id="modalDia5" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h4 class="modal-title" id="modalCenterTitle">Resultado</h4>                          
+          </div> -->
+
+
+          <div class="modal-body" style="text-align: center; padding-bottom: 0px;">
+
+              <div class="mb-4">
+                <h4>Tu resultado fue:</h4>                    
+                <span class="badge bg-label-success fw-bold" style="font-size: 22px;">
+                    16
+                </span>
+                <br>                    
+                <small>
+                    *Compara tu resultado con la siguiente tabla
+                </small>                            
+              </div>
+
+
+
+              <div class="table-responsive text-nowrap">
+                <table class="table card-table table-sm">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Escala de resultados</th>
+                      <th></th>                                
+                    </tr>
+                  </thead>
+
+
+                  <tbody class="table-border-bottom-0">
+                    <tr>                                
+                      <td>7</td>
+                      <td>Totalmente Irracional</span></td>
+                      <td>13</td>                                                                
+                    </tr>
+
+
+                    <tr>                                
+                      <td>14</td>
+                      <td>Bastante Irracional</span></td>
+                      <td>20</td>                                                                
+                    </tr>
+
+
+                    <tr>                                
+                      <td>21</td>
+                      <td>Algo Irracional</span></td>
+                      <td>27</td>                                                                
+                    </tr>
+
+
+                    <tr>                                
+                      <td>28</td>
+                      <td>Algo Racional</span></td>
+                      <td>34</td>                                                                
+                    </tr>
+
+
+                    <tr>                                
+                      <td>35</td>
+                      <td>Bastante Racional</span></td>
+                      <td>41</td>                                                                
+                    </tr>
+
+                    <tr>                                
+                      <td>42</td>
+                      <td>Totalmente Racional</span></td>
+                      <td></td>                                                                
+                    </tr>                     
+                                                      
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- <hr class="my-2" /> -->
+
+              <div class="mb-0 mt-0">
+                <p class="textTestPsico mb-0">
+                  Cuanto menor haya sido tu puntuación alcanzada, existe mayor conformidad con la idea auto-limitadora de que: <br><br>
+
+                  <span class="concepto">
+                    "Para un adulto es absolutamente necesario tener el cariño y la aprobación de sus semejantes, familia, amigos”.
+                  </span>  <br><br>
+
+                    Es realmente imposible gustar a todas las personas del alrededor; incluso aquellas personas a las que se gusta básicamente y aprueba, 
+                    discreparán en algunas de las conductas y cualidades. Esta creencia es probablemente la mayor causa de infelicidad, ya que se está continuamente 
+                    forzándose a actuar de acuerdo a las expectativas de los demás para conseguir autoaprobación.
+                </p>                            
+              </div>     
+          </div>
+
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -1096,12 +1610,5 @@
 
     <!-- Page JS -->
     <script src="../../assets/js/pages-profile.js"></script>
-
-
-    <script>
-      $(function () {
-        $("#footer").load("footer.html");
-      });
-    </script>
   </body>
 </html>
