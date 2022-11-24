@@ -34,7 +34,7 @@ async function loadFreeData(){
 
         //Datos basicos del perfil
         document.getElementById("sexo").innerHTML = "" ;
-        document.getElementById("fechaNacimiento").innerHTML = "" ;
+        document.getElementById("fechaNacimiento").innerHTML = "" ; 
         document.getElementById("estatura").innerHTML = "" + " cms" ;
         document.getElementById("tipoCuerpo").innerHTML = "" ;
         document.getElementById("tipoDieta").innerHTML = "" ;

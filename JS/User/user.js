@@ -1,51 +1,62 @@
-let hosting = "https://localhost:7155"
 async function registrarme() {
     try {
-        nombreCompleto = document.getElementById("username").value;
-        emailUser = document.getElementById("email").value;
-        contraUser = document.getElementById("password").value
-        if (nombreCompleto != "") {
-            if (emailUser != "") {
-                if (contraUser != "") {
-                    if (document.getElementById("terms-conditions").checked) {
-                        try {
-                            let url = hosting + "/usuario/crear";
-                            await fetch(url, {
-                                method: 'POST',
-                                body: JSON.stringify({
-                                    email: emailUser.trim(),
-                                    passwordUser: contraUser,
-                                    nombreUsuario: nombreCompleto.toLowerCase(),
-                                    fkIdRol: 4,
-                                    ipPc: "00.00.00.00",
-                                }),
-                                headers: {
-                                    'Content-type': 'application/json; charset=UTF-8',
-                                    'Access-Control-Allow-Origin': '*'
-                                },
-                            })
-                                .then((response) => response.json())
-                                .then((respuesta) =>
-                                    verificarUsuario(emailUser, nombreCompleto),
-                                    alert("Usuario registrado exitosamente"),
+        var responseRecaptcha = grecaptcha.getResponse();
+        if (responseRecaptcha.length > 0) {
+            nombreCompleto = document.getElementById("username").value;
+            emailUser = document.getElementById("email").value;
+            contraUser = document.getElementById("password").value
+            if (nombreCompleto != "") {
+                if (emailUser != "") {
+                    if (contraUser != "") {
+                        if (document.getElementById("terms-conditions").checked) {
+                            try {
+                                let url = "htpp://" + apiServer + "/usuario/crear";
+                                await fetch(url, {
+                                    method: 'POST',
+                                    body: JSON.stringify({
+                                        email: emailUser.trim(),
+                                        passwordUser: contraUser,
+                                        nombreUsuario: nombreCompleto.toLowerCase(),
+                                        fkIdRol: 4,
+                                        ipPc: "00.00.00.00",
+                                    }),
+                                    headers: {
+                                        'Content-type': 'application/json; charset=UTF-8',
+                                        'Access-Control-Allow-Origin': '*'
+                                    },
+                                })
+                                    .then((response) => response.json())
+                                    .then(function (respuesta) {
+                                        console.log("Respuesta:", respuesta)
+                                        if (respuesta === 0) {
+                                            alert("No pudimos procesar tu registro, si ya estas registrado inicie sesion o recupera tu contraseña, si tienes problemas escribenos ");
+                                        } else {
+                                            console.log("Respuesta Exitosa");
+                                            enviarEMail(emailUser.trim(),respuesta);
+                                            location.href = "auth-reset-password-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
+                                        }
+                                    })
 
-                                )
-                        } catch (e) {
-                            alert(e, "Error en la peticion a la API-REST");
+                            } catch (e) {
+                                alert(e, "Error en la peticion a la API-REST");
+                            }
+
+                        } else {
+                            alert("Aceptar Terminos y Condiciones");
                         }
-
                     } else {
-                        alert("Aceptar Terminos y Condiciones");
+                        alert("Ingrese una contraseña");
                     }
                 } else {
-                    alert("Ingrese una contraseña");
+                    alert("Ingrese un email de verificacion");
                 }
             } else {
-                alert("Ingrese un email de verificacion");
+                alert("Ingrese el nombre de usuario");
             }
         } else {
-            alert("Ingrese el nombre de usuario");
+            alert("Por favor verique que no eres un robot 01100010 01101001 01100101 01101110 01110110 01100101 01101110 01101001 01100100 01101111")
         }
+
 
     } catch (error) {
         console.log(error);
@@ -54,59 +65,101 @@ async function registrarme() {
 function mensajeVerificacionUsuario() {
     const nombreUsuario = window.location.search;
     const urlParams = new URLSearchParams(nombreUsuario);
-    let nombre = urlParams.get("usuario");
-    let mensaje = " Hola " + nombre.toString().toUpperCase() + ", hemos enviado un mensaje a tu email para confirmar tu cuenta de ELSA."
-    document.getElementById("mensajeVerificacion").innerHTML = mensaje;
+    let usuario = urlParams.get("email");
+    document.getElementById("emailUserRegister").innerHTML = usuario;
 }
-// async function verificarUsuario(email, nombreUsuario) {
-//     try {
-//         let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "";
-//         await fetch(url)
-//             .then(response => response.json())
-//             .then(respuesta => {
-//                 setTimeout(10);
-//                 location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
-//             })
-//     } catch (e) {
-
-//     }
-// }
+function enviarEMail(email,idUser) {
+    let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "&idUsuario="+idUser+"";
+    fetch(url)
+        .then(response => response.json)
+        .then(respuesta => {
+            if (respuesta === true) {
+                console("Email enviado");
+            } else {
+                console.log("Fallo al enviar email");
+            }
+        })
+}
 async function validarCuenta() {
-
     const emailUsuario = window.location.search;
     const urlParams = new URLSearchParams(emailUsuario);
-    let emailValidado = urlParams.get("emailVerificado");
-    let url = "https://localhost:7155/usuario/verificar?correoElectronico=" + emailValidado.toLocaleLowerCase() + "";
+    let userId = urlParams.get("usuarioVerificado");
+    let url = "https://localhost:7155/usuario/verificar?idUsuario=" + userId + "";
     try {
         await fetch(url, {
             method: 'PUT',
             body: JSON.stringify({
-                email: emailValidado,
+                idusuario: userId,
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
             .then((response) => response.json())
-            .then((json) => {
-                alert("Cuenta verificada");
+            .then((respuesta) => {
+                console.log(respuesta);
+                if(respuesta===true){
+                    alert("Tu cuenta ha sido verificada");
+                }else{
+                    console.log("Esta ya ha sido verificada o ha ocurrido algun error al memento de verificarla");
+                }
             });
     } catch (e) {
         console.log(e);
     }
+}
 
+
+//Login and Logout
+async function login() {
     try {
-        let url = "https://localhost:7155/usuario/idUsuario?email=" + emailValidado + ""
+        let emailUser = document.getElementById("emailLogin").value;
+        let contraUser = document.getElementById("passwordLogin").value;
+        console.log(emailUser);
+        console.log(contraUser);
+        let url = "https://localhost:7155/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach(usuario => {
-                    idUser = usuario.idUsuario;
+                respuesta.forEach(idUser => {
+                    let userLogin = idUser.idUsuario;
+                    if (parseInt(userLogin) === 1) {
+                        loginNoPass(userLogin)
+                    } else {
+                        alert('Usuario o contraseña errada');
+                    }
                 });
-                sessionStorage.setItem("idUsuario", idUser);
             });
     } catch (e) {
         console.log(e);
+    }
+}
+async function loginNoPass(idusuario) {
+    sessionStorage.setItem('login', idusuario);
+}
+function logout() {
+    try {
+        sessionStorage.clear();
+        location.href = "auth-login-basic.html";
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
+
+
+async function verificarUsuario(email, nombreUsuario) {
+    try {
+        let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "";
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                setTimeout(10);
+                location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
+            })
+    } catch (e) {
+
     }
 }
 async function perfilar() {
@@ -183,16 +236,16 @@ async function perfilar() {
             .then((response) => response.json())
             .then((json) => {
                 sessionStorage.clear();
-                sessionStorage.setItem("sexoUser",sexo.toString());
-                sessionStorage.setItem("fechaNacimiento",fechaNacimiento.toString());
-                sessionStorage.setItem("estatura",estatura);
-                sessionStorage.setItem("cuerpo",tipoCuerpo);
-                sessionStorage.setItem("dieta",tipoDieta);
-                sessionStorage.setItem("pesoActual",pesoActual);
-                sessionStorage.setItem("pesoDeseado",pesoDeseado);
-                sessionStorage.setItem("porqueHace",porque);
-                sessionStorage.setItem("nivelDeportivo",nivel);
-                sessionStorage.setItem("escalaDeportiva",escala);
+                sessionStorage.setItem("sexoUser", sexo.toString());
+                sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+                sessionStorage.setItem("estatura", estatura);
+                sessionStorage.setItem("cuerpo", tipoCuerpo);
+                sessionStorage.setItem("dieta", tipoDieta);
+                sessionStorage.setItem("pesoActual", pesoActual);
+                sessionStorage.setItem("pesoDeseado", pesoDeseado);
+                sessionStorage.setItem("porqueHace", porque);
+                sessionStorage.setItem("nivelDeportivo", nivel);
+                sessionStorage.setItem("escalaDeportiva", escala);
                 alert("Perfilamiento exitoso"),
                     location.href = "free-data.html";
 
@@ -205,41 +258,8 @@ async function perfilar() {
 
 
 
-async function login() {
-    try {
-        let emailUser = document.getElementById("emailLogin").value;
-        let contraUser = document.getElementById("passwordLogin").value;
-        console.log(emailUser);
-        console.log(contraUser);
-        let url = "https://localhost:7155/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
-        await fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                respuesta.forEach(idUser => {
-                    let loggin = idUser.idUsuario;
-                    console.log(loggin);
-                    if (parseInt(loggin) === 1) {
-                        sessionStorage.setItem('login', loggin);
-                        // setTimeout(10);
-                        // location.href = "dashboard.html";
-                    } else {
-                        alert('Usuario o contraseña errada');
-                    }
-                });
-            });
-    } catch (e) {
-        console.log(e);
-    }
-}
-function logout() {
-    try {
-        sessionStorage.clear();
-        setTimeout(10);
-        location.href = "auth-login-basic.html";
-    } catch (e) {
-        console.log(e);
-    }
-}
+
+//Gestion de contraseña
 function resetPass() {
     try {
         let newPassword = document.getElementById("password").value;
@@ -279,7 +299,7 @@ async function changePassword() {
 }
 
 
-
+//Funcion Modales Dashboard
 async function saveSportsGoal() {
     try {
         console.log("Guardando Objetivo Deportivo");

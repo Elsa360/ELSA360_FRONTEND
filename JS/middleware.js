@@ -1,7 +1,8 @@
-function validateLogin(){
-    if(sessionStorage.getItem('login')){
+function validateLogin() {
+    if (sessionStorage.getItem('login')) {
         window.location.href = "dashboard.html"
-    }else{
+    } else {
         window.location.href = "auth-login-basic.html"
     }
 }
+validateLogin();

@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
             buttonsStyling: false
           }).then(function (result) {
             if (result.value) {
+              desactivarCuenta();
               Swal.fire({
                 icon: 'success',
                 title: 'Cuenta Desactivada!',
