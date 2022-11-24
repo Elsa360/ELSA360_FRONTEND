@@ -1,7 +1,7 @@
 /* Config */
 :root {
   --sk-size: 40px;
-  --sk-color: #333;
+  --sk-color: #9bCb3b;
 }
 
 /* Utility class for centering */
@@ -811,8 +811,8 @@
   }
 }
 :root {
-  --sk-size: 30px;
-  --sk-color: #fff;
+  --sk-size: 35px;
+  --sk-color: #9bCb3b;
 }
 
 .sk-wave {

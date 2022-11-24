@@ -4,16 +4,14 @@
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords"
-    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="robots" content="noindex">
-  <title> Cualidades y debilidades como deportista - ELSA360</title>
+  <title> Datos básicos de tu entreno - ELSA360</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
@@ -42,6 +40,8 @@
   <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
 
   <!-- Page CSS -->
+  <link rel="stylesheet" href="../bt4/wrapkit/css/graficos.css">
+
 
   <!-- Helpers -->
   <script src="../../assets/vendor/js/helpers.js"></script>
@@ -51,13 +51,27 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../../JS/middleware.js"> validateLogin() </script>
+
+  <!-- ejemplo para compartir bloques de codigo -->
+  <script>
+    $(function(){
+      $("#footer").load("footer.html"); 
+    });
+  </script>
+  
+
+
 </head>
 
 <body>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
+
       <!-- Menu -->
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
@@ -116,7 +130,7 @@
           </li> -->
       
           <!-- Graficas -->
-          <li class="menu-item">
+          <li class="menu-item active">
             <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
               <div data-i18n="Gráficos">Gráficos</div>
@@ -147,7 +161,7 @@
           </li>
       
           <!-- Psicología -->
-          <li class="menu-item  active">
+          <li class="menu-item">
             <a href="app-planPsicologico.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user-plus"></i>
               <div data-i18n="Plan psicológico">Plan psicológico</div>
@@ -837,222 +851,168 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
 
-          <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Plan psicológico /</span> Cualidades y
-              debilidades como deportista</h4>
+          <div class="container-fluid flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-2 mb-3"><span class="text-muted fw-light">Gráficos /</span> Básicos de todos tus entrenos</h4>
 
 
-            <p style="font-size: 16px;">
-              Menciona dos cualidades y dos debilidades que veas en ti como deportista en cada uno de los aspectos que hemos mencionado. Además de esta tarea, 
-              califícate en cada uno de los adjetivos en los que te has evaluado. <br><br>
-
-              Por ejemplo, si en las debilidades pusiste "delgado", te pedimos que te califiques en una escala de "Nada", "Muy poco", "Algo", "Bastante" y "Exagerado/ Todo" la cualidad.
-            </p>
 
 
-            <!-- Basic Layout -->
             <div class="row">
-              <div class="col-xl">
-                <div class="card mb-4">
-                  <h5 class="fw-semibold mt-3 mb-1" style="margin-left: 20px;">
-                    <span class="text-muted fw-light">Aspectos del test :</span>
-                    <span class="fw-semibold concepto">Técnico y físico</span>
-                  </h5>
 
-                  <div class="card-body">
-                    <form>
-
-                      <div class="mb-5">
-                        <h6><span class="preguntasPsico">1.</span> ¿Cuál crees que es tu mayor cualidad técnica como
-                          deportista? Ej: Escalar</h6>
-                        <input type="text" class="form-control mb-2" name="pregunta74APsico" id="pregunta74APsico"
-                          placeholder="Cualidad técnica">
-                        <select name="pregunta74BPsico" id="pregunta74BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la cualidad técnica">
-                          <option value="-1" disabled selected>Puntuación de la cualidad técnica </option>
-                          <option value="1">Nada</option>
-                          <option value="2">Muy poco</option>
-                          <option value="3">Algo</option>
-                          <option value="4">Bastante</option>
-                          <option value="5">Exagerado/Todo</option>
-                        </select>
-                        <i></i>
-                      </div>
-
-                      <div class="mb-5">
-                        <h6><span class="preguntasPsico">2.</span> ¿Cuál crees que es tu segunda mayor cualidad técnica
-                          como deportista? Ej: Velocidad </h6>
-                        <input type="text" class="form-control mb-2" name="pregunta13APsico" id="pregunta75APsico"
-                          placeholder="Cualidad técnica">
-                        <select name="pregunta75BPsico" id="pregunta75BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la cualidad técnica">
-                          <option value="-1" disabled selected>Puntuación de la cualidad técnica </option>
-                          <option value="1">Nada</option>
-                          <option value="2">Muy poco</option>
-                          <option value="3">Algo</option>
-                          <option value="4">Bastante</option>
-                          <option value="5">Exagerado/Todo</option>
-                        </select>
-                        <i></i>
-                      </div>
-
-
-
-
-                      <div class="mb-5">
-                        <h6><span class="preguntasPsico">3.</span> ¿Cuál crees que es tu mayor debilidad técnica como
-                          deportista? Ej: Manejo de las relaciones</h6>
-                        <input type="text" class="form-control mb-2" name="pregunta76APsico" id="pregunta76APsico"
-                          placeholder="Debilidad técnica">
-                        <select name="pregunta76BPsico" id="pregunta76BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la debilidad técnica">
-                          <option value="-1" disabled selected>Puntuación de la debilidad técnica </option>
-                          <option value="1">Nada</option>
-                          <option value="2">Muy poco</option>
-                          <option value="3">Algo</option>
-                          <option value="4">Bastante</option>
-                          <option value="5">Exagerado/Todo</option>
-                        </select>
-                        <i></i>
-                      </div>
-
-                      <div class="mb-5">
-                        <h6><span class="preguntasPsico">4.</span> ¿Cuál crees que es tu segunda mayor debilidad técnica
-                          como deportista? Ej: Las curvas</h6>
-                        <input type="text" class="form-control mb-2" name="pregunta77APsico" id="pregunta77APsico"
-                          placeholder="Debilidad técnica">
-                        <select name="pregunta77BPsico" id="pregunta77BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la debilidad técnica">
-                          <option value="-1" disabled selected>Puntuación de la debilidad técnica</option>
-                          <option value="1">Nada</option>
-                          <option value="2">Muy poco</option>
-                          <option value="3">Algo</option>
-                          <option value="4">Bastante</option>
-                          <option value="5">Exagerado/Todo</option>
-                        </select>
-                        <i></i>
-                      </div>
-
-
-                  </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
+                <a href="app-graficosBasicos.html">
+                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos tus entrenos</button>
+                </a>                
                 </div>
+              
+              
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
+                <a href="">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
+                </a>                
+                </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
+                <a href="">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+                </a>                
+                </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-3" style="padding-left: 8px; padding-right:8px">
+                <a href="">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+                </a>                
+                </div>          
+
+              
+              <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos macrociclo</button>
+              </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos anuales </button>
+              </div> -->              
+            </div>
+
+
+
+
+
+
+            <!-- Cards with unicons & charts -->
+            <div class="row">
+
+              <div class="text-center mb-0">
+                <h5 class="mb-1">Gráficos e indicadores de todos tus entrenos</h5>
               </div>
 
 
 
-
-
-
-              <div class="col-xl">
-                <div class="card mb-4">
-
-                  <div class="card-body">
-                    <!-- <form> -->
-
-                    <div class="mb-5">
-                      <h6><span class="preguntasPsico">5.</span> ¿Cuál crees que es tu mayor cualidad física como
-                        deportista? Ej: La coordinación</h6>
-                      <input type="text" class="form-control mb-2" name="pregunta78APsico" id="pregunta78APsico"
-                        placeholder="Cualidad física">
-                      <select name="pregunta78BPsico" id="pregunta78BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la cualidad física">
-                        <option value="-1" disabled selected>Puntuación de la cualidad física</option>
-                        <option value="1">Nada</option>
-                        <option value="2">Muy poco</option>
-                        <option value="3">Algo</option>
-                        <option value="4">Bastante</option>
-                        <option value="5">Exagerado/Todo</option>
-                      </select>
-                      <i></i>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 26px; padding-top: 26px;padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0 mb-2">
+                        <img src="../../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                      </div>                      
                     </div>
+                    <span class="d-block mb-1">Sesiones totales:</span>
+                    <h6 class="card-title text-success mb-2">34</h6>
+                    <small class="text-success fw-semibold"></small>
+                  </div>
+                </div>
+              </div>
 
-                    <div class="mb-5">
-                      <h6><span class="preguntasPsico">6.</span> ¿Cuál crees que es tu segunda mayor cualidad física
-                        como deportista? Ej: Biotipo para ciclismo</h6>
-                      <input type="text" class="form-control mb-2" name="pregunta79APsico" id="pregunta79APsico"
-                        placeholder="Cualidad física">
-                      <select name="pregunta79BPsico" id="pregunta79BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la cualidad física">
-                        <option value="-1" disabled selected>Puntuación de la cualidad física</option>
-                        <option value="1">Nada</option>
-                        <option value="2">Muy poco</option>
-                        <option value="3">Algo</option>
-                        <option value="4">Bastante</option>
-                        <option value="5">Exagerado/Todo</option>
-                      </select>
-                      <i></i>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px; padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/cube-secondary.png" alt="cube" class="rounded" />
+                      </div>                      
                     </div>
+                    <span class="d-block mb-0">Duración total:</span>
+                    <h6 class="card-title mb-1" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">81 : 26 : 17 </h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">2 : 45 : 21 </h6>
+                  </div>
+                </div>
+              </div>
 
-
-
-
-                    <div class="mb-5">
-                      <h6><span class="preguntasPsico">7.</span> ¿Cuál crees que es tu mayor debilidad física como
-                        deportista? Ej: Sobrepeso</h6>
-                      <input type="text" class="form-control mb-2" name="pregunta80APsico" id="pregunta80APsico"
-                        placeholder="Debilidad física">
-                      <select name="pregunta80BPsico" id="pregunta80BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la debilidad física">
-                        <option value="-1" disabled selected>Puntuación de la debilidad física</option>
-                        <option value="1">Nada</option>
-                        <option value="2">Muy poco</option>
-                        <option value="3">Algo</option>
-                        <option value="4">Bastante</option>
-                        <option value="5">Exagerado/Todo</option>
-                      </select>
-                      <i></i>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px; padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img
+                          src="../../assets/img/icons/unicons/chart-success.png"
+                          alt="chart success"
+                          class="rounded"/>
+                      </div>                      
                     </div>
+                    <span class="d-block mb-0">Distancia total:</span>
+                    <h6 class="card-title mb-1">1,475 <small>Km</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">87.5 <small>Km</small></h6>
+                  </div>
+                </div>
+              </div>              
 
-                    <div class="mb-5">
-                      <h6><span class="preguntasPsico">8.</span> ¿Cuál crees que es tu segunda mayor debilidad física
-                        como deportista? Ej: Lesión física</h6>
-                      <input type="text" class="form-control mb-2" name="pregunta81APsico" id="pregunta81APsico"
-                        placeholder="Debilidad física">
-                      <select name="pregunta81BPsico" id="pregunta81BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la debilidad física">
-                        <option value="-1" disabled selected>Puntuación de la debilidad física</option>
-                        <option value="1">Nada</option>
-                        <option value="2">Muy poco</option>
-                        <option value="3">Algo</option>
-                        <option value="4">Bastante</option>
-                        <option value="5">Exagerado/Todo</option>
-                      </select>
-                      <i></i>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px; padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
+                      </div>                      
                     </div>
-
-
-
-                    <div class="btn-psico1"><input 
-                      onclick="cualidadesDebilidadesTecFis()"
-                      type="button" class="btn btn-success" value="Enviar respuestas" />
+                    <span class="d-block mb-0">Desnivel positivo:</span>
+                    <h6 class="card-title mb-1">47,475 <small>mts</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">1048.5 <small>mts</small></h6>
+                  </div>
+                </div>
+              </div>            
+              
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px; padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
+                      </div>                      
                     </div>
+                    <span class="d-block mb-0">Calorías totales:</span>
+                    <h6 class="card-title mb-1">247,475 <small>Cal</small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">648.5 <small>Cal</small></h6>
+                  </div>
+                </div>
+              </div>
 
-
-
-                    </form>
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px; padding-right:16px; padding-left: 16px;">
+                    <div class="card-title d-flex align-items-start justify-content-between">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>                      
+                    </div>
+                    <Span class="d-block mb-0">RPE total: 
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalRPE"
+                        style="padding: 0;"><i class='bx bx-info-circle'></i>
+                      </button>
+                    </Span>
+                    <h6 class="card-title mb-1">119 <small></small></h6>
+                    <span class="d-block mb-0">Promedio de sesión: </span>
+                    <h6 class="text-success mb-0">3.5<small></small></h6>
                   </div>
                 </div>
               </div>
@@ -1066,17 +1026,133 @@
 
 
 
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-graficosBasicos.html"><button type="button" class="btn btn-success active" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>Duración, distancia recorrida y desnivel positivo</span>"><i class='bx bx-check' style="font-weight: 700"></i> Datos básicos 
+                  </button>  
+                </a>              
+              </div>
+              
+              
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-graficosIndicadores.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>FC, Potencia, Velocidad y Cadencia</span>">Indicadores
+                  </button>  
+                </a>              
+              </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-graficosCargas.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>TSS, IF, np, Calorías, TRIMPS, Trabajo y RPE</span>">Cargas
+                  </button>  
+                </a>             
+              </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-graficosIndicadoresTXZona.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>Tiempos en cada zona según tu FC y FTP</span>">Tiempos X zonas
+                  </button>
+                </a>
+              </div>          
+
+              
+              <!-- <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 3px; padding-right:3px;"
+                      title="<span>Tiempo entrenado por habilidad</span>">Tiempo X habilidad
+                </button>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
+                      title="<span>Horas de sueño, FC basal y N° de pasos</span>">Bienestar
+                </button>
+              </div> -->              
+            </div>
 
 
 
 
 
 
+
+
+
+            <div class="row mb-0">
+              <div class="col-lg-12 col-12 mb-1">
+                <div class="card">
+
+                    <div class="card-body" style="padding-top: 10px; padding-left: 2px; padding-right: 2px; padding-bottom: 10px;">
+                      <div class="tab-content text-center" style="padding: 2px;">
+
+                        <div class="mb-0" id="TiemDisElvEntreno1"></div>  
+                        <p class="mb-0" style="font-size: 13px;">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
+                        **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
+                        <div class="mb-0" id="TiemDisElvEntreno2"></div>                       
+                      </div>
+
+                      
+                    </div>
+                  
+                </div>
+              </div>
+            </div>            
           </div>
           <!-- / Content -->
 
+
+
+        
+
+
+              <!-- Modal -->
+              <div class="modal fade" id="modalRPE" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header mb-0">
+                      <h5 class="modal-title mb-0" id="modalCenterTitle">Escala de esfuerzo percibido (RPE)</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+
+                    <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
+                      <div class="row">
+                        <div class="col">
+                          <img src="../../assets/img/pages/RPE.png" class="mb-3" alt="" width="100%">
+                          <p style="margin-bottom: 0px;">
+                            La escala de Borg (conocida como RPE por sus siglas en inglés Rating of Perceived Exertion)
+                            es un instrumento
+                            que fue creado con el propósito de medir el esfuerzo y exigencia de cada entrenamiento, así
+                            de sencillo. <br><br>
+
+                            También conocida como la escala de Esfuerzo Percibido, mide, como su nombre lo indica, la
+                            percepción de esfuerzo,
+                            la intensidad y volumen de la actividad física que tuvo el deportista de ese entrenamiento
+                            en específico.
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+
+
+
           <!-- Footer -->
-          <footer id="footer"></footer>
+          <footer id="footer"> </footer>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -1096,7 +1172,7 @@
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  
   <script src="../../assets/vendor/libs/popper/popper.js"></script>
   <script src="../../assets/vendor/js/bootstrap.js"></script>
   <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -1117,18 +1193,12 @@
 
   <!-- Main JS -->
   <script src="../../assets/js/main.js"></script>
+  <script src="../../JS/app-graficosBasicos.js"></script>
+
+
 
   <!-- Page JS -->
   <script src="../../assets/js/form-layouts.js"></script>
-  <script src="../../JS/classes.js"></script>
-  <script src="../../JS/calculosPsicologia.js"></script>
-
-
-  <script>
-    $(function () {
-      $("#footer").load("footer.html");
-    });
-  </script>
 </body>
 
 </html>
