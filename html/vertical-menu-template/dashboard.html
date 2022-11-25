@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/spinkit/spinkit.css">
+  
 
   <!-- Page CSS -->
 
@@ -1949,16 +1949,19 @@
 
             <!-- BOTONES MODALES -->
             <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalToggle">Disponibilidad semanal</button> -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#disponibilidadSemanalModal">Disponibilidad semanal</button>
+            <div class="row">
+              <div class="col-12">
 
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#InicioEntrenoModal">Inicio de entreno</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#disponibilidadSemanalModal">Disponibilidad semanal</button>
 
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#controlPeso">Actualizar peso</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#InicioEntrenoModal">Inicio de entreno</button>
 
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#controlPeso">Actualizar peso</button>
+
+                <div id="modal"></div>
+
+              </div>
+            </div>   
             <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
             <!-- FIN  BOTONES MODALES -->
 
@@ -2359,7 +2362,7 @@
 
 
 
-            <div id="modal"></div>
+           
 
 
             <div id="spinner"></div>
