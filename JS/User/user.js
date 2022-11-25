@@ -1,4 +1,5 @@
 async function registrarme() {
+    $("#spinnerGeneral").show();
     var server = getServer()
     try {
         var responseRecaptcha = grecaptcha.getResponse();
@@ -35,6 +36,7 @@ async function registrarme() {
                                         } else {
                                             console.log("Respuesta Exitosa");
                                             enviarEMail(emailUser.trim(), respuesta);
+                                            $("#spinnerGeneral").hide();
                                             location.href = "auth-reset-password-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
                                         }
                                     })
@@ -82,11 +84,17 @@ function enviarEMail(email, idUser) {
             }
         })
 }
+
+
+
 async function validarCuenta() {
+    $("#spinnerGeneral").show();
     const emailUsuario = window.location.search;
     const urlParams = new URLSearchParams(emailUsuario);
     let userId = urlParams.get("usuarioVerificado");
+    console.log("userId");
     let url = "https://localhost:7155/usuario/verificar?idUsuario=" + userId + "";
+    console.log(url);
     try {
         await fetch(url, {
             method: 'PUT',
@@ -101,7 +109,11 @@ async function validarCuenta() {
             .then((respuesta) => {
                 console.log(respuesta);
                 if (respuesta === true) {
-                    alert("Tu cuenta ha sido verificada");
+                    $("#spinnerGeneral").hide();
+                    $("#modalGeneral #modalCenterTitle").html("Gracias");
+                    $("#modalGeneral #modalMensaje").html("Tu cuenta a sido verificada");
+                    $("#modalGeneral").modal("show");
+                    loginNoPass();
                 } else {
                     console.log("Esta ya ha sido verificada o ha ocurrido algun error al memento de verificarla");
                 }
