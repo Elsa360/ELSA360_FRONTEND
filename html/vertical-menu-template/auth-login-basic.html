@@ -50,12 +50,10 @@
     <script src="../../assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
-    <script src="../../JS/middleware.js">
-      validateLogin()
-    </script>
+  
   </head>
 
-  <body>
+  <body onload="validarCuenta()">
 
 
 
@@ -128,12 +126,12 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <input class="btn btn-success d-grid w-100" style="color: #2b2c40; font-weight: 600;" type="button" value="Iniciar sesión" onclick="login()" />
+                  <input class="btn btn-success d-grid w-100" style="font-weight: 600;" type="button" value="Iniciar sesión" onclick="login()" />
                 </div>
               </form>
 
               <p class="text-center">
-                <span>Nuevo en ELSA?</span>
+                <span>¿Nuevo en ELSA?</span>
                 <a href="auth-register-basic.html">
                   <span class="text-success">Crea una cuenta</span>
                 </a>

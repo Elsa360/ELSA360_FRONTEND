@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
@@ -51,6 +51,7 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
+  <script src="../../JS/middleware.js"> validateLogin() </script>
 </head>
 
 <body>
@@ -58,11 +59,7 @@
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
       <!-- Menu -->
-
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
-
-
 
         <div class="app-brand demo">
           <!--Logo-->
@@ -71,72 +68,68 @@
               <svg width="10" viewBox="0 0 25 42" version="1.1">
               </svg>
             </span>
-
+      
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
                 src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
           </a>
-
-
-
+      
+      
+      
           <!--Hamburguesa-->
           <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
           </a>
-        </div>
-
-
-
-
-
-
-        <div class="menu-inner-shadow"></div>
-
-
-
-
-
-
+        </div>      
+      
+      
+      
+      
+        <div class="menu-inner-shadow"></div>    
+      
+      
+      
+      
         <ul class="menu-inner py-1">
-
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entreno deportivo</span>
+            <span class="menu-header-text">Principal</span>
           </li>
-
-
-
+      
+      
+      
           <!-- Dashboards -->
           <li class="menu-item">
             <a href="dashboard.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Dashboards">Dashboards</div>
+              <div data-i18n="Dashboard">Dashboard</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Calendario -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="app-calendar.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-calendar"></i>
               <div data-i18n="Calendario">Calendario</div>
             </a>
-          </li>
-
+          </li> -->
+      
           <!-- Graficas -->
           <li class="menu-item">
-            <a href="app-graphics.html" class="menu-link">
+            <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
-              <div data-i18n="Gráficas">Gráficas</div>
+              <div data-i18n="Gráficos">Gráficos</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Planes de entrenamiento</span>
+            <span class="menu-header-text">Entreno deportivo</span>
           </li>
-
-
+      
+      
           <!-- Ciclismo -->
           <li class="menu-item">
             <a href="app-planDeportivo.html" class="menu-link">
@@ -144,7 +137,7 @@
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
             </a>
           </li>
-
+      
           <!-- Nutrición -->
           <li class="menu-item">
             <a href="app-planNutricional.html" class="menu-link">
@@ -152,37 +145,37 @@
               <div data-i18n="Plan nutricional">Plan nutricional</div>
             </a>
           </li>
-
+      
           <!-- Psicología -->
-          <li class="menu-item active">
+          <li class="menu-item  active">
             <a href="app-planPsicologico.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user-plus"></i>
               <div data-i18n="Plan psicológico">Plan psicológico</div>
             </a>
           </li>
-
+      
           <!-- Control del sueño -->
           <li class="menu-item">
-            <a href="app-controlSueño.htm" class="menu-link">
+            <a href="app-controlSueño.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-bed"></i>
               <div data-i18n="Control del sueño">Control del sueño</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Recursos</span>
           </li>
-
+      
           <!-- Recomendaciones -->
-          <li class="menu-item ">
+          <li class="menu-item">
             <a href="pages-Recomendaciones.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-comment-detail"></i>
               <div data-i18n="Recomendaciones">Recomendaciones</div>
             </a>
           </li>
-
+      
           <!-- Ejercicios -->
           <li class="menu-item">
             <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
@@ -190,48 +183,48 @@
               <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
             </a>
           </li>
-
+      
           <!-- Pedagogia -->
-          <li class="menu-item">
-            <a href="pages-pedagogia.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-book"></i>
-              <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
-            </a>
-          </li>
-
+          <!-- <li class="menu-item">
+              <a href="pages-pedagogia.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-book"></i>
+                <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
+              </a>
+            </li> -->
+      
           <!-- Rutas -->
-          <li class="menu-item">
-            <a href="pages-Rutas.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-directions"></i>
-              <div data-i18n="Rutas">Rutas</div>
-            </a>
-          </li>
-
-
+          <!-- <li class="menu-item">
+              <a href="pages-Rutas.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-directions"></i>
+                <div data-i18n="Rutas">Rutas</div>
+              </a>
+            </li> -->
+      
+      
           <!-- Eventos -->
-          <li class="menu-item">
-            <a href="pages-Eventos&Fondos.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
-              <div data-i18n="Eventos y fondos">Eventos y fondos</div>
-            </a>
-          </li>
-
-
+          <!-- <li class="menu-item">
+              <a href="pages-Eventos&Fondos.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
+                <div data-i18n="Eventos y fondos">Eventos y fondos</div>
+              </a>
+            </li> -->
+      
+      
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Cuenta</span>
           </li>
-
-
+      
+      
           <!-- Perfil -->
           <li class="menu-item">
             <a href="pages-account.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user"></i>
-              <div data-i18n="Perfil">Perfil</div>
+              <div data-i18n="Mi perfil">Mi perfil</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Conexión dispositivos -->
           <li class="menu-item">
             <a href="pages-account-connections.html" class="menu-link">
@@ -239,8 +232,23 @@
               <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
             </a>
           </li>
-
-
+      
+      
+      
+      
+      
+          <!-- Help -->
+          <!-- <li class="menu-item">
+              <a href="pages-help-center-landing.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-support"></i>
+                <div data-i18n="Ayuda">Ayuda</div>
+              </a>
+            </li> -->
+      
+      
+          <!-- Divisor -->
+          <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
+      
           <!-- Contacto -->
           <li class="menu-item">
             <a href="pages-contactanos.html" class="menu-link">
@@ -248,29 +256,17 @@
               <div data-i18n="Contacto">Contacto</div>
             </a>
           </li>
-
-
+      
+      
           <!-- FAQ -->
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <a href="pages-faq.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-help-circle"></i>
               <div data-i18n="FAQ">FAQ</div>
             </a>
-          </li>
-
-
-          <!-- Help -->
-          <li class="menu-item">
-            <a href="pages-help-center-landing.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-support"></i>
-              <div data-i18n="Ayuda">Ayuda</div>
-            </a>
-          </li>
-
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-
+          </li> -->
+      
+      
           <!-- Terminos y condiciones-->
           <li class="menu-item">
             <a href="pages-Terminos.html" class="menu-link">
@@ -278,8 +274,8 @@
               <div data-i18n="Términos y condiciones">Términos y condiciones</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Privacidad -->
           <li class="menu-item">
             <a href="pages-Privacidad.html" class="menu-link">
@@ -287,8 +283,8 @@
               <div data-i18n="Política de privacidad">Política de privacidad</div>
             </a>
           </li>
-
-
+      
+      
           <!-- Cookies -->
           <li class="menu-item">
             <a href="pages-Cookies.html" class="menu-link">
@@ -296,24 +292,16 @@
               <div data-i18n="Cookies">Cookies</div>
             </a>
           </li>
-        </ul>
+        </ul>  
       </aside>
       <!-- / Menu -->
 
 
-
-
-
-
-
-
       <!-- Layout container -->
       <div class="layout-page">
+        
         <!-- Navbar -->
-
-        <nav
-          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-          id="layout-navbar">
+        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -332,12 +320,6 @@
               </div>
             </div>
             <!-- /Search -->
-
-
-
-
-
-
 
 
 
@@ -418,10 +400,11 @@
 
                       <div class="dropdown-shortcuts-item col">
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
-                          <i class="bx bx-calendar fs-4"></i>
+                          <!-- <i class="bx bx-calendar fs-4"></i> -->
+                          <i class="bx bx-comment-detail"></i>
                         </span>
-                        <a href="app-calendar.html" class="stretched-link">Calendario</a>
-                        <small class="text-muted mb-0">Plan deportivo</small>
+                        <a href="pages-recomendaciones.html" class="stretched-link">Recomendaciones</a>
+                        <small class="text-muted mb-0">Mejora tus hábitos</small>
                       </div>
                     </div>
 
@@ -431,7 +414,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-line-chart fs-4"></i>
                         </span>
-                        <a href="app-graphics.html" class="stretched-link">Gráficas</a>
+                        <a href="app-graficosBasicos.html" class="stretched-link">Gráficos</a>
                         <small class="text-muted mb-0">Informes de datos</small>
                       </div>
 
@@ -460,7 +443,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-user-plus fs-4"></i>
                         </span>
-                        <a href="app-planPsicologico" class="stretched-link">Plan psicológico</a>
+                        <a href="app-planPsicologico.html" class="stretched-link">Plan psicológico</a>
                         <small class="text-muted mb-0">Mente fuerte</small>
                       </div>
                     </div>
@@ -470,20 +453,6 @@
                 </div>
               </li>
               <!-- Quick links -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
               <!-- Notification -->
@@ -733,24 +702,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -834,31 +785,31 @@
 
 
 
-                  <li>
-                    <a class="dropdown-item" href="pages-help-center-landing.html">
-                      <i class="bx bx-support me-2"></i>
-                      <span class="align-middle">Ayuda</span>
-                    </a>
-                  </li>
+                  <!-- <li>
+                      <a class="dropdown-item" href="pages-help-center-landing.html">
+                        <i class="bx bx-support me-2"></i>
+                        <span class="align-middle">Ayuda</span>
+                      </a>
+                    </li> -->
 
 
 
-                  <li>
+                  <!-- <li>
                     <a class="dropdown-item" href="pages-faq.html">
                       <i class="bx bx-help-circle me-2"></i>
                       <span class="align-middle">FAQ</span>
                     </a>
-                  </li>
+                  </li> -->
 
 
                   <!-- Divisor -->
-                  <li>
+                  <!-- <li>
                     <div class="dropdown-divider"></div>
-                  </li>
+                  </li> -->
 
 
                   <li>
-                    <a class="dropdown-item" href="auth-login-basic.html" target="_blank">
+                    <a class="dropdown-item" href="auth-login-basic.html">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Cerrar sesión</span>
                     </a>
@@ -915,13 +866,10 @@
 
 
             <p style="font-size: 16px;">
-              Menciona dos cualidades y dos debilidades que veas en ti mismo como deportista en cada aspecto que te
-              mencionamos.
-              Además de realizar esta tarea, te pedimos que realices un esfuerzo y trates de darte una puntuación en
-              cada uno de los adjetivos sobre los que te has evaluado. <br><br>
+              Menciona dos cualidades y dos debilidades que veas en ti como deportista en cada uno de los aspectos que hemos mencionado. Además de esta tarea, 
+              califícate en cada uno de los adjetivos en los que te has evaluado. <br><br>
 
-              Así, por ejemplo, si en las debilidades has puesto “delgado”, te pedimos que te califiques “cuánto de
-              delgado te ves”.
+              Por ejemplo, si en las debilidades pusiste "delgado", te pedimos que te califiques en una escala de "Nada", "Muy poco", "Algo", "Bastante" y "Exagerado/ Todo" la cualidad.
             </p>
 
 
@@ -939,12 +887,12 @@
 
                       <div class="mb-5">
                         <h6><span class="preguntasPsico">1.</span> ¿Cuál crees que es tu mayor cualidad técnica como
-                          deportista? Ej: Escalando</h6>
+                          deportista? Ej: Escalar</h6>
                         <input type="text" class="form-control mb-2" name="pregunta74APsico" id="pregunta74APsico"
-                          placeholder="Cualidad técnica #1">
+                          placeholder="Cualidad técnica">
                         <select name="pregunta74BPsico" id="pregunta74BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la cualidad técnica #1">
-                          <option value="-1" disabled selected>Puntuación de la cualidad técnica #1</option>
+                          placeholder="Puntuación de la cualidad técnica">
+                          <option value="-1" disabled selected>Puntuación de la cualidad técnica </option>
                           <option value="1">Nada</option>
                           <option value="2">Muy poco</option>
                           <option value="3">Algo</option>
@@ -956,12 +904,12 @@
 
                       <div class="mb-5">
                         <h6><span class="preguntasPsico">2.</span> ¿Cuál crees que es tu segunda mayor cualidad técnica
-                          como deportista? Ej: Velocista </h6>
+                          como deportista? Ej: Velocidad </h6>
                         <input type="text" class="form-control mb-2" name="pregunta13APsico" id="pregunta75APsico"
-                          placeholder="Cualidad técnica #2">
+                          placeholder="Cualidad técnica">
                         <select name="pregunta75BPsico" id="pregunta75BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la cualidad técnica #2">
-                          <option value="-1" disabled selected>Puntuación de la cualidad técnica #2</option>
+                          placeholder="Puntuación de la cualidad técnica">
+                          <option value="-1" disabled selected>Puntuación de la cualidad técnica </option>
                           <option value="1">Nada</option>
                           <option value="2">Muy poco</option>
                           <option value="3">Algo</option>
@@ -978,10 +926,10 @@
                         <h6><span class="preguntasPsico">3.</span> ¿Cuál crees que es tu mayor debilidad técnica como
                           deportista? Ej: Manejo de las relaciones</h6>
                         <input type="text" class="form-control mb-2" name="pregunta76APsico" id="pregunta76APsico"
-                          placeholder="Debilidad técnica #1">
+                          placeholder="Debilidad técnica">
                         <select name="pregunta76BPsico" id="pregunta76BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la debilidad técnica #1">
-                          <option value="-1" disabled selected>Puntuación de la debilidad técnica #1</option>
+                          placeholder="Puntuación de la debilidad técnica">
+                          <option value="-1" disabled selected>Puntuación de la debilidad técnica </option>
                           <option value="1">Nada</option>
                           <option value="2">Muy poco</option>
                           <option value="3">Algo</option>
@@ -995,10 +943,10 @@
                         <h6><span class="preguntasPsico">4.</span> ¿Cuál crees que es tu segunda mayor debilidad técnica
                           como deportista? Ej: Las curvas</h6>
                         <input type="text" class="form-control mb-2" name="pregunta77APsico" id="pregunta77APsico"
-                          placeholder="Debilidad técnica #2">
+                          placeholder="Debilidad técnica">
                         <select name="pregunta77BPsico" id="pregunta77BPsico" class="form-control mb-2"
-                          placeholder="Puntuación de la debilidad técnica #2">
-                          <option value="-1" disabled selected>Puntuación de la debilidad técnica #2</option>
+                          placeholder="Puntuación de la debilidad técnica">
+                          <option value="-1" disabled selected>Puntuación de la debilidad técnica</option>
                           <option value="1">Nada</option>
                           <option value="2">Muy poco</option>
                           <option value="3">Algo</option>
@@ -1028,10 +976,10 @@
                       <h6><span class="preguntasPsico">5.</span> ¿Cuál crees que es tu mayor cualidad física como
                         deportista? Ej: La coordinación</h6>
                       <input type="text" class="form-control mb-2" name="pregunta78APsico" id="pregunta78APsico"
-                        placeholder="Cualidad física #1">
+                        placeholder="Cualidad física">
                       <select name="pregunta78BPsico" id="pregunta78BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la cualidad física #1">
-                        <option value="-1" disabled selected>Puntuación de la cualidad física #1</option>
+                        placeholder="Puntuación de la cualidad física">
+                        <option value="-1" disabled selected>Puntuación de la cualidad física</option>
                         <option value="1">Nada</option>
                         <option value="2">Muy poco</option>
                         <option value="3">Algo</option>
@@ -1045,10 +993,10 @@
                       <h6><span class="preguntasPsico">6.</span> ¿Cuál crees que es tu segunda mayor cualidad física
                         como deportista? Ej: Biotipo para ciclismo</h6>
                       <input type="text" class="form-control mb-2" name="pregunta79APsico" id="pregunta79APsico"
-                        placeholder="Cualidad física #2">
+                        placeholder="Cualidad física">
                       <select name="pregunta79BPsico" id="pregunta79BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la cualidad física #2">
-                        <option value="-1" disabled selected>Puntuación de la cualidad física #2</option>
+                        placeholder="Puntuación de la cualidad física">
+                        <option value="-1" disabled selected>Puntuación de la cualidad física</option>
                         <option value="1">Nada</option>
                         <option value="2">Muy poco</option>
                         <option value="3">Algo</option>
@@ -1065,10 +1013,10 @@
                       <h6><span class="preguntasPsico">7.</span> ¿Cuál crees que es tu mayor debilidad física como
                         deportista? Ej: Sobrepeso</h6>
                       <input type="text" class="form-control mb-2" name="pregunta80APsico" id="pregunta80APsico"
-                        placeholder="Debilidad física #1">
+                        placeholder="Debilidad física">
                       <select name="pregunta80BPsico" id="pregunta80BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la debilidad física #1">
-                        <option value="-1" disabled selected>Puntuación de la debilidad física #1</option>
+                        placeholder="Puntuación de la debilidad física">
+                        <option value="-1" disabled selected>Puntuación de la debilidad física</option>
                         <option value="1">Nada</option>
                         <option value="2">Muy poco</option>
                         <option value="3">Algo</option>
@@ -1082,10 +1030,10 @@
                       <h6><span class="preguntasPsico">8.</span> ¿Cuál crees que es tu segunda mayor debilidad física
                         como deportista? Ej: Lesión física</h6>
                       <input type="text" class="form-control mb-2" name="pregunta81APsico" id="pregunta81APsico"
-                        placeholder="Debilidad física #2">
+                        placeholder="Debilidad física">
                       <select name="pregunta81BPsico" id="pregunta81BPsico" class="form-control mb-2"
-                        placeholder="Puntuación de la debilidad física #2">
-                        <option value="-1" disabled selected>Puntuación de la debilidad física #2</option>
+                        placeholder="Puntuación de la debilidad física">
+                        <option value="-1" disabled selected>Puntuación de la debilidad física</option>
                         <option value="1">Nada</option>
                         <option value="2">Muy poco</option>
                         <option value="3">Algo</option>
@@ -1099,7 +1047,7 @@
 
                     <div class="btn-psico1"><input 
                       onclick="cualidadesDebilidadesTecFis()"
-                      type="button" class="btn btn-primary" value="Enviar respuestas" />
+                      type="button" class="btn btn-success" value="Enviar respuestas" />
                     </div>
 
 
@@ -1128,15 +1076,7 @@
           <!-- / Content -->
 
           <!-- Footer -->
-          <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-              <div class="mb-2 mb-md-0">
-                &reg; 2020 Todos los derechos reservados | FND s.a.s. | E-Learning Sports Academy (ELSA) | Diseñado por:
-                <a class="contratos" href="http://elsa360.com" style="color: #a3a4cc;"> ELSA&reg; </a> | Images:
-                <a class="contratos" href="http://unsplash.com" style="color: #a3a4cc;"> Unsplash</a>
-              </div>
-            </div>
-          </footer>
+          <footer id="footer"></footer>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -1182,6 +1122,13 @@
   <script src="../../assets/js/form-layouts.js"></script>
   <script src="../../JS/classes.js"></script>
   <script src="../../JS/calculosPsicologia.js"></script>
+
+
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
 </body>
 
 </html>

@@ -38,6 +38,7 @@ function minutos(m) {
 
 
 function startTrainingAndEndTraining(idPerfil) {
+    // SUMAR DIAS A UNA FECHA 
     let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
     let fi;
     let ff;
@@ -46,25 +47,25 @@ function startTrainingAndEndTraining(idPerfil) {
         .then(respuesta => {
             respuesta.forEach(dates => {
                 fi = dates.fechaInicialEntren;
-                // ff = dates.fechaObjetivo;
+                ff = dates.fechaObjetivo;
                 fims = fi.split(" ")
                 nfi = fims[0];
                 hoy = new Date(nfi).getTime();
-                ayer = new Date('2022', 9, 31).getTime()
+                ayer = new Date().getTime()
                 diaMiliSeg = 86400000;
                 mesMiliSeg = 86400000 * 28;
                 dif = ayer + diaMiliSeg
                 mif = ayer + mesMiliSeg
-                console.log(new Date(dif).toLocaleDateString())
-                console.log(new Date(mif).toLocaleDateString())
+                // console.log(new Date(dif).toLocaleDateString())
+                // console.log(new Date(mif).toLocaleDateString())
             });
         });
 }
-// data = startTrainingAndEndTraining(1);
+data = startTrainingAndEndTraining(1);
 // console.log(data)
 
 
-
+//Comparar dos fechas
 function fechaIncialEntrenamiento(idPerfil) {
     let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
     fetch(url)
@@ -79,9 +80,9 @@ function fechaIncialEntrenamiento(idPerfil) {
                 newDate = new Date(newDate);
                 currentlyDate = new Date();
                 if (newDate < currentlyDate) {
-                    console.log(newDate, 'es menor a', currentlyDate)
+                    // console.log(newDate, 'es menor a', currentlyDate)
                 } else {
-                    console.log(newDate, 'no es menor', currentlyDate)
+                    // console.log(newDate, 'no es menor', currentlyDate)
                 }
                 // console.log(newDate.getDate());
                 // console.log(newDate.getMonth() + 1);
@@ -89,7 +90,7 @@ function fechaIncialEntrenamiento(idPerfil) {
             });
         });
 }
-// data = fechaIncialEntrenamiento(1);
+data = fechaIncialEntrenamiento(1);
 // console.log("Data:", data);
 
 
@@ -145,7 +146,7 @@ function cyclingTrainingResultWeek(idPerfilUser, evento, fechaIncioEntreno, fech
 }
 function cyclingTrainingResult(idPerfilUser, evento) {
     // fetch("https://localhost:7155/resultados/perfil?idPerfil="+idPerfilUser+"&evento="+evento+"")
-    fetch("https://localhost:7155/resultados/listar")
+    fetch("https://" + apiServer + ":7155/resultados/listar")
         .then((response) => response.json())
         .then((resultadosEntrenamiento) => {
 
@@ -225,35 +226,63 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             let cadencePromMacro = 0;
             let cadencePromTotal = 0;
 
-            let TSSPromWeek = 0;
-            let TSSAccumulatedWeek = 0;
-            let TSSPromMouth = 0;
-            let TSSAccumulatedMouth = 0;
-            let TSSPromMacro = 0;
-            let TSSAccumulatedMacro = 0;
-            let tssPlanteadoTotal = 0;
+            let TSSRealPromWeek = 0;
+            let TSSRealAccumulatedWeek = 0;
+            let TSSRealPromMouth = 0;
+            let TSSRealAccumulatedMouth = 0;
+            let TSSRealPromMacro = 0;
+            let TSSRealAccumulatedMacro = 0;
             let tssRealTotal = 0;
 
-            let IFPromWeek = 0;
-            let IFPromMonth = 0;
-            let IFPromMacro = 0;
-            let IFPlanteadoTotal = 0;
+            let TSSRaisedPromWeek = 0;            
+            let TSSRaisedAccumulatedWeek = 0;           
+            let TSSRaisedPromMouth = 0;            
+            let TSSRaisedAccumulatedMouth = 0;      
+            let TSSRaisedPromMacro = 0;           
+            let TSSRaisedAccumulatedMacro = 0;
+            let tssRaisedTotal = 0;
+          
+
+            let IFRealPromWeek = 0;
+            let IFRealAccumulatedWeek = 0;
+            let IFRealPromMouth = 0;
+            let IFRealAccumulatedMouth = 0;
+            let IFRealPromMacro = 0;
+            let IFRealAccumulatedMacro = 0;
             let IFRealTotal = 0;
 
-            let NPPromWeek = 0;
-            let NPPromMonth = 0;
-            let NPPromMacro = 0;
-            let NPPlanteadoTotal = 0;
+            let IFRaisedPromWeek = 0;
+            let IFRaisedAccumulatedWeek = 0;
+            let IFRaisedPromMouth = 0;
+            let IFRaisedAccumulatedMouth = 0;
+            let IFRaisedPromMacro = 0;
+            let IFRaisedAccumulatedMacro = 0;
+            let IFRaisedTotal = 0;
+
+            let NPRealPromWeek = 0;
+            let NPRealAccumulatedWeek = 0;
+            let NPRealPromMouth = 0;
+            let NPRealAccumulatedMouth = 0;
+            let NPRealPromMacro = 0;
+            let NPRealAccumulatedMacro = 0;
             let NPRealTotal = 0;
 
-            let workPromWeek = 0;
-            let workAccumulatedWeek = 0;
-            let workPromMouth = 0;
-            let workAccumulatedMouth = 0;
-            let workPromMacro = 0;
-            let workAccumulatedMacro = 0;
-            let workPlanteadoTotal = 0;
+
+            let workRealPromWeek = 0;
+            let workRealAccumulatedWeek = 0;
+            let workRealPromMouth = 0;
+            let workRealAccumulatedMouth = 0;
+            let workRealPromMacro = 0;
+            let workRealAccumulatedMacro = 0;
             let workRealTotal = 0;
+
+            let workRaisedPromWeek = 0;
+            let workRaisedAccumulatedWeek = 0;
+            let workRaisedPromMouth = 0;
+            let workRaisedAccumulatedMouth = 0;
+            let workRaisedPromMacro = 0;
+            let workRaisedAccumulatedMacro = 0;
+            let workRaisedTotal = 0;
 
 
             // Frecuencia Cardiaca - Tiempo en Zonas
@@ -421,24 +450,391 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             let spTimeZoneSixPromTotal = 0;
             let spTimeZoneSixAccumulatedTotal = 0;
 
-            // console.log("Tamaño del Arreglo:", resultadosEntrenamiento.length);
+
             let data = resultadosEntrenamiento.length;
+            let diaMiliSeg = 86400000;
+            let semanaMiliSeg = 86400000 * 7;
+            let mesMiliSeg = 86400000 * 28;
+            let limInf = 1;
+            let limSup = 2;
+            let banderaSemanal = 1;
+
+            //Arreglos
+            let arrayTime=[];
+            let arrayDistance = []
+            let arrayElevation = []
+            let arrayRPE = []
+            let arrayFCMax = []
+            let arrayFCProm = []
+            let arrayWattMax = []
+            let arrayWattProm = []
+            let arraySpeedMax = []
+            let arraySpeedProm = []
+            let arrayCadenceMax = []
+            let arrayCadenceProm = []
+            let arrayTSSPlantedo = []
+            let arrayTSSReal = []
+            let arrayIFPlanteado = []
+            let arrayIFReal = []
+            let arrayNPReal = []
+            let arrayWorkPlanteado = []
+            let arrayWorkReal = []
+
+            let arrayFCZone1 = []
+            let arrayFCZone2 = []
+            let arrayFCZone3 = []
+            let arrayFCZone4 = []
+            let arrayFCZone5= []
+            let arrayFCZone6 = []
+
+            let arrayWattZone1 = []
+            let arrayWattZone2 = []
+            let arrayWattZone3 = []
+            let arrayWattZone4 = []
+            let arrayWattZone5= []
+            let arrayWattZone6 = []
+
+            let arraySpeedZone1 = []
+            let arraySpeedZone2 = []
+            let arraySpeedZone3 = []
+            let arraySpeedZone4 = []
+            let arraySpeedZone5= []
+            let arraySpeedZone6 = []
+
             resultadosEntrenamiento.forEach(entrenamiento => {
-                console.log(entrenamiento)
-                dateTraining = entrenamiento.fechaEntrenamiento;
-                dateTraining = dateTraining.split(" ");
-                dateTraining = dateTraining[0];
-                dateTraining = new Date(dateTraining).getTime();
+                try {
+                    // console.log(entrenamiento);
+                    // let semanas = calcularDiferenciaDias(entrenamiento.fechaEntrenamiento, entrenamiento.fechaCompetencia);
+                    // console.log('Total semanas: ', semanas);
+                    dateTraining = entrenamiento.fechaInicioEntrenamiento;
+                    dateTraining = new Date(dateTraining).getTime();
+                    dateRegisterTraining = entrenamiento.fechaRegistro
+                    dateRegisterTraining = new Date(dateRegisterTraining).getTime();
 
-                dateObjectif = entrenamiento.fechaCompetencia;   
-                dateObjectif = dateObjectif.split(" ");
-                dateObjectif = dateObjectif[0];
-                dateObjectif = new Date(dateObjectif).getTime();
-                console.log(dateObjectif);
+                    if (dateRegisterTraining <= (dateTraining + semanaMiliSeg)) {
+                        //Contadores 
+                        timeAccumulatedWeek = timeAccumulatedWeek + parseFloat(entrenamiento.duracionEntrenamiento);
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        elevationAccumulatedWeek = elevationAccumulatedWeek + parseFloat(entrenamiento.desnivelPositivoAcumu);
+                        RPEAccumulatedWeek = RPEAccumulatedWeek + parseFloat(entrenamiento.desnivelPositivoAcumu);
+                        fcMaxWeek = fcMaxWeek + parseFloat(entrenamiento.fcMax);
+                        fcPromWeek = fcPromWeek + parseFloat(entrenamiento.fcPromedio);
+                        powerMaxWeek = powerMaxWeek + parseFloat(entrenamiento.potenciaMax);
+                        powerPromWeek = powerPromWeek + parseFloat(entrenamiento.potenciaPromedio);
+                        speedMaxWeek = speedMaxWeek + parseFloat(entrenamiento.velocidadMax);
+                        speedPromWeek = speedPromWeek + parseFloat(entrenamiento.velocidadPromedio);
+                        cadenceMaxWeek = cadenceMaxWeek + parseFloat(entrenamiento.cadenciaMax);
+                        cadencePromWeek = cadencePromWeek + parseFloat(entrenamiento.cadenciaPromedio);
+                        
+                        TSSRealPromWeek = TSSRealPromWeek + parseFloat(entrenamiento.tssReal);
+                        TSSRaisedPromWeek = TSSRaisedPromWeek + parseFloat(entrenamiento.tssPromedio);
+                        IFRealAccumulatedWeek = IFRealAccumulatedWeek + parseFloat(entrenamiento.ifReal);
+                        IFRaisedAccumulatedWeek = IFRaisedAccumulatedWeek + parseFloat(entrenamiento.ifPromedio);
+                        NPRealAccumulatedWeek = NPRealAccumulatedWeek + parseFloat(entrenamiento.npReal);
+                        workRealAccumulatedWeek = workRealAccumulatedWeek + parseFloat(entrenamiento.trabajoReal);
+                        workRaisedAccumulatedWeek = workRaisedAccumulatedWeek + parseFloat(entrenamiento.trabajoPlanteado);
 
-                console.log('F1:', dateTraining);
-                console.log('F2:', dateObjectif);
-                console.log('F2:', entrenamiento.fechaEvento);
+
+                        fcTimeZoneOneAccumulatedWeek = fcTimeZoneOneAccumulatedWeek + parseFloat(entrenamiento.fcZona1);
+                        fcTimeZoneTwoAccumulatedWeek = fcTimeZoneTwoAccumulatedWeek + parseFloat(entrenamiento.fcZona2);
+                        fcTimeZoneThreeAccumulatedWeek = fcTimeZoneThreeAccumulatedWeek + parseFloat(entrenamiento.fcZona3);
+                        fcTimeZoneFourAccumulatedWeek = fcTimeZoneFourAccumulatedWeek + parseFloat(entrenamiento.fcZona4);
+                        fcTimeZoneFiveAccumulatedWeek = fcTimeZoneFiveAccumulatedWeek + parseFloat(entrenamiento.fcZona5);
+                        fcTimeZoneSixAccumulatedWeek = fcTimeZoneSixAccumulatedWeek + parseFloat(entrenamiento.fcZona6);
+
+                        pwTimeZoneOneAccumulatedWeek = pwTimeZoneOneAccumulatedWeek + parseFloat(entrenamiento.potenciaZona1);
+                        pwTimeZoneTwoAccumulatedWeek = pwTimeZoneTwoAccumulatedWeek + parseFloat(entrenamiento.potenciaZona2);
+                        pwTimeZoneThreeAccumulatedWeek = pwTimeZoneThreeAccumulatedWeek + parseFloat(entrenamiento.potenciaZona3);
+                        pwTimeZoneFourAccumulatedWeek = pwTimeZoneFourAccumulatedWeek + parseFloat(entrenamiento.potenciaZona4);
+                        pwTimeZoneFiveAccumulatedWeek = pwTimeZoneFiveAccumulatedWeek + parseFloat(entrenamiento.potenciaZona5);
+                        pwTimeZoneSixAccumulatedWeek = pwTimeZoneSixAccumulatedWeek + parseFloat(entrenamiento.potenciaZona6);
+
+                        spTimeZoneOneAccumulatedWeek = spTimeZoneOneAccumulatedWeek + parseFloat(entrenamiento.velocidadZona1);
+                        spTimeZoneTwoAccumulatedWeek = spTimeZoneTwoAccumulatedWeek + parseFloat(entrenamiento.velocidadZona2);
+                        spTimeZoneThreeAccumulatedWeek = spTimeZoneThreeAccumulatedWeek + parseFloat(entrenamiento.velocidadZona3);
+                        spTimeZoneFourAccumulatedWeek = spTimeZoneFourAccumulatedWeek + parseFloat(entrenamiento.velocidadZona4);
+                        spTimeZoneFiveAccumulatedWeek = spTimeZoneFiveAccumulatedWeek + parseFloat(entrenamiento.velocidadZona5);
+                        spTimeZoneSixAccumulatedWeek = spTimeZoneSixAccumulatedWeek + parseFloat(entrenamiento.velocidadZona6);
+
+
+
+
+
+
+
+                        //Insercion de los datos en los arreglos
+                        arrayTime[0] = timeAccumulatedTotal;
+                        arrayDistance[0] = distanceAccumulatedWeek;
+                        arrayElevation[0] = elevationAccumulatedWeek;
+                        arrayRPE[0] = RPEAccumulatedWeek;
+
+                        arrayFCMax[0] = fcMaxWeek;
+                        arrayFCProm[0] = fcPromWeek;
+
+                        arrayWattMax[0] = fcMaxWeek;
+                        arrayWattProm[0] = fcPromWeek;
+
+                        arraySpeedMax[0] = speedMaxWeek;
+                        arraySpeedProm[0] = speedPromWeek;
+
+                        arrayCadenceMax[0] = cadenceMaxWeek;
+                        arrayCadenceProm[0] = cadencePromWeek;
+
+                        arrayTSSReal[0] = TSSRealPromWeek;
+                        arrayTSSPlantedo[0] = TSSRaisedPromWeek;
+                        arrayIFReal[0] = IFRealAccumulatedWeek;
+                        arrayIFPlanteado[0] = IFRaisedAccumulatedWeek;
+                        arrayNPReal[0] = NPRealAccumulatedWeek  ;
+                        arrayWorkReal[0] = workRealAccumulatedWeek;
+                        arrayWorkPlanteado[0] = workRaisedAccumulatedWeek;
+
+                        arrayFCZone1[0] = fcTimeZoneOneAccumulatedWeek;
+                        arrayFCZone2[0] = fcTimeZoneTwoAccumulatedWeek;
+                        arrayFCZone3[0] = fcTimeZoneThreeAccumulatedWeek;
+                        arrayFCZone4[0] = fcTimeZoneFourAccumulatedWeek;
+                        arrayFCZone5[0] = fcTimeZoneFiveAccumulatedWeek;
+                        arrayFCZone6[0] = fcTimeZoneSixAccumulatedWeek;
+
+                        arrayWattZone1[0] = pwTimeZoneOneAccumulatedWeek;
+                        arrayWattZone2[0] = pwTimeZoneTwoAccumulatedWeek;
+                        arrayWattZone3[0] = pwTimeZoneThreeAccumulatedWeek;
+                        arrayWattZone4[0] = pwTimeZoneFourAccumulatedWeek;
+                        arrayWattZone5[0] = pwTimeZoneFiveAccumulatedWeek;
+                        arrayWattZone6[0] = pwTimeZoneSixAccumulatedWeek;
+
+                        arraySpeedZone1[0] = pwTimeZoneOneAccumulatedWeek;
+                        arraySpeedZone2[0] = pwTimeZoneTwoAccumulatedWeek;
+                        arraySpeedZone3[0] = pwTimeZoneThreeAccumulatedWeek;
+                        arraySpeedZone4[0] = pwTimeZoneFourAccumulatedWeek;
+                        arraySpeedZone5[0] = pwTimeZoneFiveAccumulatedWeek;
+                        arraySpeedZone6[0] = pwTimeZoneSixAccumulatedWeek;
+
+
+                        // console.log('S1: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + (semanaMiliSeg))) && (dateRegisterTraining <= (dateTraining + (limSup * semanaMiliSeg)))) {
+                        if (banderaSemanal === 1) {
+                            banderaSemanal = 2;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[1] = distanceAccumulatedWeek;
+                        // console.log('S2: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 1)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 1) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 2) {
+                            banderaSemanal = 3;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[2] = distanceAccumulatedWeek;
+                        // console.log('S3: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 2)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 2) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 3) {
+                            banderaSemanal = 4;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[3] = distanceAccumulatedWeek;
+                        // console.log('S4: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 3)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 3) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 4) {
+                            banderaSemanal = 5;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[4] = distanceAccumulatedWeek;
+                        // console.log('S5: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 4)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 4) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 5) {
+                            banderaSemanal = 6;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[5] = distanceAccumulatedWeek;
+                        // console.log('S6: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 5)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 5) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 6) {
+                            banderaSemanal = 7;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[6] = distanceAccumulatedWeek;
+                        // console.log('S7: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 6)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 6) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 6) {
+                            banderaSemanal = 7;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[7] = distanceAccumulatedWeek;
+                        // console.log('S8: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 7)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 7) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 7) {
+                            banderaSemanal = 8;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[8] = distanceAccumulatedWeek;
+                        // console.log('S9: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 8)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 8) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 8) {
+                            banderaSemanal = 9;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[9] = distanceAccumulatedWeek;
+                        // console.log('S10: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 9)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 9) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 9) {
+                            banderaSemanal = 10;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[10] = distanceAccumulatedWeek;
+                        // console.log('S11: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 10)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 10) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 10) {
+                            banderaSemanal = 11;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[11] = distanceAccumulatedWeek;
+                        // console.log('S12: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 11)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 11) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 11) {
+                            banderaSemanal = 12;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[12] = distanceAccumulatedWeek;
+                        // console.log('S13: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 12)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 12) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 12) {
+                            banderaSemanal = 13;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[13] = distanceAccumulatedWeek;
+                        // console.log('S14: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 13)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 13) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 13) {
+                            banderaSemanal = 14;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[14] = distanceAccumulatedWeek;
+                        // console.log('S15: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 14)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 14) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 14) {
+                            banderaSemanal = 15;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[15] = distanceAccumulatedWeek;
+                        // console.log('S16: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 15)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 15) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 15) {
+                            banderaSemanal = 16;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[16] = distanceAccumulatedWeek;
+                        // console.log('S17: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 16)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 16) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 16) {
+                            banderaSemanal = 17;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[17] = distanceAccumulatedWeek;
+                        // console.log('S18: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 17)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 17) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 17) {
+                            banderaSemanal = 18;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[18] = distanceAccumulatedWeek;
+                        // console.log('S19: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 18)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 18) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 18) {
+                            banderaSemanal = 19;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[19] = distanceAccumulatedWeek;
+                        // console.log('S20: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 19)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 19) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 19) {
+                            banderaSemanal = 20;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[20] = distanceAccumulatedWeek;
+                        // console.log('S21: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 20)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 20) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 20) {
+                            banderaSemanal = 21;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[21] = distanceAccumulatedWeek;
+                        // console.log('S22: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 21)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 21) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 21) {
+                            banderaSemanal = 22;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[22] = distanceAccumulatedWeek;
+                        // console.log('S23: ', dateRegisterTraining);
+                    }
+                    if ((dateRegisterTraining > (dateTraining + ((semanaMiliSeg) * (limInf + 22)))) && (dateRegisterTraining <= (dateTraining + ((limSup + 22) * semanaMiliSeg)))) {
+                        if (banderaSemanal === 22) {
+                            banderaSemanal = 23;
+                            distanceAccumulatedWeek = 0;
+                        }
+                        distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
+                        arrayDistance[23] = distanceAccumulatedWeek;
+                        // console.log('S24: ', dateRegisterTraining);
+                    }
+                } catch (error) {
+                    console.log(e);
+                }
+
+                dateObjective = entrenamiento.fechaCompetencia;
+                dateObjective = new Date(dateObjective).getTime();
+                // console.log('FF-> ',dateObjective);
+
+
+                if (dateTraining < dateObjective) {
+                    // console.log(dateTraining, 'es menor a', dateObjective)
+                } else {
+                    // console.log(dateTraining, 'no es menor', dateObjective)
+                }
+
+
 
                 //======================================================================================================
                 //====  TOTALES ========================================================================================
@@ -455,12 +851,12 @@ function cyclingTrainingResult(idPerfilUser, evento) {
                 speedPromTotal = speedPromTotal + parseFloat(entrenamiento.velocidadPromedio);
                 cadenceMaxTotal = cadenceMaxTotal + parseFloat(entrenamiento.cadenciaMax);
                 cadencePromTotal = cadencePromTotal + parseFloat(entrenamiento.cadenciaPromedio);
-                tssPlanteadoTotal = tssPlanteadoTotal + parseFloat(entrenamiento.tssPlanteado);
+                tssRaisedTotal = tssRaisedTotal + parseFloat(entrenamiento.tssPlanteado);
                 tssRealTotal = tssRealTotal + parseFloat(entrenamiento.tssReal);
-                IFPlanteadoTotal = IFPlanteadoTotal + parseFloat(entrenamiento.ifPlanteado);
+                IFRaisedTotal = IFRaisedTotal + parseFloat(entrenamiento.ifPlanteado);
                 IFRealTotal = IFRealTotal + parseFloat(entrenamiento.ifReal);
                 NPRealTotal = NPRealTotal + parseFloat(entrenamiento.npReal);
-                workPlanteadoTotal = workPlanteadoTotal + parseFloat(entrenamiento.trabajoPlanteado);
+                workRaisedTotal = workRaisedTotal + parseFloat(entrenamiento.trabajoPlanteado);
                 workRealTotal = workRealTotal + parseFloat(entrenamiento.trabajoReal);
                 //Timepo en Zonas FC
                 fcTimeZoneOneAccumulatedTotal = fcTimeZoneOneAccumulatedTotal + parseFloat(entrenamiento.fcZona1);
@@ -490,76 +886,151 @@ function cyclingTrainingResult(idPerfilUser, evento) {
 
 
             });
+            let totalDistancia = 0;
+            for (let i = 0; i < arrayDistance.length; i++) {
+                totalDistancia = totalDistancia + arrayDistance[i];
+            }
+            console.log("Tiempo Semanal: ", arrayTime);
             console.log('Tiempo Total:', timeAccumulatedTotal);
             console.log('Tiempo Promedio Total:', timeAccumulatedTotal / data);
+
+            console.log("Total Array Distancia: ", totalDistancia);
+            console.log("Distancia Semanal: ", arrayDistance);
             console.log('Distancia Total:', distanceAccumulatedTotal);
             console.log('Distancia Promedio Total:', distanceAccumulatedTotal / data);
+
+            console.log("Elevacion Semanal: ", arrayElevation);
             console.log('Elevacion Total:', elevationAccumulatedTotal);
             console.log('Elevacion Promedio Total:', elevationAccumulatedTotal / data);
+
+            console.log("RPE Semanal: ", arrayRPE);
             console.log('RPE Total:', RPEAccumulatedTotal);
             console.log('RPE Promedio Total:', RPEAccumulatedTotal / data);
+
+            console.log("FCMax Semanal: ", arrayFCMax);
             console.log('FCMax Promedio Total:', fcMaxTotal / data);
             console.log('FCPromedio Promedio Total:', fcPromTotal / data);
+
+            console.log("PotenciaMax Semanal: ", arrayWattMax);
             console.log('PotenciaMax Promedio Total:', powerMaxTotal / data);
             console.log('PotenciaPromed Promedio Total:', powerPromTotal / data);
+
+            console.log("VelocidadMax Semanal: ", arraySpeedMax);
             console.log('VelocidadMax Promedio Total:', speedMaxTotal / data);
             console.log('VelocidadPromed Promedio Total:', speedPromTotal / data);
+
+            console.log("CadenciaMax Semanal: ", arrayCadenceMax);
             console.log('CadenciaMax Promedio Total:', cadenceMaxTotal / data);
             console.log('CadenciaPromed Promedio Total:', cadencePromTotal / data);
-            console.log('TSS Planteado Total:', tssPlanteadoTotal);
-            console.log('TSS Planteado Promedio Total:', tssPlanteadoTotal / data);
+
+            console.log("TSS Planteado Semanal: ", arrayTSSPlantedo);
+            console.log('TSS Planteado Total:', tssRaisedTotal);
+            console.log('TSS Planteado Promedio Total:', tssRaisedTotal / data);
+
+            console.log("TSS Real Semanal: ", arrayTSSReal);
             console.log('TSS Real Total:', tssRealTotal);
             console.log('TSS Real Promedio Total:', tssRealTotal / data);
-            console.log('IF Planteado Total:', IFPlanteadoTotal / data);
+
+            console.log("IF Planteado Semanal: ", arrayIFPlanteado);
+            console.log('IF Planteado Total:', IFRaisedTotal / data);
+
+            console.log("IF Real Semanal: ", arrayIFReal);
             console.log('IF Real Total:', IFRealTotal / data);
+
+            console.log("NP Real Semanal: ", arrayNPReal);
             console.log('NP Real Total:', NPRealTotal / data);
-            console.log('Trabajo Planteado Total:', workPlanteadoTotal);
-            console.log('Trabajo Planteado Promedio Total:', workPlanteadoTotal / data);
+
+            console.log("Trabajo Planteado Semanal: ", arrayWorkPlanteado);
+            console.log('Trabajo Planteado Total:', workRaisedTotal);
+            console.log('Trabajo Planteado Promedio Total:', workRaisedTotal / data);
+
+            console.log("Trabajo Real Semanal: ", arrayWorkReal);
             console.log('Trabajo Real Total:', workRealTotal);
             console.log('Trabajo Real Promedio Total:', workRealTotal / data);
+
+
             //Tiempos en Zonas FC
+            console.log("FC/ Tiempo Zona1 Semanal: ", arrayFCZone1);
             console.log('FC/ Tiempo Zona1 Total:', fcTimeZoneOneAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona1 Total:', fcTimeZoneOneAccumulatedTotal / data);
+
+            console.log("FC/ Tiempo Zona2 Semanal: ", arrayFCZone2);
             console.log('FC/ Tiempo Zona2 Total:', fcTimeZoneTwoAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona2 Total:', fcTimeZoneTwoAccumulatedTotal / data);
+
+            console.log("FC/ Tiempo Zona3 Semanal: ", arrayFCZone3);
             console.log('FC/ Tiempo Zona3 Total:', fcTimeZoneThreeAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona3 Total:', fcTimeZoneThreeAccumulatedTotal / data);
+
+            console.log("FC/ Tiempo Zona4 Semanal: ", arrayFCZone4);
             console.log('FC/ Tiempo Zona4 Total:', fcTimeZoneFourAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona4 Total:', fcTimeZoneFourAccumulatedTotal / data);
+
+            console.log("FC/ Tiempo Zona5 Semanal: ", arrayFCZone5);
             console.log('FC/ Tiempo Zona5 Total:', fcTimeZoneFiveAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona5 Total:', fcTimeZoneFiveAccumulatedTotal / data);
+
+            console.log("FC/ Tiempo Zona6 Semanal: ", arrayFCZone6);
             console.log('FC/ Tiempo Zona6 Total:', fcTimeZoneSixAccumulatedTotal);
             console.log('FC/ Tiempo Promedio Zona6 Total:', fcTimeZoneSixAccumulatedTotal / data);
+
             //Tiempos en Zonas Potencia
+            console.log("PW/ Tiempo Zona1 Semanal: ", arrayWattZone1);
             console.log('PW/ Tiempo Zona1 Total:', pwTimeZoneOneAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona1 Total:', pwTimeZoneOneAccumulatedTotal / data);
+
+            console.log("PW/ Tiempo Zona2 Semanal: ", arrayWattZone2);
             console.log('PW/ Tiempo Zona2 Total:', pwTimeZoneTwoAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona2 Total:', pwTimeZoneTwoAccumulatedTotal / data);
+
+            console.log("PW/ Tiempo Zona3 Semanal: ", arrayWattZone3);
             console.log('PW/ Tiempo Zona3 Total:', pwTimeZoneThreeAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona3 Total:', pwTimeZoneThreeAccumulatedTotal / data);
+
+            console.log("PW/ Tiempo Zona4 Semanal: ", arrayWattZone4);
             console.log('PW/ Tiempo Zona4 Total:', pwTimeZoneFourAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona4 Total:', pwTimeZoneFourAccumulatedTotal / data);
+
+            console.log("PW/ Tiempo Zona5 Semanal: ", arrayWattZone5);
             console.log('PW/ Tiempo Zona5 Total:', pwTimeZoneFiveAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona5 Total:', pwTimeZoneFiveAccumulatedTotal / data);
+
+            console.log("PW/ Tiempo Zona6 Semanal: ", arrayWattZone6);
             console.log('PW/ Tiempo Zona6 Total:', pwTimeZoneSixAccumulatedTotal);
             console.log('PW/ Tiempo Promedio Zona6 Total:', pwTimeZoneSixAccumulatedTotal / data);
+
+
             //Tiempos en Zonas Velocidad
+            console.log("Speed/ Tiempo Zona1 Semanal: ", arraySpeedZone1);
             console.log('Speed/ Tiempo Zona1 Total:', spTimeZoneOneAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona1 Total:', spTimeZoneOneAccumulatedTotal / data);
+
+            console.log("Speed/ Tiempo Zona2 Semanal: ", arraySpeedZone2);
             console.log('Speed/ Tiempo Zona2 Total:', spTimeZoneTwoAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona2 Total:', spTimeZoneTwoAccumulatedTotal / data);
+
+            console.log("Speed/ Tiempo Zona3 Semanal: ", arraySpeedZone3);
             console.log('Speed/ Tiempo Zona3 Total:', spTimeZoneThreeAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona3 Total:', spTimeZoneThreeAccumulatedTotal / data);
+
+            console.log("Speed/ Tiempo Zona4 Semanal: ", arraySpeedZone4);
             console.log('Speed/ Tiempo Zona4 Total:', spTimeZoneFourAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona4 Total:', spTimeZoneFourAccumulatedTotal / data);
+
+            console.log("Speed/ Tiempo Zona5 Semanal: ", arraySpeedZone5);
             console.log('Speed/ Tiempo Zona5 Total:', spTimeZoneFiveAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona5 Total:', spTimeZoneFiveAccumulatedTotal / data);
+
+            console.log("Speed/ Tiempo Zona6 Semanal: ", arraySpeedZone6);
             console.log('Speed/ Tiempo Zona6 Total:', spTimeZoneSixAccumulatedTotal);
             console.log('Speed/ Tiempo Promedio Zona6 Total:', spTimeZoneSixAccumulatedTotal / data);
         });
 }
 cyclingTrainingResult(1, "Ut Limited");
 // cyclingTrainingResultWeek(1, "Ut Limited", fechaIncioEntreno, fechaObjetivoDeport);
+
+
+
 function saveData() {
     const user = JSON.parse(window.sessionStorage.getItem("user"))
     Requests.get('/perfil/idPerfil', {
