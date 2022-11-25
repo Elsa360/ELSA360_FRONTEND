@@ -1,4 +1,5 @@
 async function registrarme() {
+    var server = getServer()
     try {
         var responseRecaptcha = grecaptcha.getResponse();
         if (responseRecaptcha.length > 0) {
@@ -10,7 +11,8 @@ async function registrarme() {
                     if (contraUser != "") {
                         if (document.getElementById("terms-conditions").checked) {
                             try {
-                                let url = "htpp://" + apiServer + "/usuario/crear";
+                                let url = apiServer + "/usuario/crear";
+                                console.log("2:" + server.REMOTE_ADDR);
                                 await fetch(url, {
                                     method: 'POST',
                                     body: JSON.stringify({
@@ -18,7 +20,7 @@ async function registrarme() {
                                         passwordUser: contraUser,
                                         nombreUsuario: nombreCompleto.toLowerCase(),
                                         fkIdRol: 4,
-                                        ipPc: "00.00.00.00",
+                                        ipPc: server.REMOTE_ADDR,
                                     }),
                                     headers: {
                                         'Content-type': 'application/json; charset=UTF-8',
@@ -32,7 +34,7 @@ async function registrarme() {
                                             alert("No pudimos procesar tu registro, si ya estas registrado inicie sesion o recupera tu contraseña, si tienes problemas escribenos ");
                                         } else {
                                             console.log("Respuesta Exitosa");
-                                            enviarEMail(emailUser.trim(),respuesta);
+                                            enviarEMail(emailUser.trim(), respuesta);
                                             location.href = "auth-reset-password-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
                                         }
                                     })
@@ -68,8 +70,8 @@ function mensajeVerificacionUsuario() {
     let usuario = urlParams.get("email");
     document.getElementById("emailUserRegister").innerHTML = usuario;
 }
-function enviarEMail(email,idUser) {
-    let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "&idUsuario="+idUser+"";
+function enviarEMail(email, idUser) {
+    let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
     fetch(url)
         .then(response => response.json)
         .then(respuesta => {
@@ -98,9 +100,9 @@ async function validarCuenta() {
             .then((response) => response.json())
             .then((respuesta) => {
                 console.log(respuesta);
-                if(respuesta===true){
+                if (respuesta === true) {
                     alert("Tu cuenta ha sido verificada");
-                }else{
+                } else {
                     console.log("Esta ya ha sido verificada o ha ocurrido algun error al memento de verificarla");
                 }
             });
@@ -110,6 +112,7 @@ async function validarCuenta() {
 }
 
 
+
 //Login and Logout
 async function login() {
     try {
@@ -117,7 +120,7 @@ async function login() {
         let contraUser = document.getElementById("passwordLogin").value;
         console.log(emailUser);
         console.log(contraUser);
-        let url = "https://localhost:7155/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
+        let url = apiServer + "/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
@@ -256,10 +259,16 @@ async function perfilar() {
 }
 
 
-
-
-
 //Gestion de contraseña
+function enviarEmailResetPassword() {
+    try {
+        let email = document.getElementById("emailResetPassword").value;
+        let url = "https://localhost:7155/email/restablecerContrasena?userEmail=" + email + "";
+        fetch(url)
+    } catch (e) {
+        console.log("Error: " + e);
+    }
+}
 function resetPass() {
     try {
         let newPassword = document.getElementById("password").value;
