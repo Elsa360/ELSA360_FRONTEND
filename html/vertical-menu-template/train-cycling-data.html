@@ -165,7 +165,7 @@
       
           <!-- Control del sueño -->
           <li class="menu-item">
-            <a href="app-controlSueño.htm" class="menu-link">
+            <a href="app-controlSueño.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-bed"></i>
               <div data-i18n="Control del sueño">Control del sueño</div>
             </a>
@@ -855,31 +855,33 @@
                     <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
                       
 
-                        <h5 class="mb-4 concepto">Fecha: <small class="text-muted">12/10/2022</small></h5>
+                        <h5 class="mb-3 concepto">Fecha: <small class="text-muted">12/10/2022</small></h5>
 
-                        <div class="row g-3">
+                        <div class="row g-3" style="align-items: center;">
 
-                          <h5 class="mb-1 concepto">Duración del entreno <small class="text-muted">(hh:mm:ss)</small>
-                          </h5>
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="HorasEntreno" class="form-control" placeholder="hh" min="0"
-                              max="" />
+                          <h5 class="mb-1 concepto">Duración del entreno <small class="text-muted">(hh:mm:ss)</small></h5>
+
+
+                          <div style="margin-top: 5px; width: 30%;">
+                            <input type="number" id="HorasEntreno" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                          </div> 
+
+                          :
+
+                          <div style="margin-top: 5px; width: 30%;">
+                            <input type="number" id="MinutosEntreno" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
                           </div>
 
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="MinutosEntreno" class="form-control" placeholder="mm" min="0"
-                              max="60" />
-                          </div>
+                          :
 
-                          <div class="col-md-3" style="margin-top: 5px;">
-                            <input type="number" id="SegundosEntreno" class="form-control" placeholder="ss" min="0"
-                              max="60" />
+                          <div style="margin-top: 5px; width: 30%;">
+                            <input type="number" id="SegundosEntreno" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
                           </div>
 
 
 
                           <h5 class="mb-1 concepto">Distancia recorrida <small class="text-muted">(Km)</small> </h5>
-                          <div class="col-md-6" style="margin-top: 5px;">
+                          <div class="col-md-7" style="margin-top: 5px;">
                             <input type="number" id="DistanciaEntreno" class="form-control" placeholder="Km recorridos"
                               step="0.1" min="0" />
                           </div>
@@ -887,7 +889,7 @@
 
                           <h5 class="mb-1 concepto">Desnivel positivo acumulado <small class="text-muted">(mts)</small>
                           </h5>
-                          <div class="col-md-6" style="margin-top: 2px;">
+                          <div class="col-md-7" style="margin-top: 2px;">
                             <input type="number" id="DesnivelEntreno" class="form-control"
                               placeholder="Desnivel acumulado" min="0" />
                           </div>
@@ -900,7 +902,7 @@
                               style="padding: 0;"><i class='bx bx-info-circle'></i></button>
                           </h5>
 
-                          <div class="col-md-6 mb-2" style="margin-top: 2px;">
+                          <div class="col-md-7 mb-2" style="margin-top: 2px;">
                             <select class="form-select" id="PercepcionEsfuerzoEntreno"
                               aria-label="Default select example">
                               <option selected>¿Qué tal el entreno?</option>
@@ -1059,131 +1061,454 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Basic Layout -->
             <div class="row">
-              <div class="col-md-4">
-                <div class="card mb-0">
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Frecuencia cardíaca</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-1" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-2" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="frecuencia-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
-                  </div>
-                </div>
-              </div>
 
 
-              <div class="col-md-4">
-                <div class="card mb-0">
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Potencia</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-1" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-2" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="potencia-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="potencia-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
-                  </div>
-                </div>
+
+
+              <div class="text-center mb-0">
+                <h3 class="mb-1">
+                  Tiempos en cada zona de trabajo
+                </h3>
               </div>
 
 
 
 
-
-
               <div class="col-md-4">
-                <div class="card mb-0">
+                <div class="nav-align-top mb-3">
+                  <div class="tab-content" style="padding: 24px 10px;">
+                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
 
+                      <div class="card accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#TFC" aria-expanded="false" aria-controls="TFC" style="background-color: #2b2c40;">
+                            <h5 class="concepto" style="margin: 0;"><img src="../../assets/img/icons/unicons/HeartRate.png" alt="" style="width: 7%; margin-right: 5px;"> Frecuencia cardíaca </h5>  
+                          </button>
+                        </h2>
+                          
+                        <div id="TFC" class="accordion-collapse collapse" data-bs-parent="#TFC">
+                          <div class="accordion-body" style="align-items: center; background-color: #2b2c40;">
 
+                            <div class="row g-3" style="align-items: center;">
 
+                              <h6 class="mb-0 concepto mt-3">ZONA 1 <small class="text-muted"> (Recuperación activa)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 2 <small class="text-muted"> (Resistencia aeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 3 <small class="text-muted"> (Tempo ó subumbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 4 <small class="text-muted"> (Umbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 5 <small class="text-muted"> (Potencia aeróbica ó VO2Max)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 6 <small class="text-muted"> (Capacidad anaeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+                            </div>
 
-                  <div class="card-header justify-content-between align-items-center">
-                    <h5 class="mb-1">Velocidad</h5>
-                    <h6 class="text-muted mb-0">Tiempos en cada zona de trabajo</h6>
-                  </div>
-                  <div class="card-body">
-                    
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 1 <small class="text-muted">(Recuperación activa)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-1" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 2 <small class="text-muted">(Resistencia aeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-2" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 3 <small class="text-muted">(Tempo ó subumbral)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-3" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 4 <small class="text-muted">(Umbral)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-4" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 5 <small class="text-muted">(Potencia aeróbica ó VO2Max)</small>
-                        </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-5" placeholder="hh:mm:ss" />
-                      </div>
-                      <div class="mb-3">
-                        <h6 class="mb-1 concepto">ZONA 6 <small class="text-muted">(Capacidad anaeróbica)</small> </h6>
-                        <input type="text" class="form-control" id="velocidad-zona-6" placeholder="hh:mm:ss" />
-                      </div>
-                    
+                          </div>
+                        </div>
+                      </div>                   
+
+                      
+
+                        
+
+                    </div>
+
                   </div>
                 </div>
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="col-md-4">
+                <div class="nav-align-top mb-3">
+                  <div class="tab-content" style="padding: 24px 10px;">
+                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
+
+                      <div class="card accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#TPotencia" aria-expanded="false" aria-controls="TPotencia" style="background-color: #2b2c40;">
+                            <h5 class="concepto" style="margin: 0;"><img src="../../assets/img/icons/unicons/Power.png" alt="" style="width: 10%; margin-right: 5px;"> Potencia</h5>  
+                          </button>
+                        </h2>
+                          
+                        <div id="TPotencia" class="accordion-collapse collapse" data-bs-parent="#TPotencia">
+                          <div class="accordion-body" style="align-items: center; background-color: #2b2c40;">
+
+                            <div class="row g-3" style="align-items: center;">
+
+                              <h6 class="mb-0 concepto mt-3">ZONA 1 <small class="text-muted"> (Recuperación activa)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 2 <small class="text-muted"> (Resistencia aeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 3 <small class="text-muted"> (Tempo ó subumbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 4 <small class="text-muted"> (Umbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 5 <small class="text-muted"> (Potencia aeróbica ó VO2Max)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 6 <small class="text-muted"> (Capacidad anaeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>                   
+
+                      
+
+                        
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="col-md-4">
+                <div class="nav-align-top mb-3">
+                  <div class="tab-content" style="padding: 24px 10px;">
+                    <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
+
+                      <div class="card accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#TVelocidad" aria-expanded="false" aria-controls="TVelocidad" style="background-color: #2b2c40;">
+                            <h5 class="concepto" style="margin: 0;"><img src="../../assets/img/icons/unicons/Speed.png" alt="" style="width: 10%; margin-right: 5px;">Velocidad</h5>  
+                          </button>
+                        </h2>
+                          
+                        <div id="TVelocidad" class="accordion-collapse collapse" data-bs-parent="#TVelocidad">
+                          <div class="accordion-body" style="align-items: center; background-color: #2b2c40;">
+
+                            <div class="row g-3" style="align-items: center;">
+
+                              <h6 class="mb-0 concepto mt-3">ZONA 1 <small class="text-muted"> (Recuperación activa)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 2 <small class="text-muted"> (Resistencia aeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 3 <small class="text-muted"> (Tempo ó subumbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 4 <small class="text-muted"> (Umbral)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 5 <small class="text-muted"> (Potencia aeróbica ó VO2Max)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+    
+    
+    
+                              <h6 class="mb-0 concepto">ZONA 6 <small class="text-muted"> (Capacidad anaeróbica)</small> </h6>
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="hh" min="0" max="" style="padding: 7px 0px;"/> 
+                              </div> 
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="mm" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+                              :
+                              <div style="margin-top: 5px; width: 30%;">
+                                <input type="number" id="" class="form-control text-center" placeholder="ss" min="0" max="60" style="padding: 7px 0px;"/>
+                              </div>
+    
+    
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>                   
+
+                      
+
+                        
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              
 
             </div>
           </div>

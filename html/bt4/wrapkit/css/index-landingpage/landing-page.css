@@ -288,8 +288,15 @@ Feature 30
 
 .wrap-feature30-box {
   position: absolute;
-  top: 20%;
+  top: 10%;
   right: 0px; }
+
+@media (max-width: 992px){
+  .wrap-feature30-box {
+    position: relative;
+    margin-top: 40px; }
+}
+
 
 /*******************
 Portfolio 1
