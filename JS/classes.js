@@ -1,5 +1,5 @@
 class Requests{
-    static baseUrl = "http://www.apielsa.somee.com"
+    static baseUrl = apiServer;
 
     static get(url,data={}){
         if(data == {}){
