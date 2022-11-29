@@ -12,17 +12,19 @@ async function registrarme() {
                     if (contraUser != "") {
                         if (document.getElementById("terms-conditions").checked) {
                             try {
-                                let url = apiServer + "/usuario/crear";
+                                let url = apiServer + "usuario/crear";
                                 console.log("2:" + server.REMOTE_ADDR);
+                                let bodyString = JSON.stringify({
+                                    email: emailUser.trim(),
+                                    passwordUser: contraUser,
+                                    nombreUsuario: nombreCompleto.toLowerCase(),
+                                    fkIdRol: 4,
+                                    ipPc: server.REMOTE_ADDR
+                                });
+
                                 await fetch(url, {
                                     method: 'POST',
-                                    body: JSON.stringify({
-                                        email: emailUser.trim(),
-                                        passwordUser: contraUser,
-                                        nombreUsuario: nombreCompleto.toLowerCase(),
-                                        fkIdRol: 4,
-                                        ipPc: server.REMOTE_ADDR,
-                                    }),
+                                    body: bodyString,
                                     headers: {
                                         'Content-type': 'application/json; charset=UTF-8',
                                         'Access-Control-Allow-Origin': '*'
@@ -32,12 +34,30 @@ async function registrarme() {
                                     .then(function (respuesta) {
                                         console.log("Respuesta:", respuesta)
                                         if (respuesta === 0) {
-                                            alert("No pudimos procesar tu registro, si ya estas registrado inicie sesion o recupera tu contraseña, si tienes problemas escribenos ");
+                                            let url = apiServer+"CRUD/listar?tabla=usuario&filtro=email='"+emailUser.trim()+"'&campos=count(idusuario)"
+                                            fetch(url)
+                                                .then(response => response.json())
+                                                .then(respuesta => {
+                                                   respuesta.forEach(element=>{
+                                                    let r = element[0]
+                                                    let r2 = r.split(":")
+                                                    console.log(r2)
+                                                    if (parseInt(r2[1]) === 1) {
+                                                        $("#spinnerGeneral").hide();
+                                                        $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                                                        $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                                                        $("#modalGeneral").modal("show");
+                                                    } else {
+                                                        notificacion(bodyString);
+                                                        $("#spinnerGeneral").hide();
+                                                    }
+                                                   });                                                    
+                                                });
                                         } else {
                                             console.log("Respuesta Exitosa");
                                             enviarEMail(emailUser.trim(), respuesta);
                                             $("#spinnerGeneral").hide();
-                                            location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
+
                                         }
                                     })
 
@@ -81,7 +101,7 @@ async function registrarme() {
 
 
     } catch (error) {
-        console.log(error);
+        notificacion(error)
     }
 }
 function mensajeVerificacionUsuario() {
@@ -91,16 +111,23 @@ function mensajeVerificacionUsuario() {
     document.getElementById("emailUserRegister").innerHTML = usuario;
 }
 function enviarEMail(email, idUser) {
+    console.log("Enviar email")
     let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
+    console.log(url);
     fetch(url)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(respuesta => {
             if (respuesta === true) {
-                console("Email enviado");
+                location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
             } else {
-                console.log("Fallo al enviar email");
+                notificacion("Error envio email de verificacion del usuario ", email)
+                $("#spinnerGeneral").hide();
+                $("#modalGeneral #modalCenterTitle").html("Error");
+                $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intenta de nuevo mas tarde");
+                $("#modalGeneral").modal("show");
             }
         })
+
 }
 
 
@@ -230,7 +257,8 @@ async function perfilar() {
         }
         let pesoActual = parseFloat(document.getElementById("pesoUsuario").value);
         let estatura = parseFloat(document.getElementById("estaturaUsuario").value);
-        let pesoDeseado = parseFloat(document.getElementById("valor").innerText);
+        let pesoDeseado = document.getElementById("valor").innerText;
+        console.log(pesoDeseado);
         let fechaNacimiento = document.getElementById("fechaNacimiento").value;
         let tipoDieta = parseInt(document.getElementById("tipoDietaUsuario").value);
         let tipoCuerpo = parseInt(document.getElementById("tipoCuerpoUsuario").value);
