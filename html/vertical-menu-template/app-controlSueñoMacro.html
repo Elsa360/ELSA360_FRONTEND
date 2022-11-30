@@ -4,14 +4,16 @@
   data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
-  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="keywords"
+    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="robots" content="noindex">
-  <title> Datos básicos de tu entreno - ELSA360</title>
+  <title> Datos de sueño de macrociclos - ELSA360</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
@@ -54,7 +56,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-  <script src="../../JS/middleware.js"> validateLogin() </script>
+
+
+
 
   <!-- ejemplo para compartir bloques de codigo -->
   <script>
@@ -62,7 +66,6 @@
       $("#footer").load("footer.html"); 
     });
   </script>
-  
 
 
 </head>
@@ -71,9 +74,12 @@
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-
       <!-- Menu -->
+
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+
+
 
         <div class="app-brand demo">
           <!--Logo-->
@@ -82,45 +88,49 @@
               <svg width="10" viewBox="0 0 25 42" version="1.1">
               </svg>
             </span>
-      
+
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
                 src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
           </a>
-      
-      
-      
+
+
+
           <!--Hamburguesa-->
           <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
           </a>
-        </div>      
-      
-      
-      
-      
-        <div class="menu-inner-shadow"></div>    
-      
-      
-      
-      
+        </div>
+
+
+
+
+
+
+        <div class="menu-inner-shadow"></div>
+
+
+
+
+
+
         <ul class="menu-inner py-1">
-      
+
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Principal</span>
+            <span class="menu-header-text">Entreno deportivo</span>
           </li>
-      
-      
-      
+
+
+
           <!-- Dashboards -->
           <li class="menu-item">
             <a href="dashboard.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Dashboard">Dashboard</div>
+              <div data-i18n="Dashboards">Dashboards</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Calendario -->
           <!-- <li class="menu-item">
             <a href="app-calendar.html" class="menu-link">
@@ -128,22 +138,22 @@
               <div data-i18n="Calendario">Calendario</div>
             </a>
           </li> -->
-      
+
           <!-- Graficas -->
-          <li class="menu-item active">
+          <li class="menu-item">
             <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
               <div data-i18n="Gráficos">Gráficos</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entreno deportivo</span>
+            <span class="menu-header-text">Planes de entrenamiento</span>
           </li>
-      
-      
+
+
           <!-- Ciclismo -->
           <li class="menu-item">
             <a href="app-planDeportivo.html" class="menu-link">
@@ -151,7 +161,7 @@
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
             </a>
           </li>
-      
+
           <!-- Nutrición -->
           <li class="menu-item">
             <a href="app-planNutricional.html" class="menu-link">
@@ -159,7 +169,7 @@
               <div data-i18n="Plan nutricional">Plan nutricional</div>
             </a>
           </li>
-      
+
           <!-- Psicología -->
           <li class="menu-item">
             <a href="app-planPsicologico.html" class="menu-link">
@@ -167,21 +177,21 @@
               <div data-i18n="Plan psicológico">Plan psicológico</div>
             </a>
           </li>
-      
+
           <!-- Control del sueño -->
-          <li class="menu-item">
+          <li class="menu-item active">
             <a href="app-controlSueño.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-bed"></i>
               <div data-i18n="Control del sueño">Control del sueño</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Recursos</span>
           </li>
-      
+
           <!-- Recomendaciones -->
           <li class="menu-item">
             <a href="pages-Recomendaciones.html" class="menu-link">
@@ -189,7 +199,7 @@
               <div data-i18n="Recomendaciones">Recomendaciones</div>
             </a>
           </li>
-      
+
           <!-- Ejercicios -->
           <li class="menu-item">
             <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
@@ -197,7 +207,7 @@
               <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
             </a>
           </li>
-      
+
           <!-- Pedagogia -->
           <!-- <li class="menu-item">
               <a href="pages-pedagogia.html" class="menu-link">
@@ -205,7 +215,7 @@
                 <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
               </a>
             </li> -->
-      
+
           <!-- Rutas -->
           <!-- <li class="menu-item">
               <a href="pages-Rutas.html" class="menu-link">
@@ -213,8 +223,8 @@
                 <div data-i18n="Rutas">Rutas</div>
               </a>
             </li> -->
-      
-      
+
+
           <!-- Eventos -->
           <!-- <li class="menu-item">
               <a href="pages-Eventos&Fondos.html" class="menu-link">
@@ -222,23 +232,23 @@
                 <div data-i18n="Eventos y fondos">Eventos y fondos</div>
               </a>
             </li> -->
-      
-      
+
+
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Cuenta</span>
           </li>
-      
-      
+
+
           <!-- Perfil -->
           <li class="menu-item">
             <a href="pages-account.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-user"></i>
-              <div data-i18n="Mi perfil">Mi perfil</div>
+              <div data-i18n="Perfil">Perfil</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Conexión dispositivos -->
           <li class="menu-item">
             <a href="pages-account-connections.html" class="menu-link">
@@ -246,11 +256,11 @@
               <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
             </a>
           </li>
-      
-      
-      
-      
-      
+
+
+
+
+
           <!-- Help -->
           <!-- <li class="menu-item">
               <a href="pages-help-center-landing.html" class="menu-link">
@@ -258,11 +268,11 @@
                 <div data-i18n="Ayuda">Ayuda</div>
               </a>
             </li> -->
-      
-      
+
+
           <!-- Divisor -->
           <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-      
+
           <!-- Contacto -->
           <li class="menu-item">
             <a href="pages-contactanos.html" class="menu-link">
@@ -270,8 +280,8 @@
               <div data-i18n="Contacto">Contacto</div>
             </a>
           </li>
-      
-      
+
+
           <!-- FAQ -->
           <!-- <li class="menu-item">
             <a href="pages-faq.html" class="menu-link">
@@ -279,8 +289,8 @@
               <div data-i18n="FAQ">FAQ</div>
             </a>
           </li> -->
-      
-      
+
+
           <!-- Terminos y condiciones-->
           <li class="menu-item">
             <a href="pages-Terminos.html" class="menu-link">
@@ -288,8 +298,8 @@
               <div data-i18n="Términos y condiciones">Términos y condiciones</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Privacidad -->
           <li class="menu-item">
             <a href="pages-Privacidad.html" class="menu-link">
@@ -297,8 +307,8 @@
               <div data-i18n="Política de privacidad">Política de privacidad</div>
             </a>
           </li>
-      
-      
+
+
           <!-- Cookies -->
           <li class="menu-item">
             <a href="pages-Cookies.html" class="menu-link">
@@ -306,16 +316,24 @@
               <div data-i18n="Cookies">Cookies</div>
             </a>
           </li>
-        </ul>  
+        </ul>
       </aside>
       <!-- / Menu -->
 
 
+
+
+
+
+
+
       <!-- Layout container -->
       <div class="layout-page">
-        
         <!-- Navbar -->
-        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+
+        <nav
+          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+          id="layout-navbar">
           <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
               <i class="bx bx-menu bx-sm"></i>
@@ -334,6 +352,12 @@
               </div>
             </div>
             <!-- /Search -->
+
+
+
+
+
+
 
 
 
@@ -428,7 +452,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-line-chart fs-4"></i>
                         </span>
-                        <a href="app-graficosBasicos.html" class="stretched-link">Gráficos</a>
+                        <a href="app-graphics.html" class="stretched-link">Gráficas</a>
                         <small class="text-muted mb-0">Informes de datos</small>
                       </div>
 
@@ -457,7 +481,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-user-plus fs-4"></i>
                         </span>
-                        <a href="app-planPsicologico.html" class="stretched-link">Plan psicológico</a>
+                        <a href="app-planPsicologico" class="stretched-link">Plan psicológico</a>
                         <small class="text-muted mb-0">Mente fuerte</small>
                       </div>
                     </div>
@@ -467,6 +491,20 @@
                 </div>
               </li>
               <!-- Quick links -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
               <!-- Notification -->
@@ -716,6 +754,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -823,7 +879,7 @@
 
 
                   <li>
-                    <a class="dropdown-item" href="auth-login-basic.html">
+                    <a class="dropdown-item" href="auth-login-basic.html" target="_blank">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Cerrar sesión</span>
                     </a>
@@ -851,12 +907,79 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
 
           <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Gráficos /</span> Básicos de todos tus entrenos</h4>
+            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Control del sueño /</span> Dashboard</h4>
+
+
+
+
+
+
+
+
 
 
 
@@ -864,29 +987,29 @@
             <div class="row">
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosBasicos.html">
-                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos tus entrenos</button>
+                <a href="app-controlSueño.html">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos los días</button>
                 </a>                
                 </div>
               
               
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMBasicos.html">
+                <a href="app-controlSueñoSEM.html">
                   <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
                 </a>                
                 </div>
 
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosMESBasicos.html">
+                <a href="app-controlSueñoMES.html">
                   <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
                 </a>                
                 </div>
 
 
               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosMACROBasicos.html">
-                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+                <a href="app-controlSueñoMacro.html">
+                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
                 </a>                
                 </div>          
 
@@ -906,134 +1029,151 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Cards with unicons & charts -->
             <div class="row">
 
-              <div class="text-center mb-0">
-                <h5 class="mb-1">Gráficos e indicadores de todos tus entrenos</h5>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
+                <div class="card">
+                  <div class="card-body" style="padding: 10px 10px; margin-bottom: 2px">
+                    <div class="e d-flex align-items-start justify-content-between mb-1">
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">FC basal <small style="font-size: 12px;">(Al despertar)</small></span>
+                      <div class="flex-shrink-0 mb-1" >
+                        <img src="../../assets/img/icons/unicons/HeartRateGraficos.png" alt="Sleep HeartRate" class="rounded mb-1" style="width: 30px; height: 30px;"/>                        
+                      </div>  
+                                          
+                    </div>
+                    
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0">74 <small>PPM</small></h6>
+                  </div>
+                </div>
               </div>
 
-
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 20px; padding-top: 20px;padding-right:12px; padding-left: 16px;">
+                  <div class="card-body" style="padding: 8px 12px">
                     <div class="card-title d-flex align-items-start justify-content-between mb-0">
-                      <small class="d-block mb-0" style="line-height: 16px; font-size: 16px; font-weight: 400;">Sesiones totales:</small>                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/bikeGraficos.png" alt="Biker" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    <small class="card-title text-success mb-3" style="margin-top: 0px; font-size: 15px; font-weight: 600;">34</small>
-                    <small class="text-success fw-semibold"></small>
-                  </div>
-                </div>
-              </div>
-
-
-
-
-              
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">81 : 26 : 17 </small>
-                      </div>
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">Horas de sueño:</span>
                       
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/clock.png" alt="Clock" class="rounded" />
-                      </div>                      
+                      <div class="flex-shrink-0 mb-0">
+                        <img src="../../assets/img/icons/unicons/SueñoGraficos.png" alt="SleepHours" class="HrsDeSueño" style="width: 30px; height: 30px;"/>
+                      </div>
                     </div>
                     
+
+
+                    <h6 class="card-title mb-1" style="margin-top: -2px;" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">253 : 32: 08</h6>
+
+
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <small>hh : mm : ss</small>">07 : 44 : 45</h6>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
+                <div class="card">
+                  <div class="card-body" style="padding: 8px 12px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">Pasos:</span>
+
+                      <div class="flex-shrink-0 mb-0">
+                        <img src="../../assets/img/icons/unicons/PasosGraficos.png" alt="PasosXDía" class="rounded" style="width: 30px; height: 30px;"/>
+                      </div>
+                    </div>
                     
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">2 : 45 : 21 </small>
+                    <h6 class="card-title mb-1" style="margin-top: -2px;">207,475 <small></small></h6>
+                    <span class="d-block mb-0">Promedio diario: </span>
+                    <h6 class="text-success mb-0">6075 <small> Pasos</small></h6>
                   </div>
                 </div>
               </div>
 
-
-
-
-
-
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
+              <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
                     <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                      <div class="avatar flex-shrink-0">
-                        <img
-                          src="../../assets/img/icons/unicons/distanciaGraficos.png"
-                          alt="chart success"
-                          class="rounded"/>
-                      </div>                      
+                      <div class="avatar flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
+                      </div>
                     </div>
-                    <span class="d-block mb-0">Distancia total:</span>
-                    <h6 class="card-title mb-1">1,475 <small>Km</small></h6>
-                    <span class="d-block mb-0">Promedio de sesión: </span>
-                    <h6 class="text-success mb-0">87.5 <small>Km</small></h6>
-                  </div>
-                </div>
-              </div>              
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/desnivel.png" alt="computer" class="rounded" />
-                      </div>                      
-                    </div>
-                    <span class="d-block mb-0">Desnivel positivo:</span>
-                    <h6 class="card-title mb-1">47,475 <small>mts</small></h6>
-                    <span class="d-block mb-0">Promedio de sesión: </span>
-                    <h6 class="text-success mb-0">1048.5 <small>mts</small></h6>
-                  </div>
-                </div>
-              </div>            
-              
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/caloriasGraficos.png" alt="paypal" class="rounded" />
-                      </div>                      
-                    </div>
-                    <span class="d-block mb-0">Calorías totales:</span>
-                    <h6 class="card-title mb-1">247,475 <small>Cal</small></h6>
-                    <span class="d-block mb-0">Promedio de sesión: </span>
-                    <h6 class="text-success mb-0">648.5 <small>Cal</small></h6>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
                   </div>
                 </div>
               </div>
 
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
                     <div class="card-title d-flex align-items-start justify-content-between mb-1">
                       <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/BorgGraficos.png" alt="wallet info" class="rounded" />
-                      </div>                      
+                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
+                      </div>
                     </div>
-                    <Span class="d-block mb-0">RPE total: 
-                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalRPE"
-                        style="padding: 0;"><i class='bx bx-info-circle'></i>
-                      </button>
-                    </Span>
-                    <h6 class="card-title mb-1">119 <small></small></h6>
-                    <span class="d-block mb-0">Promedio de sesión: </span>
-                    <h6 class="text-success mb-0">3.5<small></small></h6>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
                   </div>
                 </div>
               </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
+                      <div class="avatar flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
+                      </div>
+                    </div>
+                    <span class="d-block mb-0">#####<small>###</small></span>
+                    <h6 class="card-title mb-1"><small></small></h6>
+                    <span class="d-block mb-0">######### </span>
+                    <h6 class="text-success mb-0">### <small>####</small></h6>
+                  </div>
+                </div>
+              </div> -->
+
             </div>
+
+
+
+
 
 
 
@@ -1044,86 +1184,49 @@
 
 
             <div class="row">
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosBasicos.html"><button type="button" class="btn btn-success active" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>Duración, distancia recorrida y desnivel positivo</span>"><i class='bx bx-check' style="font-weight: 700"></i> Datos básicos 
-                  </button>  
-                </a>              
-              </div>
-              
-              
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosIndicadores.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>FC, Potencia, Velocidad y Cadencia</span>">Indicadores
-                  </button>  
-                </a>              
-              </div>
-
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosCargas.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>TSS, IF, np, Calorías, TRIMPS, Trabajo y RPE</span>">Cargas
-                  </button>  
-                </a>             
-              </div>
-
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosIndicadoresTXZona.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>Tiempos en cada zona según tu FC y FTP</span>">Tiempos X zonas
-                  </button>
-                </a>
-              </div>          
-
-              
-              <!-- <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
-                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 3px; padding-right:3px;"
-                      title="<span>Tiempo entrenado por habilidad</span>">Tiempo X habilidad
-                </button>
-              </div>
-
-
-              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
-                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>Horas de sueño, FC basal y N° de pasos</span>">Bienestar
-                </button>
-              </div> -->              
-            </div>
-
-
-
-
-
-
-
-
-
-            <div class="row mb-0">
-              <div class="col-lg-12 col-12 mb-1">
+              <div class="col-lg-12 col-12 mb-0">
                 <div class="card">
 
-                    <div class="card-body" style="padding-top: 10px; padding-left: 2px; padding-right: 2px; padding-bottom: 10px;">
+                  <!-- <div class="card-header  header-elements mb-0" style="padding-bottom: 5px;">
+                    <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
+                  </div>    -->
+
+                    <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 10px;">
                       <div class="tab-content text-center" style="padding: 2px;">
 
-                        <div class="mb-0" id="TiemDisElvEntreno1"></div>  
+                        <div class="mb-0" id="ControlSueño1"></div>  
                         <p class="mb-0" style="font-size: 13px;">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
                         **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
-                        <div class="mb-0" id="TiemDisElvEntreno2"></div>                       
+                        <div class="mb-0" id="ControlSueño2"></div>                       
                       </div>
+
+
 
                       
                     </div>
                   
                 </div>
               </div>
-            </div>            
+            </div>                      
+
+            
           </div>
+            
+        </div>
           <!-- / Content -->
 
 
 
-        
+
+
+
+
+
+
+
+
+
+          
 
 
               <!-- Modal -->
@@ -1131,7 +1234,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header mb-0">
-                      <h5 class="modal-title mb-0" id="modalCenterTitle">Escala de esfuerzo percibido (RPE)</h5>
+                      <h5 class="modal-title mb-0" id="modalCenterTitle">Esacala de esfuerzo percibido (RPE)</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -1164,12 +1267,26 @@
                     </div>
                   </div>
                 </div>
-              </div>  
+              </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
 
 
           <!-- Footer -->
-          <footer id="footer"> </footer>
+          <footer id="footer"></footer>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
@@ -1210,7 +1327,7 @@
 
   <!-- Main JS -->
   <script src="../../assets/js/main.js"></script>
-  <script src="../../JS/app-graficosBasicos.js"></script>
+  <script src="../../JS/app-graficosSueño.js"></script>
 
 
 

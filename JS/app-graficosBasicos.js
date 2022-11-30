@@ -252,9 +252,7 @@ function durElvDistEntreno(
             fontSize:'9px',
           },
         },       
-      },  
-      
-        
+      },    
       
     ],
     tooltip: {

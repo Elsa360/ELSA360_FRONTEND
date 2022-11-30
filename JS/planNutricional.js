@@ -1682,7 +1682,7 @@ window.onload = async () => {
 
 
 // meses para lograr peso objetivo
-function graficoPesoDeseado(Kilos,Meses){
+// function graficoPesoDeseado(Kilos,Meses){
     var opcioneslograrPesoObjetivo = {
         series: [{
             name: "Kilos",
@@ -1693,7 +1693,7 @@ function graficoPesoDeseado(Kilos,Meses){
             type: 'line',
             zoom: {
                 enabled: false
-            }
+            },
         },
         colors: ['#9BCB3B'],
         dataLabels: {
@@ -1726,13 +1726,14 @@ function graficoPesoDeseado(Kilos,Meses){
             }
     
         },
+        
     
     };
     
     var lograrPesoObjetivo = new ApexCharts(document.querySelector("#lograrPesoObjetivo"), opcioneslograrPesoObjetivo);
     lograrPesoObjetivo.render();
     // fianl meses para lograr peso objetivo
-}
+// }
 
 
 

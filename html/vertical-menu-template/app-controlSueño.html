@@ -971,52 +971,51 @@
           <!-- Content -->
 
           <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-2 mb-3"><span class="text-muted fw-light">Control del sueño /</span> Dashboard</h4>
+            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Control del sueño /</span> Dashboard</h4>
 
 
 
 
-
-
-
-
-
-
-
+            
 
             <div class="row">
 
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos tus entrenos</button>
-              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-controlSueño.html">
+                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px;">Todos los días</button>
+                </a>                
+                </div>
               
               
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
-              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-controlSueñoSEM.html">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos semanales</button>
+                </a>                
+                </div>
 
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
-              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-controlSueñoMES.html">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
+                </a>                
+                </div>
 
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
-              </div>          
-
-              
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos mensuales</button>
-              </div>
-
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
-              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
+                <a href="app-controlSueñoMacro.html">
+                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos de macrociclo</button>
+                </a>                
+                </div>          
 
               
+              <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos macrociclo</button>
+              </div>
+
+
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
+                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos anuales </button>
+              </div> -->              
             </div>
 
 
@@ -1056,15 +1055,17 @@
             <!-- Cards with unicons & charts -->
             <div class="row">
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                  <div class="card-body" style="padding: 10px 10px; margin-bottom: 2px">
                     <div class="e d-flex align-items-start justify-content-between mb-1">
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">FC basal <small style="font-size: 12px;">(Al despertar)</small></span>
                       <div class="flex-shrink-0 mb-1" >
-                        <img src="../../assets/img/icons/unicons/HeartRateGraficos.png" alt="Sleep HeartRate" class="rounded mb-1" style="width: 30px; height: 30px;"/>
-                      </div>                      
+                        <img src="../../assets/img/icons/unicons/HeartRateGraficos.png" alt="Sleep HeartRate" class="rounded mb-1" style="width: 30px; height: 30px;"/>                        
+                      </div>  
+                                          
                     </div>
-                    <span class="d-block mb-0">FC basal <small>(Al despertar)</small></span>
+                    
                     <h6 class="card-title mb-1"><small></small></h6>
                     <span class="d-block mb-0">Promedio diario: </span>
                     <h6 class="text-success mb-0">74 <small>PPM</small></h6>
@@ -1072,16 +1073,20 @@
                 </div>
               </div>
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
-                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                      <div class="flex-shrink-0 mb-1">
-                        <img src="../../assets/img/icons/unicons/SueñoGraficos.png" alt="paypal" class="HrsDeSueño" style="width: 30px; height: 30px;"/>
+                  <div class="card-body" style="padding: 8px 12px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">Horas de sueño:</span>
+                      
+                      <div class="flex-shrink-0 mb-0">
+                        <img src="../../assets/img/icons/unicons/SueñoGraficos.png" alt="SleepHours" class="HrsDeSueño" style="width: 30px; height: 30px;"/>
                       </div>
                     </div>
-                    <span class="d-block mb-0">Horas de sueño:</span>
-                    <h6 class="card-title mb-1" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">253 : 32: 08</h6>
+                    
+
+
+                    <h6 class="card-title mb-1" style="margin-top: -2px;" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> hh : mm : ss</span>">253 : 32: 08</h6>
 
 
                     <span class="d-block mb-0">Promedio diario: </span>
@@ -1092,26 +1097,28 @@
 
 
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 mb-2">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
-                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                      <div class="flex-shrink-0 mb-1">
+                  <div class="card-body" style="padding: 8px 12px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="text-success mb-0" style="font-size: 17px; font-weight:600">Pasos:</span>
+
+                      <div class="flex-shrink-0 mb-0">
                         <img src="../../assets/img/icons/unicons/PasosGraficos.png" alt="PasosXDía" class="rounded" style="width: 30px; height: 30px;"/>
                       </div>
                     </div>
-                    <span class="d-block mb-0">Pasos:</span>
-                    <h6 class="card-title mb-1">207,475 <small></small></h6>
+                    
+                    <h6 class="card-title mb-1" style="margin-top: -2px;">207,475 <small></small></h6>
                     <span class="d-block mb-0">Promedio diario: </span>
                     <h6 class="text-success mb-0">6075 <small> Pasos</small></h6>
                   </div>
                 </div>
               </div>
 
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
+              <!-- <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 22px; padding-top: 22px">
-                    <div class="card-title d-flex align-items-start justify-content-between">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
                       <div class="avatar flex-shrink-0 mb-1">
                         <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
                       </div>
@@ -1126,8 +1133,8 @@
 
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
-                    <div class="card-title d-flex align-items-start justify-content-between">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
                       <div class="avatar flex-shrink-0">
                         <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
                       </div>
@@ -1142,8 +1149,8 @@
 
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-1">
                 <div class="card">
-                  <div class="card-body" style="padding-bottom: 12px; padding-top: 18px">
-                    <div class="card-title d-flex align-items-start justify-content-between">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-1">
                       <div class="avatar flex-shrink-0">
                         <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
                       </div>
@@ -1154,7 +1161,7 @@
                     <h6 class="text-success mb-0">### <small>####</small></h6>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </div>
 
@@ -1171,7 +1178,7 @@
 
 
             <div class="row">
-              <div class="col-lg-12 col-12 mb-3">
+              <div class="col-lg-12 col-12 mb-0">
                 <div class="card">
 
                   <!-- <div class="card-header  header-elements mb-0" style="padding-bottom: 5px;">
@@ -1213,9 +1220,7 @@
 
 
 
-          <div class="col-lg-10 col-md-10">
-            <div class="mt-3">
-              <!-- Button trigger modal -->
+          
 
 
               <!-- Modal -->
@@ -1257,8 +1262,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            
 
 
 
