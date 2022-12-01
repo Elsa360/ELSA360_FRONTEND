@@ -321,24 +321,22 @@ async function perfilar() {
             .then((response) => response.json())
             .then((respuesta) => {
                 console.log(respuesta);
-                sessionStorage.getItem("perfil", respuesta);
+                sessionStorage.getItem("perfil", respuesta);                
+                sessionStorage.setItem("sexoUser", sexo.toString());
+                sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+                sessionStorage.setItem("estatura", estatura);
+                sessionStorage.setItem("cuerpo", tipoCuerpo);
+                sessionStorage.setItem("dieta", tipoDieta);
+                sessionStorage.setItem("pesoActual", pesoActual);
+                sessionStorage.setItem("pesoDeseado", pesoDeseado);
+                sessionStorage.setItem("porqueHace", porque);
+                sessionStorage.setItem("nivelDeportivo", nivel);
+                sessionStorage.setItem("escalaDeportiva", escala);
+                $("#spinnerGeneral").show();
+                $("#modalGeneral #modalCenterTitle").html("Gracias");
+                $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
+                $("#modalGeneral").modal("show");
                 location.href = "free-data.html";
-                // sessionStorage.clear();
-                // sessionStorage.setItem("sexoUser", sexo.toString());
-                // sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-                // sessionStorage.setItem("estatura", estatura);
-                // sessionStorage.setItem("cuerpo", tipoCuerpo);
-                // sessionStorage.setItem("dieta", tipoDieta);
-                // sessionStorage.setItem("pesoActual", pesoActual);
-                // sessionStorage.setItem("pesoDeseado", pesoDeseado);
-                // sessionStorage.setItem("porqueHace", porque);
-                // sessionStorage.setItem("nivelDeportivo", nivel);
-                // sessionStorage.setItem("escalaDeportiva", escala);
-                // $("#spinnerGeneral").show();
-                // $("#modalGeneral #modalCenterTitle").html("Gracias");
-                // $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
-                // $("#modalGeneral").modal("show");
-                // location.href = "free-data.html";
 
             });
     } catch (e) {

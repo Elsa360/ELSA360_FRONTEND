@@ -148,15 +148,14 @@
                               <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                                 <div class="card-title">
                                   <h5 class="text-nowrap mb-2">Diferencia de pesos </h5>
-                                  <span class="badge bg-label-warning rounded-pill" id="diferenciaPesoFreeData">+ 4 Kg</span>
+                                  <span class="badge bg-label-warning rounded-pill" id="diferenciaPesoFreeData"></span>
                                   <button type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#modalDifPesos" style="padding: 0;"><i
                                       class='bx bx-info-circle'></i></button> </p>
                                 </div>
                                 <div class="mt-sm-auto">
-                                  <small class="text-success text-nowrap fw-semibold" id="superavitRestriFreeData"><i class="bx bx-chevron-up"></i>
-                                    Superavit</small>
-                                  <h3 class="mb-0" id="calFreeData">700 Cal</h3>
+                                  <small class="text-success text-nowrap fw-semibold" id="superavitRestriFreeData"><i class="bx bx-chevron-up"></i></small>
+                                  <h3 class="mb-0" id="calFreeData"></h3>
                                 </div>
                               </div>
                               <div class="mb-0" id="lograrPesoObjetivo"></div>
@@ -170,7 +169,7 @@
 
                 </div>
 
-
+<!-- 
 
                 <script>
                   // meses para lograr peso objetivo
@@ -226,7 +225,7 @@
                 </script>
 
 
-
+ -->
 
 
 
@@ -244,10 +243,10 @@
                                 data-bs-toggle="modal" data-bs-target="#modalIMC" style="padding: 0;"><i
                                   class='bx bx-info-circle'></i></button> </p>
                             <div class="d-flex align-items-end mb-2">
-                              <h4 class="card-title mb-2 me-2" id="imcFreeData">20,9 </h4>
+                              <h4 class="card-title mb-2 me-2" id="imcFreeData"></h4>
                             </div>
                             <h6>Tu peso es: <span class="badge bg-label-success"
-                                style="font-size: 13px; font-weight: 600;" id="mnsjImcFreeData">Saludable</span></h6>
+                                style="font-size: 13px; font-weight: 600;" id="mnsjImcFreeData"></span></h6>
                           </div>
                           <div class="card-icon">
                             <span class="badge bg-label-primary rounded p-2">
@@ -296,7 +295,7 @@
                             <p class="card-text">Requerimiento de calorías </p>
 
                             <div class="d-flex align-items-end mb-0">
-                              <h4 class="card-title mb-0 me-2">2750 Cal</h4>
+                              <h4 class="card-title mb-0 me-2" id="getFreeData"></h4>
                             </div>
                             <small>*Sin ningún tipo de actividad física</small>
                             <h6 class="mt-4 mb-0"><span class="badge bg-label-warning"
@@ -321,9 +320,9 @@
                             <p class="card-text">Consumo de agua </p>
 
                             <div class="d-flex align-items-end mb-0">
-                              <h4 class="card-title mb-0 me-2" id="reqLiqFreeData">2,3 Lts</h4>
+                              <h4 class="card-title mb-0 me-2" id="reqLiqFreeData"></h4>
                             </div>
-                            <small id="mnsjReqLiqFreeData">**Entre 6 y 7 vasos</small>
+                            <small id="mnsjReqLiqFreeData"></small>
                             <h6 class="mb-0 mt-4"><span class="badge bg-label-danger"
                                 style="font-size: 13px; font-weight: 600;">Mínimos diarios</span></h6>
 
@@ -355,7 +354,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Sexo</span>
-                        <h5 class="card-title mb-2"> <span class="badge bg-label-success" id="sexo">Hombre</span> </h5>
+                        <h5 class="card-title mb-2"> <span class="badge bg-label-success" id="sexo"></span> </h5>
                       </div>
                     </div>
                   </div>
@@ -371,7 +370,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Fecha nacimiento</span>
                         <h5 class="card-title mb-2"><span class="badge bg-label-success"
-                            id="fechaNacimiento">25/10/1989</span></h5>
+                            id="fechaNacimiento"></span></h5>
                       </div>
                     </div>
                   </div>
@@ -388,7 +387,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Estatura</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="estatura">183 cms</span>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="estatura"></span>
                         </h5>
                       </div>
                     </div>
@@ -406,7 +405,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Tipo de cuerpo</span>
                         <h5 class="card-title mb-2"><span class="badge bg-label-success"
-                            id="tipoCuerpo">Ectomorfo</span></h5>
+                            id="tipoCuerpo"></span></h5>
 
                       </div>
                     </div>
@@ -422,7 +421,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Tipo de dieta</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="tipoDieta">Regular</span>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="tipoDieta"></span>
                         </h5>
 
                       </div>
@@ -439,7 +438,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Peso actual</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoActual">70 Kg</span>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoActual"></span>
                         </h5>
 
                       </div>
@@ -457,7 +456,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Peso deseado</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal">74 Kg</span>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pesoFinal"></span>
                         </h5>
 
                       </div>
@@ -476,7 +475,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Deficit o Superavit</span>
                         <h5 class="card-title mb-2"><span class="badge bg-label-success" id="deficit"
-                            style="text-transform: capitalize;">+ 700 Cal/Día</span></h5>
+                            style="text-transform: capitalize;"></span></h5>
 
                       </div>
                     </div>
@@ -493,9 +492,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Diferencia de pesos</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="diferenciaPeso">+ 4
-                            Kg</span></h5>
-
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="diferenciaPeso"></span>
                       </div>
                     </div>
                   </div>
@@ -511,7 +508,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">¿Por qué montas?</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pqMonta">Rendimiento</span>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="pqMonta"></span>
                         </h5>
 
                       </div>
@@ -529,7 +526,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Nivel deportivo</span>
                         <h5 class="card-title mb-2"><span class="badge bg-label-success"
-                            id="nivelDeportivo">Intermedio</span></h5>
+                            id="nivelDeportivo"></span></h5>
 
                       </div>
                     </div>
@@ -545,8 +542,7 @@
                           </div>
                         </div>
                         <span class="fw-semibold d-block mb-1">Sub-nivel deportivo</span>
-                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="subNivelDeportivo"> II
-                          </span></h5>
+                        <h5 class="card-title mb-2"><span class="badge bg-label-success" id="subNivelDeportivo"></span></h5>
 
                       </div>
                     </div>
@@ -922,7 +918,7 @@
   <!-- <script src="../../JS/graficos.js"></script> -->
 
   <!-- Page JS -->
-  <script src="../../assets//js/pages-pricing.js"></script>
+  <!-- <script src="../../assets//js/pages-pricing.js"></script> -->
   <script src="../../assets/js/dashboards-analytics.js"></script>
   <!-- <script src="../../JS/classes.js"></script> -->
 </body>
