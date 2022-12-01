@@ -60,7 +60,7 @@ function durElvDistEntreno(
       type: 'bar',
       data: dataDuracionEnt
     }, {
-      name: 'Desnivel positivo (mts)',
+      name: 'Desnivel positivo (m)',
       type: 'bar',
       data: dataDesnivelEnt
     }, {
@@ -73,14 +73,14 @@ function durElvDistEntreno(
       id: 'Chartbrush1',
       background: '#2b2c40',
       type: 'line',
-      height: 550,
+      height: 420,
       stacked: false,
       
       toolbar: {
         autoSelected: 'pan',
         show: true,
-        offsetX: -40,
-        offsetY: 0,
+        offsetX: -20,
+        offsetY: 20,
         tools: {
           download: true,
           selection: false,
@@ -91,10 +91,21 @@ function durElvDistEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Datos básicos de todos tus entrenos'
+          },
+          svg:{
+            filename: 'Datos básicos de todos tus entrenos'
+          },
+          png:{
+            filename: 'Datos básicos de todos tus entrenos'
+          }
+        }
       }
     },
     title:{
-      text: 'Duración, distancia recorrida y desnivel positivo de tus entrenos',
+      text: 'Datos básicos de todos tus entrenos',
       offsetX: 10,
       style:{
         fontSize:  '18px',
@@ -106,11 +117,11 @@ function durElvDistEntreno(
     plotOptions: {
       bar: {
         columnWidth: '75%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70],
+      opacity: [0.55, 0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -121,7 +132,7 @@ function durElvDistEntreno(
       }
     },
     stroke: {
-      width: [0, 0, 0],
+      width: [2, 2, 2],
       curve: 'smooth',
       colors: ["#9bcb3b", "#ffab00","#007bff"],
     },
@@ -252,9 +263,7 @@ function durElvDistEntreno(
             fontSize:'9px',
           },
         },       
-      },  
-      
-        
+      },    
       
     ],
     tooltip: {
@@ -280,7 +289,7 @@ function durElvDistEntreno(
       type: 'bar',
       data: dataDuracionEnt
     }, {
-      name: 'Desnivel positivo (mts)',
+      name: 'Desnivel positivo (m)',
       type: 'bar',
       data: dataDesnivelEnt
     }, {
@@ -290,7 +299,7 @@ function durElvDistEntreno(
     },],
     chart: {
       id: 'Chartbrush2',
-      height: 150,
+      height: 120,
       type: 'area',
       brush: {
         target: 'Chartbrush1',

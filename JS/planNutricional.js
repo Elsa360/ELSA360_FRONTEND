@@ -1,4 +1,4 @@
-var getTotal=0
+var getTotal = 0
 function datesUser() {
     let pesoActual = 90;
     let estatura = 178;
@@ -1663,6 +1663,80 @@ window.onload = async () => {
     datesUser();
     // caloriasSeleccionadasMomento();
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// grafico de peso deseado Vs Peso actual
+
+
+// meses para lograr peso objetivo
+// function graficoPesoDeseado(Kilos,Meses){
+    var opcioneslograrPesoObjetivo = {
+        series: [{
+            name: "Kilos",
+            data: [70.2, 71, 71.9, 73, 73.6, 74],
+        }],
+        chart: {
+            height: 150,
+            type: 'line',
+            zoom: {
+                enabled: false
+            },
+        },
+        colors: ['#9BCB3B'],
+        dataLabels: {
+            enabled: true,
+        },
+        stroke: {
+            curve: 'straight',
+            colors: ['#9BCB3B']
+        },
+        title: {
+        },
+        grid: {
+            show: false
+        },
+        xaxis: {
+            categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+            labels: {
+                style: {
+                    colors: ['#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B']
+                }
+            }
+    
+        },
+        yaxis: {
+            show: false,
+            labels: {
+                style: {
+                    colors: ['#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B']
+                }
+            }
+    
+        },
+        
+    
+    };
+    
+    var lograrPesoObjetivo = new ApexCharts(document.querySelector("#lograrPesoObjetivo"), opcioneslograrPesoObjetivo);
+    lograrPesoObjetivo.render();
+    // fianl meses para lograr peso objetivo
+// }
+
+
+
 
 
 

@@ -95,8 +95,8 @@ function TXZonaFCEntreno(
     chart: {
       id: 'Chartbrush5',
       background: '#2b2c40',
-      type: 'bar',
-      height: 550,
+      type: 'line',
+      height: 420,
       stacked: false,
       
       toolbar: {
@@ -114,16 +114,37 @@ function TXZonaFCEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Tiempo en cada zona de cada entreno (FC)'
+          },
+          svg:{
+            filename: 'Tiempo en cada zona de cada entreno (FC)'
+          },
+          png:{
+            filename: 'Tiempo en cada zona de cada entreno (FC)'
+          }
+        }
+      }
+    },
+    title:{
+      text: 'Tiempo en cada zona de cada entreno (FC)',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {
       bar: {
         columnWidth: '70%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70, 0.70, 0.70, 0.70, 0.70,0.70, 0.70,0.70, 0.70],
+      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55,0.55, 0.55,0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -136,7 +157,7 @@ function TXZonaFCEntreno(
     stroke: {
       width: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       curve: 'smooth',
-      colors:['transparent','transparent','transparent','transparent','transparent','transparent'],
+      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     },
     grid: {
       show: true,
@@ -221,9 +242,7 @@ function TXZonaFCEntreno(
             fontSize:'10px'
           }
         },       
-        tooltip: {
-          enabled: false
-        }
+        
       },     
       {
         opposite: true,
@@ -245,9 +264,6 @@ function TXZonaFCEntreno(
             fontSize:'9px'
           }
         },
-        tooltip: {
-          enabled: false
-        }
       },           
     ],
     tooltip: {
@@ -255,51 +271,52 @@ function TXZonaFCEntreno(
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         }
       ],
       fixed: {
         enabled: true,
+        shared: true,
         position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
-        offsetY: 30,
-        offsetX: 60
+        offsetY: 60,
+        offsetX: 30
       },
     }        
   };
@@ -576,8 +593,8 @@ function TXZonaPotenciaEntreno(
     chart: {
       id: 'Chartbrush7',
       background: '#2b2c40',
-      type: 'bar',
-      height: 550,
+      type: 'line',
+      height: 420,
       stacked: false,
       
       toolbar: {
@@ -595,16 +612,37 @@ function TXZonaPotenciaEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Tiempo en cada zona de cada entreno (FTP)'
+          },
+          svg:{
+            filename: 'Tiempo en cada zona de cada entreno (FTP)'
+          },
+          png:{
+            filename: 'Tiempo en cada zona de cada entreno (FTP)'
+          }
+        }
+      }
+    },
+    title:{
+      text: 'Tiempo en cada zona de cada entreno (FTP)',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {
       bar: {
         columnWidth: '70%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70, 0.70, 0.70, 0.70, 0.70,0.70, 0.70,0.70, 0.70],
+      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55,0.55, 0.55,0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -617,7 +655,7 @@ function TXZonaPotenciaEntreno(
     stroke: {
       width: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       curve: 'smooth',
-      colors:['transparent','transparent','transparent','transparent','transparent','transparent'],
+      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     },
     grid: {
       show: true,
@@ -736,42 +774,42 @@ function TXZonaPotenciaEntreno(
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         }
@@ -858,8 +896,8 @@ function TXZonaPotenciaEntreno(
     },
     plotOptions: {
       bar: {
-        columnWidth: '75%',
-        borderRadius: 2
+        columnWidth: '70%',
+        borderRadius: 1
       }
     },
     stroke: {
@@ -1056,8 +1094,8 @@ function TXZonaVelocidadEntreno(
     chart: {
       id: 'Chartbrush9',
       background: '#2b2c40',
-      type: 'bar',
-      height: 550,
+      type: 'line',
+      height: 420,
       stacked: false,
       
       toolbar: {
@@ -1075,6 +1113,27 @@ function TXZonaVelocidadEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Tiempo en cada zona de cada entreno (Velocidad)'
+          },
+          svg:{
+            filename: 'Tiempo en cada zona de cada entreno (Velocidad)'
+          },
+          png:{
+            filename: 'Tiempo en cada zona de cada entreno (Velocidad)'
+          }
+        }
+      }
+    },
+    title:{
+      text: 'Tiempo en cada zona de cada entreno (Velocidad)',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {
@@ -1084,7 +1143,7 @@ function TXZonaVelocidadEntreno(
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70, 0.70, 0.70, 0.70, 0.70,0.70, 0.70,0.70, 0.70],
+      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55,0.55, 0.55,0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -1097,7 +1156,7 @@ function TXZonaVelocidadEntreno(
     stroke: {
       width: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       curve: 'smooth',
-      colors:['transparent','transparent','transparent','transparent','transparent','transparent'],
+      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     },
     grid: {
       show: true,
@@ -1216,42 +1275,42 @@ function TXZonaVelocidadEntreno(
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         },
         {
           title: {
             formatter: function (val) {
-              return val + " - (hh:mm:ss)"
+              return val + " - (h:m:s)"
             }
           }
         }

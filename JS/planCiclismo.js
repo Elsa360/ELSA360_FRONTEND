@@ -67,7 +67,7 @@ data = startTrainingAndEndTraining(1);
 
 //Comparar dos fechas
 function fechaIncialEntrenamiento(idPerfil) {
-    let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
+    let url = apiServer+"objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
     fetch(url)
         .then(response => response.json())
         .then(resultado => {
@@ -146,7 +146,7 @@ function cyclingTrainingResultWeek(idPerfilUser, evento, fechaIncioEntreno, fech
 }
 function cyclingTrainingResult(idPerfilUser, evento) {
     // fetch("https://localhost:7155/resultados/perfil?idPerfil="+idPerfilUser+"&evento="+evento+"")
-    fetch("https://" + apiServer + ":7155/resultados/listar")
+    fetch(apiServer + "resultados/listar")
         .then((response) => response.json())
         .then((resultadosEntrenamiento) => {
 

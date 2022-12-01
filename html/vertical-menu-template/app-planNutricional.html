@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
   <!-- Page CSS -->
 
@@ -838,6 +839,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
@@ -846,25 +863,27 @@
             <div class="row">
 
 
-              <div class="col-lg-8 mb-4">
-                <div class="card">
+              <div class="col-lg-8 mb-2">
+                <div class="card" >
                   <div class="d-flex align-items-end row">
-                    <div class="col-sm-7">
-                      <div class="card-body">
-                        <h5 class="card-title text-primary">Congratulations John! </h5>
+                    <div class="col-sm-9" style="padding-right: 2px;">
+                      <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right: 2px;">
+                        <h5 class="card-title text-success">Somos lo que comemos! </h5>
                         <p class="mb-4">
-                          You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
-                          your profile.
+                          Para rendir y estar saludable, es importante reponer la energía que consumiste en el día. <br>
+                          Lo ideal es que al finalizar el día, tanto el <span class="text-success">GET = </span> Gasto Energético Total <small>(Lo que debes comer en el día)</small>,
+                          como el <span class="text-success"> CET = </span> Consumo Energético Total <small>(Lo que comiste en el día)</small>, tengan el mismo valor o un desfase máximo del 5%. 
+                           <br>
                         </p>
 
-                        <a href="javascript:;" class="btn btn-sm btn-label-primary">View Badges</a>
+                        <a href="javascript:;" class="btn btn-sm btn-label-success">View Badges</a>
                       </div>
                     </div>
-                    <div class="col-sm-5 text-center text-sm-left">
-                      <div class="card-body pb-0 px-0 px-md-4">
-                        <img src="../../assets/img/illustrations/man-with-laptop-light.png" height="140"
-                          alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                          data-app-light-img="illustrations/man-with-laptop-light.png" />
+
+
+                    <div class="col-sm-3 text-center align-middle">
+                      <div class="card-body" style="padding: 5px;">
+                        <img src="../../assets/img/illustrations/Nutrition.png" width="98%" alt="Nutrition" data-app-dark-img="illustrations/Nutrition.png" data-app-light-img="illustrations/Nutrition.png"/>
                       </div>
                     </div>
                   </div>
@@ -872,12 +891,12 @@
               </div>
 
 
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-4 col-md-4 mb-2">
                 <div class="row">
-                  <div class="col-12 mb-4">
+                  <div class="col-12 mb-0">
                     <div class="card">
                       <div class="card-body">
-                        <div class="d-flex justify-content-between flex-sm-row flex-column gap-3">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column gap-2">
                           <div class="d-flex flex-sm-column flex-row align-items-start justify-content-between">
                             <div class="card-title">
                               <h5 class="text-nowrap mb-2">Diferencia de pesos </h5>
@@ -888,10 +907,12 @@
                             <div class="mt-sm-auto">
                               <small class="text-success text-nowrap fw-semibold" id="mensajeRS"><i class="bx bx-chevron-up"></i>
                                 Superavit</small>
-                              <h3 class="mb-0" id="getTotaldelDia"></h3>
+                              <h5 class="mb-0" id="getTotaldelDia"></h5>
                             </div>
                           </div>
-                          <div id="profileReportChart"></div>
+
+                          <div id="lograrPesoObjetivo"></div>
+                        
                         </div>
                       </div>
                     </div>
@@ -911,211 +932,220 @@
 
 
 
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(1)">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(1)" >
+                  <div class="card" style="cursor:pointer">
+                    <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; ">
+                      <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                        <span class="fw-semibold d-block mb-0">Desayuno </span>
+                        <div class="flex-shrink-0">
+                          <img src="../../assets/img/icons/unicons/Breakfast.png" alt="Breakfast" class="rounded" style="height: 30px; width:30px"/>
+                        </div>                        
+                      </div>
+                      <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+
+
+                      <div class="d-flex justify-content-between">
+                        <h6 id="DashBoardCETMomentOne" class="card-title mb-2">GET</h6>
+                        <h6 id="DashBoardGETMomentOne" class="card-title mb-2 text-success"></h6>
+                      </div>
+  
+
+                      <div class="d-flex justify-content-between">
+                        <h6 id="" class="card-title mb-0">CET</h6>
+                        <h6 id="" class="card-title mb-0 text-success">0</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(2)" >
+                <div class="card" style="cursor:pointer">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; "> 
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="fw-semibold d-block mb-1">Snack 1</span>
+                      <div class="flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/Snack.png" alt="Snack1" class="rounded" style="height: 30px; width:30px" />
+                      </div>                      
+                    </div>
+                    
+                    <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="DashBoardCETMomentTwo" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentTwo" class="card-title mb-2 text-success"></h6>
+                    </div>
+  
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="" class="card-title mb-0">CET</h6>
+                      <h6 id="" class="card-title mb-0 text-success">0</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(3)" >
+                <div class="card" style="cursor:pointer">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="fw-semibold d-block mb-1">Almuerzo</span>
+                      <div class="flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/Lunch.png" alt="Lunch" class="rounded" style="width: 30px; height:30px;"/>
+                      </div>                      
+                    </div>
+                    
+
+                    <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="DashBoardCETMomentThree" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentThree" class="card-title mb-2 text-success"></h6>
+                    </div>
+
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="" class="card-title mb-0">CET</h6>
+                      <h6 id="" class="card-title mb-0 text-success">0</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(4)" >
+                <div class="card" style="cursor:pointer">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="fw-semibold d-block mb-1">Snack 2</span>
+                      <div class="flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/Snack.png" alt="Snack2" class="rounded" style="width: 30px; height:30px;"/>
+                      </div>                      
+                    </div>
+
+
+                    <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+                    
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="DashBoardCETMomentFour" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentFour" class="card-title mb-2 text-success"></h6>
+                    </div>
+  
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="" class="card-title mb-0">CET</h6>
+                      <h6 id="" class="card-title mb-0 text-success">0</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(5)" >
+                <div class="card" style="cursor:pointer">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="fw-semibold d-block mb-1">Cena</span>
+                      <div class="flex-shrink-0">
+                        <img src="../../assets/img/icons/unicons/Dinner.png" alt="computer" class="rounded" style="width: 30px; height:30px;"/>
+                      </div>                      
+                    </div>
+
+
+                    <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+                    
+
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="DashBoardCETMomentFive" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentFive" class="card-title mb-2 text-success"></h6>
+                    </div>
+  
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="" class="card-title mb-0">CET</h6>
+                      <h6 id="" class="card-title mb-0 text-success">0</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-2" onclick="momento(6)" >
+                <div class="card" style="cursor:pointer">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px">
+                    <div class="card-title d-flex align-items-start justify-content-between mb-0">
+                      <span class="fw-semibold d-block mb-1">Snack Noct</span>
+                      <div class="flex-shrink-0 mb-1">
+                        <img src="../../assets/img/icons/unicons/Snack.png" alt="Snack" class="rounded" style="width: 30px; height:30px;"/>
+                      </div>                      
+                    </div>
+
+                    <small class="d-block mb-2 text-success" style="margin-top: -7px;">Completar</small>
+
+                    
+                    <div class="d-flex justify-content-between">
+                      <h6 id="DashBoardCETMomentSix" class="card-title mb-2">GET</h6>
+                      <h6 id="DashBoardGETMomentSix" class="card-title mb-2 text-success"></h6>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <h6 id="" class="card-title mb-0">CET</h6>
+                      <h6 id="" class="card-title mb-0 text-success">0</h6>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
                   <div class="card">
-                    <div class="card-body">
-                      <div class="card-title d-flex align-items-start justify-content-between">
-                        <div class="avatar flex-shrink-0">
-                          <img src="../../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
-                        </div>
-                        <!-- <div class="dropdown">
-                          <button
-                            class="btn p-0"
-                            type="button"
-                            id="cardOpt1"
-                            data-bs-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="cardOpt1">
-                            <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                          </div>
-                        </div> -->
-                      </div>
-                      <span class="fw-semibold d-block mb-1">Desayuno</span>
-                      <h6 id="DashBoardCETMomentOne" class="card-title mb-2">CET</h6>
-                      <h6 id="DashBoardGETMomentOne" class="card-title mb-2"></h6>
-                    </div>
-                  </div>
-                </div>
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(2)">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-title d-flex align-items-start justify-content-between">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/cube-secondary.png" alt="cube" class="rounded" />
-                      </div>
-                      <!-- <div class="dropdown">
-                        <button class="btn p-0" type="button" id="cardOpt2" data-bs-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt2">
-                          <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                        </div>
-                      </div> -->
-                    </div>
-                    <span class="fw-semibold d-block mb-1">Snack 1</span>
-                    <h6 id="DashBoardCETMomentTwo" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentTwo" class="card-title mb-2"></h6>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(3)">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-title d-flex align-items-start justify-content-between">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/chart-success.png" alt="chart success"
-                          class="rounded" />
-                      </div>
-                      <!-- <div class="dropdown">
-                        <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                          <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                        </div>
-                      </div> -->
-                    </div>
-                    <span class="fw-semibold d-block mb-1">Almuerzo</span>
-                    <h6 id="DashBoardCETMomentThree" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentThree" class="card-title mb-2"></h6>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(4)">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-title d-flex align-items-start justify-content-between">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/paypal.png" alt="paypal" class="rounded" />
-                      </div>
-                      <!-- <div class="dropdown">
-                        <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
-                          <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                        </div>
-                      </div> -->
-                    </div>
-                    <span class="fw-semibold d-block mb-1">Snack 2</span>
-                    <h6 id="DashBoardCETMomentFour" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentFour" class="card-title mb-2"></h6>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(5)">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-title d-flex align-items-start justify-content-between">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/computer.png" alt="computer" class="rounded" />
-                      </div>
-                      <!-- <div class="dropdown">
-                        <button class="btn p-0" type="button" id="cardOpt5" data-bs-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt5">
-                          <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                        </div>
-                      </div> -->
-                    </div>
-                    <span class="fw-semibold d-block mb-1">Cena</span>
-                    <h6 id="DashBoardCETMomentFive" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentFive" class="card-title mb-2"></h6>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-4" onclick="momento(6)">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="card-title d-flex align-items-start justify-content-between">
-                      <div class="avatar flex-shrink-0">
-                        <img src="../../assets/img/icons/unicons/wallet-info.png" alt="wallet info" class="rounded" />
-                      </div>
-                      <!-- <div class="dropdown">
-                        <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                          <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                        </div>
-                      </div> -->
-                    </div>
-                    <span class="fw-semibold d-block mb-1">Refr. Noct</span>
-                    <h6 id="DashBoardCETMomentSix" class="card-title mb-2">CET</h6>
-                    <h6 id="DashBoardGETMomentSix" class="card-title mb-2"></h6>
-                  </div>
-                </div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                  <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; ">
                       <div class="d-flex justify-content-between">
                         <div class="card-info">
                           <p class="card-text">IMC Peso actual <button type="button" class="btn" data-bs-toggle="modal"
@@ -1138,9 +1168,9 @@
                 </div>
 
 
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
                   <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; ">
                       <div class="d-flex justify-content-between">
                         <div class="card-info">
                           <p class="card-text">Peso saludable: <button type="button" class="btn" data-bs-toggle="modal"
@@ -1166,9 +1196,9 @@
 
 
 
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
                   <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; ">
                       <div class="d-flex justify-content-between">
                         <div class="card-info">
                           <p class="card-text">Requerimiento de calorías </p>
@@ -1176,13 +1206,14 @@
                           <div class="d-flex align-items-end mb-0">
                             <h4 class="card-title mb-0 me-2" id="calSinActFisc">2750 Cal</h4>
                           </div>
+
                           <small>*Sin actividad física</small>
-                          <h6 class="mt-4 mb-0"><span class="badge bg-label-warning"
+                          <h6 class="mt-1 mb-0"><span class="badge bg-label-warning"
                               style="font-size: 13px; font-weight: 600;">Diarias</span></h6>
 
                         </div>
                         <div class="card-icon">
-                          <img src="../../assets/img/icons/unicons/caloras.png" alt="" style="width: 37px;">
+                          <img src="../../assets/img/icons/unicons/calorias.png" alt="" style="width: 37px;">
                         </div>
                       </div>
                     </div>
@@ -1191,9 +1222,9 @@
 
 
 
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
                   <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; ">
                       <div class="d-flex justify-content-between">
                         <div class="card-info">
                           <p class="card-text">Consumo de agua <button type="button" class="btn" data-bs-toggle="modal"
@@ -1205,7 +1236,7 @@
                             <h4 class="card-title mb-0 me-2" id="requerimientoLiquidos">2,3 Lts</h4>
                           </div>
                           <small id="promedioVasosAgua"></small>
-                          <h6 class="mb-0 mt-4"><span class="badge bg-label-danger"
+                          <h6 class="mb-0 mt-1"><span class="badge bg-label-danger"
                               style="font-size: 13px; font-weight: 600;">Mínimos diarios</span></h6>
 
                         </div>
@@ -1218,7 +1249,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              
 
 
 
@@ -2476,9 +2507,6 @@
 
   <script src="../../assets/vendor/js/menu.js"></script>
   <!-- endbuild -->
-
-  <!-- Vendors JS -->
-  <script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
   <!-- Main JS -->
   <script src="../../assets/js/main.js"></script>

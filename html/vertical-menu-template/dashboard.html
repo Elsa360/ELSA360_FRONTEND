@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
   <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/spinkit/spinkit.css">
+  
 
   <!-- Page CSS -->
 
@@ -1949,16 +1949,19 @@
 
             <!-- BOTONES MODALES -->
             <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
-            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalToggle">Disponibilidad semanal</button> -->
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#disponibilidadSemanalModal">Disponibilidad semanal</button>
+            <div class="row">
+              <div class="col-12">
 
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#InicioEntrenoModal">Inicio de entreno</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#disponibilidadSemanalModal">Disponibilidad semanal</button>
 
-            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-              data-bs-target="#controlPeso">Actualizar peso</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#InicioEntrenoModal">Inicio de entreno</button>
 
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#controlPeso">Actualizar peso</button>
+
+                <div id="modal"></div>
+
+              </div>
+            </div>   
             <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
             <!-- FIN  BOTONES MODALES -->
 
@@ -1980,16 +1983,16 @@
                       <div class="col-md-8 fechaInicio">
                         <h4> <span class="concepto">¿Qué día quieres empezar tu entrenamiento?</span> </h4>
 
-                        <input class="form-control" type="date" id="fechaInicioEntreno" disabled />
+                        <input class="form-control mb-1" type="date" id="fechaInicioEntreno" disabled />
 
                         <p class="inicioEntrenoDisclaimer" data-bs-toggle="tooltip" data-bs-offset="0,2"
                           data-bs-placement="bottom" data-bs-html="true"
                           title="<i class='bx bx-calendar bx-xs' ></i> <span>Será más fácil llevar tu control semana a semana</span>"
-                          *Te recomendamos que inicies tu entreno el próximo lunes.</p>
+                        </p>
 
                         <input class="form-check-input" type="checkbox" value="" id="inicioProxLunes"
                           onclick="beginNextMonday()" checked />
-                        <label class="form-check-label" for="inicioProxLunes">Empezar el próximo lunes.</label>
+                        <label class="form-check-label" for="inicioProxLunes" style="font-size: 16px; font-weight: 600;"><small class="text-success">RECOMENDADO </small> - Empezar el próximo lunes </label>
 
                       </div>
 
@@ -2192,6 +2195,13 @@
 
 
 
+
+
+
+
+
+
+
             <!-- Modal Disponibilidad semanal-->
             <div class="modal fade" id="disponibilidadSemanalModal" aria-labelledby="modalToggleLabel"
               data-bs-backdrop="static" tabindex="-1" style="display: none" aria-hidden="true">
@@ -2203,8 +2213,8 @@
                   <div class="modal-body" style="padding-right: 10px; padding-left:10px;">
 
                     <div class="text-center mb-4">
-                      <h3>Disponibilidad de la próxima semana</h3>
-                      <p>Número de horas que tengo para entrenar cada día de la próxima semana.</p>
+                      <h3>Disponibilidad semanal</h3>
+                      <p>Número de horas que tengo para entrenar cada día de la semana.</p>
                     </div>
 
                     <form id="EntrenoSemanal" class="row g-3 text-center" onsubmit="" novalidate="novalidate">
@@ -2245,12 +2255,12 @@
                       </div>
 
                       <div class="text-center mb-1">
-                        <p>Disponibilidad total (hrs) de la siguiente semana
+                        <p>Disponibilidad total (hrs) semanal
                           <br> <span id="horasEntrenamiento" class="badge bg-label-success"
                             style="font-size: 20px;">0</span>
                         </p>
 
-                        <p> N° de días que voy a entrenar la próxima semana
+                        <p> N° de días que voy a entrenar en la semana semana
                           <br> <span id="DisponibilidadDias" class="badge bg-label-warning"
                             style="font-size: 20px;">0</span>
                         </p>
@@ -2278,18 +2288,15 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
-                  <div class="modal-body text-center">¿Quieres confirmar esta disponibilidad de tiempo para entrenar en
-                    estos días la próxima semana?</div>
+                  <div class="modal-body text-center">¿Quieres confirmar esta disponibilidad de tiempo para entrenar estos días en la semana?</div>
 
                   <div class="text-center mb-1">
-                    <p>Disponibilidad total (hrs) de la siguiente semana
-                      <br> <span id="horasEntrenamiento1" class="badge bg-label-success"
-                        style="font-size: 20px;">0</span>
+                    <p>Disponibilidad total (hrs) semanal
+                      <br> <span id="horasEntrenamiento1" class="badge bg-label-success" style="font-size: 20px;">0</span>
                     </p>
 
-                    <p> N° de días que voy a entrenar la próxima semana
-                      <br> <span id="DisponibilidadDias1" class="badge bg-label-warning"
-                        style="font-size: 20px;">0</span>
+                    <p> N° de días que voy a entrenar en la semana
+                      <br> <span id="DisponibilidadDias1" class="badge bg-label-warning" style="font-size: 20px;">0</span>
                     </p>
 
                   </div>
@@ -2299,8 +2306,7 @@
                       data-bs-toggle="modal" data-bs-dismiss="modal">Volver</button>
                     <form action="">
                       <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#confirmarDisponibilidad" onclick="confirmarDisponibilidad()">Confirmar
-                        disponibilidad</button>
+                        data-bs-target="#confirmarDisponibilidad" onclick="confirmarDisponibilidad()">Confirmar disponibilidad</button>
                     </form>
                   </div>
 
@@ -2331,19 +2337,13 @@
 
 
                       <div class="col-md-8 fechasCompetencias">
-                        <input class="form-control" type="number" id="actualizarPeso" name="Peso"
-                          placeholder="¿Cuanto pesas hoy (kg)? (Ej:72,7)" step="0.1" min="0">
-
-
-
+                        <input class="form-control" type="number" id="actualizarPeso" name="Peso" placeholder="¿Cuanto pesas hoy (kg)? (Ej:72,7)" step="0.1" min="0">
                       </div>
-
 
 
                       <div class="col-md-8 fechasCompetencias">
 
-                        <button type="button" class="btn btn-success me-sm-3 me-1 mt-3 btn-reset mt-3"
-                          data-bs-dismiss="modal" aria-label="Close" style="width: 100%;" onclick="guardarPeso()">
+                        <button type="button" class="btn btn-success me-sm-3 me-1 mt-3 btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close" style="width: 100%;" onclick="guardarPeso()">
                           Actualizar peso
                         </button>
                       </div>
@@ -2359,7 +2359,7 @@
 
 
 
-            <div id="modal"></div>
+           
 
 
             <div id="spinner"></div>

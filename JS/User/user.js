@@ -1,4 +1,6 @@
 async function registrarme() {
+    $("#spinnerGeneral").show();
+    var server = getServer()
     try {
         var responseRecaptcha = grecaptcha.getResponse();
         if (responseRecaptcha.length > 0) {
@@ -10,16 +12,19 @@ async function registrarme() {
                     if (contraUser != "") {
                         if (document.getElementById("terms-conditions").checked) {
                             try {
-                                let url = "htpp://" + apiServer + "/usuario/crear";
+                                let url = apiServer + "usuario/crear";
+                                console.log("2:" + server.REMOTE_ADDR);
+                                let bodyString = JSON.stringify({
+                                    email: emailUser.trim(),
+                                    passwordUser: contraUser,
+                                    nombreUsuario: nombreCompleto.toLowerCase(),
+                                    fkIdRol: 4,
+                                    ipPc: server.REMOTE_ADDR
+                                });
+
                                 await fetch(url, {
                                     method: 'POST',
-                                    body: JSON.stringify({
-                                        email: emailUser.trim(),
-                                        passwordUser: contraUser,
-                                        nombreUsuario: nombreCompleto.toLowerCase(),
-                                        fkIdRol: 4,
-                                        ipPc: "00.00.00.00",
-                                    }),
+                                    body: bodyString,
                                     headers: {
                                         'Content-type': 'application/json; charset=UTF-8',
                                         'Access-Control-Allow-Origin': '*'
@@ -29,37 +34,74 @@ async function registrarme() {
                                     .then(function (respuesta) {
                                         console.log("Respuesta:", respuesta)
                                         if (respuesta === 0) {
-                                            alert("No pudimos procesar tu registro, si ya estas registrado inicie sesion o recupera tu contraseña, si tienes problemas escribenos ");
+                                            let url = apiServer+"CRUD/listar?tabla=usuario&filtro=email='"+emailUser.trim()+"'&campos=count(idusuario)"
+                                            fetch(url)
+                                                .then(response => response.json())
+                                                .then(respuesta => {
+                                                   respuesta.forEach(element=>{
+                                                    let r = element[0]
+                                                    let r2 = r.split(":")
+                                                    console.log(r2)
+                                                    if (parseInt(r2[1]) === 1) {
+                                                        $("#spinnerGeneral").hide();
+                                                        $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                                                        $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                                                        $("#modalGeneral").modal("show");
+                                                    } else {
+                                                        notificacion(bodyString);
+                                                        $("#spinnerGeneral").hide();
+                                                    }
+                                                   });                                                    
+                                                });
                                         } else {
                                             console.log("Respuesta Exitosa");
-                                            enviarEMail(emailUser.trim(),respuesta);
-                                            location.href = "auth-reset-password-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
+                                            enviarEMail(emailUser.trim(), respuesta);
+                                            $("#spinnerGeneral").hide();
+
                                         }
                                     })
 
                             } catch (e) {
-                                alert(e, "Error en la peticion a la API-REST");
+                                $("#spinnerGeneral").hide();
+                                $("#modalGeneral #modalCenterTitle").html("Error en la peticion a la API-REST");
+                                $("#modalGeneral #modalMensaje").html(e);
+                                $("#modalGeneral").modal("show");
                             }
 
                         } else {
-                            alert("Aceptar Terminos y Condiciones");
+                            $("#spinnerGeneral").hide();
+                            $("#modalGeneral #modalCenterTitle").html("Error");
+                            $("#modalGeneral #modalMensaje").html("Aceptar Terminos y condiciones");
+                            $("#modalGeneral").modal("show");
                         }
                     } else {
-                        alert("Ingrese una contraseña");
+                        $("#spinnerGeneral").hide();
+                        $("#modalGeneral #modalCenterTitle").html("Error");
+                        $("#modalGeneral #modalMensaje").html("Ingrese una contraseña");
+                        $("#modalGeneral").modal("show");
                     }
                 } else {
-                    alert("Ingrese un email de verificacion");
+                    $("#spinnerGeneral").hide();
+                    $("#modalGeneral #modalCenterTitle").html("Error");
+                    $("#modalGeneral #modalMensaje").html("Ingrese un email");
+                    $("#modalGeneral").modal("show");
                 }
             } else {
-                alert("Ingrese el nombre de usuario");
+                $("#spinnerGeneral").hide();
+                $("#modalGeneral #modalCenterTitle").html("Error");
+                $("#modalGeneral #modalMensaje").html("Ingrese un nombre de uusuario");
+                $("#modalGeneral").modal("show");
             }
         } else {
-            alert("Por favor verique que no eres un robot 01100010 01101001 01100101 01101110 01110110 01100101 01101110 01101001 01100100 01101111")
+            $("#spinnerGeneral").hide();
+            $("#modalGeneral #modalCenterTitle").html("Error");
+            $("#modalGeneral #modalMensaje").html("Por favor verifique que no eres un robot");
+            $("#modalGeneral").modal("show");
         }
 
 
     } catch (error) {
-        console.log(error);
+        notificacion(error)
     }
 }
 function mensajeVerificacionUsuario() {
@@ -68,23 +110,35 @@ function mensajeVerificacionUsuario() {
     let usuario = urlParams.get("email");
     document.getElementById("emailUserRegister").innerHTML = usuario;
 }
-function enviarEMail(email,idUser) {
-    let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "&idUsuario="+idUser+"";
+function enviarEMail(email, idUser) {
+    console.log("Enviar email")
+    let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
+    console.log(url);
     fetch(url)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(respuesta => {
             if (respuesta === true) {
-                console("Email enviado");
+                location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
             } else {
-                console.log("Fallo al enviar email");
+                notificacion("Error envio email de verificacion del usuario ", email)
+                $("#spinnerGeneral").hide();
+                $("#modalGeneral #modalCenterTitle").html("Error");
+                $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intenta de nuevo mas tarde");
+                $("#modalGeneral").modal("show");
             }
         })
+
 }
+
+
+
 async function validarCuenta() {
+    $("#spinnerGeneral").show();
     const emailUsuario = window.location.search;
     const urlParams = new URLSearchParams(emailUsuario);
     let userId = urlParams.get("usuarioVerificado");
-    let url = "https://localhost:7155/usuario/verificar?idUsuario=" + userId + "";
+    let url = apiServer + "usuario/verificar?idUsuario=" + userId + "";
+    console.log(url);
     try {
         await fetch(url, {
             method: 'PUT',
@@ -97,11 +151,17 @@ async function validarCuenta() {
         })
             .then((response) => response.json())
             .then((respuesta) => {
-                console.log(respuesta);
-                if(respuesta===true){
-                    alert("Tu cuenta ha sido verificada");
-                }else{
-                    console.log("Esta ya ha sido verificada o ha ocurrido algun error al memento de verificarla");
+                if (respuesta === 1) {
+                    $("#spinnerGeneral").hide();
+                    $("#modalGeneral #modalCenterTitle").html("Gracias");
+                    $("#modalGeneral #modalMensaje").html("Tu cuenta a sido verificada");
+                    // $("#modalGeneral").modal("show");
+                    loginNoPass();
+                } else {
+                    // $("#spinnerGeneral").hide();
+                    // $("#modalGeneral #modalCenterTitle").html("Error");
+                    // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
+                    // $("#modalGeneral").modal("show");    
                 }
             });
     } catch (e) {
@@ -110,31 +170,54 @@ async function validarCuenta() {
 }
 
 
+
+
 //Login and Logout
 async function login() {
+    $("#spinnerGeneral").show();
     try {
         let emailUser = document.getElementById("emailLogin").value;
         let contraUser = document.getElementById("passwordLogin").value;
+        let url = apiServer + "usuario/login?usuario=" + emailUser + "&contra=" + contraUser + ""
         console.log(emailUser);
         console.log(contraUser);
-        let url = "https://localhost:7155/usuario/loginUser?usuario=" + emailUser + "&contra=" + contraUser + ""
+        console.log(url);
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach(idUser => {
-                    let userLogin = idUser.idUsuario;
-                    if (parseInt(userLogin) === 1) {
-                        loginNoPass(userLogin)
-                    } else {
-                        alert('Usuario o contraseña errada');
-                    }
-                });
-            });
+                if (respuesta.length === 0) {
+                    $("#spinnerGeneral").hide();
+                    $("#modalGeneral #modalCenterTitle").html("Error");
+                    $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
+                    $("#modalGeneral").modal("show");
+                } else {
+                    respuesta.forEach(idUser => {
+                        let userLogin = idUser[0];
+                        let idLogin = userLogin.split(":");
+                        let userVerificacion = idUser[1];
+                        let stateVerification = userVerificacion.split(":");
+                        if (Boolean(stateVerification[1]) === true) {
+                            $("#spinnerGeneral").hide();
+                            loginNoPass(parseInt(idLogin[1]))
+                            location.href = "auth-perfil.html";
+                        } else {
+                            $("#spinnerGeneral").hide();
+                            $("#modalGeneral #modalCenterTitle").html("Error");
+                            $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
+                            $("#modalGeneral").modal("show");
+                        }
+                    });
+                }
+            })
+            .catch((error) => {
+                console.log('Error: ', error)
+            })
     } catch (e) {
         console.log(e);
     }
 }
 async function loginNoPass(idusuario) {
+    sessionStorage.clear();
     sessionStorage.setItem('login', idusuario);
 }
 function logout() {
@@ -151,7 +234,7 @@ function logout() {
 
 async function verificarUsuario(email, nombreUsuario) {
     try {
-        let url = "https://localhost:7155/email/verificacion?userEmail=" + email + "";
+        let url = apiServer + "email/verificacion?userEmail=" + email + "";
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
@@ -163,8 +246,9 @@ async function verificarUsuario(email, nombreUsuario) {
     }
 }
 async function perfilar() {
+    $("#spinnerGeneral").show();
     try {
-        let idUsuario = parseInt(window.sessionStorage.getItem("idUsuario"));
+        let idUsuario = parseInt(window.sessionStorage.getItem("login"));
         let sexo;
         if (document.getElementById("sexoMujer").checked === true) {
             sexo = document.getElementById("sexoMujer").value;
@@ -173,7 +257,8 @@ async function perfilar() {
         }
         let pesoActual = parseFloat(document.getElementById("pesoUsuario").value);
         let estatura = parseFloat(document.getElementById("estaturaUsuario").value);
-        let pesoDeseado = parseFloat(document.getElementById("valor").innerText);
+        let pesoDeseado = document.getElementById("valor").innerText;
+        console.log(pesoDeseado);
         let fechaNacimiento = document.getElementById("fechaNacimiento").value;
         let tipoDieta = parseInt(document.getElementById("tipoDietaUsuario").value);
         let tipoCuerpo = parseInt(document.getElementById("tipoCuerpoUsuario").value);
@@ -209,7 +294,7 @@ async function perfilar() {
             velocimetro = true;
         }
 
-        let url = "https://localhost:7155/perfil/crear";
+        let url = apiServer + "perfil/crear";
         await fetch(url, {
             method: 'POST',
             body: JSON.stringify({
@@ -234,8 +319,9 @@ async function perfilar() {
             },
         })
             .then((response) => response.json())
-            .then((json) => {
-                sessionStorage.clear();
+            .then((respuesta) => {
+                console.log(respuesta);
+                sessionStorage.getItem("perfil", respuesta);                
                 sessionStorage.setItem("sexoUser", sexo.toString());
                 sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
                 sessionStorage.setItem("estatura", estatura);
@@ -246,8 +332,11 @@ async function perfilar() {
                 sessionStorage.setItem("porqueHace", porque);
                 sessionStorage.setItem("nivelDeportivo", nivel);
                 sessionStorage.setItem("escalaDeportiva", escala);
-                alert("Perfilamiento exitoso"),
-                    location.href = "free-data.html";
+                $("#spinnerGeneral").show();
+                $("#modalGeneral #modalCenterTitle").html("Gracias");
+                $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
+                $("#modalGeneral").modal("show");
+                location.href = "free-data.html";
 
             });
     } catch (e) {
@@ -256,33 +345,29 @@ async function perfilar() {
 }
 
 
-
-
-
 //Gestion de contraseña
-function resetPass() {
+async function enviarEmailResetPassword() {
+    $("#spinnerGeneral").show();
+    console.log("Funcion");
+
+    let email = document.getElementById("emailResetPassword").value;
+    let url = apiServer + "email/restablecerContrasena?userEmail=" + email;
+    console.log(url);
     try {
-        let newPassword = document.getElementById("password").value;
-        let confirmPassword = document.getElementById("confirm-password").value;
-        console.log(newPassword);
-        console.log(confirmPassword);
-        if (newPassword === confirmPassword) {
-            console.log(newPassword);
-            setTimeout(1000);
-            location.href = "auth-login-basic.html";
-        }
+        await fetch(url)
     } catch (e) {
-        console.log(e);
+        console.log("Error: " + e);
     }
 }
-async function changePassword() {
+async function resetPass() {
+    console.log("Reset Password")
+    $("#spinnerGeneral").show();
     try {
-        let email = "lebab1990@gmail.com";
-        let passwordCurrent = document.getElementById("currentPassword").value;
-        let passwordNew = document.getElementById("newPassword").value;
-        let passwordConfirm = document.getElementById("confirmPassword").value;
-        if (passwordNew === passwordConfirm) {
-            await fetch("https://localhost:7155/usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
+        let userId = 1;
+        let newPassword = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm-password").value;
+        if (newPassword === confirmPassword) {
+            await fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
                 {
                     method: 'PUT',
                     headers: {
@@ -292,6 +377,37 @@ async function changePassword() {
                 .then(response => response.json())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
+            $("#spinnerGeneral").hide();
+            $("#spinnerGeneral").hide();
+            $("#modalGeneral #modalCenterTitle").html("Gracias");
+            $("#modalGeneral #modalMensaje").html("Tu contraseña ha sido actualizada");
+            $("#modalGeneral").modal("show");
+            setTimeout(1000);
+            location.href = "auth-login-basic.html";
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+async function changePassword() {
+    $("#spinnerGeneral").show();
+    try {
+        let email = "lebab1990@gmail.com";
+        let passwordCurrent = document.getElementById("currentPassword").value;
+        let passwordNew = document.getElementById("newPassword").value;
+        let passwordConfirm = document.getElementById("confirmPassword").value;
+        if (passwordNew === passwordConfirm) {
+            await fetch(apiServer + "usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            $("#spinnerGeneral").hide();
         }
     } catch (e) {
         console.log(e);
