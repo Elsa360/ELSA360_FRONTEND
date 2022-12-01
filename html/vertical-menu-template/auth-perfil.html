@@ -55,7 +55,7 @@
     <script src="../../assets/js/config.js"></script>
   </head>
 
-  <body onload="validarCuenta()">
+  <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -320,9 +320,9 @@
                                   <label class="form-label" for="plEmail">Tipo de cuerpo</label>
                                   <select class="form-control" name="tipoCuerpo" id="tipoCuerpoUsuario">
                                     <option value="-1" disabled selected>¿Qué tipo de cuerpo tienes?</option>
-                                    <option value="1">Ectomorfo</option>
-                                    <option value="2">Mesomorfo</option>
-                                    <option value="3">Endomorfo</option>
+                                    <option value="1">  Delgado --> Ectomorfo</option>
+                                    <option value="2">  Normal --> Mesomorfo</option>
+                                    <option value="3">  Robusto --> Endomorfo</option>
                                   </select>
                                   <i></i>
         
@@ -350,14 +350,14 @@
         
                                         
                                         <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo">Ectomorfos</h4>
+                                            <h4 class="somatotipoTitulo text-success">Delgado  <small>(Ectomorfo)</small> </h4>
                                             <p class="somatotipoDescripcion">Músculos delgados, extremidades largas y hombros estrechos. Personas
                                                 qué por más que coman,
                                                 nunca sufrirán de sobrepeso gracias a su metabolismo rápido y a su facilidad para quemar calorías.
                                             </p>
                                         </div>
                                         <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo">Mesomorfos</h4>
+                                            <h4 class="somatotipoTitulo text-success">Normal  <small> (Mesomorfo)</small> </h4>
                                             <p class="somatotipoDescripcion">Estructura ósea grande, físico atlético y músculos marcados. Personas
                                                 que tienen una complexión
                                                 fuerte por naturaleza. Deben cuidar la dieta, pero no tienen que ser tan estrictos, pero sí se
@@ -365,7 +365,7 @@
                                             </p>
                                         </div>
                                         <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo">Endomorfos</h4>
+                                            <h4 class="somatotipoTitulo text-success"> Robusto <small> (Endomorfo)</small></h4>
                                             <p class="somatotipoDescripcion">Similares a los mesomorfos, aunque con más grasa corporal. De
                                                 extremidades más cortas y con tendencia a ganar músculo y
                                                 grasa. Su metabolismo lento hace que no queme calorías tan fácilmente. Son las personas que más
@@ -381,7 +381,7 @@
 
 
                         <div class="col-12 d-flex justify-content-between">
-                          <button class="btn btn-label-secondary btn-prev" disabled></button>
+                          <button class="btn btn-prev" disabled></button>
 
                           <button class="btn btn-success btn-next" >
                             <span class="align-middle d-sm-inline-block d-none me-sm-1" style="font-weight: 600;">Siguiente</span>
@@ -728,7 +728,7 @@
                           </button>
 
                           
-                          <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos" onclick="idUsuario()"/>
+                          <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos" onclick="perfilar()"/>
                         </div>
                       </div>
                     </div>
@@ -905,7 +905,8 @@
     <!-- Page JS -->
 
     <script src="../../assets/js/wizard-ex-property-listing.js"></script>
-    <script src="../../JS/classes.js"></script>
+    <script src="../../JS/enviroment.js"></script>
     <script src="../../JS/User/user.js"></script>
+    <!-- <script src="../../JS/classes.js"></script> -->
   </body>
 </html>

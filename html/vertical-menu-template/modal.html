@@ -1,31 +1,24 @@
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalGeneral">
-      Modal mensaje
-    </button>
-
-
-
-
-    <!-- Modal -->
-    <div class="modal fade text-center" id="modalGeneral" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content  text-center">
-          <div class="modal-header">
-            <h2 class="text-danger" id="modalCenterTitle">Ooops!</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" style="padding-bottom: 5px;">
-            <div class="row">
-              <div class="col mb-0">
-                <h3 id="Leo">Ingresa un correo electronico valido.</h3> 
-              </div>
+<link rel="stylesheet" href="../../assets/vendor/css/pages/elsaStyle.css">
+<!-- Modal -->
+<div id="modalContainer">
+  <div class="modal fade text-center" id="modalGeneral" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content  text-center">
+        <div class="modal-header">
+          <h2 class="text-danger" id="modalCenterTitle">Ooops!</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="padding-bottom: 5px;">
+          <div class="row">
+            <div class="col mb-0">
+              <h3 id="modalMensaje">Ingresa un correo electronico valido.</h3>
             </div>
-            
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar </button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar </button>
         </div>
       </div>
     </div>
+  </div>
+</div>
