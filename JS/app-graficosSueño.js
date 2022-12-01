@@ -27,10 +27,10 @@ defaultLocale: "es",
 
 
 
-//  Grafico de Duración, Distancia y Elevanción de cada entreno
-dataDuracionEnt=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 37, 21, 40, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 37, 21, 44]
-dataDesnivelEnt=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055, 1241, 1067, 1222, 1343, 1021, 1241, 1056, 1027, 1243, 1044, 1255, 1141, 1167, 1022, 1243, 1021, 1141, 1256, 1027, 1143, 1037, 1221, 1244, 1422, 1344, 1555, 1041, 1067, 1222, 1543, 1321, 1241, 1056, 1027, 1243, 1144, 1255, 1441, 1067, 1222, 1043, 1021, 1241, 1556, 1027, 1043, 1244, 1355, 1441, 1067, 1222, 1443, 1021, 1241, 1456, 1027, 1243, 1344, 1055, 1241, 1467, 1322, 1043, 1421, 1641, 1756, 1027, 1243, 1237, 1021, 1044, 1222, 1044, 1155, 1041, 1267, 1022, 1443, 1021, 1241, 1256, 1327, 1243, 1044, 1455, 1041, 1267, 1322, 1343, 1021, 1241, 1056, 1027, 1243, 1144, 1555, 1041, 1267, 1022, 1343, 1021, 1241, 1256, 1127, 1043, 1344, 1055, 1241, 1067, 1122, 1043, 1221, 1641, 1356, 1027, 1243, 1037, 1221, 1644, 1022]
-dataDistanciaEnt=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25, 101.36, 79.30, 92.45, 101.35, 79.64, 92.52, 101.59, 79.36, 92.39, 101.30, 79.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.37, 101.21, 79.44, 92.22, 101.30, 79.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 95.64, 81.52, 104.59, 95.36, 81.39, 104.30, 95.25, 81.36, 104.30, 95.45, 81.35, 104.64, 95.52, 81.59, 104.36, 95.39, 81.30, 104.25, 95.36, 81.30, 104.45, 95.35, 81.64, 104.52, 95.59, 81.36, 104.39, 95.27, 81.41, 104.74, 77.32, 84.30, 99.25, 77.36, 84.30, 99.45, 77.35, 84.64, 99.52, 77.59, 84.36, 99.39, 77.30, 84.25, 99.36, 77.30, 84.45, 99.35, 77.64, 84.52, 99.59, 114.36, 86.39, 72.30, 114.25, 86.36, 72.30, 114.45, 86.35, 72.64, 114.52, 86.59, 72.36, 114.39, 86.30, 72.25, 114.36, 84.30, 110.45, 84.35, 110.64, 84.52, 110.59, 84.36, 110.39, 84.27, 110.41, 84.74, 110.32]
+  //  Grafico de Duración, Distancia y Elevanción de cada entreno
+dataFCBasal=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 37, 21, 40, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 40, 22, 30, 37, 21, 44]
+dataHrsSueño=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055, 1241, 1067, 1222, 1343, 1021, 1241, 1056, 1027, 1243, 1044, 1255, 1141, 1167, 1022, 1243, 1021, 1141, 1256, 1027, 1143, 1037, 1221, 1244, 1422, 1344, 1555, 1041, 1067, 1222, 1543, 1321, 1241, 1056, 1027, 1243, 1144, 1255, 1441, 1067, 1222, 1043, 1021, 1241, 1556, 1027, 1043, 1244, 1355, 1441, 1067, 1222, 1443, 1021, 1241, 1456, 1027, 1243, 1344, 1055, 1241, 1467, 1322, 1043, 1421, 1641, 1756, 1027, 1243, 1237, 1021, 1044, 1222, 1044, 1155, 1041, 1267, 1022, 1443, 1021, 1241, 1256, 1327, 1243, 1044, 1455, 1041, 1267, 1322, 1343, 1021, 1241, 1056, 1027, 1243, 1144, 1555, 1041, 1267, 1022, 1343, 1021, 1241, 1256, 1127, 1043, 1344, 1055, 1241, 1067, 1122, 1043, 1221, 1641, 1356, 1027, 1243, 1037, 1221, 1644, 1022]
+dataPasos=[68.30, 171.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25, 101.36, 79.30, 92.45, 101.35, 79.64, 92.52, 101.59, 79.36, 92.39, 101.30, 79.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.37, 101.21, 79.44, 92.22, 101.30, 79.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 95.64, 81.52, 104.59, 95.36, 81.39, 104.30, 95.25, 81.36, 104.30, 95.45, 81.35, 104.64, 95.52, 81.59, 104.36, 95.39, 81.30, 104.25, 95.36, 81.30, 104.45, 95.35, 81.64, 104.52, 95.59, 81.36, 104.39, 95.27, 81.41, 104.74, 77.32, 84.30, 99.25, 77.36, 84.30, 99.45, 77.35, 84.64, 99.52, 77.59, 84.36, 99.39, 77.30, 84.25, 99.36, 77.30, 84.45, 99.35, 77.64, 84.52, 99.59, 114.36, 86.39, 72.30, 114.25, 86.36, 72.30, 114.45, 86.35, 72.64, 114.52, 86.59, 72.36, 114.39, 86.30, 72.25, 114.36, 84.30, 110.45, 84.35, 110.64, 84.52, 110.59, 84.36, 110.39, 84.27, 110.41, 84.74, 110.32]
 dataLabelsEnt=['01/01/2022', '01/02/2022', '01/03/2022', '01/04/2022', '01/05/2022', '01/06/2022', '01/07/2022', '01/08/2022', '01/09/2022', '01/10/2022', '01/11/2022', '01/12/2022',
 '01/13/2022', '01/14/2022', '01/15/2022', '01/16/2022', '01/17/2022', '01/18/2022', '01/19/2022', '01/20/2022', '01/21/2022', '01/22/2022', '01/23/2022', '01/24/2022',
 '02/01/2022', '02/02/2022', '02/03/2022', '02/04/2022', '02/05/2022', '02/06/2022', '02/07/2022', '02/08/2022', '02/09/2022', '02/10/2022', '02/11/2022', '02/12/2022',
@@ -45,42 +45,40 @@ dataLabelsEnt=['01/01/2022', '01/02/2022', '01/03/2022', '01/04/2022', '01/05/20
 '06/13/2022', '06/14/2022', '06/15/2022', '06/16/2022', '06/17/2022', '06/18/2022', '06/19/2022', '06/20/2022', '06/21/2022', '06/22/2022', '06/23/2022', '06/24/2022'
 ]
 
-durElvDistEntreno(
-  dataDuracionEnt,dataDesnivelEnt,dataDistanciaEnt, dataLabelsEnt
-  );
+durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt);
 
-function durElvDistEntreno(
-  dataDuracionEnt,dataDesnivelEnt,dataDistanciaEnt, dataLabelsEnt
-  ) {
+function durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt) {
   
-  var optionsTiemDisElvEntreno1 = {
-    colors: ["#9bcb3b", "#ffab00","#007bff"],
-    series: [{
-      name: 'Duración (h:m:s)',
+  var optionsControlSueño1 = {
+    colors: ["#ffab00", "#9bcb3b", "#007bff"],
+    series: [
+     {
+      name: 'FC Basal',
+      type: 'line',
+      data: dataFCBasal
+    },
+    {
+      name: 'Hrs de Sueño',
       type: 'bar',
-      data: dataDuracionEnt
-    }, {
-      name: 'Desnivel positivo (mts)',
-      type: 'bar',
-      data: dataDesnivelEnt
-    }, {
-      name: 'Distancia (Km)',
-      type: 'bar',
-      data: dataDistanciaEnt
+      data: dataHrsSueño
+    },
+    {
+      name: 'N° Pasos',
+      type: 'line',
+      data: dataPasos
     },
     ],
     chart: {
-      id: 'Chartbrush1',
+      id: 'Chartbrush3',
       background: '#2b2c40',
       type: 'line',
-      height: 550,
-      stacked: false,
-      
+      height: 420,
+      stacked: false,      
       toolbar: {
         autoSelected: 'pan',
         show: true,
-        offsetX: -40,
-        offsetY: 0,
+        offsetX: -20,
+        offsetY: -5,
         tools: {
           download: true,
           selection: false,
@@ -91,26 +89,27 @@ function durElvDistEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
-      }
-    },
-    title:{
-      text: 'Duración, distancia recorrida y desnivel positivo de tus entrenos',
-      offsetX: 10,
-      style:{
-        fontSize:  '18px',
-        fontWeight:  '500',
-        fontFamily:  'montserrat',
-        color:  '#cbcbe2'
+        export:{
+          csv:{
+            filename: 'FC Basal, Hrs de sueño y Pasos diarios'
+          },
+          svg:{
+            filename: 'FC Basal, Hrs de sueño y Pasos diarios'
+          },
+          png:{
+            filename: 'FC Basal, Hrs de sueño y Pasos diarios'
+          }
+        }
       }
     },
     plotOptions: {
       bar: {
         columnWidth: '75%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70],
+      opacity: [0.95, 0.65, 0.95],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -121,9 +120,19 @@ function durElvDistEntreno(
       }
     },
     stroke: {
-      width: [0, 0, 0],
+      width: [4, 3, 4],
       curve: 'smooth',
-      colors: ["#9bcb3b", "#ffab00","#007bff"],
+      colors: ["#ffab00", "#9bcb3b", "#007bff"],
+    },
+    title: {
+      text: 'FC Basal, Hrs de sueño y Pasos diarios',
+      offsetX: 10,
+      style: {
+        fontSize:  '16px',
+        fontWeight:  600,
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
+      },
     },
     grid: {
       show: true,
@@ -159,9 +168,9 @@ function durElvDistEntreno(
       enabled: false
     },
     markers: {
-      size: 4,
-      colors: ["#9bcb3b", "#ffab00","#007bff"],
-    strokeColors: ["#9bcb3b", "#ffab00","#007bff"],
+      size: 5,
+      colors: ["#ffab00", "#9bcb3b", "#007bff"],
+    strokeColors: ["#ffab00", "#9bcb3b", "#007bff"],
     },
     labels: dataLabelsEnt ,
     legend: {
@@ -171,7 +180,7 @@ function durElvDistEntreno(
       horizontalAlign: 'center',
       fontSize: '14px',
       itemMargin: {
-        horizontal: 25,
+        horizontal: 17,
         vertical: 10
     },
       labels: {
@@ -188,7 +197,7 @@ function durElvDistEntreno(
       }
 
     },
-    yaxis: [   
+    yaxis: [
       {
         axisTicks: {
           show: true,
@@ -214,21 +223,21 @@ function durElvDistEntreno(
       },
       {
         opposite: true,
-        axisTicks: {
+        axisTicks: {          
           show: true,
-          color: '#ffab00',
+          color: '#b2e2f2',
           offsetX: 10,
         },
         axisBorder: {
           show: true,
-          color: '#ffab00',
-          offsetX: -10,
+          color: '#b2e2f2',
+          offsetX: -5,
         },
         labels: {
           rotate: 90,
-          offsetX: -10,
+          offsetX: -5,
           style: {
-            colors: '#ffab00',
+            colors: '#b2e2f2',
             fontSize:'9px',
           },
         },       
@@ -237,22 +246,22 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           color: '#007bff',
-          offsetX: 2,
+          offsetX: 10,
         },
         axisBorder: {
           show: true,
           color: '#007bff',
-          offsetX: -2,
+          offsetX: -10,
         },
         labels: {
           rotate: 90,
-          offsetX: -2,
+          offsetX: 8,
           style: {
             colors: '#007bff',
             fontSize:'9px',
           },
         },       
-      },    
+      },
       
     ],
     tooltip: {
@@ -262,36 +271,133 @@ function durElvDistEntreno(
         offsetY: 30,
         offsetX: 60
       },
-    }        
+    },
+    // responsive: [{
+    //   breakpoint: 950,
+    //   options: {
+    //     chart:{    
+    //       height: 250,
+    //       sparkline: {
+    //     enabled: true},
+    //     },
+    //     markers: {
+    //       size: 3
+    //     },
+    //     legend: {
+    //       show: true,
+    //       offsetY: -10
+    //     },
+    //     xaxis: {
+    //       axisBorder: {
+    //         show: false},
+    //         axisTicks: {
+    //           show: false},    
+    //     },
+    //     yaxis: [
+    //       {
+    //         axisTicks: {
+    //           show: false,
+    //           color: '#9bcb3b',
+    //           offsetX: 10,
+    //         },
+    //         axisBorder: {
+    //           show: false,
+    //           color: '#9bcb3b',
+    //           offsetX: -10,
+    //         },
+    //         labels: {
+    //           show: false,
+    //           rotate: 90,
+    //           offsetX: -10,
+    //           style: {
+    //             colors: '#9bcb3b',
+    //             fontSize:'10px'
+    //           }
+    //         },       
+    //         tooltip: {
+    //           enabled: false
+    //         }
+    //       },
+    //       {
+    //         opposite: false,
+    //         axisTicks: {          
+    //           show: false,
+    //           color: '#b2e2f2',
+    //           offsetX: 10,
+    //         },
+    //         axisBorder: {
+    //           show: false,
+    //           color: '#b2e2f2',
+    //           offsetX: -5,
+    //         },
+    //         labels: {
+    //           show: false,
+    //           rotate: 90,
+    //           offsetX: -5,
+    //           style: {
+    //             colors: '#b2e2f2',
+    //             fontSize:'9px',
+    //           },
+    //         },       
+    //       },
+    //       {
+    //         axisTicks: {
+    //           show: false,
+    //           color: '#007bff',
+    //           offsetX: 10,
+    //         },
+    //         axisBorder: {
+    //           show: false,
+    //           color: '#007bff',
+    //           offsetX: -10,
+    //         },
+    //         labels: {
+    //           show: false,
+    //           rotate: 90,
+    //           offsetX: 8,
+    //           style: {
+    //             colors: '#007bff',
+    //             fontSize:'9px',
+    //           },
+    //         },       
+    //       },
+          
+    //     ],
+    //   },
+    // }]        
   };
 
-  var TiemDisElvEntreno1 = new ApexCharts(document.querySelector("#TiemDisElvEntreno1"), optionsTiemDisElvEntreno1);
-  TiemDisElvEntreno1.render();
+  var ControlSueño1 = new ApexCharts(document.querySelector("#ControlSueño1"), optionsControlSueño1);
+  ControlSueño1.render();  
+  
 
 
 
 
-  var optionsTiemDisElvEntreno2 = {
-    colors: ["#9bcb3b", "#ffab00","#007bff"],
-    series: [{
-      name: 'Duración (h:m:s)',
-      type: 'bar',
-      data: dataDuracionEnt
+
+  var optionsControlSueño2 = {
+    colors: ["#ffab00", "#9bcb3b", "#007bff"],
+    series: [
+    {
+      name: 'FC Basal',
+      type: 'line',
+      data: dataFCBasal
     }, {
-      name: 'Desnivel positivo (mts)',
+      name: 'Hrs de sueño',
       type: 'bar',
-      data: dataDesnivelEnt
+      data: dataHrsSueño
     }, {
-      name: 'Distancia (Km)',
-      type: 'bar',
-      data: dataDistanciaEnt
-    },],
+      name: 'N° pasos',
+      type: 'line',
+      data: dataPasos
+    },
+    ],
     chart: {
-      id: 'Chartbrush2',
+      id: 'Chartbrush4',
       height: 150,
       type: 'area',
       brush: {
-        target: 'Chartbrush1',
+        target: 'Chartbrush3',
         enabled: true,
       },
       selection: {
@@ -318,18 +424,18 @@ function durElvDistEntreno(
     plotOptions: {
       bar: {
         columnWidth: '75%',
-        borderRadius: 2
+        borderRadius: 0
       }
     },
     stroke: {
-      width: [0, 0, 0],
+      width: [1, 1, 1, 1, 1, 1, 1, 1],
       curve: 'smooth',
-      colors: ["#9bcb3b", "#ffab00","#007bff"],
+      colors: ["#ffab00", "#9bcb3b", "#007bff"],
     },
     labels: dataLabelsEnt,
-    colors: ["#9bcb3b", "#ffab00","#007bff"],
+    colors: ["#ffab00", "#9bcb3b", "#007bff"],
     fill: {
-      opacity: [0.70, 0.70, 0.70],
+      opacity: [0.95, 0.55, 0.95],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -426,10 +532,10 @@ function durElvDistEntreno(
         colors: '#fff',
         useSeriesColors: true
       }
-    },    
+    }  
   };
 
-  var TiemDisElvEntreno2 = new ApexCharts(document.querySelector("#TiemDisElvEntreno2"), optionsTiemDisElvEntreno2);
-  TiemDisElvEntreno2.render();
+  var ControlSueño2 = new ApexCharts(document.querySelector("#ControlSueño2"), optionsControlSueño2);
+  ControlSueño2.render();
 }
-  //FIN  Grafico de Duración, Distancia y Elevanción de cada entreno 
+  //FIN  Grafico de Duración, Distancia y Elevanción de cada entreno
