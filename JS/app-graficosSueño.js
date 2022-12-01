@@ -109,7 +109,7 @@ function durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt) 
       }
     },
     fill: {
-      opacity: [0.95, 0.65, 0.95],
+      opacity: [0.95, 0.55, 0.95],
       gradient: {
         inverseColors: false,
         shade: 'light',

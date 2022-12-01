@@ -99,14 +99,13 @@ function TssIfNpEntreno(
       id: 'Chartbrush3',
       background: '#2b2c40',
       type: 'line',
-      height: 550,
-      stacked: false,
-      
+      height: 420,
+      stacked: false,      
       toolbar: {
         autoSelected: 'pan',
         show: true,
-        offsetX: -40,
-        offsetY: -40,
+        offsetX: -20,
+        offsetY: 17,
         tools: {
           download: true,
           selection: false,
@@ -117,16 +116,37 @@ function TssIfNpEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Datos de las cargas de todos tus entrenos'
+          },
+          svg:{
+            filename: 'Datos de las cargas de todos tus entrenos'
+          },
+          png:{
+            filename: 'Datos de las cargas de todos tus entrenos'
+          }
+        }
+      }
+    },
+    title:{
+      text: 'Datos de las cargas de todos tus entrenos',
+      offsetX: 10,
+      style:{
+        fontSize:  '18px',
+        fontWeight:  '500',
+        fontFamily:  'montserrat',
+        color:  '#cbcbe2'
       }
     },
     plotOptions: {
       bar: {
         columnWidth: '75%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.70, 0.70, 0.70, 0.75, 0.75, 0.75, 0.75,0.75, 0.75,0.75, 0.75,],
+      opacity: [0.55, 0.55, 0.55, 0.95, 0.95, 0.95, 0.95,0.95, 0.95,0.95, 0.95,],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -137,7 +157,7 @@ function TssIfNpEntreno(
       }
     },
     stroke: {
-      width: [0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4],
+      width: [2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4],
       curve: 'smooth',
       colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00", "#4bc0c0","#FF7000"],
     },

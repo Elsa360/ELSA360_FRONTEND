@@ -59,7 +59,7 @@ function durElvDistEntreno(
   ) {
   
   var optionsTiemDisElvEntreno1 = {
-    colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+    colors: [ "#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     series: [
      {
       name: 'FC Promedio',
@@ -73,12 +73,12 @@ function durElvDistEntreno(
     },
     {
       name: 'Potencia Máxima',
-      type: 'line',
+      type: 'bar',
       data: dataPotenciaMaxEnt
     },
     {
       name: 'Potencia Promedio',
-      type: 'line',
+      type: 'bar',
       data: dataPotenciaPromEnt
     }, {
       name: 'Velocidad Máxima',
@@ -102,14 +102,13 @@ function durElvDistEntreno(
       id: 'Chartbrush1',
       background: '#2b2c40',
       type: 'line',
-      height: 500,
-      stacked: false,
-      
+      height: 420,
+      stacked: false,      
       toolbar: {
         autoSelected: 'pan',
         show: true,
-        offsetX: -40,
-        offsetY: 0,
+        offsetX: -20,
+        offsetY: 20,
         tools: {
           download: true,
           selection: false,
@@ -120,10 +119,21 @@ function durElvDistEntreno(
           reset: false | '<img src="/static/icons/reset.png" width="20">',
           customIcons: []
         },
+        export:{
+          csv:{
+            filename: 'Indicadores de todos tus entrenos'
+          },
+          svg:{
+            filename: 'Indicadores de todos tus entrenos'
+          },
+          png:{
+            filename: 'Indicadores de todos tus entrenos'
+          }
+        }
       }
     },
     title:{
-      text: 'FC, potencia, velocidad y cadencia de tus entrenos',
+      text: 'Indicadores de todos tus entrenos',
       offsetX: 10,
       style:{
         fontSize:  '18px',
@@ -135,11 +145,11 @@ function durElvDistEntreno(
     plotOptions: {
       bar: {
         columnWidth: '75%',
-        borderRadius: 2
+        borderRadius: 1
       }
     },
     fill: {
-      opacity: [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75,0.75],
+      opacity: [0.95, 0.95, 0.55, 0.55, 0.95, 0.95, 0.95,0.95],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -150,9 +160,9 @@ function durElvDistEntreno(
       }
     },
     stroke: {
-      width: [4, 4, 4, 4, 4, 4, 4, 4],
+      width: [4, 4, 2, 2, 4, 4, 4, 4],
       curve: 'smooth',
-      colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+      colors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     },
     grid: {
       show: true,
@@ -188,9 +198,9 @@ function durElvDistEntreno(
       enabled: false
     },
     markers: {
-      size: 5,
-      colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
-    strokeColors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+      size: 4,
+      colors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
+    strokeColors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     },
     labels: dataLabelsEnt ,
     legend: {
@@ -219,21 +229,21 @@ function durElvDistEntreno(
     },
     yaxis: [
       {
-        axisTicks: {
+        axisTicks: {     
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: 20,
         },
         axisBorder: {
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: -15,
         },
         labels: {
           rotate: 90,
           offsetX: -20,
           style: {
-            colors: '#9bcb3b',
+            colors: '#ffab00',
             fontSize:'10px'
           }
         },       
@@ -285,18 +295,18 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           offsetX: 20,
-          color: '#ff3e1d',
+          color: '#9bcb3b',
         },
         axisBorder: {
           show: true,
-          color: '#ff3e1d',
+          color: '#9bcb3b',
           offsetX: -15,
         },
         labels: {
           rotate: 90,
           offsetX: -15,
           style: {
-            colors: '#ff3e1d',
+            colors: '#9bcb3b',
             fontSize:'9px'
           }
         },       
@@ -309,18 +319,18 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           offsetX: 9,
-          color: '#ffab00',
+          color: '#ff3e1d',
         },
         axisBorder: {
           show: true,
           offsetX: -15,
-          color: '#ffab00',
+          color: '#ff3e1d',
         },
         labels: {
           rotate: 90,
           offsetX: -15,
           style: {
-            colors: '#ffab00',
+            colors: '#ff3e1d',
             fontSize:'9px'
           }
         },
@@ -333,7 +343,7 @@ function durElvDistEntreno(
         axisTicks: {
           show: true,
           offsetX: 20,
-          color: '##F902EA',
+          color: '#F902EA',
         },
         axisBorder: {
           show: true,
@@ -416,14 +426,14 @@ function durElvDistEntreno(
   TiemDisElvEntreno1.toggleSeries('FC Máxima')
   TiemDisElvEntreno1.toggleSeries('Velocidad Máxima')
   TiemDisElvEntreno1.toggleSeries('Cadencia Máxima')
-  TiemDisElvEntreno1.toggleSeries('Cadencia Promedio')
+  TiemDisElvEntreno1.toggleSeries('Potencia Máxima')
   
 
 
 
 
   var optionsTiemDisElvEntreno2 = {
-    colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+    colors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     series: [
     {
       name: 'FC Máxima',
@@ -435,12 +445,12 @@ function durElvDistEntreno(
       data: dataFCPromEnt
     }, {
       name: 'Potencia Máxima',
-      type: 'line',
+      type: 'bar',
       data: dataPotenciaMaxEnt
     },
     {
       name: 'Potencia Promedio',
-      type: 'line',
+      type: 'bar',
       data: dataPotenciaPromEnt
     }, {
       name: 'Velocidad Máxima',
@@ -498,10 +508,10 @@ function durElvDistEntreno(
     stroke: {
       width: [1, 1, 1, 1, 1, 1, 1, 1],
       curve: 'smooth',
-      colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+      colors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     },
     labels: dataLabelsEnt,
-    colors: ["#9bcb3b", "#b2e2f2", "#007bff", "#ff3e1d", "#ffab00","#F902EA","#FF7000","#E9B0F2"],
+    colors: ["#ffab00", "#b2e2f2", "#007bff","#9bcb3b", "#ff3e1d", "#F902EA","#FF7000","#E9B0F2"],
     fill: {
       opacity: [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75,0.75],
       gradient: {
