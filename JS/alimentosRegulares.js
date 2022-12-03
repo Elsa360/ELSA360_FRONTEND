@@ -28,7 +28,7 @@ function caloriasSeleccionadasMomento() {
         });
 }
 function traerAlimentosRegulares() {
-    fetch('http://www.apielsa.somee.com/alimentoRegular/listar')
+    fetch('http://54.193.8.32/alimentoRegular/listar')
     // fetch('https://localhost:7155/alimentoRegular/listar')
         .then((response) => response.json())
         .then((alimentosRegulares) => {

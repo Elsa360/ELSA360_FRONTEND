@@ -69,8 +69,7 @@
           <!--Logo-->
           <a href="dashboard.html" class="app-brand-link">
             <span class="app-brand-logo demo">
-              <svg width="10" viewBox="0 0 25 42" version="1.1">
-              </svg>
+              <svg width="10" viewBox="0 0 25 42" version="1.1"> </svg>
             </span>
       
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
@@ -889,12 +888,12 @@
                         <h5 class="card-title text-success">Bienvenid@ a tu panel de control! </h5>
                         <p class="mb-2">
                           Desde aquí puedes acceder a tu entreno diario. <br>
-                          Hemos desarrollado una versión detallada y una versión corta, conoce las dos y entrena con la que mejor te sientas.
+                          Hemos desarrollado una versión detallada y una avanzada, conoce las dos y entrena con la que mejor te sientas.
                         </p>
 
                         <span style="font-size: 16px; font-weight:500; color: #cbcbe2;">Ir a mi entreno diario: &nbsp; </span>  
-                        <a href="app-planDeportivo.html" class="btn btn-sm btn-success mb-2" style="margin-right: 5px;">Versión detallada</a>
-                        <a href="app-planDeportivoResumen.html" class="btn btn-sm btn-success mb-2" style="margin-right: 5px;">Versión corta</a>
+                        <a href="app-planDeportivo.html" class="btn btn-sm btn-success mb-2" style="margin-right: 5px;">Detallado</a>
+                        <a href="app-planDeportivoResumen.html" class="btn btn-sm btn-success mb-2" style="margin-right: 5px;">Avanzada</a>
                         <a href="train-cycling-data.html" class="btn btn-sm btn-label-success mb-2">Agregar datos del entreno de hoy</a>
                       </div>
                     </div>
@@ -1599,22 +1598,34 @@
                 <div class="card h-100">
                   <div class="card-header d-flex align-items-center justify-content-between pb-1"  
                   data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
-                    Zonas calculadas de acuerdo a tu umbral de potencia. <br> Es decir, la máxima potencia que eres capaz de mantener
-                    en un estado casi estable sin fatigarte durante 20 minutos. Es la potencia máxima de tu test FTP (Functional Threshold Power) </span>">
-                    <h5 class="card-title m-0">Zonas según tu <span class="text-success">FTP</span> </h5>    
+                    Zonas calculadas de acuerdo a tu umbral de potencia funcional. <br> Es decir, la máxima potencia media que eres capaz de mantener
+                          en un estado casi estable sin fatigarte. El FTP (Functional Threshold Power) es el 95% de la potencia máxima media de tu test de 20 minutos. </span>">
+                    <h5 class="card-title m-0">Zonas según tu <span class="text-success">FTP</span> 
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalZonasFTP"
+                      style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle'></i>
+                      </button> </h5>    
                       
                       <a href="" class="btn-sm btn-label-success">Actualizar FTP</a>
                   </div>
 
-                  <div class="mb-0" style="margin-left: 24px;">
-                    <p style="margin: 0; font-weight: 500;">FTP = <span class="text-success"> 380 </span> <small class="text-muted">W</small> </p>
+                  <div class="d-flex align-items-center justify-content-between mb-0" style="margin-left: 24px;">
+
+                    <p style="margin: 0; font-weight: 500;"
+                    data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
+                      FTP Absoluto </span>">
+                            FTP Abs. = <span class="text-success"> 380 </span> <small class="text-muted">W</small> </p>
+
+                    <p style="margin: 0; margin-right: 20px; font-weight: 500;"
+                    data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
+                      FTP Relativo </span>">
+                          FTP Rel. = <span class="text-success"> 5.43 </span> <small class="text-muted">W</small> </p>
                   </div>
 
 
 
 
                   <div class="divider" style="margin: 0;">
-                    <div class="divider-text"><i class='bx bxs-trophy text-success'></i></div>
+                    <div class="divider-text"><i class='bx bxs-battery-charging text-success' style="font-size: 25px;"></i></i></div>
                   </div>
 
 
@@ -1749,104 +1760,37 @@
 
 
 
-              <!-- Expense Overview -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <div class="col-md-6 col-lg-4 mb-3">
                 <div class="card h-100">
-                  <div class="card-header">
-                    <ul class="nav nav-pills" role="tablist">
-                      <li class="nav-item">
-                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income"
-                          aria-selected="true">
-                          Income
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab">Expenses</button>
-                      </li>
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab">Profit</button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body px-0">
-                    <div class="tab-content p-0">
-                      <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-                        <div class="d-flex p-4 pt-3">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <img src="../../assets/img/icons/unicons/wallet.png" alt="User" />
-                          </div>
-                          <div>
-                            <small class="text-muted d-block">Total Balance</small>
-                            <div class="d-flex align-items-center">
-                              <h6 class="mb-0 me-1">$459.10</h6>
-                              <small class="text-success fw-semibold">
-                                <i class="bx bx-chevron-up"></i>
-                                42.9%
-                              </small>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="incomeChart"></div>
-                        <div class="d-flex justify-content-center pt-4 gap-2">
-                          <div class="flex-shrink-0">
-                            <div id="expensesOfWeek"></div>
-                          </div>
-                          <div>
-                            <p class="mb-n1 mt-1">Expenses This Week</p>
-                            <small class="text-muted">$39 less than last week</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--/ Expense Overview -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <!-- Transactions -->
-              <div class="col-md-6 col-lg-4 mb-3">
-                <div class="card h-100">
-                  <div class="card-header d-flex align-items-center justify-content-between pb-1"  
-                  data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
-                    Zonas calculadas de acuerdo a tu umbral de frecuencia cardíaca. <br> Es decir, la frecuencia cardíaca promedio de tu test FTHR (Functional Threshold Heart Rate) </span>">
-                    <h5 class="card-title m-0">Zonas según tu <span class="text-success">FTHR</span> </h5>    
+                  <div class="card-header d-flex align-items-center justify-content-between pb-1">
+                    <h5 class="card-title m-0">Zonas según tu <span class="text-success">FTHR</span>  </h5>    
                       
-                      <a href="" class="btn-sm btn-label-success">Actualizar FTHR</a>
+                      <a href="" class="btn-sm btn-label-success">Actualizar FTHR </a>
                   </div>
 
-                  <div class="mb-0" style="margin-left: 24px;">
-                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success"> 160 </span> <small class="text-muted">PPM</small> </p>
+                  <div class="mb-0" style="margin-left: 20px;">
+                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success"> 160 </span> <small class="text-muted">PPM</small> 
+                      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalZonasFC" 
+                        style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle' data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
+                        Zonas calculadas de acuerdo a tu umbral de frecuencia cardíaca. <br> Es decir, tu FTHR (Functional Threshold Heart Rate) es la frecuencia cardíaca promedio de tu test.  </span>"></i>
+                      </button> 
+                    </p>
                   </div>
 
 
@@ -1854,7 +1798,7 @@
 
                   <div class="divider" style="margin: 0;">
                     <div class="divider-text">
-                      <i class='bx bxs-trophy text-success'></i>
+                      <i class="fa-solid fa-heart-pulse text-success" style="font-size: 20px;"></i>
                     </div>
                   </div>
 
@@ -1968,6 +1912,255 @@
                           <div class="user-progress d-flex align-items-center gap-1">
                             <h6 class="mb-0"> <span class="text-success">165 -</span> <span class="text-success"> 200</span></h6>
                             <small class="text-muted">PPM</small>
+                            
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- Expense Overview -->
+              <!-- <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100">
+                  <div class="card-header">
+                    <ul class="nav nav-pills" role="tablist">
+                      <li class="nav-item">
+                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                          data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income"
+                          aria-selected="true">
+                          Income
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link" role="tab">Expenses</button>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link" role="tab">Profit</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body px-0">
+                    <div class="tab-content p-0">
+                      <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
+                        <div class="d-flex p-4 pt-3">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../../assets/img/icons/unicons/wallet.png" alt="User" />
+                          </div>
+                          <div>
+                            <small class="text-muted d-block">Total Balance</small>
+                            <div class="d-flex align-items-center">
+                              <h6 class="mb-0 me-1">$459.10</h6>
+                              <small class="text-success fw-semibold">
+                                <i class="bx bx-chevron-up"></i>
+                                42.9%
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="incomeChart"></div>
+                        <div class="d-flex justify-content-center pt-4 gap-2">
+                          <div class="flex-shrink-0">
+                            <div id="expensesOfWeek"></div>
+                          </div>
+                          <div>
+                            <p class="mb-n1 mt-1">Expenses This Week</p>
+                            <small class="text-muted">$39 less than last week</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!--/ Expense Overview -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- Transactions -->
+              <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100">
+                  <div class="card-header d-flex align-items-center justify-content-between pb-1"  
+                  data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" 
+                  <span>
+                    Los test de FTP o FTHR son vitales para actualizar tu entreno periodicamente, llevar el control de tu progreso y ver cómo está tu nivel entre periodos. 
+                  </span>">
+                    <h5 class="card-title m-0">Fechas de tus <span class="text-success">TESTs</span> <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalTest"
+                      style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle'></i>
+                      </button> </h5>    
+                      
+                      <a href="app-planDeportivoTEST.html" class="btn-sm btn-label-success">Hacer Test</a>
+                  </div>
+
+                  <!-- <div class="mb-0" style="margin-left: 24px;">
+                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success"> 160 </span> <small class="text-muted">PPM</small> </p>
+                  </div> -->
+
+
+
+
+                  <div class="divider" style="margin: 0;">
+                    <div class="divider-text">
+                      <i class='bx bx-cycling text-success' style="font-size: 22px;"></i>
+                    </div>
+                  </div>
+
+
+
+
+                  
+                  <div class="card-body" style="padding-top: 2px;">
+
+
+                    <ul class="p-0 m-0">
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Inicio.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1"> Semana 1 </small>
+                            <h6 class="mb-0">Test inicial</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"><span class="text-success">23/01/2023 </span> </h6>                            
+                          </div>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Check.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1">Semana 5</small>
+                            <h6 class="mb-0">Test de control #1</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"><span class="text-success">20/02/2023</span> </h6>                            
+                          </div>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Check.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1">Semana 9</small>
+                            <h6 class="mb-0">Test de control #2</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"><span class="text-success">20/03/2023</span></h6>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Check.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1">Semana 13</small>
+                            <h6 class="mb-0">Test de control #3</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"><span class="text-success">17/04/2023</span></h6>
+                          </div>
+                        </div>
+                      </li>
+
+
+
+
+
+                      <li class="d-flex mb-4 pb-1">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Check.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1">Semana 17</small>
+                            <h6 class="mb-0">Test de control #4</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"><span class="text-success">15/05/2023</span></h6>
+                          </div>
+                        </div>
+                      </li>
+
+
+
+
+
+                      <li class="d-flex">
+                        <div class="avatar flex-shrink-0 me-3">
+                          <img src="../../assets/img/icons/unicons/Meta.png" alt="User" class="rounded" />
+                        </div>
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                          <div class="me-2">
+                            <small class="text-muted d-block mb-1"> Semana 21 </small>
+                            <h6 class="mb-0">Competencia</h6>
+                          </div>
+                          <div class="user-progress d-flex align-items-center gap-1">
+                            <h6 class="mb-0"> <span class="text-success">16/06/2023</span></h6>
+                            
                             
                           </div>
                         </div>
@@ -2104,7 +2297,7 @@
                     <h5 class="card-title m-0 me-2">Número de semanas por meso-ciclo</h5>                  
                   </div>
                   <div class="table-responsive text-nowrap">
-                    <table class="table table-sm table-borderless text-center">
+                    <table class="table table-sm table-borderless text-center mb-3">
                       <thead>
                         <tr>
                           <th>Meso-ciclo</th>
@@ -2733,6 +2926,209 @@
                 </div>
               </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="modal fade" id="modalRPE" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header mb-0">
+                    <h5 class="modal-title mb-0" id="modalCenterTitle">Escala de esfuerzo percibido (RPE)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+
+                  <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
+                    <div class="row">
+                      <div class="col">
+                        <img src="../../assets/img/pages/RPE.png" class="mb-3" alt="" width="100%">
+                        <p style="margin-bottom: 0px;">
+                          La escala de Borg (conocida como RPE por sus siglas en inglés Rating of Perceived Exertion)
+                          es un instrumento
+                          que fue creado con el propósito de medir el esfuerzo y exigencia de cada entrenamiento, así
+                          de sencillo. <br><br>
+
+                          También conocida como la escala de Esfuerzo Percibido, mide, como su nombre lo indica, la
+                          percepción de esfuerzo,
+                          la intensidad y volumen de la actividad física que tuvo el deportista de ese entrenamiento
+                          en específico.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="modal fade" id="modalZonasFC" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header mb-0">
+                    <h5 class="modal-title mb-0" id="modalCenterTitle">Zonas según tu <span class="text-success">FTHR</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
+                    <div class="row">
+                      <div class="col">                        
+                        <p style="margin-bottom: 0px;">
+                          Zonas calculadas de acuerdo a tu umbral de frecuencia cardíaca. <br> Es decir, la frecuencia cardíaca promedio de tu test FTHR (Functional Threshold Heart Rate) 
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+
+
+
+
+
+
+
+            <!-- <div class="modal fade" id="modalZonasFTP" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header mb-0">
+                    <h5 class="modal-title mb-0" id="modalCenterTitle">Zonas según tu <span class="text-success">FTP</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
+                    <div class="row">
+                      <div class="col">                        
+                        <p style="margin-bottom: 0px;">
+                          Zonas calculadas de acuerdo a tu umbral de potencia funcional. <br> Es decir, la máxima potencia que eres capaz de mantener
+                          en un estado casi estable sin fatigarte. El FTP (Functional Threshold Power) es el 95% de la potencia máxima de tu test. 
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="modal fade" id="modalTest" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header mb-0">
+                    <h5 class="modal-title mb-0" id="modalCenterTitle">Test de <span class="text-success">FTP / FTHR</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
+                    <div class="row">
+                      <div class="col">                        
+                        <p style="margin-bottom: 0px;">
+                          Zonas calculadas de acuerdo a tu umbral de potencia funcional. <br> Es decir, la máxima potencia que eres capaz de mantener
+                          en un estado casi estable sin fatigarte durante 20 minutos. Es el 95% de la potencia máxima de tu test FTP (Functional Threshold Power)
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
