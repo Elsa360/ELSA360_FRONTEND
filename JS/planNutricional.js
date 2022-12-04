@@ -1678,63 +1678,392 @@ window.onload = async () => {
 
 
 
+
+
+
+
+
+
+
+
+
 // grafico de peso deseado Vs Peso actual
 
 
 // meses para lograr peso objetivo
-// function graficoPesoDeseado(Kilos,Meses){
+
+dataKilosIdeales=[70.2, 71, 71.9, 73, 73.6, 74]
+dataKilosReales=[70.2, 70.5, 72.3, 72.8, 73.4, 74]
+dataLabelsPeso=['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
+
+graficoPesoDeseado(dataKilosIdeales, dataKilosReales, dataLabelsPeso);
+
+
+function graficoPesoDeseado(dataKilosIdeales,dataKilosReales,dataLabelsPeso){
     var opcioneslograrPesoObjetivo = {
         series: [{
-            name: "Kilos",
-            data: [70.2, 71, 71.9, 73, 73.6, 74],
+            name: "Kilos Ideales",  
+            type:'line',          
+            data: dataKilosIdeales,
+        },
+        {
+            name: "Kilos Reales", 
+            type:'line',           
+            data: dataKilosReales,
         }],
         chart: {
-            height: 150,
+            height: 190,
+            background: '#2b2c40',
             type: 'line',
             zoom: {
                 enabled: false
             },
+            toolbar: {
+                autoSelected: 'pan',
+                show: true,
+                offsetX: -20,
+                offsetY: 20,
+                tools: {
+                  download: true,
+                  selection: false,
+                  zoom: false,
+                  zoomin: false,
+                  zoomout: false,
+                  pan: false,
+                  reset: false | '<img src="/static/icons/reset.png" width="20">',
+                  customIcons: []
+                },
+                export:{
+                  csv:{
+                    filename: 'Evolución de tu peso'
+                  },
+                  svg:{
+                    filename: 'Evolución de tu peso'
+                  },
+                  png:{
+                    filename: 'Evolución de tu peso'
+                  }
+                }
+              }
         },
-        colors: ['#9BCB3B'],
+        colors: ["#ffab00","#9bcb3b"],
         dataLabels: {
-            enabled: true,
+            enabled: false,
         },
+        markers: {
+            size: 2,
+            colors: ["#ffab00","#9bcb3b"],
+            strokeColors: ["#ffab00","#9bcb3b"],
+          },
+          labels: dataLabelsPeso,
+          legend: {
+            show: true,
+            offsetY: 0,
+            position: 'bottom',
+            horizontalAlign: 'center',
+            fontSize: '12px',
+            itemMargin: {
+              horizontal: 5,
+              vertical: 0
+          },
+            labels: {
+              colors: '#fff',
+              useSeriesColors: false
+            }
+          },
         stroke: {
             curve: 'straight',
-            colors: ['#9BCB3B']
+            colors: ["#ffab00","#9bcb3b"],
+            width: [4,2],
+            dashArray: [8,0]
         },
         title: {
+            text: 'Evolución de tu peso',
+            offsetX: 40,
+            style:{
+                color:'#cbcbe2',
+                fontFamily: 'montserrat',
+                fontSize: '16px',
+                fontWeight: '500'
+            }
         },
         grid: {
-            show: false
-        },
+            show: true,
+            borderColor: '#191924',
+            strokeDashArray: 0,
+            position: 'back',
+            xaxis: {
+              lines: {
+                show: false
+              }
+            },
+            yaxis: {
+              lines: {
+                show: true
+              }
+            },
+            row: {
+              colors: undefined,
+              opacity: 0.1
+            },
+            column: {
+              colors: undefined,
+              opacity: 0.5
+            },
+            padding: {
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            }
+          },
         xaxis: {
-            categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+            type: 'categories',
             labels: {
                 style: {
-                    colors: ['#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B']
+                    colors: ['#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2']
                 }
-            }
-    
+            },          
         },
         yaxis: {
-            show: false,
+            show: true,
+            tickAmount: 3,
             labels: {
                 style: {
-                    colors: ['#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B', '#9BCB3B']
-                }
-            }
-    
+                    colors: ['#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2']
+                },
+                offsetX: -16,
+            },
+            axisBorder:{
+                show: true
+            },
+            axisTicks:{
+                show: true
+            }    
         },
-        
-    
+        tooltip: {
+            y: [
+              {
+                  formatter: function (val) {
+                    return val + " Kg"
+                  }
+              },
+              {
+                  formatter: function (val) {
+                    return val + " Kg"
+                  }
+              },
+            ]
+          },   
     };
     
     var lograrPesoObjetivo = new ApexCharts(document.querySelector("#lograrPesoObjetivo"), opcioneslograrPesoObjetivo);
     lograrPesoObjetivo.render();
     // fianl meses para lograr peso objetivo
-// }
+}
 
+
+
+
+
+
+
+
+
+
+
+
+dataGET=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055, 1241, 1067, 1222, 1343, 1021, 1241, 1056, 1027, 1243, 1044, 1255, 1141, 1167, 1022, 1243, 1021, 1141, 1256, 1027, 1143, 1037, 1221, 1244, 1422, 1344, 1555, 1041, 1067, 1222, 1543, 1321, 1241, 1056, 1027, 1243, 1144, 1255, 1441, 1067, 1222, 1043, 1021, 1241, 1556, 1027, 1043, 1244, 1355, 1441, 1067, 1222, 1443, 1021, 1241, 1456, 1027, 1243, 1344, 1055, 1241, 1467, 1322, 1043, 1421, 1641, 1756, 1027, 1243, 1237, 1021, 1044, 1222, 1044, 1155, 1041, 1267, 1022, 1443, 1021, 1241, 1256, 1327, 1243, 1044, 1455, 1041, 1267, 1322, 1343, 1021, 1241, 1056, 1027, 1243, 1144, 1555, 1041, 1267, 1022, 1343, 1021, 1241, 1256, 1127, 1043, 1344, 1055, 1241, 1067, 1122, 1043, 1221, 1641, 1356, 1027, 1243, 1037, 1221, 1644, 1022]
+dataCET=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055, 1241, 1067, 1222, 1343, 1021, 1241, 1056, 1027, 1243, 1044, 1255, 1141, 1167, 1022, 1243, 1021, 1141, 1256, 1027, 1143, 1037, 1221, 1244, 1422, 1344, 1555, 1041, 1067, 1222, 1543, 1321, 1241, 1056, 1027, 1243, 1144, 1255, 1441, 1067, 1222, 1043, 1021, 1241, 1556, 1027, 1043, 1244, 1355, 1441, 1067, 1222, 1443, 1021, 1241, 1456, 1027, 1243, 1344, 1055, 1241, 1467, 1322, 1043, 1421, 1641, 1756, 1027, 1243, 1237, 1021, 1044, 1222, 1044, 1155, 1041, 1267, 1022, 1443, 1021, 1241, 1256, 1327, 1243, 1044, 1455, 1041, 1267, 1322, 1343, 1021, 1241, 1056, 1027, 1243, 1144, 1555, 1041, 1267, 1022, 1343, 1021, 1241, 1256, 1127, 1043, 1344, 1055, 1241, 1067, 1122, 1043, 1221, 1641, 1356, 1027, 1243, 1037, 1221, 1644, 1022]
+dataLabelsDias=['01/01/2022', '01/02/2022', '01/03/2022', '01/04/2022', '01/05/2022', '01/06/2022', '01/07/2022', '01/08/2022', '01/09/2022', '01/10/2022', '01/11/2022', '01/12/2022',
+'01/13/2022', '01/14/2022', '01/15/2022', '01/16/2022', '01/17/2022', '01/18/2022', '01/19/2022', '01/20/2022', '01/21/2022', '01/22/2022', '01/23/2022', '01/24/2022',
+'02/01/2022', '02/02/2022', '02/03/2022', '02/04/2022', '02/05/2022', '02/06/2022', '02/07/2022', '02/08/2022', '02/09/2022', '02/10/2022', '02/11/2022', '02/12/2022',
+'02/13/2022', '02/14/2022', '02/15/2022', '02/16/2022', '02/17/2022', '02/18/2022', '02/19/2022', '02/20/2022', '02/21/2022', '02/22/2022', '02/23/2022', '02/24/2022',
+'03/01/2022', '03/02/2022', '03/03/2022', '03/04/2022', '03/05/2022', '03/06/2022', '03/07/2022', '03/08/2022', '03/09/2022', '03/10/2022', '03/11/2022', '03/12/2022',
+'03/13/2022', '03/14/2022', '03/15/2022', '03/16/2022', '03/17/2022', '03/18/2022', '03/19/2022', '03/20/2022', '03/21/2022', '03/22/2022', '03/23/2022', '03/24/2022',
+'04/01/2022', '04/02/2022', '04/03/2022', '04/04/2022', '04/05/2022', '04/06/2022', '04/07/2022', '04/08/2022', '04/09/2022', '04/10/2022', '04/11/2022', '04/12/2022',
+'04/13/2022', '04/14/2022', '04/15/2022', '04/16/2022', '04/17/2022', '04/18/2022', '04/19/2022', '04/20/2022', '04/21/2022', '04/22/2022', '04/23/2022', '04/24/2022',
+'05/01/2022', '05/02/2022', '05/03/2022', '05/04/2022', '05/05/2022', '05/06/2022', '05/07/2022', '05/08/2022', '05/09/2022', '05/10/2022', '05/11/2022', '05/12/2022',
+'05/13/2022', '05/14/2022', '05/15/2022', '05/16/2022', '05/17/2022', '05/18/2022', '05/19/2022', '05/20/2022', '05/21/2022', '05/22/2022', '05/23/2022', '05/24/2022',
+'06/01/2022', '06/02/2022', '06/03/2022', '06/04/2022', '06/05/2022', '06/06/2022', '06/07/2022', '06/08/2022', '06/09/2022', '06/10/2022', '06/11/2022', '06/12/2022',
+'06/13/2022', '06/14/2022', '06/15/2022', '06/16/2022', '06/17/2022', '06/18/2022', '06/19/2022', '06/20/2022', '06/21/2022', '06/22/2022', '06/23/2022', '06/24/2022'
+]
+
+durElvDistEntreno(
+  dataGET,dataCET, dataLabelsDias
+  );
+
+function durElvDistEntreno(
+  dataGET,dataCET, dataLabelsDias
+  ) {
+
+var opcionesCaloriasDiarias = {
+    series: [{
+        name: "GET (Lo que debes comer)",  
+        type:'line',          
+        data: dataGET,
+    },
+    {
+        name: "CET (Lo que comiste)", 
+        type:'line',           
+        data: dataCET,
+    }],
+    chart: {
+        height: 420,
+        background: '#2b2c40',
+        type: 'line',
+        zoom: {
+            enabled: false
+        },
+        toolbar: {
+            autoSelected: 'pan',
+            show: true,
+            offsetX: -20,
+            offsetY: 20,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false | '<img src="/static/icons/reset.png" width="20">',
+              customIcons: []
+            },
+            export:{
+              csv:{
+                filename: 'Calorías requeridas Vs Consumidas'
+              },
+              svg:{
+                filename: 'Calorías requeridas Vs Consumidas'
+              },
+              png:{
+                filename: 'Calorías requeridas Vs Consumidas'
+              }
+            }
+          }
+    },
+    colors: ["#ff7000","#9bcb3b"],
+    dataLabels: {
+        enabled: false,
+    },
+    markers: {
+        size: 2,
+        colors: ["#ff7000","#9bcb3b"],
+        strokeColors: ["#ff7000","#9bcb3b"],
+      },
+      labels: dataLabelsDias ,
+      legend: {
+        show: true,
+        offsetY: 10,
+        position: 'bottom',
+        horizontalAlign: 'center',
+        fontSize: '12px',
+        itemMargin: {
+          horizontal: 10,
+          vertical: 10
+      },
+        labels: {
+          colors: '#fff',
+          useSeriesColors: false
+        }
+      },
+    stroke: {
+        curve: 'straight',
+        colors: ["#ff7000","#9bcb3b"],
+        width: [4,2],
+        dashArray: [5,0]
+    },
+    title: {
+        text: 'Calorías requeridas Vs Consumidas',
+        offsetX: 40,
+        style:{
+            color:'#cbcbe2',
+            fontFamily: 'montserrat',
+            fontSize: '16px',
+            fontWeight: '500'
+        }
+    },
+    grid: {
+        show: true,
+        borderColor: '#191924',
+        strokeDashArray: 0,
+        position: 'back',
+        xaxis: {
+          lines: {
+            show: false
+          }
+        },
+        yaxis: {
+          lines: {
+            show: true
+          }
+        },
+        row: {
+          colors: undefined,
+          opacity: 0.1
+        },
+        column: {
+          colors: undefined,
+          opacity: 0.5
+        },
+        padding: {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0
+        }
+      },
+    xaxis: {
+        type: 'datetime',
+        labels: {
+            style: {
+                colors: ['#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2','#cbcbe2']
+            }
+        }    
+    },
+    yaxis: {
+        show: true,
+        tickAmount: 6,
+        labels: {
+            style: {
+                colors: ['#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2', '#cbcbe2']
+            },
+            offsetX: -16,
+        },
+        axisBorder:{
+            show: true
+        },
+        axisTicks:{
+            show: true
+        }    
+    },
+    tooltip: {
+        fixed: {
+          enabled: true,
+          position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+          offsetY: 30,
+          offsetX: 60
+        },
+        y: [
+            {
+                formatter: function (val) {
+                  return val + " Cal"
+                }
+            },
+            {
+                formatter: function (val) {
+                  return val + " Cal"
+                }
+            },
+          ]
+      }
+};
+
+var CaloriasDiarias = new ApexCharts(document.querySelector("#CaloriasDiarias"), opcionesCaloriasDiarias);
+CaloriasDiarias.render();
+// fianl meses para lograr peso objetivo
+  }
 
 
 

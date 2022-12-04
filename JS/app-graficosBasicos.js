@@ -74,8 +74,7 @@ function durElvDistEntreno(
       background: '#2b2c40',
       type: 'line',
       height: 420,
-      stacked: false,
-      
+      stacked: false,      
       toolbar: {
         autoSelected: 'pan',
         show: true,

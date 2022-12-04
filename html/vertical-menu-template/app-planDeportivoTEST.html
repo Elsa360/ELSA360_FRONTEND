@@ -1,75 +1,87 @@
 <!DOCTYPE html>
 
-<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default"
-  data-assets-path="../../assets/" data-template="vertical-menu-template">
+<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  
+  data-assets-path="../../assets/"  data-template="vertical-menu-template">
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <meta charset="utf-8" />
-  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
-  <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
-  <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
-  <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
-  <meta name="robots" content="noindex">
-  <title> Tiempos por zonas de tu entreno - ELSA360</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+      <meta charset="utf-8" />
+      <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+      <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
+      <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
+      <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
+      <meta name="robots" content="noindex">
+      <title> Test FTP / FTHR - ELSA360</title>    
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
-  <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
-  <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/css/demo.css" />
 
-  <!-- Core CSS -->
-  <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-  <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
-  <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
 
-  <!-- Vendors CSS -->
-  <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
-  <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
+    <script src="../../libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../../libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Page CSS -->
 
-  <!-- Page CSS -->
-  <link rel="stylesheet" href="../bt4/wrapkit/css/graficos.css">
+    <!-- Helpers -->
+    <script src="../../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../assets/vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../JS/middleware.js">validateLogin()</script>
+    <script>
+      $(function(){
+        $("#footer").load("footer.html"); 
+      });
+    </script>
+
+    <script>
+      var docDefinition={
+        content:[{text: 'link',
+		    link: 'file:app-planDeportivoTEST.html'}        
+        ]        
+      }
 
 
-  <!-- Helpers -->
-  <script src="../../assets/vendor/js/helpers.js"></script>
+      function downloadPDF(){
+        pdfMake.createPdf(docDefinition).download();
+      } 
 
-  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-  <script src="../../assets/vendor/js/template-customizer.js"></script>
-  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-  <script src="../../assets/js/config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-  <script src="../../JS/middleware.js"> validateLogin() </script>
+    </script>
+  
+  </head>
 
-  <script>
-    $(function () {
-      $("#footer").load("footer.html");
-    });
-  </script>
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
 
-</head>
 
-<body>
-  <!-- Layout wrapper -->
-  <div class="layout-wrapper layout-content-navbar">
-    <div class="layout-container">
-
-      <!-- Menu -->
+        <!-- Menu -->
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
         <div class="app-brand demo">
@@ -127,7 +139,7 @@
           </li> -->
       
           <!-- Graficas -->
-          <li class="menu-item active">
+          <li class="menu-item">
             <a href="app-graficosBasicos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-line-chart"></i>
               <div data-i18n="Gráficos">Gráficos</div>
@@ -142,7 +154,7 @@
       
       
           <!-- Ciclismo -->
-          <li class="menu-item">
+          <li class="menu-item active">
             <a href="app-planDeportivo.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-cycling"></i>
               <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
@@ -846,433 +858,172 @@
 
 
 
-        <!-- Content wrapper -->
-        <div class="content-wrapper">
-          <!-- Content -->
-
-          <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Gráficos /</span> Tiempo por zonas</h4>
-
-            <div class="row">
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosBasicos.html">
-                  <button type="button" class="btn btn-label-success active" style="width: 100%; padding-left: 10px; padding-right:10px; padding-top: 4px; padding-bottom: 4px;">Todos tus entrenos</button>
-                </a>                
-                </div>
-              
-              
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosSEMBasicos.html">
-                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px; padding-top: 4px; padding-bottom: 4px;">Datos semanales</button>
-                </a>                
-                </div>
 
 
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosMESBasicos.html">
-                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px; padding-top: 4px; padding-bottom: 4px;">Datos mensuales</button>
-                </a>                
-                </div>
+        
+
+          
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Plan deportivo /</span> Test</h4>
 
 
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px">
-                <a href="app-graficosMACROBasicos.html">
-                  <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px; padding-top: 4px; padding-bottom: 4px;">Datos de macrociclo</button>
-                </a>                
-                </div>          
-
-              
-              <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos macrociclo</button>
-              </div>
 
 
-              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
-                <button type="button" class="btn btn-label-success" style="width: 100%; padding-left: 10px; padding-right:10px;">Datos anuales </button>
-              </div> -->              
-            </div>
 
 
-            <!-- Cards with unicons & charts -->
-            <div class="row">
 
-              <div class="text-center mb-0">
-                <h5 class="mb-1">Gráficos e indicadores de todos tus entrenos</h5>
-              </div>
 
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z1:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z1Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="row">
+                <div class="col-md-3 col-lg-3 mb-4"></div>
+
+
+                <div class="col-md-6 col-lg-6 mb-4">
+                  <div class="mb-2">
+                    <div class="d-flex align-items-center justify-content-between pb-1">
+                      <h5 class="card-title mb-0" style="color: #cbcbe2;">Test: <span class="text-success" style="font-size: 17px;">FTP / FTHR</span> </h5>  
+                      <img src="../../assets/img/icons/unicons/bike.png" alt="" style="width: 10%;">                        
                     </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
+    
+    
+                    <div class="d-flex align-items-center justify-content-between pt-1">
+                      <h6 class="card-title mb-1" style="color: #cbcbe2;">Tiempo total: <span class="text-success" style="font-size: 15px;">60 minutos</span> </h6>
+                      <h6 class="card-title mb-2" style="color: #cbcbe2;">Fecha: <span class="text-success" style="font-size: 15px;">20/02/2023</span> </h6> 
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z2:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z2Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z3:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z3Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z4:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z4Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z5:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z5Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
-                </div>
-              </div>              
-
-              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
-                <div class="card">
-                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
-                    <div class=" d-flex align-items-start justify-content-between mb-2">
-                      <div>
-                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total Z6:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
-                        </small>
-                      </div>
-                      
-                      <div class="avatar flex-shrink-0 mb-0">
-                        <img src="../../assets/img/icons/unicons/Z6Graficos.png" alt="Clock" class="rounded" />
-                      </div>                      
-                    </div>
-                    
-                    
-                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
-                    </small>
-                  </div>
-                </div>
-              </div>
 
 
-            </div>
+                  <div class="card">
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-12">                        
+                        <div class="card-body" style="padding-right: 15px; padding-left: 15px;">
+                          
 
+                          <p class="mb-4" style="color: #cbcbe2;">
+                            <span class="fw-bold text-success" style="font-size: 18px;">Calentamiento: </span> Pedalea 10 minutos al 55% de tu FTP ó a <small class="bold text-success" style="font-size: 14px;"> 209 W</small>  <br>
+                            Luego, realiza <span class="text-success" style="font-size: 15px;"> 3 repeticiones</span> de <span class="text-success" style="font-size: 15px;"> 1 minuto</span> cada una, a una alta cadencia
+                            <span class="text-success" style="font-size: 15px;"> (cerca a las 100 RPM)</span> y descansando <span class="text-success" style="font-size: 15px;"> 1 minuto</span> entre repeticiones.
+                          </p>                          
 
+                          
 
-
-
-
-
-
-
-
-
-
-            <div class="row">
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px;">
-                <a href="app-graficosBasicos.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; padding-top: 4px; padding-bottom: 4px;"
-                      title="<span>Duración, distancia recorrida y desnivel positivo</span>">Datos básicos 
-                  </button>  
-                </a>              
-              </div>
-              
-              
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px;">
-                <a href="app-graficosIndicadores.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; padding-top: 4px; padding-bottom: 4px;"
-                      title="<span>FC, Potencia, Velocidad y Cadencia</span>">Indicadores
-                  </button>  
-                </a>              
-              </div>
-
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px;">
-                <a href="app-graficosCargas.html"><button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; padding-top: 4px; padding-bottom: 4px;"
-                      title="<span>TSS, IF, np, Calorías, TRIMPS, Trabajo y RPE</span>"> Cargas
-                  </button>  
-                </a>             
-              </div>
-
-
-              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-2" style="padding-left: 8px; padding-right:8px;">
-                <a href="app-graficosIndicadoresTXZona.html"><button type="button" class="btn btn-success active" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px; padding-top: 4px; padding-bottom: 4px;"
-                      title="<span>Tiempos en cada zona según tu FC y FTP</span>"><i class='bx bx-check' style="font-weight: 700"></i> Tiempos X zonas
-                  </button>
-                </a>
-              </div>          
-
-              
-              <!-- <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
-                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 3px; padding-right:3px;"
-                      title="<span>Tiempo entrenado por habilidad</span>">Tiempo X habilidad
-                </button>
-              </div>
-
-
-              <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 mb-2" style="padding-left: 4px; padding-right:4px">
-                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" style="width: 100%; padding-left: 8px; padding-right:8px;"
-                      title="<span>Horas de sueño, FC basal y N° de pasos</span>">Bienestar
-                </button>
-              </div> -->              
-            </div>
-            
-
-            <div class="col-lg-12 col-12 mb-1">
-              <div class="card">
-
-                <div class="card-header  header-elements pb-1">
-                  <!-- <h5 class="card-title mb-2">New Product Data</h5> -->
-                  <div class="card-header-elements ms-auto py-0 d-sm-block">
-                    <ul class="nav nav-tabs" role="tablist">
-                      <li class="nav-item">
-                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#TXZonaFC1Container" aria-controls="TXZonaFC1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          FC
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#TXZonaPotencia2Container" aria-controls="TXZonaPotencia2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          Potencia
-                        </button>
-                      </li>
-                      <!-- <li class="nav-item">
-                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
-                          data-bs-target="#TXZonaVelocidad3Container" aria-controls="TXZonaVelocidad3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
-                          Velocidad
-                        </button>
-                      </li> -->
-                    </ul>                      
-                  </div>
-                </div>   
-
-                  <div class="card-body pb-0" style="padding-left: 2px; padding-right: 2px;">
-                    <div class="tab-content text-center" style="padding: 2px;">
-                      
-                      <div class="tab-pane fade show active" id="TXZonaFC1Container" role="tabpanel">
-                        <div class="mb-0" id="TXZonaFC1"></div>
-                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
-                          **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
-                        <div class="mb-0" id="TXZonaFC2"></div>
-                      </div>
-
-                      <div class="tab-pane fade" id="TXZonaPotencia2Container" role="tabpanel">
-                        <div class="mb-0" id="TXZonaPotencia1"></div>     
-                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
-                          **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>
-                        <div class="mb-0" id="TXZonaPotencia2"></div>                    
-                      </div>
-
-
-                      <!-- <div class="tab-pane fade" id="TXZonaVelocidad3Container" role="tabpanel">
-                        <div class="mb-0" id="TXZonaVelocidad1"></div>     
-                        <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. <br>
-                          **Arrastrando el cuadro blanco del gráfico de abajo, podrás ir a ver los datos de tus entrenos pasados </p>  
-                        <div class="mb-0" id="TXZonaVelocidad2"></div>               
-                      </div> -->
-
-                    </div>
-                  </div> 
-
-              </div>
-            </div>
-            
-          </div>
-            
-          </div>
-          <!-- / Content -->
-
-         
-
-
-              <!-- Modal -->
-              <div class="modal fade" id="modalRPE" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header mb-0">
-                      <h5 class="modal-title mb-0" id="modalCenterTitle">Escala de esfuerzo percibido (RPE)</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-
-                    <div class="modal-body text-center" style="padding-bottom: 5px; padding-top: 10px;">
-                      <div class="row">
-                        <div class="col">
-                          <img src="../../assets/img/pages/RPE.png" class="mb-3" alt="" width="100%">
-                          <p style="margin-bottom: 0px;">
-                            La escala de Borg (conocida como RPE por sus siglas en inglés Rating of Perceived Exertion)
-                            es un instrumento
-                            que fue creado con el propósito de medir el esfuerzo y exigencia de cada entrenamiento, así
-                            de sencillo. <br><br>
-
-                            También conocida como la escala de Esfuerzo Percibido, mide, como su nombre lo indica, la
-                            percepción de esfuerzo,
-                            la intensidad y volumen de la actividad física que tuvo el deportista de ese entrenamiento
-                            en específico.
+                          <p class="mb-0" style="color: #cbcbe2;">
+                            <span class="fw-bold text-success" style="font-size: 18px;">Instrucciones: </span>                    
                           </p>
+
+                          <p class="mb-4" style="color: #cbcbe2;">
+                            <i class='bx bxs-right-arrow text-success' style="font-size: 12px;"></i> Ahora, haz <small class="bold text-success" style="font-size: 14px;"> 5 minutos</small> a máxima intensidad.                                
+                          </p>
+                          
+                          <p class="mb-4" style="color: #cbcbe2;">
+                            <i class='bx bxs-right-arrow text-success' style="font-size: 12px;"></i> Descansa <small class="bold text-success" style="font-size: 14px;"> 10 minutos</small> pedaleando suave.                                  
+                          </p>
+
+                          <p class="mb-4" style="color: #cbcbe2;">
+                            <i class='bx bxs-right-arrow text-success' style="font-size: 12px;"></i> Finalmente, realiza una CONTRARRELOJ de <small class="bold text-success" style="font-size: 14px;"> 20 minutos</small>,
+                            a máxima intensidad lo más constante posible. Ve de menos a más, con una intensidad y cadencia alta.
+                          </p>                                                    
+                          
+
+                          <p class="mb-2" style="color: #cbcbe2;">
+                            <span class="fw-bold text-success" style="font-size: 18px;">Vuelta a la calma: </span> Pedalea 10 minutos al 50% de tu FTP ó a <small class="bold text-success" style="font-size: 14px;"> 190 W</small>
+                             y a descansar! 
+                          </p>
+  
+
+                          <a href="app-planDeportivoResumen.html" class="btn btn-sm btn-label-success mt-3" style="margin-right: 10px;"> Ver resumen</a>
+                          <button type="button" class="btn btn-sm btn-label-success mt-3" onclick="downloadPDF()" style="margin-right: 10px;"> Descargar PDF</button>
+                          <button type="button" class="btn btn-sm btn-label-success mt-3" onclick="print()" style="margin-right: 10px;"> Descargar PDF</button>
+                          <a href="train-cycling-data.html" class="btn btn-sm btn-success mt-3" style="margin-right: 10px;">Agregar datos de este entreno</a>
+                          
+                          
                         </div>
                       </div>
 
-                    </div>
 
-
-
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      
                     </div>
                   </div>
                 </div>
-              </div>      
+                <div class="col-md-3 col-lg-3 mb-4"></div>
+              </div>   
 
 
 
-          <!-- Footer -->
-          <footer id="footer"></footer>
-          <!-- / Footer -->
+              </div>              
+            </div>
+            <!-- / Content -->
 
+            <!-- Footer -->
+            <footer id="footer"></footer>
+            <!-- / Footer -->
 
-          <div class="content-backdrop fade"></div>
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
         </div>
-        <!-- Content wrapper -->
+        <!-- / Layout page -->
       </div>
-      <!-- / Layout page -->
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
     </div>
+    <!-- / Layout wrapper -->
 
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-    <div class="drag-target"></div>
-  </div>
-  <!-- / Layout wrapper -->
+    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-  <!-- Core JS -->
-  <!-- build:js assets/vendor/js/core.js -->
-  
-  <script src="../../assets/vendor/libs/popper/popper.js"></script>
-  <script src="../../assets/vendor/js/bootstrap.js"></script>
-  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
 
-  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <!-- Vendors JS -->
+    <script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-  <script src="../../assets/vendor/js/menu.js"></script>
-  <!-- endbuild -->
+    <!-- Main JS -->
+    <script src="../../assets/js/main.js"></script>
 
-  <!-- Vendors JS -->
-  <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
-  <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
-  <script src="../../assets/vendor/libs/moment/moment.js"></script>
-  <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
-  <script src="../../assets/vendor/libs/select2/select2.js"></script>
-
-  <!-- Main JS -->
-  <script src="../../assets/js/main.js"></script>
-  <script src="../../JS/app-graficosTXZona.js"></script>
+    
 
 
-
-  <!-- Page JS -->
-  <script src="../../assets/js/form-layouts.js"></script>
-</body>
-
+    <!-- Page JS -->
+    <script src="../../assets/js/cards-statistics.js"></script>
+  </body>
 </html>
