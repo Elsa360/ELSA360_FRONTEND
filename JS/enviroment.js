@@ -7,7 +7,7 @@ switch (window.location.hostname) {
         apiServer="https://localhost:7155/";
         break;
     case "elsa360.com":
-        apiServer="";
+        apiServer="http://54.193.8.32";
         break;
 
 

@@ -1601,7 +1601,7 @@ function guardarAlimentosVegetarianos() {
                 console.log('IdInput:', idAli);
                 console.log('IdAlimentos:', idAli.slice(4))
                 console.log('Porciones:', document.getElementById(idAli).value);
-                fetch('https://localhost:7155/alimentoVegetarianoSeleccionado/crear', {
+                fetch(apiServer+'alimentoVegetarianoSeleccionado/crear', {
                     method: 'POST',
                     body: JSON.stringify({
                         fkIdMomentoComidaSlccn: 1,
