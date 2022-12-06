@@ -52,9 +52,14 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <script src="../../JS/customTask.js"></script>
   <script>
+  function onSubmit(token) {
+    //document.getElementById("formAuthentication").submit();
+    registrarme();
+  }
     initServer();
   </script>
 </head>
@@ -126,18 +131,27 @@
 
 
 
-              <!-- reCapcaht -->
+              <!-- reCapcahta -->
               <div class="mb-2">
-                <div class="g-recaptcha" data-sitekey="6LcS0fMiAAAAAIVMYl7n2Oc7UUH_cscm4Q26OUKU"
+
+
+
+                --
+                <!--<div class="g-recaptcha" data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
                   style="transform: scale(0.85) ; transform-origin: 0 1; margin-left: auto; margin-right: auto; width: fit-content;">
-                </div>
+                </div>-->
               </div>
 
 
 
+              <button class="g-recaptcha btn btn-success d-grid w-100"
+              style="font-weight: 600;"
+              data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
+              data-callback='onSubmit'
+              data-action='submit'>Registrarme</button>
 
-              <input type="button" class="btn btn-success d-grid w-100" style="font-weight: 600;"
-                onclick="registrarme()" value="Registrarme" />
+              <!--<input type="button" class="btn btn-success d-grid w-100" style="font-weight: 600;"
+                onclick="registrarme()" value="Registrarme" />-->
             </form>
 
             <p class="text-center">

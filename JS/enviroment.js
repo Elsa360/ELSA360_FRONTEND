@@ -9,7 +9,7 @@ switch (window.location.hostname) {
 
         break;
     case "elsa360.com":
-        apiServer="https://54.193.8.32/";
+        apiServer="https://api.elsa360.com/";
         break;
 
 
