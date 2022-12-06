@@ -120,7 +120,7 @@ function durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt) 
       }
     },
     stroke: {
-      width: [4, 3, 4],
+      width: [4, 2, 4],
       curve: 'smooth',
       colors: ["#ffab00", "#9bcb3b", "#007bff"],
     },
@@ -201,19 +201,19 @@ function durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt) 
       {
         axisTicks: {
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: 10,
         },
         axisBorder: {
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: -10,
         },
         labels: {
           rotate: 90,
           offsetX: -10,
           style: {
-            colors: '#9bcb3b',
+            colors: '#ffab00',
             fontSize:'10px'
           }
         },       
@@ -225,19 +225,19 @@ function durElvDistEntreno(dataFCBasal,dataHrsSueño, dataPasos, dataLabelsEnt) 
         opposite: true,
         axisTicks: {          
           show: true,
-          color: '#b2e2f2',
+          color: '#9bcb3b',
           offsetX: 10,
         },
         axisBorder: {
           show: true,
-          color: '#b2e2f2',
+          color: '#9bcb3b',
           offsetX: -5,
         },
         labels: {
           rotate: 90,
           offsetX: -5,
           style: {
-            colors: '#b2e2f2',
+            colors: '#9bcb3b',
             fontSize:'9px',
           },
         },       

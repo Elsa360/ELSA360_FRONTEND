@@ -272,6 +272,23 @@ function durElvDistEntreno(
         offsetY: 30,
         offsetX: 60
       },
+      y: [
+        {
+            formatter: function (val) {
+              return val + " h:m:s"
+            }
+        },
+        {
+            formatter: function (val) {
+              return val + " m"
+            }
+        },
+        {
+          formatter: function (val) {
+            return val + " Km"
+          }
+      }
+      ]
     }        
   };
 

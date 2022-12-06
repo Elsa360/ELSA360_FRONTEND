@@ -194,19 +194,19 @@ function durElvDistEntreno(dataFCBasalSEM,dataHrsSueñoSEM, dataPasosSEM, dataLa
       {
         axisTicks: {
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: 10,
         },
         axisBorder: {
           show: true,
-          color: '#9bcb3b',
+          color: '#ffab00',
           offsetX: -10,
         },
         labels: {
           rotate: 90,
           offsetX: -10,
           style: {
-            colors: '#9bcb3b',
+            colors: '#ffab00',
             fontSize:'10px'
           }
         },       
@@ -218,19 +218,19 @@ function durElvDistEntreno(dataFCBasalSEM,dataHrsSueñoSEM, dataPasosSEM, dataLa
         opposite: true,
         axisTicks: {          
           show: true,
-          color: '#b2e2f2',
+          color: '#9bcb3b',
           offsetX: 10,
         },
         axisBorder: {
           show: true,
-          color: '#b2e2f2',
+          color: '#9bcb3b',
           offsetX: -5,
         },
         labels: {
           rotate: 90,
           offsetX: -5,
           style: {
-            colors: '#b2e2f2',
+            colors: '#9bcb3b',
             fontSize:'9px',
           },
         },       
