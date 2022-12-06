@@ -89,8 +89,9 @@ var optionsDistAcumYPromSem1 = {
       data: dataCadenciaPromPromSem
     }],
   chart: {
-    height: 550,
-    type: 'bar',
+    height: 420,
+    background: '#2b2c40',
+    type: 'line',
     zoom:{
       enabled: true,
       type: 'x',
@@ -111,7 +112,28 @@ var optionsDistAcumYPromSem1 = {
         reset: true | '<img src="/static/icons/reset.png" width="20">',
         customIcons: []
       },
+      export:{
+        csv:{
+          filename: 'Indicadores semanales'
+        },
+        svg:{
+          filename: 'Indicadores semanales'
+        },
+        png:{
+          filename: 'Indicadores semanales'
+        }
+      }
     }
+  },
+  title: {
+    text: 'Indicadores semanales',
+    offsetX: 10,
+    style: {
+      fontSize:  '16px',
+      fontWeight:  600,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
   },
   tooltip: {
     fixed: {
@@ -121,15 +143,57 @@ var optionsDistAcumYPromSem1 = {
       offsetY: 30,
       offsetX: 60
     },
+    y: [
+      {
+          formatter: function (val) {
+            return val + " PPM"
+          }
+      },
+      {
+          formatter: function (val) {
+            return val + " PPM"
+          }
+      },
+      {
+        formatter: function (val) {
+          return val + " W"
+        }
+    },
+    {
+      formatter: function (val) {
+        return val + " W"
+      }
+  },
+  {
+      formatter: function (val) {
+        return val + " Km/h"
+      }
+  },
+  {
+    formatter: function (val) {
+      return val + " Km/h"
+    }
+},
+{
+  formatter: function (val) {
+    return val + " RPM"
+  }
+},
+{
+formatter: function (val) {
+  return val + " RPM"
+}
+}
+    ]
   },
   plotOptions: {
     bar: {
       columnWidth: '70%',
-      borderRadius: 2
+      borderRadius: 1
     }
   },
   fill: {
-    opacity: [0.80, 0.75, 0.80, 0.75, 0.80, 0.75,0.80,0.75],
+    opacity: [0.80, 0.55, 0.80, 0.55, 0.80, 0.55, 0.80, 0.55],
     gradient: {
       inverseColors: false,
       shade: 'light',
@@ -140,7 +204,7 @@ var optionsDistAcumYPromSem1 = {
     }
   },
   stroke: {
-    width: [4, 0, 4, 0, 4, 0,4,0],
+    width: [4, 2, 4, 2, 4, 2, 4, 2],
     curve: 'smooth',
     colors: [ "#ffab00","#ffab00", "#9bcb3b", "#9bcb3b", "#007bff","#007bff", "#FF7000", "#FF7000"],
   },

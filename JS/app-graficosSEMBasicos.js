@@ -79,8 +79,9 @@ var optionsDistAcumYPromSem1 = {
     },
     ],
   chart: {
-    height: 550,
-    type: 'bar',
+    height: 420,
+    background: '#2b2c40',
+    type: 'line',
     zoom:{
       enabled: true,
       type: 'x',
@@ -101,7 +102,28 @@ var optionsDistAcumYPromSem1 = {
         reset: true | '<img src="/static/icons/reset.png" width="20">',
         customIcons: []
       },
+      export:{
+        csv:{
+          filename: 'Datos básicos semanales'
+        },
+        svg:{
+          filename: 'Datos básicos semanales'
+        },
+        png:{
+          filename: 'Datos básicos semanales'
+        }
+      }
     }
+  },
+  title: {
+    text: 'Datos básicos semanales',
+    offsetX: 10,
+    style: {
+      fontSize:  '16px',
+      fontWeight:  600,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
   },
   tooltip: {
     fixed: {
@@ -111,15 +133,47 @@ var optionsDistAcumYPromSem1 = {
       offsetY: 30,
       offsetX: 60
     },
+    y: [
+      {
+          formatter: function (val) {
+            return val + " h:m:s"
+          }
+      },
+      {
+          formatter: function (val) {
+            return val + " h:m:s"
+          }
+      },
+      {
+        formatter: function (val) {
+          return val + " m"
+        }
+    },
+    {
+      formatter: function (val) {
+        return val + " m"
+      }
+  },
+  {
+      formatter: function (val) {
+        return val + " Km"
+      }
+  },
+  {
+    formatter: function (val) {
+      return val + " Km"
+    }
+}
+    ]
   },
   plotOptions: {
     bar: {
       columnWidth: '70%',
-      borderRadius: 2
+      borderRadius: 1
     }
   },
   fill: {
-    opacity: [0.70, 0.75, 0.70, 0.75, 0.70, 0.75],
+    opacity: [0.55, 0.75, 0.55, 0.75, 0.55, 0.75],
     gradient: {
       inverseColors: false,
       shade: 'light',
@@ -130,7 +184,7 @@ var optionsDistAcumYPromSem1 = {
     }
   },
   stroke: {
-    width: [0, 4, 0, 4, 0, 4],
+    width: [2, 4, 2, 4, 2, 4],
     curve: 'smooth',
     colors: ["#9bcb3b","#9bcb3b", "#ffab00","#ffab00","#007bff","#007bff"],
   },

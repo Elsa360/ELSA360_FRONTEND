@@ -33,104 +33,97 @@ defaultLocale: "es",
 
 
 // grafico de duraciòn, distancia y desnivel semanal
-dataDuracionAcumSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
-dataDuracionPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataTSSAcumSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataTSSPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
 
-dataDesnivelAcumSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataDesnivelPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
+dataTRIMPSAcumSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
+dataTRIMPSPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
 
-dataDistanciaAcumSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
-dataDistanciaPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataTrabajoAcumSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataTrabajoPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
 
-dataFCMaxPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
-dataFCPromPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataRPEAcumSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataRPEPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
 
-dataPotenciaMaxPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataPotenciaPromPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataIFPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
 
-dataVelocidadMaxPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataVelocidadPromPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataNPPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
 
-dataCadenciaMaxPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataCadenciaPromPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataCaloriasAcumSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
+dataCaloriasPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
 dataLabelsSem=['01/01/2022', '01/02/2022', '01/03/2022', '01/04/2022', '01/05/2022', '01/06/2022', '01/07/2022', '01/08/2022', '01/09/2022', '01/10/2022', '01/11/2022', '01/12/2022', '01/13/2022', '01/14/2022', '01/15/2022', '01/16/2022', '01/17/2022', '01/18/2022', '01/19/2022', '01/20/2022', '01/21/2022', '01/22/2022', '01/23/2022', '01/24/2022']
 
-durElvDistSemana(
-  dataDuracionAcumSem, dataDuracionPromSem, dataDesnivelAcumSem, dataDesnivelPromSem, dataDistanciaAcumSem, dataDistanciaPromSem,dataFCMaxPromSem, dataFCPromPromSem,dataPotenciaMaxPromSem,dataPotenciaPromPromSem,dataVelocidadMaxPromSem,dataVelocidadPromPromSem,dataCadenciaMaxPromSem,dataCadenciaPromPromSem, dataLabelsSem
+IndicadoresSemana(
+  dataTSSAcumSem, dataTSSPromSem, dataTRIMPSAcumSem, dataTRIMPSPromSem, dataTrabajoAcumSem, dataTrabajoPromSem,dataRPEAcumSem, dataRPEPromSem,dataIFPromSem,dataNPPromSem,dataCaloriasAcumSem,dataCaloriasPromSem, dataLabelsSem
   );
 
-function durElvDistSemana(
-  dataDuracionAcumSem, dataDuracionPromSem, dataDesnivelAcumSem, dataDesnivelPromSem, dataDistanciaAcumSem, dataDistanciaPromSem,dataFCMaxPromSem, dataFCPromPromSem,dataPotenciaMaxPromSem,dataPotenciaPromPromSem,dataVelocidadMaxPromSem,dataVelocidadPromPromSem,dataCadenciaMaxPromSem,dataCadenciaPromPromSem, dataLabelsSem
+function IndicadoresSemana(
+  dataTSSAcumSem, dataTSSPromSem, dataTRIMPSAcumSem, dataTRIMPSPromSem, dataTrabajoAcumSem, dataTrabajoPromSem,dataRPEAcumSem, dataRPEPromSem, dataIFPromSem,dataNPPromSem,dataCaloriasAcumSem,dataCaloriasPromSem, dataLabelsSem
   ) {
 
 
 var optionsCargasAcumYPromSem1 = {
-  colors: ["#9bcb3b", "#9bcb3b", "#b2e2f2","#b2e2f2", "#007bff","#007bff", "#ff3e1d", "#ffab00", "#4bc0c0", "#fff", "#F902EA","#FF7000","#E9B0F2", "#F2EB07"],
+  colors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
     series: [
       {
-      name: 'Duración Acumulada',
+      name: 'TSS Acumulado',
       type: 'bar',
-      data: dataDuracionAcumSem
+      data: dataTSSAcumSem
     }, {
-      name: 'Duración Promedio',
+      name: 'TSS Promedio',
       type: 'line',
-      data: dataDuracionPromSem
+      data: dataTSSPromSem
     }, {
-      name: 'Desnivel Positivo Acumulado',
+      name: 'TRIMPS Acumulado',
       type: 'bar',
-      data: dataDesnivelAcumSem
+      data: dataTRIMPSAcumSem
     },
     {
-      name: 'Desnivel Positivo Promedio',
+      name: 'TRIMPS Promedio',
       type: 'line',
-      data: dataDesnivelPromSem
+      data: dataTRIMPSPromSem
     }, {
-      name: 'Distancia Acumulada',
+      name: 'Trabajo Acumulado',
       type: 'bar',
-      data: dataDistanciaAcumSem
+      data: dataTrabajoAcumSem
     }, {
-      name: 'Distancia Promedio',
+      name: 'Trabajo Promedio',
       type: 'line',
-      data: dataDistanciaPromSem
+      data: dataTrabajoPromSem
     },
     {
-      name: 'FC Max Promedio',
-      type: 'line',
-      data: dataFCMaxPromSem
+      name: 'RPE Acumulado',
+      type: 'bar',
+      data: dataRPEAcumSem
     }, {
-      name: 'FC Promedio',
+      name: 'RPE Promedio',
       type: 'line',
-      data: dataFCPromPromSem
+      data: dataRPEPromSem
     }, {
-      name: 'Potencia Max Promedio',
+      name: 'IF Promedio',
       type: 'line',
-      data: dataPotenciaMaxPromSem
+      data: dataIFPromSem
     },
     {
-      name: 'Potencia Promedio',
+      name: 'np Promedio',
       type: 'line',
-      data: dataPotenciaPromPromSem
+      data: dataNPPromSem
     }, {
-      name: 'Velocidad Max Promedio',
-      type: 'line',
-      data: dataVelocidadMaxPromSem
+      name: 'Calorías Acumuladas',
+      type: 'bar',
+      data: dataCaloriasAcumSem
     }, {
-      name: 'Velocidad Promedio',
+      name: 'Calorías Promedio',
       type: 'line',
-      data: dataVelocidadPromPromSem
+      data: dataCaloriasPromSem
     },
-    {
-      name: 'Cadencia Max Promedio',
-      type: 'line',
-      data: dataCadenciaMaxPromSem
-    }, {
-      name: 'Cedencia Promedio',
-      type: 'line',
-      data: dataCadenciaPromPromSem
-    }],
+    ],
   chart: {
-    height: 550,
-    type: 'bar',
+    height: 420,
+    background: '#2b2c40',
+    offsetX: 0,
+    offsetY: 0,
+    type: 'line',
     zoom:{
       enabled: true,
       type: 'x',
@@ -151,7 +144,28 @@ var optionsCargasAcumYPromSem1 = {
         reset: true | '<img src="/static/icons/reset.png" width="20">',
         customIcons: []
       },
+      export:{
+        csv:{
+          filename: 'Cargas semanales'
+        },
+        svg:{
+          filename: 'Cargas semanales'
+        },
+        png:{
+          filename: 'Cargas semanales'
+        }
+      }
     }
+  },
+  title: {
+    text: 'Cargas semanales',
+    offsetX: 10,
+    style: {
+      fontSize:  '16px',
+      fontWeight:  600,
+      fontFamily:  'montserrat',
+      color:  '#cbcbe2'
+    },
   },
   tooltip: {
     fixed: {
@@ -165,11 +179,11 @@ var optionsCargasAcumYPromSem1 = {
   plotOptions: {
     bar: {
       columnWidth: '70%',
-      borderRadius: 2
+      borderRadius: 1
     }
   },
   fill: {
-    opacity: [0.70, 0.75, 0.70, 0.75, 0.70, 0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75,0.75],
+    opacity: [0.55, 0.75, 0.55, 0.75, 0.55, 0.75, 0.55, 0.75 ,0.75 ,0.75 , 0.55, 0.75],
     gradient: {
       inverseColors: false,
       shade: 'light',
@@ -180,17 +194,17 @@ var optionsCargasAcumYPromSem1 = {
     }
   },
   stroke: {
-    width: [0, 3, 0, 3, 0, 3,3,3,3,3,3,3,3,3],
+    width: [2, 3, 2, 3, 2, 3, 2, 3, 3, 3, 2, 3],
     curve: 'smooth',
-    colors: ["#9bcb3b", "#9bcb3b", "#b2e2f2","#b2e2f2", "#007bff","#007bff", "#ff3e1d", "#ffab00", "#4bc0c0", "#fff", "#F902EA","#FF7000","#E9B0F2", "#F2EB07"],
+    colors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
   },
   dataLabels: {
     enabled: false   
   },
   markers: {
     size: 4,
-    colors: ["#9bcb3b", "#9bcb3b", "#b2e2f2","#b2e2f2", "#007bff","#007bff", "#ff3e1d", "#ffab00", "#4bc0c0", "#fff", "#F902EA","#FF7000","#E9B0F2", "#F2EB07"],
-    strokeColors: ["#9bcb3b", "#9bcb3b", "#b2e2f2","#b2e2f2", "#007bff","#007bff", "#ff3e1d", "#ffab00", "#4bc0c0", "#fff", "#F902EA","#FF7000","#E9B0F2", "#F2EB07"],
+    colors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
+    strokeColors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
   },
   labels: dataLabelsSem,
   xaxis: {
@@ -219,16 +233,40 @@ var optionsCargasAcumYPromSem1 = {
       axisTicks: {
         show: true,
         color: '#9bcb3b',
-        offsetX: 20,
+        offsetX: 12,
       },
       axisBorder: {
         show: true,
         color: '#9bcb3b',
-        offsetX: -15,
+        offsetX: -12,
       },
       labels: {
         rotate: 90,
-        offsetX: -20,
+        offsetX: 0,
+        style: {
+          colors: '#9bcb3b',
+          fontSize:'10px'
+        }
+      },       
+      tooltip: {
+        enabled: false
+      }
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true,
+        color: '#9bcb3b',
+        offsetX: 9,
+      },
+      axisBorder: {
+        show: true,
+        color: '#9bcb3b',
+        offsetX: -10,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -15,
         style: {
           colors: '#9bcb3b',
           fontSize:'10px'
@@ -241,62 +279,40 @@ var optionsCargasAcumYPromSem1 = {
     {
       axisTicks: {
         show: true,
-        color: '#9bcb3b',
-        offsetX: 20,
+        color: '#FF7000',
+        offsetX: 2,
       },
       axisBorder: {
         show: true,
-        color: '#9bcb3b',
-        offsetX: -15,
+        color: '#FF7000',
+        offsetX: -2,
       },
       labels: {
         rotate: 90,
-        offsetX: -20,
+        offsetX: 3,
         style: {
-          colors: '#9bcb3b',
-          fontSize:'10px'
-        }
-      },       
-      tooltip: {
-        enabled: false
-      }
-    },
-    {
-      axisTicks: {
-        show: true,
-        color: '#b2e2f2',
-        offsetX: 20,
-      },
-      axisBorder: {
-        show: true,
-        color: '#b2e2f2',
-        offsetX: -15,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#b2e2f2',
+          colors: '#FF7000',
           fontSize:'9px',
         },
       },       
     },
     {
+      opposite: true,
       axisTicks: {
         show: true,
-        color: '#b2e2f2',
-        offsetX: 20,
+        color: '#FF7000',
+        offsetX: 9,
       },
       axisBorder: {
         show: true,
-        color: '#b2e2f2',
-        offsetX: -15,
+        color: '#FF7000',
+        offsetX: -10,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: -10,
         style: {
-          colors: '#b2e2f2',
+          colors: '#FF7000',
           fontSize:'9px',
         },
       },       
@@ -322,19 +338,20 @@ var optionsCargasAcumYPromSem1 = {
       },       
     },
     {
+      opposite: true,
       axisTicks: {
         show: true,
         color: '#007bff',
-        offsetX: 20,
+        offsetX: 9,
       },
       axisBorder: {
         show: true,
         color: '#007bff',
-        offsetX: -15,
+        offsetX: -10,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: -10,
         style: {
           colors: '#007bff',
           fontSize:'9px',
@@ -369,12 +386,83 @@ var optionsCargasAcumYPromSem1 = {
       axisTicks: {
         show: true,
         offsetX: 9,
+        color: '#ff3e1d',
+      },
+      axisBorder: {
+        show: true,
+        offsetX: -10,
+        color: '#ff3e1d',
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -10,
+        style: {
+          colors: '#ff3e1d',
+          fontSize:'9px'
+        }
+      },
+      tooltip: {
+        enabled: false
+      }
+    },
+    {
+      axisTicks: {
+        show: true,
+        offsetX: 20,
+        color: '#fff',
+      },
+      axisBorder: {
+        show: true,
+        color: '#fff',
+        offsetX: -15,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -15,
+        style: {
+          colors: '#fff',
+          fontSize:'9px'
+        }
+      },        
+      tooltip: {
+        enabled: false
+      }
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true,
+        offsetX: 9,
+        color: '#F902EA',
+      },
+      axisBorder: {
+        show: true,
+        color: '#F902EA',
+        offsetX: -10,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -10,
+        style: {
+          colors: '#F902EA',
+          fontSize:'9px'
+        }
+      },
+      tooltip: {
+        enabled: false,
+        offsetX: 20,
+      }
+    },
+    {
+      axisTicks: {
+        show: true,
+        offsetX: 20,
         color: '#ffab00',
       },
       axisBorder: {
         show: true,
-        offsetX: -15,
         color: '#ffab00',
+        offsetX: -15,
       },
       labels: {
         rotate: 90,
@@ -392,145 +480,26 @@ var optionsCargasAcumYPromSem1 = {
       opposite: true,
       axisTicks: {
         show: true,
-        offsetX: 20,
-        color: '#4bc0c0',
-      },
-      axisBorder: {
-        show: true,
-        color: '#4bc0c0',
-        offsetX: -15,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#4bc0c0',
-          fontSize:'9px'
-        }
-      },        
-      tooltip: {
-        enabled: false
-      }
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
         offsetX: 9,
+        color: '#ffab00'
       },
       axisBorder: {
         show: true,
-        color: '#fff',
-        offsetX: -15,
+        color: '#ffab00',
+        offsetX: -10,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: -10,
         style: {
-          colors: '#fff',
-          fontSize:'9px'
-        }
-      },
-      tooltip: {
-        enabled: false,
-        offsetX: 20,
-      }
-    },
-    {
-      axisTicks: {
-        show: true,
-        offsetX: 20,
-        color: '#F902EA',
-      },
-      axisBorder: {
-        show: true,
-        color: '#F902EA',
-        offsetX: -15,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#F902EA',
+          colors: '#ffab00',
           fontSize:'9px'
         }
       },
       tooltip: {
         enabled: false
       }
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
-        offsetX: 9,
-        color: '#FF7000'
-      },
-      axisBorder: {
-        show: true,
-        color: '#FF7000',
-        offsetX: -15,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#FF7000',
-          fontSize:'9px'
-        }
-      },
-      tooltip: {
-        enabled: false
-      }
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
-        offsetX: 20,
-        color: '#E9B0F2'
-      },
-      axisBorder: {
-        show: true,
-        color: '#E9B0F2',
-        offsetX: -15
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#E9B0F2',
-          fontSize:'9px'
-        }
-      },
-      tooltip: {
-        enabled: false
-      }
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
-        offsetX: 9,
-        color: '#F2EB07'
-      },
-      axisBorder: {
-        show: true,
-        color: '#F2EB07',
-        offsetX: -15,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -15,
-        style: {
-          colors: '#F2EB07',
-          fontSize:'9px'
-        }
-      },
-      tooltip: {
-        enabled: false
-      }
-    },
+    },                        
   ],
   legend: {
     show: true,

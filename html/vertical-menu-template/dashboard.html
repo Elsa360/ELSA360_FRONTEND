@@ -1518,6 +1518,39 @@
                   </div>
                 </div>
               </div>
+
+
+
+
+
+
+              <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-6 mb-2">
+                <div class="card">
+                  <div class="card-body" style="padding-bottom: 10px; padding-top: 10px; padding-right:12px; padding-left: 16px;">
+                    <div class=" d-flex align-items-start justify-content-between mb-2">
+                      <div>
+                        <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
+                        data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> Trabajo realizado en todos tus entrenos </span>">Trabajo total:</small>
+
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">82,475 <small>KJ</small> 
+                    </small>
+                      </div>
+                      
+                      <div class="avatar flex-shrink-0 mb-0">
+                        <img src="../../assets/img/icons/unicons/work.png" alt="Clock" class="rounded" />
+                      </div>                      
+                    </div>
+                    
+                    
+                    <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
+                    data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> Trabajo promedio de todos tus entrenos </span>">Promedio de sesión: </small>
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">2048.5 <small>KJ</small> 
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+
               
               
 
@@ -1605,7 +1638,7 @@
                       style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle'></i>
                       </button> </h5>    
                       
-                      <a href="" class="btn-sm btn-label-success">Actualizar FTP</a>
+                      <a href="app-planDeportivoTEST.html" class="btn-sm btn-label-success">Actualizar FTP</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-between mb-0" style="margin-left: 24px;">
@@ -1781,7 +1814,7 @@
                   <div class="card-header d-flex align-items-center justify-content-between pb-1">
                     <h5 class="card-title m-0">Zonas según tu <span class="text-success">FTHR</span>  </h5>    
                       
-                      <a href="" class="btn-sm btn-label-success">Actualizar FTHR </a>
+                      <a href="app-planDeportivoTEST.html" class="btn-sm btn-label-success">Actualizar FTHR </a>
                   </div>
 
                   <div class="mb-0" style="margin-left: 20px;">
@@ -2356,75 +2389,89 @@
 
 
 
+              <div class="card mt-3 col-lg-12">
+              <div class="card accordion-item active">
+                <h2 class="accordion-header" id="headingOne">
+                  <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionZonasEntreno" aria-expanded="true" aria-controls="accordionOne"
+                   style="padding-bottom: 7px; padding-right: 20px; padding-left: 20px; font-size: 18px;">
+                    Zonas de entrenamiento
+                  </button>
+                </h2>
 
-
-
-
-
-
-
-
-
-
-
-              <div class="card mt-3 col-lg-9">
-                <div class="table-responsive text-nowrap">
-                  <table class="table table-sm text-center table-striped">
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Nombre</th>
-                        <th>Test del habla</th>      
-                        <th>Test del habla</th>                  
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">                                                                      
-                      <tr>
-                        <td><strong>Zona 1</strong></td>
-                        <td>Recuperación activa</td>
-                        <td>
-                          Puedes hablar y respirar normalmente.
-                        </td>                        
-                      </tr>
-                      <tr>
-                        <td><strong>Zona 2</strong></td>
-                        <td>Resistencia aeróbica</td>
-                        <td>
-                          Puedes hablar pero te cuesta más, tienes oxigeno pero con una pequeña dificultad para respirar.
-                        </td>                        
-                      </tr>
-                      <tr>
-                        <td> <strong>Zona 3</strong></td>
-                        <td>Tempo o SubUmbral</td>
-                        <td>
-                          Hablar se comienza a dificultar. Puedes completar 1 o 2 frases, te falta el aire moderadamente.  
-                        </td>                        
-                      </tr>
-                      <tr>
-                        <td><strong>Zona 4</strong></td>
-                        <td>Umbral</td>
-                        <td>
-                          Frases rotas. Respiración débil.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><strong>Zona 5</strong></td>
-                        <td>VO2 Max</td>
-                        <td>
-                          Frases entrecortadas. Respiración entrecortada.
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><strong>Zona 6</strong></td>
-                        <td>Capacida Anaeróbica</td>
-                        <td>
-                          No se pude hablar. Dificultad para respirar alta. 
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div id="accordionZonasEntreno" class="accordion-collapse collapse" data-bs-parent="#accordionZonasEntreno">
+                  <div class="accordion-body">
+                    <table class="table table-sm text-center table-striped">
+                      <thead>
+                        <tr>
+                          <th>Zona</th>
+                          <th>Nombre</th>
+                          <th>Objetivo</th>      
+                          <th>Test del habla</th>                  
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0">                                                                      
+                        <tr>
+                          <td class="text-nowrap"><strong>Zona 1</strong></td>
+                          <td>Recuperación activa</td>
+                          <td>Regenerar, aumentar y acelerar la recuperación.</td>
+                          <td>
+                            Puedes hablar y respirar normalmente.
+                          </td>                        
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap"><strong>Zona 2</strong></td>
+                          <td>Resistencia aeróbica</td>
+                          <td>Adquirir y mejorar la resistencia aeróbica (fondo) como base para lograr la mejora del rendimiento y tolerar mayores intensidades.</td>
+                          <td>
+                            Puedes hablar, pero te cuesta más, tienes oxígeno pero con una pequeña dificultad para respirar.
+                          </td>                        
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap"> <strong>Zona 3</strong></td>
+                          <td>Tempo o Sub-Umbral</td>
+                          <td>Adquirir la forma deportiva y aumentar la potencia aeróbica. Generar mayor adaptación a las subidas y ganar desnivel. 
+                            Mejorar la circulación sanguínea. </td>
+                          <td>
+                            Hablar se comienza a dificultar. Puedes completar 1 o 2 frases, te falta el aire moderadamente.  
+                          </td>                        
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap"><strong>Zona 4</strong></td>
+                          <td>Umbral</td>
+                          <td>Mejorar la resistencia específica (Subidas, tolerancia a la fatiga, contra reloj, etc.)</td>
+                          <td>
+                            Frases rotas. Respiración débil.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap"><strong>Zona 5</strong></td>
+                          <td>VO2 Máx</td>
+                          <td>Mejorar capacidad anaeróbica en subidas, soportar ritmos intensos, cambios de ritmo, ataques al final y soportar ritmo de contrincantes.</td>
+                          <td>
+                            Frases entrecortadas. Respiración entrecortada.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap"><strong>Zona 6</strong></td>
+                          <td>Capacidad Anaeróbica</td>
+                          <td>Definir/finalizar tramos o competencias. Responder ataques. Tolerar fatiga. </td>
+                          <td>
+                            No se puede hablar. Dificultad para respirar alta. 
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
+            </div>
+
+
+
+
+
+
+              
 
 
               
