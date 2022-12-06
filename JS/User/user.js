@@ -34,24 +34,23 @@ async function registrarme() {
                                     .then(function (respuesta) {
                                         console.log("Respuesta:", respuesta)
                                         if (respuesta === 0) {
-                                            let url = apiServer+"CRUD/listar?tabla=usuario&filtro=email='"+emailUser.trim()+"'&campos=count(idusuario)"
+                                            let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
                                             fetch(url)
                                                 .then(response => response.json())
                                                 .then(respuesta => {
-                                                   respuesta.forEach(element=>{
-                                                    let r = element[0]
-                                                    let r2 = r.split(":")
-                                                    console.log(r2)
-                                                    if (parseInt(r2[1]) === 1) {
-                                                        $("#spinnerGeneral").hide();
-                                                        $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                                                        $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                                                        $("#modalGeneral").modal("show");
-                                                    } else {
-                                                        notificacion(bodyString);
-                                                        $("#spinnerGeneral").hide();
-                                                    }
-                                                   });                                                    
+                                                    respuesta.forEach(element => {
+                                                        let r2 = element;
+                                                        console.log(r2)
+                                                        if (r2 === 1) {
+                                                            $("#spinnerGeneral").hide();
+                                                            $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                                                            $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                                                            $("#modalGeneral").modal("show");
+                                                        } else {
+                                                            notificacion(bodyString);
+                                                            $("#spinnerGeneral").hide();
+                                                        }
+                                                    });
                                                 });
                                         } else {
                                             console.log("Respuesta Exitosa");
@@ -321,7 +320,7 @@ async function perfilar() {
             .then((response) => response.json())
             .then((respuesta) => {
                 console.log(respuesta);
-                sessionStorage.getItem("perfil", respuesta);                
+                sessionStorage.getItem("perfil", respuesta);
                 sessionStorage.setItem("sexoUser", sexo.toString());
                 sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
                 sessionStorage.setItem("estatura", estatura);

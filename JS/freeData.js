@@ -410,22 +410,4 @@ async function loadFreeData() {
 window.onload = async () => {
     loadFreeData();
 }
-var matriz = new Array(12)
-matriz[0] = new Array(3)
-matriz[1] = new Array(3)
-matriz[2] = new Array(3)
-matriz[3] = new Array(3)
-matriz[4] = new Array(3)
-matriz[5] = new Array(3)
-matriz[6] = new Array(3)
-matriz[7] = new Array(3)
-matriz[8] = new Array(3)
-matriz[9] = new Array(3)
-matriz[10] = new Array(3)
-matriz[11] = new Array(3)
-for(let i=0;i<12;i++){
-    for(let j=0;j<3;j++){
-    matriz[i][j]=Math.random();
-    }   
-}
-console.log(matriz)
+
