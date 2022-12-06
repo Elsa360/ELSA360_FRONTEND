@@ -392,6 +392,43 @@ function TssIfNpEntreno(
         offsetY: 30,
         offsetX: 60
       },
+      y: [
+        {
+            formatter: function (val) {
+              return val + " "
+            }
+        },
+        {
+            formatter: function (val) {
+              return val + " "
+            }
+        },
+        {
+          formatter: function (val) {
+            return val + " KJ"
+          }
+      },
+      {
+        formatter: function (val) {
+          return val + " "
+        }
+    },
+    {
+        formatter: function (val) {
+          return val + " "
+        }
+    },
+    {
+      formatter: function (val) {
+        return val + " W"
+      }
+  },
+  {
+    formatter: function (val) {
+      return val + " Cal"
+    }
+},
+      ]
     }        
   };
 

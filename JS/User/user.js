@@ -70,31 +70,31 @@ async function registrarme() {
                         } else {
                             $("#spinnerGeneral").hide();
                             $("#modalGeneral #modalCenterTitle").html("Error");
-                            $("#modalGeneral #modalMensaje").html("Aceptar Terminos y condiciones");
+                            $("#modalGeneral #modalMensaje").html("Acepta nuestros Terminos y condiciones");
                             $("#modalGeneral").modal("show");
                         }
                     } else {
                         $("#spinnerGeneral").hide();
                         $("#modalGeneral #modalCenterTitle").html("Error");
-                        $("#modalGeneral #modalMensaje").html("Ingrese una contraseña");
+                        $("#modalGeneral #modalMensaje").html("Ingresa una contraseña");
                         $("#modalGeneral").modal("show");
                     }
                 } else {
                     $("#spinnerGeneral").hide();
                     $("#modalGeneral #modalCenterTitle").html("Error");
-                    $("#modalGeneral #modalMensaje").html("Ingrese un email");
+                    $("#modalGeneral #modalMensaje").html("Ingresa un email");
                     $("#modalGeneral").modal("show");
                 }
             } else {
                 $("#spinnerGeneral").hide();
                 $("#modalGeneral #modalCenterTitle").html("Error");
-                $("#modalGeneral #modalMensaje").html("Ingrese un nombre de uusuario");
+                $("#modalGeneral #modalMensaje").html("Ingresa un nombre de usuario");
                 $("#modalGeneral").modal("show");
             }
         } else {
             $("#spinnerGeneral").hide();
             $("#modalGeneral #modalCenterTitle").html("Error");
-            $("#modalGeneral #modalMensaje").html("Por favor verifique que no eres un robot");
+            $("#modalGeneral #modalMensaje").html("Por favor verifica que no eres un robot");
             $("#modalGeneral").modal("show");
         }
 
@@ -122,7 +122,7 @@ function enviarEMail(email, idUser) {
                 notificacion("Error envio email de verificacion del usuario ", email)
                 $("#spinnerGeneral").hide();
                 $("#modalGeneral #modalCenterTitle").html("Error");
-                $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intenta de nuevo mas tarde");
+                $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
                 $("#modalGeneral").modal("show");
             }
         })
@@ -153,7 +153,7 @@ async function validarCuenta() {
                 if (respuesta === 1) {
                     $("#spinnerGeneral").hide();
                     $("#modalGeneral #modalCenterTitle").html("Gracias");
-                    $("#modalGeneral #modalMensaje").html("Tu cuenta a sido verificada");
+                    $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
                     // $("#modalGeneral").modal("show");
                     loginNoPass();
                 } else {

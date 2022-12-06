@@ -59,7 +59,7 @@ function TXZonaFCEntreno(
   ) {
   
   var optionsTXZonaFC1 = {
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     series: [{      
       name: 'Zona 1',
       type: 'bar',
@@ -144,7 +144,7 @@ function TXZonaFCEntreno(
       }
     },
     fill: {
-      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55,0.55, 0.55,0.55, 0.55],
+      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -157,7 +157,7 @@ function TXZonaFCEntreno(
     stroke: {
       width: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       curve: 'smooth',
-      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+      colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     },
     grid: {
       show: true,
@@ -194,8 +194,8 @@ function TXZonaFCEntreno(
     },
     markers: {
       size: 4,
-      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
-    strokeColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+      colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
+    strokeColors: ['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     },
     labels: dataLabelsEnt ,
     legend: {
@@ -329,7 +329,7 @@ function TXZonaFCEntreno(
 
 
   var optionsTXZonaFC2 = {
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     series: [{      
       name: 'Zona 1',
       type: 'bar',
@@ -403,7 +403,7 @@ function TXZonaFCEntreno(
       colors:['transparent','transparent','transparent','transparent','transparent','transparent'],
     },
     labels: dataLabelsEnt,
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     fill: {
       opacity: [0.70, 0.70, 0.70, 0.70, 0.70, 0.70],
       gradient: {
@@ -557,7 +557,7 @@ function TXZonaPotenciaEntreno(
   ) {
   
   var optionsTXZonaPotencia1 = {
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     series: [{      
       name: 'Zona 1',
       type: 'bar',
@@ -642,7 +642,7 @@ function TXZonaPotenciaEntreno(
       }
     },
     fill: {
-      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55,0.55, 0.55,0.55, 0.55],
+      opacity: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55],
       gradient: {
         inverseColors: false,
         shade: 'light',
@@ -655,7 +655,7 @@ function TXZonaPotenciaEntreno(
     stroke: {
       width: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       curve: 'smooth',
-      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+      colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     },
     grid: {
       show: true,
@@ -692,8 +692,8 @@ function TXZonaPotenciaEntreno(
     },
     markers: {
       size: 4,
-      colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
-    strokeColors: ['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+      colors:['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
+    strokeColors: ['#007bff','#4bc0c0','#9BCB3B','#ffab00','#ff3e1d','#6610f2'],
     },
     labels: dataLabelsEnt ,
     legend: {
@@ -832,7 +832,7 @@ function TXZonaPotenciaEntreno(
 
 
   var optionsTXZonaPotencia2 = {
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     series: [{      
       name: 'Zona 1',
       type: 'bar',
@@ -906,7 +906,7 @@ function TXZonaPotenciaEntreno(
       colors:['transparent','transparent','transparent','transparent','transparent','transparent'],
     },
     labels: dataLabelsEnt,
-    colors:['#007bff','rgb(75, 192, 192)','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
+    colors:['#007bff','#4bc0c0','#9BCB3B','rgb(255, 171, 0)','#ff3e1d','#6610f2'],
     fill: {
       opacity: [0.70, 0.70, 0.70, 0.70, 0.70, 0.70],
       gradient: {

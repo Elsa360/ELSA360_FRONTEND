@@ -418,6 +418,48 @@ function durElvDistEntreno(
         offsetY: 30,
         offsetX: 60
       },
+      y: [
+        {
+            formatter: function (val) {
+              return val + " PPM"
+            }
+        },
+        {
+            formatter: function (val) {
+              return val + " PPM"
+            }
+        },
+        {
+          formatter: function (val) {
+            return val + " W"
+          }
+      },
+      {
+        formatter: function (val) {
+          return val + " W"
+        }
+    },
+    {
+        formatter: function (val) {
+          return val + " Km/h"
+        }
+    },
+    {
+      formatter: function (val) {
+        return val + " Km/h"
+      }
+  },
+  {
+    formatter: function (val) {
+      return val + " RPM"
+    }
+},
+{
+    formatter: function (val) {
+      return val + " RPM"
+    }
+}
+      ]
     }        
   };
 
