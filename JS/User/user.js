@@ -13,6 +13,8 @@ async function registrarme() {
                         if (document.getElementById("terms-conditions").checked) {
                             try {
                                 let url = apiServer + "usuario/crear";
+                                console.log("url");
+                                console.log(url);
                                 console.log("2:" + server.REMOTE_ADDR);
                                 let bodyString = JSON.stringify({
                                     email: emailUser.trim(),
@@ -34,24 +36,24 @@ async function registrarme() {
                                     .then(function (respuesta) {
                                         console.log("Respuesta:", respuesta)
                                         if (respuesta === 0) {
-                                            let url = apiServer+"CRUD/listar?tabla=usuario&filtro=email='"+emailUser.trim()+"'&campos=count(idusuario)"
+                                            let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                                            console.log(url)
                                             fetch(url)
                                                 .then(response => response.json())
                                                 .then(respuesta => {
-                                                   respuesta.forEach(element=>{
-                                                    let r = element[0]
-                                                    let r2 = r.split(":")
-                                                    console.log(r2)
-                                                    if (parseInt(r2[1]) === 1) {
-                                                        $("#spinnerGeneral").hide();
-                                                        $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                                                        $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                                                        $("#modalGeneral").modal("show");
-                                                    } else {
-                                                        notificacion(bodyString);
-                                                        $("#spinnerGeneral").hide();
-                                                    }
-                                                   });                                                    
+                                                    respuesta.forEach(element => {
+                                                        let r2 = element;
+                                                        console.log(r2)
+                                                        if (r2 === 1) {
+                                                            $("#spinnerGeneral").hide();
+                                                            $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                                                            $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                                                            $("#modalGeneral").modal("show");
+                                                        } else {
+                                                            notificacion(bodyString);
+                                                            $("#spinnerGeneral").hide();
+                                                        }
+                                                    });
                                                 });
                                         } else {
                                             console.log("Respuesta Exitosa");
@@ -89,7 +91,7 @@ async function registrarme() {
             } else {
                 $("#spinnerGeneral").hide();
                 $("#modalGeneral #modalCenterTitle").html("Error");
-                $("#modalGeneral #modalMensaje").html("Ingresa un nombre de usuario");
+                $("#modalGeneral #modalMensaje").html("Ingrese su  nombre");
                 $("#modalGeneral").modal("show");
             }
         } else {
@@ -161,7 +163,7 @@ async function validarCuenta() {
                     // $("#spinnerGeneral").hide();
                     // $("#modalGeneral #modalCenterTitle").html("Error");
                     // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
-                    // $("#modalGeneral").modal("show");    
+                    // $("#modalGeneral").modal("show");
                 }
             });
     } catch (e) {
@@ -321,7 +323,7 @@ async function perfilar() {
             .then((response) => response.json())
             .then((respuesta) => {
                 console.log(respuesta);
-                sessionStorage.getItem("perfil", respuesta);                
+                sessionStorage.getItem("perfil", respuesta);
                 sessionStorage.setItem("sexoUser", sexo.toString());
                 sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
                 sessionStorage.setItem("estatura", estatura);
