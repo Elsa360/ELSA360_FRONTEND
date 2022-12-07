@@ -178,7 +178,9 @@
                     <div id="personal-details" class="content">
 
 
-                      <label class="form-label" for="">¿cúal es tu sexo?</label>
+                      <label class="form-label" for="">¿cúal es tu sexo?<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalDisclaimerSexo">
+                        <i class='bx bx-info-circle concepto'></i></button>
+                      </label>
                       <div class="row g-3">
                         <div class="col-12">
                           <div class="row">
@@ -521,7 +523,8 @@
 
 
                         <div class="col-sm-6">
-                          <label class="form-label" for="nivel">Nivel deportivo</label>
+                          <label class="form-label" for="nivel">Nivel deportivo <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalNivelDeportivo">
+                            <i class='bx bx-info-circle concepto'></i></button></label>
 
                           <select class="form-control" name="nivel" id="nivel">
                             <option value="-1" disabled selected>¿Qué nivel deportivo tienes?</option>
@@ -543,7 +546,7 @@
                           <i></i>    
         
                           <div class="contenedor-textos">
-                              <a href="" class="CTA-ModalEscalaDeportiva text-success" data-bs-toggle="modal" data-bs-target="#modalToggle">¿Cómo saber en qué subnivel estoy?</a>
+                              <a href="" class="CTA-ModalEscalaDeportiva text-success" data-bs-toggle="modal" data-bs-target="#modalEscalaDeportiva">¿Cómo saber en qué subnivel estoy?</a>
                           </div>              
                           
                         </div>                        
@@ -552,7 +555,7 @@
                         
 
                         <!-- Modal Escala deportiva-->
-                        <div class="modal fade" id="modalToggle" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none" aria-hidden="true">
+                        <div class="modal fade" id="modalEscalaDeportiva" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               
@@ -828,6 +831,43 @@
 
 
 
+                <div class="modal fade" id="modalDisclaimerSexo" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title text-success" id="modalCenterTitle">En ELSA</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+
+                      <div class="modal-body text-center">
+                        <div class="row">
+                          <div class="col mb-0">
+                            <p>
+                              Somos conscientes y entendemos que la <span class="text-success"> identidad de género o identidad sexual</span> es la percepción y manifestación personal del propio género. 
+                              Es decir, <span class="text-success"> cómo tú te identificas</span>  independientemente de tu sexo biológico.  <br><br>
+
+                              Pero para poder determinar un entrenamiento más especifico y optimo para ti, nos debemos centrar en tu <span class="text-success">sexo biológico</span>.
+                            </p>
+
+                            
+
+
+
+                          </div>
+                        </div>
+                        
+                      </div>
+ 
+ 
+ 
+ 
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
 
@@ -835,9 +875,80 @@
 
 
 
-            <!-- Footer -->
-            
-            <!-- / Footer -->
+
+
+
+
+
+
+
+
+
+
+
+                <div class="modal fade" id="modalNivelDeportivo" tabindex="-1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title text-success" id="modalCenterTitle">¿Cuál es mi nivel deportivo?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+
+                      <div class="modal-body text-center">
+                        <div class="somatotiposDescripcionContainer">
+                          <h6 class="somatotipoTitulo text-success">Principiante </h6>
+                          <p class="somatotipoDescripcion">Músculos delgados, extremidades largas y hombros estrechos. Personas
+                              qué por más que coman,
+                              nunca sufrirán de sobrepeso gracias a su metabolismo rápido y a su facilidad para quemar calorías.
+                          </p>
+                      </div>
+
+                      <div class="somatotiposDescripcionContainer">
+                          <h6 class="somatotipoTitulo text-success">Intermedio</h6>
+                          <p class="somatotipoDescripcion">Estructura ósea grande, físico atlético y músculos marcados. Personas
+                              que tienen una complexión
+                              fuerte por naturaleza. Deben cuidar la dieta, pero no tienen que ser tan estrictos, pero sí se
+                              descuidan en exceso, pueden ganar grasa.
+                          </p>
+                      </div>
+
+                      <div class="somatotiposDescripcionContainer">
+                          <h6 class="somatotipoTitulo text-success"> Avanzado</h6>
+                          <p class="somatotipoDescripcion">Similares a los mesomorfos, aunque con más grasa corporal. De
+                              extremidades más cortas y con tendencia a ganar músculo y
+                              grasa. Su metabolismo lento hace que no queme calorías tan fácilmente. Son las personas que más
+                              deben cuidar la alimentación.
+                          </p>
+                      </div>
+                        
+                      </div>
+ 
+ 
+ 
+ 
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

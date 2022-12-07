@@ -1,64 +1,19 @@
 {
   "pages": [
     {
-      "name": "Dashboard Analytics",
+      "name": "Dashboard",
       "icon": "bx-home-circle",
-      "url": "index.html"
+      "url": "dashboard.html"
     },
     {
-      "name": "Dashboard CRM",
-      "icon": "bx-home-circle",
-      "url": "dashboards-crm.html"
-    },
-    {
-      "name": "Dashboard eCommerce",
-      "icon": "bx-home-circle",
-      "url": "dashboards-ecommerce.html"
-    },
-    {
-      "name": "Layout Collapsed menu",
-      "icon": "bx-layout",
-      "url": "layouts-collapsed-menu.html"
-    },
-    {
-      "name": "Layout Content navbar",
-      "icon": "bx-layout",
-      "url": "layouts-content-navbar.html"
-    },
-    {
-      "name": "Layout Content nav + Sidebar",
-      "icon": "bx-layout",
-      "url": "layouts-content-navbar-with-sidebar.html"
-    },
-    {
-      "name": "Layout Without menu",
-      "icon": "bx-layout",
-      "url": "layouts-without-menu.html"
-    },
-    {
-      "name": "Layout Without navbar",
-      "icon": "bx-layout",
-      "url": "layouts-without-navbar.html"
-    },
-    {
-      "name": "Layout Fluid",
-      "icon": "bx-layout",
-      "url": "layouts-fluid.html"
-    },
-    {
-      "name": "Layout Container",
-      "icon": "bx-layout",
-      "url": "layouts-container.html"
-    },
-    {
-      "name": "Layout Blank",
-      "icon": "bx-layout",
-      "url": "layouts-blank.html"
-    },
-    {
-      "name": "Calendar",
+      "name": "Calendario",
       "icon": "bx-calendar",
       "url": "app-calendar.html"
+    },
+    {
+      "name": "ChartJS",
+      "icon": "bx-bar-chart",
+      "url": "charts-chartjs.html"
     },
     {
       "name": "User List",
@@ -599,132 +554,11 @@
       "name": "Apex Charts",
       "icon": "bx-line-chart",
       "url": "charts-apex.html"
-    },
-    {
-      "name": "ChartJS",
-      "icon": "bx-bar-chart",
-      "url": "charts-chartjs.html"
-    },
+    },    
     {
       "name": "Leaflet Maps",
       "icon": "bx-ma-alt",
       "url": "maps-leaflet.html"
     }
-  ],
-  "files": [
-    {
-      "name": "Class Attendance",
-      "subtitle": "By Tommy Shelby",
-      "src": "img/icons/misc/search-xls.png",
-      "meta": "17kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Passport Image",
-      "subtitle": "By William Budd",
-      "src": "img/icons/misc/search-jpg.png",
-      "meta": "35kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Class Notes",
-      "subtitle": "By Laurel Lance",
-      "src": "img/icons/misc/search-doc.png",
-      "meta": "153kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Receipt",
-      "subtitle": "By Donnie Darko",
-      "src": "img/icons/misc/search-jpg.png",
-      "meta": "25kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Social Guide",
-      "subtitle": "By Ryan Middleton",
-      "src": "img/icons/misc/search-doc.png",
-      "meta": "39kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Expenses",
-      "subtitle": "By Slade Wilson",
-      "src": "img/icons/misc/search-xls.png",
-      "meta": "15kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Documentation",
-      "subtitle": "By Walter White",
-      "src": "img/icons/misc/search-doc.png",
-      "meta": "200kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Avatar",
-      "subtitle": "By Ross Geller",
-      "src": "img/icons/misc/search-jpg.png",
-      "meta": "100kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Data",
-      "subtitle": "By Erik Foreman",
-      "src": "img/icons/misc/search-xls.png",
-      "meta": "5kb",
-      "url": "app-file-manager.html"
-    },
-    {
-      "name": "Gardening Guide",
-      "subtitle": "By Jerry Seinfeld",
-      "src": "img/icons/misc/search-doc.png",
-      "meta": "25kb",
-      "url": "app-file-manager.html"
-    }
-  ],
-  "members": [
-    {
-      "name": "Manuel Peralta",
-      "subtitle": "Admin",
-      "src": "img/avatars/1.png",
-      "url": "auth-login-basic.html"
-    },
-    {
-      "name": "Micheal Clarke",
-      "subtitle": "Customer",
-      "src": "img/avatars/2.png",
-      "url": "app-user-view-account.html"
-    },
-    {
-      "name": "Melina Gibson",
-      "subtitle": "Staff",
-      "src": "img/avatars/5.png",
-      "url": "app-user-view-account.html"
-    },
-    {
-      "name": "Anna Strong",
-      "subtitle": "Staff",
-      "src": "img/avatars/7.png",
-      "url": "app-user-view-account.html"
-    },
-    {
-      "name": "Stephanie Gould",
-      "subtitle": "Customer",
-      "src": "img/avatars/3.png",
-      "url": "app-user-view-account.html"
-    },
-    {
-      "name": "David Budd",
-      "subtitle": "Admin",
-      "src": "img/avatars/10.png",
-      "url": "app-user-view-account.html"
-    },
-    {
-      "name": "Mark Shepiro",
-      "subtitle": "Admin",
-      "src": "img/avatars/12.png",
-      "url": "app-user-view-account.html"
-    }
-  ]
+  ]  
 }
