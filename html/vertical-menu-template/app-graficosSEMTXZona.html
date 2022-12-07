@@ -849,12 +849,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <!-- Content -->
 
           <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-2 mb-3"><span class="text-muted fw-light">Gráficos /</span> Tiempos por zonas semanales</h4>
+            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Gráficos /</span> Tiempos por zonas semanales</h4>
 
             <div class="row">
 
@@ -900,7 +911,7 @@
             <div class="row">
 
               <div class="text-center mb-0">
-                <h5 class="mb-1">Gráficos e indicadores de todos tus entrenos</h5>
+                <h5 class="mb-1">Gráficos de los tiempos semanales en cada zona</h5>
               </div>
 
               <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 mb-3">
@@ -1078,20 +1089,58 @@
               <div class="row">
                 <div class="col-lg-12 col-12 mb-1">
                   <div class="card">
-  
-                    <div class="card-header  header-elements">
-                      <h5 class="card-title mb-0">Duración, desnivel positivo y distancia recorrida de tus entrenos</h5>                    
-                    </div>   
-  
-                      <div class="card-body" style="padding-left: 2px; padding-right: 2px; padding-bottom: 12px;">
-                        <div class="tab-content text-center" style="padding: 2px;">
-  
-                          <div class="mb-0" id="DistAcumYPromSem1"></div>  
-                          <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico.  </p>
-                         
-                        </div>
+    
+                    <div class="card-header  header-elements pb-1">
+                      <!-- <h5 class="card-title mb-2">New Product Data</h5> -->
+                      <div class="card-header-elements ms-auto py-0 d-sm-block">
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item">
+                            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                              data-bs-target="#TXZonaFC1Container" aria-controls="TXZonaFC1Container" aria-selected="true" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                              FC
+                            </button>
+                          </li>
+                          <li class="nav-item">
+                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                              data-bs-target="#TXZonaPotencia2Container" aria-controls="TXZonaPotencia2Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                              Potencia
+                            </button>
+                          </li>
+                          <!-- <li class="nav-item">
+                            <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                              data-bs-target="#TXZonaVelocidad3Container" aria-controls="TXZonaVelocidad3Container" aria-selected="false" style="padding-left: 12px; padding-right: 12px; padding-top: 3px; padding-bottom: 3px;">
+                              Velocidad
+                            </button>
+                          </li> -->
+                        </ul>                      
                       </div>
-                    
+                    </div>   
+    
+                      <div class="card-body pb-0" style="padding-left: 2px; padding-right: 2px;">
+                        <div class="tab-content text-center" style="padding: 2px;">
+                          
+                          <div class="tab-pane fade show active" id="TXZonaFC1Container" role="tabpanel">
+                            <div class="mb-0" id="TXZonaFC1"></div>
+                            <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. </p>
+                            <div class="mb-0" id="TXZonaFC2"></div>
+                          </div>
+    
+                          <div class="tab-pane fade" id="TXZonaPotencia2Container" role="tabpanel">
+                            <div class="mb-0" id="TXZonaPotencia1"></div>     
+                            <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. </p>
+                            <div class="mb-0" id="TXZonaPotencia2"></div>                    
+                          </div>
+    
+    
+                          <!-- <div class="tab-pane fade" id="TXZonaVelocidad3Container" role="tabpanel">
+                            <div class="mb-0" id="TXZonaVelocidad1"></div>     
+                            <p class="mb-0">*Haz clic en el nombre de la variable que quieras ver en el gráfico. </p>  
+                            <div class="mb-0" id="TXZonaVelocidad2"></div>               
+                          </div> -->
+    
+                        </div>
+                      </div> 
+    
                   </div>
                 </div>
               </div>
@@ -1143,8 +1192,7 @@
 
   <!-- Main JS -->
   <script src="../../assets/js/main.js"></script>
-  <!-- <script src="../../JS/graficos.js"></script> -->
-  <script src="../../JS/app-graficosSEM.js"></script>
+  <script src="../../JS/app-graficosSEMTXZona.js"></script>
 
 
 

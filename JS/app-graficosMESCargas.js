@@ -33,89 +33,89 @@ defaultLocale: "es",
 
 
 // grafico de duraciòn, distancia y desnivel semanal
-dataTSSAcumSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
-dataTSSPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataTSSAcumMes=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23]
+dataTSSPromMes=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23]
 
-dataTRIMPSAcumSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataTRIMPSPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
+dataTRIMPSAcumMes=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144]
+dataTRIMPSPromMes=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144]
 
-dataTrabajoAcumSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
-dataTrabajoPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataTrabajoAcumMes=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30]
+dataTrabajoPromMes=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30]
 
-dataRPEAcumSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
-dataRPEPromSem=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23, 11]
+dataRPEAcumMes=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23]
+dataRPEPromMes=[23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 23]
 
-dataIFPromSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
+dataIFPromMes=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144]
 
-dataNPPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
+dataNPPromMes=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30]
 
-dataCaloriasAcumSem=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144, 1455, 1041, 1267, 1022, 1243, 1221, 1041, 1056, 1227, 1143, 1244, 1055]
-dataCaloriasPromSem=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30, 101.25, 79.36, 92.30, 101.45, 79.35, 92.64, 101.52, 79.59, 92.36, 101.39, 79.30, 92.25]
-dataLabelsSem=['01/01/2022', '01/02/2022', '01/03/2022', '01/04/2022', '01/05/2022', '01/06/2022', '01/07/2022', '01/08/2022', '01/09/2022', '01/10/2022', '01/11/2022', '01/12/2022', '01/13/2022', '01/14/2022', '01/15/2022', '01/16/2022', '01/17/2022', '01/18/2022', '01/19/2022', '01/20/2022', '01/21/2022', '01/22/2022', '01/23/2022', '01/24/2022']
+dataCaloriasAcumMes=[1044, 1255, 1141, 1067, 1222, 1343, 1021, 1241, 1456, 1027, 1243, 1144]
+dataCaloriasPromMes=[68.30, 71.25, 92.36, 101.30, 79.45, 92.35, 101.64, 79.52, 92.59, 101.36, 79.39, 92.30]
+dataLabelsMes=['01/01/2022', '02/01/2022', '03/01/2022', '04/01/2022', '05/01/2022', '06/01/2022', '07/01/2022', '08/01/2022', '09/01/2022', '10/01/2022', '11/01/2022', '12/01/2022']
 
-IndicadoresSemana(
-  dataTSSAcumSem, dataTSSPromSem, dataTRIMPSAcumSem, dataTRIMPSPromSem, dataTrabajoAcumSem, dataTrabajoPromSem,dataRPEAcumSem, dataRPEPromSem,dataIFPromSem,dataNPPromSem,dataCaloriasAcumSem,dataCaloriasPromSem, dataLabelsSem
+CargasMensuales(
+  dataTSSAcumMes, dataTSSPromMes, dataTRIMPSAcumMes, dataTRIMPSPromMes, dataTrabajoAcumMes, dataTrabajoPromMes,dataRPEAcumMes, dataRPEPromMes,dataIFPromMes,dataNPPromMes,dataCaloriasAcumMes,dataCaloriasPromMes, dataLabelsMes
   );
 
-function IndicadoresSemana(
-  dataTSSAcumSem, dataTSSPromSem, dataTRIMPSAcumSem, dataTRIMPSPromSem, dataTrabajoAcumSem, dataTrabajoPromSem,dataRPEAcumSem, dataRPEPromSem, dataIFPromSem,dataNPPromSem,dataCaloriasAcumSem,dataCaloriasPromSem, dataLabelsSem
+function CargasMensuales(
+  dataTSSAcumMes, dataTSSPromMes, dataTRIMPSAcumMes, dataTRIMPSPromMes, dataTrabajoAcumMes, dataTrabajoPromMes,dataRPEAcumMes, dataRPEPromMes, dataIFPromMes,dataNPPromMes,dataCaloriasAcumMes,dataCaloriasPromMes, dataLabelsMes
   ) {
 
 
-var optionsCargasAcumYPromSem1 = {
+var optionsCargasMensuales1 = {
   colors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
     series: [
       {
       name: 'TSS Acumulado',
       type: 'bar',
-      data: dataTSSAcumSem
+      data: dataTSSAcumMes
     }, {
       name: 'TSS Promedio',
       type: 'line',
-      data: dataTSSPromSem
+      data: dataTSSPromMes
     }, {
       name: 'TRIMPS Acumulado',
       type: 'bar',
-      data: dataTRIMPSAcumSem
+      data: dataTRIMPSAcumMes
     },
     {
       name: 'TRIMPS Promedio',
       type: 'line',
-      data: dataTRIMPSPromSem
+      data: dataTRIMPSPromMes
     }, {
       name: 'Trabajo Acumulado',
       type: 'bar',
-      data: dataTrabajoAcumSem
+      data: dataTrabajoAcumMes
     }, {
       name: 'Trabajo Promedio',
       type: 'line',
-      data: dataTrabajoPromSem
+      data: dataTrabajoPromMes
     },
     {
       name: 'RPE Acumulado',
       type: 'bar',
-      data: dataRPEAcumSem
+      data: dataRPEAcumMes
     }, {
       name: 'RPE Promedio',
       type: 'line',
-      data: dataRPEPromSem
+      data: dataRPEPromMes
     }, {
       name: 'IF Promedio',
       type: 'line',
-      data: dataIFPromSem
+      data: dataIFPromMes
     },
     {
       name: 'np Promedio',
       type: 'line',
-      data: dataNPPromSem
+      data: dataNPPromMes
     }, {
       name: 'Calorías Acumuladas',
       type: 'bar',
-      data: dataCaloriasAcumSem
+      data: dataCaloriasAcumMes
     }, {
       name: 'Calorías Promedio',
       type: 'line',
-      data: dataCaloriasPromSem
+      data: dataCaloriasPromMes
     },
     ],
   chart: {
@@ -146,19 +146,19 @@ var optionsCargasAcumYPromSem1 = {
       },
       export:{
         csv:{
-          filename: 'Cargas semanales'
+          filename: 'Cargas mensuales'
         },
         svg:{
-          filename: 'Cargas semanales'
+          filename: 'Cargas mensuales'
         },
         png:{
-          filename: 'Cargas semanales'
+          filename: 'Cargas mensuales'
         }
       }
     }
   },
   title: {
-    text: 'Cargas semanales',
+    text: 'Cargas mensuales',
     offsetX: 10,
     style: {
       fontSize:  '16px',
@@ -268,7 +268,7 @@ return val + " Cal"
     colors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
     strokeColors: ["#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#007bff","#007bff", "#ff3e1d","#ff3e1d", "#fff","#F902EA", "#ffab00", "#ffab00"],
   },
-  labels: dataLabelsSem,
+  labels: dataLabelsMes,
   xaxis: {
     type: 'datetime',
     labels: {
@@ -611,14 +611,14 @@ return val + " Cal"
   
 };
 
-var CargasAcumYPromSem1 = new ApexCharts(document.querySelector("#CargasAcumYPromSem1"), optionsCargasAcumYPromSem1);
-CargasAcumYPromSem1.render();
+var CargasMensuales1 = new ApexCharts(document.querySelector("#CargasMensuales1"), optionsCargasMensuales1);
+CargasMensuales1.render();
 
-CargasAcumYPromSem1.toggleSeries('TSS Promedio')
-CargasAcumYPromSem1.toggleSeries('TRIMPS Promedio')
-CargasAcumYPromSem1.toggleSeries('Trabajo Acumulado')
-CargasAcumYPromSem1.toggleSeries('RPE Acumulado')
-CargasAcumYPromSem1.toggleSeries('Calorías Acumuladas')
-CargasAcumYPromSem1.toggleSeries('Trabajo Promedio') 
+CargasMensuales1.toggleSeries('TSS Promedio')
+CargasMensuales1.toggleSeries('TRIMPS Promedio')
+CargasMensuales1.toggleSeries('Trabajo Acumulado')
+CargasMensuales1.toggleSeries('RPE Acumulado')
+CargasMensuales1.toggleSeries('Calorías Acumuladas')
+CargasMensuales1.toggleSeries('Trabajo Promedio') 
 }
 //FIN grafico de CARGAS semanal
