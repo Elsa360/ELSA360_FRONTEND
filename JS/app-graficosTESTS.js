@@ -56,7 +56,7 @@ function DatosTests(
 
 
 var optionsDatosTests1 = {
-  colors: ["#fff","#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#ff3e1d","#ff3e1d", "#007bff","#007bff",  "#ffab00", "#ffab00"],
+  colors: ["#fff",  "#ff3e1d","#ff3e1d", "#FF7000","#FF7000","#9bcb3b", "#9bcb3b", "#007bff","#007bff",  "#ffab00", "#ffab00"],
     series: [
       {
       name: 'Distancia (Km)',
@@ -242,15 +242,15 @@ return val + " RPM"
   stroke: {
     width: [2, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3],
     curve: 'smooth',
-    colors: ["#fff","#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#ff3e1d","#ff3e1d", "#007bff","#007bff",  "#ffab00", "#ffab00"],
+    colors: ["#fff",  "#ff3e1d","#ff3e1d", "#FF7000","#FF7000","#9bcb3b", "#9bcb3b", "#007bff","#007bff",  "#ffab00", "#ffab00"],
   },
   dataLabels: {
     enabled: false   
   },
   markers: {
     size: 4,
-    colors: ["#fff","#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#ff3e1d","#ff3e1d", "#007bff","#007bff",  "#ffab00", "#ffab00"],
-    strokeColors: ["#fff","#9bcb3b", "#9bcb3b", "#FF7000","#FF7000", "#ff3e1d","#ff3e1d", "#007bff","#007bff",  "#ffab00", "#ffab00"],
+    colors: ["#fff",  "#ff3e1d","#ff3e1d", "#FF7000","#FF7000","#9bcb3b", "#9bcb3b", "#007bff","#007bff",  "#ffab00", "#ffab00"],
+    strokeColors: ["#fff",  "#ff3e1d","#ff3e1d", "#FF7000","#FF7000","#9bcb3b", "#9bcb3b", "#007bff","#007bff",  "#ffab00", "#ffab00"],
   },
   labels: dataLabelsTest,
   xaxis: {
@@ -302,19 +302,19 @@ return val + " RPM"
       opposite: true,
       axisTicks: {
         show: true,
-        color: '#9bcb3b',
+        color: '#ff3e1d',
         offsetX: 9,
       },
       axisBorder: {
         show: true,
-        color: '#9bcb3b',
+        color: '#ff3e1d',
         offsetX: -10,
       },
       labels: {
         rotate: 90,
         offsetX: -15,
         style: {
-          colors: '#9bcb3b',
+          colors: '#ff3e1d',
           fontSize:'10px'
         }
       },       
@@ -325,8 +325,90 @@ return val + " RPM"
     {
       axisTicks: {
         show: true,
-        color: '#9bcb3b',
+        color: '#ff3e1d',
         offsetX: 2,
+      },
+      axisBorder: {
+        show: true,
+        color: '#ff3e1d',
+        offsetX: -2,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: 3,
+        style: {
+          colors: '#ff3e1d',
+          fontSize:'9px',
+        },
+      },       
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true,
+        color: '#FF7000',
+        offsetX: 9,
+      },
+      axisBorder: {
+        show: true,
+        color: '#FF7000',
+        offsetX: -10,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -10,
+        style: {
+          colors: '#FF7000',
+          fontSize:'9px',
+        },
+      },       
+    },
+    {
+      axisTicks: {
+        show: true,
+        color: '#FF7000',
+        offsetX: 2,
+      },
+      axisBorder: {
+        show: true,
+        color: '#FF7000',
+        offsetX: -2,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: 3,
+        style: {
+          colors: '#FF7000',
+          fontSize:'9px',
+        },
+      },       
+    },
+    {
+      opposite: true,
+      axisTicks: {
+        show: true,
+        color: '#9bcb3b',
+        offsetX: 9,
+      },
+      axisBorder: {
+        show: true,
+        color: '#9bcb3b',
+        offsetX: -10,
+      },
+      labels: {
+        rotate: 90,
+        offsetX: -10,
+        style: {
+          colors: '#9bcb3b',
+          fontSize:'9px',
+        },
+      },       
+    },
+    {
+      axisTicks: {
+        show: true,
+        offsetX: 2,
+        color: '#9bcb3b',
       },
       axisBorder: {
         show: true,
@@ -338,88 +420,6 @@ return val + " RPM"
         offsetX: 3,
         style: {
           colors: '#9bcb3b',
-          fontSize:'9px',
-        },
-      },       
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
-        color: '#FF7000',
-        offsetX: 9,
-      },
-      axisBorder: {
-        show: true,
-        color: '#FF7000',
-        offsetX: -10,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -10,
-        style: {
-          colors: '#FF7000',
-          fontSize:'9px',
-        },
-      },       
-    },
-    {
-      axisTicks: {
-        show: true,
-        color: '#FF7000',
-        offsetX: 2,
-      },
-      axisBorder: {
-        show: true,
-        color: '#FF7000',
-        offsetX: -2,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: 3,
-        style: {
-          colors: '#FF7000',
-          fontSize:'9px',
-        },
-      },       
-    },
-    {
-      opposite: true,
-      axisTicks: {
-        show: true,
-        color: '#ff3e1d',
-        offsetX: 9,
-      },
-      axisBorder: {
-        show: true,
-        color: '#ff3e1d',
-        offsetX: -10,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: -10,
-        style: {
-          colors: '#ff3e1d',
-          fontSize:'9px',
-        },
-      },       
-    },
-    {
-      axisTicks: {
-        show: true,
-        offsetX: 2,
-        color: '#ff3e1d',
-      },
-      axisBorder: {
-        show: true,
-        color: '#ff3e1d',
-        offsetX: -2,
-      },
-      labels: {
-        rotate: 90,
-        offsetX: 3,
-        style: {
-          colors: '#ff3e1d',
           fontSize:'9px'
         }
       },       
