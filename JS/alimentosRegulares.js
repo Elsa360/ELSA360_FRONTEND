@@ -8,7 +8,8 @@ function caloriasSeleccionadasMomento() {
     const getComplete = urlParams.get('getCompleto');
     document.getElementById("caloriasRequeridas").innerHTML = getM;
     traerMinutaNutricional();
-    let url = apiServer + "alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
+    let url = apiServer + "alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha='" + fecha + "'"
+    console.log(url)
     fetch(url)
         .then((response) => response.json())
         .then((calorias) => {
@@ -19,11 +20,8 @@ function caloriasSeleccionadasMomento() {
                 let totalCal = caloria * porciones;
                 totalCalorias = totalCalorias + totalCal;
             });
-            // console.log(totalCalorias);
             if (totalCalorias < getM) {
                 traerAlimentosRegulares();
-
-
             }
         });
 }
@@ -317,7 +315,7 @@ function traerMinutaNutricional() {
     const urlParams = new URLSearchParams(valores);
     const momento = urlParams.get('momento');
     const getM = parseFloat(urlParams.get('getCompleto'));
-    console.log(getM);
+    // console.log(getM);
     if (getM > 0 && getM <= 1350) {
         getMinuta = 1200;
     }
@@ -339,7 +337,6 @@ function traerMinutaNutricional() {
     if (getM > 3050 && getM <= 3450) {
         getMinuta = 3051;
     }
-    console.log(getMinuta);
     const idDieta = 1;
     let url = apiServer+"planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
     fetch(url)
@@ -791,7 +788,6 @@ function seleccionarAlimentosRegulares() {
 function guardarAlimentosRegulares() {
     try {
     const foodSelections = document.querySelectorAll("input[type=number]");
-    console.log(foodSelections);
     for (let i = 0, food; food = foodSelections[i++];) {
         if (food.value !== "") {
             let idAli = food.id;
