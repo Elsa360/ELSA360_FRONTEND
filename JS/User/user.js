@@ -179,7 +179,7 @@ async function validarCuenta() {
                   $("#modalGeneral #modalCenterTitle").html("Gracias");
                   $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
                   // $("#modalGeneral").modal("show");
-                  loginNoPass();
+                  loginNoPass(userId);
               } else {
                   // $("#spinnerGeneral").hide();
                   // $("#modalGeneral #modalCenterTitle").html("Error");
@@ -253,14 +253,25 @@ async function login() {
       console.log(e);
   }
 }
-async function loginNoPass(idusuario) {
-  console.log("login nopass")
+async function loginNoPass(idusuario,membresia,verificado) {
+  console.log("login nopass");
+  let url = apiServer + "usuario/loginnopass?usuario=" + idusuario
+  fetch().then(response=>response.json()).then(respuesta => {
+    console.log("login nopass");
+    console.log(respuesta);
+
+  });
   sessionStorage.clear();
-  sessionStorage.setItem('login', idusuario);
+  sessionStorage.setItem('login',     idusuario);
   sessionStorage.setItem('idusuario', idusuario);
-  sessionStorage.setItem('membresia', false);
-  uri = mainUrl+"_sesion.php?action=login&idUsuario="+idusuario;
-  fetch(uri).then(response=>response.json()).then(respuesta => console.log(respuesta));
+  sessionStorage.setItem('membresia', membresia);
+  sessionStorage.setItem('validacion',verificado);
+
+  uri = mainUrl+"_sesion.php?action=login&membresia="+membresia+"&verificado="+verificado+"&idUsuario="+idusuario;
+  fetch(uri).then(response=>response.json()).then(respuesta => {
+    console.log(respuesta);
+
+  });
 
 }
 function logout() {
