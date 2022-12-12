@@ -1,6 +1,7 @@
 console.log("SERVER: "+window.location.hostname);
 var dataBaseServer = "";
 var apiServer="";
+var mainUrl = "";
 switch (window.location.hostname) {
   case "127.0.0.1":
   case "localhost":

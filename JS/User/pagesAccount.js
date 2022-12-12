@@ -1,11 +1,8 @@
-async function desactivarCuenta() {
-    console.log("Funcion Activa");
-    // let id = sessionStorage.getItem("idusuario")
-    let id=12;
+async function desactivarCuenta(id) {
     try {
         if (document.getElementById("accountActivation").checked === true) {
-            let url =  apiServer + "usuario/eliminar"
-            fetch(url, {
+            let url = apiServer + "usuario/eliminar"
+            await fetch(url, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     idusuario: id,
@@ -27,14 +24,21 @@ async function desactivarCuenta() {
         console.log("Error: " + e);
     }
 }
-async function datosPerfil(){
-    let url = ""
+async function datosPerfil(idusuario) {
+    let url = apiServer + "perfil/usuario?idusuario=" + idusuario + ""
     try {
-       await fetch(url)
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        await fetch(url)
+            .then((response) => response.json())
+            .then((respuesta) => {
+                respuesta.forEach(elemento => {
+                    console.log(elemento)
+                });
+            });
 
     } catch (e) {
-        console.log("Error: "+e);
+        console.log("Error: " + e);
     }
+}
+window.onload = async () => {
+    datosPerfil(1)
 }

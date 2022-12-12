@@ -53,12 +53,6 @@ function datesUser() {
         document.getElementById("DashBoardGETMomentFive").innerHTML = dataGetMomento[4].toFixed(0);
         document.getElementById("DashBoardGETMomentSix").innerHTML = dataGetMomento[5].toFixed(0);
 
-
-
-
-
-
-
     } catch (error) {
 
     }
@@ -125,7 +119,7 @@ function diferenciaPeso(userWeightCurrent, userWeightWanted) {
     return userWeightDifference;
 }
 
-//Calculo del GET
+//Calculo del GET   
 function calcularEdad(birthDate) {
     try {
         const fechaNacimiento = birthDate;

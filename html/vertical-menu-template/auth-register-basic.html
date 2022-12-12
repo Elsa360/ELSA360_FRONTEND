@@ -69,6 +69,8 @@ data-template="vertical-menu-template">
   <script src="../../assets/js/config.js"></script>
   <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
   <script src="https://www.google.com/recaptcha/api.js"></script>
+
+
   <script src="../../JS/customTask.js"></script>
   <script>
   function onSubmit(token) {
@@ -138,7 +140,7 @@ data-template="vertical-menu-template">
                   <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" required />
                   <label class="form-check-label" for="terms-conditions" style="font-size:12px;">
                     De acuerdo con
-                    <a href="pages-Terminos-SM.html" class="text-success">Términos y condiciones</a>
+                    <a href="pages-terminos-SM.html" class="text-success">Términos y condiciones</a>
                   </label>
                 </div>
               </div>
@@ -153,8 +155,42 @@ data-template="vertical-menu-template">
 
                 --
                 <!--<div class="g-recaptcha" data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
-                style="transform: scale(0.85) ; transform-origin: 0 1; margin-left: auto; margin-right: auto; width: fit-content;">
-              </div>-->
+                  style="transform: scale(0.85) ; transform-origin: 0 1; margin-left: auto; margin-right: auto; width: fit-content;">
+                </div>-->
+              </div>
+
+
+
+              <!-- <button class="g-recaptcha btn btn-success d-grid w-100"
+              style="font-weight: 600;"
+              data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
+              data-callback='onSubmit'
+              data-action='submit'>Registrarme</button> -->
+
+              <button class="g-recaptcha btn btn-success d-grid w-100"
+              style="font-weight: 600;"
+              data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
+              onclick="registrarme()">Registrarme</button>
+
+              <!--<input type="button" class="btn btn-success d-grid w-100" style="font-weight: 600;"
+                onclick="registrarme()" value="Registrarme" />-->
+            </form>
+
+            <p class="text-center">
+              <span>¿Ya tienes una cuenta?</span>
+              <a href="auth-login-basic.html">
+                <span class="text-success">Inicia sesión aquí</span>
+              </a>
+            </p>
+
+
+
+
+            <div class="text-center">
+              <a href="../../index.html" class="d-flex align-items-center justify-content-center text-success">
+                <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+                Volver al inicio
+              </a>
             </div>
 
 
