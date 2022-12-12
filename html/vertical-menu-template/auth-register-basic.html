@@ -54,12 +54,14 @@
   <script src="../../assets/js/config.js"></script>
   <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
   <script src="https://www.google.com/recaptcha/api.js"></script>
+
+  
   <script src="../../JS/customTask.js"></script>
   <script>
-  function onSubmit(token) {
-    //document.getElementById("formAuthentication").submit();
-    registrarme();
-  }
+  // function onSubmit(token) {
+  //   //document.getElementById("formAuthentication").submit();
+  //   registrarme();
+  // }
     initServer();
   </script>
 </head>
@@ -144,11 +146,16 @@
 
 
 
-              <button class="g-recaptcha btn btn-success d-grid w-100"
+              <!-- <button class="g-recaptcha btn btn-success d-grid w-100"
               style="font-weight: 600;"
               data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
               data-callback='onSubmit'
-              data-action='submit'>Registrarme</button>
+              data-action='submit'>Registrarme</button> -->
+
+              <button class="g-recaptcha btn btn-success d-grid w-100"
+              style="font-weight: 600;"
+              data-sitekey="6LetblojAAAAAJBs40U8quRDq03UjSSGcucT4Hi1"
+              onclick="registrarme()">Registrarme</button>
 
               <!--<input type="button" class="btn btn-success d-grid w-100" style="font-weight: 600;"
                 onclick="registrarme()" value="Registrarme" />-->

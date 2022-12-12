@@ -921,7 +921,7 @@
                         <div class="card-title d-flex align-items-start justify-content-between mb-3">
                           <div>
                             <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Fecha inicial:</small>
-                            <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">16/01/2023</small>
+                            <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fechaInicialDashboard"></small>
                           </div>
                           <div class="avatar flex-shrink-0 mb-0">
                             <img src="../../assets/img/icons/unicons/calendar.png" alt="Calendar" class="rounded"/>
@@ -929,12 +929,12 @@
                         </div>
                         
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Objetivo: </small>
-                        <small class="card-title text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">16/06/2023</small>
+                        <small class="card-title text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fechaObjetivoDashboard"></small>
 
 
                         <div class="mt-3">
                           <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Entreno:</small>
-                          <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">24 <small>Semanas</small> 
+                          <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="semanasDashboard" >24 <small>Semanas</small> 
                           </small>
                         </div>
                         
@@ -945,7 +945,7 @@
                   <div class="col-lg-6 col-md-12 col-6 mb-3">
                     <div class="card">
                       <div class="card-body pb-2">
-                        <span class=" fw-semibold mb-1">Disponibilidad semanal: &nbsp; <small class="card-title text-success mb-1" style="font-size: 18px;"> 17 </small><small> hrs</small></span>
+                        <span class=" fw-semibold mb-1">Disponibilidad semanal: &nbsp; <small class="card-title text-success mb-1" style="font-size: 18px;" id="hrSemanalDashboard"> 17 </small><small> hrs</small></span>
                         
                         <div id="VolumenSemanal"></div>
                       </div>
@@ -970,7 +970,7 @@
                       </div>                      
                     </div>
                     
-                    <small class="card-title text-success mb-3" style="margin-top: 0px; font-size: 15px; font-weight: 600;">34</small>
+                    <small class="card-title text-success mb-3" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="sesionesDashboard">34</small>
                     <small class="text-success fw-semibold"></small>
                   </div>
                 </div>
@@ -988,7 +988,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Duración total:</small>
                         <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">81:26:17 
+                          data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>" id="duracionTotalDashboard">81:26:17 
                         </small>
                       </div>
                       
@@ -1000,7 +1000,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
                     <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" 
-                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>">2:45:21 
+                      data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> h : m : s</span>" id="promedioSesionDashboard">2:45:21 
                     </small>
                   </div>
                 </div>
@@ -1018,7 +1018,7 @@
                     <div class="card-title d-flex align-items-start justify-content-between mb-2">
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Distancia total:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">1,475 <small>Km</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distanciaTotalDashboard">1,475 <small>Km</small> 
                         </small>
                       </div>
                       <div class="avatar flex-shrink-0 mb-0">
@@ -1027,7 +1027,7 @@
                     </div>
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">87.5 <small>Km</small></small>
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distPromedioSesionDashboard">87.5 <small>Km</small></small>
                   </div>
                 </div>
               </div>              
@@ -1046,7 +1046,7 @@
                     <div class="card-title d-flex align-items-start justify-content-between mb-2">
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Desnivel positivo:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">47,475 <small>m</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelDashboard">47,475 <small>m</small> 
                         </small>
                       </div>
                       <div class="avatar flex-shrink-0">
@@ -1056,7 +1056,7 @@
 
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">1048.5 <small>m</small></small>
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelPromedioDashboard">1048.5 <small>m</small></small>
                   </div>
                 </div>
               </div>            
@@ -1267,12 +1267,12 @@
                             <h5 class="card-text">Requerimiento de calorías <small class="mt-1 mb-0"><span class="badge bg-label-warning" style="font-size: 13px; font-weight: 600;">Diarias</span></small> </h5>
     
                             <div class="d-flex align-items-end mb-3">
-                              <h6 class="card-title mb-0 me-2" >GET = <span class="text-warning" id="calSinActFisc"> 2750 Cal</span></h6>
+                              <h6 class="card-title mb-0 me-2" >GET = <span class="text-warning" id="GETdashboard"></span></h6>
                             </div>
     
     
                             <div class="d-flex align-items-end mb-3">
-                              <h6 class="card-title mb-0 me-2" >CET = <span class="text-warning" id="CET"> 2750 Cal</span></h6>
+                              <h6 class="card-title mb-0 me-2" >CET = <span class="text-warning" id="CETdashboard">0</span></h6>
                             </div>
 
                             <div>
@@ -1381,7 +1381,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;" 
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Frecuencia Cardíaca Máxima de todos tus entrenos </span>">FC Máxima:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">167 <small>PPM</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fmaxdashboard">167 <small>PPM</small> 
                         </small>
                       </div>
                       
@@ -1393,7 +1393,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Frecuencia Cardíaca promedio de todos tus entrenos </span>">FC Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">137 <small>PPM</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fcPromedioDashboard">137 <small>PPM</small> 
                         </small>
                   </div>
                 </div>
@@ -1411,7 +1411,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;" 
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Potencia absoluta Máxima de todos tus entrenos </span>">Potencia Abs. Max:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">367 <small>W</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pMaxDashboard">367 <small>W</small> 
                         </small>
                       </div>
                       
@@ -1423,7 +1423,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> Potencia absoluta promedio de todos tus entrenos </span>">Potencia Abs. Promedio: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">106 <small>W</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potAbsPromedioDashboard">106 <small>W</small> 
                         </small>
                   </div>
                 </div>
@@ -1441,7 +1441,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;" 
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Potencia relativa Máxima de todos tus entrenos </span>">Potencia Rel. Max:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">5.24 <small>W</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pRelMaxDashboard">5.24 <small>W</small> 
                         </small>
                       </div>
                       
@@ -1453,7 +1453,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title="<span> Potencia relativa promedio de todos tus entrenos </span>">Potencia Rel. Promedio: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">1.51 <small>W</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potRelPromedioDashboard">1.51 <small>W</small> 
                         </small>
                   </div>
                 </div>
@@ -1471,7 +1471,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;" 
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Velocidad Máxima de todos tus entrenos </span>">Velocidad Max:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">45.4 <small>Km/h</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="vMaxDashboard">45.4 <small>Km/h</small> 
                         </small>
                       </div>
                       
@@ -1483,7 +1483,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Velocidad promedio de todos tus entrenos </span>">Velocidad Promedio:  </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">11.51 <small>Km/h</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="velPromedioDashboard">11.51 <small>Km/h</small> 
                         </small>
                   </div>
                 </div>
@@ -1501,7 +1501,7 @@
                       <div>
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;" 
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Cadencia Máxima  de todos tus entrenos </span>">Cadencia Max:</small>
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">102 <small>RPM</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cMaxDashboard">102 <small>RPM</small> 
                         </small>
                       </div>
                       
@@ -1513,7 +1513,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>Cadencia promedio de todos tus entrenos </span>">Cadencia Promedio: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">61 <small>RPM</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cadePromedioDashboard">61 <small>RPM</small> 
                         </small>
                   </div>
                 </div>
@@ -1532,7 +1532,7 @@
                         <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                         data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> Trabajo realizado en todos tus entrenos </span>">Trabajo total:</small>
 
-                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">82,475 <small>KJ</small> 
+                        <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoDashboard">82,475 <small>KJ</small> 
                     </small>
                       </div>
                       
@@ -1544,7 +1544,7 @@
                     
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span> Trabajo promedio de todos tus entrenos </span>">Promedio de sesión: </small>
-                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;">2048.5 <small>KJ</small> 
+                    <small class="card-title mb-0 text-success" style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoPromedioDashboard">2048.5 <small>KJ</small> 
                     </small>
                   </div>
                 </div>
@@ -1646,12 +1646,12 @@
                     <p style="margin: 0; font-weight: 500;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
                       FTP Absoluto </span>">
-                            FTP Abs. = <span class="text-success"> 380 </span> <small class="text-muted">W</small> </p>
+                            FTP Abs. = <span class="text-success" id="ftpdashboard"> 380 </span> <small class="text-muted">W</small> </p>
 
                     <p style="margin: 0; margin-right: 20px; font-weight: 500;"
                     data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
                       FTP Relativo </span>">
-                          FTP Rel. = <span class="text-success"> 5.43 </span> <small class="text-muted">W</small> </p>
+                          FTP Rel. = <span class="text-success" id="ftpReldashboard"> 5.43 </span> <small class="text-muted">W</small> </p>
                   </div>
 
 
@@ -1678,7 +1678,7 @@
                             <h6 class="mb-0">Zona 1</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success"> < </span> <span class="text-success"> 209 </span></h6>
+                            <h6 class="mb-0"><span class="text-success"> < </span> <span class="text-success" id="zona1ftp"> 209 </span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1694,7 +1694,7 @@
                             <h6 class="mb-0">Zona 2</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">210 -</span> <span class="text-success"> 274</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona2ftp">210 -</span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1710,7 +1710,7 @@
                             <h6 class="mb-0">Zona 3</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">275 -</span> <span class="text-success"> 312</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona3ftp">275 -</span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1726,7 +1726,7 @@
                             <h6 class="mb-0">Zona 4</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">313 -</span> <span class="text-success"> 365</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona4ftp">313 -</span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1747,7 +1747,7 @@
                             <h6 class="mb-0">Zona 5</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">366 -</span> <span class="text-success"> 388</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona5ftp">366 -</span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1768,7 +1768,7 @@
                             <h6 class="mb-0">Zona 6</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"> <span class="text-success">389 -</span> <span class="text-success"> 608</span></h6>
+                            <h6 class="mb-0"> <span class="text-success" id="zona6ftp">389 -</span></h6>
                             <small class="text-muted">W</small>
                             
                           </div>
@@ -1818,7 +1818,7 @@
                   </div>
 
                   <div class="mb-0" style="margin-left: 20px;">
-                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success"> 160 </span> <small class="text-muted">PPM</small> 
+                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success" id="fhtrdashboard"> 160 </span> <small class="text-muted">PPM</small> 
                       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalZonasFC" 
                         style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle' data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
                         Zonas calculadas de acuerdo a tu umbral de frecuencia cardíaca. <br> Es decir, tu FTHR (Functional Threshold Heart Rate) es la frecuencia cardíaca promedio de tu test.  </span>"></i>
@@ -1853,7 +1853,7 @@
                             <h6 class="mb-0">Zona 1</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success"> < </span> <span class="text-success"> 88 </span></h6>
+                            <h6 class="mb-0"><span class="text-success"> < </span> <span class="text-success" id="zona1fhtr"> 88 </span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -1869,7 +1869,7 @@
                             <h6 class="mb-0">Zona 2</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">89 -</span> <span class="text-success"> 122</span></h6>
+                            <h6 class="mb-0"><span class="text-success">89 -</span> <span class="text-success" id="zona2fhtr"> 122</span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -1885,7 +1885,7 @@
                             <h6 class="mb-0">Zona 3</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">123 -</span> <span class="text-success"> 141</span></h6>
+                            <h6 class="mb-0"><span class="text-success">123 -</span> <span class="text-success" id="zona3fhtr"> 141</span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -1901,7 +1901,7 @@
                             <h6 class="mb-0">Zona 4</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">142 -</span> <span class="text-success"> 149</span></h6>
+                            <h6 class="mb-0"><span class="text-success">142 -</span> <span class="text-success" id="zona4fhtr"> 149</span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -1922,7 +1922,7 @@
                             <h6 class="mb-0">Zona 5</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">150 -</span> <span class="text-success"> 164</span></h6>
+                            <h6 class="mb-0"><span class="text-success">150 -</span> <span class="text-success" id="zona5fhtr"> 164</span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -1943,7 +1943,7 @@
                             <h6 class="mb-0">Zona 6</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"> <span class="text-success">165 -</span> <span class="text-success"> 200</span></h6>
+                            <h6 class="mb-0"> <span class="text-success">165 -</span> <span class="text-success" id="zona6fhtr"> 200</span></h6>
                             <small class="text-muted">PPM</small>
                             
                           </div>
@@ -2112,7 +2112,7 @@
                             <h6 class="mb-0">Test inicial</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">23/01/2023 </span> </h6>                            
+                            <h6 class="mb-0"><span class="text-success" id="testinicialdashboard">23/01/2023 </span> </h6>                            
                           </div>
                         </div>
                       </li>
@@ -2126,7 +2126,7 @@
                             <h6 class="mb-0">Test de control #1</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">20/02/2023</span> </h6>                            
+                            <h6 class="mb-0"><span class="text-success" id="testcontrol1dashboard">20/02/2023</span> </h6>                            
                           </div>
                         </div>
                       </li>
@@ -2140,7 +2140,7 @@
                             <h6 class="mb-0">Test de control #2</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">20/03/2023</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="testcontrol2dashboard">20/03/2023</span></h6>
                           </div>
                         </div>
                       </li>
@@ -2154,7 +2154,7 @@
                             <h6 class="mb-0">Test de control #3</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">17/04/2023</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="testcontrol3dashboard">17/04/2023</span></h6>
                           </div>
                         </div>
                       </li>
@@ -2173,7 +2173,7 @@
                             <h6 class="mb-0">Test de control #4</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success">15/05/2023</span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="testcontrol4dashboard">15/05/2023</span></h6>
                           </div>
                         </div>
                       </li>
@@ -2192,7 +2192,7 @@
                             <h6 class="mb-0">Competencia</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"> <span class="text-success">16/06/2023</span></h6>
+                            <h6 class="mb-0"> <span class="text-success" id="testcontrol5dashboard">16/06/2023</span></h6>
                             
                             
                           </div>
@@ -2340,27 +2340,27 @@
                       <tbody class="table-border-bottom-0">                                                                      
                         <tr>
                           <td><strong>Adaptación</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">5</span></td>                                              
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="preparacionDashboard"></span></td>                                              
                         </tr>
                         <tr>
                           <td><strong>Específico 1</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">5</span></td>                                                
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="desasrrollador1Dashboard"></span></td>                                                
                         </tr>
                         <tr>
                           <td> <strong>Específico 2</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">5</td>                                               
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="desasrrollador2Dashboard"></td>                                               
                         </tr>
                         <tr>
                           <td><strong>Pre-competitivo</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">4</td>                        
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="precompetitivoDashboard"></td>                        
                         </tr>
                         <tr>
                           <td><strong>Competitivo</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">3</td>
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="competitivoDashboard"></td>
                         </tr>
                         <tr>
                           <td><strong>Transición</strong></td>
-                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600">2</td>                        
+                          <td style="padding-right: 3px; padding-left: 3px; text-align: center;"><span class="badge bg-label-success text-uppercase" style="font-size: 14px; font-weight:600" id="transitorioDashboard"></td>                        
                         </tr>
                       </tbody>
                     </table>
@@ -3241,11 +3241,13 @@
 
   <!-- Page JS -->
   <script src="../../assets/js/dashboards-analytics.js"></script>
-  <script src="../../JS/classes.js"></script>
+  <script src="../../JS/enviroment.js"></script>
+  <!-- <script src="../../JS/classes.js"></script>
   <script src="../../JS/calculosPsicologia.js"></script>
   <script src="../../JS/User/perfil.js"></script>
-  <script src="../../JS/User/user.js"></script>
-  <script src="../../JS/dashboardGraficos.js"></script>
+  <script src="../../JS/User/user.js"></script> -->
+  <!-- <script src="../../JS/dashboardGraficos.js"></script> -->
+
   <script>
     (function () {
       let tiempo = Date.now();
@@ -3282,6 +3284,7 @@
     $("#spinner").load("spinner.html");
   });
 </script>
+<script src="../../JS/dashboard.js"></script>
 </body>
 
 </html>

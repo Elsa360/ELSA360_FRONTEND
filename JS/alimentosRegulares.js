@@ -8,8 +8,8 @@ function caloriasSeleccionadasMomento() {
     const getComplete = urlParams.get('getCompleto');
     document.getElementById("caloriasRequeridas").innerHTML = getM;
     traerMinutaNutricional();
-    fetch("http://www.apielsa.somee.com/alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + "")
-    // fetch("https://localhost:7155/alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + "")
+    let url = apiServer + "alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
+    fetch(url)
         .then((response) => response.json())
         .then((calorias) => {
             let totalCalorias = 0;
@@ -28,8 +28,8 @@ function caloriasSeleccionadasMomento() {
         });
 }
 function traerAlimentosRegulares() {
-    fetch('http://54.193.8.32/alimentoRegular/listar')
-    // fetch('https://localhost:7155/alimentoRegular/listar')
+    let url= apiServer + "alimentoRegular/listar"
+    fetch(url)
         .then((response) => response.json())
         .then((alimentosRegulares) => {
             // Energeticos
@@ -341,8 +341,7 @@ function traerMinutaNutricional() {
     }
     console.log(getMinuta);
     const idDieta = 1;
-    let url = "http://www.apielsa.somee.com/planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
-    // let url = "https://localhost:7155/planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
+    let url = apiServer+"planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
     fetch(url)
         .then((response) => response.json())
         .then((minutaNutricional) => {
@@ -428,8 +427,8 @@ function traerAlimRegSelecc() {
         let tablaOtrosSelecc = document.getElementById('tablaOtrosSelecc');
         let cuerpoOtrosSelecc = document.createElement('tbody');
         //Endpoint
-        fetch('http://www.apielsa.somee.com/alimentoRegularSeleccionado/listar')
-        // fetch('https://localhost:7155/alimentoRegularSeleccionado/listar')
+        let url = apiServer + "alimentoRegularSeleccionado/listar"
+        fetch(url)
             .then((response) => response.json())
             .then((alimRegSelecc) => {
                 alimRegSelecc.forEach(alimento => {
@@ -790,37 +789,37 @@ function seleccionarAlimentosRegulares() {
     });
 }
 function guardarAlimentosRegulares() {
-    // try {
-        const foodSelections = document.querySelectorAll("input[type=number]");
-        console.log(foodSelections);
-        for (let i = 0, food; food = foodSelections[i++];) {
-            if (food.value !== "") {
-                let idAli = food.id;
-                console.log('IdInput:', idAli);
-                console.log('IdAlimentos:', idAli.slice(4))
-                console.log('Porciones:', document.getElementById(idAli).value);
-                fetch('http://www.apielsa.somee.com/alimentoRegularSeleccionado/crear', {
-                // fetch('https://localhost:7155/alimentoRegularSeleccionado/crear', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        fkIdMomentoComidaSlccn: 1,
-                        fkIdPerfilUsuarioSlccn: 1,
-                        fkIdAlimentoRegularSlcnn: parseInt(idAli.slice(4)),
-                        porciones: parseInt(document.getElementById(idAli).value),
-                        ipPc: "00.00.00.00",
-                    }),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            }
+    try {
+    const foodSelections = document.querySelectorAll("input[type=number]");
+    console.log(foodSelections);
+    for (let i = 0, food; food = foodSelections[i++];) {
+        if (food.value !== "") {
+            let idAli = food.id;
+            console.log('IdInput:', idAli);
+            console.log('IdAlimentos:', idAli.slice(4))
+            console.log('Porciones:', document.getElementById(idAli).value);
+            let url = apiServer+"alimentoRegularSeleccionado/crear"
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    fkIdMomentoComidaSlccn: 1,
+                    fkIdPerfilUsuarioSlccn: 1,
+                    fkIdAlimentoRegularSlcnn: parseInt(idAli.slice(4)),
+                    porciones: parseInt(document.getElementById(idAli).value),
+                    ipPc: "00.00.00.00",
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
         }
-        setTimeout(redirigir, 3000)
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    }
+    setTimeout(redirigir, 3000)
+    } catch (error) {
+        console.log(error);
+    }
 }
 function redirigir() {
     location.href = window.location.origin + '/html/vertical-menu-template/tables-pdf-selected-foods.html'

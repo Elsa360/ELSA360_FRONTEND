@@ -896,7 +896,7 @@
                         <h5 class="mb-2 concepto">Duración del test <small class="text-muted"> 20:00 Minutos</small></h5>
                       
 
-                        <h5 class="mb-4 concepto">Fecha: <small class="text-muted">12/10/2022</small></h5>
+                        <h5 class="mb-4 concepto">Fecha: <small class="text-muted" id="fechaTest">12/10/2022</small></h5>
 
                         <div class="row g-3" style="align-items: center;">     
 
@@ -951,46 +951,46 @@
 
                         <h5 class="mb-1 concepto">Frecuencia cardíaca <small class="text-muted">(PPM)</small> </h5>
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="ppm-planteado" class="form-control" placeholder="FC Promedio"
+                          <input type="number" id="ppmpromedio" class="form-control" placeholder="FC Promedio"
                             min="10" max="250" />
                         </div>
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="ppm-real" class="form-control" placeholder="FC Máxima"
+                          <input type="number" id="ppmmaxima" class="form-control" placeholder="FC Máxima"
                             min="10" max="250" />
                         </div>
 
                         <h5 class="mb-1 concepto">Potencia <small class="text-muted">(Watts)</small> </h5>
                         <div class="col-md-6" style="margin-top: 5px;">
 
-                          <input type="number" id="potencia-planteado" class="form-control" placeholder="Promedio"
+                          <input type="number" id="potenciapromedio" class="form-control" placeholder="Promedio"
                             min="0" />
                         </div>
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="potencia-real" class="form-control" placeholder="Máxima"
+                          <input type="number" id="potenciamax" class="form-control" placeholder="Máxima"
                             min="0" />
                         </div>
 
                         <h5 class="mb-1 concepto">Velocidad <small class="text-muted">(Km/h)</small> </h5>
                         <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="number" id="velocidad-planteado" class="form-control" placeholder="Promedio"
+                          <input type="number" id="velocidadpromedio" class="form-control" placeholder="Promedio"
                             step="0.1" min="0" />
                         </div>
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="velocidad-real" class="form-control" placeholder="Máxima"
+                          <input type="number" id="velocidadmaxima" class="form-control" placeholder="Máxima"
                             step="0.1" min="0" />
                         </div>
 
                         <h5 class="mb-1 concepto">Cadencia <small class="text-muted">(RPM)</small> </h5>
                         <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="number" id="cadencia-planteado" class="form-control" placeholder="Promedio"
+                          <input type="number" id="cadenciapromedio" class="form-control" placeholder="Promedio"
                             min="0" />
                         </div>
 
                         <div class="col-md-6 mb-3" style="margin-top: 5px;">
-                          <input type="number" id="cadencia-real" class="form-control" placeholder="Máxima"
+                          <input type="number" id="cadenciamax" class="form-control" placeholder="Máxima"
                             min="0" />
                         </div>
 
@@ -1012,25 +1012,25 @@
                       <div class="row g-3 pt-0">
 
                         <h5 class="mb-1 concepto">TSS <small class="text-muted">(Factor de estrés)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
+                        <!-- <div class="col-md-6" style="margin-top: 5px;">
                           <input type="text" id="tss-planteado" class="form-control" placeholder="Planteado" />
-                        </div>
+                        </div> -->
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="text" id="tss-real" class="form-control" placeholder="Real" />
+                          <input type="text" id="tssreal" class="form-control" placeholder="Real" />
                         </div>
 
 
 
 
                         <h5 class="mb-1 concepto">IF <small class="text-muted">(Factor de intensidad)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 5px;">
+                        <!-- <div class="col-md-6" style="margin-top: 5px;">
                           <input type="number" id="if-planteado" class="form-control" placeholder="Planteado"
                             step="0.1" />
-                        </div>
+                        </div> -->
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="if-real" class="form-control" placeholder="Real"
+                          <input type="number" id="ifreal" class="form-control" placeholder="Real"
                             step="0.1" />
                         </div>
 
@@ -1041,13 +1041,12 @@
 
 
                         <h5 class="mb-1 concepto">np <small class="text-muted">(Potencia normalizada)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
-                          <input type="text" id="np-planteado" class="form-control" 
-                            placeholder="Planteada" />
-                        </div>
+                        <!-- <div class="col-md-6" style="margin-top: 2px;">
+                          <input type="text" id="np-planteado" class="form-control" placeholder="Planteada" />
+                        </div> -->
 
                         <div class="col-md-6" style="margin-top: 5px;">
-                          <input type="number" id="np-real" class="form-control" placeholder="Real" />
+                          <input type="number" id="npreal" class="form-control" placeholder="Real" />
                         </div>
 
 
@@ -1057,12 +1056,12 @@
 
 
                         <h5 class="mb-1 concepto">Trabajo <small class="text-muted">(KJ)</small> </h5>
-                        <div class="col-md-6" style="margin-top: 2px;">
+                        <!-- <div class="col-md-6" style="margin-top: 2px;">
                           <input type="text" id="trabajo-planteado" class="form-control" placeholder="Planteado" />
-                        </div>
+                        </div> -->
 
                         <div class="col-md-6 mb-3" style="margin-top: 5px;">
-                          <input type="number" id="trabajo-real" class="form-control" placeholder="Real"
+                          <input type="number" id="trabajoreal" class="form-control" placeholder="Real"
                             step="0.1" />
                         </div>
 
@@ -1080,7 +1079,7 @@
 
               <div class="col-12 text-center mt-2">
                 <button 
-                onclick="saveData()"
+                onclick="guardarDatosTest()"
                 type="submit" class="btn btn-success" style="width: 300px;">Guardar datos</button>          
               </div>
 
@@ -1171,7 +1170,7 @@
   </div>
   <!-- / Layout wrapper -->
   <script src="../../JS/enviroment.js"></script>
-  <script src="../../JS/planCiclismo.js"></script>
+  <!-- <script src="../../JS/planCiclismo.js"></script> -->
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
   
@@ -1197,8 +1196,11 @@
   <script src="../../assets/js/main.js"></script>
 
   <!-- Page JS -->
-  <script src="../../JS/classes.js"></script>
+  <!-- <script src="../../JS/classes.js"></script> -->
   <script src="../../assets/js/form-layouts.js"></script>
+
+
+  <script src="../../JS/testCiclismo.js"></script>
 </body>
 
 </html>
