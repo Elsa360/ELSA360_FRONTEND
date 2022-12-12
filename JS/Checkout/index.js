@@ -46,7 +46,7 @@ function buscarCuponDescuento() {
                         // mode: 'no-cors',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
+                            'Access-Control-Allow-Origin': 'https://*elsa360.com'
                           },
                         body: JSON.stringify({
                             title: membresiaURL + "|" + email,
@@ -107,7 +107,7 @@ function llenadoWebCheckout() {
             // mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': 'https://*elsa360.com'
               },
             body: JSON.stringify({
                 title: membresiaURL + "|" + email,

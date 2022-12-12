@@ -117,7 +117,7 @@
               </div>
               <div class="mb-3">
                 <input class="btn btn-success d-grid w-100" style="font-weight: 600;" type="button" value="Iniciar sesión" onclick="login()" />
-                
+
               </div>
             </form>
 
@@ -161,9 +161,8 @@
   </div>
 
   <!-- / Content -->
-  
-  <div id="modal"></div>
-  
+
+
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
@@ -192,6 +191,40 @@
     <script src="../../JS/classes.js"></script>
     <!-- <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script> -->
     <script src="../../JS/User/user.js"></script>
+
+
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
+        <div id="spinner"></div>
+        <div id="modal"></div>
+
+
+        <script>
+        $(function () {
+          $("#spinner").load("spinner.html");
+          $("#modal").load("modal.html");
+        });
+        </script>
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
+
+
+            <!-- ============================================================== -->
+            <!-- Google -->
+            <!-- ============================================================== -->
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-93DR8GES25');
+            </script>
+            <!-- ============================================================== -->
+            <!-- Google -->
+            <!-- ============================================================== -->
 
 
   </body>
