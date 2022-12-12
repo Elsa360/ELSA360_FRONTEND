@@ -478,7 +478,7 @@ Text Colors
   color: #fec500 !important; }
 
 .text-success {
-  color: #2cdd9b !important; }
+  color: #9BCB3B !important; }
 
 .text-info {
   color: #188ef4 !important; }
@@ -487,16 +487,8 @@ Text Colors
   color: #3e4555 !important; }
 
 .text-success-gradiant {
-  background: #2cdd9b;
-  background: -webkit-linear-gradient(legacy-direction(to right), #2cdd9b 0%, #1dc8cc 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#2cdd9b), to(#1dc8cc));
-  background: -webkit-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-  background: -o-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-  background: linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; }
+  background: #9BCB3B;
+   }
 
 .text-info-gradiant {
   background: #188ef4;
@@ -535,7 +527,7 @@ Background Colors
   background-color: #316ce8 !important; }
 
 .bg-success {
-  background-color: #2cdd9b !important; }
+  background-color: #9BCB3B !important; }
 
 .bg-info {
   background-color: #a3a4cc !important; }
@@ -653,7 +645,7 @@ Rounds
   background: #ff4d7e; }
 
 .round.round-success {
-  background: #2cdd9b; }
+  background: #9BCB3B; }
 
 .round.round-primary {
   background: #316ce8; }
@@ -710,7 +702,7 @@ Labels
 
 .label-light-success {
   background-color: #e8fdeb;
-  color: #2cdd9b; }
+  color: #9BCB3B; }
 
 .label-light-info {
   background-color: #cfecfe;
@@ -753,7 +745,7 @@ Labels
   transform: translate(0, -2px); }
 
 .badge-success {
-  background-color: #2cdd9b; }
+  background-color: #9BCB3B; }
 
 .badge-info {
   background-color: #188ef4; }
@@ -969,8 +961,8 @@ Buttons
 
 .btn-success,
 .btn-success.disabled {
-  background: #2cdd9b;
-  border: 1px solid #2cdd9b; }
+  background: #9BCB3B;
+  border: 1px solid #9BCB3B; }
   .btn-success:hover,
   .btn-success.disabled:hover {
     background: #1dc8cc;
@@ -1140,15 +1132,15 @@ Buttons
     background: #345bcb; }
 
 .btn-outline-success, a.btn-outline-success {
-  color: #2cdd9b;
+  color: #9BCB3B;
   background-color: transparent;
-  border-color: #2cdd9b;
+  border-color: #9BCB3B;
   -webkit-transition: 0.2s ease-in;
   -o-transition: 0.2s ease-in;
   transition: 0.2s ease-in; }
   .btn-outline-success:hover, .btn-outline-success:focus, .btn-outline-success.focus, a.btn-outline-success:hover, a.btn-outline-success:focus, a.btn-outline-success.focus {
-    background: #2cdd9b;
-    border-color: #2cdd9b;
+    background: #9BCB3B;
+    border-color: #9BCB3B;
     color: #ffffff; }
   .btn-outline-success.active, .btn-outline-success:active, .btn-outline-success:focus, a.btn-outline-success.active, a.btn-outline-success:active, a.btn-outline-success:focus {
     background: #1dc8cc; }
@@ -1243,8 +1235,8 @@ Buttons
 .open > .dropdown-toggle.btn-success:hover,
 .btn-success.focus,
 .btn-success:focus {
-  background-color: #1dc8cc;
-  border: 1px solid #1dc8cc; }
+  background-color: #9BCB3B;
+  border: 1px solid #9BCB3B; }
 
 .btn-info.active.focus,
 .btn-info.active:focus,
@@ -2171,7 +2163,7 @@ Timeline page
   background-color: #316ce8; }
 
 .timeline-badge.success {
-  background-color: #2cdd9b; }
+  background-color: #9BCB3B; }
 
 .timeline-badge.warning {
   background-color: #fec500; }
@@ -2289,8 +2281,8 @@ Breadcrumb
   border-bottom: 0px; }
 
 .card-success {
-  background: #2cdd9b;
-  border-color: #2cdd9b; }
+  background: #9BCB3B;
+  border-color: #9BCB3B; }
 
 .card-danger {
   background: #ff4d7e;
@@ -2354,10 +2346,10 @@ Breadcrumb
     border-color: #fec500; }
 
 .card-outline-success {
-  border-color: #2cdd9b; }
+  border-color: #9BCB3B; }
   .card-outline-success .card-header {
-    background: #2cdd9b;
-    border-color: #2cdd9b; }
+    background: #9BCB3B;
+    border-color: #9BCB3B; }
 
 .card-outline-danger {
   border-color: #ff4d7e; }
@@ -2405,7 +2397,7 @@ textarea {
   background-image: url(../../assets/images/ui/success.svg); }
 
 .has-success .form-control {
-  border-color: #2cdd9b; }
+  border-color: #9BCB3B; }
 
 .has-warning .col-form-label,
 .has-warning .custom-control,

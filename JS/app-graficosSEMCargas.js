@@ -175,6 +175,68 @@ var optionsCargasAcumYPromSem1 = {
       offsetY: 30,
       offsetX: 60
     },
+    y: [
+      {
+          formatter: function (val) {
+            return val + " "
+          }
+      },
+      {
+          formatter: function (val) {
+            return val + " "
+          }
+      },
+      {
+        formatter: function (val) {
+          return val + " "
+        }
+    },
+    {
+      formatter: function (val) {
+        return val + " "
+      }
+  },
+  {
+      formatter: function (val) {
+        return val + " KJ"
+      }
+  },
+  {
+    formatter: function (val) {
+      return val + " KJ"
+    }
+},
+{
+  formatter: function (val) {
+    return val + " "
+  }
+},
+{
+formatter: function (val) {
+  return val + " "
+}
+},
+{
+  formatter: function (val) {
+    return val + " "
+  }
+},
+{
+formatter: function (val) {
+  return val + " W"
+}
+},
+{
+formatter: function (val) {
+return val + " Cal"
+}
+},
+{
+formatter: function (val) {
+return val + " Cal"
+}
+}
+    ]
   },
   plotOptions: {
     bar: {
@@ -321,16 +383,16 @@ var optionsCargasAcumYPromSem1 = {
       axisTicks: {
         show: true,
         color: '#007bff',
-        offsetX: 20,
+        offsetX: 2,
       },
       axisBorder: {
         show: true,
         color: '#007bff',
-        offsetX: -15,
+        offsetX: -2,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: 3,
         style: {
           colors: '#007bff',
           fontSize:'9px',
@@ -361,17 +423,17 @@ var optionsCargasAcumYPromSem1 = {
     {
       axisTicks: {
         show: true,
-        offsetX: 20,
+        offsetX: 2,
         color: '#ff3e1d',
       },
       axisBorder: {
         show: true,
         color: '#ff3e1d',
-        offsetX: -15,
+        offsetX: -2,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: 3,
         style: {
           colors: '#ff3e1d',
           fontSize:'9px'
@@ -408,17 +470,17 @@ var optionsCargasAcumYPromSem1 = {
     {
       axisTicks: {
         show: true,
-        offsetX: 20,
+        offsetX: 2,
         color: '#fff',
       },
       axisBorder: {
         show: true,
         color: '#fff',
-        offsetX: -15,
+        offsetX: -2,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: 3,
         style: {
           colors: '#fff',
           fontSize:'9px'
@@ -456,17 +518,17 @@ var optionsCargasAcumYPromSem1 = {
     {
       axisTicks: {
         show: true,
-        offsetX: 20,
+        offsetX: 2,
         color: '#ffab00',
       },
       axisBorder: {
         show: true,
         color: '#ffab00',
-        offsetX: -15,
+        offsetX: -2,
       },
       labels: {
         rotate: 90,
-        offsetX: -15,
+        offsetX: 3,
         style: {
           colors: '#ffab00',
           fontSize:'9px'
@@ -551,5 +613,12 @@ var optionsCargasAcumYPromSem1 = {
 
 var CargasAcumYPromSem1 = new ApexCharts(document.querySelector("#CargasAcumYPromSem1"), optionsCargasAcumYPromSem1);
 CargasAcumYPromSem1.render();
+
+CargasAcumYPromSem1.toggleSeries('TSS Promedio')
+CargasAcumYPromSem1.toggleSeries('TRIMPS Promedio')
+CargasAcumYPromSem1.toggleSeries('Trabajo Acumulado')
+CargasAcumYPromSem1.toggleSeries('RPE Acumulado')
+CargasAcumYPromSem1.toggleSeries('Calorías Acumuladas')
+CargasAcumYPromSem1.toggleSeries('Trabajo Promedio') 
 }
 //FIN grafico de CARGAS semanal

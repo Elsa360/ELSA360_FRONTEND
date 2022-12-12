@@ -456,14 +456,14 @@ if (typeof $ !== 'undefined') {
               limit: 5,
               source: filterConfig(searchData.pages),
               templates: {
-                header: '<h6 class="suggestions-header text-primary mb-0 mx-3 mt-3 pb-2">Pages</h6>',
+                header: '<h5 class="suggestions-header text-success mb-0 mx-3 mt-3 pb-2">Páginas</h5>',
                 suggestion: function ({ url, icon, name }) {
                   return (
                     '<a href="' +
                     url +
                     '">' +
                     '<div>' +
-                    '<i class="bx ' +
+                    '<i class="bx text-success ' +
                     icon +
                     ' me-2"></i>' +
                     '<span class="align-middle">' +
@@ -475,8 +475,8 @@ if (typeof $ !== 'undefined') {
                 },
                 notFound:
                   '<div class="not-found px-3 py-2">' +
-                  '<h6 class="suggestions-header text-primary mb-2">Pages</h6>' +
-                  '<p class="py-2 mb-0"><i class="bx bx-error-circle bx-xs me-2"></i> No Results Found</p>' +
+                  '<h5 class="suggestions-header text-danger mb-2">Páginas</h5>' +
+                  '<p class="py-2 mb-0"><i class="bx bx-error-circle bx-xs me-2 text-danger"></i> No se encontrarón resultados</p>' +
                   '</div>'
               }
             },
