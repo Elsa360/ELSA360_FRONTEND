@@ -60,26 +60,62 @@
         $("#footer").load("footer.html");
       });
     </script>
+
+
+    <!-- ============================================================== -->
+    <!-- middleware -->
+    <!-- ============================================================== -->
+    <script src="../../JS/middleware.js"></script>
+    <!-- ============================================================== -->
+    <!-- middleware -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- customTask -->
+    <!-- ============================================================== -->
+    <script src="../../JS/customTask.js"></script>
+    <!-- ============================================================== -->
+    <!-- customTask -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- enviroment -->
+    <!-- ============================================================== -->
+    <script src="../../JS/enviroment.js"></script>
+    <!-- ============================================================== -->
+    <!-- enviroment -->
+    <!-- ============================================================== -->
+
+
+
+
+    <!-- ============================================================== -->
+    <!-- middleware -->
+    <!-- ============================================================== -->
+    <script src="../../JS/User/checkout.js"></script>
+    <!-- ============================================================== -->
+    <!-- middleware -->
+    <!-- ============================================================== -->
+    
   </head>
 
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">       
+      <div class="layout-container">
 
-        
-          
+
+
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
-            
-            <div class="container-xxl flex-grow-1 container-p-y">           
+
+            <div class="container-xxl flex-grow-1 container-p-y">
 
 
-                
-                               
+
+
 
                     <!-- Confirmation -->
                     <div id="checkout-confirmation" class="content text-center" style="margin-top: 80px;">
@@ -88,8 +124,8 @@
                       <div class="app-brand justify-content-center mb-4">
                         <a href="../../index.html" class="app-brand-link gap-2">
                           <span class="app-brand-logo demo">
-                            <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">                    
-                          </span>                  
+                            <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">
+                          </span>
                         </a>
                       </div>
 
@@ -103,23 +139,23 @@
                           <h4 class="mt-2">Gracias!</h4>
                           <p>¡Tu orden <a href="javascript:void(0)" class="concepto">#1536548131</a> ha sido procesada!</p>
                           <p>
-                            Hemos enviado un correo a <a href="mailto:john.doe@example.com" class="concepto">john.doe@example.com</a> con los detalles
+                            Hemos enviado un correo a <span id="emailUsuarioCheckout"></span> con los detalles
                             de la confirmación de tu orden. <br>
-                            
+
                             Si el correo no ha llegado en dos minutos, por favor, revisa tu carpeta de SPAM.
                           </p>
-                          <p>
+                          <!--<p>
                             <span class="fw-semibold"><i class="bx bx-time-five"></i> Fecha y hora de la orden:</span> 25/05/2020
                             13:35 pm
-                          </p>  
-                        </div>       
+                          </p>  -->
+                        </div>
 
 
 
                         <div class="col-4 col-lg-4 offset-lg-2 text-center mb-1" style="margin-left: auto; margin-right:auto;">
                             <h5>Detalles del pago</h5>
                             <ul class="list-group mb-3">
-          
+
                               <li class="list-group-item fondoLista1 d-flex justify-content-between lh-sm">
                                 <div>
                                   <h6 class="my-0 mb-1">Membresía</h6>
@@ -127,20 +163,20 @@
                                 </div>
                                 <span class="my-0" id="valorBaseMembresia">$128.000</span>
                               </li>
-                                            
+
                               <li class="list-group-item fondoLista d-flex justify-content-between ">
                                 <div class="text-verde" id="divDescuento">
                                   <h6 class="my-0">Descuento</h6>
-                                  <small id="codigoDescn">ELSAEX10</small>
+                                  <!--<small id="codigoDescn">ELSAEX10</small>-->
                                 </div>
                                 <span class="text-verde" id="valorDescuento">−$12.800</span>
                               </li>
-                    
+
                               <li class="list-group-item fondoLista d-flex justify-content-between">
                                 <span>Sub-Total (COP)</span>
                                 <strong id="subTotalPagar">$115.200</strong>
                               </li>
-                    
+
                               <li class="list-group-item fondoLista d-flex justify-content-between lh-sm">
                                 <div>
                                   <h6 class="my-0">IVA</h6>
@@ -148,23 +184,23 @@
                                 </div>
                                 <span class="my-0" id="iva">$21.888</span>
                               </li>
-                              
-                              
+
+
                               <li class="list-group-item fondoLista2 d-flex justify-content-between">
                                 <span>Total (COP)</span>
                                 <strong id="totalPagar">$137.088</strong>
                               </li>
-                            </ul>  
+                            </ul>
 
                             <div class="mb-3">
+                              <a class="btn btn-success d-grid w-100" style="font-weight: 600;" type="button" value="Continuar" href="/html/vertical-menu-template/auth-login-basic.html">Continuar</a>
+                            </div>
+                            <!--<div class="mb-3">
                               <a class="btn btn-success d-grid w-100" style="font-weight: 600;" type="button" value="Ir a mi Dashboard" href="dashboard.html">Ir a mi Dashboard</a>
                             </div>
-
-
-
                             <div class="mb-3">
                               <a class="btn btn-success d-grid w-100" style="font-weight: 600;" type="button" value="Confirmar mi cuenta" href="">Confirmar mi cuenta</a>
-                            </div>
+                            </div>-->
 
 
 
@@ -173,8 +209,8 @@
 
 
                             <!-- Footer -->
-                              <footer id="footer"></footer>                               
-                            
+                              <footer id="footer"></footer>
+
                               <ul class="list-inline text-center" style="font-size: 12px;">
                                 <li class="list-inline-item"><a class="contratos text-muted" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
                                 <li class="list-inline-item"><a class="contratos text-muted" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
@@ -182,29 +218,29 @@
                               </ul>
                             <!-- / Footer -->
 
-                            
-                         </div>     
-                         
-                      </div>                      
-                    </div>                               
-              
+
+                         </div>
+
+                      </div>
+                    </div>
+
               <!--/ Checkout Wizard -->
-                            
+
             </div>
             <!-- / Content -->
 
 
 
 
-            
 
 
 
-            
+
+
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->
-        
+
       </div>
 
       <!-- Overlay -->
@@ -217,7 +253,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    
+
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
     <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -265,6 +301,6 @@
             <!-- Google -->
             <!-- ============================================================== -->
 
-    
+
   </body>
 </html>

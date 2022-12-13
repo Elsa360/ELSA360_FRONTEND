@@ -1,5 +1,5 @@
 async function desactivarCuenta(id) {
-    try {   
+    try {
         if (document.getElementById("accountActivation").checked === true) {
             let url = apiServer + "usuario/eliminar"
             await fetch(url, {
@@ -13,9 +13,9 @@ async function desactivarCuenta(id) {
             })
                 .then((response) => response.json())
                 .then((resultado) => {
-                    if (resultado === -1) {
-                        window.location.href = "wwww.elsa360.com/index.html";
-                    } else {
+                    if(resultado===-1){
+                        window.location.href = mainUrl + "index.html";
+                    }else{
                         console.log("Ah ocurrido algun error al eliminar el registro");
                     }
                 });

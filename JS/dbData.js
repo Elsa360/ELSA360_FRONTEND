@@ -1,9 +1,8 @@
 async function listar() {
-    // console.log(apiServer)
     let tabla = "alimentoRegular";
     let campo = "*";
     let filtro = "1=1";
-    let url = "https://" + apiServer + ":7155/CRUD/listar?tabla=" + tabla + "&filtro=" + filtro + "&campos=" + campo + "";
+    let url = apiServer + "CRUD/listar?tabla=" + tabla + "&filtro=" + filtro + "&campos=" + campo + "";
     await fetch(url)
         .then(response => response.json())
         .then(resultado => {
@@ -31,7 +30,7 @@ async function listar() {
                 valor.push(element[1]);
             });
             for(let i=0;i<(claves.length);i++){
-                console.log(claves[i]+":"+valor[i]); 
+                console.log(claves[i]+":"+valor[i]);
             }
         });
 
