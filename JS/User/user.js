@@ -151,35 +151,38 @@ async function validarCuenta() {
   const emailUsuario = window.location.search;
   const urlParams = new URLSearchParams(emailUsuario);
   let userId = urlParams.get("usuarioVerificado");
-  let url = apiServer + "usuario/verificar?idUsuario=" + userId + "";
-  console.log(url);
-  try {
-      await fetch(url, {
-          method: 'PUT',
-          body: JSON.stringify({
-              idusuario: userId,
-          }),
-          headers: {
-              'Content-type': 'application/json; charset=UTF-8',
-          },
-      })
-          .then((response) => response.json())
-          .then((respuesta) => {
-              if (respuesta === 1) {
-                  $("#spinnerGeneral").hide();
-                  $("#modalGeneral #modalCenterTitle").html("Gracias");
-                  $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
-                  // $("#modalGeneral").modal("show");
-                  loginNoPass(userId);
-              } else {
-                  // $("#spinnerGeneral").hide();
-                  // $("#modalGeneral #modalCenterTitle").html("Error");
-                  // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
-                  // $("#modalGeneral").modal("show");
-              }
-          });
-  } catch (e) {
-      console.log(e);
+  if(userId!=null)
+  {
+    let url = apiServer + "usuario/verificar?idUsuario=" + userId + "";
+    console.log(url);
+    try {
+        await fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify({
+                idusuario: userId,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((respuesta) => {
+                if (respuesta === 1) {
+                    $("#spinnerGeneral").hide();
+                    $("#modalGeneral #modalCenterTitle").html("Gracias");
+                    $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
+                    // $("#modalGeneral").modal("show");
+                    loginNoPass(userId);
+                } else {
+                    // $("#spinnerGeneral").hide();
+                    // $("#modalGeneral #modalCenterTitle").html("Error");
+                    // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
+                    // $("#modalGeneral").modal("show");
+                }
+            });
+    } catch (e) {
+        console.log(e);
+    }
   }
 }
 
