@@ -1,12 +1,44 @@
 window.onload = async () => {
-    fechaObjetivos(1);
-    disponibilidad(1);
-    resultados(1, 70);
-    requerimientoLiquidos(70);
-    calculoSemanas('15/03/2022', '15/06/2022')
-    tests("2022/12/10")
-    mesosciclos(1, 1, 24)
-    get("1990-10-10", "hombre", 90, 70, 180, 0)
+
+    let membresia = sessionStorage.getItem('membresia')
+    if (membresia == true) {
+        let perfil = sessionStorage.getItem('perfil')
+        fechaObjetivos(perfil)
+        disponibilidad(perfil)
+        let usuario = sessionStorage.getItem('login')
+        try {
+            let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
+            var pesoActualPerfil
+            var pesoObjetivoPerfil
+            var genero
+            fetch(url)
+                .then(response => response.json())
+                .then(respuesta => {
+                    respuesta.forEach(elemento => {
+                        console.log(elemento);
+                        pesoActualPerfil = elemento.peso
+                        pesoObjetivoPerfil = elemento.pesoObjetivo
+                        genero = elemento.sexo
+                        nacimiento = elemento.fechaNacimiento
+                        estaturaPerfil = elemento.estatura
+                    });
+
+                    resultados(parseInt(perfil), parseInt(pesoActualPerfil));
+                    requerimientoLiquidos(parseInt(pesoActualPerfil));
+                    calculoSemanas(fechaInicioEntreno, fechaObjetivo)
+                    tests(fechaInicioEntreno)
+                    mesosciclos(nivel, escala, semanasTotales)
+                    get(nacimiento, genero, parseInt(pesoActualPerfil), parseInt(pesoObjetivoPerfil), parseInt(estaturaPerfil), gastoDeportivo)
+                    cet(perfil, fechaActual)
+
+                });
+        } catch (e) {
+            console.log("Dashboar: ", e)
+        }
+    } else {
+        location.href = "pages-pricing.html"
+    }
+
 }
 
 async function fechaObjetivos(idperfil) {
@@ -17,15 +49,21 @@ async function fechaObjetivos(idperfil) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach(elemento => {
-                    fechaObj = elemento.fechaObjetivo;
-                    fechaIni = elemento.fechaInicialEntren;
-                });
-                fecha_1 = fechaObj.split(" ")
-                fecha_2 = fechaIni.split(" ")
-                document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0]
-                document.getElementById("fechaInicialDashboard").innerText = fecha_2[0]
+                if (respuesta != 0) {
+                    respuesta.forEach(elemento => {
+                        fechaObj = elemento.fechaObjetivo;
+                        fechaIni = elemento.fechaInicialEntren;
+                    });
+                    fecha_1 = fechaObj.split(" ")
+                    fecha_2 = fechaIni.split(" ")
+                    document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0]
+                    document.getElementById("fechaInicialDashboard").innerText = fecha_2[0]
+                } else {
+                    document.getElementById("btnInicioEntreno").style = "display: none;"
+                    console.log("No tiene objetivo deportivo")
+                }
             });
+
     } catch (e) {
         console.log("FechaObjetivos:", e)
     }
@@ -44,21 +82,27 @@ async function disponibilidad(idperfil) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach(elemento => {
-                    thrsemanal = elemento.totalHorasSemana;
-                    thlunes = elemento.lunes;
-                    thmartes = elemento.martes;
-                    thmiercoles = elemento.miercoles;
-                    thjueves = elemento.jueves;
-                    thviernes = elemento.viernes;
-                    thsabado = elemento.sabado;
-                    thdomingo = elemento.domingo;
+                if (respuesta != 0) {
+                    respuesta.forEach(elemento => {
+                        thrsemanal = elemento.totalHorasSemana;
+                        thlunes = elemento.lunes;
+                        thmartes = elemento.martes;
+                        thmiercoles = elemento.miercoles;
+                        thjueves = elemento.jueves;
+                        thviernes = elemento.viernes;
+                        thsabado = elemento.sabado;
+                        thdomingo = elemento.domingo;
 
 
-                });
-                dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
-                graficosHorasDiarias(dataHrsDias)
-                document.getElementById("hrSemanalDashboard").innerText = thrsemanal
+                    });
+
+                    dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
+                    graficosHorasDiarias(dataHrsDias)
+                    document.getElementById("hrSemanalDashboard").innerText = thrsemanal
+                } else {
+                    document.getElementById("btndisponibilidadsemanal").style = "display: none;"
+                    console.log("No tiene disponibilidad semanal")
+                }
             });
     } catch (e) {
         console.log("Disponibilidad:", e)
@@ -574,16 +618,19 @@ function rs(pesoActual, pesoObjetivo) {
         return [rs, mensaje];
     } catch (e) { console.log(e); }
 }
-
-async function cet(fecha, idperfil) {
+async function cet(idperfil, fecha) {
     try {
-        let url = apiServer + "";
-        fetch(url)
+        let url = apiServer + "alimentoRegularSeleccionado/cet?idPerfil=" + idperfil + "&fecha=" + fecha + "";
+        var totalCET = 0;
+        await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
                 respuesta.forEach(elemento => {
                     console.log(elemento)
+                    totalCET = totalCET + elemento.caloriasAlimento
                 });
+                document.getElementById("CET").innerText = totalCET + " Cal"
+                console.log("CET: ", totalCET);
             });
     } catch (e) {
         console.log("CET: ", e)

@@ -1,6 +1,18 @@
-// var getTotal = 0
 window.onload = async () => {
-    datesUser(90, 178, 80, "1990-10-10", "hombre", 0);
+
+    //Variables de Session
+    //============================================================================
+    let fechaActual = new Date().toLocaleDateString()
+    let idperfil = parseInt(sessionStorage.getItem('perfil'))
+    let pesoActual = parseFloat(sessionStorage.getItem('pesoActual'))
+    let pesoDeseado = parseFloat(sessionStorage.getItem('pesoDeseado'))
+    let fechaNacimiento = sessionStorage.getItem('fechaNacimiento')
+    let genero = sessionStorage.getItem('sexoUser')
+    let met = parseFloat(sessionStorage.getItem('met'))
+    //============================================================================
+    datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met);
+    cet(idperfil, fechaActual);
+    ipm(pesoActual, pesoDeseado)
 };
 function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met) {
     try {
@@ -261,6 +273,54 @@ function get(fechaNacimiento, genero, pesoActualPerfil, pesoDeseadoPerfil, estat
     } catch (e) { console.log(e) }
 }
 
+async function cet(idperfil, fecha) {
+    try {
+        let url = apiServer + "alimentoRegularSeleccionado/cet?idPerfil=" + idperfil + "&fecha=" + fecha + "";
+        var totalCET = 0;
+        var cet1 = 0;
+        var cet2 = 0;
+        var cet3 = 0;
+        var cet4 = 0;
+        var cet5 = 0;
+        var cet6 = 0;
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                respuesta.forEach(elemento => {
+                    totalCET = totalCET + elemento.caloriasAlimento
+                    if (elemento.fkIdMomentoComidaSlccn == 1) {
+                        cet1 = cet1 + elemento.caloriasAlimento
+                    }
+                    if (elemento.fkIdMomentoComidaSlccn == 2) {
+                        cet2 = cet2 + elemento.caloriasAlimento
+                    }
+                    if (elemento.fkIdMomentoComidaSlccn == 3) {
+                        cet3 = cet3 + elemento.caloriasAlimento
+                    }
+                    if (elemento.fkIdMomentoComidaSlccn == 4) {
+                        cet4 = cet4 + elemento.caloriasAlimento
+                    }
+                    if (elemento.fkIdMomentoComidaSlccn == 5) {
+                        cet5 = cet5 + elemento.caloriasAlimento
+                    }
+                    if (elemento.fkIdMomentoComidaSlccn == 6) {
+                        cet6 = cet6 + elemento.caloriasAlimento
+                    }
+
+                });
+                document.getElementById("CET").innerText = totalCET + " Cal"
+                document.getElementById("cetmomento1").innerText = cet1
+                document.getElementById("cetmomento2").innerText = cet2
+                document.getElementById("cetmomento3").innerText = cet3
+                document.getElementById("cetmomento4").innerText = cet4
+                document.getElementById("cetmomento5").innerText = cet5
+                document.getElementById("cetmomento6").innerText = cet6
+            });
+    } catch (e) {
+        console.log("CET: ", e)
+    }
+}
+
 //Calculo GET (Momento y Macro)
 function getMacronutrientes(differenceWeight, get) {
     let dp = differenceWeight;
@@ -331,9 +391,8 @@ function getMomento(differenceWeight, get) {
 // ==========================================================================================================================
 
 function momento(momento) {
-    let idperfil=1
-    let fechaActual = new Date().toLocaleDateString()
-    console.log(fechaActual)
+    let idperfil = sessionStorage.getItem('perfil')
+    let fechaActual = new Date().toLocaleDateString("en-US")
     try {
         let getCompleto = getTotal;
         let idMoment = momento;
@@ -812,43 +871,28 @@ function guardarAlimentosVegetarianos() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// grafico de peso deseado Vs Peso actual
-
-
-// meses para lograr peso objetivo
-
-dataKilosIdeales = [70.2, 71, 71.9, 73, 73.6, 74]
-dataKilosReales = [70.2, 70.5, 72.3, 72.8, 73.4, 74]
-dataLabelsPeso = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
-
-graficoPesoDeseado(dataKilosIdeales, dataKilosReales, dataLabelsPeso);
-
-
+function ipm(pesoActual, pesoDeseado) {
+    //Incremento de peso mensual
+    let dif = (pesoDeseado - pesoActual).toFixed(2)
+    let ipm = 0;
+    let dataKilosReales = [70.2, 70.5, 72.3, 72.8, 73.4, 74]
+    let dataKilosIdeales = [];
+    dataLabelsPeso = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun']
+    if (Math.abs(dif) <= 12) {
+        ipm = dif / 3;
+    } else if (Math.abs(dif) <= 24) {
+        ipm = dif / 6;
+    } else if (Math.abs(dif) <= 48) {
+        ipm = dif / 12;
+    } else {
+        ipm = 4;
+    }
+    for (let i = 0; i < 6; i++) {
+        pesoActual = pesoActual + parseFloat(ipm.toFixed(2));
+        dataKilosIdeales.push(pesoActual.toFixed(2));
+    }
+    graficoPesoDeseado(dataKilosIdeales, dataKilosReales, dataLabelsPeso);
+}
 function graficoPesoDeseado(dataKilosIdeales, dataKilosReales, dataLabelsPeso) {
     var opcioneslograrPesoObjetivo = {
         series: [{
@@ -1011,6 +1055,35 @@ function graficoPesoDeseado(dataKilosIdeales, dataKilosReales, dataLabelsPeso) {
     lograrPesoObjetivo.render();
     // fianl meses para lograr peso objetivo
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

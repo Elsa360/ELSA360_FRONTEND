@@ -1,14 +1,11 @@
 function alimentos_pdf() {
-    let idperfil=1;
-    let momentocomida=1
+    let idperfil=sessionStorage.getItem('perfil');
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    const momento = urlParams.get('momento');
+    let momentocomida=momento;
     try {
-        //Obtener fecha del sistema
-        const fechaActual = new Date()
-        ano = fechaActual.getFullYear();
-        mes = fechaActual.getMonth() + 1;
-        dia = fechaActual.getDate();
-
-        fecha = dia + '/' + mes + '/' + ano;
+        let fecha = new Date().toLocaleDateString("en-US")
         // Alimentos elegidos
         let tablaElegidos = document.getElementById('alimentosElegidos');
         let cuerpoTabla = document.createElement('tbody');

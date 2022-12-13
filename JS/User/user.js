@@ -175,40 +175,54 @@ async function login() {
     try {
         let emailUser = document.getElementById("emailLogin").value;
         let contraUser = document.getElementById("passwordLogin").value;
-        let url = apiServer + "usuario/login?usuario=" + emailUser + "&contra=" + contraUser + ""
-        console.log(emailUser);
-        console.log(contraUser);
-        console.log(url);
-        await fetch(url)
+        let urlBuscarUser = apiServer + "usuario/buscar?email=" + emailUser + ""
+        await fetch(urlBuscarUser)
             .then(response => response.json())
-            .then(respuesta => {
-                if (respuesta.length === 0) {
-                    $("#spinnerGeneral").hide();
-                    $("#modalGeneral #modalCenterTitle").html("Error");
-                    $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
-                    $("#modalGeneral").modal("show");
-                } else {
-                    respuesta.forEach(idUser => {
-                        let userLogin = idUser[0];
-                        let idLogin = userLogin.split(":");
-                        let userVerificacion = idUser[1];
-                        let stateVerification = userVerificacion.split(":");
-                        if (Boolean(stateVerification[1]) === true) {
-                            $("#spinnerGeneral").hide();
-                            loginNoPass(parseInt(idLogin[1]))
-                            location.href = "auth-perfil.html";
-                        } else {
-                            $("#spinnerGeneral").hide();
-                            $("#modalGeneral #modalCenterTitle").html("Error");
-                            $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
-                            $("#modalGeneral").modal("show");
-                        }
-                    });
-                }
-            })
-            .catch((error) => {
-                console.log('Error: ', error)
-            })
+            .then(usuario => {
+                usuario.forEach(id => {
+                    let existe = id.idUsuario
+                    if (parseInt(existe) != 0) {
+                        let url = apiServer + "usuario/login?usuario=" + emailUser + "&contra=" + contraUser + ""
+                        fetch(url)
+                            .then(response => response.json())
+                            .then(respuesta => {
+                                if (respuesta.length == 0) {
+                                    console.log("Contraseña incorrecta")
+                                    $("#spinnerGeneral").hide();
+                                    $("#modalGeneral #modalCenterTitle").html("Error");
+                                    $("#modalGeneral #modalMensaje").html("Contraseña incorrecta");
+                                    $("#modalGeneral").modal("show");
+                                } else {
+                                    respuesta.forEach(idUser => {
+                                        console.log(idUser.idUsuario)
+                                        if (idUser.verificacion === true) {
+                                            $("#spinnerGeneral").hide();
+                                            loginNoPass(parseInt(idUser.idUsuario))
+                                            location.href = "auth-perfil.html";
+                                        } else {
+                                            enviarEMail(emailUser, existe);
+                                            console.log("El usuario no esta verificado")
+                                            $("#spinnerGeneral").hide();
+                                            $("#modalGeneral #modalCenterTitle").html("Error");
+                                            $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
+                                            $("#modalGeneral").modal("show");
+                                        }
+                                    });
+                                }
+                            })
+                            .catch((error) => {
+                                console.log('Error: ', error)
+                            })
+                    } else {
+                        console.log("El usuario no existe")
+                        $("#spinnerGeneral").hide();
+                        $("#modalGeneral #modalCenterTitle").html("Error");
+                        $("#modalGeneral #modalMensaje").html("El usuario no existe");
+                        $("#modalGeneral").modal("show");
+                    }
+                });
+            });
+
     } catch (e) {
         console.log(e);
     }
@@ -240,6 +254,24 @@ async function verificarUsuario(email, nombreUsuario) {
             })
     } catch (e) {
 
+    }
+}
+async function buscarPerfil() {
+    let usuario = sessionStorage.getItem('login');
+    try {
+        let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
+        fetch(url)
+        .then(response => response.json())
+        .then(respuesta =>{
+            respuesta.forEach(perfil=>{
+                if(perfil.idPerfilUsuario > 0){
+                    sessionStorage.setItem('perfil',perfil.idPerfilUsuario)
+                    location.href = "dashboard.html"
+                }
+            });
+        });
+    } catch (e) {
+        console.log("Buscar_Perfil ", e)
     }
 }
 async function perfilar() {
@@ -309,7 +341,8 @@ async function perfilar() {
                 velocimetro: velocimetro,
                 cadenciometro: cadenciometro,
                 fkPorque: porque,
-                fkUsuario: idUsuario
+                fkUsuario: idUsuario,
+                ippc:"00.00.00.00"
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
