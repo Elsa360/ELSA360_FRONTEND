@@ -1,185 +1,221 @@
 <!DOCTYPE html>
 <html lang="es" class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
-  <head>
-    <meta name="viewport" content="width=device-width,inital-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
-    <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
-    <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
-    <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
-    <meta name="robots" content="noindex">    
-    <title>Checkout - ELSA360</title>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
+  <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="robots" content="noindex">
+  <title>Checkout - ELSA360</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
-
-    
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">  
-
-    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-
-    
-    <!-- Custom styles for this template -->
-    <link href="../../assets/css/checkout.css" rel="stylesheet">
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
 
 
-    <script>
-      $(function () {
-        $("#footer").load("footer.html");
-      });
-    </script>
-  </head>
+  <!--<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">-->
+
+  <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
 
-  <body>
-    
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-2" src="../../assets/img/branding/elsa-Verde.png" alt="" width="100" >
-      <h2>Checkout</h2>
-      <p class="lead">Estás a un solo paso de empezar el entrenamiento que te llevará a cumplir tus objetivos.</p>
-    </div>
-
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        
-        
-        
-        <ul class="list-group mb-3">
-          
-          <li class="list-group-item fondoLista1 d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Membresía</h6>
-              <small class="my-0" id="tiempoMembresia">Trimestral</small>
-            </div>
-            <span class="my-0" id="valorBaseMembresia">$128.000</span>
-          </li>
-                        
-          <li class="list-group-item fondoLista d-flex justify-content-between ">
-            <div class="text-verde" id="divDescuento">
-              <h6 class="my-0">Descuento</h6>
-              <small id="codigoDescn">ELSAEX10</small>
-            </div>
-            <span class="text-verde" id="valorDescuento">−$12.800</span>
-          </li>
-
-          <li class="list-group-item fondoLista d-flex justify-content-between">
-            <span>Sub-Total (COP)</span>
-            <strong id="subTotalPagar">$115.200</strong>
-          </li>
-
-          <li class="list-group-item fondoLista d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">IVA</h6>
-              <small class="my-0">19%</small>
-            </div>
-            <span class="my-0" id="iva">$21.888</span>
-          </li>
-          
-          
-          <li class="list-group-item fondoLista2 d-flex justify-content-between">
-            <span>Total (COP)</span>
-            <strong id="totalPagar">$137.088</strong>
-          </li>
-        </ul>    
+  <!-- Custom styles for this template -->
+  <link href="../../assets/css/checkout.css" rel="stylesheet">
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
 
 
-        <form class="card p-2 fondoLista">
-          <div class="input-group ">
-            <input type="text" class="form-control" id="codigoDescuento" placeholder="Ingresa tu código">
-            <button type="button" class="btnDcto" onclick="buscarCuponDescuento()">Aplicar</button>
-          </div>
-        </form>
+  <script>
+  $(function () {
+    $("#footer").load("footer.html");
+  });
+  </script>
+
+
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+  <script src="../../JS/middleware.js"></script>
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+
+  <!-- ============================================================== -->
+  <!-- customTask -->
+  <!-- ============================================================== -->
+  <script src="../../JS/customTask.js"></script>
+  <!-- ============================================================== -->
+  <!-- customTask -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- enviroment -->
+  <!-- ============================================================== -->
+  <script src="../../JS/enviroment.js"></script>
+  <!-- ============================================================== -->
+  <!-- enviroment -->
+  <!-- ============================================================== -->
+
+
+
+
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+  <script src="../../JS/User/checkout.js"></script>
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+
+</head>
+
+
+<body>
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-2" src="../../assets/img/branding/elsa-Verde.png" alt="" width="100" >
+        <h2>Checkout</h2>
+        <p class="lead">Estás a un solo paso de empezar el entrenamiento que te llevará a cumplir tus objetivos.</p>
       </div>
 
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
 
 
-      <div class="col-md-7 col-lg-8">
-        <div class="DatosContainer">
-        <h4 class="mb-3">Tus datos</h4>
-        <form class="needs-validation" novalidate>
-        
-          <div class="row g-3">
+
+          <ul class="list-group mb-3">
+
+            <li class="list-group-item fondoLista1 d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">Membresía</h6>
+                <small class="my-0" id="tiempoMembresia">Trimestral</small>
+              </div>
+              <span class="my-0" id="valorBaseMembresia">$128.000</span>
+            </li>
+
+            <li class="list-group-item fondoLista d-flex justify-content-between ">
+              <div class="text-verde" id="divDescuento">
+                <h6 class="my-0">Descuento</h6>
+                <small id="codigoDescn">ELSAEX10</small>
+              </div>
+              <span class="text-verde" id="valorDescuento">−$12.800</span>
+            </li>
+
+            <li class="list-group-item fondoLista d-flex justify-content-between">
+              <span>Sub-Total (COP)</span>
+              <strong id="subTotalPagar">$115.200</strong>
+            </li>
+
+            <li class="list-group-item fondoLista d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">IVA</h6>
+                <small class="my-0">19%</small>
+              </div>
+              <span class="my-0" id="iva">$21.888</span>
+            </li>
 
 
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Nombre</label>
-              <h4 class="correoUsuario" id="nombreUsuario">Manuel Peralta</h4>
-              <!-- <input type="text" class="form-control" id="firstName" placeholder="" value="" required> -->
-              <!-- <div class="invalid-feedback">
-                Valid first name is required.
-              </div> -->
+            <li class="list-group-item fondoLista2 d-flex justify-content-between">
+              <span>Total (COP)</span>
+              <strong id="totalPagar">$137.088</strong>
+            </li>
+          </ul>
+
+
+          <form class="card p-2 fondoLista">
+            <div class="input-group ">
+              <input type="text" class="form-control" id="codigoDescuento" placeholder="Ingresa tu código">
+              <button type="button" class="btnDcto" onclick="buscarCuponDescuento()">Aplicar</button>
             </div>
+          </form>
+        </div>
 
-            
 
-            <div class="col-sm-6">
-              <label for="email" class="form-label">Correo electrónico <span class="text-muted"></span></label>
-              <h4 class="correoUsuario" id="emailUsuarioCheckout">manuelperalta@elsa360.com</h4>
-              <!-- <input type="email" class="form-control" id="email" placeholder="">
-              <div class="invalid-feedback">
+
+        <div class="col-md-7 col-lg-8">
+          <div class="DatosContainer">
+            <h4 class="mb-3">Tus datos</h4>
+            <form class="needs-validation" novalidate id="" action="#">
+
+              <div class="row g-3">
+
+
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">Nombre</label>
+                  <h4 class="correoUsuario" id="nombreUsuario">-</h4>
+                  <!-- <input type="text" class="form-control" id="firstName" placeholder="" value="" required> -->
+                  <!-- <div class="invalid-feedback">
+                  Valid first name is required.
+                </div> -->
+              </div>
+
+
+
+              <div class="col-sm-6">
+                <label for="email" class="form-label">Correo electrónico <span class="text-muted"></span></label>
+                <h4 class="correoUsuario" id="emailUsuarioCheckout">-</h4>
+                <!-- <input type="email" class="form-control" id="email" placeholder="">
+                <div class="invalid-feedback">
                 Ingresa un correo valido.
               </div> -->
-            </div> 
+            </div>
 
-            
+
           </div>
-        </div>          
-
-          <div class="separadorContainer">
-            <hr class="my-4">
-          </div>           
-
-          <button class="botonIrAPagar" type="submit">Ir a pagar</button>
-        </form>
-
-        <div class="cho-container" id="cho-container"></div>
-
-        <div class="mercadoPago">
-          <h6>Paga seguro con:</h6>
-          <img src="../../assets/img/branding/MercadoPago.png" class="img-payU" alt="" width="180">
         </div>
-      </div>
-    </div>
-  </main>
 
-  
+        <div class="separadorContainer">
+          <hr class="my-4">
+        </div>
 
-  <footer id="footer" >
-  </footer>
+        <a class="botonIrAPagar" type="button" href="" id="formcheckout">Ir a pagar</a>
+      </form>
 
-  <ul class="list-inline text-center" style="font-size: 12px;">
-    <li class="list-inline-item"><a class="contratos text-muted" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
-    <li class="list-inline-item"><a class="contratos text-muted" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
-    <li class="list-inline-item"><a class="contratos text-muted" href="pages-cookies-SM.html">Cookies</a></li>
-  </ul>
+      <div class="cho-container" id="cho-container"></div>
+
+      <!--<div class="mercadoPago">
+      <h6>Paga seguro con:</h6>
+      <img src="../../assets/img/branding/MercadoPago.png" class="img-payU" alt="" width="180">
+    </div>-->
+  </div>
+</div>
+</main>
+
+
+
+<footer id="footer" >
+</footer>
+
+<ul class="list-inline text-center" style="font-size: 12px;">
+  <li class="list-inline-item"><a class="contratos text-muted" href="pages-privacidad-SM.html">Tratamiento de datos</a></li>
+  <li class="list-inline-item"><a class="contratos text-muted" href="pages-terminos-SM.html">Terminos y condiciones</a></li>
+  <li class="list-inline-item"><a class="contratos text-muted" href="pages-cookies-SM.html">Cookies</a></li>
+</ul>
 </div>
 
-    <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <script src="../../JS/classes.js"></script>
-      <script src="../../JS/Checkout/index.js"></script>
+<!--<script src="JS/bootstrap.bundle.min.js"></script>-->
+<!--<script src="https://sdk.mercadopago.com/js/v2"></script>-->
+<!--  <script src="../../JS/classes.js"></script>
+<script src="../../JS/Checkout/index.js"></script>-->
 
 
 
 
 
 
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-93DR8GES25');
-            </script>
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-  </body>
+<!-- ============================================================== -->
+<!-- Google -->
+<!-- ============================================================== -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-93DR8GES25');
+</script>
+<!-- ============================================================== -->
+<!-- Google -->
+<!-- ============================================================== -->
+</body>
 </html>

@@ -1,57 +1,66 @@
 async function registrarme() {
-    $("#spinnerGeneral").show();
-    var server = getServer()
-    try {
-        var responseRecaptcha = grecaptcha.getResponse();
-        if (responseRecaptcha.length == 0) {
-            nombreCompleto = document.getElementById("username").value;
-            emailUser = document.getElementById("email").value;
-            contraUser = document.getElementById("password").value
-            if (nombreCompleto != "") {
-                if (emailUser != "") {
-                    if (contraUser != "") {
-                        if (document.getElementById("terms-conditions").checked) {
-                            try {
-                                let url = apiServer + "usuario/crear";
-                                let bodyString = JSON.stringify({
-                                    email: emailUser.trim(),
-                                    passwordUser: contraUser,
-                                    nombreUsuario: nombreCompleto.toLowerCase(),
-                                    fkIdRol: 4,
-                                    ipPc: server.REMOTE_ADDR
-                                });
+  $("#spinnerGeneral").show();
+  var server = getServer()
+  try {
+      var responseRecaptcha = grecaptcha.getResponse();
+      if (responseRecaptcha.length > 0) {
+          nombreCompleto = document.getElementById("username").value;
+          emailUser = document.getElementById("email").value;
+          contraUser = document.getElementById("password").value
+          if (nombreCompleto != "") {
+              if (emailUser != "") {
+                  if (contraUser != "") {
+                      if (document.getElementById("terms-conditions").checked) {
+                          try {
+                              let url = apiServer + "usuario/crear";
+                              console.log("url");
+                              console.log(url);
+                              console.log("2:" + server.REMOTE_ADDR);
+                              let bodyString = JSON.stringify({
+                                  email: emailUser.trim(),
+                                  passwordUser: contraUser,
+                                  nombreUsuario: nombreCompleto.toLowerCase(),
+                                  fkIdRol: 4,
+                                  ipPc: server.REMOTE_ADDR
+                              });
 
-                                await fetch(url, {
-                                    method: 'POST',
-                                    body: bodyString,
-                                    headers: {
-                                        'Content-type': 'application/json; charset=UTF-8',
-                                        'Access-Control-Allow-Origin': '*'
-                                    },
-                                })
-                                    .then((response) => response.json())
-                                    .then(function (respuesta) {
-                                        console.log("Respuesta:", respuesta)
-                                        if (respuesta === 0) {
-                                            let url = apiServer + "usuario/buscar?email=" + emailUser.trim()
-                                            console.log(url)
-                                            fetch(url)
-                                                .then(response => response.json())
-                                                .then(respuesta => {
-                                                    respuesta.forEach(element => {
-                                                        console.log(element.idUsuario)
-                                                        if (element.idUsuario === 1) {
-                                                            $("#spinnerGeneral").hide();
-                                                            $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                                                            $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                                                            $("#modalGeneral").modal("show");
-                                                        } else {
-                                                            notificacion(bodyString);
-                                                            $("#spinnerGeneral").hide();
-                                                        }
-                                                    });
-                                                });
-                                        } else {
+                              await fetch(url, {
+                                  method: 'POST',
+                                  body: bodyString,
+                                  headers: {
+                                      'Content-type': 'application/json; charset=UTF-8',
+                                      'Access-Control-Allow-Origin': 'https://*elsa360.com'
+                                  },
+                              })
+                                  .then((response) => response.json())
+                                  .then(function (respuesta) {
+                                      console.log("Respuesta:", respuesta)
+                                      if (respuesta === 0) {
+                                          let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                                          console.log(url)
+                                          fetch(url)
+                                              .then(response => response.json())
+                                              .then(respuesta => {
+                                                  respuesta.forEach(element => {
+                                                      let r2 = element;
+                                                      console.log(r2)
+                                                      if (r2 === 1) {
+                                                          $("#spinnerGeneral").hide();
+                                                          $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                                                          $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                                                          $("#modalGeneral").modal("show");
+                                                      } else {
+                                                          notificacion(bodyString);
+                                                          $("#spinnerGeneral").hide();
+                                                      }
+                                                  });
+                                              });
+                                      } else {
+                                          console.log("Respuesta Exitosa");
+                                          //si el registro tiene URI en la URL después del registro va a enviarlo a la URI
+                                          if (getUrlParameter('uri')===false)
+                                          {
+                                            console.log("uri false");
                                             enviarEMail(emailUser.trim(), respuesta);
                                           }
                                           else {
@@ -107,6 +116,7 @@ async function registrarme() {
       notificacion(error)
   }
 }
+
 function mensajeVerificacionUsuario() {
   const nombreUsuario = window.location.search;
   const urlParams = new URLSearchParams(nombreUsuario);
@@ -248,24 +258,31 @@ async function login() {
   }
 }
 async function loginNoPass(idusuario,membresia,verificado) {
+
+  sessionStorage.clear();
   console.log("login nopass");
   let url = apiServer + "usuario/loginnopass?usuario=" + idusuario
-  fetch().then(response=>response.json()).then(respuesta => {
+  fetch(url).then(response=>response.json()).then(respuesta => {
     console.log("login nopass");
     console.log(respuesta);
+    console.log(respuesta[0].idUsuario);
+    sessionStorage.setItem('membresia', respuesta[0].membresia);
+    sessionStorage.setItem('verificacion',respuesta[0].verificacion);
+    sessionStorage.setItem('email',respuesta[0].email);
+    sessionStorage.setItem('nombreUsuario',respuesta[0].nombreUsuario);
+
+    uri = mainUrl+"_sesion.php?action=login&membresia="+respuesta[0].membresia+"&verificado="+respuesta[0].verificacion+"&idUsuario="+idusuario;
+    console.log("php sesion");
+    console.log(uri);
+    fetch(uri)
+    .then(response=>response.json())
+    .then(respuesta => {console.log(respuesta)});
 
   });
-  sessionStorage.clear();
   sessionStorage.setItem('login',     idusuario);
   sessionStorage.setItem('idusuario', idusuario);
-  sessionStorage.setItem('membresia', membresia);
-  sessionStorage.setItem('validacion',verificado);
 
-  uri = mainUrl+"_sesion.php?action=login&membresia="+membresia+"&verificado="+verificado+"&idUsuario="+idusuario;
-  fetch(uri).then(response=>response.json()).then(respuesta => {
-    console.log(respuesta);
 
-  });
 
 }
 function logout() {
