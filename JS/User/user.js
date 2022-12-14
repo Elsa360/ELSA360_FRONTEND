@@ -128,8 +128,6 @@ function enviarEMail(email, idUser) {
   let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
   console.log(url);
 
-
-
   fetch(url, {
          method: 'GET',
          headers: {
@@ -141,7 +139,7 @@ function enviarEMail(email, idUser) {
            console.log(respuesta);
            console.log("==respuesta==");
            if (respuesta == "TRUE") {
-               location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
+               location.href = "/html/vertical-menu-template/auth-verify-email-basic-message.html?email=" + email.trim() + "&idUsuario=" + idUser;
            } else {
                notificacion("Error envio email de verificacion del usuario ", email)
                $("#spinnerGeneral").hide();
