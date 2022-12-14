@@ -1,191 +1,152 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  data-assets-path="../../assets/"  data-template="vertical-menu-template">
-
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-      <meta charset="utf-8" />
-      <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
-      <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
-      <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
-      <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
-      <meta name="robots" content="noindex">
-      <title> Perfilamiento - ELSA360</title>    
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
-    <script src="https://kit.fontawesome.com/073af2aaa4.js" crossorigin="anonymous"></script>
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/"
+  data-template="vertical-menu-template">
+
+<head>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="keywords"
+    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
+  <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="robots" content="noindex">
+  <title> Perfilamiento - ELSA360</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+  <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
+  <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
+  <script src="https://kit.fontawesome.com/073af2aaa4.js" crossorigin="anonymous"></script>
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="../../assets/css/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/bs-stepper/bs-stepper.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/tagify/tagify.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
+
+  <!-- Page CSS -->
+
+  <!-- Helpers -->
+  <script src="../../assets/vendor/js/helpers.js"></script>
+
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+  <script src="../../assets/vendor/js/template-customizer.js"></script>
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="../../assets/js/config.js"></script>
+
+
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+  <script src="../../JS/middleware.js"></script>
+  <!-- ============================================================== -->
+  <!-- middleware -->
+  <!-- ============================================================== -->
+</head>
+
+<body onload="buscarPerfil()">
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+
+
+
+
+
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+
+        <!-- Content -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Perfilamiento /</span> Datos personales y deportivos
+          </h4>
+
+          <!-- Property Listing Wizard -->
+          <div id="wizard-property-listing" class="bs-stepper vertical mt-2">
+            <div class="bs-stepper-header">
+
+
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="javascript:void(0);" class="app-brand-link gap-2">
+                  <span class="app-brand-logo demo" style="margin-bottom: 20px;">
+                    <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">
+                  </span>
+                </a>
+              </div>
+              <!-- /Logo -->
+
+
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/bs-stepper/bs-stepper.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/select2/select2.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/tagify/tagify.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/flatpickr/flatpickr.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
-
-    <!-- Page CSS -->
-
-    <!-- Helpers -->
-    <script src="../../assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="../../assets/vendor/js/template-customizer.js"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../assets/js/config.js"></script>
-  </head>
-
-  <body onload="buscarPerfil()">
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-
-
-   
-
-
-
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-
-            <!-- Content -->
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">
-                <span class="text-muted fw-light">Perfilamiento /</span> Datos personales y deportivos
-              </h4>
-
-              <!-- Property Listing Wizard -->
-              <div id="wizard-property-listing" class="bs-stepper vertical mt-2">
-                <div class="bs-stepper-header">
-
-
-                   <!-- Logo -->
-                   <div class="app-brand justify-content-center">
-                    <a href="javascript:void(0);" class="app-brand-link gap-2">
-                      <span class="app-brand-logo demo" style="margin-bottom: 20px;">
-                        <img src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px">                    
-                      </span>                  
-                    </a>
-                  </div>
-                  <!-- /Logo -->              
-
-
-
-                  <div class="step" data-target="#personal-details">
-                    <button type="button" class="step-trigger">
-                      <span class="bs-stepper-circle">
-                        <i class="bx bx-user"></i>
-                      </span>
-                      <span class="bs-stepper-label">
-                        <span class="bs-stepper-title">Datos personales</span>
-                        <span class="bs-stepper-subtitle">Perfilamiento básico</span>
-                      </span>
-                    </button>
-                  </div>
-
-
-                  <div class="line"></div>
-                  <div class="step" data-target="#property-details">
-                    <button type="button" class="step-trigger">
-                      <span class="bs-stepper-circle">
-                        <i class="bx bx-cycling"></i>
-                      </span>
-                      <span class="bs-stepper-label">
-                        <span class="bs-stepper-title ">Datos deportivos </span>
-                        <span class="bs-stepper-subtitle">Nivel y dispositivos</span>
-                      </span>
-                    </button>
-                  </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-                <div class="bs-stepper-content">
-                  <form id="wizard-property-listing-form" onSubmit="return false">
-
-
-                    <!-- Datos personales -->
-                    <div id="personal-details" class="content">
-
-
-                      <label class="form-label" for="">¿cúal es tu sexo?<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalDisclaimerSexo">
-                        <i class='bx bx-info-circle concepto'></i></button>
-                      </label>
-                      <div class="row g-3">
-                        <div class="col-12">
-                          <div class="row">
-
-                            <!-- <div class="col-md mb-md-0 mb-2">
+              <div class="step" data-target="#personal-details">
+                <button type="button" class="step-trigger">
+                  <span class="bs-stepper-circle">
+                    <i class="bx bx-user"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title">Datos personales</span>
+                    <span class="bs-stepper-subtitle">Perfilamiento básico</span>
+                  </span>
+                </button>
+              </div>
+
+
+              <div class="line"></div>
+              <div class="step" data-target="#property-details">
+                <button type="button" class="step-trigger">
+                  <span class="bs-stepper-circle">
+                    <i class="bx bx-cycling"></i>
+                  </span>
+                  <span class="bs-stepper-label">
+                    <span class="bs-stepper-title ">Datos deportivos </span>
+                    <span class="bs-stepper-subtitle">Nivel y dispositivos</span>
+                  </span>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="bs-stepper-content">
+              <form id="wizard-property-listing-form" onSubmit="return false">
+
+
+                <!-- Datos personales -->
+                <div id="personal-details" class="content">
+
+
+                  <label class="form-label" for="">¿cúal es tu sexo?<button type="button" class="btn"
+                      data-bs-toggle="modal" data-bs-target="#modalDisclaimerSexo">
+                      <i class='bx bx-info-circle concepto'></i></button>
+                  </label>
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <div class="row">
+
+                        <!-- <div class="col-md mb-md-0 mb-2">
                               <div class="form-check custom-option custom-option-icon">
                                 <label class="form-check-label custom-option-content" for="customRadioBuilder">
                                   <span class="custom-option-body">
@@ -205,816 +166,846 @@
                               </div>
                             </div> -->
 
-                            <div class="col-md mb-md-0 mb-2">
-                              <div class="form-check custom-option custom-option-icon form-check-success">
-                                <label class="form-check-label custom-option-content" for="sexoMujer">
-                                  <span class="custom-option-body">
-                                    <i class="bx bx-female" style="color: #9BCB3B;"></i>
-                                    <span class="custom-option-title"> Mujer </span>
-                                    <!-- <small>Submit property as an Individual. Lease, Rent or Sell at the best price.</small> -->
-                                  </span>
-                                  <input name="sexo" class="form-check-input" type="radio" value="mujer" id="sexoMujer" checked />
-                                </label>
-                              </div>
-                            </div>
-                            
-                            <div class="col-md mb-md-0 mb-2">
-                              <div class="form-check custom-option custom-option-icon form-check-success">
-                                <label class="form-check-label custom-option-content" for="sexoHombre">
-                                  <span class="custom-option-body">
-                                    <i class="bx bx-male" style="color: #9BCB3B;"></i>
-                                    <span class="custom-option-title"> Hombre </span>
-                                    <!-- <small>Earn highest commission by listing your clients properties at the best price.</small> -->
-                                  </span>
-                                  <input name="sexo" class="form-check-input" type="radio" value="hombre" id="sexoHombre" />
-                                </label>
-                              </div>
-                            </div>
+                        <div class="col-md mb-md-0 mb-2">
+                          <div class="form-check custom-option custom-option-icon form-check-success">
+                            <label class="form-check-label custom-option-content" for="sexoMujer">
+                              <span class="custom-option-body">
+                                <i class="bx bx-female" style="color: #9BCB3B;"></i>
+                                <span class="custom-option-title"> Mujer </span>
+                                <!-- <small>Submit property as an Individual. Lease, Rent or Sell at the best price.</small> -->
+                              </span>
+                              <input name="sexo" class="form-check-input" type="radio" value="mujer" id="sexoMujer"
+                                checked />
+                            </label>
                           </div>
-                        </div>          
-
-
-                        <div class="col-sm-6">
-                          <label class="form-label" for="plLastName">Peso actual</label>
-                          <input class="form-control" min="0" type="number" id="pesoUsuario" name="Peso" placeholder="¿Cuánto pesas (kg)? (Ej:72,7)" step="0.1">                          
                         </div>
 
-
-                        <div class="col-sm-6">
-                          <label class="form-label" for="plUserName">Estatura</label>
-                          <input class="form-control" min="0" type="number" id="estaturaUsuario" name="Estatura" placeholder="¿Cuánto mides (cms)? (Ej: 174)">                          
-                        </div>        
-
-
-                        <div class="col-sm-6">
-                          <div class="slidecontainer">
-                            <h4 class="form-label">¿Cuál es tu peso deseado? <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalPesoSaludable">
-                              <i class='bx bx-info-circle concepto'></i></button>
-                            </h4>
-                            <input type="range" min="" max="" value="" class="slider" id="pesoDeseado" step="0.1">
-                          </div>            
-
-        
-                        <div class="slidecontainer2">
-        
-                            <table class="tablaLimites">
-                                <tr>
-                                    <td class="valorLimiteInf"><span id="limiteInferior"></span></td>
-                                
-                                    <td class="valorSlider">Peso deseado: <span class="valorPesoDeseado" id="valor"></span></td>
-                                
-                                    <td class="valorLimiteSup"><span id="limiteSuperior"></span></td>
-                                </tr>
-                            </table>                                
-                        </div>
-                          
-                          <script>
-                            var slider = document.getElementById("pesoDeseado");
-                            var output = document.getElementById("valor");
-                            output.innerHTML = slider.value;
-                            
-                            slider.oninput = function() {
-                              output.innerHTML = this.value;
-                            }                  
-        
-        
-                                    estatura = document.getElementById("estaturaUsuario");
-                                    valorli = document.getElementById("limiteInferior");
-                                    valorsu = document.getElementById("limiteSuperior");
-                                estatura.onchange= function() {
-                                    estaturacm = parseInt(document.getElementById("estaturaUsuario").value);
-                                    
-                                    estmts=parseFloat(estaturacm/100)
-                                    est2=Math.pow(estmts,2)
-        
-                                    limsuperior=parseFloat(23.9*est2).toFixed(1)
-                                    liminferior=parseFloat(19.5*est2).toFixed(1)                            
-                                    
-                                    valorli.innerHTML=liminferior
-                                    valorsu.innerHTML=limsuperior
-        
-                                    slider.setAttribute("min",liminferior)
-                                    slider.setAttribute("max",limsuperior)
-                                    //set atribute min max                            
-                                }      
-                          </script>                          
-                        </div>
-
-                        <div class="col-sm-6">
-                          <label class="form-label" for="plEmail">Fecha de nacimiento</label>
-                          <input type="date" class="form-control" name="FechaNacimiento" id="fechaNacimiento"> 
-                        </div>
-
-                        <div class="col-sm-6">
-                          <label class="form-label" for="plEmail">Tipo de dieta</label>
-                          <select class="form-control" name="Tipo de dieta" id="tipoDietaUsuario">
-                            <option value="-1" disabled selected>¿Qué dieta sigues?</option>
-                            <option value="1">Regular</option>
-                            <option value="2">Vegetariana</option>
-                            <!-- <option value="vegana">Vegana</option> -->
-                          </select>
-                          <i></i> 
-                        </div>
-
-
-
-                        <div class="col-sm-6">
-                                  <label class="form-label" for="plEmail">Tipo de cuerpo</label>
-                                  <select class="form-control" name="tipoCuerpo" id="tipoCuerpoUsuario">
-                                    <option value="-1" disabled selected>¿Qué tipo de cuerpo tienes?</option>
-                                    <option value="1">  Delgado --> Ectomorfo</option>
-                                    <option value="2">  Normal --> Mesomorfo</option>
-                                    <option value="3">  Robusto --> Endomorfo</option>
-                                  </select>
-                                  <i></i>
-        
-                                  <div class="contenedor-textos">
-                                    <a href="" class="CTA-Modal text-success" data-bs-toggle="modal"
-                                    data-bs-target="#modalCenter" >¿Cómo saber qué tipo de cuerpo tengo?</a>
-                                  </div>                    
-                      
-                              <div class="mt-3">                           
-                        
-                                <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-        
-                                      <div class="modal-header">
-                                        <h5 class="modal-title" id="modalCenterTitle">Somatotipos</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-                                      </div>
-        
-        
-                                      <div class="modal-body">
-                                        <div class="imgSomatotiposContainer">
-                                          <img class="imgSomatotipos" src="../../assets/img/pages/somatotipos.jpg" alt="">
-                                        </div>
-        
-                                        
-                                        <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo text-success">Delgado  <small>(Ectomorfo)</small> </h4>
-                                            <p class="somatotipoDescripcion">Músculos delgados, extremidades largas y hombros estrechos. Personas
-                                                qué por más que coman,
-                                                nunca sufrirán de sobrepeso gracias a su metabolismo rápido y a su facilidad para quemar calorías.
-                                            </p>
-                                        </div>
-                                        <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo text-success">Normal  <small> (Mesomorfo)</small> </h4>
-                                            <p class="somatotipoDescripcion">Estructura ósea grande, físico atlético y músculos marcados. Personas
-                                                que tienen una complexión
-                                                fuerte por naturaleza. Deben cuidar la dieta, pero no tienen que ser tan estrictos, pero sí se
-                                                descuidan en exceso, pueden ganar grasa.
-                                            </p>
-                                        </div>
-                                        <div class="somatotiposDescripcionContainer">
-                                            <h4 class="somatotipoTitulo text-success"> Robusto <small> (Endomorfo)</small></h4>
-                                            <p class="somatotipoDescripcion">Similares a los mesomorfos, aunque con más grasa corporal. De
-                                                extremidades más cortas y con tendencia a ganar músculo y
-                                                grasa. Su metabolismo lento hace que no queme calorías tan fácilmente. Son las personas que más
-                                                deben cuidar la alimentación.
-                                            </p>
-                                        </div>                                
-                                      </div>                              
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>                           
-                        </div>       
-
-
-                        <div class="col-12 d-flex justify-content-between">
-                          <button class="btn btn-prev" disabled></button>
-
-                          <button class="btn btn-success btn-next" >
-                            <span class="align-middle d-sm-inline-block d-none me-sm-1" style="font-weight: 600;">Siguiente</span>
-                            <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
-                          </button>
-                          
+                        <div class="col-md mb-md-0 mb-2">
+                          <div class="form-check custom-option custom-option-icon form-check-success">
+                            <label class="form-check-label custom-option-content" for="sexoHombre">
+                              <span class="custom-option-body">
+                                <i class="bx bx-male" style="color: #9BCB3B;"></i>
+                                <span class="custom-option-title"> Hombre </span>
+                                <!-- <small>Earn highest commission by listing your clients properties at the best price.</small> -->
+                              </span>
+                              <input name="sexo" class="form-check-input" type="radio" value="hombre" id="sexoHombre" />
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
 
 
+                    <div class="col-sm-6">
+                      <label class="form-label" for="plLastName">Peso actual</label>
+                      <input class="form-control" min="0" type="number" id="pesoUsuario" name="Peso"
+                        placeholder="¿Cuánto pesas (kg)? (Ej:72,7)" step="0.1">
+                    </div>
+
+
+                    <div class="col-sm-6">
+                      <label class="form-label" for="plUserName">Estatura</label>
+                      <input class="form-control" min="0" type="number" id="estaturaUsuario" name="Estatura"
+                        placeholder="¿Cuánto mides (cms)? (Ej: 174)">
+                    </div>
+
+
+                    <div class="col-sm-6">
+                      <div class="slidecontainer">
+                        <h4 class="form-label">¿Cuál es tu peso deseado? <button type="button" class="btn"
+                            data-bs-toggle="modal" data-bs-target="#modalPesoSaludable">
+                            <i class='bx bx-info-circle concepto'></i></button>
+                        </h4>
+                        <input type="range" min="" max="" value="" class="slider" id="pesoDeseado" step="0.1">
+                      </div>
+
+
+                      <div class="slidecontainer2">
+
+                        <table class="tablaLimites">
+                          <tr>
+                            <td class="valorLimiteInf"><span id="limiteInferior"></span></td>
+
+                            <td class="valorSlider">Peso deseado: <span class="valorPesoDeseado" id="valor"></span></td>
+
+                            <td class="valorLimiteSup"><span id="limiteSuperior"></span></td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <script>
+                        var slider = document.getElementById("pesoDeseado");
+                        var output = document.getElementById("valor");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                          output.innerHTML = this.value;
+                        }
+
+
+                        estatura = document.getElementById("estaturaUsuario");
+                        valorli = document.getElementById("limiteInferior");
+                        valorsu = document.getElementById("limiteSuperior");
+                        estatura.onchange = function () {
+                          estaturacm = parseInt(document.getElementById("estaturaUsuario").value);
+
+                          estmts = parseFloat(estaturacm / 100)
+                          est2 = Math.pow(estmts, 2)
+
+                          limsuperior = parseFloat(23.9 * est2).toFixed(1)
+                          liminferior = parseFloat(19.5 * est2).toFixed(1)
+
+                          valorli.innerHTML = liminferior
+                          valorsu.innerHTML = limsuperior
+
+                          slider.setAttribute("min", liminferior)
+                          slider.setAttribute("max", limsuperior)
+                          //set atribute min max                            
+                        }      
+                      </script>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label class="form-label" for="plEmail">Fecha de nacimiento</label>
+                      <input type="date" class="form-control" name="FechaNacimiento" id="fechaNacimiento">
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label class="form-label" for="plEmail">Tipo de dieta</label>
+                      <select class="form-control" name="Tipo de dieta" id="tipoDietaUsuario">
+                        <option value="-1" disabled selected>¿Qué dieta sigues?</option>
+                        <option value="1">Regular</option>
+                        <option value="2">Vegetariana</option>
+                        <!-- <option value="vegana">Vegana</option> -->
+                      </select>
+                      <i></i>
+                    </div>
+
+
+
+                    <div class="col-sm-6">
+                      <label class="form-label" for="plEmail">Tipo de cuerpo</label>
+                      <select class="form-control" name="tipoCuerpo" id="tipoCuerpoUsuario">
+                        <option value="-1" disabled selected>¿Qué tipo de cuerpo tienes?</option>
+                        <option value="1"> Delgado --> Ectomorfo</option>
+                        <option value="2"> Normal --> Mesomorfo</option>
+                        <option value="3"> Robusto --> Endomorfo</option>
+                      </select>
+                      <i></i>
+
+                      <div class="contenedor-textos">
+                        <a href="" class="CTA-Modal text-success" data-bs-toggle="modal"
+                          data-bs-target="#modalCenter">¿Cómo saber qué tipo de cuerpo tengo?</a>
+                      </div>
 
+                      <div class="mt-3">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- Perfilamiento deportivo -->
-                    <div id="property-details" class="content">
-                      <div class="row g-3">
-                        <div class="col-12">
-                          <div class="row">
-
-
-
-                            <label class="form-label" for="">¿Por qué montas bici?</label>
-
-
-                            <div class="col-xl mb-xl-0 mb-2">
-                              <div class="form-check custom-option custom-option-icon form-check-success">
-
-                                <label class="form-check-label custom-option-content" for="rendimiento">
-                                  <span class="custom-option-body">
-                                    <i class="bx bxs-trophy" style="color: #9BCB3B;"></i>
-                                    <span class="custom-option-title">Mejorar rendimiento</span>
-                                    <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
-                                  </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="1" id="rendimiento" checked/>
-                                </label>
-                              
-                              </div>
-                            </div>
-
-
-
-                            <div class="col-xl mb-xl-0 mb-2">
-                              <div class="form-check custom-option custom-option-icon form-check-success">
-                                
-                                <label class="form-check-label custom-option-content" for="salud">
-                                  <span class="custom-option-body">
-                                    <i class="bx bx-pulse" style="color: #9BCB3B;"></i>
-                                    <span class="custom-option-title">Salud</span>
-                                    <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
-                                  </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="2" id="salud"/>
-                                </label>
-                              
-                              </div>
-                            </div>
-
-
-
-                            <div class="col-xl mb-xl-0 mb-2">
-                              <div class="form-check custom-option custom-option-icon form-check-success">
-
-                                <label class="form-check-label custom-option-content" for="entretenimiento">
-                                  <span class="custom-option-body">                                    
-                                    <i class="fa-solid fa-people-group" style="color: #9BCB3B;"></i>
-                                    <span class="custom-option-title">Entretenimiento</span>
-                                    <!-- <small>Post your property for rent.<br /> Unlimited free listing.</small> -->
-                                  </span>
-                                  <input name="plPropertySaleRent" class="form-check-input" type="radio" value="3" id="entretenimiento"/>
-                                </label>
-                             
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-                        <div class="col-sm-6">
-                          <label class="form-label" for="nivel">Nivel deportivo <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#modalNivelDeportivo">
-                            <i class='bx bx-info-circle concepto'></i></button></label>
-
-                          <select class="form-control" name="nivel" id="nivel">
-                            <option value="-1" disabled selected>¿Qué nivel deportivo tienes?</option>
-                            <option value="1">Principiante</option>
-                            <option value="2">Intermedio</option>
-                            <option value="3">Avanzado</option>
-                          </select>
-                          <i></i>       
-                        </div>
-
-                        
-                        <div class="col-sm-6">
-
-                          <label class="form-label" for="escala">Sub-nivel deportivo</label>
-
-                          <select class="form-control" name="escala" id="escala">
-                              <option value="-1" disabled selected>Escoge tu nivel deportivo</option>
-                          </select>
-                          <i></i>    
-        
-                          <div class="contenedor-textos mb-0">
-                              <a href="" class="CTA-ModalEscalaDeportiva text-success" data-bs-toggle="modal" data-bs-target="#modalEscalaDeportiva">¿Cómo saber en qué subnivel estoy?</a>
-                          </div>              
-                          
-                        </div>                        
-                      
-                      
-                        
-
-                        <!-- Modal Escala deportiva-->
-                        <div class="modal fade" id="modalEscalaDeportiva" aria-labelledby="modalToggleLabel" tabindex="-1" style="display: none" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                              
+
                               <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="modalCenterTitle">Somatotipos</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
                               </div>
+
 
                               <div class="modal-body">
-                                <div class="imgEscalaDeportivaContainer">
-                                  <img id="enlaceEscala" class="imgEscalaDeportiva" src="../../assets/img/pages/escala deportiva-EscogeUnNivel.png" alt="">
+                                <div class="imgSomatotiposContainer">
+                                  <img class="imgSomatotipos" src="../../assets/img/pages/somatotipos.jpg" alt="">
                                 </div>
-                                
+
+
+                                <div class="somatotiposDescripcionContainer">
+                                  <h4 class="somatotipoTitulo text-success">Delgado <small>(Ectomorfo)</small> </h4>
+                                  <p class="somatotipoDescripcion">Músculos delgados, extremidades largas y hombros
+                                    estrechos. Personas
+                                    qué por más que coman,
+                                    nunca sufrirán de sobrepeso gracias a su metabolismo rápido y a su facilidad para
+                                    quemar calorías.
+                                  </p>
+                                </div>
+                                <div class="somatotiposDescripcionContainer">
+                                  <h4 class="somatotipoTitulo text-success">Normal <small> (Mesomorfo)</small> </h4>
+                                  <p class="somatotipoDescripcion">Estructura ósea grande, físico atlético y músculos
+                                    marcados. Personas
+                                    que tienen una complexión
+                                    fuerte por naturaleza. Deben cuidar la dieta, pero no tienen que ser tan estrictos,
+                                    pero sí se
+                                    descuidan en exceso, pueden ganar grasa.
+                                  </p>
+                                </div>
+                                <div class="somatotiposDescripcionContainer">
+                                  <h4 class="somatotipoTitulo text-success"> Robusto <small> (Endomorfo)</small></h4>
+                                  <p class="somatotipoDescripcion">Similares a los mesomorfos, aunque con más grasa
+                                    corporal. De
+                                    extremidades más cortas y con tendencia a ganar músculo y
+                                    grasa. Su metabolismo lento hace que no queme calorías tan fácilmente. Son las
+                                    personas que más
+                                    deben cuidar la alimentación.
+                                  </p>
+                                </div>
                               </div>
-                              
                             </div>
                           </div>
-                        </div>                                         
-                      
-                    
-
-
-                        <script>
-                          var handleNivel = document.getElementById("nivel");
-                          handleNivel.onchange = function () {
-                              var handleEscala = document.getElementById("escala");
-                              var vectorNivel = {
-                                  'Principiante': ['Sub-nivel deportivo', 'I', 'II', 'III'],
-                                  'Intermedio': ['Sub-nivel deportivo', 'I', 'II', 'III'],
-                                  'Avanzado': ['Sub-nivel deportivo', 'I', 'II', 'III']
-                              };
-                              var vectorNivel_2 = {
-                                  'Principiante': ['-1', '1', '2', '3'],
-                                  'Intermedio': ['-1', '4', '5', '6'],
-                                  'Avanzado': ['-1', '7', '8', '9']
-                              };
-                              var url = {
-                                  'Principiante': ['../../assets/img/pages/escala deportiva Principiantes.png'],
-                                  'Intermedio': ['../../assets/img/pages/escala deportiva Intermedios.png'],
-                                  'Avanzado': ['../../assets/img/pages/escala deportiva Avanzados.png']
-                              };
-                              var strEscala = handleNivel.options[handleNivel.selectedIndex].text;
-                              var strEscalas = vectorNivel[strEscala]
-                              var strValorEscalas = vectorNivel_2[strEscala]
-                              handleEscala.innerHTML = "";
-                              document.getElementById("enlaceEscala").src = url[strEscala];
-                              for (var i = 0; i < strEscalas.length; i++) {
-                                  var el = document.createElement("option");
-                                  el.textContent = strEscalas[i];
-                                  el.value = strValorEscalas[i];
-                                  handleEscala.appendChild(el);
-                              }
-                          }
-                      </script>
-
-
-
-
-
-                        
-                                             
-
-
-                        <div class="col-lg-12">   
-                          <label class="form-label" for="plAddress">¿Qué dispositivo usas?</label>
-                          <div class="checkboxs">                              
-                            
-
-
-                              
-                              <label class="switch switch-success switchDispositivo1">
-                                <input value="1" id="potenciometro" type="checkbox" class="switch-input"/>
-
-                                <span class="switch-toggle-slider">
-                                  <span class="switch-on">
-                                    <i class="bx bx-check"></i>
-                                  </span>
-                                
-                                  <span class="switch-off">
-                                    <i class="bx bx-x"></i>
-                                  </span>
-                                
-                                </span>
-                                <span class="switch-label">Potenciómetro</span>
-                              </label>
-
-
-
-
-                              <label class="switch switch-success switchDispositivo">
-                                <input value="1" id="pulsometro" type="checkbox" class="switch-input"/>
-
-                                <span class="switch-toggle-slider">
-                                  <span class="switch-on">
-                                    <i class="bx bx-check"></i>
-                                  </span>
-                                
-                                  <span class="switch-off">
-                                    <i class="bx bx-x"></i>
-                                  </span>
-                                
-                                </span>
-                                <span class="switch-label">Pulsómetro</span>
-                              </label>
-
-
-
-
-
-                              <label class="switch switch-success switchDispositivo">
-                                <input value="1" id="cadenciometro" type="checkbox" class="switch-input"/>
-
-                                <span class="switch-toggle-slider">
-                                  <span class="switch-on">
-                                    <i class="bx bx-check"></i>
-                                  </span>
-                                
-                                  <span class="switch-off">
-                                    <i class="bx bx-x"></i>
-                                  </span>
-                                
-                                </span>
-                                <span class="switch-label">Cadenciómetro</span>
-                              </label>             
-
-
-
-
-                              <label class="switch switch-success switchDispositivo">
-                                <input value="1" id="velocimetro" type="checkbox" class="switch-input"/>
-
-                                <span class="switch-toggle-slider">
-                                  <span class="switch-on">
-                                    <i class="bx bx-check"></i>
-                                  </span>
-                                
-                                  <span class="switch-off">
-                                    <i class="bx bx-x"></i>
-                                  </span>
-                                
-                                </span>
-                                <span class="switch-label">Velocímetro</span>
-                              </label>
-
-
-
-                              <label class="switch switch-success switchDispositivo">
-                                <input value="5" id="noTengo" type="checkbox" class="switch-input"/>
-
-                                <span class="switch-toggle-slider">
-                                  <span class="switch-on">
-                                    <i class="bx bx-check"></i>
-                                  </span>
-                                
-                                  <span class="switch-off">
-                                    <i class="bx bx-x"></i>
-                                  </span>
-                                
-                                </span>
-                                <span class="switch-label">No tengo</span>
-                              </label>
-                                    
-                            
-                        </div>
-                          
-                        </div>
-                        
-
-
-                        <div class="col-12 d-flex justify-content-between">
-                          <button class="btn btn-success btn-prev">
-                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
-                            <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
-                          </button>
-
-                          
-                          <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos" onclick="perfilar()"/>
                         </div>
                       </div>
                     </div>
 
 
-                  </form>
+                    <div class="col-12 d-flex justify-content-between">
+                      <button class="btn btn-prev" disabled></button>
+
+                      <button class="btn btn-success btn-next">
+                        <span class="align-middle d-sm-inline-block d-none me-sm-1"
+                          style="font-weight: 600;">Siguiente</span>
+                        <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                      </button>
+
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <!--/ Property Listing Wizard -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Perfilamiento deportivo -->
+                <div id="property-details" class="content">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <div class="row">
+
+
+
+                        <label class="form-label" for="">¿Por qué montas bici?</label>
+
+
+                        <div class="col-xl mb-xl-0 mb-2">
+                          <div class="form-check custom-option custom-option-icon form-check-success">
+
+                            <label class="form-check-label custom-option-content" for="rendimiento">
+                              <span class="custom-option-body">
+                                <i class="bx bxs-trophy" style="color: #9BCB3B;"></i>
+                                <span class="custom-option-title">Mejorar rendimiento</span>
+                                <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
+                              </span>
+                              <input name="plPropertySaleRent" class="form-check-input" type="radio" value="1"
+                                id="rendimiento" checked />
+                            </label>
+
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-xl mb-xl-0 mb-2">
+                          <div class="form-check custom-option custom-option-icon form-check-success">
+
+                            <label class="form-check-label custom-option-content" for="salud">
+                              <span class="custom-option-body">
+                                <i class="bx bx-pulse" style="color: #9BCB3B;"></i>
+                                <span class="custom-option-title">Salud</span>
+                                <!-- <small>Post your property for sale.<br /> Unlimited free listing.</small> -->
+                              </span>
+                              <input name="plPropertySaleRent" class="form-check-input" type="radio" value="2"
+                                id="salud" />
+                            </label>
+
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-xl mb-xl-0 mb-2">
+                          <div class="form-check custom-option custom-option-icon form-check-success">
+
+                            <label class="form-check-label custom-option-content" for="entretenimiento">
+                              <span class="custom-option-body">
+                                <i class="fa-solid fa-people-group" style="color: #9BCB3B;"></i>
+                                <span class="custom-option-title">Entretenimiento</span>
+                                <!-- <small>Post your property for rent.<br /> Unlimited free listing.</small> -->
+                              </span>
+                              <input name="plPropertySaleRent" class="form-check-input" type="radio" value="3"
+                                id="entretenimiento" />
+                            </label>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="col-sm-6">
+                      <label class="form-label" for="nivel">Nivel deportivo <button type="button" class="btn p-0"
+                          data-bs-toggle="modal" data-bs-target="#modalNivelDeportivo">
+                          <i class='bx bx-info-circle concepto'></i></button></label>
+
+                      <select class="form-control" name="nivel" id="nivel">
+                        <option value="-1" disabled selected>¿Qué nivel deportivo tienes?</option>
+                        <option value="1">Principiante</option>
+                        <option value="2">Intermedio</option>
+                        <option value="3">Avanzado</option>
+                      </select>
+                      <i></i>
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                      <label class="form-label" for="escala">Sub-nivel deportivo</label>
+
+                      <select class="form-control" name="escala" id="escala">
+                        <option value="-1" disabled selected>Escoge tu nivel deportivo</option>
+                      </select>
+                      <i></i>
+
+                      <div class="contenedor-textos mb-0">
+                        <a href="" class="CTA-ModalEscalaDeportiva text-success" data-bs-toggle="modal"
+                          data-bs-target="#modalEscalaDeportiva">¿Cómo saber en qué subnivel estoy?</a>
+                      </div>
+
+                    </div>
+
+
+
+
+                    <!-- Modal Escala deportiva-->
+                    <div class="modal fade" id="modalEscalaDeportiva" aria-labelledby="modalToggleLabel" tabindex="-1"
+                      style="display: none" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                          <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+
+                          <div class="modal-body">
+                            <div class="imgEscalaDeportivaContainer">
+                              <img id="enlaceEscala" class="imgEscalaDeportiva"
+                                src="../../assets/img/pages/escala deportiva-EscogeUnNivel.png" alt="">
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                    <script>
+                      var handleNivel = document.getElementById("nivel");
+                      handleNivel.onchange = function () {
+                        var handleEscala = document.getElementById("escala");
+                        var vectorNivel = {
+                          'Principiante': ['Sub-nivel deportivo', 'I', 'II', 'III'],
+                          'Intermedio': ['Sub-nivel deportivo', 'I', 'II', 'III'],
+                          'Avanzado': ['Sub-nivel deportivo', 'I', 'II', 'III']
+                        };
+                        var vectorNivel_2 = {
+                          'Principiante': ['-1', '1', '2', '3'],
+                          'Intermedio': ['-1', '4', '5', '6'],
+                          'Avanzado': ['-1', '7', '8', '9']
+                        };
+                        var url = {
+                          'Principiante': ['../../assets/img/pages/escala deportiva Principiantes.png'],
+                          'Intermedio': ['../../assets/img/pages/escala deportiva Intermedios.png'],
+                          'Avanzado': ['../../assets/img/pages/escala deportiva Avanzados.png']
+                        };
+                        var strEscala = handleNivel.options[handleNivel.selectedIndex].text;
+                        var strEscalas = vectorNivel[strEscala]
+                        var strValorEscalas = vectorNivel_2[strEscala]
+                        handleEscala.innerHTML = "";
+                        document.getElementById("enlaceEscala").src = url[strEscala];
+                        for (var i = 0; i < strEscalas.length; i++) {
+                          var el = document.createElement("option");
+                          el.textContent = strEscalas[i];
+                          el.value = strValorEscalas[i];
+                          handleEscala.appendChild(el);
+                        }
+                      }
+                    </script>
+
+
+
+
+
+
+
+
+
+                    <div class="col-lg-12">
+                      <label class="form-label" for="plAddress">¿Qué dispositivo usas?</label>
+                      <div class="checkboxs">
+
+
+
+
+                        <label class="switch switch-success switchDispositivo1">
+                          <input value="1" id="potenciometro" type="checkbox" class="switch-input" />
+
+                          <span class="switch-toggle-slider">
+                            <span class="switch-on">
+                              <i class="bx bx-check"></i>
+                            </span>
+
+                            <span class="switch-off">
+                              <i class="bx bx-x"></i>
+                            </span>
+
+                          </span>
+                          <span class="switch-label">Potenciómetro</span>
+                        </label>
+
+
+
+
+                        <label class="switch switch-success switchDispositivo">
+                          <input value="1" id="pulsometro" type="checkbox" class="switch-input" />
+
+                          <span class="switch-toggle-slider">
+                            <span class="switch-on">
+                              <i class="bx bx-check"></i>
+                            </span>
+
+                            <span class="switch-off">
+                              <i class="bx bx-x"></i>
+                            </span>
+
+                          </span>
+                          <span class="switch-label">Pulsómetro</span>
+                        </label>
+
+
+
+
+
+                        <label class="switch switch-success switchDispositivo">
+                          <input value="1" id="cadenciometro" type="checkbox" class="switch-input" />
+
+                          <span class="switch-toggle-slider">
+                            <span class="switch-on">
+                              <i class="bx bx-check"></i>
+                            </span>
+
+                            <span class="switch-off">
+                              <i class="bx bx-x"></i>
+                            </span>
+
+                          </span>
+                          <span class="switch-label">Cadenciómetro</span>
+                        </label>
+
+
+
+
+                        <label class="switch switch-success switchDispositivo">
+                          <input value="1" id="velocimetro" type="checkbox" class="switch-input" />
+
+                          <span class="switch-toggle-slider">
+                            <span class="switch-on">
+                              <i class="bx bx-check"></i>
+                            </span>
+
+                            <span class="switch-off">
+                              <i class="bx bx-x"></i>
+                            </span>
+
+                          </span>
+                          <span class="switch-label">Velocímetro</span>
+                        </label>
+
+
+
+                        <label class="switch switch-success switchDispositivo">
+                          <input value="5" id="noTengo" type="checkbox" class="switch-input" />
+
+                          <span class="switch-toggle-slider">
+                            <span class="switch-on">
+                              <i class="bx bx-check"></i>
+                            </span>
+
+                            <span class="switch-off">
+                              <i class="bx bx-x"></i>
+                            </span>
+
+                          </span>
+                          <span class="switch-label">No tengo</span>
+                        </label>
+
+
+                      </div>
+
+                    </div>
+
+
+
+                    <div class="col-12 d-flex justify-content-between">
+                      <button class="btn btn-success btn-prev">
+                        <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                        <span class="align-middle d-sm-inline-block d-none" style="font-weight: 600;">Anterior</span>
+                      </button>
+
+
+                      <input type="button" class="btn btn-success" style="font-weight: 600;" value="Enviar datos"
+                        onclick="perfilar()" />
+                    </div>
+                  </div>
+                </div>
+
+
+              </form>
             </div>
-            <!-- / Content -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-                
-
-                <!-- Modal -->
-                <div class="modal fade" id="modalPesoSaludable" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="modalCenterTitle">Rango de peso saludable</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-
-
-                      <div class="modal-body text-center">
-                        <div class="row">
-                          <div class="col mb-3">
-                            <p>
-                              Según investigaciones, debes mantener tu IMC entre 18,5 y 24,5 para que tener un peso saludable sin entrar en sobrepeso o estar baj@ de peso.  <br>
-                              
-                             Si multiplicas estos números por tu estatura al cuadrado, obtendrás los límites inferior y superior de tu peso saludable. <br><br>
-
-                             <span class="concepto"> Peso <small>(Kg)</small> = IMC x Estatura<sup>2</sup> <small>(mts)</small> </span> <br><br>
-
-                             En ELSA creemos que es conveniente tener un rango de seguridad para no llegar al límite de ninguno de los dos lados, por eso, sugerimos manejar los límites de tu peso saludable entre un  
-                             <span class="concepto">IMC de 19,5 y 23,9</span> 
-                            </p>
-
-                            
-
-
-
-                          </div>
-                        </div>
-                        
-                      </div>
- 
- 
- 
- 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="modal fade" id="modalDisclaimerSexo" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title text-success" id="modalCenterTitle">En ELSA</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-
-
-                      <div class="modal-body text-center">
-                        <div class="row">
-                          <div class="col mb-0">
-                            <p>
-                              Somos conscientes y entendemos que la <span class="text-success"> identidad de género o identidad sexual</span> es la percepción y manifestación personal del propio género. 
-                              Es decir, <span class="text-success"> cómo tú te identificas</span>  independientemente de tu sexo biológico.  <br><br>
-
-                              Pero para poder determinar un entrenamiento más especifico y optimo para ti, nos debemos centrar en tu <span class="text-success">sexo biológico</span>.
-                            </p>
-
-                            
-
-
-
-                          </div>
-                        </div>
-                        
-                      </div>
- 
- 
- 
- 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="modal fade" id="modalNivelDeportivo" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header mb-0">
-                        <h4 class="modal-title text-success" id="modalCenterTitle">¿Cuál es mi nivel deportivo?</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-
-
-                      <div class="modal-body text-center pt-3 pb-1">
-                        <div class="somatotiposDescripcionContainer">
-                          <h6 class="somatotipoTitulo text-success mt-0">Principiante </h6>
-                          <p class="somatotipoDescripcion">Si vas iniciando y haces ejercicios de intensidad leve a moderado.<br>
-                             Si tienes como objetivo el acondicionamiento físico, mantener peso o la rehabilitación física.
-                          </p>
-                        </div>
-
-                        <div class="somatotiposDescripcionContainer">
-                          <h6 class="somatotipoTitulo text-success">Intermedio</h6>
-                          <p class="somatotipoDescripcion">Si llevas de 6 meses a 1 año de entrenamiento y haces ejercicios
-                            de intensidad media a alta durante segmentos cortos. <br>
-                            Si tienes como objetivo, por ejemplo, correr un gran fondo.
-                          </p>
-                        </div>
-
-                        <div class="somatotiposDescripcionContainer">
-                          <h6 class="somatotipoTitulo text-success"> Avanzado</h6>
-                          <p class="somatotipoDescripcion">Si llevas más de dos años entrenando y puedes llegar a tu zona 6. <br>
-                            Si tienes como objetivo llegar en tu pico de forma a diferentes eventos en el año. Tienes un ATP (Annual Training Plan) definido.   
-                          </p>
-                        </div>
-                        
-                      </div>
- 
- 
- 
- 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="content-backdrop fade"></div>
           </div>
-          <!-- Content wrapper -->
-        <!-- </div> -->
-        <!-- / Layout page -->
+          <!--/ Property Listing Wizard -->
+        </div>
+        <!-- / Content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalPesoSaludable" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCenterTitle">Rango de peso saludable</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+
+              <div class="modal-body text-center">
+                <div class="row">
+                  <div class="col mb-3">
+                    <p>
+                      Según investigaciones, debes mantener tu IMC entre 18,5 y 24,5 para que tener un peso saludable
+                      sin entrar en sobrepeso o estar baj@ de peso. <br>
+
+                      Si multiplicas estos números por tu estatura al cuadrado, obtendrás los límites inferior y
+                      superior de tu peso saludable. <br><br>
+
+                      <span class="concepto"> Peso <small>(Kg)</small> = IMC x Estatura<sup>2</sup> <small>(mts)</small>
+                      </span> <br><br>
+
+                      En ELSA creemos que es conveniente tener un rango de seguridad para no llegar al límite de ninguno
+                      de los dos lados, por eso, sugerimos manejar los límites de tu peso saludable entre un
+                      <span class="concepto">IMC de 19,5 y 23,9</span>
+                    </p>
+
+
+
+
+
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="modal fade" id="modalDisclaimerSexo" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-success" id="modalCenterTitle">En ELSA</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+
+              <div class="modal-body text-center">
+                <div class="row">
+                  <div class="col mb-0">
+                    <p>
+                      Somos conscientes y entendemos que la <span class="text-success"> identidad de género o identidad
+                        sexual</span> es la percepción y manifestación personal del propio género.
+                      Es decir, <span class="text-success"> cómo tú te identificas</span> independientemente de tu sexo
+                      biológico. <br><br>
+
+                      Pero para poder determinar un entrenamiento más especifico y optimo para ti, nos debemos centrar
+                      en tu <span class="text-success">sexo biológico</span>.
+                    </p>
+
+
+
+
+
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="modal fade" id="modalNivelDeportivo" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header mb-0">
+                <h4 class="modal-title text-success" id="modalCenterTitle">¿Cuál es mi nivel deportivo?</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+
+              <div class="modal-body text-center pt-3 pb-1">
+                <div class="somatotiposDescripcionContainer">
+                  <h6 class="somatotipoTitulo text-success mt-0">Principiante </h6>
+                  <p class="somatotipoDescripcion">Si vas iniciando y haces ejercicios de intensidad leve a
+                    moderado.<br>
+                    Si tienes como objetivo el acondicionamiento físico, mantener peso o la rehabilitación física.
+                  </p>
+                </div>
+
+                <div class="somatotiposDescripcionContainer">
+                  <h6 class="somatotipoTitulo text-success">Intermedio</h6>
+                  <p class="somatotipoDescripcion">Si llevas de 6 meses a 1 año de entrenamiento y haces ejercicios
+                    de intensidad media a alta durante segmentos cortos. <br>
+                    Si tienes como objetivo, por ejemplo, correr un gran fondo.
+                  </p>
+                </div>
+
+                <div class="somatotiposDescripcionContainer">
+                  <h6 class="somatotipoTitulo text-success"> Avanzado</h6>
+                  <p class="somatotipoDescripcion">Si llevas más de dos años entrenando y puedes llegar a tu zona 6.
+                    <br>
+                    Si tienes como objetivo llegar en tu pico de forma a diferentes eventos en el año. Tienes un ATP
+                    (Annual Training Plan) definido.
+                  </p>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="content-backdrop fade"></div>
       </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-
-      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-      <div class="drag-target"></div>
+      <!-- Content wrapper -->
+      <!-- </div> -->
+      <!-- / Layout page -->
     </div>
-    <!-- / Layout wrapper -->
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../../assets/vendor/js/bootstrap.js"></script>
-    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
 
-    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
 
-    <script src="../../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../../assets/vendor/js/bootstrap.js"></script>
+  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
-    <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
-    <script src="../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
-    <script src="../../assets/vendor/libs/select2/select2.js"></script>
-    <script src="../../assets/vendor/libs/tagify/tagify.js"></script>
-    <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
-    <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
-    <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-    <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-    <!-- Main JS -->
-    <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
 
-    <!-- Page JS -->
+  <!-- Vendors JS -->
+  <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
+  <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+  <script src="../../assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+  <script src="../../assets/vendor/libs/select2/select2.js"></script>
+  <script src="../../assets/vendor/libs/tagify/tagify.js"></script>
+  <script src="../../assets/vendor/libs/flatpickr/flatpickr.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
 
-    <script src="../../assets/js/wizard-ex-property-listing.js"></script>
-    <script src="../../JS/enviroment.js"></script>
-    <script src="../../JS/User/user.js"></script>
-    <!-- <script src="../../JS/classes.js"></script> -->
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
+
+  <!-- Page JS -->
+
+  <script src="../../assets/js/wizard-ex-property-listing.js"></script>
+  <script src="../../JS/enviroment.js"></script>
+  <script src="../../JS/User/user.js"></script>
+  <!-- <script src="../../JS/classes.js"></script> -->
 
 
 
@@ -1022,19 +1013,20 @@
 
 
 
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-93DR8GES25');
-            </script>
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-  </body>
+  <!-- ============================================================== -->
+  <!-- Google -->
+  <!-- ============================================================== -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-93DR8GES25');
+  </script>
+  <!-- ============================================================== -->
+  <!-- Google -->
+  <!-- ============================================================== -->
+</body>
+
 </html>

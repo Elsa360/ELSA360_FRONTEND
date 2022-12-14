@@ -8,7 +8,12 @@ function getServer(){
 
 async function initServer() {
   console.log("GetServer");
-  await fetch("https://elsa360.com/_server.php")
+  await fetch("https://elsa360.com/_server.php",{
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin': 'https://*elsa360.com'
+    },
+  })
   .then(response => response.json())
   .then(respuesta => {
     console.log("Respuesta: "+respuesta)

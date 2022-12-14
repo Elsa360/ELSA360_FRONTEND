@@ -1,6 +1,7 @@
 async function registrarme() {
   $("#spinnerGeneral").show();
   var server = getServer()
+  console.log(server)
   try {
     var responseRecaptcha = grecaptcha.getResponse();
     if (responseRecaptcha.length > 0) {
@@ -32,46 +33,45 @@ async function registrarme() {
                     'Access-Control-Allow-Origin': 'https://*elsa360.com'
                   },
                 })
-                .then((response) => response.json())
-                .then(function (respuesta) {
-                  console.log("Respuesta:", respuesta)
-                  if (respuesta === 0) {
-                    let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
-                    console.log(url)
-                    fetch(url)
-                    .then(response => response.json())
-                    .then(respuesta => {
-                      respuesta.forEach(element => {
-                        let r2 = element;
-                        console.log(r2)
-                        if (r2 === 1) {
-                          $("#spinnerGeneral").hide();
-                          $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                          $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                          $("#modalGeneral").modal("show");
-                        } else {
-                          notificacion(bodyString);
-                          $("#spinnerGeneral").hide();
-                        }
-                      });
-                    });
-                  } else {
-                    console.log("Respuesta Exitosa");
-                    //si el registro tiene URI en la URL después del registro va a enviarlo a la URI
-                    if (getUrlParameter('uri')===false)
-                    {
-                      console.log("uri false");
-                      enviarEMail(emailUser.trim(), respuesta);
-                    }
-                    else {
-                      console.log("uri:"+getUriOnGet());
-                      location.href = getUriOnGet()+"&idUsuario="+respuesta;
-                    }
+                  .then((response) => response.json())
+                  .then(function (respuesta) {
+                    console.log("Respuesta:", respuesta)
+                    if (respuesta === 0) {
+                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                      console.log(url)
+                      fetch(url)
+                        .then(response => response.json())
+                        .then(respuesta => {
+                          respuesta.forEach(element => {
+                            let r2 = element;
+                            console.log(r2)
+                            if (r2 === 1) {
+                              $("#spinnerGeneral").hide();
+                              $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                              $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                              $("#modalGeneral").modal("show");
+                            } else {
+                              notificacion(bodyString);
+                              $("#spinnerGeneral").hide();
+                            }
+                          });
+                        });
+                    } else {
+                      console.log("Respuesta Exitosa");
+                      //si el registro tiene URI en la URL después del registro va a enviarlo a la URI
+                      if (getUrlParameter('uri') === false) {
+                        console.log("uri false");
+                        enviarEMail(emailUser.trim(), respuesta);
+                      }
+                      else {
+                        console.log("uri:" + getUriOnGet());
+                        location.href = getUriOnGet() + "&idUsuario=" + respuesta;
+                      }
 
-                    //$("#spinnerGeneral").hide();
+                      //$("#spinnerGeneral").hide();
 
-                  }
-                })
+                    }
+                  })
 
               } catch (e) {
                 $("#spinnerGeneral").hide();
@@ -136,20 +136,20 @@ function enviarEMail(email, idUser) {
       'Access-Control-Allow-Origin': 'elsa360.com'
     }
   }).then(response => response.text())
-  .then(respuesta => {
-    console.log("==respuesta==");
-    console.log(respuesta);
-    console.log("==respuesta==");
-    if (respuesta == "TRUE") {
-      location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
-    } else {
-      notificacion("Error envio email de verificacion del usuario ", email)
-      $("#spinnerGeneral").hide();
-      $("#modalGeneral #modalCenterTitle").html("Error");
-      $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
-      $("#modalGeneral").modal("show");
-    }
-  })
+    .then(respuesta => {
+      console.log("==respuesta==");
+      console.log(respuesta);
+      console.log("==respuesta==");
+      if (respuesta == "TRUE") {
+        location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
+      } else {
+        notificacion("Error envio email de verificacion del usuario ", email)
+        $("#spinnerGeneral").hide();
+        $("#modalGeneral #modalCenterTitle").html("Error");
+        $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
+        $("#modalGeneral").modal("show");
+      }
+    })
 
 
 }
@@ -161,8 +161,7 @@ async function validarCuenta() {
   const emailUsuario = window.location.search;
   const urlParams = new URLSearchParams(emailUsuario);
   let userId = urlParams.get("usuarioVerificado");
-  if(userId!=null)
-  {
+  if (userId != null) {
     let url = apiServer + "usuario/verificar?idUsuario=" + userId + "";
     console.log(url);
     try {
@@ -175,21 +174,21 @@ async function validarCuenta() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      .then((response) => response.json())
-      .then((respuesta) => {
-        if (respuesta === 1) {
-          $("#spinnerGeneral").hide();
-          $("#modalGeneral #modalCenterTitle").html("Gracias");
-          $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
-          // $("#modalGeneral").modal("show");
-          loginNoPass(userId);
-        } else {
-          // $("#spinnerGeneral").hide();
-          // $("#modalGeneral #modalCenterTitle").html("Error");
-          // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
-          // $("#modalGeneral").modal("show");
-        }
-      });
+        .then((response) => response.json())
+        .then((respuesta) => {
+          if (respuesta === 1) {
+            $("#spinnerGeneral").hide();
+            $("#modalGeneral #modalCenterTitle").html("Gracias");
+            $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
+            // $("#modalGeneral").modal("show");
+            loginNoPass(userId);
+          } else {
+            // $("#spinnerGeneral").hide();
+            // $("#modalGeneral #modalCenterTitle").html("Error");
+            // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
+            // $("#modalGeneral").modal("show");
+          }
+        });
     } catch (e) {
       console.log(e);
     }
@@ -206,90 +205,106 @@ async function login() {
     let emailUser = document.getElementById("emailLogin").value;
     let contraUser = document.getElementById("passwordLogin").value;
     let url = apiServer + "usuario/login?usuario=" + emailUser + "&contra=" + contraUser + ""
-    console.log(emailUser);
-    console.log(contraUser);
-    console.log(url);
+    // console.log(emailUser);
+    // console.log(contraUser);
+    // console.log(url);
     await fetch(url)
-    .then(response => response.json())
-    .then(respuesta => {
-      if (respuesta.length == 0) {
-        $("#spinnerGeneral").hide();
-        $("#modalGeneral #modalCenterTitle").html("Error");
-        $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
-        $("#modalGeneral").modal("show");
-      } else {
-        respuesta.forEach(idUser => {
-          let email = idUser.email;
-          let estado = idUser.estado;
-          let fechaActualizacion = idUser.fechaActualizacion;
-          let fechaEliminacion = idUser.fechaEliminacion;
-          let fechaRegistro = idUser.fechaRegistro;
-          let fkIdRol = idUser.fkIdRol;
-          let idUsuario = idUser.idUsuario;
-          let ipPc = idUser.ipPc;
-          let nombreUsuario = idUser.nombreUsuario;
-          let passwordUser = idUser.passwordUser;
-          let verificacion = idUser.verificacion;
-          //let membresia = idUser.verificacion;
-          idUsuario = idUser.idUsuario;
+      .then(response => response.json())
+      .then(respuesta => {
+        if (respuesta.length == 0) {
+          $("#spinnerGeneral").hide();
+          $("#modalGeneral #modalCenterTitle").html("Error");
+          $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
+          $("#modalGeneral").modal("show");
+        } else {
+          respuesta.forEach(idUser => {
+            let email = idUser.email;
+            let estado = idUser.estado;
+            let fechaActualizacion = idUser.fechaActualizacion;
+            let fechaEliminacion = idUser.fechaEliminacion;
+            let fechaRegistro = idUser.fechaRegistro;
+            let fkIdRol = idUser.fkIdRol;
+            let idUsuario = idUser.idUsuario;
+            let ipPc = idUser.ipPc;
+            let nombreUsuario = idUser.nombreUsuario;
+            let passwordUser = idUser.passwordUser;
+            let verificacion = idUser.verificacion;
+            //let membresia = idUser.verificacion;
+            idUsuario = idUser.idUsuario;
 
-          //----
+            //----
 
-          //let userLogin = idUser;
-          let idLogin = idUsuario;
-          if (Boolean(verificacion) === true) {
-            $("#spinnerGeneral").hide();
-            loginNoPass(parseInt(idUsuario))
-            if (sessionStorage.verificacion==false) {
-              enviarEMail(sessionStorage.email, sessionStorage.idUsuario);
-            }else if(sessionStorage.perfilamiento==false) {
-              location.href = "/html/vertical-menu-template/auth-perfil.html";
-            }else if(sessionStorage.membresia==false){
-              location.href="https://elsa360.com/#PreciosPlanes";
-            }else{
-              location.href="/html/vertical-menu-template/dashboard.html";
+            //let userLogin = idUser;
+            let idLogin = idUsuario;
+            if (Boolean(verificacion) === true) {
+              $("#spinnerGeneral").hide();
+              console.log("Aqui");
+              sessionStorage.setItem('validarusuario', true);
+              console.log(sessionStorage);
+              loginNoPass(parseInt(idLogin))
+            } else {
+              $("#spinnerGeneral").hide();
+              $("#modalGeneral #modalCenterTitle").html("Error");
+              $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
+              $("#modalGeneral").modal("show");
             }
-          } else {
-            $("#spinnerGeneral").hide();
-            $("#modalGeneral #modalCenterTitle").html("Error");
-            $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
-            $("#modalGeneral").modal("show");
-          }
-        });
-      }
-    })
-    .catch((error) => {
-      console.log('Error: ', error)
-    })
+          });
+        }
+      })
+      .catch((error) => {
+        console.log('Error: ', error)
+      })
   } catch (e) {
     console.log(e);
   }
 }
-async function loginNoPass(idusuario,membresia,verificado) {
+async function loginNoPass(idusuario, membresia, verificado) {
 
-  sessionStorage.clear();
+  // sessionStorage.clear();
   console.log("login nopass");
   let url = apiServer + "usuario/loginnopass?usuario=" + idusuario
-  fetch(url).then(response=>response.json()).then(respuesta => {
-    console.log("login nopass");
-    console.log(respuesta);
-    console.log(respuesta[0].idUsuario);
-    sessionStorage.setItem('membresia', respuesta[0].membresia);
-    sessionStorage.setItem('verificacion',respuesta[0].verificacion);
-    sessionStorage.setItem('email',respuesta[0].email);
-    sessionStorage.setItem('nombreUsuario',respuesta[0].nombreUsuario);
-    sessionStorage.setItem('perfilamiento',respuesta[0].perfilamiento);
+  console.log(url)
+  await fetch(url)
+    .then(response => response.json())
+    .then(respuesta => {
+      sessionStorage.setItem('membresia', respuesta[0].membresia);
+      sessionStorage.setItem('verificacion', respuesta[0].verificacion);
+      sessionStorage.setItem('email', respuesta[0].email);
+      sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-    uri = mainUrl+"_sesion.php?action=login&membresia="+respuesta[0].membresia+"&verificado="+respuesta[0].verificacion+"&idUsuario="+idusuario;
-    console.log("php sesion");
-    console.log(uri);
-    fetch(uri)
-    .then(response=>response.json())
-    .then(respuesta => {console.log(respuesta)});
+      if (sessionStorage.validarusuario == "true") {
 
-  });
-  sessionStorage.setItem('login',     idusuario);
+        console.log(sessionStorage.verificacion);
+        console.log(sessionStorage.perfilamiento);
+        console.log(sessionStorage.membresia);
+
+        if (sessionStorage.verificacion == false) {
+          enviarEMail(sessionStorage.email, sessionStorage.idUsuario);
+        } else if (sessionStorage.perfilamiento == "0") {
+          location.href = "/html/vertical-menu-template/auth-perfil.html";
+        } else if (sessionStorage.membresia == "No") {
+          location.href = "https://elsa360.com/#PreciosPlanes";
+        } else {
+          location.href = "/html/vertical-menu-template/dashboard.html";
+        }
+      }
+
+      if(window.location.hostname!="127.0.0.1"){
+        uri = mainUrl + "_sesion.php?action=login&membresia=" + respuesta[0].membresia + "&verificado=" + respuesta[0].verificacion + "&idUsuario=" + idusuario;
+        console.log("php sesion");
+        console.log(uri);
+        fetch(uri)
+          .then(response => response.json())
+          .then(respuesta => { console.log(respuesta) });
+      }
+      
+    });
+
+  sessionStorage.setItem('login', idusuario);
   sessionStorage.setItem('idusuario', idusuario);
+
+
 
 
 }
@@ -311,11 +326,11 @@ async function verificarUsuario(email, nombreUsuario) {
   try {
     let url = apiServer + "email/verificacion?userEmail=" + email + "";
     await fetch(url)
-    .then(response => response.json())
-    .then(respuesta => {
-      setTimeout(10);
-      location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
-    })
+      .then(response => response.json())
+      .then(respuesta => {
+        setTimeout(10);
+        location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
+      })
   } catch (e) {
 
   }
@@ -325,15 +340,15 @@ async function buscarPerfil() {
   try {
     let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
     fetch(url)
-    .then(response => response.json())
-    .then(respuesta =>{
-      respuesta.forEach(perfil=>{
-        if(perfil.idPerfilUsuario > 0){
-          sessionStorage.setItem('perfil',perfil.idPerfilUsuario)
-          location.href = "dashboard.html"
-        }
+      .then(response => response.json())
+      .then(respuesta => {
+        respuesta.forEach(perfil => {
+          if (perfil.idPerfilUsuario > 0) {
+            sessionStorage.setItem('perfil', perfil.idPerfilUsuario)
+            location.href = "dashboard.html"
+          }
+        });
       });
-    });
   } catch (e) {
     console.log("Buscar_Perfil ", e)
   }
@@ -406,33 +421,33 @@ async function perfilar() {
         cadenciometro: cadenciometro,
         fkPorque: porque,
         fkUsuario: idUsuario,
-        ippc:"00.00.00.00"
+        ippc: "00.00.00.00"
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
-    .then((response) => response.json())
-    .then((respuesta) => {
-      console.log(respuesta);
-      sessionStorage.getItem("perfil", respuesta);
-      sessionStorage.setItem("sexoUser", sexo.toString());
-      sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-      sessionStorage.setItem("estatura", estatura);
-      sessionStorage.setItem("cuerpo", tipoCuerpo);
-      sessionStorage.setItem("dieta", tipoDieta);
-      sessionStorage.setItem("pesoActual", pesoActual);
-      sessionStorage.setItem("pesoDeseado", pesoDeseado);
-      sessionStorage.setItem("porqueHace", porque);
-      sessionStorage.setItem("nivelDeportivo", nivel);
-      sessionStorage.setItem("escalaDeportiva", escala);
-      $("#spinnerGeneral").show();
-      $("#modalGeneral #modalCenterTitle").html("Gracias");
-      $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
-      $("#modalGeneral").modal("show");
-      location.href = "free-data.html";
+      .then((response) => response.json())
+      .then((respuesta) => {
+        console.log(respuesta);
+        sessionStorage.getItem("perfil", respuesta);
+        sessionStorage.setItem("sexoUser", sexo.toString());
+        sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+        sessionStorage.setItem("estatura", estatura);
+        sessionStorage.setItem("cuerpo", tipoCuerpo);
+        sessionStorage.setItem("dieta", tipoDieta);
+        sessionStorage.setItem("pesoActual", pesoActual);
+        sessionStorage.setItem("pesoDeseado", pesoDeseado);
+        sessionStorage.setItem("porqueHace", porque);
+        sessionStorage.setItem("nivelDeportivo", nivel);
+        sessionStorage.setItem("escalaDeportiva", escala);
+        $("#spinnerGeneral").show();
+        $("#modalGeneral #modalCenterTitle").html("Gracias");
+        $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
+        $("#modalGeneral").modal("show");
+        location.href = "free-data.html";
 
-    });
+      });
   } catch (e) {
     console.log(e);
   }
@@ -462,15 +477,15 @@ async function resetPass() {
     let confirmPassword = document.getElementById("confirm-password").value;
     if (newPassword === confirmPassword) {
       await fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      .then(response => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+        {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
       $("#spinnerGeneral").hide();
       $("#spinnerGeneral").hide();
       $("#modalGeneral #modalCenterTitle").html("Gracias");
@@ -492,15 +507,15 @@ async function changePassword() {
     let passwordConfirm = document.getElementById("confirmPassword").value;
     if (passwordNew === passwordConfirm) {
       await fetch(apiServer + "usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
-      {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      .then(response => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+        {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
       $("#spinnerGeneral").hide();
     }
   } catch (e) {
