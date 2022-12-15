@@ -7,28 +7,31 @@ function caloriasSeleccionadasMomento() {
     const getM = urlParams.get('getMomento');
     const getComplete = urlParams.get('getCompleto');
     document.getElementById("caloriasRequeridas").innerHTML = getM;
-    traerMinutaNutricional();
-    let url = apiServer + "alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
-    fetch(url)
-        .then((response) => response.json())
-        .then((calorias) => {
-            let totalCalorias = 0;
-            calorias.forEach(alimento => {
-                let caloria = parseFloat((alimento.caloriasAlimento));
-                let porciones = parseFloat(alimento.porciones);
-                let totalCal = caloria * porciones;
-                totalCalorias = totalCalorias + totalCal;
+    try {
+        traerMinutaNutricional();
+        let url = apiServer + "alimentoRegularSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
+        console.log(url)
+        fetch(url)
+            .then((response) => response.json())
+            .then((calorias) => {
+                let totalCalorias = 0;
+                calorias.forEach(alimento => {
+                    let caloria = parseFloat((alimento.caloriasAlimento));
+                    let porciones = parseFloat(alimento.porciones);
+                    let totalCal = caloria * porciones;
+                    totalCalorias = totalCalorias + totalCal;
+                });
+                if (totalCalorias < getM) {
+                    traerAlimentosRegulares();
+                }
             });
-            // console.log(totalCalorias);
-            if (totalCalorias < getM) {
-                traerAlimentosRegulares();
+    } catch (e) {
+        console.log(e)
+    }
 
-
-            }
-        });
 }
 function traerAlimentosRegulares() {
-    let url= apiServer + "alimentoRegular/listar"
+    let url = apiServer + "alimentoRegular/listar"
     fetch(url)
         .then((response) => response.json())
         .then((alimentosRegulares) => {
@@ -317,7 +320,7 @@ function traerMinutaNutricional() {
     const urlParams = new URLSearchParams(valores);
     const momento = urlParams.get('momento');
     const getM = parseFloat(urlParams.get('getCompleto'));
-    console.log(getM);
+    // console.log(getM);
     if (getM > 0 && getM <= 1350) {
         getMinuta = 1200;
     }
@@ -339,9 +342,8 @@ function traerMinutaNutricional() {
     if (getM > 3050 && getM <= 3450) {
         getMinuta = 3051;
     }
-    console.log(getMinuta);
     const idDieta = 1;
-    let url = apiServer+"planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
+    let url = apiServer + "planNutricional/minutaNutricional?calorias=" + getMinuta + "&dieta=" + idDieta + "&momento=" + momento + ""
     fetch(url)
         .then((response) => response.json())
         .then((minutaNutricional) => {
@@ -790,33 +792,32 @@ function seleccionarAlimentosRegulares() {
 }
 function guardarAlimentosRegulares() {
     try {
-    const foodSelections = document.querySelectorAll("input[type=number]");
-    console.log(foodSelections);
-    for (let i = 0, food; food = foodSelections[i++];) {
-        if (food.value !== "") {
-            let idAli = food.id;
-            console.log('IdInput:', idAli);
-            console.log('IdAlimentos:', idAli.slice(4))
-            console.log('Porciones:', document.getElementById(idAli).value);
-            let url = apiServer+"alimentoRegularSeleccionado/crear"
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify({
-                    fkIdMomentoComidaSlccn: 1,
-                    fkIdPerfilUsuarioSlccn: 1,
-                    fkIdAlimentoRegularSlcnn: parseInt(idAli.slice(4)),
-                    porciones: parseInt(document.getElementById(idAli).value),
-                    ipPc: "00.00.00.00",
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-                .then((response) => response.json())
-                .then((json) => console.log(json));
+        const foodSelections = document.querySelectorAll("input[type=number]");
+        for (let i = 0, food; food = foodSelections[i++];) {
+            if (food.value !== "") {
+                let idAli = food.id;
+                console.log('IdInput:', idAli);
+                console.log('IdAlimentos:', idAli.slice(4))
+                console.log('Porciones:', document.getElementById(idAli).value);
+                let url = apiServer + "alimentoRegularSeleccionado/crear"
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        fkIdMomentoComidaSlccn: 1,
+                        fkIdPerfilUsuarioSlccn: 1,
+                        fkIdAlimentoRegularSlcnn: parseInt(idAli.slice(4)),
+                        porciones: parseInt(document.getElementById(idAli).value),
+                        ipPc: "00.00.00.00",
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            }
         }
-    }
-    setTimeout(redirigir, 3000)
+        setTimeout(redirigir, 3000)
     } catch (error) {
         console.log(error);
     }

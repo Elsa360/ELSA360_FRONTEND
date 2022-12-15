@@ -98,6 +98,7 @@ $_SESSION["preorder"]=true;
 
 
 
+            console.log(":::::");
       console.log(uri+params);
       window.location.href= uri+params;
     }
