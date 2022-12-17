@@ -124,7 +124,8 @@ function mensajeVerificacionUsuario() {
 }
 function enviarEMail(email, idUser) {
   console.log("Enviar email")
-  let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
+  let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser;
+
   console.log(url);
 
   fetch(url, {
