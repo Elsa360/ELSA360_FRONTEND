@@ -1,10 +1,10 @@
 <?php
 session_start();
-if (isset($_REQUEST["idUsuario"])) {
-  header("location:html/vertical-menu-template/dashboard.html");
+if (isset($_SESSION["idUsuario"])) {
+  header("Location: html/vertical-menu-template/dashboard.html");
 }
-esle
+else
 {
-    header("location:inicio.html");
+    header("Location: inicio.html");
 }
 ?>

@@ -96,8 +96,17 @@ $_SESSION["preorder"]=true;
       params += "&emailUsuarioCheckout="+sessionStorage.email+"&nombreUsuario="+sessionStorage.nombreUsuario;
       localStorage.setItem("useruri",uri+params);
 
-      enviarEMail(emailUser.trim(), respuesta);
-      //window.location.href= uri+params;
+      if(sessionStorage.verificacion=='false')
+      {
+        enviarEMail(sessionStorage.email, sessionStorage.idusuario);
+      }
+      else
+      {
+        uri = localStorage.useruri;
+        localStorage.removeItem("useruri");
+        window.location.href= uri;
+      }
+
     }
   });
   </script>

@@ -1,11 +1,11 @@
 <html >
 <body>
   <script>
-    if (true) {
+    if (localStorage.useruri!=undefined) {
       location.href = localStorage.useruri;
     }
     else {
-      location.href = "/html/vertical-menu-template/auth-login-basic.html";
+      location.href = "/html/vertical-menu-template/auth-login-basic.html?<?php echo $_SERVER["QUERY_STRING"]?>";
     }
   </script>
 por favor espere
