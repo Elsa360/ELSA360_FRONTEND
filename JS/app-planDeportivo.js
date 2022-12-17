@@ -24,7 +24,7 @@ var Habilidad2ATrabajarContenido = document.createTextNode (" Resistencia");
 
 
 
-
+document.getElementById("HabilidadesATrabajar").innerText="Fuerza y Resistencia";
 
 
 
@@ -127,6 +127,16 @@ encabezadoEntreno.appendChild(Cabecera);
 
 
 
+
+
+
+
+
+
+
+
+
+
 // CREANDO ELEMENTOS
 var parrafo = document.createElement("p");
 var flecha = document.createElement("i");
@@ -174,10 +184,14 @@ var entreSeries = document.createElement("span")
 // CONTENIDO DE LOS CONTENEDORES
 var contenidoNombreEjercicio = document.createTextNode("Haz fuerza sobre los pedales, con las manos cogidas de la parte inferior del manubrio.");
 var RealizaContenido = document.createTextNode ("Realiza ");
+
 var contenidoSeries = document.createTextNode (" 1");
+
 var SerieContenido = document.createTextNode (" serie(s)");
 var deContenido = document.createTextNode (" de");
+
 var contenidoRepeticiones = document.createTextNode (" 5");
+
 var contenidoRepeticion = document.createTextNode (" repeticiones");
 var de2Contenido = document.createTextNode (" de");
 var tiempoRepeticionContenido = document.createTextNode (" 20");
