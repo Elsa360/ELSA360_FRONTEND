@@ -35,7 +35,7 @@ window.onload = async () => {
             console.log("Dashboar: ", e)
         }
     } else {
-        location.href = "pages-pricing.html"
+        // location.href = "pages-pricing.html"
     }
 
 }
