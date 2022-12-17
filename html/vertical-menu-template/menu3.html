@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-navbar-theme">
   <div class="container-fluid">
     
-    <a class="navbar-brand" href="../../index.html"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
+    <a class="navbar-brand" onclick="logout()" href="javascript:void(0);"><img src="../../assets/img/branding/elsa-Verde.png" alt="" width="50px"></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,8 +13,8 @@
 
     <div class="collapse navbar-collapse" id="navbar-ex-5">
       <div class="navbar-nav me-auto">
-        <a class="nav-item nav-link active" href="../../index.html">Inicio</a>
-        <a class="nav-item nav-link" href="../../index.html#PreciosPlanes">Membresías</a>            
+        <!-- <a class="nav-item nav-link active" href="../../index.html">Volvedr al inicio inicio</a> -->
+        <!-- <a class="nav-item nav-link" href="pages-pricing.html">Membresías</a>             -->
       </div>
       <ul class="navbar-nav ms-lg-auto">            
         <!-- <li class="nav-item">
@@ -23,6 +23,9 @@
         <li class="nav-item">
           <a href="auth-register-basic.html" class="btn btn-success">Registrarme</a>
         </li> -->
+        <li class="nav-item">
+          <a class="nav-link" onclick="logout()" href="javascript:void(0);">Inicio</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" onclick="logout()" href="javascript:void(0);">Cerrar sesión<i class="fa-solid fa-right-from-bracket" style="margin-left: 3px;"></i></a>
         </li>
