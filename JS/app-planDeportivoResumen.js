@@ -1,85 +1,9 @@
-// CREANDO ELEMENTOS
-// var Cabecera = document.createElement("div");
-// var Habilidades = document.createElement("div");
-// var TiempoYfecha = document.createElement("div");
-// var Trabajo = document.createElement("h5");
-// var icono = document.createElement("img");
-// var TiempoTotal = document.createElement("h6");
-// var Fecha = document.createElement("h6");
-// var y9 = document.createElement("span");
-// var Habilidad1ATrabajar = document.createElement("span");
-// var Habilidad2ATrabajar = document.createElement("span");
-// var TiempoTotalEntreno = document.createElement("span");
-// var FechaEntreno = document.createElement("span");
-
-
-// CONTENIDO DE LOS CONTENEDORES
-// var TrabajoContenido = document.createTextNode ("Habilidades a trabajar: ");
-// var Habilidad1ATrabajarContenido = document.createTextNode (" Fuerza ");
-// var Habilidad2ATrabajarContenido = document.createTextNode (" Resistencia");
-
-// ESTILOS
-// Cabecera.className="mb-2"
-
-// Habilidades.className="d-flex align-items-center justify-content-between pb-1"
-
-// TiempoYfecha.className="d-flex align-items-center justify-content-between pt-1"
-
-// Trabajo.className="card-title mb-0"
-// Trabajo.style="color: #cbcbe2;"
-
-// icono.src="../../assets/img/icons/unicons/weight.png"
-// icono.style="width: 10%"
-
-// TiempoTotal.className="card-title mb-1"
-// TiempoTotal.style="color: #cbcbe2;"
-
-// Fecha.className="card-title mb-2"
-// Fecha.style="color: #cbcbe2;"
-
-// Habilidad1ATrabajar.className="text-success";
-// Habilidad1ATrabajar.style="font-size: 17px; font-weight: 600";
-
-// Habilidad2ATrabajar.className="text-success";
-// Habilidad2ATrabajar.style="font-size: 17px; font-weight: 600";
-
-// TiempoTotalEntreno.className="text-success";
-// TiempoTotalEntreno.style="font-size: 16px; font-weight: 600";
-
-// FechaEntreno.className="text-success";
-// FechaEntreno.style="font-size: 16px; font-weight: 600";
-
-
-
-// AGREGANDO CONTENIDO HIJO A PADRES
-// Trabajo.appendChild(TrabajoContenido);
-
-// Habilidad1ATrabajar.appendChild(Habilidad1ATrabajarContenido);
-// Trabajo.appendChild(Habilidad1ATrabajar);
-
-// Habilidades.appendChild(Trabajo);
-
-// Habilidades.appendChild(icono);
-
-
-// Cabecera.appendChild(Habilidades);
-// Cabecer
-
-
-// INSERTANDO EN EL HTML
-// var encabezadoEntreno = document.getElementById("encabezadoEntreno");
-// encabezadoEntreno.appendChild(Cabecera);
-
-
-
-
-
-
-
 
 document.getElementById("HabilidadesATrabajar").innerText="Fuerza y Resistencia";
 document.getElementById("TiempoTotalATrabajar").innerText="7 hrs";
 document.getElementById("FechaDeTrabajo").innerText="18/12/2022";
+var icono = document.getElementById('rm');
+        logo.attr('src','img/rm2.png');
 
 
 
