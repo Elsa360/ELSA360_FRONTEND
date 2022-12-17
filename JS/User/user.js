@@ -37,7 +37,7 @@ async function registrarme() {
                   .then(function (respuesta) {
                     console.log("Respuesta:", respuesta)
                     if (respuesta === 0) {
-                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
                       console.log(url)
                       fetch(url)
                         .then(response => response.json())

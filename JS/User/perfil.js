@@ -1,3 +1,31 @@
+window.onload = async () => {
+    const iduser = window.location.search;
+    const urlParams = new URLSearchParams(iduser);
+    let userId = urlParams.get("usuarioVerificado");
+    if (userId != null) {
+        let url = apiServer + "usuario/verificar?idUsuario=" + userId + "";
+        console.log(url);
+        try {
+            await fetch(url, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    idusuario: userId,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((respuesta) => {
+                    console.log(respuesta);
+                });
+                sessionStorage.setItem('login',iduser);
+        } catch (e) {
+
+        }
+    }
+}
+
 function calcularEdad(fecha) {
     try {
         const fechaNacimiento = fecha;
@@ -72,45 +100,45 @@ function registrarPerfilUsuario() {
         const valores = window.location.search;
         const urlParams = new URLSearchParams(valores);
         let user = JSON.parse(window.sessionStorage.getItem("user"))
-        if(user === null){
+        if (user === null) {
             const valores = window.location.search;
             const urlParams = new URLSearchParams(valores);
             user = {
-                email:urlParams.get('email'),
+                email: urlParams.get('email'),
                 email_verified: urlParams.get('verified')
             }
         }
         let isVerified = user.email_verified
-        if(isVerified){
+        if (isVerified) {
             Requests.get("/usuario/idUser", {
-                email:user.email
+                email: user.email
             }).
-            then((response) => response.json())
-            .then(data=>{
-                if(data.length == 0){
-                    alert("Usuario no existe")
-                }else{
-                    window.sessionStorage.setItem("perfil", JSON.stringify({
-                        sexo: sexoUsuario,
-                        peso: pesoActual,
-                        estatura: estaturaUsuario,
-                        pesoObjetivo: pesoDeseado,
-                        fechaNacimiento: fechaNacUsuario,
-                        fkTipoDieta: tipoDieta,
-                        fkTipoCuerpo: tipoCuerpo,
-                        fkNivelDeportivo: parseInt(nivelDeportivo),
-                        fkEscalaDeportiva: parseInt(escalaNivelDeportivo),
-                        potenciometro: potenciometroUser,
-                        pulsometro: pulsometroUser,
-                        pulsometro: pulsometroUser,
-                        velocimetro: velocimetroUser,
-                        cadenciometro: cadenciometroUser,
-                        fkPorque: porque,
-                        fkUsuario: data[0].idUsuario,
-                    }))
-                    location.href = "free-data.html"
-                }
-            })
+                then((response) => response.json())
+                .then(data => {
+                    if (data.length == 0) {
+                        alert("Usuario no existe")
+                    } else {
+                        window.sessionStorage.setItem("perfil", JSON.stringify({
+                            sexo: sexoUsuario,
+                            peso: pesoActual,
+                            estatura: estaturaUsuario,
+                            pesoObjetivo: pesoDeseado,
+                            fechaNacimiento: fechaNacUsuario,
+                            fkTipoDieta: tipoDieta,
+                            fkTipoCuerpo: tipoCuerpo,
+                            fkNivelDeportivo: parseInt(nivelDeportivo),
+                            fkEscalaDeportiva: parseInt(escalaNivelDeportivo),
+                            potenciometro: potenciometroUser,
+                            pulsometro: pulsometroUser,
+                            pulsometro: pulsometroUser,
+                            velocimetro: velocimetroUser,
+                            cadenciometro: cadenciometroUser,
+                            fkPorque: porque,
+                            fkUsuario: data[0].idUsuario,
+                        }))
+                        location.href = "free-data.html"
+                    }
+                })
         }
     }
     catch (e) {
@@ -119,109 +147,109 @@ function registrarPerfilUsuario() {
 
 }
 
-function guardarPeso(){
+function guardarPeso() {
     const user = JSON.parse(window.sessionStorage.getItem("user"))
-    if(user){
+    if (user) {
         Requests.get("/usuario/idUser", {
-            email:user.email
+            email: user.email
         })
-        .then(r=>r.json())
-        .then(data=>{
-            if(data.length == 0){
-                alert("Usuario no existe")
-            }else{
-                const peso = document.getElementById("actualizarPeso").value
-                Requests.patch("/perfil/actulizarPeso",{
-                    IdPerfil:data[0].idUsuario,
-                    nuevoPeso: peso
-                })
-                .then(r => r.json())
-                .then(json=>{
-                    alert("Informacion actualizada")
-                })
-            }
-            
-        })
-        
-    }else{
+            .then(r => r.json())
+            .then(data => {
+                if (data.length == 0) {
+                    alert("Usuario no existe")
+                } else {
+                    const peso = document.getElementById("actualizarPeso").value
+                    Requests.patch("/perfil/actulizarPeso", {
+                        IdPerfil: data[0].idUsuario,
+                        nuevoPeso: peso
+                    })
+                        .then(r => r.json())
+                        .then(json => {
+                            alert("Informacion actualizada")
+                        })
+                }
+
+            })
+
+    } else {
         location.href = "auth-login-basic.html"
     }
 }
 
-function guardarEntrenoPersonalizado(){
+function guardarEntrenoPersonalizado() {
     const user = JSON.parse(window.sessionStorage.getItem("user"))
-    if(user){
+    if (user) {
         Requests.get("/perfil/idPerfil", {
-            email:user.email
+            email: user.email
         })
-        .then(r=>r.json())
-        .then(data=>{
-            if(data.length == 0){
-                alert("Usuario no existe")
-            }else{
-                const peso = document.getElementById("actualizarPeso").value
-                Requests.post("/objetivoDeportivo/crear",{
-                    "nombreObjetivo": document.getElementById("eventTitle").value,
-                    "fechaObjetivo": document.getElementById("eventStartDate").value,
-                    "fechaPrepa2": document.getElementById("fechaInicioEntreno").value,
-                    "lugarObjetivo": document.getElementById("eventLocation").value,
-                    "objetivo_1": document.getElementById("eventGoal1").value,
-                    "objetivo_2": document.getElementById("eventGoal2").value,
-                    "objetivo_3": document.getElementById("eventGoal3").value,
-                    "comentarios": document.getElementById("eventDescription").value,
-                    "fechaPrepa1": "",
-                    "fkIdPerfilUsuarioObj": data[0].idPerfilUsuario,
-                })
-                .then(r => r.json())
-                .then(json=>{
-                    alert("Informacion actualizada")
-                })
-            }
-            
-        })
-        
-    }else{
+            .then(r => r.json())
+            .then(data => {
+                if (data.length == 0) {
+                    alert("Usuario no existe")
+                } else {
+                    const peso = document.getElementById("actualizarPeso").value
+                    Requests.post("/objetivoDeportivo/crear", {
+                        "nombreObjetivo": document.getElementById("eventTitle").value,
+                        "fechaObjetivo": document.getElementById("eventStartDate").value,
+                        "fechaPrepa2": document.getElementById("fechaInicioEntreno").value,
+                        "lugarObjetivo": document.getElementById("eventLocation").value,
+                        "objetivo_1": document.getElementById("eventGoal1").value,
+                        "objetivo_2": document.getElementById("eventGoal2").value,
+                        "objetivo_3": document.getElementById("eventGoal3").value,
+                        "comentarios": document.getElementById("eventDescription").value,
+                        "fechaPrepa1": "",
+                        "fkIdPerfilUsuarioObj": data[0].idPerfilUsuario,
+                    })
+                        .then(r => r.json())
+                        .then(json => {
+                            alert("Informacion actualizada")
+                        })
+                }
+
+            })
+
+    } else {
         location.href = "auth-login-basic.html"
     }
 }
 
-function showSave(){
+function showSave() {
     document.getElementById("buttonSaveDate").hidden = false
 }
 
-function guardarEntreno(){
+function guardarEntreno() {
     const user = JSON.parse(window.sessionStorage.getItem("user"))
-    if(user){
+    if (user) {
         Requests.get("/perfil/idPerfil", {
-            email:user.email
+            email: user.email
         })
-        .then(r=>r.json())
-        .then(data=>{
-            if(data.length == 0){
-                alert("Usuario no existe")
-            }else{
-                const peso = document.getElementById("actualizarPeso").value
-                Requests.post("/objetivoDeportivo/crear",{
-                    "nombreObjetivo": "",
-                    "fechaObjetivo": "",
-                    "fechaPrepa2": "",
-                    "lugarObjetivo": "",
-                    "objetivo_1": "",
-                    "objetivo_2": "",
-                    "objetivo_3": "",
-                    "comentarios": "",
-                    "fechaPrepa1": document.getElementById("fechaInicioEntreno").value,
-                    "fkIdPerfilUsuarioObj": data[0].idPerfilUsuario,
-                })
-                .then(r => r.json())
-                .then(json=>{
-                    alert("Informacion actualizada")
-                })
-            }
-            
-        })
-        
-    }else{
+            .then(r => r.json())
+            .then(data => {
+                if (data.length == 0) {
+                    alert("Usuario no existe")
+                } else {
+                    const peso = document.getElementById("actualizarPeso").value
+                    Requests.post("/objetivoDeportivo/crear", {
+                        "nombreObjetivo": "",
+                        "fechaObjetivo": "",
+                        "fechaPrepa2": "",
+                        "lugarObjetivo": "",
+                        "objetivo_1": "",
+                        "objetivo_2": "",
+                        "objetivo_3": "",
+                        "comentarios": "",
+                        "fechaPrepa1": document.getElementById("fechaInicioEntreno").value,
+                        "fkIdPerfilUsuarioObj": data[0].idPerfilUsuario,
+                    })
+                        .then(r => r.json())
+                        .then(json => {
+                            alert("Informacion actualizada")
+                        })
+                }
+
+            })
+
+    } else {
         location.href = "auth-login-basic.html"
     }
 }
