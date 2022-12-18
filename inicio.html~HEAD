@@ -74,11 +74,11 @@
 
                             <ul class="navbar-nav ml-auto">
 
-                                <!--<li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" href="#section">
                                         Inicio
                                     </a>
-                                </li>-->
+                                </li>
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="#PreciosPlanes">
@@ -86,11 +86,11 @@
                                     </a>
                                 </li>
 
-                                <!--<li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" href="/logout.php">
                                         Cerrar sesión <i class="fa-solid fa-right-from-bracket"></i>
                                     </a>
-                                </li>-->
+                                </li>
 
                             </ul>
                             <div class="act-buttons">
@@ -978,7 +978,11 @@
                 <div class="contact1">
                     <div class="row">
                         <div class="container">
+<<<<<<< HEAD:inicio.html
 
+=======
+                            
+>>>>>>> a5efcda65d4eada096d98d5d1a5587428ed4dd29:index.html
                                 <div class="row m-0">
 
 
@@ -1036,7 +1040,11 @@
 
 
                                 </div>
+<<<<<<< HEAD:inicio.html
 
+=======
+                            
+>>>>>>> a5efcda65d4eada096d98d5d1a5587428ed4dd29:index.html
                         </div>
                     </div>
                 </div>
