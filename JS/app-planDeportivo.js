@@ -77,7 +77,8 @@
 
 
 
-document.getElementById("HabilidadesATrabajar").innerText="Fuerza y Resistencia";
+document.getElementById("Habilidad1ATrabajar").innerText="Fuerza";
+document.getElementById("Habilidad2ATrabajar").innerText="Resistencia";
 document.getElementById("TiempoTotalATrabajar").innerText="7 hrs";
 document.getElementById("FechaDeTrabajo").innerText="18/12/2022";
 

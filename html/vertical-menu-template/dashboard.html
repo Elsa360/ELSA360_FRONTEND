@@ -132,7 +132,7 @@
 
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entreno deportivo</span>
+            <span class="menu-header-text">Entrenamiento</span>
           </li>
 
 
@@ -184,7 +184,7 @@
 
           <!-- Ejercicios -->
           <li class="menu-item">
-            <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
+            <a href="pages-ejercicios&estiramientos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-dumbbell"></i>
               <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
             </a>
@@ -275,7 +275,7 @@
 
           <!-- Terminos y condiciones-->
           <li class="menu-item">
-            <a href="pages-Terminos.html" class="menu-link">
+            <a href="pages-terminos.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-info-circle"></i>
               <div data-i18n="Términos y condiciones">Términos y condiciones</div>
             </a>
@@ -284,7 +284,7 @@
 
           <!-- Privacidad -->
           <li class="menu-item">
-            <a href="pages-Privacidad.html" class="menu-link">
+            <a href="pages-privacidad.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-info-circle"></i>
               <div data-i18n="Política de privacidad">Política de privacidad</div>
             </a>
@@ -293,7 +293,7 @@
 
           <!-- Cookies -->
           <li class="menu-item mb-5">
-            <a href="pages-Cookies.html" class="menu-link">
+            <a href="pages-cookies.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-info-circle"></i>
               <div data-i18n="Cookies">Cookies</div>
             </a>
@@ -431,7 +431,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-cycling fs-4"></i>
                         </span>
-                        <a href="app-planDeportivo.html" class="stretched-link">Plan deportivo</a>
+                        <a href="app-planDeportivo.html" class="stretched-link">Plan de ciclismo</a>
                         <small class="text-muted mb-0">Ciclismo + PF</small>
                       </div>
                     </div>
@@ -817,10 +817,9 @@
 
 
                   <li>
-                    <a class="dropdown-item" href="auth-login-basic.html">
+                    <a class="dropdown-item" onclick="logout()" href="javascript:void(0);">
                       <i class="bx bx-power-off me-2"></i>
                       <span class="align-middle">Cerrar sesión</span>
-                      <a class="align-middle" onclick="logout()" href="javascript:void(0);">Cerrar sesión</a>
                     </a>
                   </li>
 
@@ -951,7 +950,7 @@
                           <small class="d-block mb-0"
                             style="line-height: 16px; font-size: 15px; font-weight: 400;">Entreno:</small>
                           <small class="card-title mb-0 text-success"
-                            style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="semanasDashboard">24 <small>Semanas</small>
+                            style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="semanasDashboard">0 <small>Semanas</small>
                           </small>
                         </div>
 
@@ -963,7 +962,7 @@
                     <div class="card">
                       <div class="card-body pb-2">
                         <span class=" fw-semibold mb-1">Disponibilidad semanal: &nbsp; <small
-                            class="card-title text-success mb-1" style="font-size: 18px;" id="hrSemanalDashboard"> 17 </small><small>
+                            class="card-title text-success mb-1" style="font-size: 18px;" id="hrSemanalDashboard"> 0 </small><small>
                             hrs</small></span>
 
                         <div id="VolumenSemanal"></div>
@@ -992,7 +991,7 @@
                     </div>
 
                     <small class="card-title text-success mb-3"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="sesionesDashboard">34</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="sesionesDashboard">0</small>
                     <small class="text-success fw-semibold"></small>
                   </div>
                 </div>
@@ -1014,7 +1013,7 @@
                         <small class="card-title mb-0 text-success"
                           style="margin-top: 0px; font-size: 15px; font-weight: 600;" data-bs-toggle="tooltip"
                           data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
-                          title=" <span> h : m : s</span>" id="duracionTotalDashboard">81:26:17
+                          title=" <span> h : m : s</span>" id="duracionTotalDashboard">00:00:00
                         </small>
                       </div>
 
@@ -1029,7 +1028,7 @@
                     <small class="card-title mb-0 text-success"
                       style="margin-top: 0px; font-size: 15px; font-weight: 600;" data-bs-toggle="tooltip"
                       data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
-                      title=" <span> h : m : s</span>" id="promedioSesionDashboard">2:45:21
+                      title=" <span> h : m : s</span>" id="promedioSesionDashboard">00:00:00
                     </small>
                   </div>
                 </div>
@@ -1050,7 +1049,7 @@
                         <small class="d-block mb-0"
                           style="line-height: 16px; font-size: 15px; font-weight: 400;">Distancia total:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distanciaTotalDashboard">1,475 <small>Km</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distanciaTotalDashboard">0 <small>Km</small>
                         </small>
                       </div>
                       <div class="avatar flex-shrink-0 mb-0">
@@ -1062,7 +1061,7 @@
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio
                       de sesión: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distPromedioSesionDashboard">87.5 <small>Km</small></small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="distPromedioSesionDashboard">0 <small>Km</small></small>
                   </div>
                 </div>
               </div>
@@ -1084,7 +1083,7 @@
                         <small class="d-block mb-0"
                           style="line-height: 16px; font-size: 15px; font-weight: 400;">Desnivel positivo:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelDashboard">47,475 <small>m</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelDashboard">0 <small>m</small>
                         </small>
                       </div>
                       <div class="avatar flex-shrink-0">
@@ -1096,7 +1095,7 @@
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio
                       de sesión: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelPromedioDashboard">1048.5 <small>m</small></small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="desnivelPromedioDashboard">0 <small>m</small></small>
                   </div>
                 </div>
               </div>
@@ -1115,7 +1114,7 @@
                         <small class="d-block mb-0"
                           style="line-height: 16px; font-size: 15px; font-weight: 400;">Calorías totales:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;">247,475 <small>Cal</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;">0 <small>Cal</small>
                         </small>
                       </div>
                       <div class="avatar flex-shrink-0">
@@ -1127,7 +1126,7 @@
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio
                       de sesión: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;">648.5 <small>Cal</small></small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;">0 <small>Cal</small></small>
                   </div>
                 </div>
               </div>
@@ -1151,7 +1150,7 @@
                         <Small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400; ">RPE
                           Total:</Small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top:0px; font-size: 15px; font-weight: 600;">119
+                          style="margin-top:0px; font-size: 15px; font-weight: 600;">0
                           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalRPE"
                             style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle'></i>
                           </button>
@@ -1168,7 +1167,7 @@
                     <small class="d-block mb-0" style="line-height: 16px; font-size: 15px; font-weight: 400;">Promedio
                       de sesión: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;">648.5 </small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;">0 </small>
                   </div>
                 </div>
               </div>
@@ -1252,50 +1251,11 @@
               <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-3">
                 <div class="card">
                   <div class="row row-bordered g-0">
-                    <div class="col-md-8">
-                      <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
-                      <div id="totalRevenueChart" class="px-2"></div>
+                    <div class="col-12 text-center">
+                      <div id="DistAcumYPromSem1" class="pt-4"></div>
+                      <p class="mb-2 mt-1" style="font-size: 12px;">*Haz clic en el nombre de la variable que quieras ver en el gráfico.  </p>
                     </div>
-                    <div class="col-md-4">
-                      <div class="card-body">
-                        <div class="text-center">
-                          <div class="dropdown">
-                            <button class="btn btn-sm btn-label-primary dropdown-toggle" type="button"
-                              id="growthReportId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              2022
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                              <a class="dropdown-item" href="javascript:void(0);">2021</a>
-                              <a class="dropdown-item" href="javascript:void(0);">2020</a>
-                              <a class="dropdown-item" href="javascript:void(0);">2019</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="growthChart"></div>
-                      <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
-
-                      <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
-                        <div class="d-flex">
-                          <div class="me-2">
-                            <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
-                          </div>
-                          <div class="d-flex flex-column">
-                            <small>2022</small>
-                            <h6 class="mb-0">$32.5k</h6>
-                          </div>
-                        </div>
-                        <div class="d-flex">
-                          <div class="me-2">
-                            <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
-                          </div>
-                          <div class="d-flex flex-column">
-                            <small>2021</small>
-                            <h6 class="mb-0">$41.2k</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -1319,7 +1279,7 @@
                                   style="font-size: 13px; font-weight: 600;">Diarias</span></small> </h5>
 
                             <div class="d-flex align-items-end mb-3">
-                              <h6 class="card-title mb-0 me-2">GET = <span class="text-warning" id="GETdashboard"> 2750
+                              <h6 class="card-title mb-0 me-2">GET = <span class="text-warning" id="GETdashboard"> 0
                                   Cal</span></h6>
                             </div>
 
@@ -1374,7 +1334,9 @@
                         <div class=" d-flex align-items-start justify-content-between mb-2">
                           <div>
                             <small class="d-block mb-0"
-                              style="line-height: 16px; font-size: 15px; font-weight: 400;">Consumo de agua: </small>
+                              style="line-height: 16px; font-size: 15px; font-weight: 400;">Consumo de agua: <button type="button"
+                              class="btn p-0" data-bs-toggle="modal" data-bs-target="#modalHidratacion"
+                              style="padding: 0;"><i class='bx bx-info-circle'></i></button> </small>
                             <small class="card-title mb-0 text-success"
                               style="margin-top: 0px; font-size: 15px; font-weight: 600;"><small></small>
                             </small>
@@ -1390,9 +1352,7 @@
 
 
                         <div class="d-flex align-items-end mb-0">
-                          <h4 class="card-title mb-2 me-2" id="requerimientoLiquidos">0 Lts <button type="button"
-                              class="btn" data-bs-toggle="modal" data-bs-target="#modalHidratacion"
-                              style="padding: 0;"><i class='bx bx-info-circle'></i></button></h4>
+                          <h4 class="card-title mb-2 me-2" id="requerimientoLiquidos">0 <small class="text-secondary" style="font-size:11px">L</small> </h4>
                         </div>
                         <small id="promedioVasosAgua"></small>
 
@@ -1427,7 +1387,7 @@
                           data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                           title=" <span>Frecuencia Cardíaca Máxima de todos tus entrenos </span>">FC Máxima:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fmaxdashboard"> <small>PPM</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fmaxdashboard"> 0 <small>PPM</small>
                         </small>
                       </div>
 
@@ -1443,7 +1403,7 @@
                       title=" <span>Frecuencia Cardíaca promedio de todos tus entrenos </span>">FC Promedio de sesión:
                     </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fcPromedioDashboard"> <small>PPM</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="fcPromedioDashboard">0 <small>PPM</small>
                     </small>
                   </div>
                 </div>
@@ -1465,7 +1425,7 @@
                           title=" <span>Potencia absoluta Máxima de todos tus entrenos </span>">Potencia Abs.
                           Max:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pMaxDashboard"> <small>W</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pMaxDashboard">0  <small>W</small>
                         </small>
                       </div>
 
@@ -1480,7 +1440,7 @@
                       title=" <span> Potencia absoluta promedio de todos tus entrenos </span>">Potencia Abs. Promedio:
                     </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potAbsPromedioDashboard"><small>W</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potAbsPromedioDashboard">0 <small>W</small>
                     </small>
                   </div>
                 </div>
@@ -1502,7 +1462,7 @@
                           title=" <span>Potencia relativa Máxima de todos tus entrenos </span>">Potencia Rel.
                           Max:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pRelMaxDashboard"> <small>W</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="pRelMaxDashboard">0 <small>W</small>
                         </small>
                       </div>
 
@@ -1517,7 +1477,7 @@
                       title="<span> Potencia relativa promedio de todos tus entrenos </span>">Potencia Rel. Promedio:
                     </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potRelPromedioDashboard"> <small>W</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="potRelPromedioDashboard">0 <small>W</small>
                     </small>
                   </div>
                 </div>
@@ -1538,7 +1498,7 @@
                           data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                           title=" <span>Velocidad Máxima de todos tus entrenos </span>">Velocidad Max:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="vMaxDashboard"> <small>Km/h</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="vMaxDashboard">0 <small>Km/h</small>
                         </small>
                       </div>
 
@@ -1552,7 +1512,7 @@
                       data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                       title=" <span>Velocidad promedio de todos tus entrenos </span>">Velocidad Promedio: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="velPromedioDashboard"> <small>Km/h</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="velPromedioDashboard">0 <small>Km/h</small>
                     </small>
                   </div>
                 </div>
@@ -1573,7 +1533,7 @@
                           data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                           title=" <span>Cadencia Máxima  de todos tus entrenos </span>">Cadencia Max:</small>
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cMaxDashboard"> <small>RPM</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cMaxDashboard">0 <small>RPM</small>
                         </small>
                       </div>
 
@@ -1587,7 +1547,7 @@
                       data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                       title=" <span>Cadencia promedio de todos tus entrenos </span>">Cadencia Promedio: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cadePromedioDashboard"> <small>RPM</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="cadePromedioDashboard">0 <small>RPM</small>
                     </small>
                   </div>
                 </div>
@@ -1609,7 +1569,7 @@
                           title=" <span> Trabajo realizado en todos tus entrenos </span>">Trabajo total:</small>
 
                         <small class="card-title mb-0 text-success"
-                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoDashboard"> <small>KJ</small>
+                          style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoDashboard">0 <small>KJ</small>
                         </small>
                       </div>
 
@@ -1623,16 +1583,11 @@
                       data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true"
                       title=" <span> Trabajo promedio de todos tus entrenos </span>">Promedio de sesión: </small>
                     <small class="card-title mb-0 text-success"
-                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoPromedioDashboard"> <small>KJ</small>
+                      style="margin-top: 0px; font-size: 15px; font-weight: 600;" id="trabajoPromedioDashboard">0 <small>KJ</small>
                     </small>
                   </div>
                 </div>
               </div>
-
-
-
-
-
 
             </div>
 
@@ -1832,12 +1787,12 @@
                     <p style="margin: 0; font-weight: 500;" data-bs-toggle="tooltip" data-bs-offset="0,4"
                       data-bs-placement="bottom" data-bs-html="true" title=" <span>
                       FTP Absoluto </span>">
-                      FTP Abs. = <span class="text-success" id="ftpdashboard"></span> <small class="text-muted">W</small> </p>
+                      FTP Abs. = <span class="text-success" id="ftpdashboard">0</span> <small class="text-muted">W</small> </p>
 
                     <p style="margin: 0; margin-right: 20px; font-weight: 500;" data-bs-toggle="tooltip"
                       data-bs-offset="0,4" data-bs-placement="bottom" data-bs-html="true" title=" <span>
                       FTP Relativo </span>">
-                      FTP Rel. = <span class="text-success" id="ftpReldashboard"></span> <small class="text-muted">W</small> </p>
+                      FTP Rel. = <span class="text-success" id="ftpReldashboard">0</span> <small class="text-muted">W</small> </p>
                   </div>
 
 
@@ -1867,7 +1822,7 @@
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
                             <h6 class="mb-0"><span class="text-success">
-                                < </span> <span class="text-success" id="zona1ftp"></span></h6>
+                                < </span> <span class="text-success" id="zona1ftp"> 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -1883,7 +1838,7 @@
                             <h6 class="mb-0">Zona 2</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona2ftp"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona2ftp">0 - 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -1899,7 +1854,7 @@
                             <h6 class="mb-0">Zona 3</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona3ftp"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona3ftp">0 - 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -1915,7 +1870,7 @@
                             <h6 class="mb-0">Zona 4</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona4ftp"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona4ftp">0 - 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -1936,7 +1891,7 @@
                             <h6 class="mb-0">Zona 5</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona5ftp"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona5ftp">0 - 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -1957,7 +1912,7 @@
                             <h6 class="mb-0">Zona 6</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"> <span class="text-success" id="zona6ftp"></span></h6>
+                            <h6 class="mb-0"> <span class="text-success" id="zona6ftp">0 - 0</span></h6>
                             <small class="text-muted">W</small>
 
                           </div>
@@ -2007,7 +1962,7 @@
                   </div>
 
                   <div class="mb-0" style="margin-left: 20px;">
-                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success" id="fhtrdashboard"></span> <small
+                    <p style="margin: 0; font-weight: 500;">FTHR = <span class="text-success" id="fhtrdashboard">0 </span> <small
                         class="text-muted">PPM</small>
                       <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalZonasFC"
                         style="padding: 0 0; cursor: pointer;"><i class='bx bx-info-circle' data-bs-toggle="tooltip"
@@ -2047,7 +2002,7 @@
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
                             <h6 class="mb-0"><span class="text-success">
-                                < </span> <span class="text-success" id="zona1fhtr"></span></h6>
+                                < </span> <span class="text-success" id="zona1fhtr">0</span></h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
@@ -2063,7 +2018,7 @@
                             <h6 class="mb-0">Zona 2</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona2fhtr"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona2fhtr">0 - 0</span></h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
@@ -2079,7 +2034,7 @@
                             <h6 class="mb-0">Zona 3</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona3fhtr"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona3fhtr">0 - 0</span></h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
@@ -2095,7 +2050,7 @@
                             <h6 class="mb-0">Zona 4</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona4fhtr"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona4fhtr">0 - 0</span></h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
@@ -2116,7 +2071,7 @@
                             <h6 class="mb-0">Zona 5</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"><span class="text-success" id="zona5fhtr"></span></h6>
+                            <h6 class="mb-0"><span class="text-success" id="zona5fhtr">0 - 0</span></h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
@@ -2137,7 +2092,7 @@
                             <h6 class="mb-0">Zona 6</h6>
                           </div>
                           <div class="user-progress d-flex align-items-center gap-1">
-                            <h6 class="mb-0"> <span class="text-success" id="zona6fhtr"></span> </h6>
+                            <h6 class="mb-0"> <span class="text-success" id="zona6fhtr">0 - 0</span> </h6>
                             <small class="text-muted">PPM</small>
 
                           </div>
