@@ -718,7 +718,7 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../../assets/img/avatars/1.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
                   </div>
                 </a>
 
@@ -734,7 +734,7 @@
                         <!-- Avatar -->
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.jpg" alt class="w-px-40 h-auto rounded-circle" />
+                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
                           </div>
                         </div>
 
@@ -907,7 +907,9 @@
                       <img src="../../assets/img/avatars/1.jpg" alt="user-avatar" class="d-block rounded-circle"
                         height="150" width="150" id="uploadedAvatar" />
 
+                        
                       <div class="button-wrapper">
+                        <form action="_avatar.php" enctype="multipart/form-data">
                         <label for="upload" class="btn btn-sm btn-success me-2 mb-1" tabindex="0">
                           <span class="d-none d-sm-block">Cambiar foto</span>
                           <i class="bx bx-menu d-block d-sm-none"></i>
@@ -921,6 +923,7 @@
                         </button>
 
                         <p class="text-muted mb-0" style="font-size: 12px;">Archivos en formato JPG, GIF o PNG. Tamaño Max: 800K</p>
+                      </form>
                       </div>
                     </div>
                   </div>

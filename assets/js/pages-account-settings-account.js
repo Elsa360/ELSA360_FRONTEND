@@ -188,3 +188,22 @@ $(function () {
     });
   }
 });
+
+
+window.onload = async () => {
+  if (localStorage.avatar == undefined) {
+    
+  } else {
+    $("#uploadedAvatar").attr("src",localStorage.avatar)
+    $("#NavbarAvatar").attr("src",localStorage.avatar) 
+    $("#TooltipAvatar").attr("src",localStorage.avatar)  
+
+
+  }  
+}
+
+
+
+
+
+

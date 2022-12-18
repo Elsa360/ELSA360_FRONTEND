@@ -65,242 +65,7 @@
     <div class="layout-container">
 
 
-      <!-- Menu -->
-      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-
-        <div class="app-brand demo">
-          <!--Logo-->
-          <a href="dashboard.html" class="app-brand-link">
-            <span class="app-brand-logo demo">
-              <svg width="10" viewBox="0 0 25 42" version="1.1"> </svg>
-            </span>
-
-            <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
-                src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
-          </a>
-
-
-
-          <!--Hamburguesa-->
-          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="bx bx-chevron-left bx-sm align-middle"></i>
-          </a>
-        </div>
-
-
-
-
-        <div class="menu-inner-shadow"></div>
-
-
-
-
-        <ul class="menu-inner py-1">
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Principal</span>
-          </li>
-
-
-
-          <!-- Dashboards -->
-          <li class="menu-item active">
-            <a href="dashboard.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div data-i18n="Dashboard">Dashboard</div>
-            </a>
-          </li>
-
-
-          <!-- Calendario -->
-          <!-- <li class="menu-item">
-            <a href="app-calendar.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-calendar"></i>
-              <div data-i18n="Calendario">Calendario</div>
-            </a>
-          </li> -->
-
-          <!-- Graficas -->
-          <li class="menu-item">
-            <a href="app-graficosBasicos.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-line-chart"></i>
-              <div data-i18n="Gráficos">Gráficos</div>
-            </a>
-          </li>
-
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entrenamiento</span>
-          </li>
-
-
-          <!-- Ciclismo -->
-          <li class="menu-item">
-            <a href="app-planDeportivo.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-cycling"></i>
-              <div data-i18n="Plan de ciclismo">Plan de ciclismo</div>
-            </a>
-          </li>
-
-          <!-- Nutrición -->
-          <li class="menu-item">
-            <a href="app-planNutricional.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-food-menu"></i>
-              <div data-i18n="Plan nutricional">Plan nutricional</div>
-            </a>
-          </li>
-
-          <!-- Psicología -->
-          <li class="menu-item">
-            <a href="app-planPsicologico.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-user-plus"></i>
-              <div data-i18n="Plan psicológico">Plan psicológico</div>
-            </a>
-          </li>
-
-          <!-- Control del sueño -->
-          <li class="menu-item">
-            <a href="app-controlSueño.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-bed"></i>
-              <div data-i18n="Control del sueño">Control del sueño</div>
-            </a>
-          </li>
-
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Recursos</span>
-          </li>
-
-          <!-- Recomendaciones -->
-          <li class="menu-item">
-            <a href="pages-recomendaciones.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-comment-detail"></i>
-              <div data-i18n="Recomendaciones">Recomendaciones</div>
-            </a>
-          </li>
-
-          <!-- Ejercicios -->
-          <li class="menu-item">
-            <a href="pages-ejercicios&estiramientos.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-dumbbell"></i>
-              <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
-            </a>
-          </li>
-
-          <!-- Pedagogia -->
-          <!-- <li class="menu-item">
-              <a href="pages-pedagogia.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-book"></i>
-                <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
-              </a>
-            </li> -->
-
-          <!-- Rutas -->
-          <!-- <li class="menu-item">
-              <a href="pages-Rutas.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-directions"></i>
-                <div data-i18n="Rutas">Rutas</div>
-              </a>
-            </li> -->
-
-
-          <!-- Eventos -->
-          <!-- <li class="menu-item">
-              <a href="pages-Eventos&Fondos.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
-                <div data-i18n="Eventos y fondos">Eventos y fondos</div>
-              </a>
-            </li> -->
-
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Cuenta</span>
-          </li>
-
-
-          <!-- Perfil -->
-          <li class="menu-item">
-            <a href="pages-account.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-user"></i>
-              <div data-i18n="Mi perfil">Mi perfil</div>
-            </a>
-          </li>
-
-
-          <!-- Conexión dispositivos -->
-          <li class="menu-item">
-            <a href="pages-account-connections.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-transfer-alt"></i>
-              <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
-            </a>
-          </li>
-
-
-
-
-
-          <!-- Help -->
-          <!-- <li class="menu-item">
-              <a href="pages-help-center-landing.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Ayuda">Ayuda</div>
-              </a>
-            </li> -->
-
-
-          <!-- Divisor -->
-          <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-
-          <!-- Contacto -->
-          <li class="menu-item">
-            <a href="pages-contactanos.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bxs-contact"></i>
-              <div data-i18n="Contacto">Contacto</div>
-            </a>
-          </li>
-
-
-          <!-- FAQ -->
-          <!-- <li class="menu-item">
-            <a href="pages-faq.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-help-circle"></i>
-              <div data-i18n="FAQ">FAQ</div>
-            </a>
-          </li> -->
-
-
-          <!-- Terminos y condiciones-->
-          <li class="menu-item">
-            <a href="pages-terminos.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-info-circle"></i>
-              <div data-i18n="Términos y condiciones">Términos y condiciones</div>
-            </a>
-          </li>
-
-
-          <!-- Privacidad -->
-          <li class="menu-item">
-            <a href="pages-privacidad.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-info-circle"></i>
-              <div data-i18n="Política de privacidad">Política de privacidad</div>
-            </a>
-          </li>
-
-
-          <!-- Cookies -->
-          <li class="menu-item mb-5">
-            <a href="pages-cookies.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-info-circle"></i>
-              <div data-i18n="Cookies">Cookies</div>
-            </a>
-          </li>
-        </ul>
-      </aside>
-      <!-- / Menu -->
+      <?php include("inc-aside-layout-menu.php"); ?>
 
 
       <!-- Layout container -->
@@ -714,7 +479,7 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
+                    <img src="../../assets/img/avatars/1.jpg" alt class="w-px-40 h-auto rounded-circle" />
                   </div>
                 </a>
 
@@ -730,7 +495,7 @@
                         <!-- Avatar -->
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
+                            <img src="../../assets/img/avatars/1.jpg" alt class="w-px-40 h-auto rounded-circle" />
                           </div>
                         </div>
 
@@ -3142,14 +2907,12 @@
   <script src="../../assets/js/main.js"></script>
 
   <!-- Page JS -->
-  <script src="../../assets/js/pages-account-settings-account.js"></script>
   <script src="../../assets/js/dashboards-analytics.js"></script>
   <script src="../../JS/classes.js"></script>
   <script src="../../JS/calculosPsicologia.js"></script>
   <script src="../../JS/User/perfil.js"></script>
   <script src="../../JS/User/user.js"></script>
   <script src="../../JS/dashboardGraficos.js"></script>
-  
   <script>
       (function () {
         let tiempo = Date.now();

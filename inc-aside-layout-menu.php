@@ -1,54 +1,54 @@
 <!-- Menu -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-  <div class="app-brand demo">
-    <!--Logo-->
-    <a href="dashboard.html" class="app-brand-link">
-      <span class="app-brand-logo demo">
-        <svg width="10" viewBox="0 0 25 42" version="1.1"> </svg>
-      </span>
+<div class="app-brand demo">
+  <!--Logo-->
+  <a href="dashboard.html" class="app-brand-link">
+    <span class="app-brand-logo demo">
+      <svg width="10" viewBox="0 0 25 42" version="1.1"> </svg>
+    </span>
 
-      <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
+    <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
         src="../../assets/img/branding/elsa-Verde.png" alt="" width="100px"></span>
-      </a>
+  </a>
 
 
 
-      <!--Hamburguesa-->
-      <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-        <i class="bx bx-chevron-left bx-sm align-middle"></i>
-      </a>
-    </div>
-
-
-
-
-    <div class="menu-inner-shadow"></div>
+  <!--Hamburguesa-->
+  <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+    <i class="bx bx-chevron-left bx-sm align-middle"></i>
+  </a>
+</div>
 
 
 
 
-    <ul class="menu-inner py-1">
-
-      <!-- Divisor -->
-      <li class="menu-header small text-uppercase">
-        <span class="menu-header-text">Principal</span>
-      </li>
+<div class="menu-inner-shadow"></div>
 
 
 
-      <!-- Dashboards -->
-      <li class="menu-item active">
-        <a href="dashboard.html" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Dashboard">Dashboard</div>
-        </a>
-      </li>
+
+<ul class="menu-inner py-1">
+
+  <!-- Divisor -->
+  <li class="menu-header small text-uppercase">
+    <span class="menu-header-text">Principal</span>
+  </li>
 
 
-      <!-- Calendario -->
-      <!-- <li class="menu-item">
-      <a href="app-calendar.html" class="menu-link">
+
+  <!-- Dashboards -->
+  <li class="menu-item active">
+    <a href="dashboard.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-home-circle"></i>
+      <div data-i18n="Dashboard">Dashboard</div>
+    </a>
+  </li>
+
+
+  <!-- Calendario -->
+  <!-- <li class="menu-item">
+    <a href="app-calendar.html" class="menu-link">
       <i class="menu-icon tf-icons bx bx-calendar"></i>
       <div data-i18n="Calendario">Calendario</div>
     </a>
@@ -65,7 +65,7 @@
 
   <!-- Divisor -->
   <li class="menu-header small text-uppercase">
-    <span class="menu-header-text">Entreno deportivo</span>
+    <span class="menu-header-text">Entrenamiento</span>
   </li>
 
 
@@ -117,7 +117,7 @@
 
   <!-- Ejercicios -->
   <li class="menu-item">
-    <a href="pages-Ejercicios&Estiramientos.html" class="menu-link">
+    <a href="pages-ejercicios&estiramientos.html" class="menu-link">
       <i class="menu-icon tf-icons bx bx-dumbbell"></i>
       <div data-i18n="Ejercicios y estiramientos">Ejercicios y estiramientos</div>
     </a>
@@ -125,112 +125,112 @@
 
   <!-- Pedagogia -->
   <!-- <li class="menu-item">
-  <a href="pages-pedagogia.html" class="menu-link">
-  <i class="menu-icon tf-icons bx bx-book"></i>
-  <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
-</a>
-</li> -->
+      <a href="pages-pedagogia.html" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-book"></i>
+        <div data-i18n="Pedagogía del ciclismo">Pedagogía del ciclismo</div>
+      </a>
+    </li> -->
 
-<!-- Rutas -->
-<!-- <li class="menu-item">
-<a href="pages-Rutas.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-directions"></i>
-<div data-i18n="Rutas">Rutas</div>
-</a>
-</li> -->
-
-
-<!-- Eventos -->
-<!-- <li class="menu-item">
-<a href="pages-Eventos&Fondos.html" class="menu-link">
-<i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
-<div data-i18n="Eventos y fondos">Eventos y fondos</div>
-</a>
-</li> -->
+  <!-- Rutas -->
+  <!-- <li class="menu-item">
+      <a href="pages-Rutas.html" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-directions"></i>
+        <div data-i18n="Rutas">Rutas</div>
+      </a>
+    </li> -->
 
 
-<!-- Divisor -->
-<li class="menu-header small text-uppercase">
-<span class="menu-header-text">Cuenta</span>
-</li>
+  <!-- Eventos -->
+  <!-- <li class="menu-item">
+      <a href="pages-Eventos&Fondos.html" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-flag-checkered"></i>
+        <div data-i18n="Eventos y fondos">Eventos y fondos</div>
+      </a>
+    </li> -->
 
 
-<!-- Perfil -->
-<li class="menu-item">
-<a href="pages-account.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-user"></i>
-<div data-i18n="Mi perfil">Mi perfil</div>
-</a>
-</li>
+  <!-- Divisor -->
+  <li class="menu-header small text-uppercase">
+    <span class="menu-header-text">Cuenta</span>
+  </li>
 
 
-<!-- Conexión dispositivos -->
-<li class="menu-item">
-<a href="pages-account-connections.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-transfer-alt"></i>
-<div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
-</a>
-</li>
+  <!-- Perfil -->
+  <li class="menu-item">
+    <a href="pages-account.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-user"></i>
+      <div data-i18n="Mi perfil">Mi perfil</div>
+    </a>
+  </li>
 
 
+  <!-- Conexión dispositivos -->
+  <li class="menu-item">
+    <a href="pages-account-connections.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-transfer-alt"></i>
+      <div data-i18n="Conexión de dispositivos">Conexión de dispositivos</div>
+    </a>
+  </li>
 
 
 
-<!-- Help -->
-<!-- <li class="menu-item">
-<a href="pages-help-center-landing.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-support"></i>
-<div data-i18n="Ayuda">Ayuda</div>
-</a>
-</li> -->
 
 
-<!-- Divisor -->
-<li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
-
-<!-- Contacto -->
-<li class="menu-item">
-<a href="pages-contactanos.html" class="menu-link">
-<i class="menu-icon tf-icons bx bxs-contact"></i>
-<div data-i18n="Contacto">Contacto</div>
-</a>
-</li>
+  <!-- Help -->
+  <!-- <li class="menu-item">
+      <a href="pages-help-center-landing.html" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-support"></i>
+        <div data-i18n="Ayuda">Ayuda</div>
+      </a>
+    </li> -->
 
 
-<!-- FAQ -->
-<!-- <li class="menu-item">
-<a href="pages-faq.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-help-circle"></i>
-<div data-i18n="FAQ">FAQ</div>
-</a>
-</li> -->
+  <!-- Divisor -->
+  <li class="menu-header small text-uppercase"><span class="menu-header-text">Legales</span></li>
+
+  <!-- Contacto -->
+  <li class="menu-item">
+    <a href="pages-contactanos.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bxs-contact"></i>
+      <div data-i18n="Contacto">Contacto</div>
+    </a>
+  </li>
 
 
-<!-- Terminos y condiciones-->
-<li class="menu-item">
-<a href="pages-Terminos.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-info-circle"></i>
-<div data-i18n="Términos y condiciones">Términos y condiciones</div>
-</a>
-</li>
+  <!-- FAQ -->
+  <!-- <li class="menu-item">
+    <a href="pages-faq.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-help-circle"></i>
+      <div data-i18n="FAQ">FAQ</div>
+    </a>
+  </li> -->
 
 
-<!-- Privacidad -->
-<li class="menu-item">
-<a href="pages-Privacidad.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-info-circle"></i>
-<div data-i18n="Política de privacidad">Política de privacidad</div>
-</a>
-</li>
+  <!-- Terminos y condiciones-->
+  <li class="menu-item">
+    <a href="pages-terminos.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-info-circle"></i>
+      <div data-i18n="Términos y condiciones">Términos y condiciones</div>
+    </a>
+  </li>
 
 
-<!-- Cookies -->
-<li class="menu-item mb-5">
-<a href="pages-Cookies.html" class="menu-link">
-<i class="menu-icon tf-icons bx bx-info-circle"></i>
-<div data-i18n="Cookies">Cookies</div>
-</a>
-</li>
+  <!-- Privacidad -->
+  <li class="menu-item">
+    <a href="pages-privacidad.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-info-circle"></i>
+      <div data-i18n="Política de privacidad">Política de privacidad</div>
+    </a>
+  </li>
+
+
+  <!-- Cookies -->
+  <li class="menu-item mb-5">
+    <a href="pages-cookies.html" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-info-circle"></i>
+      <div data-i18n="Cookies">Cookies</div>
+    </a>
+  </li>
 </ul>
 </aside>
 <!-- / Menu -->
