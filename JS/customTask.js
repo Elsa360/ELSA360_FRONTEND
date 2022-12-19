@@ -37,7 +37,7 @@ function logout() {
   try {
     sessionStorage.clear();
     localStorage.clear();
-    location.href = "/logout.php";
+    window.location.href = "/logout.php";
   } catch (e) {
     console.log(e);
   }

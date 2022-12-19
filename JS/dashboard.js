@@ -1,44 +1,151 @@
 window.onload = async () => {
 
-    let membresia = sessionStorage.getItem('membresia')
-    if (membresia == "ACTIVA") {
-        let perfil = sessionStorage.getItem('perfil')
-        fechaObjetivos(perfil)
-        disponibilidad(perfil)
-        let usuario = sessionStorage.getItem('login')
-        try {
-            let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
-            var pesoActualPerfil
-            var pesoObjetivoPerfil
-            var genero
-            fetch(url)
-                .then(response => response.json())
-                .then(respuesta => {
-                    respuesta.forEach(elemento => {
-                        console.log(elemento);
-                        pesoActualPerfil = elemento.peso
-                        pesoObjetivoPerfil = elemento.pesoObjetivo
-                        genero = elemento.sexo
-                        nacimiento = elemento.fechaNacimiento
-                        estaturaPerfil = elemento.estatura
-                    });
-
-                    resultados(parseInt(perfil), parseInt(pesoActualPerfil));
-                    requerimientoLiquidos(parseInt(pesoActualPerfil));
-                    calculoSemanas(fechaInicioEntreno, fechaObjetivo)
-                    tests(fechaInicioEntreno)
-                    mesosciclos(nivel, escala, semanasTotales)
-                    get(nacimiento, genero, parseInt(pesoActualPerfil), parseInt(pesoObjetivoPerfil), parseInt(estaturaPerfil), gastoDeportivo)
-                    cet(perfil, fechaActual)
-
+    console.log(document.getElementById("eventTitle").value.length ==0);
+    let membresia = localStorage.getItem('membresia')
+    // if (membresia == "ACTIVA") {
+    let perfil = localStorage.getItem('perfilamiento')
+    console.log(perfil);
+    let usuario = localStorage.getItem('login')
+    try {
+        let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
+        var pesoActualPerfil
+        var pesoObjetivoPerfil
+        var genero
+        fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                respuesta.forEach(elemento => {
+                    console.log(elemento);
+                    pesoActualPerfil = elemento.peso
+                    pesoObjetivoPerfil = elemento.pesoObjetivo
+                    genero = elemento.sexo
+                    nacimiento = elemento.fechaNacimiento
+                    estaturaPerfil = elemento.estatura
+                    nivel = elemento.fkniveldeportivo
+                    escala = elemento.fkEscalaDeportiva
                 });
-        } catch (e) {
-            console.log("Dashboar: ", e)
-        }
+                // fechaObjetivos(perfil)
+                // disponibilidad(perfil)
+                // resultados(parseInt(perfil), parseInt(pesoActualPerfil));
+                // requerimientoLiquidos(parseInt(pesoActualPerfil));
+                // calculoSemanas(fechaInicioEntreno, fechaObjetivo)
+                // tests(fechaInicioEntreno)
+                // mesosciclos(nivel, escala, semanasTotales)
+                // get(nacimiento, genero, parseInt(pesoActualPerfil), parseInt(pesoObjetivoPerfil), parseInt(estaturaPerfil), gastoDeportivo)
+                // cet(perfil, fechaActual)
+
+            });
+    } catch (e) {
+        console.log("Dashboar: ", e)
+    }
+    // } else {
+    //     console.log("Sin membresia")
+    //     // location.href = "pages-pricing.html"
+    // }
+
+}
+function proximoLunes() {
+    try {
+        var d = new Date();
+        var Nday = (d.getDay() == 0) ? 7 : d.getDay();
+        var SumDay = 7 - Nday;
+        d.setDate(d.getDate() + SumDay + 1);
+        console.log(d);
+        return d;
+    } catch (e) {
+        console.log("Error Proximo Lunes: ", e);
+    }
+}
+
+async function crearObjetivoDeportivo() {
+
+    //Solo Entrenar 
+    let dateStart = "";
+    let checkNextMonday = document.getElementById("inicioProxLunes");
+    if (checkNextMonday.checked) {
+        dateStart = proximoLunes();
     } else {
-        // location.href = "pages-pricing.html"
+        dateStart = document.getElementById("fechaInicioEntreno").value
     }
 
+    // Objetivo Deportivo
+    let nameObject = "";
+    if (document.getElementById("eventTitle").value.length ==0) {
+        console.log("Sin nombre objetivo");
+        nameObject = "Solo entrenar"
+    } else {
+        console.log("Con nombre objetivo");
+        nameObject = document.getElementById("eventTitle").value
+    }
+
+    let endStart = "";
+    if (document.getElementById("eventStartDate").value.length ==0) {
+        console.log("Sin fecha final objetivo");
+        endStart = new Date(Date.now()).toLocaleDateString();
+    } else {
+        console.log("Con fecha final objetivo");
+        endStart = document.getElementById("eventStartDate").value
+    }
+
+    let lugar = "";
+    if (document.getElementById("eventLocation").value.length ==0) {
+        lugar = "-";
+    } else {
+        lugar = document.getElementById("eventLocation").value
+    }
+
+    let obj1 = "";
+    if (document.getElementById("eventGoal1").value.length ==0) {
+        obj1 = endStart;
+    } else {
+        obj1 = document.getElementById("eventGoal1").value
+    }
+
+    let obj2 = "";
+    if (document.getElementById("eventGoal2").value.length ==0) {
+        obj2 = endStart;
+    } else {
+        obj2 = document.getElementById("eventGoal2").value
+    }
+
+    let obj3 = "";
+    if (document.getElementById("eventGoal3").value.length ==0) {
+        obj3 = endStart;
+    } else {
+        obj3 = document.getElementById("eventGoal3").value
+    } eventDescription
+
+    let cmntrs = "";
+    if (document.getElementById("eventDescription").value.length ==0) {
+        cmntrs = "-";
+    } else {
+        cmntrs = document.getElementById("eventDescription").value
+    }
+    let url = apiServer + "objetivoDeportivo/crear";
+    await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            nombreObjetivo: nameObject,
+            fechaInicialEntren: dateStart,
+            fechaObjetivo: endStart,
+            fechaPrepa1: endStart,
+            fechaPrepa2: endStart,
+            lugarObjetivo: lugar,
+            objetivo_1: obj1,
+            objetivo_2: obj2,
+            objetivo_3: obj2,
+            comentarios: cmntrs,
+            fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
+            ippc: "00.00.00.00"
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((respuesta) => {
+            console.log(respuesta);
+        });
 }
 
 async function fechaObjetivos(idperfil) {
@@ -49,6 +156,7 @@ async function fechaObjetivos(idperfil) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
+                console.log("ObjDep:", respuesta);
                 if (respuesta != 0) {
                     respuesta.forEach(elemento => {
                         fechaObj = elemento.fechaObjetivo;
@@ -58,8 +166,9 @@ async function fechaObjetivos(idperfil) {
                     fecha_2 = fechaIni.split(" ")
                     document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0]
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0]
-                } else {
                     document.getElementById("btnInicioEntreno").style = "display: none;"
+                } else {
+
                     console.log("No tiene objetivo deportivo")
                 }
             });
@@ -83,6 +192,7 @@ async function disponibilidad(idperfil) {
             .then(response => response.json())
             .then(respuesta => {
                 if (respuesta != 0) {
+                    console.log(respuesta);
                     respuesta.forEach(elemento => {
                         thrsemanal = elemento.totalHorasSemana;
                         thlunes = elemento.lunes;
@@ -99,8 +209,9 @@ async function disponibilidad(idperfil) {
                     dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
                     graficosHorasDiarias(dataHrsDias)
                     document.getElementById("hrSemanalDashboard").innerText = thrsemanal
-                } else {
                     document.getElementById("btndisponibilidadsemanal").style = "display: none;"
+                } else {
+
                     console.log("No tiene disponibilidad semanal")
                 }
             });

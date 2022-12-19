@@ -72,7 +72,8 @@
           <!--Logo-->
           <a href="dashboard.html" class="app-brand-link">
             <span class="app-brand-logo demo">
-              <svg width="10" viewBox="0 0 25 42" version="1.1"> </svg>
+              <svg width="10" viewBox="0 0 25 42" version="1.1">
+              </svg>
             </span>
 
             <span class="app-brand-text demo menu-text fw-bolder ms-2"><img class="logoELSA"
@@ -88,11 +89,7 @@
         </div>
 
 
-
-
         <div class="menu-inner-shadow"></div>
-
-
 
 
         <ul class="menu-inner py-1">
@@ -105,7 +102,7 @@
 
 
           <!-- Dashboards -->
-          <li class="menu-item active">
+          <li class="menu-item  active">
             <a href="dashboard.html" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Dashboard">Dashboard</div>
@@ -132,7 +129,7 @@
 
           <!-- Divisor -->
           <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Entrenamiento</span>
+            <span class="menu-header-text">Entreno deportivo</span>
           </li>
 
 
@@ -431,7 +428,7 @@
                         <span class="dropdown-shortcuts-icon bg-label-secondary rounded-circle mb-2">
                           <i class="bx bx-cycling fs-4"></i>
                         </span>
-                        <a href="app-planDeportivo.html" class="stretched-link">Plan de ciclismo</a>
+                        <a href="app-planDeportivo.html" class="stretched-link">Plan deportivo</a>
                         <small class="text-muted mb-0">Ciclismo + PF</small>
                       </div>
                     </div>
@@ -714,7 +711,7 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
+                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar"  alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
                   </div>
                 </a>
 
@@ -730,14 +727,14 @@
                         <!-- Avatar -->
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt class="w-px-40 h-auto rounded-circle" style="object-fit: cover"/>
+                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
                           </div>
                         </div>
 
 
                         <!-- Nombre -->
                         <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">Manuel Peralta</span>
+                          <span class="fw-semibold d-block" id="nombreUsusarioNavbar">Manuel Peralta</span>
                           <small class="text-muted">Deportista</small>
                         </div>
                       </div>
@@ -836,8 +833,7 @@
             <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
           </div>
         </nav>
-        <!-- / Navbar -->
-
+        <!-- / Navbar -->   
 
 
 
@@ -2464,7 +2460,7 @@
                       <div class="col-md-8 fechasCompetencias" style="margin-top: 40px; margin-bottom:25px">
                         <h4> <span class="concepto">¿Cual es tu objetivo?</span> </h4>
 
-                        <button type="button" onclick="guardarEntreno()" class="btn btn-label-info fechaCompetencia1"
+                        <button type="button" onclick="crearObjetivoDeportivo()" class="btn btn-label-info fechaCompetencia1"
                           style="font-weight: 500; font-size:17px">Solo entrenar</button>
 
                         ó
@@ -2593,7 +2589,7 @@
                                   <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4">
                                     <div class="fechaComp">
                                       <button type="button" class="btn btn-label-success btn-add-event me-sm-3 me-1"
-                                        onclick="guardarEntreno()">Definir fecha de prueba</button>
+                                        >Definir fecha de prueba</button>
                                     </div>
 
                                   </div>
@@ -2608,7 +2604,7 @@
 
                       <div class="col-md-8 fechasCompetencias">
 
-                        <button type="button" onclick="guardarEntreno()" hidden
+                        <button type="button" onclick="crearObjetivoDeportivo()" hidden
                           class="btn btn-primary me-sm-3 me-1 mt-3 btn-reset mt-3" data-bs-dismiss="modal"
                           aria-label="Close" style="width: 100%;" id="buttonSaveDate">
                           Definir fechas
@@ -3142,7 +3138,7 @@
   <script src="../../assets/js/main.js"></script>
 
   <!-- Page JS -->
-  <script src="../../assets/js/pages-account-settings-account.js"></script>
+  <!-- <script src="../../assets/js/pages-account-settings-account.js"></script> -->
   <script src="../../assets/js/dashboards-analytics.js"></script>
   <script src="../../JS/classes.js"></script>
   <script src="../../JS/calculosPsicologia.js"></script>
@@ -3211,7 +3207,7 @@
   <!-- ============================================================== -->
   <!-- Google -->
   <!-- ============================================================== -->
-
+<script src="../../JS/customTask.js"></script>
   <script src="../../JS/dashboard.js"></script>
 </body>
 

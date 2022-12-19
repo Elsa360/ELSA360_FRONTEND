@@ -36,7 +36,7 @@ async function registrarme() {
                   .then(function (respuesta) {
                     console.log("Respuesta:", respuesta)
                     if (respuesta === 0) {
-                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim() + "'&campos=count(idusuario)"
+                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
                       console.log(url)
                       fetch(url)
                         .then(response => response.json())
@@ -237,8 +237,8 @@ async function login() {
             if (Boolean(verificacion) === true) {
               $("#spinnerGeneral").hide();
               console.log("Aqui");
-              sessionStorage.setItem('validarusuario', true);
-              console.log(sessionStorage);
+              localStorage.setItem('validarusuario', true);
+              console.log(localStorage);
               loginNoPass(parseInt(idLogin))
             } else {
               $("#spinnerGeneral").hide();
@@ -265,24 +265,24 @@ async function loginNoPass(idusuario, membresia, verificado) {
   await fetch(url)
     .then(response => response.json())
     .then(respuesta => {
-      sessionStorage.setItem('membresia', respuesta[0].membresia);
-      sessionStorage.setItem('verificacion', respuesta[0].verificacion);
-      sessionStorage.setItem('email', respuesta[0].email);
-      sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
-      sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      localStorage.setItem('membresia', respuesta[0].membresia);
+      localStorage.setItem('verificacion', respuesta[0].verificacion);
+      localStorage.setItem('email', respuesta[0].email);
+      localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-      if (sessionStorage.validarusuario == "true") {
+      if (localStorage.validarusuario == "true") {
 
-        console.log(sessionStorage.verificacion);
-        console.log(sessionStorage.perfilamiento);
-        console.log(sessionStorage.membresia);
+        console.log(localStorage.verificacion);
+        console.log(localStorage.perfilamiento);
+        console.log(localStorage.membresia);
 
-        if (sessionStorage.verificacion == false) {
-          enviarEMail(sessionStorage.email, sessionStorage.idUsuario);
-        } else if (sessionStorage.perfilamiento == "0") {
+        if (localStorage.verificacion == false) {
+          enviarEMail(localStorage.email, localStorage.idUsuario);
+        } else if (localStorage.perfilamiento == "0") {
           location.href = "/html/vertical-menu-template/auth-perfil.html";
-        } else if (sessionStorage.membresia == "No") {
-          location.href = "https://elsa360.com/#PreciosPlanes";
+        } else if (localStorage.membresia == "No") {
+          location.href = apiServer + "#PreciosPlanes";
         } else {
           location.href = "/html/vertical-menu-template/dashboard.html";
         }
@@ -299,12 +299,23 @@ async function loginNoPass(idusuario, membresia, verificado) {
 
     });
 
-  sessionStorage.setItem('login', idusuario);
-  sessionStorage.setItem('idusuario', idusuario);
+  localStorage.setItem('login', idusuario);
+  localStorage.setItem('idusuario', idusuario);
 
 
 
 
+}
+
+
+function logout() {
+  try {
+    sessionStorage.clear();
+    localStorage.clear();
+    location.href = "../../inicio.html";
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 
@@ -324,7 +335,16 @@ async function verificarUsuario(email, nombreUsuario) {
   }
 }
 async function buscarPerfil() {
-  let usuario = sessionStorage.getItem('login');
+  try {
+    const iduser = window.location.search;
+    const urlParams = new URLSearchParams(iduser);
+    let userId = urlParams.get("usuarioVerificado");
+    localStorage.setItem('login',userId);
+  } catch (e) {
+    console.log("Buscar Perfil: Autologin -> ",e);
+  }
+
+  let usuario = localStorage.getItem('login');
   try {
     let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
     fetch(url)
@@ -344,7 +364,7 @@ async function buscarPerfil() {
 async function perfilar() {
   $("#spinnerGeneral").show();
   try {
-    let idUsuario = parseInt(window.sessionStorage.getItem("login"));
+    let idUsuario = parseInt(window.localStorage.getItem("login"));
     let sexo;
     if (document.getElementById("sexoMujer").checked === true) {
       sexo = document.getElementById("sexoMujer").value;
@@ -418,17 +438,17 @@ async function perfilar() {
       .then((response) => response.json())
       .then((respuesta) => {
         console.log(respuesta);
-        sessionStorage.getItem("perfil", respuesta);
-        sessionStorage.setItem("sexoUser", sexo.toString());
-        sessionStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-        sessionStorage.setItem("estatura", estatura);
-        sessionStorage.setItem("cuerpo", tipoCuerpo);
-        sessionStorage.setItem("dieta", tipoDieta);
-        sessionStorage.setItem("pesoActual", pesoActual);
-        sessionStorage.setItem("pesoDeseado", pesoDeseado);
-        sessionStorage.setItem("porqueHace", porque);
-        sessionStorage.setItem("nivelDeportivo", nivel);
-        sessionStorage.setItem("escalaDeportiva", escala);
+        localStorage.getItem("perfil", respuesta);
+        localStorage.setItem("sexoUser", sexo.toString());
+        localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+        localStorage.setItem("estatura", estatura);
+        localStorage.setItem("cuerpo", tipoCuerpo);
+        localStorage.setItem("dieta", tipoDieta);
+        localStorage.setItem("pesoActual", pesoActual);
+        localStorage.setItem("pesoDeseado", pesoDeseado);
+        localStorage.setItem("porqueHace", porque);
+        localStorage.setItem("nivelDeportivo", nivel);
+        localStorage.setItem("escalaDeportiva", escala);
         $("#spinnerGeneral").show();
         $("#modalGeneral #modalCenterTitle").html("Gracias");
         $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
