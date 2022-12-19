@@ -1,8 +1,8 @@
 window.onload = async () => {
 
-    console.log(document.getElementById("eventTitle").value.length ==0);
+    console.log(document.getElementById("eventTitle").value.length == 0);
     let membresia = localStorage.getItem('membresia')
-    // if (membresia == "ACTIVA") {
+    if (membresia == "ACTIVA") {
     let perfil = localStorage.getItem('perfilamiento')
     console.log(perfil);
     let usuario = localStorage.getItem('login')
@@ -38,10 +38,10 @@ window.onload = async () => {
     } catch (e) {
         console.log("Dashboar: ", e)
     }
-    // } else {
-    //     console.log("Sin membresia")
-    //     // location.href = "pages-pricing.html"
-    // }
+    } else {
+        console.log("Sin membresia")
+        location.href = "pages-pricing.html"
+    }
 
 }
 function proximoLunes() {
@@ -70,53 +70,48 @@ async function crearObjetivoDeportivo() {
 
     // Objetivo Deportivo
     let nameObject = "";
-    if (document.getElementById("eventTitle").value.length ==0) {
-        console.log("Sin nombre objetivo");
+    if (document.getElementById("eventTitle").value.length == 0) {
         nameObject = "Solo entrenar"
     } else {
-        console.log("Con nombre objetivo");
         nameObject = document.getElementById("eventTitle").value
     }
 
-    let endStart = "";
-    if (document.getElementById("eventStartDate").value.length ==0) {
-        console.log("Sin fecha final objetivo");
-        endStart = new Date(Date.now()).toLocaleDateString();
+    let endStart = null;
+    if (document.getElementById("eventStartDate").value.length == 0) {  
     } else {
-        console.log("Con fecha final objetivo");
         endStart = document.getElementById("eventStartDate").value
     }
 
     let lugar = "";
-    if (document.getElementById("eventLocation").value.length ==0) {
-        lugar = "-";
+    if (document.getElementById("eventLocation").value.length == 0) {
+        lugar = "";
     } else {
         lugar = document.getElementById("eventLocation").value
     }
 
     let obj1 = "";
-    if (document.getElementById("eventGoal1").value.length ==0) {
+    if (document.getElementById("eventGoal1").value.length == 0) {
         obj1 = endStart;
     } else {
         obj1 = document.getElementById("eventGoal1").value
     }
 
     let obj2 = "";
-    if (document.getElementById("eventGoal2").value.length ==0) {
+    if (document.getElementById("eventGoal2").value.length == 0) {
         obj2 = endStart;
     } else {
         obj2 = document.getElementById("eventGoal2").value
     }
 
     let obj3 = "";
-    if (document.getElementById("eventGoal3").value.length ==0) {
+    if (document.getElementById("eventGoal3").value.length == 0) {
         obj3 = endStart;
     } else {
         obj3 = document.getElementById("eventGoal3").value
     } eventDescription
 
     let cmntrs = "";
-    if (document.getElementById("eventDescription").value.length ==0) {
+    if (document.getElementById("eventDescription").value.length == 0) {
         cmntrs = "-";
     } else {
         cmntrs = document.getElementById("eventDescription").value
