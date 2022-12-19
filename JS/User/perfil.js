@@ -19,7 +19,7 @@ window.onload = async () => {
                 .then((respuesta) => {
                     console.log(respuesta);
                 });
-                sessionStorage.setItem('login',iduser);
+                localStorage.setItem('login',iduser);
         } catch (e) {
 
         }
