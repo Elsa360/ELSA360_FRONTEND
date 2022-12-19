@@ -4,7 +4,7 @@ const fetchAuthConfig = () => fetch("/auth_config.json");
 const configureClient = async () => {
     const response = await fetchAuthConfig();
     const config = await response.json();
-  
+
     auth0 = await createAuth0Client({
       domain: config.domain,
       client_id: config.client_id
@@ -32,46 +32,37 @@ function loginUsuario() {
 
 }
 
-function logout(){
-    try{
-        auth0.logout({
-            returnTo: window.location.origin
-        });
-    }catch (e) {
-        console.log(e, 'Funcion -> Logout')
-    }
-}
 
 const requireAuth = async (fn, targetUrl) => {
     const isAuthenticated = await auth0.isAuthenticated();
-  
+
     if (isAuthenticated) {
       return fn();
     }
-  
+
     return window.location.origin;
   };
 
 window.onload = async () => {
     await configureClient()
     const isAuthenticated = await auth0.isAuthenticated();
-  
+
     if (isAuthenticated) {
       // show the gated content
       return;
     }
-  
+
     // NEW - check for the code and state parameters
     const query = window.location.search;
     if (query.includes("code=") && query.includes("state=")) {
-  
+
       // Process the login state
       await auth0.handleRedirectCallback();
       auth0.getUser().then(user => {
         window.sessionStorage.setItem("user",JSON.stringify(user));
       });
 
-  
+
       // Use replaceState to redirect the user away and remove the querystring parameters
     //   window.history.replaceState({}, document.title, "/");
     }

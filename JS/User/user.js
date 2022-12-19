@@ -308,16 +308,6 @@ async function loginNoPass(idusuario, membresia, verificado) {
 }
 
 
-function logout() {
-  try {
-    sessionStorage.clear();
-    location.href = "../../index.html";
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-
 
 
 async function verificarUsuario(email, nombreUsuario) {

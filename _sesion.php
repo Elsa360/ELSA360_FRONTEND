@@ -10,6 +10,9 @@ switch ($_REQUEST["action"]) {
     }
     $_SESSION["membresia"]=$_REQUEST["membresia"];
     $_SESSION["verificado"]=$_REQUEST["verificado"];
+    $_SESSION["avatar"]="uploads/avatar/".$_SESSION["idUsuario"];
+    
+
     echo json_encode($_SESSION);
     break;
 
