@@ -324,7 +324,7 @@
 
 .modal{
     width: 570px;
-    background-color: #ffffff;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 2px;
     text-align: center;
     position: relative;
@@ -336,7 +336,7 @@
 
 .modalDisclaimerGenero{
     width: 570px;
-    background-color: #ffffff;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 2px;
     text-align: center;
     position: relative;
@@ -348,7 +348,7 @@
 
 .modalEscalaDeportiva{
     width: 570px;
-    background-color: #ffffff;
+    background-color: rgba(0,0,0,0.7);
     border-radius: 2px;
     text-align: center;
     position: relative;
