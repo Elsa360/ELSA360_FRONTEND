@@ -1,7 +1,6 @@
 async function registrarme() {
   $("#spinnerGeneral").show();
-  var server = getServer()
-  console.log(server)
+  var server = getServer();
   try {
     var responseRecaptcha = grecaptcha.getResponse();
     if (responseRecaptcha.length > 0) {
@@ -125,31 +124,30 @@ function mensajeVerificacionUsuario() {
 }
 function enviarEMail(email, idUser) {
   console.log("Enviar email")
-  let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser + "";
+  let url = apiServer + "email/verificacion?userEmail=" + email + "&idUsuario=" + idUser;
+
   console.log(url);
 
-
-
   fetch(url, {
-    method: 'GET',
-    headers: {
-      'Access-Control-Allow-Origin': 'elsa360.com'
-    }
-  }).then(response => response.text())
-    .then(respuesta => {
-      console.log("==respuesta==");
-      console.log(respuesta);
-      console.log("==respuesta==");
-      if (respuesta == "TRUE") {
-        location.href = "auth-verify-email-basic-message.html?email=" + emailUser.trim() + "&idUsuario=" + respuesta;
-      } else {
-        notificacion("Error envio email de verificacion del usuario ", email)
-        $("#spinnerGeneral").hide();
-        $("#modalGeneral #modalCenterTitle").html("Error");
-        $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
-        $("#modalGeneral").modal("show");
-      }
-    })
+         method: 'GET',
+         headers: {
+           'Access-Control-Allow-Origin': 'elsa360.com'
+         }
+       }).then(response => response.text())
+       .then(respuesta => {
+           console.log("==respuesta==");
+           console.log(respuesta);
+           console.log("==respuesta==");
+           if (respuesta == "TRUE") {
+               location.href = "/html/vertical-menu-template/auth-verify-email-basic-message.html?email=" + email.trim() + "&idUsuario=" + idUser;
+           } else {
+               notificacion("Error envio email de verificacion del usuario ", email)
+               $("#spinnerGeneral").hide();
+               $("#modalGeneral #modalCenterTitle").html("Error");
+               $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
+               $("#modalGeneral").modal("show");
+           }
+       })
 
 
 }
@@ -298,7 +296,7 @@ async function loginNoPass(idusuario, membresia, verificado) {
           .then(response => response.json())
           .then(respuesta => { console.log(respuesta) });
       }
-      
+
     });
 
   sessionStorage.setItem('login', idusuario);

@@ -93,15 +93,21 @@ $_SESSION["preorder"]=true;
 
       uri = "/html/vertical-menu-template/checkout.html"
       params = "?valorBaseMembresia="+valorBaseMembresia+"&tiempoMembresia="+tiempoMembresia+"&valorDescuento="+valorDescuento+"&subTotalPagar="+subTotalPagar+"&iva="+iva+"&totalPagar="+totalPagar;
-      params += "&emailUsuarioCheckout="+sessionStorage.email+"&nombreUsuario="+sessionStorage.nombreUsuario
+      params += "&emailUsuarioCheckout="+sessionStorage.email+"&nombreUsuario="+sessionStorage.nombreUsuario;
+      localStorage.setItem("useruri",uri+params);
 
+      if(sessionStorage.verificacion=='false')
+      {
+        enviarEMail(sessionStorage.email, sessionStorage.idusuario);
+      }
+      else
+      {
+        uri = localStorage.useruri;
+        localStorage.removeItem("useruri");
+        window.location.href= uri;
+      }
 
-
-
-      console.log(uri+params);
-      window.location.href= uri+params;
     }
-
   });
   </script>
   Por favor espere ...

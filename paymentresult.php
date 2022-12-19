@@ -20,9 +20,10 @@ print_r($_REQUEST);
   if(isset($_SESSION["idUsuario"]))
   {
     ?>
-    if(getUrlParameter('preapproval_plan_id')===false)
+    //if(getUrlParameter('preapproval_plan_id')===false)
+    if(false)
     {
-      console.log("No es pmercadopago");
+      console.log("No es MercadoPago");
     }
     else {
       //MercadoPago
@@ -52,6 +53,11 @@ print_r($_REQUEST);
         monto=130000;
         tiempoMembresia = "trimestre";
         break;
+        default:
+        dias=365;
+        monto=1600;
+        tiempoMembresia = "test";
+        break;
       }
 
 
@@ -66,7 +72,7 @@ print_r($_REQUEST);
       .then(response => response.json())
       .then(respuesta =>{
         console.log(respuesta)
-        
+
         valorBaseMembresia = monto;
         //tiempoMembresia = ;
         valorDescuento = 0;

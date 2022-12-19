@@ -1,7 +1,7 @@
 window.onload = async () => {
 
     let membresia = sessionStorage.getItem('membresia')
-    if (membresia == true) {
+    if (membresia == "ACTIVA") {
         let perfil = sessionStorage.getItem('perfil')
         let usuario = sessionStorage.getItem('login')
         try {
@@ -384,7 +384,7 @@ function graficosHorasDiarias(dataVolumnSemanal) {
             VolumenSemanal.render();
 
         }
-        //FIN  Grafico de Duración, Distancia y Elevanción de cada entreno 
+        //FIN  Grafico de Duración, Distancia y Elevanción de cada entreno
     } catch (e) {
         console.log("Graficos Disponibilidad Diaria: ", e)
     }
@@ -489,7 +489,7 @@ function diferenciaPeso(userWeightCurrent, userWeightWanted) {
 }
 function calcularEdad(fechaNacimiento) {
     try {
-        //Datos Fecha Actual    
+        //Datos Fecha Actual
         const fechaActual = new Date();
         const anoActual = parseInt(fechaActual.getFullYear());
         const mesActual = parseInt(fechaActual.getMonth()) + 1;

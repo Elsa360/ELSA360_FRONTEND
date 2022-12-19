@@ -150,13 +150,13 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 .progress-bar {
-  background-color: #696cff;
+  background-color: #9bCb3b;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4);
 }
 
 .modal-onboarding .carousel-indicators [data-bs-target] {
-  background-color: #696cff;
+  background-color: #9bCb3b;
 }
 
 .carousel-control-prev,
