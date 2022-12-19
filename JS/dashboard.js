@@ -3,8 +3,6 @@ window.onload = async () => {
     let membresia = sessionStorage.getItem('membresia')
     if (membresia == "ACTIVA") {
         let perfil = sessionStorage.getItem('perfil')
-        fechaObjetivos(perfil)
-        disponibilidad(perfil)
         let usuario = sessionStorage.getItem('login')
         try {
             let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
@@ -22,7 +20,8 @@ window.onload = async () => {
                         nacimiento = elemento.fechaNacimiento
                         estaturaPerfil = elemento.estatura
                     });
-
+                    fechaObjetivos(perfil)
+                    disponibilidad(perfil)
                     resultados(parseInt(perfil), parseInt(pesoActualPerfil));
                     requerimientoLiquidos(parseInt(pesoActualPerfil));
                     calculoSemanas(fechaInicioEntreno, fechaObjetivo)
