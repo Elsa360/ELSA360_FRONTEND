@@ -27,7 +27,8 @@ print_r($_REQUEST);
     }
     else {
       //MercadoPago
-      switch(getUrlParameter('preapproval_plan_id')) {
+      
+      switch(localStorage.preapproval_plan_id) {
 
         //test https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808484ed6a680184f38db52004d9
         case "2c93808484ed6a680184f38db52004d9":

@@ -1,6 +1,9 @@
 <?php
+session_start();
 session_destroy();
 ?>
+--
+<!--
 <html>
 <head>
 <script>
@@ -13,3 +16,4 @@ window.location.href= "/";
 <body>
 </body>
 </html>
+-->

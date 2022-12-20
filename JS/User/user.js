@@ -155,7 +155,7 @@ function enviarEMail(email, idUser) {
 
 
 async function validarCuenta() {
-  $("#spinnerGeneral").show();
+  //$("#spinnerGeneral").show();
   const emailUsuario = window.location.search;
   const urlParams = new URLSearchParams(emailUsuario);
   let userId = urlParams.get("usuarioVerificado");
@@ -241,10 +241,7 @@ async function login() {
               console.log(localStorage);
               loginNoPass(parseInt(idLogin))
             } else {
-              $("#spinnerGeneral").hide();
-              $("#modalGeneral #modalCenterTitle").html("Error");
-              $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
-              $("#modalGeneral").modal("show");
+              enviarEMail(sessionStorage.email, sessionStorage.idusuario);
             }
           });
         }
@@ -271,30 +268,30 @@ async function loginNoPass(idusuario, membresia, verificado) {
       localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
       localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-      if (localStorage.validarusuario == "true") {
 
-        console.log(localStorage.verificacion);
-        console.log(localStorage.perfilamiento);
-        console.log(localStorage.membresia);
+      sessionStorage.setItem('membresia', respuesta[0].membresia);
+      sessionStorage.setItem('verificacion', respuesta[0].verificacion);
+      sessionStorage.setItem('email', respuesta[0].email);
+      sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-        if (localStorage.verificacion == false) {
-          enviarEMail(localStorage.email, localStorage.idUsuario);
-        } else if (localStorage.perfilamiento == "0") {
-          location.href = "/html/vertical-menu-template/auth-perfil.html";
-        } else if (localStorage.membresia == "No") {
-          location.href = apiServer + "#PreciosPlanes";
-        } else {
-          location.href = "/html/vertical-menu-template/dashboard.html";
-        }
-      }
+
 
       if(window.location.hostname!="127.0.0.1"){
+        console.log("127.0.0.1");
         uri = mainUrl + "_sesion.php?action=login&membresia=" + respuesta[0].membresia + "&verificado=" + respuesta[0].verificacion + "&idUsuario=" + idusuario;
         console.log("php sesion");
         console.log(uri);
         fetch(uri)
           .then(response => response.json())
-          .then(respuesta => { console.log(respuesta) });
+          .then(respuesta => {
+            console.log(respuesta) ;
+            redirectuser();
+          });
+      }
+      else
+      {
+        redirectuser();
       }
 
     });
@@ -308,14 +305,40 @@ async function loginNoPass(idusuario, membresia, verificado) {
 }
 
 
+function redirectuser(){
+  if (localStorage.verificacion == "true") {
+
+    console.log(localStorage.verificacion);
+    console.log(localStorage.perfilamiento);
+    console.log(localStorage.membresia);
+
+    if (localStorage.verificacion == false) {
+      console.log();
+      enviarEMail(localStorage.email, localStorage.idUsuario);
+    } else if (localStorage.perfilamiento == "0") {
+      console.log("perfilamiento");
+      location.href = "/html/vertical-menu-template/auth-perfil.html";
+    } else if (localStorage.membresia == "No") {
+      console.log("PreciosPlanes");
+      location.href = "pages-pricing.html";
+    } else {
+      console.log("dashboard");
+      location.href = "/html/vertical-menu-template/dashboard.html";
+    }
+  }
+}
+
 function logout() {
-  try {
     sessionStorage.clear();
     localStorage.clear();
-    location.href = "../../inicio.html";
-  } catch (e) {
-    console.log(e);
-  }
+    let url =  "/logout.php";
+     fetch(url)
+      .then(response => response.json())
+      .then(respuesta => {
+        setTimeout(10);
+        location.href = "/inicio.html";
+      });
+
 }
 
 
@@ -352,7 +375,7 @@ async function buscarPerfil() {
       .then(respuesta => {
         respuesta.forEach(perfil => {
           if (perfil.idPerfilUsuario > 0) {
-            sessionStorage.setItem('perfil', perfil.idPerfilUsuario)
+            sessionStorage.setItem('perfil', perfil.idPerfilUsuario);
             location.href = "dashboard.html"
           }
         });

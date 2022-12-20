@@ -32,6 +32,7 @@ $_SESSION["preorder"]=true;
     //MercadoPago
 
     sessionStorage.setItem('preapproval_plan_id', getUrlParameter('preapproval_plan_id'));
+    localStorage.setItem('preapproval_plan_id', getUrlParameter('preapproval_plan_id'));
     ippc= "<?php echo $_SERVER["REMOTE_ADDR"];?>";
     plataforma = "MercadoPago";
     preapproval_plan_id = getUrlParameter('preapproval_plan_id');
