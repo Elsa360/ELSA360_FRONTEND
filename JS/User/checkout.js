@@ -12,7 +12,7 @@ $("#emailUsuarioCheckout").html(getUrlParameter('emailUsuarioCheckout'));
 }
 // A $( document ).ready() block.
 $( document ).ready(function() {
-  loginNoPass(localStorage.idUsuario);
+  loginNoPass(localStorage.idusuario);
   cargadatos();
   get_store_uri();
 });
