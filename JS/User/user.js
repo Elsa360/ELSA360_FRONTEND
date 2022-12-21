@@ -363,16 +363,6 @@ async function buscarPerfil() {
 
     $("#spinnerGeneral").show();
 
-  if(localStorage.verificacion!=undefined){
-    if (localStorage.verificacion=='false'){
-      validarCuenta();
-
-    }
-  }
-  else {
-    validateLogin();
-  }
-
 
   try {
     const iduser = window.location.search;
