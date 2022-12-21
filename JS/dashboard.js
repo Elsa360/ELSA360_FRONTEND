@@ -39,8 +39,7 @@ window.onload = async () => {
         console.log("Dashboar: ", e)
     }
     } else {
-        console.log("Sin membresia")
-        location.href = "pages-pricing.html"
+        loginNoPass(localStorage.idusuario);
     }
 
 }
@@ -59,7 +58,7 @@ function proximoLunes() {
 
 async function crearObjetivoDeportivo() {
 
-    //Solo Entrenar 
+    //Solo Entrenar
     let dateStart = "";
     let checkNextMonday = document.getElementById("inicioProxLunes");
     if (checkNextMonday.checked) {
@@ -77,7 +76,7 @@ async function crearObjetivoDeportivo() {
     }
 
     let endStart = null;
-    if (document.getElementById("eventStartDate").value.length == 0) {  
+    if (document.getElementById("eventStartDate").value.length == 0) {
     } else {
         endStart = document.getElementById("eventStartDate").value
     }
