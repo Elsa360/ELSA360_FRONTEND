@@ -8,6 +8,9 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 
 echo "<hr />";
+print_r($_FILES);
+
+echo "<hr />";
 print_r($_REQUEST);
 echo "<hr />";
 print_r($imageFileType);
