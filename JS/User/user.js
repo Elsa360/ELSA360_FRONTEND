@@ -357,6 +357,17 @@ async function verificarUsuario(email, nombreUsuario) {
   }
 }
 async function buscarPerfil() {
+
+    $("#spinnerGeneral").show();
+
+  if(localStorage.verificacion!=undefined){
+    if (localStorage.verificacion=='false'){
+      validarCuenta();
+
+    }
+  }
+
+
   try {
     const iduser = window.location.search;
     const urlParams = new URLSearchParams(iduser);
@@ -375,7 +386,11 @@ async function buscarPerfil() {
         respuesta.forEach(perfil => {
           if (perfil.idPerfilUsuario > 0) {
             sessionStorage.setItem('perfil', perfil.idPerfilUsuario);
-            location.href = "dashboard.html"
+            location.href = "dashboard.html";
+          }
+          else{
+
+                $("#spinnerGeneral").hide();
           }
         });
       });
