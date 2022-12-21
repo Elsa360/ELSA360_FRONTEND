@@ -11,6 +11,12 @@ echo "<hr />";
 print_r($_FILES);
 
 echo "<hr />";
+print_r($_FILES["fileToUpload"]);
+
+echo "<hr />";
+print_r($_FILE["fileToUpload"]);
+
+echo "<hr />";
 print_r($_REQUEST);
 echo "<hr />";
 print_r($imageFileType);
