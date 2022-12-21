@@ -7,6 +7,15 @@ echo "<hr />";
 echo "_REQUEST<br />";
 print_r($_REQUEST);
 }
+
+
+if (isset($_REQUEST["checkoutform"])) {
+  if ($_REQUEST["checkoutform"]=="true") {
+    if($_REQUEST["codigoDescuento"]!="elsa35"){
+      header("Location:/html/vertical-menu-template/checkout.html");
+    }
+  }
+}
 ?>
 <html>
 <body>
@@ -27,7 +36,7 @@ print_r($_REQUEST);
     }
     else {
       //MercadoPago
-      
+
       switch(localStorage.preapproval_plan_id) {
 
         //test https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=2c93808484ed6a680184f38db52004d9

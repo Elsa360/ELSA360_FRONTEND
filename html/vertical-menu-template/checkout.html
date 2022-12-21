@@ -122,9 +122,10 @@
           </ul>
 
 
-          <form class="card p-2 fondoLista">
+          <form class="card p-2 fondoLista" action="paymentresult.php">
             <div class="input-group ">
-              <input type="text" class="form-control" id="codigoDescuento" placeholder="Ingresa tu código">
+              <input type="hidden"  name="checkoutform"   id="checkoutform" value="true">
+              <input type="text" class="form-control"  name="codigoDescuento"  id="codigoDescuento" placeholder="Ingresa tu código">
               <button type="button" class="btnDcto" onclick="buscarCuponDescuento()">Aplicar</button>
             </div>
           </form>
