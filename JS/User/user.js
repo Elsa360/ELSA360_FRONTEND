@@ -369,6 +369,9 @@ async function buscarPerfil() {
 
     }
   }
+  else {
+    validateLogin();
+  }
 
 
   try {
