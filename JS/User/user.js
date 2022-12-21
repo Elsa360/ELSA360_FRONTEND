@@ -265,6 +265,7 @@ async function loginNoPass(idusuario, membresia, verificado) {
   await fetch(url)
     .then(response => response.json())
     .then(respuesta => {
+      console.log(respuesta[0]);
       localStorage.setItem('membresia', respuesta[0].membresia);
       localStorage.setItem('verificacion', respuesta[0].verificacion);
       localStorage.setItem('email', respuesta[0].email);
@@ -316,16 +317,16 @@ function redirectuser(){
 
     if (localStorage.verificacion == false) {
       console.log("verificacion");
-      enviarEMail(localStorage.email, localStorage.idUsuario);
+      //enviarEMail(localStorage.email, localStorage.idUsuario);
     } else if (localStorage.perfilamiento == "0") {
       console.log("perfilamiento");
-      location.href = "/html/vertical-menu-template/auth-perfil.html";
+      //location.href = "/html/vertical-menu-template/auth-perfil.html";
     } else if (localStorage.membresia == "No") {
       console.log("PreciosPlanes");
-      location.href = "pages-pricing.html";
+      //location.href = "pages-pricing.html";
     } else {
       console.log("dashboard");
-      location.href = "/html/vertical-menu-template/dashboard.html";
+      //location.href = "/html/vertical-menu-template/dashboard.html";
     }
 
 }
@@ -360,19 +361,7 @@ async function verificarUsuario(email, nombreUsuario) {
   }
 }
 async function buscarPerfil() {
-
-  
-
-  try {
-    const iduser = window.location.search;
-    const urlParams = new URLSearchParams(iduser);
-    let userId = urlParams.get("usuarioVerificado");
-    localStorage.setItem('login',userId);
-  } catch (e) {
-    console.log("Buscar Perfil: Autologin -> ",e);
-  }
-
-  let usuario = localStorage.getItem('login');
+  let usuario = localStorage.idusuario
   try {
     let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
     fetch(url)
