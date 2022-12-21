@@ -306,14 +306,13 @@ async function loginNoPass(idusuario, membresia, verificado) {
 
 
 function redirectuser(){
-  if (localStorage.verificacion == "true") {
 
     console.log(localStorage.verificacion);
     console.log(localStorage.perfilamiento);
     console.log(localStorage.membresia);
 
     if (localStorage.verificacion == false) {
-      console.log();
+      console.log("verificacion");
       enviarEMail(localStorage.email, localStorage.idUsuario);
     } else if (localStorage.perfilamiento == "0") {
       console.log("perfilamiento");
@@ -325,7 +324,7 @@ function redirectuser(){
       console.log("dashboard");
       location.href = "/html/vertical-menu-template/dashboard.html";
     }
-  }
+
 }
 
 function logout() {
