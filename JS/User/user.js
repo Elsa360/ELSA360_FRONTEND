@@ -317,16 +317,16 @@ function redirectuser(){
 
     if (localStorage.verificacion == false) {
       console.log("verificacion");
-      //enviarEMail(localStorage.email, localStorage.idUsuario);
+      enviarEMail(localStorage.email, localStorage.idUsuario);
     } else if (localStorage.perfilamiento == "0") {
       console.log("perfilamiento");
-      //location.href = "/html/vertical-menu-template/auth-perfil.html";
+      location.href = "/html/vertical-menu-template/auth-perfil.html";
     } else if (localStorage.membresia == "No") {
       console.log("PreciosPlanes");
-      //location.href = "pages-pricing.html";
+      location.href = "pages-pricing.html";
     } else {
       console.log("dashboard");
-      //location.href = "/html/vertical-menu-template/dashboard.html";
+      location.href = "/html/vertical-menu-template/dashboard.html";
     }
 
 }
