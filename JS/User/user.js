@@ -321,7 +321,7 @@ function redirectuser(){
     } else if (localStorage.perfilamiento == "0") {
       console.log("perfilamiento");
       location.href = "/html/vertical-menu-template/auth-perfil.html";
-    } else if (localStorage.membresia == "No") {
+    } else if (localStorage.membresia != "ACTIVA") {
       console.log("PreciosPlanes");
       location.href = "pages-pricing.html";
     } else {
