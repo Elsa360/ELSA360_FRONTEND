@@ -5,6 +5,8 @@ $_SESSION["preorder"]=true;
 <html>
 <body>
   <script src="assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script src="JS/systemNotification.js"></script>
   <script src="JS/enviroment.js"></script>
   <script src="JS/customTask.js"></script>
   <script src="JS/User/user.js"></script>
