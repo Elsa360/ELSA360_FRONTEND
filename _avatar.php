@@ -53,11 +53,13 @@ if ($uploadOk == 0) {
 <!DOCTYPE html>
 <html>
 <body>
-  por favor espere...
+  por favor espere....
+  <br />
+  <?php echo $msg ?>
   <script>
     sessionStorage.setItem("uploadmessage","<?php echo $msg; ?>");
     localStorage.setItem("avatar","<?php echo $finalfile; ?>");
-    location.href = "/html/vertical-menu-template/pages-account.html";
+    //location.href = "/html/vertical-menu-template/pages-account.html";
 
   </script>
 
