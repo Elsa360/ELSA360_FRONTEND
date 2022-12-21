@@ -234,14 +234,17 @@ async function login() {
 
             //let userLogin = idUser;
             let idLogin = idUsuario;
+
+            console.log("verificacion");
+            console.log(verificacion);
             if (Boolean(verificacion) === true) {
               $("#spinnerGeneral").hide();
               console.log("Aqui");
               localStorage.setItem('validarusuario', true);
               console.log(localStorage);
-              loginNoPass(parseInt(idLogin))
+              //loginNoPass(parseInt(idLogin))
             } else {
-              enviarEMail(email, idUsuario);
+              //enviarEMail(email, idUsuario);
             }
           });
         }
