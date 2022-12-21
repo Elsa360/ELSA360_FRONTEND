@@ -1,5 +1,4 @@
 <?php
-phpinfo();
 session_start();
 $target_dir = "uploads/avatar/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
