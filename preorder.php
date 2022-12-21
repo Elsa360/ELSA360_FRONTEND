@@ -99,9 +99,9 @@ $_SESSION["preorder"]=true;
       params += "&emailUsuarioCheckout="+localStorage.email+"&nombreUsuario="+localStorage.nombreUsuario;
       localStorage.setItem("useruri",uri+params);
 
-      if(sessionStorage.verificacion=='false')
+      if(localStorage.verificacion=='false')
       {
-        enviarEMail(sessionStorage.email, sessionStorage.idusuario);
+        enviarEMail(localStorage.email, localStorage.idusuario);
       }
       else
       {
