@@ -242,9 +242,9 @@ async function login() {
               console.log("Aqui");
               localStorage.setItem('validarusuario', true);
               console.log(localStorage);
-              //loginNoPass(parseInt(idLogin))
+              loginNoPass(parseInt(idLogin))
             } else {
-              //enviarEMail(email, idUsuario);
+              enviarEMail(email, idUsuario);
             }
           });
         }
