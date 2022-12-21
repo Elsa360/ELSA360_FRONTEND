@@ -361,8 +361,7 @@ async function verificarUsuario(email, nombreUsuario) {
 }
 async function buscarPerfil() {
 
-    $("#spinnerGeneral").show();
-
+  
 
   try {
     const iduser = window.location.search;
