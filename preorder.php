@@ -96,7 +96,7 @@ $_SESSION["preorder"]=true;
 
       uri = "/html/vertical-menu-template/checkout.html"
       params = "?valorBaseMembresia="+valorBaseMembresia+"&tiempoMembresia="+tiempoMembresia+"&valorDescuento="+valorDescuento+"&subTotalPagar="+subTotalPagar+"&iva="+iva+"&totalPagar="+totalPagar;
-      params += "&emailUsuarioCheckout="+sessionStorage.email+"&nombreUsuario="+sessionStorage.nombreUsuario;
+      params += "&emailUsuarioCheckout="+localStorage.email+"&nombreUsuario="+localStorage.nombreUsuario;
       localStorage.setItem("useruri",uri+params);
 
       if(sessionStorage.verificacion=='false')
