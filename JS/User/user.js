@@ -245,6 +245,7 @@ async function login() {
               $("#modalGeneral #modalCenterTitle").html("Error");
               $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
               $("#modalGeneral").modal("show");
+              enviarEMail(emailUser,idUsuario);
             }
           });
         }

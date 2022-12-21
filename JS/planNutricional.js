@@ -2,13 +2,14 @@ window.onload = async () => {
 
     //Variables de Session
     //============================================================================
-    let fechaActual = new Date().toLocaleDateString()
-    let idperfil = parseInt(sessionStorage.getItem('perfil'))
-    let pesoActual = parseFloat(sessionStorage.getItem('pesoActual'))
-    let pesoDeseado = parseFloat(sessionStorage.getItem('pesoDeseado'))
-    let fechaNacimiento = sessionStorage.getItem('fechaNacimiento')
-    let genero = sessionStorage.getItem('sexoUser')
-    let met = parseFloat(sessionStorage.getItem('met'))
+    let fechaActual = new Date().toLocaleDateString();
+    let idperfil = parseInt(localStorage.getItem('perfil'));
+    let pesoActual = parseFloat(localStorage.getItem('pesoActual'));
+    let pesoDeseado = parseFloat(localStorage.getItem('pesoDeseado'));
+    let estatura = parseFloat(localStorage.getItem("estatura"));
+    let fechaNacimiento = localStorage.getItem('fechaNacimiento');
+    let genero = localStorage.getItem('sexoUser');
+    let met = parseFloat(localStorage.getItem('met'));
     //============================================================================
     datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met);
     cet(idperfil, fechaActual);
