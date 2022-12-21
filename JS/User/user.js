@@ -385,7 +385,7 @@ async function buscarPerfil() {
 async function perfilar() {
   $("#spinnerGeneral").show();
   try {
-    let idUsuario = parseInt(window.localStorage.getItem("login"));
+    let idUsuario = localStorage.idusuario;
     let sexo;
     if (document.getElementById("sexoMujer").checked === true) {
       sexo = document.getElementById("sexoMujer").value;
