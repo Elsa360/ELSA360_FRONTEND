@@ -241,7 +241,7 @@ async function login() {
               console.log(localStorage);
               loginNoPass(parseInt(idLogin))
             } else {
-              enviarEMail(sessionStorage.email, sessionStorage.idusuario);
+              enviarEMail(localStorage.email, localStorage.idusuario);
             }
           });
         }
