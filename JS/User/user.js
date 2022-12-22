@@ -508,7 +508,7 @@ function guardarPerilUsuario(){
   .then((respuesta) => {
     console.log(respuesta);
     localStorage.getItem("perfil", respuesta);
-    loginNoPass(localStorage.idUsuario);
+    loginNoPass(localStorage.idusuario);
     //location.href = "dashboard.html";
     //console.log(respuesta);
   });
