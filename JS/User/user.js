@@ -437,7 +437,7 @@ async function perfilar() {
   localStorage.setItem("escalaDeportiva", escala);
 
   localStorage.setItem("sexo",sexo);
-  localStorage.setItem("statura",statura);
+  localStorage.setItem("statura",estatura);
   localStorage.setItem("tipoDieta",tipoDieta);
   localStorage.setItem("tipoCuerpo",tipoCuerpo);
   localStorage.setItem("nivel",nivel);
