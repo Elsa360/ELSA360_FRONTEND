@@ -466,7 +466,7 @@ function limpiarperfil(){
     localStorage.setItem("nivelDeportivo", "");
     localStorage.setItem("escalaDeportiva", "");
     localStorage.setItem("sexo","");
-    localStorage.setItem("statura","");
+    localStorage.setItem("estatura","");
     localStorage.setItem("tipoDieta","");
     localStorage.setItem("tipoCuerpo","");
     localStorage.setItem("nivel","");
