@@ -441,7 +441,7 @@ async function perfilar() {
   localStorage.setItem("tipoDieta",tipoDieta);
   localStorage.setItem("tipoCuerpo",tipoCuerpo);
   localStorage.setItem("nivel",nivel);
-  localStorage.setItem("scala",scala);
+  localStorage.setItem("escala",escala);
   localStorage.setItem("potenciometro",potenciometro);
   localStorage.setItem("pulsometro",pulsometro);
   localStorage.setItem("velocimetro",velocimetro);
@@ -470,7 +470,7 @@ function limpiarperfil(){
     localStorage.setItem("tipoDieta","");
     localStorage.setItem("tipoCuerpo","");
     localStorage.setItem("nivel","");
-    localStorage.setItem("scala","");
+    localStorage.setItem("escala","");
     localStorage.setItem("potenciometro","");
     localStorage.setItem("pulsometro","");
     localStorage.setItem("velocimetro","");
@@ -491,7 +491,7 @@ function guardarPerilUsuario(){
       fkTipoDieta: localStorage.tipoDieta,
       fkTipoCuerpo: localStorage.tipoCuerpo,
       fkNivelDeportivo: localStorage.nivel,
-      fkEscalaDeportiva: localStorage.scala,
+      fkEscalaDeportiva: localStorage.escala,
       potenciometro: localStorage.potenciometro,
       pulsometro: localStorage.pulsometro,
       velocimetro: localStorage.velocimetro,
