@@ -425,7 +425,6 @@ async function perfilar() {
   }
 
 
-  localStorage.getItem("perfil", respuesta);
   localStorage.setItem("sexoUser", sexo.toString());
   localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
   localStorage.setItem("estatura", estatura);
@@ -508,6 +507,7 @@ function guardarPerilUsuario(){
   .then((response) => response.json())
   .then((respuesta) => {
     console.log(respuesta);
+    localStorage.getItem("perfil", respuesta);
     location.href = "free-data.html";
   });
 }
