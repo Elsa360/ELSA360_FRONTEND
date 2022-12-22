@@ -508,7 +508,7 @@ function guardarPerilUsuario(){
   .then((respuesta) => {
     console.log(respuesta);
     localStorage.getItem("perfil", respuesta);
-    location.href = "free-data.html";
+    location.href = "dashboard.html";
   });
 }
 
