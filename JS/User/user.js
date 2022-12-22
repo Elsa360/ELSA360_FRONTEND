@@ -455,29 +455,28 @@ async function perfilar() {
 
 function limpiarperfil(){
 
-    localStorage.getItem("perfil", respuesta);
-    localStorage.setItem("sexoUser", sexo.toString());
-    localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-    localStorage.setItem("estatura", estatura);
-    localStorage.setItem("cuerpo", tipoCuerpo);
-    localStorage.setItem("dieta", tipoDieta);
-    localStorage.setItem("pesoActual", pesoActual);
-    localStorage.setItem("pesoDeseado", pesoDeseado);
-    localStorage.setItem("porqueHace", porque);
-    localStorage.setItem("nivelDeportivo", nivel);
-    localStorage.setItem("escalaDeportiva", escala);
-
-    localStorage.setItem("sexo",sexo);
-    localStorage.setItem("statura",statura);
-    localStorage.setItem("tipoDieta",tipoDieta);
-    localStorage.setItem("tipoCuerpo",tipoCuerpo);
-    localStorage.setItem("nivel",nivel);
-    localStorage.setItem("scala",scala);
-    localStorage.setItem("potenciometro",potenciometro);
-    localStorage.setItem("pulsometro",pulsometro);
-    localStorage.setItem("velocimetro",velocimetro);
-    localStorage.setItem("cadenciometro",cadenciometro);
-    localStorage.setItem("porque",porque);
+    localStorage.getItem("perfil", "");
+    localStorage.setItem("sexoUser", "");
+    localStorage.setItem("fechaNacimiento", "");
+    localStorage.setItem("estatura", "");
+    localStorage.setItem("cuerpo", "");
+    localStorage.setItem("dieta", "");
+    localStorage.setItem("pesoActual", "");
+    localStorage.setItem("pesoDeseado", "");
+    localStorage.setItem("porqueHace", "");
+    localStorage.setItem("nivelDeportivo", "");
+    localStorage.setItem("escalaDeportiva", "");
+    localStorage.setItem("sexo","");
+    localStorage.setItem("statura","");
+    localStorage.setItem("tipoDieta","");
+    localStorage.setItem("tipoCuerpo","");
+    localStorage.setItem("nivel","");
+    localStorage.setItem("scala","");
+    localStorage.setItem("potenciometro","");
+    localStorage.setItem("pulsometro","");
+    localStorage.setItem("velocimetro","");
+    localStorage.setItem("cadenciometro","");
+    localStorage.setItem("porque","");
 }
 
 function guardarPerilUsuario(){
