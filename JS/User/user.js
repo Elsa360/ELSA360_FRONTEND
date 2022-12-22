@@ -497,7 +497,7 @@ function guardarPerilUsuario(){
       velocimetro: localStorage.velocimetro === "true",
       cadenciometro: localStorage.cadenciometro === "true",
       fkPorque: localStorage.porque,
-      fkUsuario: localStorage.idUsuario,
+      fkUsuario: localStorage.idusuario,
       ippc: server.REMOTE_ADDR
     }),
     headers: {
