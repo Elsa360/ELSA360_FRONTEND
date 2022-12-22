@@ -334,13 +334,7 @@ function redirectuser(){
 function logout() {
     sessionStorage.clear();
     localStorage.clear();
-    let url =  "/logout.php";
-     fetch(url)
-      .then(response => response.json())
-      .then(respuesta => {
-        setTimeout(10);
-        location.href = "/inicio.html";
-      });
+  location.href = "/logout.php";
 
 }
 
@@ -373,8 +367,7 @@ async function buscarPerfil() {
             location.href = "dashboard.html";
           }
           else{
-
-                $("#spinnerGeneral").hide();
+            $("#spinnerGeneral").hide();
           }
         });
       });
@@ -384,7 +377,6 @@ async function buscarPerfil() {
 }
 async function perfilar() {
   $("#spinnerGeneral").show();
-  try {
     let idUsuario = localStorage.idusuario;
     let sexo;
     if (document.getElementById("sexoMujer").checked === true) {
@@ -431,55 +423,70 @@ async function perfilar() {
       velocimetro = true;
     }
 
-    let url = apiServer + "perfil/crear";
-    await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        sexo: sexo.toString(),
-        peso: pesoActual,
-        estatura: estatura,
-        pesoObjetivo: pesoDeseado,
-        fechaNacimiento: fechaNacimiento.toString(),
-        fkTipoDieta: tipoDieta,
-        fkTipoCuerpo: tipoCuerpo,
-        fkNivelDeportivo: nivel,
-        fkEscalaDeportiva: escala,
-        potenciometro: potenciometro,
-        pulsometro: pulsometro,
-        velocimetro: velocimetro,
-        cadenciometro: cadenciometro,
-        fkPorque: porque,
-        fkUsuario: idUsuario,
-        ippc: "00.00.00.00"
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((respuesta) => {
-        console.log(respuesta);
-        localStorage.getItem("perfil", respuesta);
-        localStorage.setItem("sexoUser", sexo.toString());
-        localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-        localStorage.setItem("estatura", estatura);
-        localStorage.setItem("cuerpo", tipoCuerpo);
-        localStorage.setItem("dieta", tipoDieta);
-        localStorage.setItem("pesoActual", pesoActual);
-        localStorage.setItem("pesoDeseado", pesoDeseado);
-        localStorage.setItem("porqueHace", porque);
-        localStorage.setItem("nivelDeportivo", nivel);
-        localStorage.setItem("escalaDeportiva", escala);
-        $("#spinnerGeneral").show();
-        $("#modalGeneral #modalCenterTitle").html("Gracias");
-        $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
-        $("#modalGeneral").modal("show");
-        location.href = "free-data.html";
 
-      });
-  } catch (e) {
-    console.log(e);
-  }
+    localStorage.getItem("perfil", respuesta);
+    localStorage.setItem("sexoUser", sexo.toString());
+    localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+    localStorage.setItem("estatura", estatura);
+    localStorage.setItem("cuerpo", tipoCuerpo);
+    localStorage.setItem("dieta", tipoDieta);
+    localStorage.setItem("pesoActual", pesoActual);
+    localStorage.setItem("pesoDeseado", pesoDeseado);
+    localStorage.setItem("porqueHace", porque);
+    localStorage.setItem("nivelDeportivo", nivel);
+    localStorage.setItem("escalaDeportiva", escala);
+
+      localStorage.setItem("sexo",sexo);
+      localStorage.setItem("statura",statura);
+      localStorage.setItem("tipoDieta",tipoDieta);
+      localStorage.setItem("tipoCuerpo",tipoCuerpo);
+      localStorage.setItem("nivel",nivel);
+      localStorage.setItem("scala",scala);
+      localStorage.setItem("potenciometro",potenciometro);
+      localStorage.setItem("pulsometro",pulsometro);
+      localStorage.setItem("velocimetro",velocimetro);
+      localStorage.setItem("cadenciometro",cadenciometro);
+      localStorage.setItem("porque",porque);
+      localStorage.setItem("idUsuario",idUsuario);
+
+
+            location.href = "free-data.html";
+}
+
+function guardarPerilUsuario(){
+  let url = apiServer + "perfil/crear";
+  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      sexo: sexo.toString(),
+      peso: pesoActual,
+      estatura: estatura,
+      pesoObjetivo: pesoDeseado,
+      fechaNacimiento: fechaNacimiento.toString(),
+      fkTipoDieta: tipoDieta,
+      fkTipoCuerpo: tipoCuerpo,
+      fkNivelDeportivo: nivel,
+      fkEscalaDeportiva: escala,
+      potenciometro: potenciometro,
+      pulsometro: pulsometro,
+      velocimetro: velocimetro,
+      cadenciometro: cadenciometro,
+      fkPorque: porque,
+      fkUsuario: idUsuario,
+      ippc: "00.00.00.00"
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((respuesta) => {
+      console.log(respuesta);
+
+
+      location.href = "free-data.html";
+
+    });
 }
 
 
