@@ -482,7 +482,7 @@ function limpiarperfil(){
 
 function guardarPerilUsuario(){
   let url = apiServer + "perfil/crear";
-  await fetch(url, {
+   fetch(url, {
     method: 'POST',
     body: JSON.stringify({
       sexo: localStorage.sexo,
