@@ -485,7 +485,7 @@ function guardarPerilUsuario(){
     body: JSON.stringify({
       sexo: localStorage.sexo,
       peso: localStorage.pesoActual,
-      estatura: localStorage.statura,
+      estatura: localStorage.estatura,
       pesoObjetivo: localStorage.pesoDeseado,
       fechaNacimiento: localStorage.fechaNacimiento,
       fkTipoDieta: localStorage.tipoDieta,
