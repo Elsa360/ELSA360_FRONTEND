@@ -2,26 +2,37 @@ window.onload = async () => {
 
     //Variables de Session
     //============================================================================
-    let fechaActual = new Date().toLocaleDateString()
-    let idperfil = parseInt(sessionStorage.getItem('perfil'))
-    let pesoActual = parseFloat(sessionStorage.getItem('pesoActual'))
-    let pesoDeseado = parseFloat(sessionStorage.getItem('pesoDeseado'))
-    let fechaNacimiento = sessionStorage.getItem('fechaNacimiento')
-    let genero = sessionStorage.getItem('sexoUser')
-    let met = parseFloat(sessionStorage.getItem('met'))
+    let fechaActual = new Date().toLocaleDateString();
+    let idperfil = parseInt(localStorage.getItem('perfilamiento'));
+    let pesoActual = parseFloat(localStorage.getItem('pesoactual'));
+    let pesoDeseado = parseFloat(localStorage.getItem('pesodeseado'));
+    let estatura = parseFloat(localStorage.getItem("estatura"));
+    let fechaNacimiento = localStorage.getItem('fechanacimiento');
+    let genero = localStorage.getItem('sexo');
+    let met = parseFloat(localStorage.getItem('met'));
     //============================================================================
     datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met);
     cet(idperfil, fechaActual);
     ipm(pesoActual, pesoDeseado)
 };
+
+
+
+
 function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met) {
+    console.log("PA:", pesoActual);
+    console.log("E:", estatura);
+    console.log("PD:", pesoDeseado);
+    console.log("FN:", fechaNacimiento);
+    console.log("S:", genero);
+    console.log("MET:", met);
     try {
         //Requerimientos de calorias sin actividad fisica
         dataGET = get(fechaNacimiento, genero, pesoActual, pesoDeseado, estatura, met);
-        document.getElementById("calSinActFisc").innerHTML = dataGET[0] + ' Calorias';
+        document.getElementById("calSinActFisc").innerHTML = dataGET[0] + " ";
         getTotal = dataGET[0];
 
-        document.getElementById("getTotaldelDia").innerHTML = dataGET[0] + ' Calorias';
+        document.getElementById("getTotaldelDia").innerHTML = dataGET[0] + " ";
         document.getElementById("mensajeRS").innerHTML = dataGET[1];
 
         //IMC
@@ -31,9 +42,10 @@ function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, m
 
         //Peso saludable y peso deseado
         healthyWeight = pesoSaludable(estatura);
-        document.getElementById("pesoSaludLimInf").innerHTML = healthyWeight[0] + 'Kg';
-        document.getElementById("pesoSaludLimSup").innerHTML = healthyWeight[1] + 'Kg';
-        document.getElementById("pesoDeseado").innerHTML = pesoDeseado + 'Kg';
+        document.getElementById("pesoActualDashboarNutricional").innerHTML = localStorage.getItem('pesoactual');
+        document.getElementById("pesoSaludLimInf").innerHTML = healthyWeight[0] + ' Kg';
+        document.getElementById("pesoSaludLimSup").innerHTML = healthyWeight[1] + ' Kg';
+        document.getElementById("pesoDeseado").innerHTML = pesoDeseado + ' Kg';
 
         //Requerimiento de liquidos
         liquidRequirement = requerimientoLiquidos(pesoActual);
@@ -308,7 +320,7 @@ async function cet(idperfil, fecha) {
                     }
 
                 });
-                document.getElementById("CET").innerText = totalCET + " Cal"
+                document.getElementById("CET").innerText = totalCET + " ";
                 document.getElementById("cetmomento1").innerText = cet1
                 document.getElementById("cetmomento2").innerText = cet2
                 document.getElementById("cetmomento3").innerText = cet3

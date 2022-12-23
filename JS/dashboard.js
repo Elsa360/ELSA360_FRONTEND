@@ -1,12 +1,11 @@
 window.onload = async () => {
-
-    console.log(document.getElementById("eventTitle").value.length == 0);
+    let gastoDeportivo = 0;
+    let fechaActual = new Date(Date.now()).toLocaleDateString();
     let membresia = localStorage.getItem('membresia')
-    if (membresia == "ACTIVA") {
-    let perfil = localStorage.getItem('perfilamiento')
-    console.log(perfil);
+    // if (membresia == "ACTIVA") {
     let usuario = localStorage.getItem('login')
     try {
+        usuario = 76;
         let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
         var pesoActualPerfil
         var pesoObjetivoPerfil
@@ -15,24 +14,30 @@ window.onload = async () => {
             .then(response => response.json())
             .then(respuesta => {
                 respuesta.forEach(elemento => {
-                    console.log(elemento);
+                    // console.log(elemento);
+                    perfil = elemento.idPerfilUsuario
                     pesoActualPerfil = elemento.peso
                     pesoObjetivoPerfil = elemento.pesoObjetivo
                     genero = elemento.sexo
                     nacimiento = elemento.fechaNacimiento
                     estaturaPerfil = elemento.estatura
-                    nivel = elemento.fkniveldeportivo
+                    nivel = elemento.fkNivelDeportivo
                     escala = elemento.fkEscalaDeportiva
                 });
-                // fechaObjetivos(perfil)
-                // disponibilidad(perfil)
-                // resultados(parseInt(perfil), parseInt(pesoActualPerfil));
-                // requerimientoLiquidos(parseInt(pesoActualPerfil));
-                // calculoSemanas(fechaInicioEntreno, fechaObjetivo)
-                // tests(fechaInicioEntreno)
-                // mesosciclos(nivel, escala, semanasTotales)
-                // get(nacimiento, genero, parseInt(pesoActualPerfil), parseInt(pesoObjetivoPerfil), parseInt(estaturaPerfil), gastoDeportivo)
-                // cet(perfil, fechaActual)
+                localStorage.setItem('perfilamiento', perfil);
+                // console.log("PA:", pesoActualPerfil);
+                // console.log("PO:", pesoObjetivoPerfil);
+                // console.log("G:", genero);
+                // console.log("FN:", nacimiento);
+                // console.log("E:", estaturaPerfil);
+                // console.log("N:", nivel);
+                // console.log("Esc:", escala);
+                datosObjetivoDeportivo(perfil, nivel, escala);
+                disponibilidad(perfil);
+                resultados(parseInt(perfil), parseFloat(pesoActualPerfil));
+                requerimientoLiquidos(parseFloat(pesoActualPerfil));
+                get(nacimiento, genero, parseFloat(pesoActualPerfil), parseFloat(pesoObjetivoPerfil), parseFloat(estaturaPerfil), gastoDeportivo)
+                cet(perfil, fechaActual)
 
             });
     } catch (e) {
@@ -43,6 +48,55 @@ window.onload = async () => {
     }
 
 }
+
+async function datosObjetivoDeportivo(idperfil, nivel, escala) {
+    try {
+        let url = apiServer + "objetivoDeportivo/perfil?idPerfil=" + idperfil + ""
+        var fechaIni;
+        var fechaObj;
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                console.log("ObjDep:", respuesta);
+                if (respuesta != 0) {
+                    respuesta.forEach(elemento => {
+                        fechaObj = elemento.fechaObjetivo;
+                        fechaIni = elemento.fechaInicialEntren;
+                    });
+                    fecha_1 = fechaObj.split(" ")
+                    fecha_2 = fechaIni.split(" ")
+                    document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0];
+                    document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
+                    document.getElementById("btnInicioEntreno").style = "display: none;";
+
+                    // let ultimo = buscarultimopeso(idperfil);
+                    // let hoy = new Date(Date.now()).toLocaleDateString();
+                    // let mesuno = validaractualizacionpeso(fecha_2[0], 28);
+                    // let mesdos = validaractualizacionpeso(fecha_2[0], 56);
+                    // let mestres = validaractualizacionpeso(fecha_2[0], 84);
+                    // let mescuatro = validaractualizacionpeso(fecha_2[0], 112);
+                    // let mescinco = validaractualizacionpeso(fecha_2[0], 140);
+                    // let messeis = validaractualizacionpeso(fecha_2[0], 160);
+
+                    // if ((ultimo == hoy) || (ultimo != mesuno) || (ultimo != mesdos) || (ultimo != mestres) || (ultimo != mescuatro) || (ultimo != mescinco) || (ultimo != messeis)) {
+                    //     document.getElementById("btnActualizarPeso").style = "display: none;";
+                    // }
+                    calculoSemanas(fecha_2[0], fecha_1[0], nivel, escala);
+                    tests(fecha_2[0]);
+                } else {
+
+                    console.log("No tiene objetivo deportivo")
+                }
+            });
+
+    } catch (e) {
+        console.log("FechaObjetivos:", e)
+    }
+}
+
+
+
+// DATOS DEL OBJETIVO DEPORTIVO
 function proximoLunes() {
     try {
         var d = new Date();
@@ -55,122 +109,98 @@ function proximoLunes() {
         console.log("Error Proximo Lunes: ", e);
     }
 }
-
 async function crearObjetivoDeportivo() {
 
-    //Solo Entrenar
-    let dateStart = "";
-    let checkNextMonday = document.getElementById("inicioProxLunes");
-    if (checkNextMonday.checked) {
-        dateStart = proximoLunes();
-    } else {
-        dateStart = document.getElementById("fechaInicioEntreno").value
-    }
-
-    // Objetivo Deportivo
-    let nameObject = "";
-    if (document.getElementById("eventTitle").value.length == 0) {
-        nameObject = "Solo entrenar"
-    } else {
-        nameObject = document.getElementById("eventTitle").value
-    }
-
-    let endStart = null;
-    if (document.getElementById("eventStartDate").value.length == 0) {
-    } else {
-        endStart = document.getElementById("eventStartDate").value
-    }
-
-    let lugar = "";
-    if (document.getElementById("eventLocation").value.length == 0) {
-        lugar = "";
-    } else {
-        lugar = document.getElementById("eventLocation").value
-    }
-
-    let obj1 = "";
-    if (document.getElementById("eventGoal1").value.length == 0) {
-        obj1 = endStart;
-    } else {
-        obj1 = document.getElementById("eventGoal1").value
-    }
-
-    let obj2 = "";
-    if (document.getElementById("eventGoal2").value.length == 0) {
-        obj2 = endStart;
-    } else {
-        obj2 = document.getElementById("eventGoal2").value
-    }
-
-    let obj3 = "";
-    if (document.getElementById("eventGoal3").value.length == 0) {
-        obj3 = endStart;
-    } else {
-        obj3 = document.getElementById("eventGoal3").value
-    } eventDescription
-
-    let cmntrs = "";
-    if (document.getElementById("eventDescription").value.length == 0) {
-        cmntrs = "-";
-    } else {
-        cmntrs = document.getElementById("eventDescription").value
-    }
-    let url = apiServer + "objetivoDeportivo/crear";
-    await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-            nombreObjetivo: nameObject,
-            fechaInicialEntren: dateStart,
-            fechaObjetivo: endStart,
-            fechaPrepa1: endStart,
-            fechaPrepa2: endStart,
-            lugarObjetivo: lugar,
-            objetivo_1: obj1,
-            objetivo_2: obj2,
-            objetivo_3: obj2,
-            comentarios: cmntrs,
-            fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
-            ippc: "00.00.00.00"
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((response) => response.json())
-        .then((respuesta) => {
-            console.log(respuesta);
-        });
-}
-
-async function fechaObjetivos(idperfil) {
     try {
-        let url = apiServer + "objetivoDeportivo/perfil?idPerfil=" + idperfil + ""
-        let fechaIni;
-        let fechaObj;
-        await fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                console.log("ObjDep:", respuesta);
-                if (respuesta != 0) {
-                    respuesta.forEach(elemento => {
-                        fechaObj = elemento.fechaObjetivo;
-                        fechaIni = elemento.fechaInicialEntren;
-                    });
-                    fecha_1 = fechaObj.split(" ")
-                    fecha_2 = fechaIni.split(" ")
-                    document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0]
-                    document.getElementById("fechaInicialDashboard").innerText = fecha_2[0]
-                    document.getElementById("btnInicioEntreno").style = "display: none;"
-                } else {
+        //Solo Entrenar
+        let fechainicioentreno = "";
+        let checkNextMonday = document.getElementById("inicioProxLunes");
+        if (checkNextMonday.checked) {
+            fechainicioentreno = proximoLunes();
+        } else {
+            fechainicioentreno = document.getElementById("fechaInicioEntreno").value
+        }
 
-                    console.log("No tiene objetivo deportivo")
-                }
+        // Objetivo Deportivo
+        let nombredelobjetivo = "";
+        if (document.getElementById("eventTitle").value.length == 0) {
+            nombredelobjetivo = "Solo entrenar"
+        } else {
+            nombredelobjetivo = document.getElementById("eventTitle").value
+        }
+
+        //Fecha final de la membresia
+        let fechadelobjetivo = new Date(Date.now()).toLocaleDateString();
+        fechadelobjetivo = fechadelobjetivo.split("/");
+        console.log(fechadelobjetivo);
+        let mes = fechadelobjetivo[1];
+        let dia = fechadelobjetivo[0];
+        let ano = fechadelobjetivo[2];
+        fechadelobjetivo = mes + "/" + dia + "/" + ano;
+        console.log(fechadelobjetivo);
+        if (document.getElementById("eventStartDate").value.length > 0) {
+            fechadelobjetivo = document.getElementById("eventStartDate").value;
+        }
+
+        let lugar = "sin lugar";
+        if (document.getElementById("eventLocation").value.length > 0) {
+            lugar = document.getElementById("eventLocation").value
+        }
+
+        let obj1 = "sin objetivo";
+        if (document.getElementById("eventGoal1").value.length > 0) {
+            obj1 = document.getElementById("eventGoal1").value
+        }
+
+        let obj2 = "sin objetivo";
+        if (document.getElementById("eventGoal2").value.length > 0) {
+            obj2 = document.getElementById("eventGoal2").value
+        }
+
+        let obj3 = "sin objetivo";
+        if (document.getElementById("eventGoal3").value.length == 0) {
+            obj3 = document.getElementById("eventGoal3").value
+        }
+
+        let cmntrs = "sin comentarios";
+        if (document.getElementById("eventDescription").value.length > 0) {
+            cmntrs = document.getElementById("eventDescription").value
+        }
+
+
+        let url = apiServer + "objetivoDeportivo/crear";
+        await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                nombreObjetivo: nombredelobjetivo,
+                fechaInicialEntren: fechainicioentreno,
+                fechaObjetivo: fechadelobjetivo,
+                fechaPrepa1: fechadelobjetivo,
+                fechaPrepa2: fechadelobjetivo,
+                lugarObjetivo: lugar,
+                objetivo_1: obj1,
+                objetivo_2: obj2,
+                objetivo_3: obj2,
+                comentarios: cmntrs,
+                fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
+                ippc: "00.00.00.00"
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((respuesta) => {
+                console.log(respuesta);
             });
-
+        location.href = "dashboard.html";
     } catch (e) {
-        console.log("FechaObjetivos:", e)
+        console.log(e);
     }
 }
+
+
+//DISPONIBILIDAD SEMANAL
 async function disponibilidad(idperfil) {
     try {
         let url = apiServer + "disponibilidad/perfil?idPerfil=" + idperfil + ""
@@ -186,7 +216,7 @@ async function disponibilidad(idperfil) {
             .then(response => response.json())
             .then(respuesta => {
                 if (respuesta != 0) {
-                    console.log(respuesta);
+                    console.log("DS:", respuesta.length);
                     respuesta.forEach(elemento => {
                         thrsemanal = elemento.totalHorasSemana;
                         thlunes = elemento.lunes;
@@ -196,10 +226,8 @@ async function disponibilidad(idperfil) {
                         thviernes = elemento.viernes;
                         thsabado = elemento.sabado;
                         thdomingo = elemento.domingo;
-
-
                     });
-
+                    // console.log(thrsemanal);
                     dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
                     graficosHorasDiarias(dataHrsDias)
                     document.getElementById("hrSemanalDashboard").innerText = thrsemanal
@@ -213,13 +241,259 @@ async function disponibilidad(idperfil) {
         console.log("Disponibilidad:", e)
     }
 }
+(function () {
+    try {
+        var hoy = new Date().getDay()
+        for (let i = 0; i < hoy; i++) {
+            if ((i + 1) != hoy) {
+                var e = document.getElementById("dia" + (i + 1))
+                e.hidden = true
+            }
+        }
+        var totalHoras = 0;
+        var datos = [];
+        var regLunes = false;
+        datos = document.querySelectorAll(".form-control.dias");
+        datos.forEach(element => {
+            element.addEventListener('change', function (e) {
+                var hrLunes = parseInt(document.getElementById("dia1").value);
+                var hrMartes = parseInt(document.getElementById("dia2").value);
+                var hrMiercoles = parseInt(document.getElementById("dia3").value);
+                var hrJueves = parseInt(document.getElementById("dia4").value);
+                var hrViernes = parseInt(document.getElementById("dia5").value);
+                var hrSabado = parseInt(document.getElementById("dia6").value);
+                var hrDomingo = parseInt(document.getElementById("dia7").value);
+                if (isNaN(hrLunes) === true) {
+                    hrLunes = 0
+                }
+                if (isNaN(hrMartes) === true) {
+                    hrMartes = 0
+                }
+                if (isNaN(hrMiercoles) === true) {
+                    hrMiercoles = 0
+                }
+                if (isNaN(hrJueves) === true) {
+                    hrJueves = 0
+                }
+                if (isNaN(hrViernes) === true) {
+                    hrViernes = 0
+                }
+                if (isNaN(hrSabado) === true) {
+                    hrSabado = 0
+                }
+                if (isNaN(hrDomingo) === true) {
+                    hrDomingo = 0
+                }
+                totalHoras = hrLunes + hrMartes + hrMiercoles + hrJueves + hrViernes + hrSabado + hrDomingo;
+
+                document.getElementById("horasEntrenamiento1").innerHTML = totalHoras;
+                document.getElementById("horasEntrenamiento").innerHTML = totalHoras;
+                enviarDisponibilidad()
+            });
+        });
+    } catch (e) {
+        console.log(e, "Error al calcular las horas disponibles semanales")
+    }
+})();
+function enviarDisponibilidad() {
+    try {
+        var totalDias = 0;
+        var hrLunes = parseInt(document.getElementById("dia1").value);
+        var hrMartes = parseInt(document.getElementById("dia2").value);
+        var hrMiercoles = parseInt(document.getElementById("dia3").value);
+        var hrJueves = parseInt(document.getElementById("dia4").value);
+        var hrViernes = parseInt(document.getElementById("dia5").value);
+        var hrSabado = parseInt(document.getElementById("dia6").value);
+        var hrDomingo = parseInt(document.getElementById("dia7").value);
+        if (hrLunes > 0) {
+            totalDias++;
+        }
+        if (hrMartes > 0) {
+            totalDias++;
+        }
+        if (hrMiercoles > 0) {
+            totalDias++;
+        }
+        if (hrJueves > 0) {
+            totalDias++;
+        }
+        if (hrViernes > 0) {
+            totalDias++;
+        }
+        if (hrSabado > 0) {
+            totalDias++;
+        }
+        if (hrDomingo > 0) {
+            totalDias++;
+        }
+        document.getElementById("DisponibilidadDias").innerHTML = totalDias;
+        document.getElementById("DisponibilidadDias1").innerHTML = totalDias;
+    } catch (e) {
+        console.log(e, "Error enviar dias disponibles")
+    }
+};
+function confirmarDisponibilidad() {
+    let url = apiServer + "disponibilidad/crear";
+    let user = parseInt(localStorage.getItem("perfilamiento"));
+    let dia1 = parseInt(document.getElementById("dia1").value || 0);
+    let dia2 = parseInt(document.getElementById("dia2").value || 0);
+    let dia3 = parseInt(document.getElementById("dia3").value || 0);
+    let dia4 = parseInt(document.getElementById("dia4").value || 0);
+    let dia5 = parseInt(document.getElementById("dia5").value || 0);
+    let dia6 = parseInt(document.getElementById("dia6").value || 0);
+    let dia7 = parseInt(document.getElementById("dia7").value || 0);
+    let thoras = dia1 + dia2 + dia3 + dia4 + dia5 + dia6 + dia7;
+    let tdias = 0;
+    if (dia1 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia2 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia3 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia4 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia5 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia6 > 0) {
+        tdias = tdias + 1;
+    }
+    if (dia7 > 0) {
+        tdias = tdias + 1;
+    }
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            fkIdPerfilUsuarioDS: user,
+            lunes: parseInt(document.getElementById("dia1").value) || 0,
+            martes: parseInt(document.getElementById("dia2").value) || 0,
+            miercoles: parseInt(document.getElementById("dia3").value) || 0,
+            jueves: parseInt(document.getElementById("dia4").value) || 0,
+            viernes: parseInt(document.getElementById("dia5").value) || 0,
+            sabado: parseInt(document.getElementById("dia6").value) || 0,
+            domingo: parseInt(document.getElementById("dia7").value) || 0,
+            totalHorasSemana: thoras,
+            totalDiasSemana: tdias,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((respuesta) => {
+            console.log(respuesta);
+        });
+}
+
+
+
+//ACTUALIZAR PESO DEL PERFIL DEL USUARIO
+function validaractualizacionpeso(fechaIncioEntreno, dias) {
+    var fechafinalPeso;
+    try {
+
+        let date = fechaIncioEntreno.split("/");
+        let year = parseInt(date[2]);
+        let mouth = parseInt(date[1]);
+        let day = parseInt(date[0]);
+        let dia = (day + dias);
+        while (dia > 30) {
+            dia = (dia) - 30;
+            mouth = mouth + 1;
+            if (mouth > 12) {
+                year = year + 1;
+                mouth = (mouth) - 12;
+            }
+        }
+        if (dia < 10) {
+            dia = '0' + dia.toString();
+        }
+        if (mouth < 10) {
+            mouth = '0' + mouth.toString();
+        }
+        fechafinalPeso = ((dia).toString() + '/' + mouth.toString() + '/' + year.toString());
+        return fechafinalPeso;
+    } catch (e) {
+        console.log("Test's: ", e)
+    }
+}
+async function actualizarpeso() {
+
+    let url = apiServer + "perfil/actulizarPeso";
+    let idperfil = localStorage.getItem('perfilamiento');
+    let nuevopeso = parseFloat(document.getElementById("actualizarPeso").value);
+    try {
+        await fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify({
+
+                idPerfilUsuario: idperfil,
+                peso: nuevopeso,
+                ipPc: "00.00.00.00"
+
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+
+        let urlguardarpeso = apiServer + "perfil/nuevopeso";
+        fetch(urlguardarpeso, {
+            method: 'POST',
+            body: JSON.stringify({
+                idPerfilUsuario: idperfil,
+                peso: nuevopeso,
+                ipPc: "00.00.00.00"
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then(response => response.json())
+            .then(respuesta => {
+                console.log(respuesta);
+                // respuesta.forEach(idregistro => {
+                //     console.log(idregistro);
+                // });
+            });
+    } catch (e) {
+        console.log("Actualizacion de peso: ", e);
+    }
+}
+async function buscarultimopeso(idperfil) {
+    let url = apiServer + "perfil/ultimopeso?idusuario=" + idperfil + "";
+    var ultimafecha = "";
+    try {
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                console.log(respuesta);
+                respuesta.forEach(fecha => {
+                    ultimafecha = fecha;
+                });
+                return ultimafecha;
+            });
+    } catch (e) {
+
+    }
+}
+
+
+
+
 async function resultados(idperfil, pesoActual) {
     try {
         let url = apiServer + "resultados/perfil?idPerfil=" + idperfil + ""
-        let sesiones;
+        let sesiones = 0;
         let duracionTotal = 0;
         let distanciaTotal = 0;
-        let desnivel;
+        let desnivel = 0;
         let fcmax = 0;
         let fcpromedio = 0;
         let pmax = 0;
@@ -236,70 +510,110 @@ async function resultados(idperfil, pesoActual) {
             .then(response => response.json())
             .then(respuesta => {
                 sesiones = respuesta.length;
-                respuesta.forEach(elemento => {
-                    // console.log(elemento)
-                    duracionTotal = duracionTotal + elemento.duracionEntrenamiento;
-                    distanciaTotal = distanciaTotal + elemento.distanciaRecorrida;
-                    desnivel = distanciaTotal + elemento.desnivelPositivoAcumu;
-                    if (elemento.fcMax > fcmax) {
-                        fcmax = elemento.fcMax;
-                    }
-                    fcpromedio = fcpromedio + elemento.fcPromedio;
-                    if (elemento.potenciaMax > pmax) {
-                        pmax = elemento.potenciaMax;
-                    }
-                    if (elemento.evento == "test") {
-                        ftp = potAbsPromedio * 0.95
-                        fhtr = fcpromedio * 0.95
-                    }
-                    potAbsPromedio = potAbsPromedio + elemento.potenciaPromedio;
-                    potRelPromedio = potRelPromedio + elemento.potenciaPromedio;
-                    if (elemento.velocidadMax > vmax) {
-                        vmax = elemento.velocidadMax;
-                    }
-                    velocidadPromedio = velocidadPromedio + elemento.velocidadPromedio;
-                    if (elemento.cadenciaMax > cmax) {
-                        cmax = elemento.cadenciaMax;
-                    }
-                    cadenciaPromedio = cadenciaPromedio + elemento.cadenciaPromedio;
-                    trabajo = trabajo + elemento.trabajoReal;
-                });
-                document.getElementById("sesionesDashboard").innerText = sesiones
-                document.getElementById("duracionTotalDashboard").innerText = duracionTotal
-                document.getElementById("promedioSesionDashboard").innerText = (duracionTotal / sesiones)
-                document.getElementById("distanciaTotalDashboard").innerText = distanciaTotal + " Km"
-                document.getElementById("distPromedioSesionDashboard").innerText = (distanciaTotal / sesiones).toFixed(2) + " Km"
-                document.getElementById("desnivelDashboard").innerText = desnivel + " m"
-                document.getElementById("desnivelPromedioDashboard").innerText = (desnivel / sesiones).toFixed(2) + " m"
-                document.getElementById("fmaxdashboard").innerText = fcmax + " PPM"
-                document.getElementById("fcPromedioDashboard").innerText = (fcpromedio / sesiones).toFixed(2) + " PPM"
-                document.getElementById("pMaxDashboard").innerText = pmax + " W"
-                document.getElementById("potAbsPromedioDashboard").innerText = (potAbsPromedio / sesiones).toFixed(2) + " W"
-                document.getElementById("pRelMaxDashboard").innerText = ((pmax / sesiones) / pesoActual).toFixed(2) + " W"
-                document.getElementById("potRelPromedioDashboard").innerText = ((potRelPromedio / sesiones) / 70).toFixed(2) + " W"
-                document.getElementById("vMaxDashboard").innerText = vmax + " km/h"
-                document.getElementById("velPromedioDashboard").innerText = (velocidadPromedio / sesiones).toFixed(2) + " km/h"
-                document.getElementById("cMaxDashboard").innerText = cmax + " RPM"
-                document.getElementById("cadePromedioDashboard").innerText = (cadenciaPromedio / sesiones).toFixed(2) + " RPM"
-                document.getElementById("trabajoDashboard").innerText = trabajo + " KJ"
-                document.getElementById("trabajoPromedioDashboard").innerText = (trabajo / sesiones).toFixed(2) + " KJ"
+                console.log(sesiones);
+                if (sesiones > 0) {
+                    respuesta.forEach(elemento => {
+                        duracionTotal = duracionTotal + elemento.duracionEntrenamiento;
+                        distanciaTotal = distanciaTotal + elemento.distanciaRecorrida;
+                        desnivel = distanciaTotal + elemento.desnivelPositivoAcumu;
+                        if (elemento.fcMax > fcmax) {
+                            fcmax = elemento.fcMax;
+                        }
+                        fcpromedio = fcpromedio + elemento.fcPromedio;
+                        if (elemento.potenciaMax > pmax) {
+                            pmax = elemento.potenciaMax;
+                        }
+                        if (elemento.evento == "test") {
+                            ftp = potAbsPromedio * 0.95
+                            fhtr = fcpromedio * 0.95
+                        }
+                        potAbsPromedio = potAbsPromedio + elemento.potenciaPromedio;
+                        potRelPromedio = potRelPromedio + elemento.potenciaPromedio;
+                        if (elemento.velocidadMax > vmax) {
+                            vmax = elemento.velocidadMax;
+                        }
+                        velocidadPromedio = velocidadPromedio + elemento.velocidadPromedio;
+                        if (elemento.cadenciaMax > cmax) {
+                            cmax = elemento.cadenciaMax;
+                        }
+                        cadenciaPromedio = cadenciaPromedio + elemento.cadenciaPromedio;
+                        trabajo = trabajo + elemento.trabajoReal;
+                    });
+                    document.getElementById("sesionesDashboard").innerText = sesiones
+                    document.getElementById("duracionTotalDashboard").innerText = duracionTotal
+                    document.getElementById("promedioSesionDashboard").innerText = (duracionTotal / sesiones)
+                    document.getElementById("distanciaTotalDashboard").innerText = distanciaTotal + " Km"
+                    document.getElementById("distPromedioSesionDashboard").innerText = (distanciaTotal / sesiones).toFixed(2) + " Km"
+                    document.getElementById("desnivelDashboard").innerText = desnivel + " m"
+                    document.getElementById("desnivelPromedioDashboard").innerText = (desnivel / sesiones).toFixed(2) + " m"
+                    document.getElementById("fmaxdashboard").innerText = fcmax + " PPM"
+                    document.getElementById("fcPromedioDashboard").innerText = (fcpromedio / sesiones).toFixed(2) + " PPM"
+                    document.getElementById("pMaxDashboard").innerText = pmax + " W"
+                    document.getElementById("potAbsPromedioDashboard").innerText = (potAbsPromedio / sesiones).toFixed(2) + " W"
+                    document.getElementById("pRelMaxDashboard").innerText = ((pmax / sesiones) / pesoActual).toFixed(2) + " W"
+                    document.getElementById("potRelPromedioDashboard").innerText = ((potRelPromedio / sesiones) / 70).toFixed(2) + " W"
+                    document.getElementById("vMaxDashboard").innerText = vmax + " km/h"
+                    document.getElementById("velPromedioDashboard").innerText = (velocidadPromedio / sesiones).toFixed(2) + " km/h"
+                    document.getElementById("cMaxDashboard").innerText = cmax + " RPM"
+                    document.getElementById("cadePromedioDashboard").innerText = (cadenciaPromedio / sesiones).toFixed(2) + " RPM"
+                    document.getElementById("trabajoDashboard").innerText = trabajo + " KJ"
+                    document.getElementById("trabajoPromedioDashboard").innerText = (trabajo / sesiones).toFixed(2) + " KJ"
 
-                document.getElementById("ftpdashboard").innerText = ftp.toFixed(2)
-                document.getElementById("ftpReldashboard").innerText = (ftp / pesoActual).toFixed(2)
-                document.getElementById("zona1ftp").innerText = (ftp * 0.55).toFixed(2)
-                document.getElementById("zona2ftp").innerText = (ftp * 0.56).toFixed(2) + " - " + (ftp * 0.72).toFixed(2)
-                document.getElementById("zona3ftp").innerText = (ftp * 0.73).toFixed(2) + " - " + (ftp * 0.82).toFixed(2)
-                document.getElementById("zona4ftp").innerText = (ftp * 0.83).toFixed(2) + " - " + (ftp * 0.96).toFixed(2)
-                document.getElementById("zona5ftp").innerText = (ftp * 0.97).toFixed(2) + " - " + (ftp * 1.02).toFixed(2)
-                document.getElementById("zona6ftp").innerText = (ftp * 1.03).toFixed(2) + " - " + (ftp * 1.60).toFixed(2)
+                    document.getElementById("ftpdashboard").innerText = ftp.toFixed(2)
+                    document.getElementById("ftpReldashboard").innerText = (ftp / pesoActual).toFixed(2)
+                    document.getElementById("zona1ftp").innerText = (ftp * 0.55).toFixed(2)
+                    document.getElementById("zona2ftp").innerText = (ftp * 0.56).toFixed(2) + " - " + (ftp * 0.72).toFixed(2)
+                    document.getElementById("zona3ftp").innerText = (ftp * 0.73).toFixed(2) + " - " + (ftp * 0.82).toFixed(2)
+                    document.getElementById("zona4ftp").innerText = (ftp * 0.83).toFixed(2) + " - " + (ftp * 0.96).toFixed(2)
+                    document.getElementById("zona5ftp").innerText = (ftp * 0.97).toFixed(2) + " - " + (ftp * 1.02).toFixed(2)
+                    document.getElementById("zona6ftp").innerText = (ftp * 1.03).toFixed(2) + " - " + (ftp * 1.60).toFixed(2)
 
-                document.getElementById("fhtrdashboard").innerText = fhtr.toFixed(2)
-                document.getElementById("zona1fhtr").innerText = (fhtr * 0.55).toFixed(2)
-                document.getElementById("zona2fhtr").innerText = (fhtr * 0.56).toFixed(2) + " - " + (fhtr * 0.72).toFixed(2)
-                document.getElementById("zona3fhtr").innerText = (fhtr * 0.73).toFixed(2) + " - " + (fhtr * 0.82).toFixed(2)
-                document.getElementById("zona4fhtr").innerText = (fhtr * 0.83).toFixed(2) + " - " + (fhtr * 0.96).toFixed(2)
-                document.getElementById("zona5fhtr").innerText = (fhtr * 0.97).toFixed(2) + " - " + (fhtr * 1.02).toFixed(2)
-                document.getElementById("zona6fhtr").innerText = (fhtr * 1.03).toFixed(2) + " - " + (fhtr * 1.60).toFixed(2)
+                    document.getElementById("fhtrdashboard").innerText = fhtr.toFixed(2)
+                    document.getElementById("zona1fhtr").innerText = (fhtr * 0.55).toFixed(2)
+                    document.getElementById("zona2fhtr").innerText = (fhtr * 0.56).toFixed(2) + " - " + (fhtr * 0.72).toFixed(2)
+                    document.getElementById("zona3fhtr").innerText = (fhtr * 0.73).toFixed(2) + " - " + (fhtr * 0.82).toFixed(2)
+                    document.getElementById("zona4fhtr").innerText = (fhtr * 0.83).toFixed(2) + " - " + (fhtr * 0.96).toFixed(2)
+                    document.getElementById("zona5fhtr").innerText = (fhtr * 0.97).toFixed(2) + " - " + (fhtr * 1.02).toFixed(2)
+                    document.getElementById("zona6fhtr").innerText = (fhtr * 1.03).toFixed(2) + " - " + (fhtr * 1.60).toFixed(2)
+                } else {
+                    document.getElementById("sesionesDashboard").innerText = 0
+                    document.getElementById("duracionTotalDashboard").innerText = 0
+                    document.getElementById("promedioSesionDashboard").innerText = 0
+                    document.getElementById("distanciaTotalDashboard").innerText = "0 Km"
+                    document.getElementById("distPromedioSesionDashboard").innerText = "0 Km"
+                    document.getElementById("desnivelDashboard").innerText = "0 m"
+                    document.getElementById("desnivelPromedioDashboard").innerText = "0 m"
+                    document.getElementById("fmaxdashboard").innerText = "0 PPM"
+                    document.getElementById("fcPromedioDashboard").innerText = "0 PPM"
+                    document.getElementById("pMaxDashboard").innerText = "0 W"
+                    document.getElementById("potAbsPromedioDashboard").innerText = "0 W"
+                    document.getElementById("pRelMaxDashboard").innerText = "0 W"
+                    document.getElementById("potRelPromedioDashboard").innerText = "0 W"
+                    document.getElementById("vMaxDashboard").innerText = "0 km/h"
+                    document.getElementById("velPromedioDashboard").innerText = "0 km/h"
+                    document.getElementById("cMaxDashboard").innerText = "0 RPM"
+                    document.getElementById("cadePromedioDashboard").innerText = "0 RPM"
+                    document.getElementById("trabajoDashboard").innerText = "0 KJ"
+                    document.getElementById("trabajoPromedioDashboard").innerText = "0 KJ"
+
+                    document.getElementById("ftpdashboard").innerText = 0
+                    document.getElementById("ftpReldashboard").innerText = 0
+                    document.getElementById("zona1ftp").innerText = 0
+                    document.getElementById("zona2ftp").innerText = 0
+                    document.getElementById("zona3ftp").innerText = 0
+                    document.getElementById("zona4ftp").innerText = 0
+                    document.getElementById("zona5ftp").innerText = 0
+                    document.getElementById("zona6ftp").innerText = 0
+
+                    document.getElementById("fhtrdashboard").innerText = 0
+                    document.getElementById("zona1fhtr").innerText = 0
+                    document.getElementById("zona2fhtr").innerText = 0
+                    document.getElementById("zona3fhtr").innerText = 0
+                    document.getElementById("zona4fhtr").innerText = 0
+                    document.getElementById("zona5fhtr").innerText = 0
+                    document.getElementById("zona6fhtr").innerText = 0
+                }
+
             });
     } catch (e) {
         console.log("Resultados:", e)
@@ -314,7 +628,7 @@ function requerimientoLiquidos(pesoActual) {
         console.log("Requerimiento Liquidos: ", e)
     }
 }
-function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport) {
+function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport, nivel, escala) {
     inicial = fechaIncioEntreno.split("/")
     final = fechaObjetivoDeport.split("/")
     nuevaFechaInicial = inicial[2] + "-" + inicial[1] + "-" + inicial[0]
@@ -325,7 +639,8 @@ function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport) {
         let diff = fechaFinal - fechaInicial;
         dias = (diff / (1000 * 60 * 60 * 24));
         let semanas = (dias / 7).toFixed(0);
-        document.getElementById("semanasDashboard").innerText = semanas + " semanas"
+        document.getElementById("semanasDashboard").innerText = semanas + " semanas";
+        mesosciclos(nivel, escala, semanas);
     } catch (e) {
         console.log(e);
     }
@@ -355,11 +670,6 @@ function graficosHorasDiarias(dataVolumnSemanal) {
             }],
             defaultLocale: "es",
         };
-
-
-
-
-
 
         //  Grafico de Duración, Distancia y Elevanción de cada entreno
         dataDias = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -498,9 +808,9 @@ function graficosHorasDiarias(dataVolumnSemanal) {
 function fechastests(fecha, dias) {
     try {
         let date = fecha.split("/");
-        let year = parseInt(date[0]);
+        let year = parseInt(date[2]);
         let mouth = parseInt(date[1]);
-        let day = parseInt(date[2]);
+        let day = parseInt(date[0]);
         let dia = (day + dias);
         while (dia > 30) {
             dia = (dia) - 30;
@@ -523,7 +833,6 @@ function fechastests(fecha, dias) {
     }
 }
 function tests(fecha) {
-
     document.getElementById("testinicialdashboard").innerText = fechastests(fecha, 28)
     document.getElementById("testcontrol1dashboard").innerText = fechastests(fecha, 56)
     document.getElementById("testcontrol2dashboard").innerText = fechastests(fecha, 84)
@@ -724,18 +1033,29 @@ function rs(pesoActual, pesoObjetivo) {
     } catch (e) { console.log(e); }
 }
 async function cet(idperfil, fecha) {
+    fecha = fecha.split("/");
+    console.log(fecha);
+    let mes = fecha[1];
+    let dia = fecha[0];
+    let ano = fecha[2];
+    fecha = mes + "/" + dia + "/" + ano;
+    let url = apiServer + "alimentoRegularSeleccionado/cet?idPerfil=" + idperfil + "&fecha=" + fecha + "";
+    var totalCET = 0;
     try {
-        let url = apiServer + "alimentoRegularSeleccionado/cet?idPerfil=" + idperfil + "&fecha=" + fecha + "";
-        var totalCET = 0;
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                respuesta.forEach(elemento => {
-                    console.log(elemento)
-                    totalCET = totalCET + elemento.caloriasAlimento
-                });
-                document.getElementById("CET").innerText = totalCET + " Cal"
-                console.log("CET: ", totalCET);
+                if (respuesta.length > 0) {
+                    respuesta.forEach(elemento => {
+                        console.log(elemento)
+                        totalCET = totalCET + elemento.caloriasAlimento
+                    });
+                    document.getElementById("CET").innerText = totalCET + " Cal"
+
+                } else {
+                    document.getElementById("CET").innerText = "0 Cal"
+                }
+
             });
     } catch (e) {
         console.log("CET: ", e)
