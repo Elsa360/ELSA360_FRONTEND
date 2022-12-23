@@ -33,6 +33,18 @@ function getUriOnGet(){
 }
 
 
+function logout() {
+  try {
+    sessionStorage.clear();
+    localStorage.clear();
+    window.location.href = "/logout.php";
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
+
 
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),

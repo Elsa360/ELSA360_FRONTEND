@@ -155,7 +155,7 @@ function enviarEMail(email, idUser) {
 
 
 async function validarCuenta() {
-  $("#spinnerGeneral").show();
+  //$("#spinnerGeneral").show();
   const emailUsuario = window.location.search;
   const urlParams = new URLSearchParams(emailUsuario);
   let userId = urlParams.get("usuarioVerificado");
@@ -234,6 +234,9 @@ async function login() {
 
             //let userLogin = idUser;
             let idLogin = idUsuario;
+
+            console.log("verificacion");
+            console.log(verificacion);
             if (Boolean(verificacion) === true) {
               $("#spinnerGeneral").hide();
               console.log("Aqui");
@@ -241,11 +244,7 @@ async function login() {
               console.log(localStorage);
               loginNoPass(parseInt(idLogin))
             } else {
-              $("#spinnerGeneral").hide();
-              $("#modalGeneral #modalCenterTitle").html("Error");
-              $("#modalGeneral #modalMensaje").html("El usuario no esta verificado");
-              $("#modalGeneral").modal("show");
-              enviarEMail(emailUser,idUsuario);
+              enviarEMail(email, idUsuario);
             }
           });
         }
@@ -266,36 +265,37 @@ async function loginNoPass(idusuario, membresia, verificado) {
   await fetch(url)
     .then(response => response.json())
     .then(respuesta => {
+      console.log(respuesta[0]);
       localStorage.setItem('membresia', respuesta[0].membresia);
       localStorage.setItem('verificacion', respuesta[0].verificacion);
       localStorage.setItem('email', respuesta[0].email);
       localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
       localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-      if (localStorage.validarusuario == "true") {
 
-        console.log(localStorage.verificacion);
-        console.log(localStorage.perfilamiento);
-        console.log(localStorage.membresia);
+      sessionStorage.setItem('membresia', respuesta[0].membresia);
+      sessionStorage.setItem('verificacion', respuesta[0].verificacion);
+      sessionStorage.setItem('email', respuesta[0].email);
+      sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
 
-        if (localStorage.verificacion == false) {
-          enviarEMail(localStorage.email, localStorage.idUsuario);
-        } else if (localStorage.perfilamiento == "0") {
-          location.href = "/html/vertical-menu-template/auth-perfil.html";
-        } else if (localStorage.membresia == "No") {
-          location.href = apiServer + "#PreciosPlanes";
-        } else {
-          location.href = "/html/vertical-menu-template/dashboard.html";
-        }
-      }
+
 
       if(window.location.hostname!="127.0.0.1"){
+        console.log("127.0.0.1");
         uri = mainUrl + "_sesion.php?action=login&membresia=" + respuesta[0].membresia + "&verificado=" + respuesta[0].verificacion + "&idUsuario=" + idusuario;
         console.log("php sesion");
         console.log(uri);
         fetch(uri)
           .then(response => response.json())
-          .then(respuesta => { console.log(respuesta) });
+          .then(respuesta => {
+            console.log(respuesta) ;
+            redirectuser();
+          });
+      }
+      else
+      {
+        redirectuser();
       }
 
     });
@@ -309,14 +309,33 @@ async function loginNoPass(idusuario, membresia, verificado) {
 }
 
 
+function redirectuser(){
+
+    console.log(localStorage.verificacion);
+    console.log(localStorage.perfilamiento);
+    console.log(localStorage.membresia);
+
+    if (localStorage.verificacion == false) {
+      console.log("verificacion");
+      enviarEMail(localStorage.email, localStorage.idUsuario);
+    } else if (localStorage.perfilamiento == "0") {
+      console.log("perfilamiento");
+      location.href = "/html/vertical-menu-template/auth-perfil.html";
+    } else if (localStorage.membresia != "ACTIVA") {
+      console.log("PreciosPlanes");
+      location.href = "pages-pricing.html";
+    } else {
+      console.log("dashboard");
+      location.href = "/html/vertical-menu-template/dashboard.html";
+    }
+
+}
+
 function logout() {
-  try {
     sessionStorage.clear();
     localStorage.clear();
-    location.href = "../../inicio.html";
-  } catch (e) {
-    console.log(e);
-  }
+  location.href = "/logout.php";
+
 }
 
 
@@ -336,16 +355,7 @@ async function verificarUsuario(email, nombreUsuario) {
   }
 }
 async function buscarPerfil() {
-  try {
-    const iduser = window.location.search;
-    const urlParams = new URLSearchParams(iduser);
-    let userId = urlParams.get("usuarioVerificado");
-    localStorage.setItem('login',userId);
-  } catch (e) {
-    console.log("Buscar Perfil: Autologin -> ",e);
-  }
-
-  let usuario = localStorage.getItem('login');
+  let usuario = localStorage.idusuario
   try {
     let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
     fetch(url)
@@ -353,8 +363,11 @@ async function buscarPerfil() {
       .then(respuesta => {
         respuesta.forEach(perfil => {
           if (perfil.idPerfilUsuario > 0) {
-            sessionStorage.setItem('perfil', perfil.idPerfilUsuario)
-            location.href = "dashboard.html"
+            sessionStorage.setItem('perfil', perfil.idPerfilUsuario);
+            location.href = "dashboard.html";
+          }
+          else{
+            $("#spinnerGeneral").hide();
           }
         });
       });
@@ -364,8 +377,7 @@ async function buscarPerfil() {
 }
 async function perfilar() {
   $("#spinnerGeneral").show();
-  try {
-    let idUsuario = parseInt(window.localStorage.getItem("login"));
+    let idUsuario = localStorage.idusuario;
     let sexo;
     if (document.getElementById("sexoMujer").checked === true) {
       sexo = document.getElementById("sexoMujer").value;
@@ -411,55 +423,70 @@ async function perfilar() {
       velocimetro = true;
     }
 
-    let url = apiServer + "perfil/crear";
-    await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        sexo: sexo.toString(),
-        peso: pesoActual,
-        estatura: estatura,
-        pesoObjetivo: pesoDeseado,
-        fechaNacimiento: fechaNacimiento.toString(),
-        fkTipoDieta: tipoDieta,
-        fkTipoCuerpo: tipoCuerpo,
-        fkNivelDeportivo: nivel,
-        fkEscalaDeportiva: escala,
-        potenciometro: potenciometro,
-        pulsometro: pulsometro,
-        velocimetro: velocimetro,
-        cadenciometro: cadenciometro,
-        fkPorque: porque,
-        fkUsuario: idUsuario,
-        ippc: "00.00.00.00"
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((respuesta) => {
-        console.log(respuesta);
-        localStorage.getItem("perfil", respuesta);
-        localStorage.setItem("sexoUser", sexo.toString());
-        localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
-        localStorage.setItem("estatura", estatura);
-        localStorage.setItem("cuerpo", tipoCuerpo);
-        localStorage.setItem("dieta", tipoDieta);
-        localStorage.setItem("pesoActual", pesoActual);
-        localStorage.setItem("pesoDeseado", pesoDeseado);
-        localStorage.setItem("porqueHace", porque);
-        localStorage.setItem("nivelDeportivo", nivel);
-        localStorage.setItem("escalaDeportiva", escala);
-        $("#spinnerGeneral").show();
-        $("#modalGeneral #modalCenterTitle").html("Gracias");
-        $("#modalGeneral #modalMensaje").html("Tu perfil ha sido registrado exitosamente");
-        $("#modalGeneral").modal("show");
-        location.href = "free-data.html";
 
-      });
-  } catch (e) {
-    console.log(e);
-  }
+    localStorage.getItem("perfil", respuesta);
+    localStorage.setItem("sexoUser", sexo.toString());
+    localStorage.setItem("fechaNacimiento", fechaNacimiento.toString());
+    localStorage.setItem("estatura", estatura);
+    localStorage.setItem("cuerpo", tipoCuerpo);
+    localStorage.setItem("dieta", tipoDieta);
+    localStorage.setItem("pesoActual", pesoActual);
+    localStorage.setItem("pesoDeseado", pesoDeseado);
+    localStorage.setItem("porqueHace", porque);
+    localStorage.setItem("nivelDeportivo", nivel);
+    localStorage.setItem("escalaDeportiva", escala);
+
+      localStorage.setItem("sexo",sexo);
+      localStorage.setItem("statura",statura);
+      localStorage.setItem("tipoDieta",tipoDieta);
+      localStorage.setItem("tipoCuerpo",tipoCuerpo);
+      localStorage.setItem("nivel",nivel);
+      localStorage.setItem("scala",scala);
+      localStorage.setItem("potenciometro",potenciometro);
+      localStorage.setItem("pulsometro",pulsometro);
+      localStorage.setItem("velocimetro",velocimetro);
+      localStorage.setItem("cadenciometro",cadenciometro);
+      localStorage.setItem("porque",porque);
+      localStorage.setItem("idUsuario",idUsuario);
+
+
+            location.href = "free-data.html";
+}
+
+function guardarPerilUsuario(){
+  let url = apiServer + "perfil/crear";
+  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      sexo: sexo.toString(),
+      peso: pesoActual,
+      estatura: estatura,
+      pesoObjetivo: pesoDeseado,
+      fechaNacimiento: fechaNacimiento.toString(),
+      fkTipoDieta: tipoDieta,
+      fkTipoCuerpo: tipoCuerpo,
+      fkNivelDeportivo: nivel,
+      fkEscalaDeportiva: escala,
+      potenciometro: potenciometro,
+      pulsometro: pulsometro,
+      velocimetro: velocimetro,
+      cadenciometro: cadenciometro,
+      fkPorque: porque,
+      fkUsuario: idUsuario,
+      ippc: "00.00.00.00"
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((respuesta) => {
+      console.log(respuesta);
+
+
+      location.href = "free-data.html";
+
+    });
 }
 
 

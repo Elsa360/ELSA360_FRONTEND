@@ -58,7 +58,7 @@ function diferencia(userWeightCurrent, userWeightWanted) {
 function calcularEdad(birthDate) {
     try {
         const fechaNacimiento = birthDate;
-        //Datos Fecha Actual    
+        //Datos Fecha Actual
         const fechaActual = new Date();
         const anoActual = parseInt(fechaActual.getFullYear());
         const mesActual = parseInt(fechaActual.getMonth()) + 1;
@@ -277,10 +277,10 @@ function datosGraficos(dataPeso, cat) {
 
 
 async function loadFreeData() {
-    let sexo = sessionStorage.getItem("sexoUser");;
-    let fechaNac = sessionStorage.getItem("fechaNacimiento");
-    let estatura = sessionStorage.getItem("estatura");
-    let tpCuerpo = sessionStorage.getItem("cuerpo");
+    let sexo      = localStorage.sexoUser;
+    let fechaNac  = localStorage.fechaNacimiento;
+    let estatura  = localStorage.estatura;
+    let tpCuerpo  = localStorage.cuerpo;
     tpCuerpo = parseInt(tpCuerpo);
     if (tpCuerpo === 1) {
         tpCuerpo = "Etsomorfo"
@@ -291,7 +291,7 @@ async function loadFreeData() {
     if (tpCuerpo === 3) {
         tpCuerpo = "Endomorfo"
     }
-    let tpDieta = sessionStorage.getItem("dieta");
+    let tpDieta = localStorage.getItem("dieta");
     tpDieta = parseInt(tpDieta);
     if (tpDieta === 1) {
         tpDieta = "Regular"
@@ -299,10 +299,10 @@ async function loadFreeData() {
     if (tpDieta === 2) {
         tpDieta = "Vegetariana"
     }
-    let pesoActual = sessionStorage.getItem("pesoActual");
-    let pesoDeseado = sessionStorage.getItem("pesoDeseado");
+    let pesoActual = localStorage.getItem("pesoActual");
+    let pesoDeseado = localStorage.getItem("pesoDeseado");
     let deficit;
-    let pqMonta = sessionStorage.getItem("porqueHace");
+    let pqMonta = localStorage.getItem("porqueHace");
     pqMonta = parseInt(pqMonta);
     if (pqMonta === 1) {
         pqMonta = "Rendimiento"
@@ -313,7 +313,7 @@ async function loadFreeData() {
     if (pqMonta === 3) {
         pqMonta = "Entretenimiento"
     }
-    let nivel = sessionStorage.getItem("nivelDeportivo");
+    let nivel = localStorage.getItem("nivelDeportivo");
     nivel = parseInt(nivel);
     if (nivel === 1) {
         nivel = "Principiante"
@@ -324,7 +324,7 @@ async function loadFreeData() {
     if (nivel === 3) {
         nivel = "Avanzado"
     }
-    let escala = sessionStorage.getItem("escalaDeportiva");
+    let escala = localStorage.getItem("escalaDeportiva");
     escala = parseInt(escala);
     let subEsc = "";
     if (escala === 1 || escala === 2 || escala === 3) {
@@ -410,4 +410,3 @@ async function loadFreeData() {
 window.onload = async () => {
     loadFreeData();
 }
-

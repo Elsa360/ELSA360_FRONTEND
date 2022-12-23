@@ -43,10 +43,10 @@ window.onload = async () => {
     } catch (e) {
         console.log("Dashboar: ", e)
     }
-    // } else {
-    //     console.log("Sin membresia")
-    //     location.href = "pages-pricing.html"
-    // }
+    } else {
+        loginNoPass(localStorage.idusuario);
+    }
+
 }
 
 async function datosObjetivoDeportivo(idperfil, nivel, escala) {
@@ -112,7 +112,7 @@ function proximoLunes() {
 async function crearObjetivoDeportivo() {
 
     try {
-        //Solo Entrenar 
+        //Solo Entrenar
         let fechainicioentreno = "";
         let checkNextMonday = document.getElementById("inicioProxLunes");
         if (checkNextMonday.checked) {

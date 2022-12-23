@@ -5,6 +5,8 @@ $_SESSION["preorder"]=true;
 <html>
 <body>
   <script src="assets/vendor/libs/jquery/jquery.js"></script>
+
+  <script src="JS/systemNotification.js"></script>
   <script src="JS/enviroment.js"></script>
   <script src="JS/customTask.js"></script>
   <script src="JS/User/user.js"></script>
@@ -32,6 +34,7 @@ $_SESSION["preorder"]=true;
     //MercadoPago
 
     sessionStorage.setItem('preapproval_plan_id', getUrlParameter('preapproval_plan_id'));
+    localStorage.setItem('preapproval_plan_id', getUrlParameter('preapproval_plan_id'));
     ippc= "<?php echo $_SERVER["REMOTE_ADDR"];?>";
     plataforma = "MercadoPago";
     preapproval_plan_id = getUrlParameter('preapproval_plan_id');
@@ -93,12 +96,12 @@ $_SESSION["preorder"]=true;
 
       uri = "/html/vertical-menu-template/checkout.html"
       params = "?valorBaseMembresia="+valorBaseMembresia+"&tiempoMembresia="+tiempoMembresia+"&valorDescuento="+valorDescuento+"&subTotalPagar="+subTotalPagar+"&iva="+iva+"&totalPagar="+totalPagar;
-      params += "&emailUsuarioCheckout="+sessionStorage.email+"&nombreUsuario="+sessionStorage.nombreUsuario;
+      params += "&emailUsuarioCheckout="+localStorage.email+"&nombreUsuario="+localStorage.nombreUsuario;
       localStorage.setItem("useruri",uri+params);
 
-      if(sessionStorage.verificacion=='false')
+      if(localStorage.verificacion=='false')
       {
-        enviarEMail(sessionStorage.email, sessionStorage.idusuario);
+        enviarEMail(localStorage.email, localStorage.idusuario);
       }
       else
       {

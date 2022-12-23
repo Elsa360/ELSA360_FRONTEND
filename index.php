@@ -7,4 +7,5 @@ else
 {
     header("Location: inicio.html");
 }
+//comentario
 ?>
