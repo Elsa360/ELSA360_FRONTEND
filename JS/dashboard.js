@@ -2,7 +2,7 @@ window.onload = async () => {
     let gastoDeportivo = 0;
     let fechaActual = new Date(Date.now()).toLocaleDateString();
     let membresia = localStorage.getItem('membresia')
-    // if (membresia == "ACTIVA") {
+    if (membresia == "ACTIVA") {
     let usuario = localStorage.getItem('login')
     try {
         usuario = 76;
