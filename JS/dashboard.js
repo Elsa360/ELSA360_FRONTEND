@@ -5,7 +5,6 @@ window.onload = async () => {
     if (membresia == "ACTIVA") {
     let usuario = localStorage.getItem('login')
     try {
-        usuario = 76;
         let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
         var pesoActualPerfil
         var pesoObjetivoPerfil
