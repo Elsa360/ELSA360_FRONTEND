@@ -2,53 +2,50 @@ window.onload = async () => {
     let gastoDeportivo = 0;
     let fechaActual = new Date(Date.now()).toLocaleDateString();
     let membresia = localStorage.getItem('membresia')
-    // if (membresia == "ACTIVA") {
-    let usuario = localStorage.getItem('login')
-    try {
-        usuario = 76;
-        let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
-        var pesoActualPerfil
-        var pesoObjetivoPerfil
-        var genero
-        fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                respuesta.forEach(elemento => {
-                    // console.log(elemento);
-                    perfil = elemento.idPerfilUsuario
-                    pesoActualPerfil = elemento.peso
-                    pesoObjetivoPerfil = elemento.pesoObjetivo
-                    genero = elemento.sexo
-                    nacimiento = elemento.fechaNacimiento
-                    estaturaPerfil = elemento.estatura
-                    nivel = elemento.fkNivelDeportivo
-                    escala = elemento.fkEscalaDeportiva
-                });
-                localStorage.setItem('perfilamiento', perfil);
-                // console.log("PA:", pesoActualPerfil);
-                // console.log("PO:", pesoObjetivoPerfil);
-                // console.log("G:", genero);
-                // console.log("FN:", nacimiento);
-                // console.log("E:", estaturaPerfil);
-                // console.log("N:", nivel);
-                // console.log("Esc:", escala);
-                datosObjetivoDeportivo(perfil, nivel, escala);
-                disponibilidad(perfil);
-                resultados(parseInt(perfil), parseFloat(pesoActualPerfil));
-                requerimientoLiquidos(parseFloat(pesoActualPerfil));
-                get(nacimiento, genero, parseFloat(pesoActualPerfil), parseFloat(pesoObjetivoPerfil), parseFloat(estaturaPerfil), gastoDeportivo)
-                cet(perfil, fechaActual)
+    if (membresia == "ACTIVA" || apiServer == "127.0.0.1") {
+        let usuario = localStorage.getItem('login')
+        try {
+            let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
+            var pesoActualPerfil
+            var pesoObjetivoPerfil
+            var genero
+            fetch(url)
+                .then(response => response.json())
+                .then(respuesta => {
+                    respuesta.forEach(elemento => {
+                        perfil = elemento.idPerfilUsuario
+                        pesoActualPerfil = elemento.peso
+                        pesoObjetivoPerfil = elemento.pesoObjetivo
+                        genero = elemento.sexo
+                        nacimiento = elemento.fechaNacimiento
+                        estaturaPerfil = elemento.estatura
+                        nivel = elemento.fkNivelDeportivo
+                        escala = elemento.fkEscalaDeportiva
+                    });
+                    localStorage.setItem('perfilamiento', perfil);
+                    datosObjetivoDeportivo(perfil, nivel, escala);
+                    disponibilidad(perfil);
+                    resultados(parseInt(perfil), parseFloat(pesoActualPerfil));
+                    requerimientoLiquidos(parseFloat(pesoActualPerfil));
+                    get(nacimiento, genero, parseFloat(pesoActualPerfil), parseFloat(pesoObjetivoPerfil), parseFloat(estaturaPerfil), gastoDeportivo)
+                    cet(perfil, fechaActual)
 
-            });
-    } catch (e) {
-        console.log("Dashboar: ", e)
-    }
+                });
+        } catch (e) {
+            console.log("Dashboar: ", e)
+        }
     } else {
         loginNoPass(localStorage.idusuario);
     }
 
 }
 
+
+
+// DATOS DEL OBJETIVO DEPORTIVO
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 async function datosObjetivoDeportivo(idperfil, nivel, escala) {
     try {
         let url = apiServer + "objetivoDeportivo/perfil?idPerfil=" + idperfil + ""
@@ -69,18 +66,18 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
                     document.getElementById("btnInicioEntreno").style = "display: none;";
 
-                    // let ultimo = buscarultimopeso(idperfil);
-                    // let hoy = new Date(Date.now()).toLocaleDateString();
-                    // let mesuno = validaractualizacionpeso(fecha_2[0], 28);
-                    // let mesdos = validaractualizacionpeso(fecha_2[0], 56);
-                    // let mestres = validaractualizacionpeso(fecha_2[0], 84);
-                    // let mescuatro = validaractualizacionpeso(fecha_2[0], 112);
-                    // let mescinco = validaractualizacionpeso(fecha_2[0], 140);
-                    // let messeis = validaractualizacionpeso(fecha_2[0], 160);
+                    let ultimo = buscarultimopeso(idperfil);
+                    let hoy = new Date(Date.now()).toLocaleDateString();
+                    let mesuno = validaractualizacionpeso(fecha_2[0], 28);
+                    let mesdos = validaractualizacionpeso(fecha_2[0], 56);
+                    let mestres = validaractualizacionpeso(fecha_2[0], 84);
+                    let mescuatro = validaractualizacionpeso(fecha_2[0], 112);
+                    let mescinco = validaractualizacionpeso(fecha_2[0], 140);
+                    let messeis = validaractualizacionpeso(fecha_2[0], 160);
 
-                    // if ((ultimo == hoy) || (ultimo != mesuno) || (ultimo != mesdos) || (ultimo != mestres) || (ultimo != mescuatro) || (ultimo != mescinco) || (ultimo != messeis)) {
-                    //     document.getElementById("btnActualizarPeso").style = "display: none;";
-                    // }
+                    if ((ultimo == hoy) || (ultimo != mesuno) || (ultimo != mesdos) || (ultimo != mestres) || (ultimo != mescuatro) || (ultimo != mescinco) || (ultimo != messeis)) {
+                        document.getElementById("btnActualizarPeso").style = "display: none;";
+                    }
                     calculoSemanas(fecha_2[0], fecha_1[0], nivel, escala);
                     tests(fecha_2[0]);
                 } else {
@@ -93,10 +90,9 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
         console.log("FechaObjetivos:", e)
     }
 }
-
-
-
-// DATOS DEL OBJETIVO DEPORTIVO
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 function proximoLunes() {
     try {
         var d = new Date();
@@ -109,65 +105,26 @@ function proximoLunes() {
         console.log("Error Proximo Lunes: ", e);
     }
 }
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 async function crearObjetivoDeportivo() {
 
     try {
         //Solo Entrenar
-        let fechainicioentreno = "";
-        let checkNextMonday = document.getElementById("inicioProxLunes");
-        if (checkNextMonday.checked) {
-            fechainicioentreno = proximoLunes();
-        } else {
-            fechainicioentreno = document.getElementById("fechaInicioEntreno").value
-        }
-
+        let fechainicioentreno = document.getElementById("fechaInicioEntreno").value
         // Objetivo Deportivo
-        let nombredelobjetivo = "";
-        if (document.getElementById("eventTitle").value.length == 0) {
-            nombredelobjetivo = "Solo entrenar"
-        } else {
-            nombredelobjetivo = document.getElementById("eventTitle").value
-        }
-
+        let nombredelobjetivo = document.getElementById("eventTitle").value
         //Fecha final de la membresia
-        let fechadelobjetivo = new Date(Date.now()).toLocaleDateString();
-        fechadelobjetivo = fechadelobjetivo.split("/");
-        console.log(fechadelobjetivo);
-        let mes = fechadelobjetivo[1];
-        let dia = fechadelobjetivo[0];
-        let ano = fechadelobjetivo[2];
-        fechadelobjetivo = mes + "/" + dia + "/" + ano;
-        console.log(fechadelobjetivo);
-        if (document.getElementById("eventStartDate").value.length > 0) {
-            fechadelobjetivo = document.getElementById("eventStartDate").value;
-        }
-
-        let lugar = "sin lugar";
-        if (document.getElementById("eventLocation").value.length > 0) {
-            lugar = document.getElementById("eventLocation").value
-        }
-
-        let obj1 = "sin objetivo";
-        if (document.getElementById("eventGoal1").value.length > 0) {
-            obj1 = document.getElementById("eventGoal1").value
-        }
-
-        let obj2 = "sin objetivo";
-        if (document.getElementById("eventGoal2").value.length > 0) {
-            obj2 = document.getElementById("eventGoal2").value
-        }
-
-        let obj3 = "sin objetivo";
-        if (document.getElementById("eventGoal3").value.length == 0) {
-            obj3 = document.getElementById("eventGoal3").value
-        }
-
-        let cmntrs = "sin comentarios";
-        if (document.getElementById("eventDescription").value.length > 0) {
-            cmntrs = document.getElementById("eventDescription").value
-        }
-
-
+        let fechadelobjetivo = document.getElementById("eventStartDate").value;
+        //Lugar
+        let lugar = document.getElementById("eventLocation").value
+        //Objetivos
+        let obj1 = document.getElementById("eventGoal1").value
+        let obj2 = document.getElementById("eventGoal2").value
+        let obj3 = document.getElementById("eventGoal3").value
+        //Comentarios
+        let cmntrs = document.getElementById("eventDescription").valu
         let url = apiServer + "objetivoDeportivo/crear";
         await fetch(url, {
             method: 'POST',
@@ -198,9 +155,82 @@ async function crearObjetivoDeportivo() {
         console.log(e);
     }
 }
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
+async function soloEntrenar() {
+
+    let fechainicioentreno = proximoLunes();
+    let nombredelobjetivo = "Solo entrenar"
+    let fechamembresia = finalMembresia();
+    fechamembresia = fechamembresia.split('/');
+    let dia = fechamembresia[1];
+    let mes = fechamembresia[0];
+    let año = fechamembresia[2];
+    fechamembresia = mes + '/' + dia + '/' + año;
+    let lugar = "sin lugar";
+    let obj1 = "sin objetivo";
+    let obj2 = "sin objetivo";
+    let obj3 = "sin objetivo";
+    let cmntrs = "sin comentarios";
+    let url = apiServer + "objetivoDeportivo/crear";
+    await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            nombreObjetivo: nombredelobjetivo,
+            fechaInicialEntren: fechainicioentreno,
+            fechaObjetivo: fechamembresia,
+            fechaPrepa1: fechamembresia,
+            fechaPrepa2: fechamembresia,
+            lugarObjetivo: lugar,
+            objetivo_1: obj1,
+            objetivo_2: obj2,
+            objetivo_3: obj3,
+            comentarios: cmntrs,
+            fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
+            ippc: "00.00.00.00"
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((respuesta) => {
+            console.log(respuesta);
+        });
+    location.href = "dashboard.html";
+}
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
+async function finalMembresia() {
+    let idperfil = localStorage.getItem('perfilamiento');
+    let url = apiServer + "membresia/finalmembresia?idperfil=" + idperfil + "";
+    try {
+        var fechafinalmembresia;
+        await fetch(url)
+            .then(response => response.json())
+            .then(respuesta => {
+                respuesta.forEach(fecha => {
+                    fechafinalmembresia = fecha;
+                });
+                return fechafinalmembresia
+            });
+
+    } catch (e) {
+        console.log("Final Membresia: ", e);
+    }
+}
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
+
 
 
 //DISPONIBILIDAD SEMANAL
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 async function disponibilidad(idperfil) {
     try {
         let url = apiServer + "disponibilidad/perfil?idPerfil=" + idperfil + ""
@@ -241,6 +271,9 @@ async function disponibilidad(idperfil) {
         console.log("Disponibilidad:", e)
     }
 }
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 (function () {
     try {
         var hoy = new Date().getDay()
@@ -295,6 +328,9 @@ async function disponibilidad(idperfil) {
         console.log(e, "Error al calcular las horas disponibles semanales")
     }
 })();
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 function enviarDisponibilidad() {
     try {
         var totalDias = 0;
@@ -332,6 +368,9 @@ function enviarDisponibilidad() {
         console.log(e, "Error enviar dias disponibles")
     }
 };
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 function confirmarDisponibilidad() {
     let url = apiServer + "disponibilidad/crear";
     let user = parseInt(localStorage.getItem("perfilamiento"));
@@ -388,6 +427,9 @@ function confirmarDisponibilidad() {
             console.log(respuesta);
         });
 }
+// <=======================================================>
+// <=======================================================>
+// <=======================================================>
 
 
 
