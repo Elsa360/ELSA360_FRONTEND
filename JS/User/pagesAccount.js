@@ -25,10 +25,8 @@ async function desactivarCuenta(id) {
     }
 }
 (function datosPerfil() {
-    // idusuario = localStorage.getItem('login');
-    console.log("Entro a la funcion");
-    let url = apiServer + "perfil/datosusuario?idusuario=63"
-    // let url = apiServer + "perfil/datosusuario?idusuario=" + idusuario + ""
+    idusuario = localStorage.getItem('login');
+    let url = apiServer + "perfil/datosusuario?idusuario=" + idusuario + ""
     try {
         fetch(url)
             .then((response) => response.json())
