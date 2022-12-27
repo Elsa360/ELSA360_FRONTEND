@@ -52,7 +52,8 @@ data-template="vertical-menu-template">
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
 
-  <script src="../../JS/middleware.js"> validateLogin() </script>
+  <script src="/JS/middleware.js"> validateLogin() </script>
+<script src="/JS/customTask.js"></script>
 
 
   <!-- <script src="../../JS/User/index.js"></script> -->
@@ -502,7 +503,7 @@ View all notifications
 
           <!-- Nombre -->
           <div class="flex-grow-1">
-            <span class="fw-semibold d-block">Manuel Peralta</span>
+            <span class="fw-semibold d-block">...</span>
             <small class="text-muted">Deportista</small>
           </div>
         </div>
