@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="es" class="dark-style" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/"
-data-template="vertical-menu-template">
+  data-template="vertical-menu-template">
 
 <head>
   <meta name="viewport"
-  content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <meta charset="utf-8" />
   <meta name="keywords"
-  content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
   <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
   <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
   <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
@@ -22,8 +22,8 @@ data-template="vertical-menu-template">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-  rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
@@ -54,16 +54,16 @@ data-template="vertical-menu-template">
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
-  <!-- <script src="../../JS/User/index.js"></script> -->
+  <script src="../../JS/User/index.js"></script>
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <!-- <script src="../../JS/middleware.js"> validateLogin() </script> -->
 
 
 
   <script>
-  $(function () {
-    $("#footer").load("footer.html");
-  });
+    $(function () {
+      $("#footer").load("footer.html");
+    });
   </script>
 </head>
 
@@ -840,11 +840,7 @@ data-template="vertical-menu-template">
             <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
           </div>
         </nav>
-        <!-- / Navbar --> 
-
-
-
-
+        <!-- / Navbar -->   
 
 
 
@@ -891,38 +887,27 @@ data-template="vertical-menu-template">
 
                   <!-- Account -->
                   <div class="card-body">
-                    <div class="d-flex align-items-start align-items-sm-center gap-2">
+                    <div class="d-flex align-items-start align-items-sm-center gap-4">
                       <img src="../../assets/img/avatars/1.jpg" alt="user-avatar" class="d-block rounded-circle"
                         height="150" width="150" id="uploadedAvatar" style="object-fit: cover"/>
 
-
                       <div class="button-wrapper">
-                        <form action="_avatar.php" enctype="multipart/form-data">
-                        <label for="upload" class="btn btn-sm btn-success me-2 mb-1" tabindex="0">
+                        <label for="upload" class="btn btn-success me-2 mb-4" tabindex="0">
                           <span class="d-none d-sm-block">Cambiar foto</span>
                           <i class="bx bx-menu d-block d-sm-none"></i>
-
-                          <input type="file" id="upload" name="AvatarUsuario" class="account-file-input" hidden accept="image/png, .jpeg, .jpg, image/gif" />
+                          <input type="file" id="upload" name="AvatarUsuario" class="account-file-input" hidden
+                            accept="image/png, image/jpeg" />
                         </label>
 
-                        <button type="button" class="btn btn-sm btn-label-secondary account-image-reset mb-1">
+                        <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
                           <i class="bx bx-reset d-block d-sm-none"></i>
                           <span class="d-none d-sm-block">Cancelar cambio</span>
                         </button>
 
-                        <p class="text-muted mb-0" style="font-size: 12px;">Archivos en formato JPG, GIF o PNG. Tamaño Max: 800K</p>
-                      </form>
+                        <p class="text-muted mb-0">Archivos en formato JPG, GIF o PNG. Tamaño Max: 800K</p>
                       </div>
                     </div>
                   </div>
-
-
-
-
-
-
-
-
 
 
                   <hr class="my-0" />
@@ -942,20 +927,20 @@ data-template="vertical-menu-template">
                             <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
                           </div> -->
 
-                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                          <label for="email" class="form-label mb-0">E-mail</label>
-                          <h6 class="text-success mb-1" id="emailUsuarioPageAccount">tuEmail@correo.com</h6>
-                        </div>
+                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                            <label for="email" class="form-label mb-0">E-mail</label>
+                            <h6 class="text-success mb-1" id="emailUsuarioPageAccount">tuEmail@correo.com</h6>
+                          </div>
 
-                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                          <label class="form-label mb-0" for="phoneNumber">Número celular</label>
-                          <h6 class="text-success mb-1" id="telefonoUsuarioPageAccount">+57 555 55 55 </h6>
-                        </div>
-
-                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                          <label for="country" class="form-label mb-0">País</label>
-                          <h6 class="text-success mb-1" id="paisUsuarioPageAccount">Colombia</h6>
-                        </div>
+                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                            <label class="form-label mb-0" for="phoneNumber">Número celular</label>
+                            <h6 class="text-success mb-1" id="telefonoUsuarioPageAccount">+57 555 55 55 </h6>
+                          </div>
+  
+                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                            <label for="country" class="form-label mb-0">País</label>
+                            <h6 class="text-success mb-1" id="paisUsuarioPageAccount">Colombia</h6>
+                          </div>
 
                         <!-- <div class="mb-2 col-md-6">
                           <label for="state" class="form-label mb-0">Departamento / Provincia / Estado</label>
@@ -973,7 +958,7 @@ data-template="vertical-menu-template">
                             placeholder="Nombre de tu Club o equipo" value="" disabled />
                         </div> -->
 
-                        <!-- <div class="mb-2 col-md-6">
+                        <!-- <div class="mb-3 col-md-6">
                             <label class="form-label" for="country">País</label>
                             <select id="country" class="select2 form-select">
                               <option value="">Select</option>
@@ -1002,20 +987,20 @@ data-template="vertical-menu-template">
                               <option value="United Kingdom">United Kingdom</option>
                               <option value="United States">United States</option>
                             </select>
-                          </div> -->
-
-                        <!-- <div class="mb-2 col-md-6">
+                          </div> -->          
+                                               
+                        <!-- <div class="mb-3 col-md-6">
                           <label for="address" class="form-label">Dirección</label>
                           <input type="text" class="form-control" id="address" name="address"
                             placeholder="Cra 3A # 66 - 24" value="" disabled />
                         </div> -->
 
-                        <!-- <div class="mb-2 col-md-6">
+                        <!-- <div class="mb-3 col-md-6">
                             <label for="zipCode" class="form-label">Zip Code</label>
                             <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="231465" maxlength="6" />
                           </div>                           -->
 
-                        <!-- <div class="mb-2 col-md-6">
+                        <!-- <div class="mb-3 col-md-6">
                             <label for="language" class="form-label">Language</label>
                             <select id="language" class="select2 form-select">
                               <option value="">Select Language</option>
@@ -1026,7 +1011,7 @@ data-template="vertical-menu-template">
                             </select>
                           </div> -->
 
-                        <!-- <div class="mb-2 col-md-6">
+                        <!-- <div class="mb-3 col-md-6">
                             <label for="timeZones" class="form-label">Timezone</label>
                             <select id="timeZones" class="select2 form-select">
                               <option value="">Select Timezone</option>
@@ -1051,7 +1036,7 @@ data-template="vertical-menu-template">
                             </select>
                           </div> -->
 
-                        <!-- <div class="mb-2 col-md-6">
+                        <!-- <div class="mb-3 col-md-6">
                             <label for="currency" class="form-label">Currency</label>
                             <select id="currency" class="select2 form-select">
                               <option value="">Select Currency</option>
@@ -1112,7 +1097,7 @@ data-template="vertical-menu-template">
                         </div>
 
 
-
+                        <!-- MODAL DEL NIVEL DEPORTIVO -->
                         <div class="modal fade" id="modalNivelDeportivo" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -1159,6 +1144,11 @@ data-template="vertical-menu-template">
                             </div>
                           </div>
                         </div>
+                        <!-- FIN MODAL NIVEL DEPORTIVO -->
+
+
+
+
 
 
 
@@ -1359,10 +1349,11 @@ data-template="vertical-menu-template">
 
 
 
+
+
+
+
                         <div class="mt-2">
-                          <!-- <button type="submit" class="btn btn-success me-2">Actualizar datos</button> -->
-
-
                           <button type="button" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#modalActualizarDatos">
                             Actualizar datos
                           </button>
@@ -1511,33 +1502,17 @@ data-template="vertical-menu-template">
                                   <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                   </button>
-                                  <button type="button" class="btn btn-success">Guardar cambios</button>
+                                  <button type="button" class="btn btn-success">Guarar cambios</button>
                                 </div>
                               </div>
                             </div>
                           </div>
-
-
-
-
-
-
-
-
                         </div>
                     </form>
                   </div>
 
                   <!-- /Account -->
                 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -1600,6 +1575,20 @@ data-template="vertical-menu-template">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="card accordion-item mb-3 mt-1">
                   <h1 class="accordion-header" id="headingOne">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
@@ -1635,76 +1624,60 @@ data-template="vertical-menu-template">
 
                 </form>
               </div>
+
             </div>
           </div>
         </div>
+        <!-- / Content -->
 
+        <!-- Footer -->
+        <footer id="footer"></footer>
+        <!-- / Footer -->
 
-          
+        <div class="content-backdrop fade"></div>
+      </div>
+      <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+  </div>
 
-<!-- Footer -->
-<footer id="footer"></footer>
-<!-- / Footer -->
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
 
-<div class="content-backdrop fade"></div>
-</div>
-<!-- Content wrapper -->
-</div>
-<!-- / Layout page -->
-</div>
+  <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+  <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
+  <script src="../../JS/User/pagesAccount.js"></script>
+  <script src="../../JS/enviroment.js"></script>
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
 
-<!-- Overlay -->
-<div class="layout-overlay layout-menu-toggle"></div>
+  <script src="../../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../../assets/vendor/js/bootstrap.js"></script>
+  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-<!-- Drag Target Area To SlideIn Menu On Small Screens -->
-<div class="drag-target"></div>
-</div>
-<!-- / Layout wrapper -->
-<script src="../../JS/enviroment.js"></script>
-<script src="../../JS/User/pagesAccount.js"></script>
-<!-- Core JS -->
-<!-- build:js assets/vendor/js/core.js -->
+  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-<script src="../../assets/vendor/libs/popper/popper.js"></script>
-<script src="../../assets/vendor/js/bootstrap.js"></script>
-<script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="../../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
 
-<script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-<script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-<script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+  <!-- Vendors JS -->
+  <script src="../../assets/vendor/libs/select2/select2.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+  <script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+  <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
+  <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
+  <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
 
-<script src="../../assets/vendor/js/menu.js"></script>
-<!-- endbuild -->
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
 
-<!-- Vendors JS -->
-<script src="../../assets/vendor/libs/select2/select2.js"></script>
-<script src="../../assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-<script src="../../assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
-<script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
-<script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
-<script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
-
-<!-- Main JS -->
-<script src="../../assets/js/main.js"></script>
-
-<!-- Page JS -->
-<script src="../../assets/js/pages-account-settings-account.js"></script>
-
-<!-- ============================================================== -->
-<!-- Google -->
-<!-- ============================================================== -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-93DR8GES25');
-</script>
-<!-- ============================================================== -->
-<!-- Google -->
-<!-- ============================================================== -->
+  <!-- Page JS -->
+  <script src="../../assets/js/pages-account-settings-account.js"></script>
 </body>
 
 </html>
