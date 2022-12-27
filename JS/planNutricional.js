@@ -428,7 +428,14 @@ function momento(momento) {
             console.log("");
         }
 
-        location.href = "tables-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
+        if(localStorage.getItem(tipodieta)==1){
+            location.href = "tables-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
+        }else if(localStorage.getItem(tipodieta)==2){
+            location.href = "tables-vegetarian-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
+        }else{
+            location.href = "app-planNutricional.html";
+        }
+       
     } catch (error) {
         console.log(error)
     }
