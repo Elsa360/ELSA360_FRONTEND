@@ -331,14 +331,6 @@ function redirectuser(){
 
 }
 
-function logout() {
-  sessionStorage.clear();
-  localStorage.clear();
-  location.href = "/logout.php";
-
-}
-
-
 
 
 async function verificarUsuario(email, nombreUsuario) {

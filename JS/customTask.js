@@ -34,14 +34,13 @@ function getUriOnGet(){
 
 
 function logout() {
-  try {
-    sessionStorage.clear();
-    localStorage.clear();
-    window.location.href = "/logout.php";
-  } catch (e) {
-    console.log(e);
-  }
+  sessionStorage.clear();
+  localStorage.clear();
+  location.href = "/logout.php";
+
 }
+
+
 
 
 

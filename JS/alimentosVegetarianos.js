@@ -6,9 +6,9 @@ function caloriasSeleccionadasMomento() {
     const fecha = urlParams.get('fecha');
     const getM = urlParams.get('getMomento');
     const getComplete = urlParams.get('getCompleto');
-    document.getElementById("caloriasRequeridas").innerHTML = getM;
+    document.getElementById("CalRequeridas").innerHTML = getM;
     try {
-        traerMinutaNutricional();
+        // traerMinutaNutricional();
         let url = apiServer + "alimentoVegetarianoSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
         console.log(url)
         fetch(url)
@@ -36,69 +36,73 @@ function traerAlimentosRegulares() {
         .then((response) => response.json())
         .then((alimentosRegulares) => {
             // Energeticos
-            let tablaCereales = document.getElementById('tablaCereales');
+            let tablaCereales = document.getElementById('tablaCerealesVeg');
             let cuerpoCereales = document.createElement('tbody');
 
-            let tablaTuberculos = document.getElementById('tablaTuberculos');
+            let tablaTuberculos = document.getElementById('tablaTuberculosVeg');
             let cuerpoTuberculos = document.createElement('tbody');
 
-            let tablaPlatanos = document.getElementById('tablaPlatanos');
+            let tablaPlatanos = document.getElementById('tablaPlatanosVeg');
             let cuerpoPlatanos = document.createElement('tbody');
 
-            let tablaRaices = document.getElementById('tablaRaices');
+            let tablaRaices = document.getElementById('tablaRaicesVeg');
             let cuerpoRaices = document.createElement('tbody');
 
-            let tablaLeguminosas = document.getElementById('tablaLeguminosas');
-            let cuerpoLeguminosas = document.createElement('tbody');
+            let tablaAlimentosVeg = document.getElementById('tablaAlimentosVeg');
+            let cuerpoAlimentosVeg = document.createElement('tbody');
+
 
             // Proteicos
-            let tablaCarnesPollo = document.getElementById('tablaCarnesPollo');
-            let cuerpoCarnesPollo = document.createElement('tbody');
+            let tablaProteicosVeg = document.getElementById('tablaVeganos');
+            let cuerpoProteicosVeg = document.createElement('tbody');
+
+            let tablaLeguminosas = document.getElementById('tablaVegLeguminosas');
+            let cuerpoLeguminosas = document.createElement('tbody');
 
             // Lacteos
-            let tablaLecheDerivados = document.getElementById('tablaLecheDerivados');
+            let tablaLecheDerivados = document.getElementById('tablaLecheDerivadosVeg');
             let cuerpoLecheDerivados = document.createElement('tbody');
 
-            let tablaLecheBajosGrasa = document.getElementById('tablaLecheBajosGrasa');
+            let tablaLecheBajosGrasa = document.getElementById('tablaLecheBajosGrasaVeg');
             let cuerpoLecheBajosGrasa = document.createElement('tbody');
 
             // Frutas y Verduras
-            let tablaFrutas = document.getElementById('tablaFrutas');
+            let tablaFrutas = document.getElementById('tablaFrutasVeg');
             let cuerpoFrutas = document.createElement('tbody');
 
-            let tablaVerduras = document.getElementById('tablaVerduras');
+            let tablaVerduras = document.getElementById('tablaVerdurasVeg');
             let cuerpoVerduras = document.createElement('tbody');
 
             // Grasas Saludables
-            let tablaFrutosSecos = document.getElementById('tablaFrutosSecos');
+            let tablaFrutosSecos = document.getElementById('tablaFrutosSecosVeg');
             let cuerpoFrutosSecos = document.createElement('tbody');
 
-            let tablaGrasasPoli = document.getElementById('tablaGrasasPoli');
+            let tablaGrasasPoli = document.getElementById('tablaGrasasPoliVeg');
             let cuerpoGrasasPoli = document.createElement('tbody');
 
-            let tablaGrasasMono = document.getElementById('tablaGrasasMono');
+            let tablaGrasasMono = document.getElementById('tablaGrasasMonoVeg');
             let cuerpoGrasasMono = document.createElement('tbody');
 
             // Otros
-            let tablaGrasasSatu = document.getElementById('tablaGrasasSatu');
+            let tablaGrasasSatu = document.getElementById('tablaGrasasSatuVeg');
             let cuerpoGrasasSatu = document.createElement('tbody');
 
-            let tablaAzucaresSimples = document.getElementById('tablaAzucaresSimples');
+            let tablaAzucaresSimples = document.getElementById('tablaAzucaresSimplesVeg');
             let cuerpoAzucaresSimples = document.createElement('tbody');
 
-            let tablaDulces = document.getElementById('tablaDulces');
+            let tablaDulces = document.getElementById('tablaDulcesVeg');
             let cuerpoDulces = document.createElement('tbody');
 
-            let tablaMiscelaneos = document.getElementById('tablaMiscelaneos');
+            let tablaMiscelaneos = document.getElementById('tablaMiscelaneosVeg');
             let cuerpoMiscelaneos = document.createElement('tbody');
 
-            let tablaPreparados = document.getElementById('tablaPreparados');
+            let tablaPreparados = document.getElementById('tablaPreparadosVeg');
             let cuerpoPreparados = document.createElement('tbody');
 
-            let tablaEspecias = document.getElementById('tablaEspecias');
+            let tablaEspecias = document.getElementById('tablaEspeciasVeg');
             let cuerpoEspecias = document.createElement('tbody');
 
-            let tablaBebidadasAlcoho = document.getElementById('tablaBebidadasAlcoho');
+            let tablaBebidadasAlcoho = document.getElementById('tablaBebidadasAlcohoVeg');
             let cuerpoBebidadasAlcoho = document.createElement('tbody');
 
             alimentosRegulares.forEach(alimento => {

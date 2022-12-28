@@ -65,7 +65,7 @@
   </script>
 </head>
 
-<body >
+<body>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
@@ -939,7 +939,6 @@
                       </tr>
                     </table>
                   </div>
-
                 </div>
               </div>
               </div>
@@ -1565,8 +1564,7 @@
                             </div>                     
                           </div>
                         </div>
-                        
-                        
+
                         <div class="col-md-4 mb-3">
                           <div class="elegidoNutricion">                             
                             <div class="slidecontainer2">                      
@@ -1575,8 +1573,16 @@
                                   <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">0</h5></span></td>
           
                                   <td></td>
-          
-                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">0</h5></span></td>
+                                  
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">0</h5></span></td>                                                         
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
+                        <!-- =========================================================================================== -->
                                 </tr>
                                 <tr>
                                   <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
@@ -2374,11 +2380,11 @@
           
                               <table class="tablaLimites">
                                 <tr>
-                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">0</h5></span></td>
+                                  <td class="valorLimiteInf"><span class="caloriasReqSel" id="CalRequeridas"><h5 style="margin-bottom: 5px;">3</h5></span></td>
           
                                   <td></td>
           
-                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">0</h5></span></td>
+                                  <td class="valorLimiteSup"><span class="caloriasReqSel" id="calSeleccionadas"><h5 style="margin-bottom: 5px;">6</h5></span></td>
                                 </tr>
                                 <tr>
                                   <td class="valorLimiteInf"><span class="badge bg-label-info">Elegidas</span></td>
@@ -3018,7 +3024,7 @@
                             <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
                             <span class="align-middle d-sm-inline-block d-none">Anterior</span>
                           </button>
-                          <input type="button" class="btn btn-success btn-next" value="Guardar" onclick="">
+                          <input type="button" class="btn btn-success btn-next" value="Guardar" onclick="guardarAlimentosVegetarianos()">
                         </div>
                       </div>
                     </div>
@@ -3052,9 +3058,7 @@
       <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->
-    <script src="../../JS/enviroment.js"></script>
     <script src="../../JS/planNutricional.js"></script>
-    <script src="../../JS/alimentosVegetarianos.js"></script>
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     
@@ -3104,7 +3108,8 @@
             <!-- ============================================================== -->
             <!-- Google -->
             <!-- ============================================================== -->
-
+            <script src="../../JS/enviroment.js"></script>
+            <script src="../../JS/alimentosVegetarianos.js " type="text/javascript"></script>
 </body>
 
 </html>

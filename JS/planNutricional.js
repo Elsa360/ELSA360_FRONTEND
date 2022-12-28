@@ -1,5 +1,6 @@
 window.onload = async () => {
 
+    traerDatosdelUsuario();
     //Variables de Session
     //============================================================================
     let fechaActual = new Date().toLocaleDateString();
@@ -15,17 +16,34 @@ window.onload = async () => {
     cet(idperfil, fechaActual);
     ipm(pesoActual, pesoDeseado)
 };
+async function traerDatosdelUsuario(){
+    let idusuario = localStorage.getItem('login'); 
+    let url = apiServer + "perfil/usuario?idusuario="+idusuario+""
+    try {
+        await fetch(url)
+        .then(response => response.json())
+        .then(respuesta =>{
+            respuesta.forEach(elementos=>{
+                console.log(elementos);
+                localStorage.setItem('perfilamiento',elementos.idPerfilUsuario);
+                localStorage.setItem('pesoactual',elementos.peso);
+                localStorage.setItem('pesodeseado',elementos.pesoObjetivo);
+                localStorage.setItem('estatura',elementos.estatura);
+                localStorage.setItem('fechanacimiento',elementos.fechaNacimiento);
+                localStorage.setItem('sexo',elementos.sexo);
+                localStorage.setItem('tipodieta',elementos.fkTipoDieta);
+                localStorage.setItem('met',0);
+            });
+        });
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 
-
-
+// ====================================================================================
+// ====================================================================================
 function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, met) {
-    console.log("PA:", pesoActual);
-    console.log("E:", estatura);
-    console.log("PD:", pesoDeseado);
-    console.log("FN:", fechaNacimiento);
-    console.log("S:", genero);
-    console.log("MET:", met);
     try {
         //Requerimientos de calorias sin actividad fisica
         dataGET = get(fechaNacimiento, genero, pesoActual, pesoDeseado, estatura, met);
@@ -77,7 +95,7 @@ function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, m
     }
 
 }
-
+// ====================================================================================
 // ==========================================================================================================================
 // Calculos basico del usuario
 // ==========================================================================================================================
@@ -403,7 +421,7 @@ function getMomento(differenceWeight, get) {
 // ==========================================================================================================================
 
 function momento(momento) {
-    let idperfil = sessionStorage.getItem('perfil')
+    let idperfil = sessionStorage.getItem('perfilamiento')
     let fechaActual = new Date().toLocaleDateString("en-US")
     try {
         let getCompleto = getTotal;
@@ -428,7 +446,7 @@ function momento(momento) {
             console.log("");
         }
 
-        if(localStorage.getItem(tipodieta)==1){
+        if(parseInt(localStorage.getItem('tipodieta'))==1){
             location.href = "tables-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
         }else if(localStorage.getItem(tipodieta)==2){
             location.href = "tables-vegetarian-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";

@@ -40,11 +40,11 @@ async function desactivarCuenta(id) {
                     document.getElementById("pesoDeseadoUsuarioPageAccount").innerText = (elemento.pesoObjetivo) + " Kg"
                     document.getElementById("estaturaUsuarioPageAccount").innerText = (elemento.estatura) + " cm"
                     document.getElementById("nacimientoUsuarioPageAccount").innerText = (elemento.fechaNacimiento)
-                    document.getElementById("dietaUsuarioPageAccount").innerText = (elemento.fkTipoDieta)
-                    document.getElementById("cuerpoUsuarioPageAccount").innerText = (elemento.fkTipoCuerpo)
-                    document.getElementById("porqueUsuarioPageAccount").innerText = (elemento.fkPorque) 
-                    document.getElementById("nivelUsuarioPageAccount").innerText = (elemento.fkNivelDeportivo) 
-                    document.getElementById("escalaUsuarioPageAccount").innerText = (elemento.fkEscalaDeportiva) 
+                    document.getElementById("dietaUsuarioPageAccount").innerText = (elemento.tipo)
+                    document.getElementById("cuerpoUsuarioPageAccount").innerText = (elemento.cuerpo)
+                    document.getElementById("porqueUsuarioPageAccount").innerText = (elemento.porque) 
+                    document.getElementById("nivelUsuarioPageAccount").innerText = (elemento.nivelDeportivo) 
+                    document.getElementById("escalaUsuarioPageAccount").innerText = (elemento.escalaDeportiva) 
                 });
             });
 
