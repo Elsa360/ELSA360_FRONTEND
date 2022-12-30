@@ -208,8 +208,8 @@ async function soloEntrenar() {
 // <=======================================================>
 // <=======================================================>
 async function finalMembresia() {
-    let idperfil = localStorage.getItem('perfilamiento');
-    let url = apiServer + "membresia/finalmembresia?idperfil=" + idperfil + "";
+    let idusuario = localStorage.getItem('login');
+    let url = apiServer + "membresia/finalmembresia?idperfil=" + idusuario + "";
     try {
         var fechafinalmembresia;
         await fetch(url)
