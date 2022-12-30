@@ -531,7 +531,7 @@ async function resetPass() {
 
 
   try {
-    let userId = 1;
+    userId = localStorage.getItem('login');
     let newPassword = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirm-password").value;
     if (newPassword === confirmPassword) {
@@ -560,12 +560,10 @@ async function resetPass() {
 async function changePassword() {
   $("#spinnerGeneral").show();
   try {
-    let email = "lebab1990@gmail.com";
-    let passwordCurrent = document.getElementById("currentPassword").value;
-    let passwordNew = document.getElementById("newPassword").value;
+    userId = localStorage.getItem('login');
     let passwordConfirm = document.getElementById("confirmPassword").value;
     if (passwordNew === passwordConfirm) {
-      await fetch(apiServer + "usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
+      await fetch(apiServer + "retrievePassword?newContra=" + newPassword + "&userId=" + userId,
         {
           method: 'PUT',
           headers: {
