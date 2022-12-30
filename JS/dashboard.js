@@ -86,7 +86,6 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                     calculoSemanas(fecha_2[0], fecha_1[0], nivel, escala);
                     tests(fecha_2[0]);
                 } else {
-
                     console.log("No tiene objetivo deportivo")
                 }
             });

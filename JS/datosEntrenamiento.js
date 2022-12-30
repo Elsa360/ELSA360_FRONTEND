@@ -15,6 +15,7 @@ async function guardarDatosEntrenamiento() {
 
 
     $("#spinnerGeneral").show();
+    var server = getServer();
     let duracion = 0;
     let distancia = 0;
     let desnivel = 0;
