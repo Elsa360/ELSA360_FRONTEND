@@ -70,7 +70,7 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
                     document.getElementById("btnInicioEntreno").style = "display: none;";
 
-                   
+
                     let ultimo = buscarultimopeso(idperfil);
                     let hoy = new Date(Date.now()).toLocaleDateString();
                     let mesuno = validaractualizacionpeso(fecha_2[0], 28);
@@ -114,9 +114,7 @@ function proximoLunes() {
 // <=======================================================>
 // <=======================================================>
 async function crearObjetivoDeportivo() {
-    if(server==undefined){
         initServer();
-    }
     try {
         //Solo Entrenar
         let fechainicioentreno = document.getElementById("fechaInicioEntreno").value
@@ -221,7 +219,7 @@ async function finalMembresia() {
     //let url = apiServer + "membresia/finalmembresia?idperfil=" + idperfil + "";
     let idusuario = localStorage.getItem('idusuario');
     //let url = apiServer + "membresia/finalmembresia?idusuario=" + idusuario + "";
-    // NEED FIX IT 
+    // NEED FIX IT
     let url = apiServer + "membresia/finalmembresia?idperfil=" + idusuario + "";
     try {
         var fechafinalmembresia;
@@ -235,7 +233,7 @@ async function finalMembresia() {
                     fechafinalmembresia = fecha;
                 });
                 */
-                
+
                 localStorage.setItem("fechafinalmembresia",fechafinalmembresia);
                 return fechafinalmembresia
             });
