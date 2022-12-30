@@ -523,6 +523,13 @@ async function enviarEmailResetPassword() {
 async function resetPass() {
   console.log("Reset Password")
   $("#spinnerGeneral").show();
+
+  fetch(apiServer + "usuario/buscar?email=")
+
+
+
+
+
   try {
     let userId = 1;
     let newPassword = document.getElementById("password").value;
