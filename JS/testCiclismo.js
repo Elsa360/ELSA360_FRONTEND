@@ -1,4 +1,6 @@
 async function guardarDatosTest() {
+  $("#spinnerGeneral").show();
+  var server = getServer();
   let distancia = parseFloat(document.getElementById("DistanciaEntreno").value)
   let desnivel = parseFloat(document.getElementById("DesnivelEntreno").value)
   let fcmaxima = parseFloat(document.getElementById("ppmmaxima").value)
@@ -37,7 +39,7 @@ async function guardarDatosTest() {
         ifReal: ifr,
         npReal: np,
         trabajoReal: trabajo,
-        ippc: "00.00.00.00"
+        ippc: server.REMOTE_ADDR
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

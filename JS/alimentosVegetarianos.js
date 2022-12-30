@@ -1,4 +1,4 @@
-function caloriasSeleccionadasMomento() {
+async function caloriasSeleccionadasMomento() {
     const valores = window.location.search;
     const urlParams = new URLSearchParams(valores);
     const momento = urlParams.get('momento');
@@ -11,19 +11,21 @@ function caloriasSeleccionadasMomento() {
         // traerMinutaNutricional();
         let url = apiServer + "alimentoVegetarianoSeleccionado/caloriasSeleccionadas?momento=" + momento + "&perfil=" + perfil + "&fecha=" + fecha + ""
         console.log(url)
-        fetch(url)
+        await fetch(url)
             .then((response) => response.json())
             .then((calorias) => {
                 let totalCalorias = 0;
-                calorias.forEach(alimento => {
-                    let caloria = parseFloat((alimento.caloriasAlimento));
-                    let porciones = parseFloat(alimento.porciones);
-                    let totalCal = caloria * porciones;
-                    totalCalorias = totalCalorias + totalCal;
-                });
-                if (totalCalorias < getM) {
+                if (calorias.length != 0) {
+                    calorias.forEach(alimento => {
+                        let caloria = parseFloat((alimento.caloriasAlimento));
+                        let porciones = parseFloat(alimento.porciones);
+                        let totalCal = caloria * porciones;
+                        totalCalorias = totalCalorias + totalCal;
+                    });
+                } else if (totalCalorias < getM) {
                     traerAlimentosRegulares();
                 }
+
             });
     } catch (e) {
         console.log(e)

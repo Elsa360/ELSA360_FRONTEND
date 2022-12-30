@@ -47,6 +47,7 @@ window.onload = async () => {
 // <=======================================================>
 // <=======================================================>
 async function datosObjetivoDeportivo(idperfil, nivel, escala) {
+    console.log("Entro");
     try {
         let url = apiServer + "objetivoDeportivo/perfil?idPerfil=" + idperfil + ""
         var fechaIni;
@@ -57,15 +58,19 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                 console.log("ObjDep:", respuesta);
                 if (respuesta != 0) {
                     respuesta.forEach(elemento => {
+                        idObjeDeport = elemento.idObjetivoDeportivo;
                         fechaObj = elemento.fechaObjetivo;
                         fechaIni = elemento.fechaInicialEntren;
                     });
+                    localStorage.setItem('idObjDeport',idObjeDeport);
+
                     fecha_1 = fechaObj.split(" ")
                     fecha_2 = fechaIni.split(" ")
                     document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0];
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
                     document.getElementById("btnInicioEntreno").style = "display: none;";
 
+                   
                     let ultimo = buscarultimopeso(idperfil);
                     let hoy = new Date(Date.now()).toLocaleDateString();
                     let mesuno = validaractualizacionpeso(fecha_2[0], 28);

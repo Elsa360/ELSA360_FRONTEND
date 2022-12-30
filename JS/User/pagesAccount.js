@@ -1,4 +1,6 @@
-async function desactivarCuenta(id) {
+async function desactivarCuenta() {
+    $("#spinnerGeneral").show();
+    let id =parseInt(localStorage.getItem('login'));
     try {
         if (document.getElementById("accountActivation").checked === true) {
             let url = apiServer + "usuario/eliminar"
@@ -14,9 +16,17 @@ async function desactivarCuenta(id) {
                 .then((response) => response.json())
                 .then((resultado) => {
                     if (resultado === -1) {
-                        window.location.href = mainUrl + "index.html";
+                        $("#spinnerGeneral").hide();
+                        $("#modalGeneral #modalCenterTitle").html("Notificacion");
+                        $("#modalGeneral #modalMensaje").html("El usuario ha sido eliminado correctamente");
+                        $("#modalGeneral").modal("show");
+                        localStorage.clear();
+                        window.location.href = mainUrl + "inicio.html";
                     } else {
-                        console.log("Ah ocurrido algun error al eliminar el registro");
+                        $("#spinnerGeneral").hide();
+                        $("#modalGeneral #modalCenterTitle").html("Notificacion");
+                        $("#modalGeneral #modalMensaje").html("Ha ocurrido un error, vuelve a intentarlo");
+                        $("#modalGeneral").modal("show");
                     }
                 });
         }
@@ -45,6 +55,23 @@ async function desactivarCuenta(id) {
                     document.getElementById("porqueUsuarioPageAccount").innerText = (elemento.porque) 
                     document.getElementById("nivelUsuarioPageAccount").innerText = (elemento.nivelDeportivo) 
                     document.getElementById("escalaUsuarioPageAccount").innerText = (elemento.escalaDeportiva) 
+                    if(elemento.potenciometro == false){
+                        document.getElementById("potenciometro").checked = false;
+                    }
+                    if(elemento.pulsometro == false){
+                        document.getElementById("pulsometro").checked = false;
+                    }
+                    if(elemento.cadenciometro == false){
+                        document.getElementById("cadenciometro").checked = false;
+                    }
+                    if(elemento.velocimetro == false){
+                        document.getElementById("velocimetro").checked = false;
+                    }
+                    if((elemento.potenciometro == false)&&(elemento.pulsometro == false)&&(elemento.cadenciometro == false)&&(elemento.velocimetro == false)){
+                        document.getElementById("noTengo").checked = true;
+                    }else{
+                        document.getElementById("noTengo").checked = false;
+                    }
                 });
             });
 
