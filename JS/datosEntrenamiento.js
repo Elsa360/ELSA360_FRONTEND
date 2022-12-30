@@ -13,6 +13,7 @@ function hhmmss(h, m, s) {
 }
 async function guardarDatosEntrenamiento() {
     $("#spinnerGeneral").show();
+    var server = getServer();
     let duracion = 0;
     let distancia = 0;
     let desnivel = 0;
@@ -125,7 +126,7 @@ async function guardarDatosEntrenamiento() {
         velocidadZona4: vzona4.toFixed(3),
         velocidadZona5: vzona5.toFixed(3),
         velocidadZona6: vzona6.toFixed(3),
-        ipPc: "00.00.00.00"
+        ipPc: server.REMOTE_ADDR
     });
     try {
         await fetch(url, {
