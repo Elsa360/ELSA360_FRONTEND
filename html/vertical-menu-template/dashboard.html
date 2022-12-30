@@ -52,6 +52,7 @@
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
 
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="/JS/middleware.js"> validateLogin() </script>
   <script src="/JS/customTask.js"></script>
   <!-- <script src="../../JS/User/index.js"></script> -->
@@ -3130,9 +3131,6 @@
 
 
 
-            <div id="spinner"></div>
-
-
 
 
 
@@ -3226,8 +3224,8 @@
   <script>
     $(function () {
       $("#footer").load("footer.html");
-      $("#modal").load("modal.html");
-      $("#spinner").load("spinner.html");
+      //$("#modal").load("modal.html");
+      //$("#spinner").load("spinner.html");
     });
   </script>
 
@@ -3238,6 +3236,22 @@
 
 
 
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
+        <div id="spinner"></div>
+        <div id="modal"></div>
+
+
+        <script>
+        $(function () {
+          $("#spinner").load("spinner.html");
+          $("#modal").load("modal.html");
+        });
+        </script>
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
 
 
 

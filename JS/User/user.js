@@ -524,38 +524,44 @@ async function resetPass() {
   console.log("Reset Password")
   $("#spinnerGeneral").show();
 
-  fetch(apiServer + "usuario/buscar?email=")
+  
+  fetch(apiServer + "usuario/buscar?email="+getUrlParameter("emailUser"))
+  .then(response => response.json())
+  .then(result => {
+    console.log(result[0].idUsuario);
+    userId = result[0].idUsuario;
 
-
-
-
-
-  try {
-    userId = localStorage.getItem('login');
-    let newPassword = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
-    if (newPassword === confirmPassword) {
-      await fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        })
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-      $("#spinnerGeneral").hide();
-      $("#spinnerGeneral").hide();
-      $("#modalGeneral #modalCenterTitle").html("Gracias");
-      $("#modalGeneral #modalMensaje").html("Tu contraseña ha sido actualizada");
-      $("#modalGeneral").modal("show");
-      setTimeout(1000);
-      location.href = "auth-login-basic.html";
+    try {
+      //userId = localStorage.getItem('login');
+      let newPassword = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirm-password").value;
+      if (newPassword === confirmPassword) {
+         fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
+          {
+            method: 'PUT',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+          })
+          .then(response => response.json())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+        $("#spinnerGeneral").hide();
+        $("#spinnerGeneral").hide();
+        $("#modalGeneral #modalCenterTitle").html("Gracias");
+        $("#modalGeneral #modalMensaje").html("Tu contraseña ha sido actualizada");
+        $("#modalGeneral").modal("show");
+        setTimeout(1000);
+        location.href = "auth-login-basic.html";
+      }
+    } catch (e) {
+      console.log(e);
     }
-  } catch (e) {
-    console.log(e);
-  }
+  })
+  .catch(error => console.log('error', error));
+
+
+  
 }
 async function changePassword() {
   $("#spinnerGeneral").show();
@@ -579,7 +585,7 @@ async function changePassword() {
     console.log(e);
   }
 }
-
+  
 
 //Funcion Modales Dashboard
 async function saveSportsGoal() {

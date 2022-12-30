@@ -7,4 +7,13 @@ function validateLogin(){
         window.location.href = "auth-login-basic.html"
     }
 }
+
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
   validateLogin();
+
+  initServer();
+
+});
+ 

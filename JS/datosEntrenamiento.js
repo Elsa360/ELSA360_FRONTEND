@@ -12,6 +12,8 @@ function hhmmss(h, m, s) {
     }
 }
 async function guardarDatosEntrenamiento() {
+
+
     $("#spinnerGeneral").show();
     let duracion = 0;
     let distancia = 0;
@@ -125,7 +127,7 @@ async function guardarDatosEntrenamiento() {
         velocidadZona4: vzona4.toFixed(3),
         velocidadZona5: vzona5.toFixed(3),
         velocidadZona6: vzona6.toFixed(3),
-        ipPc: "00.00.00.00"
+        ipPc: server.REMOTE_ADDR
     });
     try {
         await fetch(url, {
@@ -139,6 +141,7 @@ async function guardarDatosEntrenamiento() {
             .then(response => response.json())
             .then(respuesta => {
                 console.log(respuesta);
+                location.href = "dashboard.html";
             });
 
     } catch (e) {

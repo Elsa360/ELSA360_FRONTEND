@@ -2,7 +2,7 @@ window.onload = async () => {
     let gastoDeportivo = 0;
     let fechaActual = new Date(Date.now()).toLocaleDateString();
     let membresia = localStorage.getItem('membresia')
-    if (membresia == "ACTIVA") {
+        if (membresia == "ACTIVA") {
         let usuario = localStorage.getItem('login')
         try {
             let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
@@ -114,7 +114,9 @@ function proximoLunes() {
 // <=======================================================>
 // <=======================================================>
 async function crearObjetivoDeportivo() {
-
+    if(server==undefined){
+        initServer();
+    }
     try {
         //Solo Entrenar
         let fechainicioentreno = document.getElementById("fechaInicioEntreno").value
@@ -145,7 +147,7 @@ async function crearObjetivoDeportivo() {
                 objetivo_3: obj2,
                 comentarios: cmntrs,
                 fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
-                ippc: "00.00.00.00"
+                ippc:server.REMOTE_ADDR
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -167,12 +169,17 @@ async function soloEntrenar() {
 
     let fechainicioentreno = proximoLunes();
     let nombredelobjetivo = "Solo entrenar"
-    let fechamembresia = finalMembresia();
+    var fechamembresia = await  finalMembresia();
+    if (fechamembresia==undefined){
+        fechamembresia=localStorage.fechafinalmembresia;
+        fechamembresia = fechamembresia.replace(" 12:00:00 a.m.","")
+    }
     fechamembresia = fechamembresia.split('/');
     let dia = fechamembresia[1];
     let mes = fechamembresia[0];
     let año = fechamembresia[2];
-    fechamembresia = mes + '/' + dia + '/' + año;
+    //fechamembresia = mes + '/' + dia + '/' + año;
+    fechamembresia = año + '/' + mes + '/' + dia;
     let lugar = "sin lugar";
     let obj1 = "sin objetivo";
     let obj2 = "sin objetivo";
@@ -193,7 +200,7 @@ async function soloEntrenar() {
             objetivo_3: obj3,
             comentarios: cmntrs,
             fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
-            ippc: "00.00.00.00"
+            ippc: server.REMOTE_ADDR
         }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -202,23 +209,34 @@ async function soloEntrenar() {
         .then((response) => response.json())
         .then((respuesta) => {
             console.log(respuesta);
+            location.href = "dashboard.html";
         });
-    location.href = "dashboard.html";
+    //
 }
 // <=======================================================>
 // <=======================================================>
 // <=======================================================>
 async function finalMembresia() {
-    let idperfil = localStorage.getItem('perfilamiento');
-    let url = apiServer + "membresia/finalmembresia?idperfil=" + idperfil + "";
+    //let idperfil = localStorage.getItem('perfilamiento');
+    //let url = apiServer + "membresia/finalmembresia?idperfil=" + idperfil + "";
+    let idusuario = localStorage.getItem('idusuario');
+    //let url = apiServer + "membresia/finalmembresia?idusuario=" + idusuario + "";
+    // NEED FIX IT 
+    let url = apiServer + "membresia/finalmembresia?idperfil=" + idusuario + "";
     try {
         var fechafinalmembresia;
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
+
+                fechafinalmembresia = respuesta[0].fechaFinal;
+                /*
                 respuesta.forEach(fecha => {
                     fechafinalmembresia = fecha;
                 });
+                */
+                
+                localStorage.setItem("fechafinalmembresia",fechafinalmembresia);
                 return fechafinalmembresia
             });
 
