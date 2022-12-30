@@ -2,7 +2,7 @@ window.onload = async () => {
     let gastoDeportivo = 0;
     let fechaActual = new Date(Date.now()).toLocaleDateString();
     let membresia = localStorage.getItem('membresia')
-        if (membresia == "ACTIVA") {
+    if (membresia == "ACTIVA") {
         let usuario = localStorage.getItem('login')
         try {
             let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
@@ -12,6 +12,7 @@ window.onload = async () => {
             fetch(url)
                 .then(response => response.json())
                 .then(respuesta => {
+                    console.log(respuesta);
                     respuesta.forEach(elemento => {
                         perfil = elemento.idPerfilUsuario
                         pesoActualPerfil = elemento.peso
@@ -21,6 +22,7 @@ window.onload = async () => {
                         estaturaPerfil = elemento.estatura
                         nivel = elemento.fkNivelDeportivo
                         escala = elemento.fkEscalaDeportiva
+                        registroPeso = elemento.fechaRegistro
                     });
                     localStorage.setItem('perfilamiento', perfil);
                     datosObjetivoDeportivo(perfil, nivel, escala);
@@ -28,7 +30,8 @@ window.onload = async () => {
                     resultados(parseInt(perfil), parseFloat(pesoActualPerfil));
                     requerimientoLiquidos(parseFloat(pesoActualPerfil));
                     get(nacimiento, genero, parseFloat(pesoActualPerfil), parseFloat(pesoObjetivoPerfil), parseFloat(estaturaPerfil), gastoDeportivo)
-                    cet(perfil, fechaActual)
+                    cet(perfil, fechaActual);
+                    buscarultimopeso(registroPeso.replace("12:00:00 a. m.",""))
 
                 });
         } catch (e) {
@@ -47,7 +50,6 @@ window.onload = async () => {
 // <=======================================================>
 // <=======================================================>
 async function datosObjetivoDeportivo(idperfil, nivel, escala) {
-    console.log("Entro");
     try {
         let url = apiServer + "objetivoDeportivo/perfil?idPerfil=" + idperfil + ""
         var fechaIni;
@@ -62,27 +64,15 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                         fechaObj = elemento.fechaObjetivo;
                         fechaIni = elemento.fechaInicialEntren;
                     });
-                    localStorage.setItem('idObjDeport',idObjeDeport);
+                    localStorage.setItem('idObjDeport', idObjeDeport);
 
                     fecha_1 = fechaObj.split(" ")
                     fecha_2 = fechaIni.split(" ")
                     document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0];
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
-                    document.getElementById("btnInicioEntreno").style = "display: none;";
+                    document.getElementById("btnInicioEntreno").style = "display: none;"
 
-
-                    let ultimo = buscarultimopeso(idperfil);
-                    let hoy = new Date(Date.now()).toLocaleDateString();
-                    let mesuno = validaractualizacionpeso(fecha_2[0], 28);
-                    let mesdos = validaractualizacionpeso(fecha_2[0], 56);
-                    let mestres = validaractualizacionpeso(fecha_2[0], 84);
-                    let mescuatro = validaractualizacionpeso(fecha_2[0], 112);
-                    let mescinco = validaractualizacionpeso(fecha_2[0], 140);
-                    let messeis = validaractualizacionpeso(fecha_2[0], 160);
-
-                    if ((ultimo == hoy) || (ultimo != mesuno) || (ultimo != mesdos) || (ultimo != mestres) || (ultimo != mescuatro) || (ultimo != mescinco) || (ultimo != messeis)) {
-                        document.getElementById("btnActualizarPeso").style = "display: none;";
-                    }
+                   
                     calculoSemanas(fecha_2[0], fecha_1[0], nivel, escala);
                     tests(fecha_2[0]);
                 } else {
@@ -113,7 +103,7 @@ function proximoLunes() {
 // <=======================================================>
 // <=======================================================>
 async function crearObjetivoDeportivo() {
-        initServer();
+    initServer();
     try {
         //Solo Entrenar
         let fechainicioentreno = document.getElementById("fechaInicioEntreno").value
@@ -144,7 +134,7 @@ async function crearObjetivoDeportivo() {
                 objetivo_3: obj2,
                 comentarios: cmntrs,
                 fkIdPerfilUsuarioObj: localStorage.getItem("perfilamiento"),
-                ippc:server.REMOTE_ADDR
+                ippc: server.REMOTE_ADDR
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -166,10 +156,10 @@ async function soloEntrenar() {
 
     let fechainicioentreno = proximoLunes();
     let nombredelobjetivo = "Solo entrenar"
-    var fechamembresia = await  finalMembresia();
-    if (fechamembresia==undefined){
-        fechamembresia=localStorage.fechafinalmembresia;
-        fechamembresia = fechamembresia.replace(" 12:00:00 a.m.","")
+    var fechamembresia = await finalMembresia();
+    if (fechamembresia == undefined) {
+        fechamembresia = localStorage.fechafinalmembresia;
+        fechamembresia = fechamembresia.replace(" 12:00:00 a.m.", "")
     }
     fechamembresia = fechamembresia.split('/');
     let dia = fechamembresia[1];
@@ -229,7 +219,7 @@ async function finalMembresia() {
                 });
                 */
 
-                localStorage.setItem("fechafinalmembresia",fechafinalmembresia);
+                localStorage.setItem("fechafinalmembresia", fechafinalmembresia);
                 return fechafinalmembresia
             });
 
@@ -453,7 +443,6 @@ function confirmarDisponibilidad() {
 function validaractualizacionpeso(fechaIncioEntreno, dias) {
     var fechafinalPeso;
     try {
-
         let date = fechaIncioEntreno.split("/");
         let year = parseInt(date[2]);
         let mouth = parseInt(date[1]);
@@ -524,21 +513,24 @@ async function actualizarpeso() {
         console.log("Actualizacion de peso: ", e);
     }
 }
-async function buscarultimopeso(idperfil) {
-    let url = apiServer + "perfil/ultimopeso?idusuario=" + idperfil + "";
-    var ultimafecha = "";
-    try {
-        await fetch(url)
-            .then(response => response.json())
-            .then(respuesta => {
-                console.log(respuesta);
-                respuesta.forEach(fecha => {
-                    ultimafecha = fecha;
-                });
-                return ultimafecha;
-            });
-    } catch (e) {
-
+async function buscarultimopeso(fecha) {
+    console.log(fecha);
+    let hoy = new Date(Date.now()).toLocaleDateString();
+    console.log(hoy);
+    let mesuno = validaractualizacionpeso(fecha, 28);
+    console.log(mesuno);
+    let mesdos = validaractualizacionpeso(fecha, 56);
+    console.log(mesdos);
+    let mestres = validaractualizacionpeso(fecha, 84);
+    console.log(mestres);
+    let mescuatro = validaractualizacionpeso(fecha, 112);
+    console.log(mescuatro);
+    let mescinco = validaractualizacionpeso(fecha, 140);
+    console.log(mescinco);
+    let messeis = validaractualizacionpeso(fecha, 168);
+    console.log(messeis);
+    if ((hoy == fecha) || (hoy != mesuno) || (hoy != mesdos) || (hoy != mestres) || (hoy != mescuatro) || (hoy != mescinco) || (hoy != messeis)) {
+        document.getElementById("btnActualizarPeso").style = "display: none;";
     }
 }
 
