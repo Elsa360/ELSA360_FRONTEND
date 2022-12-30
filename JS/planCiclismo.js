@@ -38,7 +38,7 @@ function minutos(m) {
 
 
 function startTrainingAndEndTraining(idPerfil) {
-    // SUMAR DIAS A UNA FECHA 
+    // SUMAR DIAS A UNA FECHA
     let url = "https://localhost:7155/objetivoDeportivo/objetivoDeportivo?idPerfil=" + idPerfil + "";
     let fi;
     let ff;
@@ -90,7 +90,7 @@ function fechaIncialEntrenamiento(idPerfil) {
             });
         });
 }
-data = fechaIncialEntrenamiento(1);
+data = fechaIncialEntrenamiento(localStorage.perfilamiento);
 // console.log("Data:", data);
 
 
@@ -234,14 +234,14 @@ function cyclingTrainingResult(idPerfilUser, evento) {
             let TSSRealAccumulatedMacro = 0;
             let tssRealTotal = 0;
 
-            let TSSRaisedPromWeek = 0;            
-            let TSSRaisedAccumulatedWeek = 0;           
-            let TSSRaisedPromMouth = 0;            
-            let TSSRaisedAccumulatedMouth = 0;      
-            let TSSRaisedPromMacro = 0;           
+            let TSSRaisedPromWeek = 0;
+            let TSSRaisedAccumulatedWeek = 0;
+            let TSSRaisedPromMouth = 0;
+            let TSSRaisedAccumulatedMouth = 0;
+            let TSSRaisedPromMacro = 0;
             let TSSRaisedAccumulatedMacro = 0;
             let tssRaisedTotal = 0;
-          
+
 
             let IFRealPromWeek = 0;
             let IFRealAccumulatedWeek = 0;
@@ -512,7 +512,7 @@ function cyclingTrainingResult(idPerfilUser, evento) {
                     dateRegisterTraining = new Date(dateRegisterTraining).getTime();
 
                     if (dateRegisterTraining <= (dateTraining + semanaMiliSeg)) {
-                        //Contadores 
+                        //Contadores
                         timeAccumulatedWeek = timeAccumulatedWeek + parseFloat(entrenamiento.duracionEntrenamiento);
                         distanceAccumulatedWeek = distanceAccumulatedWeek + parseFloat(entrenamiento.distanciaRecorrida);
                         elevationAccumulatedWeek = elevationAccumulatedWeek + parseFloat(entrenamiento.desnivelPositivoAcumu);
@@ -525,7 +525,7 @@ function cyclingTrainingResult(idPerfilUser, evento) {
                         speedPromWeek = speedPromWeek + parseFloat(entrenamiento.velocidadPromedio);
                         cadenceMaxWeek = cadenceMaxWeek + parseFloat(entrenamiento.cadenciaMax);
                         cadencePromWeek = cadencePromWeek + parseFloat(entrenamiento.cadenciaPromedio);
-                        
+
                         TSSRealPromWeek = TSSRealPromWeek + parseFloat(entrenamiento.tssReal);
                         TSSRaisedPromWeek = TSSRaisedPromWeek + parseFloat(entrenamiento.tssPromedio);
                         IFRealAccumulatedWeek = IFRealAccumulatedWeek + parseFloat(entrenamiento.ifReal);
