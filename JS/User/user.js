@@ -271,6 +271,7 @@ async function loginNoPass(idusuario, membresia, verificado) {
       localStorage.setItem('email', respuesta[0].email);
       localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
       localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      localStorage.setItem('avataruri', respuesta[0].avataruri);
 
 
       sessionStorage.setItem('membresia', respuesta[0].membresia);
@@ -278,6 +279,7 @@ async function loginNoPass(idusuario, membresia, verificado) {
       sessionStorage.setItem('email', respuesta[0].email);
       sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
       sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      sessionStorage.setItem('avataruri', respuesta[0].avataruri);
 
 
 

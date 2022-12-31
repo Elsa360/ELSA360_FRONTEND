@@ -1,14 +1,5 @@
 <?php session_start(); ?>
 <?php
-if (false) {
-echo "_SESSION<br />";
-print_r($_SESSION);
-echo "<hr />";
-echo "_REQUEST<br />";
-print_r($_REQUEST);
-}
-
-
 if (isset($_REQUEST["checkoutform"])) {
   if ($_REQUEST["checkoutform"]=="true") {
     if($_REQUEST["codigoDescuento"]!="elsa35"){

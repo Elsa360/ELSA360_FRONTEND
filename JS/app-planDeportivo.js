@@ -11,7 +11,8 @@ async function traerejercicios() {
         .then(respuesta => {
 
             console.log(respuesta[0]);
-
+            //-------------------------------------------
+            //CABECERA ----------------------------------
             let habilidadesTrabajar = document.createElement("div");
             habilidadesTrabajar.className = "d-flex align-items-center justify-content-between pb-1";
 
@@ -25,16 +26,16 @@ async function traerejercicios() {
             itemcabecera.style = "font-size: 15px;";
             itemcabecera.innerText = respuesta[0].habilidad;
             habilidadcabecera.appendChild(itemcabecera);
-           
+
 
             let imagen = document.createElement("img");
             imagen.style = "width: 10%;";
             imagen.srcset = "../../assets/img/icons/unicons/weight.png";
-       
-          
+
+
             habilidadesTrabajar.appendChild(habilidadcabecera);
             habilidadesTrabajar.appendChild(imagen);
-            
+
 
 
             //-------------------------------------------
@@ -69,7 +70,7 @@ async function traerejercicios() {
             tiempoTrabajar.appendChild(fecha)
 
             cabezeraprincipal = document.createElement("div")
-            cabezeraprincipal.className= "mb-2";
+            cabezeraprincipal.className = "mb-2";
 
             cabezeraprincipal.appendChild(habilidadesTrabajar);
             cabezeraprincipal.appendChild(tiempoTrabajar);
