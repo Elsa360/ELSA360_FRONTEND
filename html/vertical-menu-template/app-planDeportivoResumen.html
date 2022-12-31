@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 
-<html lang="es"  class="dark-style"  dir="ltr"  data-theme="theme-default"  
-  data-assets-path="../../assets/"  data-template="vertical-menu-template">
+<html lang="es" class="dark-style" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/"
+  data-template="vertical-menu-template">
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-      <meta charset="utf-8" />
-      <meta name="keywords" content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
-      <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
-      <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
-      <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
-      <meta name="robots" content="noindex">
-      <title> Plan deportivo avanzado - ELSA360</title>    
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
+<head>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="keywords"
+    content="ciclismo, entreno, entrenamiento, ciclismo de ruta, nutriciòn, plan nutricional, fortalecimiento físico, acondicionamiento físico, rendimiento deportivo">
+  <meta name="description" content="En ELSA encuentras tu entrenamiento de cilismo integral y personalizado">
+  <meta name="author" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="copyright" content="ELSA360 - E Learning Sports Academy | FND sas">
+  <meta name="robots" content="noindex">
+  <title> Plan deportivo avanzado - ELSA360</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/E-de-ELSA.ico" />
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../../assets/css/demo.css" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+  <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
+  <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="../../assets/css/demo.css" />
 
-    <!-- Page CSS -->
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
 
-    <!-- Helpers -->
-    <script src="../../assets/vendor/js/helpers.js"></script>
+  <!-- Page CSS -->
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="../../assets/vendor/js/template-customizer.js"></script>
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../assets/js/config.js"></script>
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <!-- Helpers -->
+  <script src="../../assets/vendor/js/helpers.js"></script>
 
-    <script src="../../JS/middleware.js">validateLogin()</script>
-    
-    <script>
-      $(function(){
-        $("#footer").load("footer.html"); 
-      });
-    </script>
-  </head>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+  <script src="../../assets/vendor/js/template-customizer.js"></script>
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="../../assets/js/config.js"></script>
+  <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="../../JS/enviroment.js"></script>
+  <!-- <script src="../../JS/middleware.js">validateLogin()</script> -->
 
-  <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
+  <script>
+    $(function () {
+      $("#footer").load("footer.html");
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
 
 
       <!-- Menu -->
@@ -712,7 +713,8 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar"  alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
+                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar" alt="user-avatar" class="rounded-circle"
+                      style="object-fit: cover" />
                   </div>
                 </a>
 
@@ -728,7 +730,8 @@
                         <!-- Avatar -->
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
+                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt="user-avatar"
+                              class="rounded-circle" style="object-fit: cover" />
                           </div>
                         </div>
 
@@ -834,7 +837,7 @@
             <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
           </div>
         </nav>
-        <!-- / Navbar -->   
+        <!-- / Navbar -->
 
 
 
@@ -853,59 +856,85 @@
 
 
 
-        
 
-          
 
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Plan de ciclismo </span></h4>
-              
-              
 
-              <div class="row">
-                <div class="col-md-3 col-lg-3 mb-4"></div>
-                <div class="col-md-6 col-lg-6 mb-4">
-                  <div class="mb-2">
-                    <div class="d-flex align-items-center justify-content-between pb-1">
-                      <h5 class="card-title mb-0" style="color: #cbcbe2;">Habilidades a trabajar: 
-                        <span class="text-success" style="font-size: 17px;" id="Habilidad1ATrabajar"></span> y 
-                        <span class="text-success" style="font-size: 17px;" id="Habilidad2ATrabajar"></span>
-                       </h5>  
-                      <img src="../../assets/img/icons/unicons/bike.png" alt="" style="width: 10%;">                        
-                    </div>
-    
-    
-                    <div class="d-flex align-items-center justify-content-between pt-1">
-                      <h6 class="card-title mb-1" style="color: #cbcbe2;">Tiempo total: <span class="text-success" style="font-size: 15px;" id="TiempoTotalATrabajar"></span> </h6>
-                      <h6 class="card-title mb-2" style="color: #cbcbe2;">Fecha: <span class="text-success" style="font-size: 15px;" id="FechaDeTrabajo"></span> </h6> 
-                    </div>
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-1 mb-1"><span class="text-muted fw-light">Plan de ciclismo </span></h4>
+
+
+
+            <div class="row">
+              <div class="col-md-3 col-lg-3 mb-4"></div>
+              <div class="col-md-6 col-lg-6 mb-4">
+                <div class="mb-2">
+                  <div class="d-flex align-items-center justify-content-between pb-1">
+                    <h5 class="card-title mb-0" style="color: #cbcbe2;">Habilidades a trabajar:
+                      <span class="text-success" style="font-size: 17px;" id="Habilidad1ATrabajar"></span>
+                      <span class="text-success" style="font-size: 17px;" id="Habilidad2ATrabajar"></span>
+                    </h5>
+                    <img src="../../assets/img/icons/unicons/bike.png" alt="" style="width: 10%;">
+                  </div>
+
+
+                  <div class="d-flex align-items-center justify-content-between pt-1">
+                    <h6 class="card-title mb-1" style="color: #cbcbe2;">Tiempo total: <span class="text-success"
+                        style="font-size: 15px;" id="TiempoTotalATrabajar"></span> </h6>
+                    <h6 class="card-title mb-2" style="color: #cbcbe2;">Fecha: <span class="text-success"
+                        style="font-size: 15px;" id="FechaDeTrabajo"></span></h6>
+                  </div>
                 </div>
 
 
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-12">                        
-                        <div class="card-body" style="padding-right: 15px; padding-left: 15px;">
-                          
-
-                          <p class="mb-2" style="color: #cbcbe2;">
-                            <i class='bx bx-caret-up text-warning'></i>
-                            Calienta <span class="text-success" style="font-size: 15px;"> 15 min</span> al <span class="text-success" style="font-size: 15px;"> 55% Int</span> <br><br>
-                          </p>  
+                <div class="card">
+                  <div class="d-flex align-items-end row">
+                    <div class="col-sm-12">
+                      <div class="card-body" style="padding-right: 15px; padding-left: 15px;">
 
 
-                          <div id="containerParrafo" class="mb-4"></div>
+                        <p class="mb-2" style="color: #cbcbe2;">
+                          <i class='bx bx-caret-up text-warning'></i>
+                          Calienta <span class="text-success" style="font-size: 15px;"> 15 min</span> al <span
+                            class="text-success" style="font-size: 15px;"> 55% Int</span> <br><br>
+                        </p>
 
 
 
 
 
 
-                          <!-- <p>
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+
+
+
+
+                        <div id="containerParrafo" class="mb-4">
+
+                        </div>
+
+
+
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+                        <!-- =================================================================================================== -->
+
+
+
+
+
+
+                        <!-- <p>
                           <i class='bx bxs-right-arrow text-success' style="font-size: 12px;"></i>
                             <span class="text-success" style="font-size: 15px;"> 2 Series</span> X <span class="text-success" style="font-size: 15px;"> 2 Reps</span> X 
                             <span class="text-success" style="font-size: 15px;"> 30 Seg </span> X <span class="text-success" style="font-size: 15px;"> 80% Int </span>
@@ -925,99 +954,107 @@
                           </p>   -->
 
 
-                          <p class="mb-5">  
-                            <i class='bx bx-caret-down text-info'></i>
-                            Vuelve a la calma con <span class="text-success" style="font-size: 15px;"> 10 min</span> X <span class="text-success" style="font-size: 15px;"> 55% Int</span>
-                          </p>
+                        <p class="mb-5">
+                          <i class='bx bx-caret-down text-info'></i>
+                          Vuelve a la calma con <span class="text-success" style="font-size: 15px;"> 10 min</span> X
+                          <span class="text-success" style="font-size: 15px;"> 55% Int</span>
+                        </p>
 
-                          <p style="margin-bottom: 5px; font-size: 13px;">
-                            <span class="text-success" style="font-size: 13px;"> Reps =</span> <small> Repeticiones &nbsp; / &nbsp; </small>
-                            <span class="text-success" style="font-size: 13px;"> Int =</span> <small> Intensidad  &nbsp; / &nbsp;   </small>
-                            <span class="text-success" style="font-size: 13px;"> min =</span> <small> Minutos &nbsp; / &nbsp;      </small>                        
-                            <span class="text-success" style="font-size: 13px;"> seg =</span> <small> Segundos </small>
-                          </p>
-  
-                          
-                          
-                          <a href="app-planDeportivo.html" class="btn btn-sm btn-label-success mt-3" style="margin-right: 10px;"> Versión detallada</a>
-                          <button type="button" onclick="print()" class="btn btn-sm btn-label-success mt-3" style="margin-right: 10px;"> Descargar PDF</button>
-                          <a href="train-cycling-data.html" class="btn btn-sm btn-success mt-3" style="margin-right: 10px;">Agregar datos de este entreno</a>
-                          
-                        </div>
+                        <p style="margin-bottom: 5px; font-size: 13px;">
+                          <span class="text-success" style="font-size: 13px;"> Reps =</span> <small> Repeticiones &nbsp;
+                            / &nbsp; </small>
+                          <span class="text-success" style="font-size: 13px;"> Int =</span> <small> Intensidad &nbsp; /
+                            &nbsp; </small>
+                          <span class="text-success" style="font-size: 13px;"> min =</span> <small> Minutos &nbsp; /
+                            &nbsp; </small>
+                          <span class="text-success" style="font-size: 13px;"> seg =</span> <small> Segundos </small>
+                        </p>
+
+
+
+                        <a href="app-planDeportivo.html" class="btn btn-sm btn-label-success mt-3"
+                          style="margin-right: 10px;"> Versión detallada</a>
+                        <button type="button" onclick="print()" class="btn btn-sm btn-label-success mt-3"
+                          style="margin-right: 10px;"> Descargar PDF</button>
+                        <a href="train-cycling-data.html" class="btn btn-sm btn-success mt-3"
+                          style="margin-right: 10px;">Agregar datos de este entreno</a>
+
                       </div>
-
-                      
                     </div>
+
+
                   </div>
                 </div>
-                <div class="col-md-3 col-lg-3 mb-4"></div>
               </div>
-
-              </div>              
+              <div class="col-md-3 col-lg-3 mb-4"></div>
             </div>
-            <!-- / Content -->
 
-            <!-- Footer -->
-            <footer id="footer"></footer>
-            <!-- / Footer -->
-
-            <div class="content-backdrop fade"></div>
           </div>
-          <!-- Content wrapper -->
         </div>
-        <!-- / Layout page -->
+        <!-- / Content -->
+
+        <!-- Footer -->
+        <footer id="footer"></footer>
+        <!-- / Footer -->
+
+        <div class="content-backdrop fade"></div>
       </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-
-      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-      <div class="drag-target"></div>
+      <!-- Content wrapper -->
     </div>
-    <!-- / Layout wrapper -->
+    <!-- / Layout page -->
+  </div>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../../assets/vendor/js/bootstrap.js"></script>
-    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
 
-    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
+  <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+  <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
 
-    <script src="../../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="../../assets/vendor/libs/popper/popper.js"></script>
+  <script src="../../assets/vendor/js/bootstrap.js"></script>
+  <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+  <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
+  <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
+  <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
 
-    <!-- Main JS -->
-    <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
 
-    <!-- Page JS -->
-    <script src="../../assets/js/cards-statistics.js"></script>
+  <!-- Vendors JS -->
+  <script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+  <!-- Main JS -->
+  <script src="../../assets/js/main.js"></script>
+
+  <!-- Page JS -->
+  <script src="../../assets/js/cards-statistics.js"></script>
 
 
-    <script src="../../JS/app-planDeportivoResumen.js"></script>
+  <script src="../../JS/app-planDeportivoResumen.js"></script>
 
 
 
 
 
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-            <!-- Google tag (gtag.js) -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-93DR8GES25');
-            </script>
-            <!-- ============================================================== -->
-            <!-- Google -->
-            <!-- ============================================================== -->
-  </body>
+  <!-- ============================================================== -->
+  <!-- Google -->
+  <!-- ============================================================== -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-93DR8GES25"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-93DR8GES25');
+  </script>
+  <!-- ============================================================== -->
+  <!-- Google -->
+  <!-- ============================================================== -->
+</body>
+
 </html>
