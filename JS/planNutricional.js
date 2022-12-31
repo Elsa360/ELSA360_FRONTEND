@@ -49,6 +49,7 @@ function datesUser(pesoActual, estatura, pesoDeseado, fechaNacimiento, genero, m
         dataGET = get(fechaNacimiento, genero, pesoActual, pesoDeseado, estatura, met);
         document.getElementById("calSinActFisc").innerHTML = dataGET[0] + " ";
         getTotal = dataGET[0];
+        localStorage.setItem('get',dataGET[0]);
 
         document.getElementById("getTotaldelDia").innerHTML = dataGET[0] + " ";
         document.getElementById("mensajeRS").innerHTML = dataGET[1];
@@ -421,12 +422,11 @@ function getMomento(differenceWeight, get) {
 // ==========================================================================================================================
 
 function momento(momento) {
-    let idperfil = sessionStorage.getItem('perfilamiento')
     let fechaActual = new Date().toLocaleDateString("en-US")
     try {
-        let getCompleto = getTotal;
+        let getCompleto = localStorage.getItem('get');
         let idMoment = momento;
-        let perfil = idperfil;
+        let perfil = localStorage.getItem('perfilamiento');
         let fecha = fechaActual;
         let getMomento;
 
@@ -448,7 +448,7 @@ function momento(momento) {
 
         if(parseInt(localStorage.getItem('tipodieta'))==1){
             location.href = "tables-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
-        }else if(localStorage.getItem(tipodieta)==2){
+        }else if(parseInt(localStorage.getItem('tipodieta'))==2){
             location.href = "tables-vegetarian-general-foods.html?momento=" + idMoment + "&perfil=" + perfil + "&fecha=" + fecha + "&getMomento=" + getMomento + "&getCompleto=" + getCompleto + "";
         }else{
             location.href = "app-planNutricional.html";

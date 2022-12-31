@@ -164,6 +164,57 @@ document.addEventListener('DOMContentLoaded', function (e) {
       fileInput.onchange = () => {
         if (fileInput.files[0]) {
           accountUserImage.src = window.URL.createObjectURL(fileInput.files[0]);
+
+
+
+
+        
+                var fd = new FormData();
+                var files = fileInput.files;
+                
+                // Check file selected or not
+                if(files.length > 0 ){
+                   fd.append('file',files[0]);
+        
+                   $.ajax({
+                      url: '/_avatar.php',
+                      type: 'post',
+                      data: fd,
+                      contentType: false,
+                      processData: false,
+                      success: function(response){
+                        console.log(response);
+                         if(response != 0){
+                            console.log("response");
+                            localStorage.setItem('avataruri', "/"+response);
+                            loadavatar();
+
+
+                            console.log('file  uploaded')
+                              var uri = apiServer + "usuario/setavataruri?idusuario=" + localStorage.idusuario+"&uri="+response;
+                              console.log(uri);
+                              fetch(uri)
+                              .then((response)=>response.json())
+                              .then((respuesta)=>console.log(respuesta))
+                         }else{
+                          console.log('file not uploaded');
+                         }
+                      },
+                   }).done(function() {
+                    console.log( "success" );
+                  })
+                  .fail(function() {
+                    console.log( "error" );
+                  })
+                 
+                }else{
+                  console.log("Please select a file.");
+                }
+
+
+                
+                console.log("Please.");
+                
         }
       };
       resetFileInput.onclick = () => {
@@ -191,16 +242,9 @@ $(function () {
 
 
 window.onload = async () => {
-  if (localStorage.avatar == undefined) {
-    
-  } else {
-    $("#uploadedAvatar").attr("src",localStorage.avatar)
-    $("#NavbarAvatar").attr("src",localStorage.avatar) 
-    $("#TooltipAvatar").attr("src",localStorage.avatar)  
-
-
-  }  
+  loadavatar();
 }
+
 
 
 

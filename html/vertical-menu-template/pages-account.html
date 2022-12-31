@@ -901,10 +901,10 @@
                             accept="image/png, image/jpeg" />
                         </label>
 
-                        <button type="button" class="btn btn-label-secondary account-image-reset mb-4">
+                        <!--<button type="button" class="btn btn-label-secondary account-image-reset mb-4">
                           <i class="bx bx-reset d-block d-sm-none"></i>
                           <span class="d-none d-sm-block">Cancelar cambio</span>
-                        </button>
+                        </button>-->
 
                         <p class="text-muted mb-0">Archivos en formato JPG, GIF o PNG. Tamaño Max: 800K</p>
                       </div>
@@ -1545,11 +1545,10 @@
 
                       <form id="" onsubmit="">
                         <div class="form-check form-check-warning mb-3">
-                          <input class="form-check-input" type="checkbox" name=""
-                            id="" />
+                          <input class="form-check-input" type="checkbox" name="confirmacancelar" id="confirmacancelar" />
                           <label class="form-check-label" for="">Confirmo que quiero cancelar mi membresía</label>
                         </div>
-                        <button type="submit" class="btn btn-warning deactivate-account">Cancelar membresía</button>
+                        <a  class="btn btn-warning deactivate-account" href="javascript:cancelarMembresia();">Cancelar membresía</a>
                       </form>
                     </div>
                   </div>
@@ -1680,6 +1679,24 @@
 
   <!-- Page JS -->
   <script src="../../assets/js/pages-account-settings-account.js"></script>
+
+
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
+        <div id="spinner"></div>
+        <div id="modal"></div>
+
+
+        <script>
+        $(function () {
+          $("#spinner").load("spinner.html");
+          $("#modal").load("modal.html");
+        });
+        </script>
+        <!-- ============================================================== -->
+        <!-- spinner modal -->
+        <!-- ============================================================== -->
 </body>
 
 </html>

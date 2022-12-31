@@ -32,45 +32,45 @@ async function registrarme() {
                     'Access-Control-Allow-Origin': 'https://*elsa360.com'
                   },
                 })
-                .then((response) => response.json())
-                .then(function (respuesta) {
-                  console.log("Respuesta:", respuesta)
-                  if (respuesta === 0) {
-                    let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
-                    console.log(url)
-                    fetch(url)
-                    .then(response => response.json())
-                    .then(respuesta => {
-                      respuesta.forEach(element => {
-                        let r2 = element;
-                        console.log(r2)
-                        if (r2 === 1) {
-                          $("#spinnerGeneral").hide();
-                          $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                          $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                          $("#modalGeneral").modal("show");
-                        } else {
-                          notificacion(bodyString);
-                          $("#spinnerGeneral").hide();
-                        }
-                      });
-                    });
-                  } else {
-                    console.log("Respuesta Exitosa");
-                    //si el registro tiene URI en la URL después del registro va a enviarlo a la URI
-                    if (getUrlParameter('uri') === false) {
-                      console.log("uri false");
-                      enviarEMail(emailUser.trim(), respuesta);
-                    }
-                    else {
-                      console.log("uri:" + getUriOnGet());
-                      location.href = getUriOnGet() + "&idUsuario=" + respuesta;
-                    }
+                  .then((response) => response.json())
+                  .then(function (respuesta) {
+                    console.log("Respuesta:", respuesta)
+                    if (respuesta === 0) {
+                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
+                      console.log(url)
+                      fetch(url)
+                        .then(response => response.json())
+                        .then(respuesta => {
+                          respuesta.forEach(element => {
+                            let r2 = element;
+                            console.log(r2)
+                            if (r2 === 1) {
+                              $("#spinnerGeneral").hide();
+                              $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                              $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                              $("#modalGeneral").modal("show");
+                            } else {
+                              notificacion(bodyString);
+                              $("#spinnerGeneral").hide();
+                            }
+                          });
+                        });
+                    } else {
+                      console.log("Respuesta Exitosa");
+                      //si el registro tiene URI en la URL después del registro va a enviarlo a la URI
+                      if (getUrlParameter('uri') === false) {
+                        console.log("uri false");
+                        enviarEMail(emailUser.trim(), respuesta);
+                      }
+                      else {
+                        console.log("uri:" + getUriOnGet());
+                        location.href = getUriOnGet() + "&idUsuario=" + respuesta;
+                      }
 
-                    //$("#spinnerGeneral").hide();
+                      //$("#spinnerGeneral").hide();
 
-                  }
-                })
+                    }
+                  })
 
               } catch (e) {
                 $("#spinnerGeneral").hide();
@@ -134,20 +134,20 @@ function enviarEMail(email, idUser) {
       'Access-Control-Allow-Origin': 'elsa360.com'
     }
   }).then(response => response.text())
-  .then(respuesta => {
-    console.log("==respuesta==");
-    console.log(respuesta);
-    console.log("==respuesta==");
-    if (respuesta == "TRUE") {
-      location.href = "/html/vertical-menu-template/auth-verify-email-basic-message.html?email=" + email.trim() + "&idUsuario=" + idUser;
-    } else {
-      notificacion("Error envio email de verificacion del usuario ", email)
-      $("#spinnerGeneral").hide();
-      $("#modalGeneral #modalCenterTitle").html("Error");
-      $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
-      $("#modalGeneral").modal("show");
-    }
-  })
+    .then(respuesta => {
+      console.log("==respuesta==");
+      console.log(respuesta);
+      console.log("==respuesta==");
+      if (respuesta == "TRUE") {
+        location.href = "/html/vertical-menu-template/auth-verify-email-basic-message.html?email=" + email.trim() + "&idUsuario=" + idUser;
+      } else {
+        notificacion("Error envio email de verificacion del usuario ", email)
+        $("#spinnerGeneral").hide();
+        $("#modalGeneral #modalCenterTitle").html("Error");
+        $("#modalGeneral #modalMensaje").html("Se nos rompio la cadena, intentalo de nuevo mas tarde");
+        $("#modalGeneral").modal("show");
+      }
+    })
 
 
 }
@@ -172,21 +172,21 @@ async function validarCuenta() {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      .then((response) => response.json())
-      .then((respuesta) => {
-        if (respuesta === 1) {
-          $("#spinnerGeneral").hide();
-          $("#modalGeneral #modalCenterTitle").html("Gracias");
-          $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
-          // $("#modalGeneral").modal("show");
-          loginNoPass(userId);
-        } else {
-          // $("#spinnerGeneral").hide();
-          // $("#modalGeneral #modalCenterTitle").html("Error");
-          // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
-          // $("#modalGeneral").modal("show");
-        }
-      });
+        .then((response) => response.json())
+        .then((respuesta) => {
+          if (respuesta === 1) {
+            $("#spinnerGeneral").hide();
+            $("#modalGeneral #modalCenterTitle").html("Gracias");
+            $("#modalGeneral #modalMensaje").html("Tu cuenta ha sido verificada");
+            // $("#modalGeneral").modal("show");
+            loginNoPass(userId);
+          } else {
+            // $("#spinnerGeneral").hide();
+            // $("#modalGeneral #modalCenterTitle").html("Error");
+            // $("#modalGeneral #modalMensaje").html("Tu cuenta no ha sido verificada");
+            // $("#modalGeneral").modal("show");
+          }
+        });
     } catch (e) {
       console.log(e);
     }
@@ -207,51 +207,51 @@ async function login() {
     // console.log(contraUser);
     // console.log(url);
     await fetch(url)
-    .then(response => response.json())
-    .then(respuesta => {
-      if (respuesta.length == 0) {
-        $("#spinnerGeneral").hide();
-        $("#modalGeneral #modalCenterTitle").html("Error");
-        $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
-        $("#modalGeneral").modal("show");
-      } else {
-        respuesta.forEach(idUser => {
-          let email = idUser.email;
-          let estado = idUser.estado;
-          let fechaActualizacion = idUser.fechaActualizacion;
-          let fechaEliminacion = idUser.fechaEliminacion;
-          let fechaRegistro = idUser.fechaRegistro;
-          let fkIdRol = idUser.fkIdRol;
-          let idUsuario = idUser.idUsuario;
-          let ipPc = idUser.ipPc;
-          let nombreUsuario = idUser.nombreUsuario;
-          let passwordUser = idUser.passwordUser;
-          let verificacion = idUser.verificacion;
-          //let membresia = idUser.verificacion;
-          idUsuario = idUser.idUsuario;
+      .then(response => response.json())
+      .then(respuesta => {
+        if (respuesta.length == 0) {
+          $("#spinnerGeneral").hide();
+          $("#modalGeneral #modalCenterTitle").html("Error");
+          $("#modalGeneral #modalMensaje").html("Usuario o contraseña incorrecta");
+          $("#modalGeneral").modal("show");
+        } else {
+          respuesta.forEach(idUser => {
+            let email = idUser.email;
+            let estado = idUser.estado;
+            let fechaActualizacion = idUser.fechaActualizacion;
+            let fechaEliminacion = idUser.fechaEliminacion;
+            let fechaRegistro = idUser.fechaRegistro;
+            let fkIdRol = idUser.fkIdRol;
+            let idUsuario = idUser.idUsuario;
+            let ipPc = idUser.ipPc;
+            let nombreUsuario = idUser.nombreUsuario;
+            let passwordUser = idUser.passwordUser;
+            let verificacion = idUser.verificacion;
+            //let membresia = idUser.verificacion;
+            idUsuario = idUser.idUsuario;
 
-          //----
+            //----
 
-          //let userLogin = idUser;
-          let idLogin = idUsuario;
+            //let userLogin = idUser;
+            let idLogin = idUsuario;
 
-          console.log("verificacion");
-          console.log(verificacion);
-          if (Boolean(verificacion) === true) {
-            $("#spinnerGeneral").hide();
-            console.log("Aqui");
-            localStorage.setItem('validarusuario', true);
-            console.log(localStorage);
-            loginNoPass(parseInt(idLogin))
-          } else {
-            enviarEMail(email, idUsuario);
-          }
-        });
-      }
-    })
-    .catch((error) => {
-      console.log('Error: ', error)
-    })
+            console.log("verificacion");
+            console.log(verificacion);
+            if (Boolean(verificacion) === true) {
+              $("#spinnerGeneral").hide();
+              console.log("Aqui");
+              localStorage.setItem('validarusuario', true);
+              console.log(localStorage);
+              loginNoPass(parseInt(idLogin))
+            } else {
+              enviarEMail(email, idUsuario);
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.log('Error: ', error)
+      })
   } catch (e) {
     console.log(e);
   }
@@ -263,42 +263,43 @@ async function loginNoPass(idusuario, membresia, verificado) {
   let url = apiServer + "usuario/loginnopass?usuario=" + idusuario
   console.log(url)
   await fetch(url)
-  .then(response => response.json())
-  .then(respuesta => {
-    console.log(respuesta[0]);
-    localStorage.setItem('membresia', respuesta[0].membresia);
-    localStorage.setItem('verificacion', respuesta[0].verificacion);
-    localStorage.setItem('email', respuesta[0].email);
-    localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
-    localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+    .then(response => response.json())
+    .then(respuesta => {
+      console.log(respuesta[0]);
+      localStorage.setItem('membresia', respuesta[0].membresia);
+      localStorage.setItem('verificacion', respuesta[0].verificacion);
+      localStorage.setItem('email', respuesta[0].email);
+      localStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      localStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      localStorage.setItem('avataruri', respuesta[0].avataruri);
 
 
-    sessionStorage.setItem('membresia', respuesta[0].membresia);
-    sessionStorage.setItem('verificacion', respuesta[0].verificacion);
-    sessionStorage.setItem('email', respuesta[0].email);
-    sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
-    sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      sessionStorage.setItem('membresia', respuesta[0].membresia);
+      sessionStorage.setItem('verificacion', respuesta[0].verificacion);
+      sessionStorage.setItem('email', respuesta[0].email);
+      sessionStorage.setItem('nombreUsuario', respuesta[0].nombreUsuario);
+      sessionStorage.setItem('perfilamiento', respuesta[0].perfilamiento);
+      sessionStorage.setItem('avataruri', respuesta[0].avataruri);
 
 
 
-    if(window.location.hostname!="127.0.0.1"){
-      console.log("127.0.0.1");
-      uri = mainUrl + "_sesion.php?action=login&membresia=" + respuesta[0].membresia + "&verificado=" + respuesta[0].verificacion + "&idUsuario=" + idusuario;
-      console.log("php sesion");
-      console.log(uri);
-      fetch(uri)
-      .then(response => response.json())
-      .then(respuesta => {
-        console.log(respuesta) ;
+      if (window.location.hostname != "127.0.0.1") {
+        console.log("127.0.0.1");
+        uri = mainUrl + "_sesion.php?action=login&membresia=" + respuesta[0].membresia + "&verificado=" + respuesta[0].verificacion + "&idUsuario=" + idusuario;
+        console.log("php sesion");
+        console.log(uri);
+        fetch(uri)
+          .then(response => response.json())
+          .then(respuesta => {
+            console.log(respuesta);
+            redirectuser();
+          });
+      }
+      else {
         redirectuser();
-      });
-    }
-    else
-    {
-      redirectuser();
-    }
+      }
 
-  });
+    });
 
   localStorage.setItem('login', idusuario);
   localStorage.setItem('idusuario', idusuario);
@@ -309,7 +310,7 @@ async function loginNoPass(idusuario, membresia, verificado) {
 }
 
 
-function redirectuser(){
+function redirectuser() {
 
   console.log(localStorage.verificacion);
   console.log(localStorage.perfilamiento);
@@ -337,11 +338,11 @@ async function verificarUsuario(email, nombreUsuario) {
   try {
     let url = apiServer + "email/verificacion?userEmail=" + email + "";
     await fetch(url)
-    .then(response => response.json())
-    .then(respuesta => {
-      setTimeout(10);
-      location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
-    })
+      .then(response => response.json())
+      .then(respuesta => {
+        setTimeout(10);
+        location.href = "auth-verify-email-basic-message.html?usuario=" + nombreUsuario.toString() + "";
+      })
   } catch (e) {
 
   }
@@ -352,18 +353,18 @@ async function buscarPerfil() {
   try {
     let url = apiServer + "perfil/usuario?idusuario=" + usuario + ""
     fetch(url)
-    .then(response => response.json())
-    .then(respuesta => {
-      respuesta.forEach(perfil => {
-        if (perfil.idPerfilUsuario > 0) {
-          sessionStorage.setItem('perfil', perfil.idPerfilUsuario);
-          location.href = "dashboard.html";
-        }
-        else{
-          $("#spinnerGeneral").hide();
-        }
+      .then(response => response.json())
+      .then(respuesta => {
+        respuesta.forEach(perfil => {
+          if (perfil.idPerfilUsuario > 0) {
+            sessionStorage.setItem('perfil', perfil.idPerfilUsuario);
+            location.href = "dashboard.html";
+          }
+          else {
+            $("#spinnerGeneral").hide();
+          }
+        });
       });
-    });
   } catch (e) {
     console.log("Buscar_Perfil ", e)
   }
@@ -428,51 +429,51 @@ async function perfilar() {
   localStorage.setItem("nivelDeportivo", nivel);
   localStorage.setItem("escalaDeportiva", escala);
 
-  localStorage.setItem("sexo",sexo);
-  localStorage.setItem("statura",estatura);
-  localStorage.setItem("tipoDieta",tipoDieta);
-  localStorage.setItem("tipoCuerpo",tipoCuerpo);
-  localStorage.setItem("nivel",nivel);
-  localStorage.setItem("escala",escala);
-  localStorage.setItem("potenciometro",potenciometro);
-  localStorage.setItem("pulsometro",pulsometro);
-  localStorage.setItem("velocimetro",velocimetro);
-  localStorage.setItem("cadenciometro",cadenciometro);
-  localStorage.setItem("porque",porque);
+  localStorage.setItem("sexo", sexo);
+  localStorage.setItem("statura", estatura);
+  localStorage.setItem("tipoDieta", tipoDieta);
+  localStorage.setItem("tipoCuerpo", tipoCuerpo);
+  localStorage.setItem("nivel", nivel);
+  localStorage.setItem("escala", escala);
+  localStorage.setItem("potenciometro", potenciometro);
+  localStorage.setItem("pulsometro", pulsometro);
+  localStorage.setItem("velocimetro", velocimetro);
+  localStorage.setItem("cadenciometro", cadenciometro);
+  localStorage.setItem("porque", porque);
 
 
   location.href = "free-data.html";
 }
 
-function limpiarperfil(){
+function limpiarperfil() {
 
-    localStorage.getItem("perfil", "");
-    localStorage.setItem("sexoUser", "");
-    localStorage.setItem("fechaNacimiento", "");
-    localStorage.setItem("estatura", "");
-    localStorage.setItem("cuerpo", "");
-    localStorage.setItem("dieta", "");
-    localStorage.setItem("pesoActual", "");
-    localStorage.setItem("pesoDeseado", "");
-    localStorage.setItem("porqueHace", "");
-    localStorage.setItem("nivelDeportivo", "");
-    localStorage.setItem("escalaDeportiva", "");
-    localStorage.setItem("sexo","");
-    localStorage.setItem("estatura","");
-    localStorage.setItem("tipoDieta","");
-    localStorage.setItem("tipoCuerpo","");
-    localStorage.setItem("nivel","");
-    localStorage.setItem("escala","");
-    localStorage.setItem("potenciometro","");
-    localStorage.setItem("pulsometro","");
-    localStorage.setItem("velocimetro","");
-    localStorage.setItem("cadenciometro","");
-    localStorage.setItem("porque","");
+  localStorage.getItem("perfil", "");
+  localStorage.setItem("sexoUser", "");
+  localStorage.setItem("fechaNacimiento", "");
+  localStorage.setItem("estatura", "");
+  localStorage.setItem("cuerpo", "");
+  localStorage.setItem("dieta", "");
+  localStorage.setItem("pesoActual", "");
+  localStorage.setItem("pesoDeseado", "");
+  localStorage.setItem("porqueHace", "");
+  localStorage.setItem("nivelDeportivo", "");
+  localStorage.setItem("escalaDeportiva", "");
+  localStorage.setItem("sexo", "");
+  localStorage.setItem("estatura", "");
+  localStorage.setItem("tipoDieta", "");
+  localStorage.setItem("tipoCuerpo", "");
+  localStorage.setItem("nivel", "");
+  localStorage.setItem("escala", "");
+  localStorage.setItem("potenciometro", "");
+  localStorage.setItem("pulsometro", "");
+  localStorage.setItem("velocimetro", "");
+  localStorage.setItem("cadenciometro", "");
+  localStorage.setItem("porque", "");
 }
 
-function guardarPerilUsuario(){
+function guardarPerilUsuario() {
   let url = apiServer + "perfil/crear";
-   fetch(url, {
+  fetch(url, {
     method: 'POST',
     body: JSON.stringify({
       sexo: localStorage.sexo,
@@ -496,14 +497,14 @@ function guardarPerilUsuario(){
       'Content-type': 'application/json; charset=UTF-8',
     },
   })
-  .then((response) => response.json())
-  .then((respuesta) => {
-    console.log(respuesta);
-    localStorage.getItem("perfil", respuesta);
-    loginNoPass(localStorage.idusuario);
-    //location.href = "dashboard.html";
-    //console.log(respuesta);
-  });
+    .then((response) => response.json())
+    .then((respuesta) => {
+      console.log(respuesta);
+      localStorage.getItem("perfil", respuesta);
+      loginNoPass(localStorage.idusuario);
+      //location.href = "dashboard.html";
+      //console.log(respuesta);
+    });
 }
 
 
@@ -524,58 +525,69 @@ async function enviarEmailResetPassword() {
 async function resetPass() {
   console.log("Reset Password")
   $("#spinnerGeneral").show();
-  try {
-    let userId = 1;
-    let newPassword = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
-    if (newPassword === confirmPassword) {
-      await fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      .then(response => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-      $("#spinnerGeneral").hide();
-      $("#spinnerGeneral").hide();
-      $("#modalGeneral #modalCenterTitle").html("Gracias");
-      $("#modalGeneral #modalMensaje").html("Tu contraseña ha sido actualizada");
-      $("#modalGeneral").modal("show");
-      setTimeout(1000);
-      location.href = "auth-login-basic.html";
+
+  
+  fetch(apiServer + "usuario/buscar?email="+getUrlParameter("emailUser"))
+  .then(response => response.json())
+  .then(result => {
+    console.log(result[0].idUsuario);
+    userId = result[0].idUsuario;
+
+    try {
+      //userId = localStorage.getItem('login');
+      let newPassword = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirm-password").value;
+      if (newPassword === confirmPassword) {
+         fetch(apiServer + "usuario/retrievePassword?newContra=" + newPassword + "&userId=" + userId,
+          {
+            method: 'PUT',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+          })
+          .then(response => response.json())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+        $("#spinnerGeneral").hide();
+        $("#spinnerGeneral").hide();
+        $("#modalGeneral #modalCenterTitle").html("Gracias");
+        $("#modalGeneral #modalMensaje").html("Tu contraseña ha sido actualizada");
+        $("#modalGeneral").modal("show");
+        setTimeout(1000);
+        location.href = "auth-login-basic.html";
+      }
+    } catch (e) {
+      console.log(e);
     }
-  } catch (e) {
-    console.log(e);
-  }
+  })
+  .catch(error => console.log('error', error));
+
+
+  
 }
 async function changePassword() {
   $("#spinnerGeneral").show();
   try {
-    let email = "lebab1990@gmail.com";
-    let passwordCurrent = document.getElementById("currentPassword").value;
-    let passwordNew = document.getElementById("newPassword").value;
+    userId = localStorage.getItem('login');
     let passwordConfirm = document.getElementById("confirmPassword").value;
     if (passwordNew === passwordConfirm) {
-      await fetch(apiServer + "usuario/changePassword?email=" + email + "&contraActual=" + passwordCurrent + "&newContra=" + passwordNew + "",
-      {
-        method: 'PUT',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      .then(response => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      await fetch(apiServer + "retrievePassword?newContra=" + newPassword + "&userId=" + userId,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
       $("#spinnerGeneral").hide();
     }
   } catch (e) {
     console.log(e);
   }
 }
-
+  
 
 //Funcion Modales Dashboard
 async function saveSportsGoal() {
