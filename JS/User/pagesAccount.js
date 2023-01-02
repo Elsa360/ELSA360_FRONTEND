@@ -1,3 +1,30 @@
+async function cancelarMembresia(){
+    
+  $("#spinnerGeneral").show();
+
+    if($("#confirmacancelar").is(':checked')){
+        uri = apiServer + "membresia/cancelar?idusuario="+localStorage.idusuario;
+        try {
+            fetch(uri)
+            .then((response) => response.json())
+            .then((respuesta) => {
+                console.log(respuesta);
+                logout();
+            })
+        } catch (e) {
+            console.log("Error: " + e);
+        }
+    }
+    else{
+  $("#spinnerGeneral").hide();
+  $("#modalGeneral #modalCenterTitle").html("Confirmación");
+  $("#modalGeneral #modalMensaje").html("por favor confirma que deseas cancelar tu subscripción");
+  $("#modalGeneral").modal("show");
+
+
+    }
+   
+}
 async function desactivarCuenta() {
     $("#spinnerGeneral").show();
     let id =parseInt(localStorage.getItem('login'));

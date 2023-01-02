@@ -1,98 +1,48 @@
 <?php
 session_start();
 $target_dir = "uploads/avatar/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+if(isset($_FILES['file']['name'])){
 
+   /* Getting file name */
+   $filename = $_FILES['file']['name'];
 
+   /* Location */
+   $location = $target_dir.$filename;
+   $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
+   $imageFileType = strtolower($imageFileType);
 
-echo "<hr />";
-print_r($_FILES);
+   $location = $target_dir.$_SESSION["idUsuario"].".".$imageFileType;
 
-echo "<hr />";
-print_r($_FILES["fileToUpload"]);
+   /* Valid extensions */
+   $valid_extensions = array("jpg","jpeg","png");
 
-echo "<hr />";
-print_r($_FILE["fileToUpload"]);
+   $response = 0;
+   /* Check file extension */
+   if(in_array(strtolower($imageFileType), $valid_extensions)) {
+      /* Upload file */
+      if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
+         $response = $location;
+      } else {
+      echo "-->NO";
+      echo "<hr />".$_FILES['file']['tmp_name'];
+      echo "<hr />".$location;
+      }
 
-echo "<hr />";
-print_r($_REQUEST);
-echo "<hr />";
-print_r($imageFileType);
-echo "<hr />";
-print_r($_FILES);
-echo "<hr />";
-print_r($target_dir);
-echo "<hr />";
-print_r($target_file );
-echo "<hr />";
+      
+   }
 
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    $msg = "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    $msg = "File is not an image.";
-    $uploadOk = 0;
-  }
+   echo $response;
+  exit;
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
-  $msg = "Sorry, file already exists.";
-  $uploadOk = 0;
+echo 0;
+
+
+if (!isset($_FILES['file'])) {
+  ?>
+  <form action="_avatar.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" />
+    <input type="submit" />
+  </form>
+  <?php
 }
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-  $msg = "Sorry, your file is too large.";
-  $uploadOk = 0;
-}
-
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  $msg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-  $uploadOk = 0;
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  $msg .= "<br />Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-  $finalfile = $target_dir.$_SESSION["idUsuario"].".".$imageFileType;
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $finalfile)) {
-    $msg = "The file ". $finalfile. " has been uploaded.";
-  } else {
-    $msg = "Sorry, there was an error uploading your file.";
-    echo $finalfile;
-  }
-}
-?>
-<!DOCTYPE html>
-<html>
-<body>
-  por favor espere....
-  <br />
-  <?php echo $msg ?>
-  <script>
-    sessionStorage.setItem("uploadmessage","<?php echo $msg; ?>");
-    localStorage.setItem("avatar","<?php echo $finalfile; ?>");
-    //location.href = "/html/vertical-menu-template/pages-account.html";
-
-  </script>
-
-
-<form action="_avatar.php" method="post" enctype="multipart/form-data">
-  Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
-
-
-</body>
-</html>
