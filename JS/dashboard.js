@@ -25,6 +25,7 @@ window.onload = async () => {
                         registroPeso = elemento.fechaRegistro
                     });
                     localStorage.setItem('perfilamiento', perfil);
+                    localStorage.setItem('nivel', nivel);
                     datosObjetivoDeportivo(perfil, nivel, escala);
                     disponibilidad(perfil);
                     resultados(parseInt(perfil), parseFloat(pesoActualPerfil));
@@ -238,6 +239,8 @@ async function finalMembresia() {
 // <=======================================================>
 // <=======================================================>
 async function disponibilidad(idperfil) {
+    let fechaLunes = proximoLunes();
+    console.log("Proximo lunes:",fechaLunes);
     try {
         let url = apiServer + "disponibilidad/perfil?idPerfil=" + idperfil + ""
         let thrsemanal;
@@ -269,7 +272,6 @@ async function disponibilidad(idperfil) {
                     document.getElementById("hrSemanalDashboard").innerText = thrsemanal
                     document.getElementById("btndisponibilidadsemanal").style = "display: none;"
                 } else {
-
                     console.log("No tiene disponibilidad semanal")
                 }
             });
@@ -560,7 +562,7 @@ async function resultados(idperfil, pesoActual) {
             .then(response => response.json())
             .then(respuesta => {
                 sesiones = respuesta.length;
-                console.log(sesiones);
+                console.log("Sesiones:",sesiones);
                 if (sesiones > 0) {
                     respuesta.forEach(elemento => {
                         duracionTotal = duracionTotal + elemento.duracionEntrenamiento;
@@ -902,6 +904,7 @@ async function mesosciclos(nivel, escala, semanasTotales) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
+                console.log(respuesta);
                 respuesta.forEach(elemento => {
                     if (elemento.mesociclo == "preparacion") {
                         preparacion = preparacion + 1;
