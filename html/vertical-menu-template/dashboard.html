@@ -51,7 +51,8 @@
   <script src="../../assets/vendor/js/template-customizer.js"></script>
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="../../assets/js/config.js"></script>
-
+  <script src="../../JS/enviroment.js"></script>
+  <script src="../../JS/customTask.js"></script>
   <script src="../../JS/middleware.js"> validateLogin() </script>
 
 
@@ -894,7 +895,7 @@
                   data-bs-target="#InicioEntrenoModal" id="btnInicioEntreno">Inicio de entreno</button>
 
                 <button type="button" class="btn btn-success fw-bolder" style="margin-right: 15px; " data-bs-toggle="modal"
-                  data-bs-target="#controlPeso">Actualizar peso</button>
+                  data-bs-target="#controlPeso" id="btnActualizarPeso">Actualizar peso</button>
 
                 <div id="modal"></div>
 
@@ -2829,7 +2830,7 @@
 
                       <div class="col-md-8 fechasCompetencias">
 
-                        <button type="button" class="btn btn-success me-sm-3 me-1 mt-3 btn-reset mt-3" id="btnActualizarPeso"
+                        <button type="button" class="btn btn-success me-sm-3 me-1 mt-3 btn-reset mt-3"
                           data-bs-dismiss="modal" aria-label="Close" style="width: 100%;" onclick="actualizarpeso()">
                           Actualizar peso
                         </button>
@@ -3131,7 +3132,7 @@
     </div>
   </div>
   <!-- / Layout wrapper -->
-  <script src="../../JS/enviroment.js"></script>
+
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
@@ -3159,7 +3160,7 @@
   <script src="../../JS/calculosPsicologia.js"></script>
   <script src="../../JS/User/perfil.js"></script>
   <!-- <script src="../../JS/User/user.js"></script> -->
-  <script src="../../JS/dashboardGraficos.js"></script>
+  <!-- <script src="../../JS/dashboardGraficos.js"></script> -->
   
   <script>
       (function () {
@@ -3222,7 +3223,7 @@
   <!-- ============================================================== -->
   <!-- Google -->
   <!-- ============================================================== -->
-<script src="../../JS/customTask.js"></script>
+
   <script src="../../JS/dashboard.js"></script>
 </body>
 

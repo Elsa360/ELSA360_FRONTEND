@@ -254,6 +254,7 @@ function tiempoDisponibleDia() {
                     td.push(d.sabado);
                     td.push(d.domingo);
                 });
+                console.log(td);
                 if (td[fechaActual + 1] > 0) {
                     traerejercicios("Resistencia", parseInt(localStorage.getItem('nivel')), (td[fechaActual + 1] * 60));
                 } else {
