@@ -251,11 +251,12 @@ async function disponibilidad(idperfil) {
         let thviernes;
         let thsabado;
         let thdomingo;
+        let tdias;
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
                 if (respuesta != 0) {
-                    console.log("DS:", respuesta.length);
+                    console.log("DS:", respuesta);
                     respuesta.forEach(elemento => {
                         thrsemanal = elemento.totalHorasSemana;
                         thlunes = elemento.lunes;
@@ -265,9 +266,11 @@ async function disponibilidad(idperfil) {
                         thviernes = elemento.viernes;
                         thsabado = elemento.sabado;
                         thdomingo = elemento.domingo;
+                        tdias = elemento.totalDiasSemana;
                     });
                     // console.log(thrsemanal);
                     dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
+                    localStorage.setItem('dias',tdias);
                     graficosHorasDiarias(dataHrsDias)
                     document.getElementById("hrSemanalDashboard").innerText = thrsemanal
                     document.getElementById("btndisponibilidadsemanal").style = "display: none;"
@@ -562,6 +565,7 @@ async function resultados(idperfil, pesoActual) {
             .then(response => response.json())
             .then(respuesta => {
                 sesiones = respuesta.length;
+                localStorage.setItem('sesion',(parseInt(sesiones)+2));
                 console.log("Sesiones:",sesiones);
                 if (sesiones > 0) {
                     respuesta.forEach(elemento => {
@@ -692,6 +696,7 @@ function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport, nivel, escala) {
         dias = (diff / (1000 * 60 * 60 * 24));
         let semanas = (dias / 7).toFixed(0);
         document.getElementById("semanasDashboard").innerText = semanas + " semanas";
+        localStorage.setItem('semanas',semanas);
         mesosciclos(nivel, escala, semanas);
     } catch (e) {
         console.log(e);

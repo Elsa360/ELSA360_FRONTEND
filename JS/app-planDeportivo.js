@@ -237,10 +237,9 @@ async function traerejercicios(habilidad, niveldeportivo, tiempototal) {
 }
 function tiempoDisponibleDia() {
     let fechaActual = new Date(Date.now());
-    fechaActual = fechaActual.getDay();
+    diasemana = fechaActual.getDay();
     var td = [];
-    // let url = apiServer + "disponibilidad/perfil?idPerfil=" + localStorage.getItem('perfilamiento') + "";
-    let url = apiServer + "disponibilidad/perfil?idPerfil=69";
+    let url = apiServer + "disponibilidad/perfil?idPerfil=" + localStorage.getItem('perfilamiento') + "";
     try {
         fetch(url)
             .then(response => response.json())
@@ -255,8 +254,10 @@ function tiempoDisponibleDia() {
                     td.push(d.domingo);
                 });
                 console.log(td);
-                if (td[fechaActual + 1] > 0) {
-                    traerejercicios("Resistencia", parseInt(localStorage.getItem('nivel')), (td[fechaActual + 1] * 60));
+                if (td[diasemana + 1] > 0) {
+                    let tiempodeldia = td[diasemana + 1] * 60;
+                    console.log("TiEmPo:",tiempodeldia);
+                    minutaDiaria(tiempodeldia);
                 } else {
                    
                     const linkTR = document.createElement('a');
@@ -290,9 +291,35 @@ function tiempoDisponibleDia() {
     }
 
 }
-function minutaDiaria(){
+function minutaDiaria(tiempo){
     try {
-        let url = apiServer + "";
+        let url = apiServer + "minutaDiariaCiclismo/dia?nivel="+parseInt(localStorage.getItem('nivel'))+"&semanasTotales="+parseInt(localStorage.getItem('semanas'))+"&diasDisponiblesSemana="+parseInt(localStorage.getItem('dias'))+"&numeroSesion="+parseInt(localStorage.getItem('sesion'))+"";
+        console.log(url);
+        fetch(url)
+        .then(response => response.json())
+        .then(respuesta => {
+            respuesta.forEach(elemento=>{
+                if(elemento.prcntjPotencia>0){
+                    localStorage.setItem('habilidad','Potencia')
+                }
+                if(elemento.prcntjFuerza>0){
+                    localStorage.setItem('habilidad','Fuerza')
+                }
+                if(elemento.prcntjFortalecimiento>0){
+                    localStorage.setItem('habilidad','Fortalecimiento')
+                }
+                if(elemento.prcntjVelocidad>0){
+                    localStorage.setItem('habilidad','Velocidad')
+                }
+                if(elemento.prcntjAgilidad>0){
+                    localStorage.setItem('habilidad','Agilidad')
+                }
+                if(elemento.prcntjResist>0){
+                    localStorage.setItem('habilidad','Resistencia')
+                }
+            });
+            traerejercicios(localStorage.getItem('habilidad'),parseInt(localStorage.getItem('nivel')),tiempo);
+        });
         
     } catch (e) {
         notificacion("Function minutaDiaria - app-planDeportivo.js / Error: "+e)
