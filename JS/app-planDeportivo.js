@@ -258,7 +258,30 @@ function tiempoDisponibleDia() {
                 if (td[fechaActual + 1] > 0) {
                     traerejercicios("Resistencia", parseInt(localStorage.getItem('nivel')), (td[fechaActual + 1] * 60));
                 } else {
-                    console.log("No hay disponibilidad");
+                   
+                    const linkTR = document.createElement('a');
+                    linkTR.setAttribute('href','psico-respiracion.html'); 
+
+                    const tecResp = document.createElement('button');  
+                    tecResp.type = 'button'; 
+                    tecResp.innerText = 'Tecnicas de Respiracion'; 
+                    tecResp.className = 'btn btn-success btn-sm';
+
+                    linkTR.appendChild(tecResp); 
+
+                    const linkECP = document.createElement('a');
+                    linkECP.setAttribute('href','Pages-ejercicios&estiramientos-Routine.html?rutina=fullBody&tipo=estiramiento');
+
+                    const fullBody = document.createElement('button'); 
+                    fullBody.type = 'button'; 
+                    fullBody.innerText = 'Estiramiento Full Body'; 
+                    fullBody.className = 'btn btn-success btn-sm'; 
+
+                    linkECP.appendChild(fullBody); 
+
+                    let caja = document.getElementById("containerParrafo");
+                    caja.appendChild(linkTR);
+                    caja.appendChild(linkECP);
                 }
 
             });
