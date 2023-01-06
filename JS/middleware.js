@@ -26,7 +26,7 @@ function loadavatar(){
 $( document ).ready(function() {
   validateLogin();
 
-  initServer();
+  // initServer();  
   loadavatar();
 
 });

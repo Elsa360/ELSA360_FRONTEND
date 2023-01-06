@@ -60,7 +60,7 @@
   <!-- ============================================================== -->
   <!-- middleware -->
   <!-- ============================================================== -->
-  <script src="../../JS/User/checkout.js"></script>
+  <!-- <script src="../../JS/User/checkout.js"></script> -->
   <!-- ============================================================== -->
   <!-- middleware -->
   <!-- ============================================================== -->
@@ -88,7 +88,7 @@
             <li class="list-group-item fondoLista1 d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Membresía</h6>
-                <small class="my-0" id="tiempoMembresia">Trimestral</small>
+                <small class="my-0" id="tiempoMembresia">- - - - -</small>
               </div>
               <span class="my-0" id="valorBaseMembresia">$128.000</span>
             </li>
@@ -96,9 +96,9 @@
             <li class="list-group-item fondoLista d-flex justify-content-between ">
               <div class="text-verde" id="divDescuento">
                 <h6 class="my-0">Descuento</h6>
-                <small id="codigoDescn">ELSAEX10</small>
+                <small id="codigoDescn">Código</small>
               </div>
-              <span class="text-verde" id="valorDescuento">−$12.800</span>
+              <span class="text-verde" id="valorDescuento">- $ 0</span>
             </li>
 
             <li class="list-group-item fondoLista d-flex justify-content-between">
@@ -126,8 +126,8 @@
             <div class="input-group ">
               <input type="hidden"  name="checkoutform"   id="checkoutform" value="true">
               <input type="text" class="form-control"  name="codigoDescuento"  id="codigoDescuento" placeholder="Ingresa tu código">
-              <!--<button type="button" class="btnDcto" onclick="buscarCuponDescuento()">Aplicar</button>-->
-              <input type="submit" class="btnDcto" value="Aplicar" />
+              <button type="button" class="btnDcto" >Aplicar</button>
+              <!-- <input type="submit" class="btnDcto" value="Aplicar" /> -->
             </div>
           </form>
         </div>
@@ -170,7 +170,7 @@
           <hr class="my-4">
         </div>
 
-        <a class="botonIrAPagar text-center" type="button" href="" id="formcheckout">Ir a pagar</a>
+        <a class="botonIrAPagar text-center" type="button" href="" id="formcheckout" target="_blank">Ir a pagar</a>
       </form>
 
       <div class="cho-container" id="cho-container"></div>
@@ -202,7 +202,7 @@
 
 
 
-
+<script src="../../JS/pagarCheckout.js"></script>
 
 
 <!-- ============================================================== -->

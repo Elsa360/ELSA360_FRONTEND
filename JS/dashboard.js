@@ -296,7 +296,6 @@ async function disponibilidad(idperfil) {
         }
         var totalHoras = 0;
         var datos = [];
-        var regLunes = false;
         datos = document.querySelectorAll(".form-control.dias");
         datos.forEach(element => {
             element.addEventListener('change', function (e) {
@@ -565,7 +564,7 @@ async function resultados(idperfil, pesoActual) {
             .then(response => response.json())
             .then(respuesta => {
                 sesiones = respuesta.length;
-                localStorage.setItem('sesion',(parseInt(sesiones)+2));
+                localStorage.setItem('sesion',(parseInt(sesiones)+1));
                 console.log("Sesiones:",sesiones);
                 if (sesiones > 0) {
                     respuesta.forEach(elemento => {

@@ -2,14 +2,11 @@ window.onload = async () => {
     tiempoDisponibleDia()
 }
 async function traerejercicios(habilidad, niveldeportivo, tiempototal) {
-
     let url = apiServer + "ejercicioCiclismo/ejercicios?habilidad=" + habilidad + "&nivel=" + niveldeportivo + "&tiempodefinitivo=" + tiempototal + "";
     console.log(url);
     fetch(url)
         .then(response => response.json())
         .then(respuesta => {
-
-            console.log(respuesta[0]);
             //-------------------------------------------
             //CABECERA ----------------------------------
             let habilidadesTrabajar = document.createElement("div");
@@ -238,6 +235,7 @@ async function traerejercicios(habilidad, niveldeportivo, tiempototal) {
 function tiempoDisponibleDia() {
     let fechaActual = new Date(Date.now());
     diasemana = fechaActual.getDay();
+    console.log("Dia de la semana:", diasemana);
     var td = [];
     let url = apiServer + "disponibilidad/perfil?idPerfil=" + localStorage.getItem('perfilamiento') + "";
     try {
@@ -245,83 +243,182 @@ function tiempoDisponibleDia() {
             .then(response => response.json())
             .then(respuesta => {
                 respuesta.forEach(d => {
+                    td.push(d.domingo);
                     td.push(d.lunes);
                     td.push(d.martes);
                     td.push(d.miercoles);
                     td.push(d.jueves);
                     td.push(d.viernes);
                     td.push(d.sabado);
-                    td.push(d.domingo);
                 });
-                console.log(td);
+                console.log("Tiempo del dia:", td[diasemana + 1], " hr");
                 if (td[diasemana + 1] > 0) {
                     let tiempodeldia = td[diasemana + 1] * 60;
-                    console.log("TiEmPo:",tiempodeldia);
                     minutaDiaria(tiempodeldia);
                 } else {
-                   
-                    const linkTR = document.createElement('a');
-                    linkTR.setAttribute('href','psico-respiracion.html'); 
 
-                    const tecResp = document.createElement('button');  
-                    tecResp.type = 'button'; 
-                    tecResp.innerText = 'Tecnicas de Respiracion'; 
+                    const linkTR = document.createElement('a');
+                    linkTR.setAttribute('href', 'psico-respiracion.html');
+
+                    const tecResp = document.createElement('button');
+                    tecResp.type = 'button';
+                    tecResp.innerText = 'Tecnicas de Respiracion';
                     tecResp.className = 'btn btn-success btn-sm';
 
-                    linkTR.appendChild(tecResp); 
+                    linkTR.appendChild(tecResp);
 
                     const linkECP = document.createElement('a');
-                    linkECP.setAttribute('href','Pages-ejercicios&estiramientos-Routine.html?rutina=fullBody&tipo=estiramiento');
+                    linkECP.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=fullBody&tipo=estiramiento');
 
-                    const fullBody = document.createElement('button'); 
-                    fullBody.type = 'button'; 
-                    fullBody.innerText = 'Estiramiento Full Body'; 
-                    fullBody.className = 'btn btn-success btn-sm'; 
+                    const fullBody = document.createElement('button');
+                    fullBody.type = 'button';
+                    fullBody.innerText = 'Estiramiento Full Body';
+                    fullBody.className = 'btn btn-success btn-sm';
 
-                    linkECP.appendChild(fullBody); 
+                    linkECP.appendChild(fullBody);
 
                     let caja = document.getElementById("containerParrafo");
                     caja.appendChild(linkTR);
                     caja.appendChild(linkECP);
                 }
-
             });
     } catch (e) {
         console.log("Error: ", e)
     }
 
 }
-function minutaDiaria(tiempo){
+function minutaDiaria(tiempo) {
     try {
-        let url = apiServer + "minutaDiariaCiclismo/dia?nivel="+parseInt(localStorage.getItem('nivel'))+"&semanasTotales="+parseInt(localStorage.getItem('semanas'))+"&diasDisponiblesSemana="+parseInt(localStorage.getItem('dias'))+"&numeroSesion="+parseInt(localStorage.getItem('sesion'))+"";
+        let url = apiServer + "minutaDiariaCiclismo/dia?nivel=" + parseInt(localStorage.getItem('nivel')) + "&semanasTotales=" + parseInt(localStorage.getItem('semanas')) + "&diasDisponiblesSemana=" + parseInt(localStorage.getItem('dias')) + "&numeroSesion=" + parseInt(localStorage.getItem('sesion')) + "";
         console.log(url);
         fetch(url)
-        .then(response => response.json())
-        .then(respuesta => {
-            respuesta.forEach(elemento=>{
-                if(elemento.prcntjPotencia>0){
-                    localStorage.setItem('habilidad','Potencia')
-                }
-                if(elemento.prcntjFuerza>0){
-                    localStorage.setItem('habilidad','Fuerza')
-                }
-                if(elemento.prcntjFortalecimiento>0){
-                    localStorage.setItem('habilidad','Fortalecimiento')
-                }
-                if(elemento.prcntjVelocidad>0){
-                    localStorage.setItem('habilidad','Velocidad')
-                }
-                if(elemento.prcntjAgilidad>0){
-                    localStorage.setItem('habilidad','Agilidad')
-                }
-                if(elemento.prcntjResist>0){
-                    localStorage.setItem('habilidad','Resistencia')
+            .then(response => response.json())
+            .then(respuesta => {
+                if (respuesta.length > 0) {
+                    respuesta.forEach(elemento => {
+                        console.log("Disponibilidad semanal:", elemento);
+                        if (elemento.prcntjPotencia > 0) {
+                            localStorage.setItem('habilidad', 'Potencia');
+                            traerejercicios(localStorage.getItem('habilidad'), parseInt(localStorage.getItem('nivel')), tiempo);
+                        }
+                        if (elemento.prcntjFuerza > 0) {
+                            localStorage.setItem('habilidad', 'Fuerza');
+                            traerejercicios(localStorage.getItem('habilidad'), parseInt(localStorage.getItem('nivel')), tiempo);
+                        }
+                        if (elemento.prcntjFortalecimiento > 0) {
+                            if (tiempo < 30) {
+                                const linkEstira = document.createElement('a');
+                                linkEstira.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=postEntreno&tipo=estiramiento');
+                                const estiramiento = document.createElement('button');
+                                estiramiento.type = 'button';
+                                estiramiento.innerText = 'Estiramiento para entrenar';
+                                estiramiento.className = 'btn btn-success btn-sm';
+                                linkEstira.appendChild(estiramiento);
+
+
+                                const linkCore = document.createElement('a');
+                                linkCore.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=core&tipo=entrenamiento');
+                                const core = document.createElement('button');
+                                core.type = 'button';
+                                core.innerText = 'Core - Abdominales';
+                                core.className = 'btn btn-success btn-sm';
+                                linkCore.appendChild(core);
+
+
+                                let caja = document.getElementById("containerParrafo");
+                                caja.appendChild(linkEstira);
+                                caja.appendChild(linkCore);
+                            } else if (tiempo < 45) {
+                                const linkEstira = document.createElement('a');
+                                linkEstira.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=postEntreno&tipo=estiramiento');
+                                const estiramiento = document.createElement('button');
+                                estiramiento.type = 'button';
+                                estiramiento.innerText = 'Estiramiento para entrenar';
+                                estiramiento.className = 'btn btn-success btn-sm';
+                                linkEstira.appendChild(estiramiento);
+
+
+                                const linkCore = document.createElement('a');
+                                linkCore.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=core&tipo=entrenamiento');
+                                const core = document.createElement('button');
+                                core.type = 'button';
+                                core.innerText = 'Core - Abdominales';
+                                core.className = 'btn btn-success btn-sm';
+                                linkCore.appendChild(core);
+
+
+                                const linkTren = document.createElement('a');
+                                if ((parseInt(localStorage.getItem('sesion')) % 2) == 0) {
+                                    linkTren.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=trenInferior&tipo=entrenamiento');
+                                } else {
+                                    linkTren.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=trenSuperior&tipo=entrenamiento');
+                                }
+                                const tren = document.createElement('button');
+                                tren.type = 'button';
+                                tren.innerText = 'Tren Inferior';
+                                tren.className = 'btn btn-success btn-sm';
+                                linkTren.appendChild(tren);
+
+
+                                let caja = document.getElementById("containerParrafo");
+                                caja.appendChild(linkEstira);
+                                caja.appendChild(linkCore);
+                                caja.appendChild(linkTren);
+
+                            } else {
+                                const linkEstira = document.createElement('a');
+                                linkEstira.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=postEntreno&tipo=estiramiento');
+                                const estiramiento = document.createElement('button');
+                                estiramiento.type = 'button';
+                                estiramiento.innerText = 'Estiramiento para entrenar';
+                                estiramiento.className = 'btn btn-success btn-sm';
+                                linkEstira.appendChild(estiramiento);
+
+
+                                const linkCore = document.createElement('a');
+                                linkCore.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=core&tipo=entrenamiento');
+                                const core = document.createElement('button');
+                                core.type = 'button';
+                                core.innerText = 'Core - Abdominales';
+                                core.className = 'btn btn-success btn-sm';
+                                linkCore.appendChild(core);
+
+
+
+                                const linkFullBody = document.createElement('a');
+                                linkFullBody.setAttribute('href', 'Pages-ejercicios&estiramientos-Routine.html?rutina=core&tipo=entrenamiento');
+                                const fullbody = document.createElement('button');
+                                fullbody.type = 'button';
+                                fullbody.innerText = 'Full Body';
+                                fullbody.className = 'btn btn-success btn-sm';
+                                linkFullBody.appendChild(fullbody);
+
+
+                                let caja = document.getElementById("containerParrafo");
+                                caja.appendChild(linkEstira);
+                                caja.appendChild(linkCore);
+                                caja.appendChild(linkFullBody);
+                            }
+                        }
+                        if (elemento.prcntjVelocidad > 0) {
+                            localStorage.setItem('habilidad', 'Velocidad');
+                            traerejercicios(localStorage.getItem('habilidad'), parseInt(localStorage.getItem('nivel')), tiempo);
+                        }
+                        if (elemento.prcntjAgilidad > 0) {
+                            localStorage.setItem('habilidad', 'Agilidad');
+                            traerejercicios(localStorage.getItem('habilidad'), parseInt(localStorage.getItem('nivel')), tiempo);
+                        }
+                        if (elemento.prcntjResist > 0) {
+                            localStorage.setItem('habilidad', 'Resistencia');
+                            traerejercicios(localStorage.getItem('habilidad'), parseInt(localStorage.getItem('nivel')), tiempo);
+                        }
+                    });
+                } else {
+                    console.log("El objeto esta vacio");
                 }
             });
-            traerejercicios(localStorage.getItem('habilidad'),parseInt(localStorage.getItem('nivel')),tiempo);
-        });
-        
+
     } catch (e) {
-        notificacion("Function minutaDiaria - app-planDeportivo.js / Error: "+e)
+        notificacion("Function minutaDiaria - app-planDeportivo.js / Error: " + e)
     }
 }
