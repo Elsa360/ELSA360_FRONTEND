@@ -4,8 +4,8 @@
 async function registrarme() {
   $("#spinnerGeneral").show();
   try {
-    // var responseRecaptcha = grecaptcha.getResponse();
-    // if (responseRecaptcha.length > 0) {
+    var responseRecaptcha = grecaptcha.getResponse();
+    if (responseRecaptcha.length > 0) {
     nombreCompleto = document.getElementById("username").value;
     emailUser = document.getElementById("email").value;
     contraUser = document.getElementById("password").value
@@ -96,12 +96,12 @@ async function registrarme() {
       $("#modalGeneral #modalMensaje").html("Ingrese su  nombre");
       $("#modalGeneral").modal("show");
     }
-    // } else {
-    //   $("#spinnerGeneral").hide();
-    //   $("#modalGeneral #modalCenterTitle").html("Error");
-    //   $("#modalGeneral #modalMensaje").html("Por favor verifica que no eres un robot");
-    //   $("#modalGeneral").modal("show");
-    // }
+    } else {
+      $("#spinnerGeneral").hide();
+      $("#modalGeneral #modalCenterTitle").html("Error");
+      $("#modalGeneral #modalMensaje").html("Por favor verifica que no eres un robot");
+      $("#modalGeneral").modal("show");
+    }
   } catch (error) {
     notificacion(error)
   }
