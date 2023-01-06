@@ -31,6 +31,7 @@ function irapagar(meses) {
 function irapagardesdeinicio(meses) {
     let membresia = "";
     let linkpago = "";
+    let origen = "inicio"
     switch (meses) {
         case 3:
             membresia = "Trimestral";
@@ -53,7 +54,7 @@ function irapagardesdeinicio(meses) {
         default:
             console.log("Perdon, hubo un error con tu seleccion");
     }
+    localStorage.setItem("pago", "checkout.html?linkpago=" + linkpago + "&tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "&origen=" + origen + "")
+    location.href = "html/vertical-menu-template/checkout.html?linkpago=" + linkpago + "&tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "&origen=" + origen + "";
 
-    location.href = "html/vertical-menu-template/checkout.html?linkpago=" + linkpago + "&tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "";
-    
 }

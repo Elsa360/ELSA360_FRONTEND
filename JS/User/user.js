@@ -54,7 +54,14 @@ async function registrarme() {
                       });
                   } else {
                     console.log("Respuesta Exitosa");
-                    enviarEMail(emailUser.trim(), respuesta);
+                    if (localStorage.getItem("pago")) {
+                      localStorage.setItem("login",respuesta);
+                      localStorage.setItem('email', emailUser.trim().toLowerCase());
+                      localStorage.setItem('nombreUsuario',nombreCompleto.toLowerCase());
+                      location.href = localStorage.getItem("pago");
+                    } else {
+                      enviarEMail(emailUser.trim(), respuesta);
+                    }
                   }
                 })
 
