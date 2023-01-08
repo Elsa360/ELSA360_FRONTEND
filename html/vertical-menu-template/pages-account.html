@@ -57,8 +57,8 @@
   <script src="../../JS/User/index.js"></script>
   <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="/JS/middleware.js"></script>
-<script src="/JS/customTask.js"></script>
-<script src="../../JS/enviroment.js"></script>
+  <script src="/JS/customTask.js"></script>
+  <script src="../../JS/enviroment.js"></script>
 
 
 
@@ -720,7 +720,8 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar"  alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
+                    <img src="../../assets/img/avatars/1.jpg" id="NavbarAvatar" alt="user-avatar" class="rounded-circle"
+                      style="object-fit: cover" />
                   </div>
                 </a>
 
@@ -736,7 +737,8 @@
                         <!-- Avatar -->
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt="user-avatar" class="rounded-circle" style="object-fit: cover"/>
+                            <img src="../../assets/img/avatars/1.jpg" id="TooltipAvatar" alt="user-avatar"
+                              class="rounded-circle" style="object-fit: cover" />
                           </div>
                         </div>
 
@@ -842,7 +844,7 @@
             <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
           </div>
         </nav>
-        <!-- / Navbar -->   
+        <!-- / Navbar -->
 
 
 
@@ -890,15 +892,52 @@
                   <!-- Account -->
                   <div class="card-body">
                     <div class="d-flex align-items-start align-items-sm-center gap-4">
-                      <img src="../../assets/img/avatars/1.jpg" alt="user-avatar" class="d-block rounded-circle"
-                        height="150" width="150" id="uploadedAvatar" style="object-fit: cover"/>
+                      <img src="../../assets/img/avatars/1.jpg" alt="user-avatar" class="d-block rounded-circle" height="150" width="150" id="uploadedAvatar"
+                        style="object-fit: cover" />
+                      <!-- <script>
+                          function imgInicial() {
+                            
+
+                          }
+
+                        </script> -->
 
                       <div class="button-wrapper">
                         <label for="upload" class="btn btn-success me-2 mb-4" tabindex="0">
-                          <span class="d-none d-sm-block">Cambiar foto</span>
-                          <i class="bx bx-menu d-block d-sm-none"></i>
+                          <!-- <span class="d-none d-sm-block">Cambiar foto</span> -->
+                          <i class="bx bx-image-add"></i>
                           <input type="file" id="upload" name="AvatarUsuario" class="account-file-input" hidden
                             accept="image/png, image/jpeg" />
+                        </label>
+
+                        <label for="deleteAvat" class="btn btn-success me-2 mb-4" tabindex="0">
+                          <!-- <span class="d-none d-sm-block">Eliminar foto</span> -->
+                          <i class="bx bx-trash"></i>
+                          <input type="button" id="deleteAvat" name="botonEliminar" onclick="removeAvat()" hidden />
+                          <script>
+                            function removeAvat() {
+                              var idUsu = new FormData();
+                              idUsu.append('idusuario', localStorage.idusuario)
+                              $.ajax({
+                                url: 'https://localhost:7155/usuario/dropImage',
+                                type: 'post',
+                                data: idUsu,
+                                contentType: false,
+                                processData: false,
+                                success: function (data) {
+                                  localStorage.avataruri='0';
+                                  setTimeout(() => {
+                                    console.log("Imagen eliminada.")
+                                  }, 3000);
+                                  location.reload();
+
+                                },
+                                error: function (data) {
+
+                                }
+                              })
+                            }
+                          </script>
                         </label>
 
                         <!--<button type="button" class="btn btn-label-secondary account-image-reset mb-4">
@@ -929,20 +968,20 @@
                             <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
                           </div> -->
 
-                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                            <label for="email" class="form-label mb-0">E-mail</label>
-                            <h6 class="text-success mb-1" id="emailUsuarioPageAccount">tuEmail@correo.com</h6>
-                          </div>
+                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                          <label for="email" class="form-label mb-0">E-mail</label>
+                          <h6 class="text-success mb-1" id="emailUsuarioPageAccount">tuEmail@correo.com</h6>
+                        </div>
 
-                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                            <label class="form-label mb-0" for="phoneNumber">Número celular</label>
-                            <h6 class="text-success mb-1" id="telefonoUsuarioPageAccount">+57 555 55 55 </h6>
-                          </div>
-  
-                          <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                            <label for="country" class="form-label mb-0">País</label>
-                            <h6 class="text-success mb-1" id="paisUsuarioPageAccount">Colombia</h6>
-                          </div>
+                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                          <label class="form-label mb-0" for="phoneNumber">Número celular</label>
+                          <h6 class="text-success mb-1" id="telefonoUsuarioPageAccount">+57 555 55 55 </h6>
+                        </div>
+
+                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
+                          <label for="country" class="form-label mb-0">País</label>
+                          <h6 class="text-success mb-1" id="paisUsuarioPageAccount">Colombia</h6>
+                        </div>
 
                         <!-- <div class="mb-2 col-md-6">
                           <label for="state" class="form-label mb-0">Departamento / Provincia / Estado</label>
@@ -989,8 +1028,8 @@
                               <option value="United Kingdom">United Kingdom</option>
                               <option value="United States">United States</option>
                             </select>
-                          </div> -->          
-                                               
+                          </div> -->
+
                         <!-- <div class="mb-3 col-md-6">
                           <label for="address" class="form-label">Dirección</label>
                           <input type="text" class="form-control" id="address" name="address"
@@ -1058,12 +1097,12 @@
 
                         <div class="mb-2 col-md-3 col-lg-3 col-md-6">
                           <label for="" class="form-label mb-0">Peso Actual </label>
-                          <h6 class="text-success" id="pesoUsuarioPageAccount" >0 <small>Kg</small></h6>
+                          <h6 class="text-success" id="pesoUsuarioPageAccount">0 <small>Kg</small></h6>
                         </div>
 
                         <div class="mb-2 col-md-3 col-lg-3 col-md-6">
                           <label for="" class="form-label mb-0">Peso deseado </label>
-                          <h6 class="text-success" id="pesoDeseadoUsuarioPageAccount" >0 <small>Kg</small></h6>
+                          <h6 class="text-success" id="pesoDeseadoUsuarioPageAccount">0 <small>Kg</small></h6>
                         </div>
 
                         <div class="mb-2 col-md-3 col-lg-3 col-md-6">
@@ -1086,15 +1125,16 @@
                           <h6 class="text-success" id="cuerpoUsuarioPageAccount"> - </h6>
                         </div>
 
-                        <div class= "mb-2 col-md-3 col-lg-3 col-md-6">
+                        <div class="mb-2 col-md-3 col-lg-3 col-md-6">
                           <label for="" class="form-label mb-0">¿Por qué montas bici?</label>
                           <h6 class="text-success" id="porqueUsuarioPageAccount"> - </h6>
                         </div>
 
                         <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                          <label for="" class="form-label mb-0">Nivel deportivo <button type="button" class="btn mb-0 p-0"
-                            data-bs-toggle="modal" data-bs-target="#modalNivelDeportivo">
-                            <i class='bx bx-info-circle text-success p-0' style="font-size: 14px;"></i></button></label>
+                          <label for="" class="form-label mb-0">Nivel deportivo <button type="button"
+                              class="btn mb-0 p-0" data-bs-toggle="modal" data-bs-target="#modalNivelDeportivo">
+                              <i class='bx bx-info-circle text-success p-0'
+                                style="font-size: 14px;"></i></button></label>
                           <h6 class="text-success" id="nivelUsuarioPageAccount"> - </h6>
                         </div>
 
@@ -1104,23 +1144,28 @@
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header mb-0">
-                                <h4 class="modal-title text-success" id="modalCenterTitle">¿Cuál es mi nivel deportivo?</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h4 class="modal-title text-success" id="modalCenterTitle">¿Cuál es mi nivel deportivo?
+                                </h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
                               </div>
 
 
                               <div class="modal-body text-center pt-3 pb-1">
                                 <div class="somatotiposDescripcionContainer">
                                   <h6 class="somatotipoTitulo text-success mt-0">Principiante </h6>
-                                  <p class="somatotipoDescripcion">Si vas iniciando y haces ejercicios de intensidad leve a
+                                  <p class="somatotipoDescripcion">Si vas iniciando y haces ejercicios de intensidad
+                                    leve a
                                     moderado.<br>
-                                    Si tienes como objetivo el acondicionamiento físico, mantener peso o la rehabilitación física.
+                                    Si tienes como objetivo el acondicionamiento físico, mantener peso o la
+                                    rehabilitación física.
                                   </p>
                                 </div>
 
                                 <div class="somatotiposDescripcionContainer">
                                   <h6 class="somatotipoTitulo text-success">Intermedio</h6>
-                                  <p class="somatotipoDescripcion">Si llevas de 6 meses a 1 año de entrenamiento y haces ejercicios
+                                  <p class="somatotipoDescripcion">Si llevas de 6 meses a 1 año de entrenamiento y haces
+                                    ejercicios
                                     de intensidad media a alta durante segmentos cortos. <br>
                                     Si tienes como objetivo, por ejemplo, correr un gran fondo.
                                   </p>
@@ -1128,9 +1173,11 @@
 
                                 <div class="somatotiposDescripcionContainer">
                                   <h6 class="somatotipoTitulo text-success"> Avanzado</h6>
-                                  <p class="somatotipoDescripcion">Si llevas más de dos años entrenando y puedes llegar a tu zona 6.
+                                  <p class="somatotipoDescripcion">Si llevas más de dos años entrenando y puedes llegar
+                                    a tu zona 6.
                                     <br>
-                                    Si tienes como objetivo llegar en tu pico de forma a diferentes eventos en el año. Tienes un ATP
+                                    Si tienes como objetivo llegar en tu pico de forma a diferentes eventos en el año.
+                                    Tienes un ATP
                                     (Annual Training Plan) definido.
                                   </p>
                                 </div>
@@ -1141,7 +1188,8 @@
 
 
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-label-secondary"
+                                  data-bs-dismiss="modal">Cerrar</button>
                               </div>
                             </div>
                           </div>
@@ -1164,91 +1212,76 @@
 
 
                         <div class="mb-2 col-md-3 col-lg-3 col-md-6">
-                          <label for="" class="form-label mb-0">Sub-nivel deportivo <button type="button" class="btn mb-0 p-0"
-                            data-bs-toggle="modal" data-bs-target="#modalEscalaDeportiva">
-                            <i class='bx bx-info-circle text-success p-0' style="font-size: 14px;"></i></button>
+                          <label for="" class="form-label mb-0">Sub-nivel deportivo <button type="button"
+                              class="btn mb-0 p-0" data-bs-toggle="modal" data-bs-target="#modalEscalaDeportiva">
+                              <i class='bx bx-info-circle text-success p-0' style="font-size: 14px;"></i></button>
                           </label>
                           <h6 class="text-success" id="escalaUsuarioPageAccount"> - </h6>
                         </div>
 
 
                         <!-- Modal Escala deportiva-->
-                      <div
-                        class="modal-onboarding modal fade animate__animated"
-                        id="modalEscalaDeportiva"
-                        tabindex="-1"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content text-center">
-                            <div class="modal-header border-0">
-                              <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <div id="modalCarouselControls" class="carousel slide pb-4 mb-2" data-bs-interval="false">
-                              <ol class="carousel-indicators">
-                                <li data-bs-target="#modalCarouselControls" data-bs-slide-to="0" class="active"></li>
-                                <li data-bs-target="#modalCarouselControls" data-bs-slide-to="1"></li>
-                                <li data-bs-target="#modalCarouselControls" data-bs-slide-to="2"></li>
-                              </ol>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                  <div class="onboarding-media">
-                                    <div class="mx-2">
-                                      <img
-                                        src="../../assets/img/pages/escala deportiva Principiantes.png"
-                                        alt="girl-with-laptop-light"
-                                        width="100%"
-                                        class="img-fluid"
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="carousel-item">
-                                  <div class="onboarding-media">
-                                    <div class="mx-2">
-                                      <img
-                                        src="../../assets/img/pages/escala deportiva Intermedios.png"
-                                        alt="boy-with-laptop-light"
-                                        width="100%"
-                                        class="img-fluid"
-                                      />
-                                    </div>
-                                  </div>
-
-                                </div>
-                                <div class="carousel-item">
-                                  <div class="onboarding-media">
-                                    <div class="mx-2">
-                                      <img
-                                        src="../../assets/img/pages/escala deportiva Avanzados.png"
-                                        alt="boy-with-laptop-light"
-                                        width="100%"
-                                        class="img-fluid"
-                                      />
-                                    </div>
-                                  </div>
-
-                                </div>
+                        <div class="modal-onboarding modal fade animate__animated" id="modalEscalaDeportiva"
+                          tabindex="-1" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content text-center">
+                              <div class="modal-header border-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
                               </div>
+                              <div id="modalCarouselControls" class="carousel slide pb-4 mb-2" data-bs-interval="false">
+                                <ol class="carousel-indicators">
+                                  <li data-bs-target="#modalCarouselControls" data-bs-slide-to="0" class="active"></li>
+                                  <li data-bs-target="#modalCarouselControls" data-bs-slide-to="1"></li>
+                                  <li data-bs-target="#modalCarouselControls" data-bs-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <div class="onboarding-media">
+                                      <div class="mx-2">
+                                        <img src="../../assets/img/pages/escala deportiva Principiantes.png"
+                                          alt="girl-with-laptop-light" width="100%" class="img-fluid" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="onboarding-media">
+                                      <div class="mx-2">
+                                        <img src="../../assets/img/pages/escala deportiva Intermedios.png"
+                                          alt="boy-with-laptop-light" width="100%" class="img-fluid" />
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                  <div class="carousel-item">
+                                    <div class="onboarding-media">
+                                      <div class="mx-2">
+                                        <img src="../../assets/img/pages/escala deportiva Avanzados.png"
+                                          alt="boy-with-laptop-light" width="100%" class="img-fluid" />
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
 
 
-                              <a class="carousel-control-prev" href="#modalCarouselControls" role="button" data-bs-slide="prev">
-                                <i class="bx bx-chevrons-left lh-1 text-success"></i><span class="text-success">Anterior</span>
-                              </a>
+                                <a class="carousel-control-prev" href="#modalCarouselControls" role="button"
+                                  data-bs-slide="prev">
+                                  <i class="bx bx-chevrons-left lh-1 text-success"></i><span
+                                    class="text-success">Anterior</span>
+                                </a>
 
 
-                              <a class="carousel-control-next" href="#modalCarouselControls" role="button" data-bs-slide="next" style="margin-right: 20px;">
-                                <span class="text-success">Siguiente</span><i class="bx bx-chevrons-right lh-1 text-success"></i>
-                              </a>
+                                <a class="carousel-control-next" href="#modalCarouselControls" role="button"
+                                  data-bs-slide="next" style="margin-right: 20px;">
+                                  <span class="text-success">Siguiente</span><i
+                                    class="bx bx-chevrons-right lh-1 text-success"></i>
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!--/ slider modal -->
+                        <!--/ slider modal -->
 
 
 
@@ -1259,7 +1292,8 @@
 
 
                             <label class="switch switch-success switchDispositivo1">
-                              <input value="1" id="potenciometro" type="checkbox" class="switch-input" disabled checked />
+                              <input value="1" id="potenciometro" type="checkbox" class="switch-input" disabled
+                                checked />
 
                               <span class="switch-toggle-slider">
                                 <span class="switch-on">
@@ -1293,7 +1327,8 @@
 
 
                             <label class="switch switch-success switchDispositivo">
-                              <input value="3" id="cadenciometro" type="checkbox" class="switch-input" disabled checked />
+                              <input value="3" id="cadenciometro" type="checkbox" class="switch-input" disabled
+                                checked />
 
                               <span class="switch-toggle-slider">
                                 <span class="switch-on">
@@ -1356,17 +1391,20 @@
 
 
                         <div class="mt-2">
-                          <button type="button" class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#modalActualizarDatos">
+                          <button type="button" class="btn btn-sm btn-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#modalActualizarDatos">
                             Actualizar datos
                           </button>
 
                           <!-- Modal Actualizar Datos -->
-                          <div class="modal  fade" id="modalActualizarDatos" tabindex="-1" style="display: none;" aria-hidden="true">
+                          <div class="modal  fade" id="modalActualizarDatos" tabindex="-1" style="display: none;"
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <h5 class="modal-title text-success" id="modalCenterTitle">Actualiza tus datos</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                                 </div>
 
 
@@ -1399,23 +1437,23 @@
 
                                     <div class="col mb-0">
                                       <label class="form-label mb-0" for="porQmontas">¿Por qué montas bici?</label>
-                                       <select class="form-control" name="porQmontas" id="">
-                                         <option value="-1" disabled selected>¿Por qué montas bici?</option>
-                                         <option value="1"> Mejorar rendimiento</option>
-                                         <option value="2"> Salud</option>
-                                         <option value="3"> Entretenimiento</option>
-                                       </select>
+                                      <select class="form-control" name="porQmontas" id="">
+                                        <option value="-1" disabled selected>¿Por qué montas bici?</option>
+                                        <option value="1"> Mejorar rendimiento</option>
+                                        <option value="2"> Salud</option>
+                                        <option value="3"> Entretenimiento</option>
+                                      </select>
                                     </div>
 
                                     <div class="col mb-0">
                                       <label class="form-label mb-0" for="nivel">Nivel deportivo </label>
 
-                                    <select class="form-control" name="nivel" id="nivel">
-                                      <option value="-1" disabled selected>¿Qué nivel deportivo tienes?</option>
-                                      <option value="1">Principiante</option>
-                                      <option value="2">Intermedio</option>
-                                      <option value="3">Avanzado</option>
-                                    </select>
+                                      <select class="form-control" name="nivel" id="nivel">
+                                        <option value="-1" disabled selected>¿Qué nivel deportivo tienes?</option>
+                                        <option value="1">Principiante</option>
+                                        <option value="2">Intermedio</option>
+                                        <option value="3">Avanzado</option>
+                                      </select>
                                     </div>
                                   </div>
 
@@ -1434,62 +1472,66 @@
 
 
 
-                                      <div class="modal fade" id="m" aria-labelledby="modalToggleLabel" tabindex="-1"
-                                       style="display: none" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                          <div class="modal-content">
+                                    <div class="modal fade" id="m" aria-labelledby="modalToggleLabel" tabindex="-1"
+                                      style="display: none" aria-hidden="true">
+                                      <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
 
-                                            <div class="modal-header">
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-                                              <div class="imgEscalaDeportivaContainer">
-                                                <img id="enlaceEscala" class="imgEscalaDeportiva" src="../../assets/img/pages/escala deportiva-EscogeUnNivel.png" alt="">
-                                              </div>
-                                            </div>
-
+                                          <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                              aria-label="Close"></button>
                                           </div>
+
+                                          <div class="modal-body">
+                                            <div class="imgEscalaDeportivaContainer">
+                                              <img id="enlaceEscala" class="imgEscalaDeportiva"
+                                                src="../../assets/img/pages/escala deportiva-EscogeUnNivel.png" alt="">
+                                            </div>
+                                          </div>
+
                                         </div>
-                                     </div>
+                                      </div>
+                                    </div>
 
 
 
 
 
 
-                                        <script>
-                                          var handleNivel = document.getElementById("nivel");
-                                          handleNivel.onchange = function () {
-                                            var handleEscala = document.getElementById("escala");
-                                            var vectorNivel = {
-                                              'Principiante': ['Sub-nivel deportivo', 'I', 'II', 'III'],
-                                              'Intermedio': ['Sub-nivel deportivo', 'I', 'II', 'III'],
-                                              'Avanzado': ['Sub-nivel deportivo', 'I', 'II', 'III']
-                                            };
-                                            var vectorNivel_2 = {
-                                              'Principiante': ['-1', '1', '2', '3'],
-                                              'Intermedio': ['-1', '4', '5', '6'],
-                                              'Avanzado': ['-1', '7', '8', '9']
-                                            };
-                                            var url = {
-                                              'Principiante': ['../../assets/img/pages/escala deportiva Principiantes.png'],
-                                              'Intermedio': ['../../assets/img/pages/escala deportiva Intermedios.png'],
-                                              'Avanzado': ['../../assets/img/pages/escala deportiva Avanzados.png']
-                                            };
-                                            var strEscala = handleNivel.options[handleNivel.selectedIndex].text;
-                                            var strEscalas = vectorNivel[strEscala]
-                                            var strValorEscalas = vectorNivel_2[strEscala]
-                                            handleEscala.innerHTML = "";
-                                            document.getElementById("enlaceEscala").src = url[strEscala];
-                                            for (var i = 0; i < strEscalas.length; i++) {
-                                              var el = document.createElement("option");
-                                              el.textContent = strEscalas[i];
-                                              el.value = strValorEscalas[i];
-                                              handleEscala.appendChild(el);
-                                            }
-                                          }
-                                        </script>
+                                    <script>
+                                      var handleNivel = document.getElementById("nivel");
+                                      handleNivel.onchange = function () {
+                                        var handleEscala = document.getElementById("escala");
+                                        var vectorNivel = {
+                                          'Principiante': ['Sub-nivel deportivo', 'I', 'II', 'III'],
+                                          'Intermedio': ['Sub-nivel deportivo', 'I', 'II', 'III'],
+                                          'Avanzado': ['Sub-nivel deportivo', 'I', 'II', 'III']
+                                        };
+                                        var vectorNivel_2 = {
+                                          'Principiante': ['-1', '1', '2', '3'],
+                                          'Intermedio': ['-1', '4', '5', '6'],
+                                          'Avanzado': ['-1', '7', '8', '9']
+                                        };
+                                        var url = {
+                                          'Principiante': [
+                                            '../../assets/img/pages/escala deportiva Principiantes.png'
+                                          ],
+                                          'Intermedio': ['../../assets/img/pages/escala deportiva Intermedios.png'],
+                                          'Avanzado': ['../../assets/img/pages/escala deportiva Avanzados.png']
+                                        };
+                                        var strEscala = handleNivel.options[handleNivel.selectedIndex].text;
+                                        var strEscalas = vectorNivel[strEscala]
+                                        var strValorEscalas = vectorNivel_2[strEscala]
+                                        handleEscala.innerHTML = "";
+                                        document.getElementById("enlaceEscala").src = url[strEscala];
+                                        for (var i = 0; i < strEscalas.length; i++) {
+                                          var el = document.createElement("option");
+                                          el.textContent = strEscalas[i];
+                                          el.value = strValorEscalas[i];
+                                          handleEscala.appendChild(el);
+                                        }
+                                      }
+                                    </script>
 
 
 
@@ -1504,7 +1546,7 @@
                                   <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                   </button>
-                                  <button type="button" class="btn btn-success">Guarar cambios</button>
+                                  <button type="button" class="btn btn-success">Guardar cambios</button>
                                 </div>
                               </div>
                             </div>
@@ -1528,7 +1570,8 @@
                   <h1 class="accordion-header" id="headingOne">
                     <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                       data-bs-target="#accordionMembresia" aria-expanded="flase" aria-controls="accordionMembresia">
-                      <span class="badge bg-label-warning" style="font-size: 8px; margin-left: 5px;">Cancelar membresía</span>
+                      <span class="badge bg-label-warning" style="font-size: 8px; margin-left: 5px;">Cancelar
+                        membresía</span>
                     </button>
                   </h1>
 
@@ -1545,10 +1588,12 @@
 
                       <form id="" onsubmit="">
                         <div class="form-check form-check-warning mb-3">
-                          <input class="form-check-input" type="checkbox" name="confirmacancelar" id="confirmacancelar" />
+                          <input class="form-check-input" type="checkbox" name="confirmacancelar"
+                            id="confirmacancelar" />
                           <label class="form-check-label" for="">Confirmo que quiero cancelar mi membresía</label>
                         </div>
-                        <a  class="btn btn-warning deactivate-account" href="javascript:cancelarMembresia();">Cancelar membresía</a>
+                        <a class="btn btn-warning deactivate-account" href="javascript:cancelarMembresia();">Cancelar
+                          membresía</a>
                       </form>
                     </div>
                   </div>
@@ -1681,22 +1726,22 @@
   <script src="../../assets/js/pages-account-settings-account.js"></script>
 
 
-        <!-- ============================================================== -->
-        <!-- spinner modal -->
-        <!-- ============================================================== -->
-        <div id="spinner"></div>
-        <div id="modal"></div>
+  <!-- ============================================================== -->
+  <!-- spinner modal -->
+  <!-- ============================================================== -->
+  <div id="spinner"></div>
+  <div id="modal"></div>
 
 
-        <script>
-        $(function () {
-          $("#spinner").load("spinner.html");
-          $("#modal").load("modal.html");
-        });
-        </script>
-        <!-- ============================================================== -->
-        <!-- spinner modal -->
-        <!-- ============================================================== -->
+  <script>
+    $(function () {
+      $("#spinner").load("spinner.html");
+      $("#modal").load("modal.html");
+    });
+  </script>
+  <!-- ============================================================== -->
+  <!-- spinner modal -->
+  <!-- ============================================================== -->
 </body>
 
 </html>

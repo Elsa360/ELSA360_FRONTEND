@@ -71,10 +71,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
             onStatusChanged: function (areFieldsValid) {
               areFieldsValid
                 ? // Enable the submit button
-                  // so user has a chance to submit the form again
-                  deactivateButton.removeAttribute('disabled')
-                : // Disable the submit button
-                  deactivateButton.setAttribute('disabled', 'disabled');
+                // so user has a chance to submit the form again
+                deactivateButton.removeAttribute('disabled') : // Disable the submit button
+                deactivateButton.setAttribute('disabled', 'disabled');
             }
           }),
           // Submit the form when all fields are valid
@@ -156,8 +155,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     // Update/reset user image of account page
     let accountUserImage = document.getElementById('uploadedAvatar');
-    const fileInput = document.querySelector('.account-file-input'),
+    const fileInput = document.getElementById('upload'),
       resetFileInput = document.querySelector('.account-image-reset');
+
 
     if (accountUserImage) {
       const resetImage = accountUserImage.src;
@@ -165,65 +165,77 @@ document.addEventListener('DOMContentLoaded', function (e) {
         if (fileInput.files[0]) {
           accountUserImage.src = window.URL.createObjectURL(fileInput.files[0]);
 
+          var fd = new FormData();
+          var files = fileInput.files;
+          var idusuario = localStorage.idusuario;
 
+          // Check file selected or not
+          if (files.length > 0) {
+            fd.append('file', files[0]);
+            fd.append('idusuario', idusuario);
 
+            $.ajax({
+                url: 'https://localhost:7155/usuario/savedImage',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                  localStorage.avataruri="/uploads/avatar/"+ idusuario +".jpg";
+                  console.log("avataruri change");
+                  setTimeout(() => {               
+                    console.log("Imagen guardada " +localStorage.avataruri)                 
+                  }, 3000);
+                  
+                  location.reload();
+                },
+                error: function (data) {
 
-        
-                var fd = new FormData();
-                var files = fileInput.files;
-                
-                // Check file selected or not
-                if(files.length > 0 ){
-                   fd.append('file',files[0]);
-        
-                   $.ajax({
-                      url: '/_avatar.php',
-                      type: 'post',
-                      data: fd,
-                      contentType: false,
-                      processData: false,
-                      success: function(response){
-                        console.log(response);
-                         if(response != 0){
-                            console.log("response");
-                            localStorage.setItem('avataruri', "/"+response);
-                            loadavatar();
-
-
-                            console.log('file  uploaded')
-                              var uri = apiServer + "usuario/setavataruri?idusuario=" + localStorage.idusuario+"&uri="+response;
-                              console.log(uri);
-                              fetch(uri)
-                              .then((response)=>response.json())
-                              .then((respuesta)=>console.log(respuesta))
-                         }else{
-                          console.log('file not uploaded');
-                         }
-                      },
-                   }).done(function() {
-                    console.log( "success" );
-                  })
-                  .fail(function() {
-                    console.log( "error" );
-                  })
-                 
-                }else{
-                  console.log("Please select a file.");
                 }
+              }).done(function () {
 
+              })
+              .fail(function () {
+                console.log("error");
+              })
 
-                
-                console.log("Please.");
-                
+          } else {
+            console.log("Please select a file.");
+          }
         }
       };
-      resetFileInput.onclick = () => {
-        fileInput.value = '';
-        accountUserImage.src = resetImage;
-      };
+      // resetFileInput.onclick = () => {
+      //   fileInput.value = '';
+      //   accountUserImage.src = resetImage;
+      // };
     }
+
+    // Update/reset user image of account page
+    let removeAvatar = document.getElementById('deleteAvat');
+
+
+    function removeAvat(){
+
+      $.ajax({
+        url: 'https://localhost:7155/usuario/dropImage',
+        type: 'post',
+        data: localStorage.idusuario,
+        dataType : 'text',
+        success: function (data) {
+          console.log("Imagen eliminada");
+
+        },
+        error: function (data) {
+
+        }
+      })
+    }
+
+
+
   })();
 });
+
 
 // Select2 (jquery)
 $(function () {
@@ -244,10 +256,3 @@ $(function () {
 window.onload = async () => {
   loadavatar();
 }
-
-
-
-
-
-
-
