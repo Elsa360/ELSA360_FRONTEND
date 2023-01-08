@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?>
 <?php
 if (isset($_REQUEST["checkoutform"])) {
   if ($_REQUEST["checkoutform"]=="true") {
@@ -114,4 +114,4 @@ if (isset($_REQUEST["checkoutform"])) {
 <?php
 
 
-?>
+?> -->

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $_SESSION["preorder"]=true;
 ?>
@@ -115,4 +115,4 @@ $_SESSION["preorder"]=true;
   </script>
   Por favor espere ...
 </body>
-</html>
+</html> -->

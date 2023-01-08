@@ -6,96 +6,96 @@ async function registrarme() {
   try {
     var responseRecaptcha = grecaptcha.getResponse();
     if (responseRecaptcha.length > 0) {
-    nombreCompleto = document.getElementById("username").value;
-    emailUser = document.getElementById("email").value;
-    contraUser = document.getElementById("password").value
-    if (nombreCompleto != "") {
-      if (emailUser != "") {
-        if (contraUser != "") {
-          if (document.getElementById("terms-conditions").checked) {
-            try {
-              let url = apiServer + "usuario/crear";
-              let bodyString = JSON.stringify({
-                email: emailUser.trim().toLowerCase(),
-                passwordUser: contraUser.trim(),
-                nombreUsuario: nombreCompleto.toLowerCase(),
-                fkIdRol: 4,
-                ipPc: "00.00.00.00"
-              });
+      nombreCompleto = document.getElementById("username").value;
+      emailUser = document.getElementById("email").value;
+      contraUser = document.getElementById("password").value
+      if (nombreCompleto != "") {
+        if (emailUser != "") {
+          if (contraUser != "") {
+            if (document.getElementById("terms-conditions").checked) {
+              try {
+                let url = apiServer + "usuario/crear";
+                let bodyString = JSON.stringify({
+                  email: emailUser.trim().toLowerCase(),
+                  passwordUser: contraUser.trim(),
+                  nombreUsuario: nombreCompleto.toLowerCase(),
+                  fkIdRol: 4,
+                  ipPc: "00.00.00.00"
+                });
 
-              await fetch(url, {
-                method: 'POST',
-                body: bodyString,
-                headers: {
-                  'Content-type': 'application/json; charset=UTF-8',
-                  'Access-Control-Allow-Origin': 'https://*elsa360.com'
-                },
-              })
-                .then((response) => response.json())
-                .then(function (respuesta) {
-                  console.log("Respuesta:", respuesta)
-                  if (respuesta === 0) {
-                    let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
-                    console.log(url)
-                    fetch(url)
-                      .then(response => response.json())
-                      .then(respuesta => {
-                        respuesta.forEach(elemento => {
-                          if (r2 === 1) {
-                            $("#spinnerGeneral").hide();
-                            $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
-                            $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
-                            $("#modalGeneral").modal("show");
-                          } else {
-                            notificacion(bodyString);
-                            $("#spinnerGeneral").hide();
-                          }
-                        });
-                      });
-                  } else {
-                    console.log("Respuesta Exitosa");
-                    if (localStorage.getItem("pago")) {
-                      localStorage.setItem("login",respuesta);
-                      localStorage.setItem('email', emailUser.trim().toLowerCase());
-                      localStorage.setItem('nombreUsuario',nombreCompleto.toLowerCase());
-                      location.href = localStorage.getItem("pago");
-                    } else {
-                      enviarEMail(emailUser.trim(), respuesta);
-                    }
-                  }
+                await fetch(url, {
+                  method: 'POST',
+                  body: bodyString,
+                  headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                    'Access-Control-Allow-Origin': 'https://*elsa360.com'
+                  },
                 })
+                  .then((response) => response.json())
+                  .then(function (respuesta) {
+                    console.log("Respuesta:", respuesta)
+                    if (respuesta === 0) {
+                      let url = apiServer + "CRUD/listar?tabla=usuario&filtro=email='" + emailUser.trim().toLowerCase() + "'&campos=count(idusuario)"
+                      console.log(url)
+                      fetch(url)
+                        .then(response => response.json())
+                        .then(respuesta => {
+                          respuesta.forEach(elemento => {
+                            if (r2 === 1) {
+                              $("#spinnerGeneral").hide();
+                              $("#modalGeneral #modalCenterTitle").html("Usuario registrado");
+                              $("#modalGeneral #modalMensaje").html("Ve a iniciar sesion");
+                              $("#modalGeneral").modal("show");
+                            } else {
+                              notificacion(bodyString);
+                              $("#spinnerGeneral").hide();
+                            }
+                          });
+                        });
+                    } else {
+                      console.log("Respuesta Exitosa");
+                      if (localStorage.getItem("pago")) {
+                        localStorage.setItem("login", respuesta);
+                        localStorage.setItem('email', emailUser.trim().toLowerCase());
+                        localStorage.setItem('nombreUsuario', nombreCompleto.toLowerCase());
+                        location.href = localStorage.getItem("pago");
+                      } else {
+                        enviarEMail(emailUser.trim(), respuesta);
+                      }
+                    }
+                  })
 
-            } catch (e) {
+              } catch (e) {
+                $("#spinnerGeneral").hide();
+                $("#modalGeneral #modalCenterTitle").html("Error en la peticion a la API-REST");
+                $("#modalGeneral #modalMensaje").html(e);
+                $("#modalGeneral").modal("show");
+              }
+
+            } else {
               $("#spinnerGeneral").hide();
-              $("#modalGeneral #modalCenterTitle").html("Error en la peticion a la API-REST");
-              $("#modalGeneral #modalMensaje").html(e);
+              $("#modalGeneral #modalCenterTitle").html("Error");
+              $("#modalGeneral #modalMensaje").html("Acepta nuestros Terminos y condiciones");
               $("#modalGeneral").modal("show");
             }
-
           } else {
             $("#spinnerGeneral").hide();
             $("#modalGeneral #modalCenterTitle").html("Error");
-            $("#modalGeneral #modalMensaje").html("Acepta nuestros Terminos y condiciones");
+            $("#modalGeneral #modalMensaje").html("Ingresa una contraseña");
             $("#modalGeneral").modal("show");
           }
         } else {
           $("#spinnerGeneral").hide();
           $("#modalGeneral #modalCenterTitle").html("Error");
-          $("#modalGeneral #modalMensaje").html("Ingresa una contraseña");
+          $("#modalGeneral #modalMensaje").html("Ingresa un email");
           $("#modalGeneral").modal("show");
         }
       } else {
         $("#spinnerGeneral").hide();
         $("#modalGeneral #modalCenterTitle").html("Error");
-        $("#modalGeneral #modalMensaje").html("Ingresa un email");
+        $("#modalGeneral #modalMensaje").html("Ingrese su  nombre");
         $("#modalGeneral").modal("show");
       }
-    } else {
-      $("#spinnerGeneral").hide();
-      $("#modalGeneral #modalCenterTitle").html("Error");
-      $("#modalGeneral #modalMensaje").html("Ingrese su  nombre");
-      $("#modalGeneral").modal("show");
-    }
     } else {
       $("#spinnerGeneral").hide();
       $("#modalGeneral #modalCenterTitle").html("Error");
