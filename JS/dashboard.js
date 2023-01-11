@@ -32,7 +32,7 @@ window.onload = async () => {
                     requerimientoLiquidos(parseFloat(pesoActualPerfil));
                     get(nacimiento, genero, parseFloat(pesoActualPerfil), parseFloat(pesoObjetivoPerfil), parseFloat(estaturaPerfil), gastoDeportivo)
                     cet(perfil, fechaActual);
-                    buscarultimopeso(registroPeso.replace("12:00:00 a. m.",""))
+                    buscarultimopeso(registroPeso.replace("12:00:00 a. m.", ""))
 
                 });
         } catch (e) {
@@ -67,13 +67,13 @@ async function datosObjetivoDeportivo(idperfil, nivel, escala) {
                     });
                     localStorage.setItem('idObjDeport', idObjeDeport);
 
-                    fecha_1 = fechaObj.split(" ")
-                    fecha_2 = fechaIni.split(" ")
+                    fecha_1 = fechaObj.split(" ");
+                    fecha_2 = fechaIni.split(" ");
                     document.getElementById("fechaObjetivoDashboard").innerText = fecha_1[0];
                     document.getElementById("fechaInicialDashboard").innerText = fecha_2[0];
                     document.getElementById("btnInicioEntreno").style = "display: none;"
 
-                   
+
                     calculoSemanas(fecha_2[0], fecha_1[0], nivel, escala);
                     tests(fecha_2[0]);
                 } else {
@@ -240,7 +240,7 @@ async function finalMembresia() {
 // <=======================================================>
 async function disponibilidad(idperfil) {
     let fechaLunes = proximoLunes();
-    console.log("Proximo lunes:",fechaLunes);
+    console.log("Proximo lunes:", fechaLunes);
     try {
         let url = apiServer + "disponibilidad/perfil?idPerfil=" + idperfil + ""
         let thrsemanal;
@@ -269,8 +269,8 @@ async function disponibilidad(idperfil) {
                         tdias = elemento.totalDiasSemana;
                     });
                     // console.log(thrsemanal);
-                    dataHrsDias = [thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado, thdomingo]
-                    localStorage.setItem('dias',tdias);
+                    dataHrsDias = [thdomingo, thlunes, thmartes, thmiercoles, thjueves, thviernes, thsabado]
+                    localStorage.setItem('dias', tdias);
                     graficosHorasDiarias(dataHrsDias)
                     document.getElementById("hrSemanalDashboard").innerText = thrsemanal
                     document.getElementById("btndisponibilidadsemanal").style = "display: none;"
@@ -518,21 +518,21 @@ async function actualizarpeso() {
     }
 }
 async function buscarultimopeso(fecha) {
-    console.log(fecha);
+    // console.log(fecha);
     let hoy = new Date(Date.now()).toLocaleDateString();
-    console.log(hoy);
+    // console.log(hoy);
     let mesuno = validaractualizacionpeso(fecha, 28);
-    console.log(mesuno);
+    // console.log(mesuno);
     let mesdos = validaractualizacionpeso(fecha, 56);
-    console.log(mesdos);
+    // console.log(mesdos);
     let mestres = validaractualizacionpeso(fecha, 84);
-    console.log(mestres);
+    // console.log(mestres);
     let mescuatro = validaractualizacionpeso(fecha, 112);
-    console.log(mescuatro);
+    // console.log(mescuatro);
     let mescinco = validaractualizacionpeso(fecha, 140);
-    console.log(mescinco);
+    // console.log(mescinco);
     let messeis = validaractualizacionpeso(fecha, 168);
-    console.log(messeis);
+    // console.log(messeis);
     if ((hoy == fecha) || (hoy != mesuno) || (hoy != mesdos) || (hoy != mestres) || (hoy != mescuatro) || (hoy != mescinco) || (hoy != messeis)) {
         document.getElementById("btnActualizarPeso").style = "display: none;";
     }
@@ -564,8 +564,8 @@ async function resultados(idperfil, pesoActual) {
             .then(response => response.json())
             .then(respuesta => {
                 sesiones = respuesta.length;
-                localStorage.setItem('sesion',(parseInt(sesiones)+1));
-                console.log("Sesiones:",sesiones);
+                localStorage.setItem('sesion', (parseInt(sesiones) + 1));
+                console.log("Sesiones:", sesiones);
                 if (sesiones > 0) {
                     respuesta.forEach(elemento => {
                         duracionTotal = duracionTotal + elemento.duracionEntrenamiento;
@@ -684,10 +684,11 @@ function requerimientoLiquidos(pesoActual) {
     }
 }
 function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport, nivel, escala) {
-    inicial = fechaIncioEntreno.split("/")
-    final = fechaObjetivoDeport.split("/")
-    nuevaFechaInicial = inicial[2] + "-" + inicial[1] + "-" + inicial[0]
-    nuevaFechaFinal = final[2] + "-" + final[1] + "-" + final[0]
+    let hoy = new Date(Date.now()).getTime();
+    let inicial = fechaIncioEntreno.split("/")
+    let final = fechaObjetivoDeport.split("/")
+    let nuevaFechaInicial = inicial[2] + "-" + inicial[1] + "-" + inicial[0]
+    let nuevaFechaFinal = final[2] + "-" + final[1] + "-" + final[0]
     try {
         let fechaInicial = new Date(nuevaFechaInicial).getTime();
         let fechaFinal = new Date(nuevaFechaFinal).getTime();
@@ -695,8 +696,17 @@ function calculoSemanas(fechaIncioEntreno, fechaObjetivoDeport, nivel, escala) {
         dias = (diff / (1000 * 60 * 60 * 24));
         let semanas = (dias / 7).toFixed(0);
         document.getElementById("semanasDashboard").innerText = semanas + " semanas";
-        localStorage.setItem('semanas',semanas);
+        localStorage.setItem('semanas', semanas);
         mesosciclos(nivel, escala, semanas);
+
+        console.log(hoy);
+        console.log(fechaInicial);
+        let diffActual = hoy - fechaInicial;
+        diasActuales = (diffActual / (1000 * 60 * 60 * 24));
+        let semana = (diasActuales / 7).toFixed(0);
+        console.log(semana);
+        localStorage.setItem('semanaactual', semana);
+
     } catch (e) {
         console.log(e);
     }
@@ -728,7 +738,7 @@ function graficosHorasDiarias(dataVolumnSemanal) {
         };
 
         //  Grafico de Duración, Distancia y Elevanción de cada entreno
-        dataDias = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+        dataDias = ['D', 'L', 'M', 'M', 'J', 'V', 'S']
 
         durElvDistEntreno(
             dataVolumnSemanal, dataDias
@@ -908,7 +918,7 @@ async function mesosciclos(nivel, escala, semanasTotales) {
         await fetch(url)
             .then(response => response.json())
             .then(respuesta => {
-                console.log(respuesta);
+                // console.log(respuesta);
                 respuesta.forEach(elemento => {
                     if (elemento.mesociclo == "preparacion") {
                         preparacion = preparacion + 1;
@@ -1091,7 +1101,6 @@ function rs(pesoActual, pesoObjetivo) {
 }
 async function cet(idperfil, fecha) {
     fecha = fecha.split("/");
-    console.log(fecha);
     let mes = fecha[1];
     let dia = fecha[0];
     let ano = fecha[2];
