@@ -1,3 +1,6 @@
+// ==========================================================
+// MERCADO PAGO
+// ==========================================================
 function irapagar(meses) {
     let membresia = "";
     let linkpago = "";
@@ -26,8 +29,6 @@ function irapagar(meses) {
 
     location.href = "checkout.html?linkpago=" + linkpago + "&tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "";
 }
-
-
 function irapagardesdeinicio(meses) {
     let membresia = "";
     let linkpago = "";
@@ -58,3 +59,40 @@ function irapagardesdeinicio(meses) {
     location.href = "html/vertical-menu-template/checkout.html?linkpago=" + linkpago + "&tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "&origen=" + origen + "";
 
 }
+// ==========================================================
+// ==========================================================
+
+
+
+
+
+// ==========================================================
+// PAYU
+// ==========================================================
+function irapagarpayu(meses){
+
+    let membresia = "";
+    switch (meses) {
+        case 3:
+            membresia = "Trimestral";
+            dias = 90;
+            valor = 130000;
+            break;
+        case 6:
+            membresia = "Semestral";
+            dias = 180;
+            valor = 220000;
+            break;
+        case 12:
+            membresia = "Anual";
+            dias = 300;
+            valor = 300000;
+            break;
+        default:
+            console.log("Perdon, hubo un error con tu seleccion");
+    }
+
+    location.href = "checkoutPayu.html?tiempo=" + dias + "&precio=" + valor + "&membresia=" + membresia + "";
+}
+// ==========================================================
+// ==========================================================
