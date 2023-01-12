@@ -33,12 +33,12 @@
 // }
 
 
-// function logout() {
-//   sessionStorage.clear();
-//   localStorage.clear();
-//   location.href = "/logout.php";
+function logout() {
+  sessionStorage.clear();
+  localStorage.clear();
+  location.href = "/inicio.html";
 
-// }
+}
 
 //   var getUrlParameter = function getUrlParameter(sParam) {
 //     var sPageURL = window.location.search.substring(1),

@@ -960,7 +960,7 @@ function get(fechaNacimiento, genero, pesoActualPerfil, pesoDeseadoPerfil, estat
         let dataRS = rs(pesoActualPerfil, pesoDeseadoPerfil)
         let restriccionSuperavit = dataRS[0];
         var get = tasaMetabolicaBasal + nivelActividadFisica + efectoTermicoAlim + totalGastoDeportivo + restriccionSuperavit;
-        document.getElementById("GETdashboard").innerText = get.toFixed(2) + " Cal"
+        document.getElementById("GETdashboard").innerText = get.toFixed(0) + " Cal"
 
     } catch (e) { console.log("GET: ", e) }
 }

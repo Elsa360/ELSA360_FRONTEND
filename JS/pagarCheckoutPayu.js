@@ -42,7 +42,6 @@ function datosPagoPayu(data) {
     document.getElementById("montobase").value = base;
     document.getElementById("emailusauriocomprador").value = localStorage.getItem("email");
 }
-
 function datosWebCheckout() {
     const url = window.location.search;
     const urlParametros = new URLSearchParams(url);
@@ -65,16 +64,45 @@ function datosWebCheckout() {
     }
 }
 
+
+
 // CON DESCUENTO
 function verificarCodigoDescuento() {
     let codigo = (document.getElementById("codigoDescuento").value).toUpperCase();
     let url = apiServer + "cuponesDescuentos/busqueda?codigo=" + codigo + "";
+    const urlP = window.location.search;
+    const urlParametros = new URLSearchParams(urlP);
+    let base = parseFloat(urlParametros.get("precio"));
+    console.log("Base",base)
     fetch(url)
         .then(response => response.json())
         .then(codigoDesc => {
             if (codigoDesc.length > 0) {
                 codigoDesc.forEach(descuento => {
-                    console.log(descuento.valorDescuento);
+                    pd = descuento.valorDescuento;
+                    console.log("%Desc:",pd);
+                    d=base*pd;
+                    nbase = base-d;
+                    console.log("Nueva Base:",nbase);
+                    iva = nbase * 0.19;
+                    console.log("IVA:",iva);
+                    neto = nbase + iva;
+                    console.log("Pagar:",neto);
+                    var ref = urlParametros.get("membresia");
+                    let urlPayu = apiServer + "membresia/payu?referenceCode=" + (ref.toLocaleLowerCase() + localStorage.getItem("idusuario")) + "&monto=" + neto + "";
+                    try {
+                        fetch(urlPayu)
+                            .then(response => response.json())
+                            .then(datosPayu => {
+                                data = datosPayu;
+                                datosPagoDescuentoPayu(d,nbase,iva,neto,data);
+                            });
+                
+                
+                    } catch (error) {
+                
+                    }
+
                 });
             } else {
                 console.log("No se encontro codigo de descuento");
@@ -82,27 +110,21 @@ function verificarCodigoDescuento() {
 
         });
 }
-function datosPagoDescuentoPayu(descuento, data) {
+function datosPagoDescuentoPayu(d,nbase,iva,pago, data) {
 
     document.getElementById("nombreUsuario").innerText = localStorage.getItem("nombreUsuario");
     document.getElementById("emailUsuarioCheckout").innerText = localStorage.getItem("email");
     const url = window.location.search;
     const urlParametros = new URLSearchParams(url);
     var ref = urlParametros.get("membresia");
-    var base = parseFloat(urlParametros.get("precio"));
+    var base = urlParametros.get("precio");
 
     document.getElementById("valorBaseMembresia").innerText = "$ " + base;
     document.getElementById("tiempoMembresia").innerText = ref;
-
-    let vrdescuento = base * descuento
-    base = base - descuento;
-    let iva = base * 0.19;
-    let neto = base + iva;
-
-    document.getElementById("valorDescuento").innerText = " - $ " + vrdescuento;
-    document.getElementById("subTotalPagar").innerText = "$ " + base;
+    document.getElementById("valorDescuento").innerText = " - $ " + d;
+    document.getElementById("subTotalPagar").innerText = "$ " + nbase;
     document.getElementById("iva").innerText = "$ " + iva;
-    document.getElementById("totalPagar").innerText = "$ " + neto;
+    document.getElementById("totalPagar").innerText = "$ " + pago;
 
     // DATOS DEL PAGO
     console.log("Data: ", data[0]);
@@ -123,8 +145,8 @@ function datosPagoDescuentoPayu(descuento, data) {
     }
     document.getElementById("descripcion").value = description;
     document.getElementById("referencecode").value = ref.toLowerCase() + localStorage.getItem("idusuario");
-    document.getElementById("montototal").value = neto;
+    document.getElementById("montototal").value = pago;
     document.getElementById("iva").value = iva;
-    document.getElementById("montobase").value = base;
+    document.getElementById("montobase").value = nbase;
     document.getElementById("emailusauriocomprador").value = localStorage.getItem("email");
 }

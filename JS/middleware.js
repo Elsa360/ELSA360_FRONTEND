@@ -1,13 +1,13 @@
-function validateLogin() {
+(function validateLogin() {
   if (localStorage.getItem('login')) {
     $("#nombreUsusarioNavbar").html(localStorage.nombreUsuario);
     console.log("usuario logueado");
   } else {
       window.location.href = "auth-login-basic.html";
   }
-}
+})();
 
-function loadavatar() {
+(function loadavatar() {
   if ((localStorage.avataruri == undefined) || (localStorage.avataruri == "0")) {
 
   } else {
@@ -16,10 +16,10 @@ function loadavatar() {
     $("#TooltipAvatar").attr("src", localStorage.avataruri);
 
   }
-}
+})();
 
 
-$(document).ready(function () {
-  validateLogin();
-  loadavatar();
-});
+// $(document).ready(function () {
+//   validateLogin();
+//   loadavatar();
+// });
